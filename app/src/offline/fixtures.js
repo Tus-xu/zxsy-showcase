@@ -89,8 +89,11 @@ export function fixtureText(role, key) {
 }
 
 /**
- * 按 (method, path) 查询，允许查询串差异：
- * 1) 完全一致；2) 忽略 query；3) 前缀匹配（路径参数化端点，如 /teacher-v3/prep/sessions/{id}）
+ * 按 (method, path) 查询，只做「同端点」匹配，**不做前缀退化**：
+ *   1) 完全一致（含 query）；2) 忽略 query；3) 同 method 且未带 query 的同路径。
+ * 说明：上一版有「把路径末段当 id 的前缀匹配」，会把未知 POST（如 …/actions）误配到
+ *      其它端点（实测出现 200 + 短信验证码信封 → 教师工作台 ErrorBoundary 崩溃）。
+ *      采证时已覆盖演示用到的全部具体 URL（含固定 id），因此不需要前缀猜测。
  */
 export function findFixture(role, method, path) {
   const bucket = FIXTURES[role]
@@ -98,25 +101,11 @@ export function findFixture(role, method, path) {
   const exact = `${method} ${path}`
   if (bucket[exact]) return bucket[exact]
   const noQuery = path.split('?')[0]
-  const sameNoQuery = `${method} ${noQuery}`
-  if (bucket[sameNoQuery]) return bucket[sameNoQuery]
-  // 忽略 query 后逐个比较
+  if (bucket[`${method} ${noQuery}`]) return bucket[`${method} ${noQuery}`]
   for (const [key, val] of Object.entries(bucket)) {
     const [m, kp] = key.split(' ')
-    if (m !== method) continue
-    if (!kp) continue
+    if (m !== method || !kp) continue
     if (kp.split('?')[0] === noQuery) return val
-  }
-  // 前缀匹配：把路径末段当作 id
-  const segs = noQuery.split('/')
-  for (let cut = segs.length - 1; cut >= 2; cut--) {
-    const prefix = segs.slice(0, cut).join('/')
-    for (const [key, val] of Object.entries(bucket)) {
-      const [m, kp] = key.split(' ')
-      if (m !== method || !kp) continue
-      const kpNoQuery = kp.split('?')[0]
-      if (kpNoQuery.startsWith(prefix + '/')) return val
-    }
   }
   return null
 }

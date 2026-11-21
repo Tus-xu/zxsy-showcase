@@ -134,17 +134,26 @@ export function listConversations(basePayload) {
 /** GET /api/agent/conversations/{id}/messages —— 用采证 SSE 还原该会话的消息 */
 export function conversationMessages(convId) {
   const cur = (store.chat || {})[convId]
-  if (!cur) return null
+  if (!cur) {
+    // 离线新建的空会话：现役此时返回空列表，UI 显示空态
+    if (String(convId).startsWith('offline-')) return { code: 0, message: 'ok', data: { items: [], hasMore: false } }
+    return null
+  }
   const flow = FLOWS[cur.case]
   if (!flow) return null
-  const meta0 = convMeta(flow)
   const items = []
   const t0 = Date.now() - 3600_000
-  flow.turns.forEach((turn, i) => {
+  let fileId = flow.file_id || flow.upload_file_id || ''
+  // 只还原「已经实际发生过的轮次」：游标 cur.turn 就是已完成轮数
+  const done = Math.max(0, Math.min(cur.turn, flow.turns.length))
+  flow.turns.slice(0, done).forEach((turn, i) => {
     const text = sseText(turn.sse)
     const evs = parseSse(turn.sse)
     const meta = evs.find((e) => e.event === 'meta')?.data || {}
-    const fig = evs.filter((e) => e.event === 'figure').map((e) => e.data)
+    const cards = evs.filter((e) => e.event === 'card').map((e) => e.data)
+    const figures = evs.filter((e) => e.event === 'figure').map((e) => e.data)
+    const parsed = evs.find((e) => e.event === 'file_parsed')?.data || null
+    if (parsed?.file_id) fileId = parsed.file_id
     items.push({
       id: `u-${i}`,
       role: 'user',
@@ -155,7 +164,9 @@ export function conversationMessages(convId) {
         blocks: [{ type: 'markdown', content: turn.input || '请分析我上传的文件' }],
         msg_id: `m-${i}`,
       },
-      attachments: turn.attachment ? [{ file_id: flow.upload_file_id || '', kind: 'image', filename: flow.image?.name || '题图.png' }] : [],
+      // 刷新后的历史里不带附件记录：离线没有对象存储，现役组件会提示「原图已丢失（存储缺失）」，
+      // 那是一条会被误读为"文件真的丢了"的现役文案，因此只还原文字部分（见未通过项.md）。
+      attachments: [],
       thinking: null,
     })
     items.push({
@@ -166,11 +177,14 @@ export function conversationMessages(convId) {
       envelope: {
         meta: { skill: meta.skill || 'chat', conversation_id: convId, msg_id: `am-${i}` },
         blocks: [{ type: 'markdown', content: text }],
-        figures: fig,
+        ...(cards.length ? { cards } : {}),
+        ...(figures.length ? { figures } : {}),
       },
       attachments: [],
       thinking: null,
     })
   })
+  // 现役 /messages 返回「最新在前」；界面渲染时再按时间排。顺序必须与现役一致。
+  items.reverse()
   return { code: 0, message: 'ok', data: { items, hasMore: false } }
 }

@@ -1,0 +1,38 @@
+{
+ "before": {
+  "rows": 18,
+  "ai": 9,
+  "hasRemediation": true,
+  "tail": "\n∈\n∈ 或 \n∉\n∈\n/\n 表示）。\n你的答案：\n\n \n空 1 ▾\n0/1 空已填\n填好了\n提交答案\n↩️ 回原题\n跳过补课，看这步怎么做\nAI 生成\n· 仅供参考，请核实\n05:03 · 自由对话\n我没思路\n来点提示\n直接看答案\n💡 试试这些提问\n▸\n0/4000\n发送\n✦"
+ },
+ "after": {
+  "rows": 18,
+  "ai": 9,
+  "roles": [
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai",
+   "user",
+   "ai"
+  ],
+  "firstRow": "请分析我上传的文件\n\n04:03",
+  "lastRow": "π\n\n先把这一小块讲给你——看完马上做下面的检验小题。\n\nAI 生成\n· 仅供参考，请核实\n04:11 · 自由对话\n我没思路\n来点提示\n直接看答案",
+  "hasRemediation": false,
+  "hasSendDisabled": true
+ },
+ "page_errors": [],
+ "order_ok": true
+}

@@ -243,6 +243,31 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
 
   const role = currentRole()
 
+  // 会话增删改：离线用本地状态承接（答复形状沿用现役契约，不生成任何对话内容）
+  const p1 = path.split('?')[0]
+  if (method === 'POST' && p1 === '/api/agent/conversations') {
+    const id = `offline-${Date.now()}`
+    return jsonResponse({
+      code: 0,
+      message: 'ok',
+      data: { id, title: '新对话', created_at: new Date().toISOString(), updated_at: new Date().toISOString(), message_count: 0 },
+    })
+  }
+  const convIdM = p1.match(/^\/api\/agent\/conversations\/([^/]+)$/)
+  if (convIdM && (method === 'DELETE' || method === 'PATCH')) {
+    const id = convIdM[1]
+    patch((s) => {
+      if (method === 'DELETE' && s.chat) delete s.chat[id]
+    })
+    if (method === 'DELETE') return jsonResponse({ code: 0, message: 'ok', data: { ok: true } })
+    let title = ''
+    try { title = body?.title || '' } catch { /* ignore */ }
+    return jsonResponse({ code: 0, message: 'ok', data: { id, title: title || '新对话' } })
+  }
+  if (method === 'POST' && (p1 === '/api/agent/chat/stop' || p1 === '/api/agent/feedback')) {
+    return jsonResponse({ code: 0, message: 'ok', data: { ok: true } })
+  }
+
   // 会话列表 / 消息（离线演示会话与采证列表合并；刷新可恢复）
   const p0 = path.split('?')[0]
   if (method === 'GET' && p0 === '/api/agent/conversations') {
