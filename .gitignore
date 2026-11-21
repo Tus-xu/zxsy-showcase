@@ -15,3 +15,7 @@ qa/**/.playwright/
 Thumbs.db
 *.tmp
 *.bak
+
+# 现役前端 fork 的本地环境变量（只含代理地址/端口，不含密钥；不入库）
+app/.env
+app/dist-offline/
