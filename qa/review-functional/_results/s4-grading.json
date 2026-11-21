@@ -1,0 +1,54 @@
+{
+ "name": "s4-grading",
+ "checks": 14,
+ "passed": 8,
+ "failed": [
+  {
+   "label": "三份提交",
+   "ok": false,
+   "detail": "missing '共 3 份'"
+  },
+  {
+   "label": "作答队列 3 份",
+   "ok": false,
+   "detail": "0"
+  },
+  {
+   "label": "队列含林一川",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "label": "队列含周子墨",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "label": "队列含陈可欣",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "label": "批改写入规则提示",
+   "ok": false,
+   "detail": "missing '未确认的批改不会写入学生端'"
+  }
+ ],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [
+  {
+   "t": "04:36:33",
+   "step": "教师课堂监测-学生进度",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/classroom"
+  },
+  {
+   "t": "04:36:35",
+   "step": "批改工作台-队列",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/assign"
+  }
+ ],
+ "shots": 8
+}

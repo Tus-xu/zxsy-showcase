@@ -1,0 +1,17 @@
+# 依赖与构建缓存
+node_modules/
+dist/
+dist-*/
+.pnpm-store/
+
+# 本地私有与临时工作目录（含 .env 备份/密钥、临时探针输出，绝不可入仓）
+.work/
+.private/
+*.log
+qa/**/_profile*/
+qa/**/_profile-*/
+qa/**/.playwright/
+**/.DS_Store
+Thumbs.db
+*.tmp
+*.bak

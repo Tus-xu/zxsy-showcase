@@ -1,0 +1,122 @@
+# -*- coding: utf-8 -*-
+"""生成验收矩阵 qa/acceptance.csv（发布版口径：每行做可核验的明确陈述）。
+
+行 = 现役场景 × 样本（三案）。真实尝试列引用 run-01 证据；展示结果列引用
+qa/acceptance 或各实现组 qa 目录；断网列来自 qa/acceptance/report.json 的 0 网络请求结论。
+"""
+import csv
+import os
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = os.path.join(ROOT, 'qa', 'acceptance.csv')
+
+HEADER = ['功能', '入口判定', '样本', '步骤/触发', '真实尝试与终点', '原证据', '来源类别/修订ID',
+          '展示结果', '对象/版本/刷新', '视觉图对', '产物', '断网结果', '独立裁决']
+
+RUN = 'evidence/live/run-01'
+ACC = 'qa/acceptance'
+
+rows = [
+    # 学生引导解题（三题）
+    ['学生上传并引导解题', '学生首页『选择题目图片』→ /student/guide/A', 'A 题1.png（双曲线）',
+     '文件选择器上传→识别→逐轮引导→正确作答→结论', 'run-01 A 主线：平台答案正确但收束轮表述错乱（A-D1/D2/D3）',
+     f'{RUN}/student/guide/A/', '策展改写 CUR-001', 'PASS：四步引导→结论卡（e=2√2，选 D），刷新恢复',
+     'guidance A / v1 / 刷新保留', f'{ACC}/03-A-final.png', '—（无产出要求）', '0 网络请求（report.json）', 'lead 自动验收 PASS；review-math 复核通过'],
+    ['学生上传并引导解题', '同上', 'A 题1.png', '典型错答：开头选 C→追问→改正', 'run-01 A 错答分支：平台丢题跑题（A-D1）',
+     f'{RUN}/student/guide/A/branch-wrong/', '策展改写 CUR-001', 'PASS：追问“哪两条线的比/分子是谁”→回到主线', 'guidance A / v1', f'{ACC}/04-A-wrong-help.png', '—', '0 网络请求', 'lead PASS'],
+    ['学生上传并引导解题', '同上', 'A 题1.png', '求助：给个提示（只提示当前一步）', 'run-01 A 求助：两条提示不泄底',
+     f'{RUN}/student/guide/A/branch-help/', '原样实录 CUR-009', 'PASS：提示轴长 2a/2b 关系，不直接给答案', 'guidance A / v1', f'{ACC}/04-A-wrong-help.png', '—', '0 网络请求', 'lead PASS'],
+    ['学生上传并引导解题', '学生首页上传入口→ /student/guide/B', 'B 题2.png（正三棱柱）',
+     '上传→引导→判 B 项→多选提交 B、D', 'run-01 B 主线：平台停在填空面板、未收束（B-D1），错答只选 B 被误判正确（B-D2）',
+     f'{RUN}/student/guide/B/', '策展改写 CUR-002', 'PASS：多选组合 B、D 判对并收束；只选 B 部分正确并追问 D 项',
+     'guidance B / v1', f'{ACC}/06-B-final.png、07-B-partial.png', '—', '0 网络请求', 'lead PASS；review-math 复核'],
+    ['学生上传并引导解题', '同上', 'B 题2.png', '典型错答：只选 B / 误选 A', 'run-01 B 错答：只选 B 被判正确（B-D2）',
+     f'{RUN}/student/guide/B/branch-wrong/', '策展改写 CUR-002', 'PASS：保留 B→补 D；“看起来垂直”被点积反例纠正',
+     'guidance B / v1', f'{ACC}/07-B-partial.png', '—', '0 网络请求', 'lead PASS'],
+    ['学生上传并引导解题', '学生首页上传入口→ /student/guide/C', 'C 题3.png（有放回取球）',
+     '上传→读 X→补事件→61/125→E(X)=61/25', 'run-01 C 主线：平台误解 X 取值、未确认最终答案（C-D1/D2/D3）',
+     f'{RUN}/student/guide/C/', '策展补制 CUR-003', 'PASS：X=2 例子→64/125→61/125→E=61/25=2.44，结论卡完整',
+     'guidance C / v1', f'{ACC}/08-C-final.png', '—', '0 网络请求', 'lead PASS；review-math 复核'],
+    ['学生上传并引导解题', '同上', 'C 题3.png', '典型错答：X=3（当无放回）→改正', 'run-01 C 错答：平台指出“无放回”理解错误（C-D1）',
+     f'{RUN}/student/guide/C/', '策展改写 CUR-003', 'PASS：指出 X 为不同号码种数（2、2、5→2）→回主线',
+     'guidance C / v1', f'{ACC}/08-C-final.png', '—', '0 网络请求', 'lead PASS'],
+    ['错误文件处理', '/student/guide/A 上传 B 图；同图改名；重名异图', '题图文件',
+     '错误文件→可恢复提示；改名仍识别；重名异图不误入', '现役平台未测（展示版新增校验）', '—', '策展补制',
+     'PASS：按 SHA-256 绑定；乱序/重名异图均被拒且保留草稿', 'student.guidance / 刷新保留',
+     f'{ACC}/05-fake-image-rejected.png', '—', '0 网络请求', 'lead PASS（acceptance 断言）'],
+    # 举一反三
+    ['举一反三（变式练习）', '学生端『练题』/student/practice', 'A/B/C 各 2 组变式',
+     '作答→判分→错因→解析；刷新保留', '策划补充（无现役同款实测）', '—', '策展补制',
+     'PASS：9 题判分严格（数值容差 1e-9）、错因与解析齐全、记录持久化', 'studentPractice / 刷新保留',
+     'qa/student-practice/practice-*.png', '—', '0 网络请求', 'student-practice 33/33；review-math 复核'],
+    # 错题本
+    ['错题复习', '学生端『错题』/student/errors', 'A 选 C、B 只选 B、C 答 3 等真实错答',
+     '进入自动打开首题弹层→定位原题→重开引导→标记掌握', 'run-01 /errors 自动弹层交互（原样）', f'{RUN}/inventory/student-03-errors.png',
+     '原样实录 CUR-010', 'PASS：错题来自真实错答/演示种子并标注；可定位、重开、标记掌握', 'studentErrors / 刷新保留',
+     'qa/student-practice/errors-*.png', '—', '0 网络请求', 'student-practice PASS'],
+    # 动态数学
+    ['动态数学', '引导页结论卡『动态数学』', 'A 双曲线参数 / B 棱柱辅助图 / C 取球仿真',
+     '拖动 a、b → c、e 联动；切换高亮平面；模拟 100/1000 次→均值趋近 2.44', '策划补充（现役图形能力未在引导链路验证）', '—', '策展补制',
+     'PASS：参数联动正确（b/a=√7→e≈2.83）；棱柱平面高亮；仿真收敛到 ~2.44', 'store 内、刷新保留', '—', '—', '0 网络请求', 'lead 目视+断言 PASS'],
+    # 知识库
+    ['学生知识库', '学生端『知识库』/student/library', '导数符号 / 椭圆焦距 / 配方法（随包自撰短文）',
+     '入库→就绪→切片→选中资料提问→回答引用原文→点击引用定位', 'run-01 知识库页面可达；资料为演示自撰', f'{RUN}/inventory/student-04-library.png',
+     '策展补制', 'PASS：3 份材料可入库检索；回答仅引用原文并可跳转高亮；未命中明确提示', 'studentLibrary / 刷新保留',
+     'qa/student-practice/library-*.png', '—', '0 网络请求', 'student-practice 33/33 PASS'],
+    # 教师备课
+    ['教师备课/PPT/教案/教材', '教师端『备课中心』/teacher/prep → 工作台 classroom|ppt|plan', '椭圆第一课时',
+     '三 Tab：蓝图→PPT（改参数/改标题/保存）→教案；导出 PPTX/PDF/DOCX/MD', 'run-01 现役备课：授权教材库为空、AI 提案类型不支持、PPT/发布 disabled（G2-1-D1~D5）',
+     f'{RUN}/teacher/publish/', '策展补制 CUR-004/CUR-012', 'PASS：a=5,b=3→c=4/e=0.8；a=6,b=4→c≈4.47/e≈0.745 三处同步；标题可编辑保存',
+     'teacherPrep / 刷新保留', 'qa/teacher-prep/03~05、13.png', 'qa/teacher-prep/artifacts/*', '0 网络请求', 'teacher-prep E2E 69/69；产物 38/38'],
+    ['教师备课/PPT/教案/教材', '同上', '二次函数配方', '同上', '同 G2-1 阻塞', f'{RUN}/teacher/publish/', '策展补制 CUR-004',
+     'PASS：参数面板与画布/公式同源（修复 review-math F6）；导出 PPTX', 'teacherPrep / 刷新保留', 'qa/teacher-prep/16-quadratic-ppt.png', 'qa/teacher-prep/artifacts/quadratic-课件.pptx', '0 网络请求', 'teacher-prep PASS'],
+    ['教师备课/PPT/教案/教材', '同上', '集合关系', '同上', '同 G2-1 阻塞', f'{RUN}/teacher/publish/', '策展补制 CUR-004',
+     'PASS：2³=8 子集/7 真子集；导出 PPTX', 'teacherPrep / 刷新保留', 'qa/teacher-prep/17-set-ppt.png', 'qa/teacher-prep/artifacts/set-课件.pptx', '0 网络请求', 'teacher-prep PASS'],
+    # 课件发布→学生双师
+    ['教师课件发布→学生双师课堂', '教师工作台『发布课堂』→ 学生『课堂→双师课堂』打开 /student/dual/:id', '椭圆第一课时',
+     '发布（选班级→准备态→成功态）→学生出现新版→打开比对同页→进度回流', 'run-01 G2-1：现役发布链路不成立（无授权教材/AI 提案不支持/工具 disabled）',
+     f'{RUN}/teacher/publish/、{RUN}/student/dual/', '策展补制 CUR-012 / CUR-015', 'PASS：发布 v1（快照含修订标题）→学生端可见并打开同页；未发布修改不渗透；教师监测读到进度',
+     'publish.records / 版本快照', f'{ACC}/10-teacher-publish-success.png、11-student-classroom-published.png、12-student-dual-revised-page.png', '—', '0 网络请求', 'lead acceptance PASS（跨端断言）'],
+    ['教师课件发布→学生双师课堂', '同上', '二次函数配方', '同上', '同 G2-1 阻塞', f'{RUN}/teacher/publish/', '策展补制 CUR-012',
+     'PASS：三课时均可发布（教师 QA 覆盖 v1/v2 快照隔离）', 'publish.records / 版本快照', 'qa/teacher-prep/11-publish-success-v2.png', '—', '0 网络请求', 'teacher-prep PASS'],
+    ['教师课件发布→学生双师课堂', '同上', '集合关系', '同上', '同 G2-1 阻塞', f'{RUN}/teacher/publish/', '策展补制 CUR-012',
+     'PASS：同上', 'publish.records / 版本快照', 'qa/student-classroom/05-dual-published-v2.png', '—', '0 网络请求', 'student-classroom 48/48 PASS'],
+    # 作业批改
+    ['作业提交→教师批改→学生回看', '教师端『批改工作台』/teacher/grading → 学生『课堂→课堂任务』', 'sub-A 完整正确 / sub-B 思路对算错 / sub-C 漏条件',
+     '打开提交→原图+题面+评分细则→改分/评语→确认→学生回看同分与评语→刷新', 'run-01 G2-2：组卷题库空无法发布；批改原图为空；学生端仍是旧总分 30（G2-2-D1~D3）',
+     f'{RUN}/teacher/assign/、{RUN}/student/assign/', '策展补制 CUR-013', 'PASS：三份可批改（系统建议 5/1/2），确认后学生端 5/5+评语一致，刷新保留',
+     'teacher.grading.grades / 刷新保留', f'{ACC}/14-teacher-grading-confirmed.png、15-student-homework-review.png', '—', '0 网络请求', 'lead acceptance PASS；teacher-grading 86/86'],
+    # 科研
+    ['科研阅读问答与溯源', '科研端 /research/read', '3 份自撰讲义（Céa 引理/公式条件/写作示例）',
+     '选中段落→提问→结构化回答→定位原文→加入笔记→刷新', 'run-01 G2-3：导入成功但 READ 画布空白、文本层 0 span、选区/证据/笔记不可用（G2-3-D1）',
+     f'{RUN}/research/', '策展补制 CUR-014', 'PASS：三栏阅读、选段提问、结构化回答（判断/关键信息/证据来源）、定位原文回跳、笔记刷新保留',
+     'researchUi / 刷新保留', f'{ACC}/16-research-read-answer.png', 'qa/research/artifacts/*.pdf', '0 网络请求', 'research-ui 53/53 PASS；lead acceptance PASS'],
+    ['科研公式/推导检查', '科研端阅读页 Agent『公式检查』', '√(x²)=x 缺条件 / 约分需分母非零 / 配方恒等式',
+     '打开三案例→结构化结论（判断/依据/反例/置信）', 'run-01 现役工作台公式检查入口不可用（同 G2-3-D1）', f'{RUN}/research/', '策展补制 CUR-014',
+     'PASS：三案例（需要补充条件/需要补充条件/已验证），x=−2 数值反例可核验，标注“离线审核结论”', 'researchUi / 刷新保留',
+     f'{ACC}/17-research-formula-check.png', '—', '0 网络请求', 'lead acceptance PASS；review-math 复核数据'],
+    ['科研写作与编译', '科研端 /research/write', 'LaTeX 写作工程（3 文件）',
+     '编辑→编译失败（未定义控制序列）→日志定位→修正→编译成功→导出 PDF', 'run-01 G2-3：编辑器不可交互、编译失败无详情（G2-3-D2）',
+     f'{RUN}/research/', '策展补制 CUR-014', 'PASS：错误可定位（行号）、修复后编译成功、导出真实 PDF（pypdf 可读）',
+     'researchUi / 刷新保留', f'{ACC}/18-research-write-error.png、19-research-write-success.png', 'qa/research-ui/artifacts/research-write-export.pdf', '0 网络请求', 'research-ui 53/53；lead acceptance PASS'],
+    # 学生双师（自主）
+    ['学生自主双师课堂', '学生端『课堂→双师课堂』自建/上传材料', '3 个自主课题 + 1 份上传材料',
+     '自建课堂→课件播放→讲解字幕→暂停/继续→助教问答→进度', 'run-01 G2-4：现役自主双师课堂**成功**（10 页课件+逐句讲解）', f'{RUN}/student/dual/',
+     '原样实录借鉴 CUR-015', 'PASS：3 课题+上传材料（SHA 命中）可播放；字幕逐段、暂停/翻页/助教命中与未命中、进度刷新恢复',
+     'student.classroom.progress / 刷新保留', 'qa/student-classroom/05~11.png', '—', '0 网络请求', 'student-classroom 48/48 PASS'],
+    # 导航/壳层
+    ['三端壳层与导航', '登录页三身份 → 各端首页', '学生 7 项导航 / 教师 6 项 / 科研顶栏', '逐项点击进入并返回',
+     'run-01 三端入口已确认（inventory/routes.csv 76 行）', f'{RUN}/inventory/', '原样实录 CUR-008',
+     'PASS：三端壳层与导航与 run-01 判定一致；旧书签重定向（/kb、/teacher-v3/today 等）保留',
+     '—', 'qa/explore/*.png、qa/acceptance/01-cold-start-login.png', '—', '0 网络请求', 'lead PASS'],
+    ['压力动作', '发行包（复制到全新路径）', '全部场景',
+     '三图乱序、同图改名、重名异图、错误后重试、错答改正、连点发送、返回重进、角色切换、未发布/已发布、编辑后下载、跨案不串题、复位重演',
+     '—（展示版验收项）', '—', '—', 'PASS（核心项）：乱序/重名异图拒绝、连点只提交一次、返回重进恢复、版本隔离、复位可重演',
+     '—', f'{ACC}/05-fake-image-rejected.png', '已打开 4 类真实产物', '0 网络请求、0 console error', 'lead acceptance 37/37 PASS；review-functional 独立复验中'],
+]
+
+with open(OUT, 'w', newline='', encoding='utf-8-sig') as f:
+    w = csv.writer(f)
+    w.writerow(HEADER)
+    w.writerows(rows)
+print('written', OUT, len(rows), 'rows')

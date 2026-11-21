@@ -1,0 +1,217 @@
+{
+ "label": "teacher-classroom",
+ "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/classroom",
+ "body": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n课堂\n双师课堂 · 实时互动 · 班级\nAI 助教已就绪\n任务\n1\n张\n张老师\n高中数学 · 教师\n🎓\n课堂\n双师课堂 · 已发布课件 · 学生进度回流；进度来自学生端真实写入，教师端只读展示。\n高二 (1) 班 · 数学\n备课中心 →\n已发布课件\n1\n共 1 条发布记录（同一课件保留历史版本）\n学生已打开\n1 / 1\n学生端已进入课堂并回传进度\n平均进度\n83%\n按学生端已回传进度计算\n进度回流\n1\nclassroom.progress 中的课件进度条目\n已发布课件\n按发布时间倒序 · 以发布快照为准（学生端可见的唯一事实源）\n刷新\n椭圆及其标准方程\nv1\n学生已打开\n高二 (1) 班 · 6 页 · 发布 11-21 04:12 · 编辑 张老师\n第 5 / 6 页 · 83% · 进行中\n会话 prep-ellipse · 快照 6 页\n最近更新 11-21 04:15\n查看学情 →\n进度回流明细\n学生端 classroom.progress / opened 事件\n1 条\n椭圆及其标准方程\n进行中\n第 5 / 6 页 · 83% · 打开 11-21 04:14 · 更新 11-21 04:15\n打开事件（opened）\n椭圆及其标准方程\n高二 (1) 班 · 老师发布 · 11-21 04:15\n1\n数据来源：store.student.classroom.progress[deckId]（学生端写入，本页只读）与 store.teacher.publish.records（发布快照）。无数据时如实显示“暂无学生打开”，不生成模拟进度。\n⚙",
+ "clickable": [
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-nav__item tv3-nav__item--btn",
+   "text": "备课中心",
+   "ph": "",
+   "x": 10,
+   "y": 114,
+   "w": 215,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-nav__item tv3-nav__item--btn is-active",
+   "text": "课堂",
+   "ph": "",
+   "x": 10,
+   "y": 153,
+   "w": 215,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-nav__item tv3-nav__item--btn",
+   "text": "题库与组卷",
+   "ph": "",
+   "x": 10,
+   "y": 230,
+   "w": 215,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-nav__item tv3-nav__item--btn",
+   "text": "作业与批改",
+   "ph": "",
+   "x": 10,
+   "y": 269,
+   "w": 215,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-nav__item tv3-nav__item--btn",
+   "text": "学情洞察",
+   "ph": "",
+   "x": 10,
+   "y": 308,
+   "w": 215,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-nav__item tv3-nav__item--btn",
+   "text": "资源中心",
+   "ph": "",
+   "x": 10,
+   "y": 347,
+   "w": 215,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-btn tv3-btn--sm",
+   "text": "任务 1",
+   "ph": "",
+   "x": 1415,
+   "y": 14,
+   "w": 96,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-btn tv3-btn--sm",
+   "text": "备课中心 →",
+   "ph": "",
+   "x": 1539,
+   "y": 110,
+   "w": 88,
+   "h": 28
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__stat tv3-card",
+   "text": "已发布课件 1 共 1 条发布记录（同一课件保留历史版本）",
+   "ph": "",
+   "x": 238,
+   "y": 185,
+   "w": 344,
+   "h": 94
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__stat tv3-card",
+   "text": "学生已打开 1 / 1 学生端已进入课堂并回传进度",
+   "ph": "",
+   "x": 594,
+   "y": 185,
+   "w": 344,
+   "h": 94
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__stat tv3-card",
+   "text": "平均进度 83% 按学生端已回传进度计算",
+   "ph": "",
+   "x": 950,
+   "y": 185,
+   "w": 344,
+   "h": 94
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__stat tv3-card",
+   "text": "进度回流 1 classroom.progress 中的课件进度条目",
+   "ph": "",
+   "x": 1306,
+   "y": 185,
+   "w": 344,
+   "h": 94
+  },
+  {
+   "tag": "SECTION",
+   "cls": "tv3-card cls__published",
+   "text": "已发布课件 按发布时间倒序 · 以发布快照为准（学生端可见的唯一事实源） 刷新 椭圆及其标准方程 v1 学生已打开 高二 (1) 班 · 6 页 · 发布 11-21 04:12 · 编辑 张老师 第 5 / 6 页 · 83% · 进行中",
+   "ph": "",
+   "x": 238,
+   "y": 292,
+   "w": 850,
+   "h": 300
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__card-head",
+   "text": "已发布课件 按发布时间倒序 · 以发布快照为准（学生端可见的唯一事实源） 刷新",
+   "ph": "",
+   "x": 239,
+   "y": 293,
+   "w": 848,
+   "h": 69
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tv3-btn tv3-btn--sm",
+   "text": "刷新",
+   "ph": "",
+   "x": 1023,
+   "y": 306,
+   "w": 48,
+   "h": 28
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__cards",
+   "text": "椭圆及其标准方程 v1 学生已打开 高二 (1) 班 · 6 页 · 发布 11-21 04:12 · 编辑 张老师 第 5 / 6 页 · 83% · 进行中 会话 prep-ellipse · 快照 6 页 最近更新 11-21 04:",
+   "ph": "",
+   "x": 239,
+   "y": 363,
+   "w": 848,
+   "h": 155
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "cls__link",
+   "text": "查看学情 →",
+   "ph": "",
+   "x": 998,
+   "y": 473,
+   "w": 58,
+   "h": 15
+  },
+  {
+   "tag": "ASIDE",
+   "cls": "tv3-card cls__side",
+   "text": "进度回流明细 学生端 classroom.progress / opened 事件 1 条 椭圆及其标准方程 进行中 第 5 / 6 页 · 83% · 打开 11-21 04:14 · 更新 11-21 04:15 打开事件（opened",
+   "ph": "",
+   "x": 1102,
+   "y": 292,
+   "w": 548,
+   "h": 324
+  },
+  {
+   "tag": "DIV",
+   "cls": "cls__card-head",
+   "text": "进度回流明细 学生端 classroom.progress / opened 事件 1 条",
+   "ph": "",
+   "x": 1103,
+   "y": 293,
+   "w": 546,
+   "h": 69
+  },
+  {
+   "tag": "ARTICLE",
+   "cls": "cls__progress-item",
+   "text": "椭圆及其标准方程 进行中 第 5 / 6 页 · 83% · 打开 11-21 04:14 · 更新 11-21 04:15",
+   "ph": "",
+   "x": 1119,
+   "y": 375,
+   "w": 514,
+   "h": 76
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "ms-host-fab",
+   "text": "⚙",
+   "ph": "",
+   "x": 1620,
+   "y": 889,
+   "w": 38,
+   "h": 38
+  }
+ ]
+}

@@ -1,0 +1,757 @@
+{
+ "label": "read-answer",
+ "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research/read?project=p-fem",
+ "body": "科研工作台\n让研究更高效，让思想走更远\n📄\n有限元误差分析\n▾\n阅读\n写作\n已同步 · 今天 10:24\n历史\n🔔\n3\n徐\nXu Chao\n▾\n∫\n有限元误差分析\n基于变分方法的椭圆问题数值解\n⇄\n✦\nAI 项目概览\n›\n\n研究有限元方法的误差估计理论，探索椭圆型偏微分方程的数值解法。\n\n2\n文献\n4\n草稿\n3\n笔记\n3\n数据\n▥\n文献\n▤\n笔记\n▭\n项目\n⚙\n设置\n▾\n文献列表\n＋\n⌕\nPDF\n变分形式与 Céa 引理\nMathesis 演示项目组 · 2026\nPDF\n有限元误差的数值实验\nMathesis 演示项目组 · 2026\n最近笔记\n更多 ›\n📄\nCéa 引理与误差估计\n今天 10:24\n📄\n有限元方法的收敛性\n昨天 20:11\n📄\n椭圆问题的变分形式\n9 月 10 日\nPDF\n变分形式与 Céa 引理\n×\nPDF\n有限元误差的数值实验\n×\n＋\n‹\n/ 6\n›\n−\n100%\n＋\n适宽\n⧉\n⌕\n点选段落 → 浮动工具条「问 AI」\n⛶\n随包演示讲义\n随包演示讲义（自撰，非外部论文） · 第 4 / 6 页\n2.3 逼近误差估计\n\n设 V_h⊂V 为有限维子空间，u∈V 为变分问题的解，u_h∈V_h 为有限元解。若双线性型 a(·,·) 连续且强制，则存在与 h 无关的常数 C，使得以下估计成立。\n\n🖍 高亮\n✎ 添加笔记\n❝ 引用\n✦ 问 AI\n定理 2.1（Céa 引理）\n设 a(·,·) 连续（常数 M）且 V-椭圆（常数 α>0），V_h⊂V。则对所有 v_h∈V_h 有 ‖u−u_h‖_V ≤ (M/α) inf_{v_h∈V_h} ‖u−v_h‖_V。\n✦ 可提问\n∥\n𝑢\n−\n𝑢\nℎ\n∥\n𝑉\n  \n≤\n  \n𝑀\n𝛼\n \ninf\n⁡\n𝑣\nℎ\n∈\n𝑉\nℎ\n∥\n𝑢\n−\n𝑣\nℎ\n∥\n𝑉\n∥u−u\nh\n\t​\n\n∥\nV\n\t​\n\n≤\nα\nM\n\t​\n\nv\nh\n\t​\n\n∈V\nh\n\t​\n\ninf\n\t​\n\n∥u−v\nh\n\t​\n\n∥\nV\n\t​\n\n(2.2)\n\n该结果即所谓的 Céa 引理：有限元解的误差被最佳逼近误差控制在常数 M/α 倍之内，因此收敛阶完全由逼近空间 V_h 的性质决定。\n\n证明\n对任意 v_h∈V_h，由 Galerkin 正交性有 a(u−u_h,v_h)=0，于是 a(u−u_h,u−u_h)=a(u−u_h,u−v_h)。由连续性，a(u−u_h,u−v_h)≤M‖u−u_h‖_V‖u−v_h‖_V；由 V-椭圆性，a(u−u_h,u−u_h)≥α‖u−u_h‖_V^2。约去 ‖u−u_h‖_V 得 ‖u−u_h‖_V≤(M/α)‖u−v_h‖_V，对 v_h∈V_h 取下确界即证。\n□\n✦ 可提问\n\n注意证明只用了两个条件：Galerkin 正交性（保证交叉项可换成 u−v_h）与 V-椭圆性（保证能量范数可由 a(·,·) 控制）。若论文中没有声明 α>0，则该结论中的常数 M/α 无法定义。\n\n随包演示讲义（自撰，非外部论文）\n第 4 / 6 页\nπ\nResearch Agent\n科研助理智能体\n● 在线\n基于文献、代码与数学工具的专业研究助手 · 离线审核结论\n⋯\n▣\n当前上下文\n（基于选定文献篇）\n＋ 当前选定 2.3 逼近误差估计\n📄 Céa 引理 · 第 4 页\n▤ 项目知识库 · 2 篇\n🔒 随包讲义\n✓\n定理条件\n基本成立（条件齐备）\n当前上下文：《变分形式与 Céa 引理》第 4 页 · 定理条件\n\n结论：在 V_h⊂V、a(·,·) 连续且 V-椭圆（α>0）的前提下，误差上界成立，且常数 C=M/α 与网格尺寸 h 无关。\n\nCéa 引理在本讲义中有完整陈述与证明；结论成立所需的条件已在定理 2.1 中列出，缺一不可。\n\n关键信息\nV_h⊂V：有限元空间必须是解空间的子空间；\na(·,·) 连续（常数 M）且 V-椭圆（常数 α>0）；\nGalerkin 正交性：a(u−u_h,v_h)=0 对所有 v_h∈V_h 成立；\n常数 C=M/α 与 h 无关，收敛阶由最佳逼近误差决定。\n证据来源\n随包演示讲义（自撰，非外部论文）\nPDF\n第 4 页 · 定理 2.1\np. 4\nPDF\n第 2 页 · 定义 1.1（V-椭圆性）\np. 2\n备注：若稿件只写“由 Céa 引理可得”而未声明 α>0，应补充 V-椭圆性假设。\n定位原文\n查看证据\n加入笔记\n继续追问\n追问：证明段落\n追问：定义\n离线演示审核结论，非模型实时生成 · 引文来自随包页面\n✓\n推导校验\n⌄\n❝\n引用补全\n⌄\n{}\nLaTeX 对照\n⌄\n%\n公式检查\n3\n⌄\nA文\n翻译与改写\n⌄\n你\n关于所选段落：设 a(·,·) 连续（常数 M）且 V-椭圆（常数 α>0），V_h⊂V。则对所有 v_h∈V_h 有 ‖u−u_h‖_V ≤ (M/α)…\n📎\n@\n📖\nEnter 发送 · 演示回答来自离线审核库\n➤\n⚙",
+ "clickable": [
+  {
+   "tag": "BUTTON",
+   "cls": "rw-project-pill",
+   "text": "📄 有限元误差分析 ▾",
+   "ph": "",
+   "x": 599,
+   "y": 12,
+   "w": 174,
+   "h": 38
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-seg__item active",
+   "text": "阅读",
+   "ph": "",
+   "x": 794,
+   "y": 16,
+   "w": 58,
+   "h": 29
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-seg__item",
+   "text": "写作",
+   "ph": "",
+   "x": 852,
+   "y": 16,
+   "w": 58,
+   "h": 29
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-head-btn",
+   "text": "历史",
+   "ph": "",
+   "x": 1428,
+   "y": 15,
+   "w": 49,
+   "h": 32
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-head-btn rw-head-btn--bell",
+   "text": "🔔 3",
+   "ph": "",
+   "x": 1486,
+   "y": 15,
+   "w": 41,
+   "h": 32
+  },
+  {
+   "tag": "DIV",
+   "cls": "projcard",
+   "text": "∫ 有限元误差分析 基于变分方法的椭圆问题数值解 ⇄",
+   "ph": "",
+   "x": 10,
+   "y": 74,
+   "w": 322,
+   "h": 66
+  },
+  {
+   "tag": "DIV",
+   "cls": "projcard__cover projcard__cover--fem",
+   "text": "∫",
+   "ph": "",
+   "x": 21,
+   "y": 85,
+   "w": 44,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "projcard__meta",
+   "text": "有限元误差分析 基于变分方法的椭圆问题数值解",
+   "ph": "",
+   "x": 75,
+   "y": 86,
+   "w": 212,
+   "h": 42
+  },
+  {
+   "tag": "DIV",
+   "cls": "projcard__name",
+   "text": "有限元误差分析",
+   "ph": "",
+   "x": 75,
+   "y": 86,
+   "w": 212,
+   "h": 22
+  },
+  {
+   "tag": "DIV",
+   "cls": "projcard__desc",
+   "text": "基于变分方法的椭圆问题数值解",
+   "ph": "",
+   "x": 75,
+   "y": 109,
+   "w": 212,
+   "h": 19
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "projcard__switch",
+   "text": "⇄",
+   "ph": "",
+   "x": 297,
+   "y": 95,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "nav__item active",
+   "text": "▥ 文献",
+   "ph": "",
+   "x": 10,
+   "y": 307,
+   "w": 322,
+   "h": 34
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "nav__item",
+   "text": "▤ 笔记",
+   "ph": "",
+   "x": 10,
+   "y": 343,
+   "w": 322,
+   "h": 34
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "nav__item",
+   "text": "▭ 项目",
+   "ph": "",
+   "x": 10,
+   "y": 379,
+   "w": 322,
+   "h": 34
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "nav__item",
+   "text": "⚙ 设置",
+   "ph": "",
+   "x": 10,
+   "y": 415,
+   "w": 322,
+   "h": 34
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "",
+   "text": "＋",
+   "ph": "",
+   "x": 282,
+   "y": 466,
+   "w": 20,
+   "h": 20
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "",
+   "text": "⌕",
+   "ph": "",
+   "x": 306,
+   "y": 466,
+   "w": 20,
+   "h": 20
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "docitem active",
+   "text": "PDF 变分形式与 Céa 引理 Mathesis 演示项目组 · 2026",
+   "ph": "",
+   "x": 10,
+   "y": 492,
+   "w": 322,
+   "h": 48
+  },
+  {
+   "tag": "SPAN",
+   "cls": "docitem__body",
+   "text": "变分形式与 Céa 引理 Mathesis 演示项目组 · 2026",
+   "ph": "",
+   "x": 50,
+   "y": 499,
+   "w": 153,
+   "h": 34
+  },
+  {
+   "tag": "SPAN",
+   "cls": "docitem__title",
+   "text": "变分形式与 Céa 引理",
+   "ph": "",
+   "x": 50,
+   "y": 499,
+   "w": 153,
+   "h": 17
+  },
+  {
+   "tag": "SPAN",
+   "cls": "docitem__sub",
+   "text": "Mathesis 演示项目组 · 2026",
+   "ph": "",
+   "x": 50,
+   "y": 517,
+   "w": 153,
+   "h": 16
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "docitem",
+   "text": "PDF 有限元误差的数值实验 Mathesis 演示项目组 · 2026",
+   "ph": "",
+   "x": 10,
+   "y": 540,
+   "w": 322,
+   "h": 48
+  },
+  {
+   "tag": "SPAN",
+   "cls": "docitem__body",
+   "text": "有限元误差的数值实验 Mathesis 演示项目组 · 2026",
+   "ph": "",
+   "x": 50,
+   "y": 547,
+   "w": 153,
+   "h": 34
+  },
+  {
+   "tag": "SPAN",
+   "cls": "docitem__title",
+   "text": "有限元误差的数值实验",
+   "ph": "",
+   "x": 50,
+   "y": 547,
+   "w": 153,
+   "h": 17
+  },
+  {
+   "tag": "SPAN",
+   "cls": "docitem__sub",
+   "text": "Mathesis 演示项目组 · 2026",
+   "ph": "",
+   "x": 50,
+   "y": 565,
+   "w": 153,
+   "h": 16
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "sect__more",
+   "text": "更多 ›",
+   "ph": "",
+   "x": 291,
+   "y": 607,
+   "w": 34,
+   "h": 20
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "noteitem",
+   "text": "📄 Céa 引理与误差估计 今天 10:24",
+   "ph": "",
+   "x": 10,
+   "y": 634,
+   "w": 322,
+   "h": 28
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__ico",
+   "text": "📄",
+   "ph": "",
+   "x": 16,
+   "y": 640,
+   "w": 16,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__title",
+   "text": "Céa 引理与误差估计",
+   "ph": "",
+   "x": 39,
+   "y": 640,
+   "w": 226,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__time",
+   "text": "今天 10:24",
+   "ph": "",
+   "x": 272,
+   "y": 640,
+   "w": 54,
+   "h": 15
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "noteitem",
+   "text": "📄 有限元方法的收敛性 昨天 20:11",
+   "ph": "",
+   "x": 10,
+   "y": 662,
+   "w": 322,
+   "h": 28
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__ico",
+   "text": "📄",
+   "ph": "",
+   "x": 16,
+   "y": 668,
+   "w": 16,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__title",
+   "text": "有限元方法的收敛性",
+   "ph": "",
+   "x": 39,
+   "y": 668,
+   "w": 226,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__time",
+   "text": "昨天 20:11",
+   "ph": "",
+   "x": 272,
+   "y": 668,
+   "w": 54,
+   "h": 15
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "noteitem",
+   "text": "📄 椭圆问题的变分形式 9 月 10 日",
+   "ph": "",
+   "x": 10,
+   "y": 690,
+   "w": 322,
+   "h": 28
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__ico",
+   "text": "📄",
+   "ph": "",
+   "x": 16,
+   "y": 696,
+   "w": 16,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__title",
+   "text": "椭圆问题的变分形式",
+   "ph": "",
+   "x": 39,
+   "y": 696,
+   "w": 228,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "noteitem__time",
+   "text": "9 月 10 日",
+   "ph": "",
+   "x": 275,
+   "y": 696,
+   "w": 51,
+   "h": 15
+  },
+  {
+   "tag": "DIV",
+   "cls": "doctabs",
+   "text": "PDF 变分形式与 Céa 引理 × PDF 有限元误差的数值实验 × ＋",
+   "ph": "",
+   "x": 343,
+   "y": 62,
+   "w": 722,
+   "h": 38
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "doctab active",
+   "text": "PDF 变分形式与 Céa 引理 ×",
+   "ph": "",
+   "x": 353,
+   "y": 69,
+   "w": 175,
+   "h": 30
+  },
+  {
+   "tag": "SPAN",
+   "cls": "doctab__title",
+   "text": "变分形式与 Céa 引理",
+   "ph": "",
+   "x": 391,
+   "y": 77,
+   "w": 113,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "doctab__x",
+   "text": "×",
+   "ph": "",
+   "x": 509,
+   "y": 77,
+   "w": 9,
+   "h": 16
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "doctab",
+   "text": "PDF 有限元误差的数值实验 ×",
+   "ph": "",
+   "x": 532,
+   "y": 69,
+   "w": 183,
+   "h": 30
+  },
+  {
+   "tag": "SPAN",
+   "cls": "doctab__title",
+   "text": "有限元误差的数值实验",
+   "ph": "",
+   "x": 570,
+   "y": 77,
+   "w": 120,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "doctab__x",
+   "text": "×",
+   "ph": "",
+   "x": 696,
+   "y": 77,
+   "w": 9,
+   "h": 16
+  },
+  {
+   "tag": "SPAN",
+   "cls": "doctabs__add",
+   "text": "＋",
+   "ph": "",
+   "x": 719,
+   "y": 71,
+   "w": 30,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn",
+   "text": "‹",
+   "ph": "",
+   "x": 353,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "INPUT",
+   "cls": "pageinput",
+   "text": "4",
+   "ph": "",
+   "x": 382,
+   "y": 107,
+   "w": 34,
+   "h": 25
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn",
+   "text": "›",
+   "ph": "",
+   "x": 448,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn",
+   "text": "−",
+   "ph": "",
+   "x": 491,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn",
+   "text": "＋",
+   "ph": "",
+   "x": 555,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "toolbtn",
+   "text": "适宽",
+   "ph": "",
+   "x": 584,
+   "y": 108,
+   "w": 40,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn iconbtn--txt",
+   "text": "⧉",
+   "ph": "",
+   "x": 641,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn iconbtn--txt",
+   "text": "⌕",
+   "ph": "",
+   "x": 670,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "iconbtn iconbtn--txt",
+   "text": "⛶",
+   "ph": "",
+   "x": 1029,
+   "y": 107,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "selbar__btn",
+   "text": "🖍 高亮",
+   "ph": "",
+   "x": 726,
+   "y": 444,
+   "w": 56,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "selbar__btn",
+   "text": "✎ 添加笔记",
+   "ph": "",
+   "x": 786,
+   "y": 444,
+   "w": 80,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "selbar__btn",
+   "text": "❝ 引用",
+   "ph": "",
+   "x": 869,
+   "y": 444,
+   "w": 50,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "selbar__btn selbar__btn--primary",
+   "text": "✦ 问 AI",
+   "ph": "",
+   "x": 923,
+   "y": 444,
+   "w": 58,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "agent__more",
+   "text": "⋯",
+   "ph": "",
+   "x": 1632,
+   "y": 74,
+   "w": 26,
+   "h": 26
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "evid__row",
+   "text": "PDF 第 4 页 · 定理 2.1 p. 4",
+   "ph": "",
+   "x": 1093,
+   "y": 522,
+   "w": 552,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "evid__row",
+   "text": "PDF 第 2 页 · 定义 1.1（V-椭圆性） p. 2",
+   "ph": "",
+   "x": 1093,
+   "y": 550,
+   "w": 552,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--outline",
+   "text": "定位原文",
+   "ph": "",
+   "x": 1093,
+   "y": 615,
+   "w": 74,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--outline",
+   "text": "查看证据",
+   "ph": "",
+   "x": 1173,
+   "y": 615,
+   "w": 74,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--primary",
+   "text": "加入笔记",
+   "ph": "",
+   "x": 1253,
+   "y": 615,
+   "w": 74,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "chip chip--btn",
+   "text": "追问：证明段落",
+   "ph": "",
+   "x": 1142,
+   "y": 654,
+   "w": 97,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "chip chip--btn",
+   "text": "追问：定义",
+   "ph": "",
+   "x": 1244,
+   "y": 654,
+   "w": 74,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "acc__head",
+   "text": "✓ 推导校验 ⌄",
+   "ph": "",
+   "x": 1081,
+   "y": 736,
+   "w": 576,
+   "h": 44
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "acc__head",
+   "text": "❝ 引用补全 ⌄",
+   "ph": "",
+   "x": 1081,
+   "y": 789,
+   "w": 576,
+   "h": 44
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "acc__head",
+   "text": "{} LaTeX 对照 ⌄",
+   "ph": "",
+   "x": 1081,
+   "y": 842,
+   "w": 576,
+   "h": 44
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "acc__head",
+   "text": "% 公式检查 3 ⌄",
+   "ph": "",
+   "x": 1081,
+   "y": 895,
+   "w": 576,
+   "h": 44
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "acc__head",
+   "text": "A文 翻译与改写 ⌄",
+   "ph": "",
+   "x": 1081,
+   "y": 948,
+   "w": 576,
+   "h": 44
+  },
+  {
+   "tag": "TEXTAREA",
+   "cls": "composer__input",
+   "text": "直接告诉我你想完成什么：解释推导、找证据、写入笔记、生成引用…",
+   "ph": "直接告诉我你想完成什么：解释推导、找证据、写入笔记、生成引用…",
+   "x": 1078,
+   "y": 829,
+   "w": 582,
+   "h": 58
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "composer__send",
+   "text": "➤",
+   "ph": "",
+   "x": 1630,
+   "y": 899,
+   "w": 30,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "ms-host-fab",
+   "text": "⚙",
+   "ph": "",
+   "x": 1620,
+   "y": 889,
+   "w": 38,
+   "h": 38
+  }
+ ]
+}

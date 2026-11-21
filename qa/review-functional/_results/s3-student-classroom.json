@@ -1,0 +1,58 @@
+{
+ "name": "s3-student-classroom",
+ "checks": 34,
+ "passed": 34,
+ "failed": [],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [
+  {
+   "t": "04:35:49",
+   "step": "学生课堂-课件列表",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/classroom"
+  },
+  {
+   "t": "04:35:52",
+   "step": "双师-打开（续播）",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795206718476"
+  },
+  {
+   "t": "04:35:53",
+   "step": "双师-第3页修订标题与公式",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795206718476"
+  },
+  {
+   "t": "04:35:55",
+   "step": "双师-暂停讲解",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795206718476"
+  },
+  {
+   "t": "04:35:56",
+   "step": "双师-继续讲解",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795206718476"
+  },
+  {
+   "t": "04:35:58",
+   "step": "双师-第4页",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795206718476"
+  },
+  {
+   "t": "04:36:01",
+   "step": "双师-刷新进度保留",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795206718476"
+  },
+  {
+   "t": "04:36:02",
+   "step": "学生课堂-进度已回传",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/classroom?tab=dual"
+  },
+  {
+   "t": "04:36:03",
+   "step": "学生课堂-作业卡",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/classroom"
+  }
+ ],
+ "shots": 9
+}

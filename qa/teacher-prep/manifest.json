@@ -1,0 +1,72 @@
+{
+  "生成时间": "2026-11-21 03:03:34",
+  "课件": [
+    {
+      "file": "ellipse-课件.pptx",
+      "kind": "pptx",
+      "slides": 6,
+      "contains": [
+        "椭圆的定义（终审版）",
+        "椭圆及其标准方程",
+        "椭圆的定义"
+      ]
+    },
+    {
+      "file": "quadratic-课件.pptx",
+      "kind": "pptx",
+      "slides": 5,
+      "contains": [
+        "配方法的三步（修改版）",
+        "二次函数与配方法"
+      ]
+    },
+    {
+      "file": "set-课件.pptx",
+      "kind": "pptx",
+      "slides": 5,
+      "contains": [
+        "子集个数与空集（修改版）",
+        "集合间的基本关系"
+      ]
+    },
+    {
+      "file": "ellipse-课件.pdf",
+      "kind": "pdf",
+      "minPages": 2,
+      "contains": [
+        "椭圆的定义（终审版）",
+        "椭圆及其标准方程"
+      ]
+    },
+    {
+      "file": "ellipse-教案.docx",
+      "kind": "docx",
+      "contains": [
+        "《椭圆及其标准方程》第一课时 · 教案（终审版）",
+        "教学目标",
+        "教学过程",
+        "板书设计"
+      ]
+    },
+    {
+      "file": "ellipse-教案.md",
+      "kind": "markdown",
+      "contains": [
+        "# 《椭圆及其标准方程》第一课时 · 教案（终审版）",
+        "## 一、教学目标"
+      ]
+    }
+  ],
+  "发布记录版本": [
+    {
+      "deckId": "deck-ellipse",
+      "version": 1,
+      "className": "高二 (1) 班"
+    },
+    {
+      "deckId": "deck-ellipse",
+      "version": 2,
+      "className": "高二 (1) 班"
+    }
+  ]
+}

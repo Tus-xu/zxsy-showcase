@@ -1,0 +1,12 @@
+{
+ "name": "s-recheck-ui",
+ "checks": 0,
+ "passed": 0,
+ "failed": [],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [],
+ "shots": 0
+}

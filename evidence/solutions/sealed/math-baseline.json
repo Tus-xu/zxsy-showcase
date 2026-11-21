@@ -1,0 +1,64 @@
+{
+  "sealedAt": "2026-11-21T02:15:00+08:00",
+  "sealedBy": "lead",
+  "signature": "MATHEMATICS-BASELINE-SEALED-A/B/C",
+  "cases": {
+    "A": {
+      "printedNumber": 3,
+      "image": "题1.png",
+      "sha256": "CD2F518F8B705680EEF74056F6C23C114EA51899378A00E2198464B3AA4AD9E7",
+      "type": "single-choice",
+      "answerKeys": ["D"],
+      "answerDisplay": "2√2",
+      "answerLatex": "2\\sqrt{2}",
+      "equivalents": ["D", "2√2", "2\\sqrt{2}", "√8", "\\sqrt{8}", "e=2√2", "e^2=8"],
+      "pitfalls": [
+        { "value": "C", "reason": "把 b/a 当作离心率，漏掉 e²=1+(b/a)² 中的 1" },
+        { "value": "A", "reason": "忽略 √7 倍条件，默认等轴双曲线" },
+        { "value": "B", "reason": "√8 误化简为 2 / 把 7 误作 3" }
+      ]
+    },
+    "B": {
+      "printedNumber": 9,
+      "image": "题2.png",
+      "sha256": "0BC14458A696C1CAAA37D3B630113FD0F61C06FDDA1B5DA1C76CAF314F392425",
+      "type": "multi-choice",
+      "answerKeys": ["B", "D"],
+      "answerDisplay": "B、D",
+      "equivalents": ["BD", "DB", "B,D", "{B,D}", "B 和 D"],
+      "partial": [["B"], ["D"]],
+      "pitfalls": [
+        { "value": "B", "reason": "只选 B，漏掉 CC₁∥平面 AA₁D 的面外条件判断", "partial": true },
+        { "value": "D", "reason": "只选 D，漏掉 BC⊥平面 AA₁D 的线面垂直判定", "partial": true },
+        { "value": "A", "reason": "视觉误判 AD⊥A₁C，实际点积为 3" },
+        { "value": "C", "reason": "混淆 AD 与 AB 的方向" }
+      ]
+    },
+    "C": {
+      "printedNumber": 14,
+      "image": "题3.png",
+      "sha256": "CD9DB0CCF25BFE7C64889A5BE5E50A5807D58A7F8BB3BDC0F4BB88A93AE5D676",
+      "type": "fill-blank",
+      "answerDisplay": "61/25",
+      "answerDecimal": 2.44,
+      "equivalents": ["61/25", "2.44", "305/125", "5*(1-(4/5)^3)", "5×(1−(4/5)³)"],
+      "pitfalls": [
+        { "value": "3", "reason": "当作无放回抽样，默认三球互异" },
+        { "value": "61/125", "reason": "只算单个号码至少出现一次的概率，漏乘 5" },
+        { "value": "183/125", "reason": "指示变量个数错用为抽取次数 3" },
+        { "value": "69/25", "reason": "P(X=2) 计数未扣除三次全同" }
+      ]
+    }
+  },
+  "independentSolutions": {
+    "solver-1": {
+      "path": "evidence/solutions/blind/solver-1/solutions.md",
+      "sha256": "CBE9FFFBF1A841A616344AFA34D45DADA2917535FD39AB4AE04A86A9E13A1DC1"
+    },
+    "solver-2": {
+      "path": "evidence/solutions/blind/solver-2/solutions.md",
+      "sha256": "FECC286DE96BC1CFD5193E27E6ACB675E65BC44E22CC938878A4C25C4592860A"
+    }
+  },
+  "agreement": "2/2 independent solvers agree with each other and with the sealed answer key for all three cases"
+}

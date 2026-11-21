@@ -1,0 +1,113 @@
+{
+ "name": "s1-student-guide",
+ "checks": 61,
+ "passed": 61,
+ "failed": [],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [
+  {
+   "t": "04:28:50",
+   "step": "学生首页",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dialog"
+  },
+  {
+   "t": "04:28:53",
+   "step": "A-识别结果",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/A"
+  },
+  {
+   "t": "04:28:55",
+   "step": "A-求助提示",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/A"
+  },
+  {
+   "t": "04:28:57",
+   "step": "A-错答反馈",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/A"
+  },
+  {
+   "t": "04:29:07",
+   "step": "A-单选出现",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/A"
+  },
+  {
+   "t": "04:29:10",
+   "step": "A-结论",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/A"
+  },
+  {
+   "t": "04:29:13",
+   "step": "A-刷新恢复",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/A"
+  },
+  {
+   "t": "04:29:18",
+   "step": "B-识别结果",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B"
+  },
+  {
+   "t": "04:29:19",
+   "step": "B-求助提示",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B"
+  },
+  {
+   "t": "04:29:27",
+   "step": "B-错答反馈",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B"
+  },
+  {
+   "t": "04:29:32",
+   "step": "B-部分正确",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B"
+  },
+  {
+   "t": "04:29:35",
+   "step": "B-结论",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B"
+  },
+  {
+   "t": "04:29:38",
+   "step": "B-刷新恢复",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B"
+  },
+  {
+   "t": "04:29:42",
+   "step": "C-识别结果",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/C"
+  },
+  {
+   "t": "04:29:44",
+   "step": "C-求助提示",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/C"
+  },
+  {
+   "t": "04:29:46",
+   "step": "C-错答反馈",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/C"
+  },
+  {
+   "t": "04:29:49",
+   "step": "C-未收录答法",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/C"
+  },
+  {
+   "t": "04:29:57",
+   "step": "C-结论",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/C"
+  },
+  {
+   "t": "04:30:00",
+   "step": "C-刷新恢复",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/C"
+  },
+  {
+   "t": "04:30:02",
+   "step": "学生首页-三题完成后",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dialog"
+  }
+ ],
+ "shots": 20
+}

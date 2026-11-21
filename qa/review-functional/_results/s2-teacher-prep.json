@@ -1,0 +1,68 @@
+{
+ "name": "s2-teacher-prep",
+ "checks": 58,
+ "passed": 58,
+ "failed": [],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [
+  {
+   "t": "04:31:41",
+   "step": "教师备课中心",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep"
+  },
+  {
+   "t": "04:31:43",
+   "step": "椭圆工作台-课堂设计",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/classroom"
+  },
+  {
+   "t": "04:31:46",
+   "step": "PPT-初始参数 a5b3",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:31:48",
+   "step": "PPT-改参 a6b4",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:31:50",
+   "step": "PPT-改标题保存",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:31:54",
+   "step": "PPT-刷新后保留编辑",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:31:57",
+   "step": "PPT-导出成功",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:31:58",
+   "step": "发布-准备态",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:32:00",
+   "step": "发布-成功态",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:32:01",
+   "step": "发布后工作台",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:32:06",
+   "step": "教案-导出成功",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/plan"
+  }
+ ],
+ "shots": 11
+}

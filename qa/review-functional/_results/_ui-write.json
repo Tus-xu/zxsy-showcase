@@ -1,0 +1,747 @@
+{
+ "label": "write",
+ "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research/write",
+ "body": "科研工作台\n让研究更高效，让思想走更远\n📄\n有限元误差分析\n▾\n阅读\n写作\n已同步 · 今天 10:24\n历史\n🔔\n3\n徐\nXu Chao\n▾\n∫\n有限元误差分析\n学术论文项目 · 进行中\n⌂\n▭\n项目\n▥\n文献\n▤\n笔记\n⚙\n设置\n文件树\n论文结构\n💾\n⟳\n📄\nmain.tex\n▾\n📂\nsections/\n📄\nintroduction.tex\n📄\ntheory.tex\n📚\nrefs.bib\n▾\n📂\nfigures/\n🖼\nmesh.png\n只读\n📕\nerror_plot.pdf\n只读\n▸\n📁\ntables/\n工程文件 4 个\n已保存 04:22\n编译配置\nXeLaTeX ⌄\n自动编译\n⟳ 重新编译\n✅ 编译成功 04:22\nv1\n⌄\nmain.tex\n×\n＋\n已保存 04:22\n保存\n↺\n↻\nB\nI\nπ\n{}\n∑\n≡\n❝\n⌕\n行号\n1:1\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n19\n20\n21\n22\n23\n24\n25\n26\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath, amssymb}\n\\usepackage{graphicx}\n\n\\title{有限元方法中椭圆问题的误差估计}\n\\author{Xu Chao}\n\\date{2026 年 11 月 21 日}\n\n\\begin{document}\n\n\\maketitle\n\n\\begin{abstract}\n本文讨论有限元方法求解椭圆型问题时的误差估计。基于 Céa 引理与插值理论，\n我们给出 $H^1$ 与 $L^2$ 范数下的最优收敛阶，并通过数值实验验证理论结果。\n\\end{abstract}\n\n\\input{sections/introduction}\n\\input{sections/theory}\n\n\\bibliographystyle{plain}\n\\bibliography{refs}\n\n\\end{document}\n\n\n‹\n/ 2\n›\n−\n100%\n＋\n导出 PDF\n随包演示写作工程 · 离线编译\n第 1 / 2 页\n有限元方法中椭圆问题的误差估计\nXu Chao　·　2026 年 11 月 21 日　·　随包演示写作工程 · 离线编译\n摘要\n\n本文讨论有限元方法求解椭圆型问题时的误差估计。基于 Céa 引理与插值理论， 我们给出 \n𝐻\n1\nH\n1\n 与 \n𝐿\n2\nL\n2\n 范数下的最优收敛阶，并通过数值实验验证理论结果。\n\n1 引言\n\n有限元方法（Finite Element Method, FEM）是求解偏微分方程的经典数值方法， 在工程与科学计算中得到了广泛应用。设 \nΩ\n⊂\n𝑅\n𝑑\nΩ⊂R\nd\n 为有界区域， 考虑如下椭圆方程：\n\n−\n∇\n⋅\n(\n𝑎\n(\n𝑥\n)\n∇\n𝑢\n)\n=\n𝑓\nin \nΩ\n,\n−∇⋅(a(x)∇u)=fin Ω,\n(1)\n\n其中 \n𝑎\n(\n𝑥\n)\na(x) 满足一致椭圆条件。本文关注有限元解的误差估计。\n\n2 有限元误差估计\n智学数研 · 离线演示　1 / 2\n编译日志\n6\n错误\n0\n警告\n2\n信息\n1\n清空日志\n04:22\nCompiling main.tex (XeLaTeX)...\n04:22\nLaTeX Warning: Citation 'Cea1971' on page 1 undefined on input line 5.\nsections/theory.tex:5\n04:22\nLaTeX Warning: There were undefined references.\nmain.tex:1\n04:22\n已加载宏包：ctex, amsmath, amssymb, graphicx。\n04:22\nOutput written on main.pdf (2 pages).\n04:22\n✅ 编译完成，用时 0.1 秒。\nπ\nResearch Agent\n你的学术写作助手 · 离线审核结论\n⋯\n▣\n当前上下文\n（自动装载，非用户筛选）\nmain.tex L1\n正文\nrefs.bib\n项目知识库\n编译错误解释\n改进建议\n引用补全\n公式检查\nLaTeX 对照\n语言润色\n翻译成英文\n✓\n编译诊断\n编译成功\n\n当前工程没有终止编译的错误。\n\n已生成 main.pdf（2 页，版本 v1）。可以继续编辑、应用改进建议，或导出 PDF。\n\n待处理警告\nCitation 'Cea1971' on page 1 undefined on input line 5.\nThere were undefined references.\n重新编译\n查看改进建议\n📎\n@\n📖\nEnter 发送\n➤\n编译成功 · v1（2 页）\n⚙",
+ "clickable": [
+  {
+   "tag": "BUTTON",
+   "cls": "rw-project-pill",
+   "text": "📄 有限元误差分析 ▾",
+   "ph": "",
+   "x": 599,
+   "y": 12,
+   "w": 174,
+   "h": 38
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-seg__item",
+   "text": "阅读",
+   "ph": "",
+   "x": 794,
+   "y": 16,
+   "w": 58,
+   "h": 29
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-seg__item active",
+   "text": "写作",
+   "ph": "",
+   "x": 852,
+   "y": 16,
+   "w": 58,
+   "h": 29
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-head-btn",
+   "text": "历史",
+   "ph": "",
+   "x": 1428,
+   "y": 15,
+   "w": 49,
+   "h": 32
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rw-head-btn rw-head-btn--bell",
+   "text": "🔔 3",
+   "ph": "",
+   "x": 1486,
+   "y": 15,
+   "w": 41,
+   "h": 32
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "wproj__btn",
+   "text": "⌂",
+   "ph": "",
+   "x": 271,
+   "y": 78,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rail__item active",
+   "text": "▭ 项目",
+   "ph": "",
+   "x": 5,
+   "y": 127,
+   "w": 54,
+   "h": 50
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rail__item",
+   "text": "▥ 文献",
+   "ph": "",
+   "x": 5,
+   "y": 180,
+   "w": 54,
+   "h": 50
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rail__item",
+   "text": "▤ 笔记",
+   "ph": "",
+   "x": 5,
+   "y": 233,
+   "w": 54,
+   "h": 50
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "rail__item",
+   "text": "⚙ 设置",
+   "ph": "",
+   "x": 5,
+   "y": 286,
+   "w": 54,
+   "h": 50
+  },
+  {
+   "tag": "DIV",
+   "cls": "explorer__tabs",
+   "text": "文件树 论文结构 💾 ⟳",
+   "ph": "",
+   "x": 64,
+   "y": 118,
+   "w": 241,
+   "h": 36
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "explorer__tab active",
+   "text": "文件树",
+   "ph": "",
+   "x": 70,
+   "y": 118,
+   "w": 52,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "explorer__tab",
+   "text": "论文结构",
+   "ph": "",
+   "x": 124,
+   "y": 118,
+   "w": 64,
+   "h": 35
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "",
+   "text": "💾",
+   "ph": "",
+   "x": 257,
+   "y": 126,
+   "w": 20,
+   "h": 20
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "",
+   "text": "⟳",
+   "ph": "",
+   "x": 279,
+   "y": 126,
+   "w": 20,
+   "h": 20
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tree__file active",
+   "text": "📄 main.tex",
+   "ph": "",
+   "x": 69,
+   "y": 160,
+   "w": 231,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tree__file tree__file--child",
+   "text": "📄 introduction.tex",
+   "ph": "",
+   "x": 69,
+   "y": 215,
+   "w": 231,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tree__file tree__file--child",
+   "text": "📄 theory.tex",
+   "ph": "",
+   "x": 69,
+   "y": 242,
+   "w": 231,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tree__file",
+   "text": "📚 refs.bib",
+   "ph": "",
+   "x": 69,
+   "y": 269,
+   "w": 231,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tree__file tree__file--child tree__file--asset",
+   "text": "🖼 mesh.png 只读",
+   "ph": "",
+   "x": 69,
+   "y": 324,
+   "w": 231,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "tree__file tree__file--child tree__file--asset",
+   "text": "📕 error_plot.pdf 只读",
+   "ph": "",
+   "x": 69,
+   "y": 351,
+   "w": 231,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "cbtn",
+   "text": "XeLaTeX ⌄",
+   "ph": "",
+   "x": 368,
+   "y": 70,
+   "w": 80,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "cbtn cbtn--toggle",
+   "text": "自动编译",
+   "ph": "",
+   "x": 454,
+   "y": 70,
+   "w": 83,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "cbtn cbtn--primary",
+   "text": "⟳ 重新编译",
+   "ph": "",
+   "x": 543,
+   "y": 70,
+   "w": 86,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "cbtn cbtn--icon",
+   "text": "⌄",
+   "ph": "",
+   "x": 1318,
+   "y": 70,
+   "w": 28,
+   "h": 28
+  },
+  {
+   "tag": "DIV",
+   "cls": "filetabs",
+   "text": "main.tex × ＋ 已保存 04:22 保存",
+   "ph": "",
+   "x": 306,
+   "y": 106,
+   "w": 588,
+   "h": 36
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "filetab active",
+   "text": "main.tex ×",
+   "ph": "",
+   "x": 314,
+   "y": 112,
+   "w": 88,
+   "h": 29
+  },
+  {
+   "tag": "SPAN",
+   "cls": "filetab__x",
+   "text": "×",
+   "ph": "",
+   "x": 382,
+   "y": 119,
+   "w": 9,
+   "h": 16
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "filetabs__add",
+   "text": "＋",
+   "ph": "",
+   "x": 405,
+   "y": 114,
+   "w": 22,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "sbtn",
+   "text": "保存",
+   "ph": "",
+   "x": 843,
+   "y": 112,
+   "w": 43,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "↺",
+   "ph": "",
+   "x": 314,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "↻",
+   "ph": "",
+   "x": 340,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "B",
+   "ph": "",
+   "x": 377,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "I",
+   "ph": "",
+   "x": 403,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "π",
+   "ph": "",
+   "x": 429,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "{}",
+   "ph": "",
+   "x": 455,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "∑",
+   "ph": "",
+   "x": 492,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "≡",
+   "ph": "",
+   "x": 518,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "❝",
+   "ph": "",
+   "x": 544,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "⌕",
+   "ph": "",
+   "x": 581,
+   "y": 147,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "INPUT",
+   "cls": "",
+   "text": "on",
+   "ph": "",
+   "x": 806,
+   "y": 152,
+   "w": 13,
+   "h": 13
+  },
+  {
+   "tag": "TEXTAREA",
+   "cls": "ed__input",
+   "text": "\\documentclass{article} \\usepackage{ctex} \\usepackage{amsmath, amssymb} \\usepackage{graphicx} \\title{有限元方法中椭圆问题的误差估计} \\a",
+   "ph": "",
+   "x": 350,
+   "y": 176,
+   "w": 544,
+   "h": 601
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "‹",
+   "ph": "",
+   "x": 903,
+   "y": 111,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "INPUT",
+   "cls": "pvpage",
+   "text": "1",
+   "ph": "",
+   "x": 930,
+   "y": 111,
+   "w": 30,
+   "h": 23
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "›",
+   "ph": "",
+   "x": 981,
+   "y": 111,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "−",
+   "ph": "",
+   "x": 1020,
+   "y": 111,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "fbtn",
+   "text": "＋",
+   "ph": "",
+   "x": 1080,
+   "y": 111,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--sm btn--primary",
+   "text": "导出 PDF",
+   "ph": "",
+   "x": 1288,
+   "y": 111,
+   "w": 61,
+   "h": 23
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logtab active",
+   "text": "编译日志 6",
+   "ph": "",
+   "x": 316,
+   "y": 779,
+   "w": 71,
+   "h": 30
+  },
+  {
+   "tag": "SPAN",
+   "cls": "logtab__n",
+   "text": "6",
+   "ph": "",
+   "x": 374,
+   "y": 786,
+   "w": 6,
+   "h": 14
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logtab",
+   "text": "错误 0",
+   "ph": "",
+   "x": 393,
+   "y": 779,
+   "w": 60,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logtab",
+   "text": "警告 2",
+   "ph": "",
+   "x": 459,
+   "y": 779,
+   "w": 60,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logtab",
+   "text": "信息 1",
+   "ph": "",
+   "x": 525,
+   "y": 779,
+   "w": 60,
+   "h": 30
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--sm btn--ghost",
+   "text": "清空日志",
+   "ph": "",
+   "x": 1290,
+   "y": 782,
+   "w": 58,
+   "h": 23
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logline logline--info",
+   "text": "04:22 Compiling main.tex (XeLaTeX)...",
+   "ph": "",
+   "x": 314,
+   "y": 814,
+   "w": 1036,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logline logline--warning logline--clickable",
+   "text": "04:22 LaTeX Warning: Citation 'Cea1971' on page 1 undefined on input line 5. sections/theory.tex:5",
+   "ph": "",
+   "x": 314,
+   "y": 836,
+   "w": 1036,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logline logline--warning logline--clickable",
+   "text": "04:22 LaTeX Warning: There were undefined references. main.tex:1",
+   "ph": "",
+   "x": 314,
+   "y": 858,
+   "w": 1036,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logline logline--info",
+   "text": "04:22 已加载宏包：ctex, amsmath, amssymb, graphicx。",
+   "ph": "",
+   "x": 314,
+   "y": 879,
+   "w": 1036,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logline logline--success",
+   "text": "04:22 Output written on main.pdf (2 pages).",
+   "ph": "",
+   "x": 314,
+   "y": 901,
+   "w": 1036,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "logline logline--success",
+   "text": "04:22 ✅ 编译完成，用时 0.1 秒。",
+   "ph": "",
+   "x": 314,
+   "y": 923,
+   "w": 1036,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "agent__more",
+   "text": "⋯",
+   "ph": "",
+   "x": 1636,
+   "y": 73,
+   "w": 24,
+   "h": 24
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip active",
+   "text": "编译错误解释",
+   "ph": "",
+   "x": 1370,
+   "y": 202,
+   "w": 76,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip",
+   "text": "改进建议",
+   "ph": "",
+   "x": 1450,
+   "y": 202,
+   "w": 56,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip",
+   "text": "引用补全",
+   "ph": "",
+   "x": 1510,
+   "y": 202,
+   "w": 56,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip",
+   "text": "公式检查",
+   "ph": "",
+   "x": 1570,
+   "y": 202,
+   "w": 56,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip",
+   "text": "LaTeX 对照",
+   "ph": "",
+   "x": 1370,
+   "y": 228,
+   "w": 66,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip",
+   "text": "语言润色",
+   "ph": "",
+   "x": 1440,
+   "y": 228,
+   "w": 56,
+   "h": 22
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "capchip",
+   "text": "翻译成英文",
+   "ph": "",
+   "x": 1500,
+   "y": 228,
+   "w": 66,
+   "h": 22
+  },
+  {
+   "tag": "DIV",
+   "cls": "cardwrap",
+   "text": "✓ 编译诊断 编译成功 当前工程没有终止编译的错误。 已生成 main.pdf（2 页，版本 v1）。可以继续编辑、应用改进建议，或导出 PDF。 待处理警告 Citation 'Cea1971' on page 1 undefined o",
+   "ph": "",
+   "x": 1370,
+   "y": 268,
+   "w": 291,
+   "h": 256
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--primary",
+   "text": "重新编译",
+   "ph": "",
+   "x": 1382,
+   "y": 484,
+   "w": 66,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "btn btn--outline",
+   "text": "查看改进建议",
+   "ph": "",
+   "x": 1453,
+   "y": 484,
+   "w": 89,
+   "h": 27
+  },
+  {
+   "tag": "TEXTAREA",
+   "cls": "composer__input",
+   "text": "有什么可以帮你的吗？",
+   "ph": "有什么可以帮你的吗？",
+   "x": 1369,
+   "y": 840,
+   "w": 293,
+   "h": 52
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "composer__send",
+   "text": "➤",
+   "ph": "",
+   "x": 1635,
+   "y": 903,
+   "w": 27,
+   "h": 27
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "ms-host-fab",
+   "text": "⚙",
+   "ph": "",
+   "x": 1620,
+   "y": 889,
+   "w": 38,
+   "h": 38
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+/* 全局样式入口：复用原系统已验证的设计令牌与布局样式（教师/学生/科研），
+   叠加展示项目自己的组件样式。断网单文件构建时 KaTeX 字体与 CJK 子集字体会被内联。 */
+@import './vendor/platform-tokens.css';
+@import './vendor/platform-alias.css';
+@import './vendor/tokens.css';
+@import './vendor/base.css';
+@import './vendor/editorial.css';
+@import './vendor/v4.css';
+@import './vendor/teacher-tokens.css';
+@import './vendor/teacher-v3.css';
+@import './vendor/research-tokens.css';
+@import './vendor/prep.css';
+@import 'katex/dist/katex.min.css';
+@import './app.css';
+@import './student.css';
+@import './teacher.css';
+@import './research.css';

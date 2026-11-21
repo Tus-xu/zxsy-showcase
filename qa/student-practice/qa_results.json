@@ -1,0 +1,173 @@
+{
+  "entry": "real",
+  "passed": 33,
+  "total": 33,
+  "results": [
+    {
+      "name": "入口可用",
+      "ok": true,
+      "detail": "主入口"
+    },
+    {
+      "name": "练题页加载",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "A 原题错答被判错",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "错因反馈可见",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "A 原题正确判分",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "B 原题只选 B = 部分正确",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "练题刷新后恢复判分记录",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "错题页进入自动打开第一道错题详情",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "错题本有 3 条演示种子错题",
+      "ok": true,
+      "detail": "count=3"
+    },
+    {
+      "name": "标记掌握生效",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "错题刷新后掌握状态保留",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "重开引导进入引导解题页",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "资料入库后就绪",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "可查看切片",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "提问得到基于材料段落的回答",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "回答带原文引用",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "引用可定位到原文段落",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "检索失败提示“未在资料中找到”",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "知识库刷新后对话保留",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "资源中心含本地讲义卡片",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "可打开本地讲义",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "讲义可标记已读",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "视频卡片说明“无随包视频”",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "视频说明已读状态刷新后保留",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "学情报告基于真实记录",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "掌握地图按知识点显示",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "反馈提交并持久化",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "深色主题真实生效",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "主题/字号设置刷新后保留",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "整场复位后练题记录清空",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "整场复位后错题种子恢复",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "网络请求尝试为 0",
+      "ok": true,
+      "detail": "net=0"
+    },
+    {
+      "name": "无控制台错误",
+      "ok": true,
+      "detail": ""
+    }
+  ],
+  "consoleErrors": []
+}

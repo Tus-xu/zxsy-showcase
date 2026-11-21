@@ -1,0 +1,45 @@
+{
+ "exports": {
+  "recheck-椭圆及其标准方程-高二 (1) 班-20261121-课件.pptx": {
+   "slides": 6,
+   "has_4.472": true,
+   "has_0.745": true,
+   "has_x2_36": true,
+   "has_current_param": true,
+   "has_dollar": false,
+   "has_revised_title": true
+  },
+  "recheck-椭圆及其标准方程-高二 (1) 班-20261121-课件.pdf": {
+   "pages": 2,
+   "has_4.472": true,
+   "has_0.745": true,
+   "has_x2_36": false,
+   "has_current_param": true,
+   "has_dollar": false,
+   "has_revised_title": true
+  }
+ },
+ "aux": {
+  "host_path_section": "三张原图位置（上传时从文件选择器选择）\n发行包三张原图：\n素材\\题1.png（案例 A 双曲线）\n素材\\题2.png（案例 B 正三棱柱）\n素材\\题3.png（案例 C 有放回取球）\n原始采证副本：D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题1..3.png（按 SHA-256 绑定，改名不影响）\n复位与内部状态\n复位学生端\n复位教师端\n复位科研端\n整场复位\n网络尝试次数（应为 0）：0\n上次复位：未复位\n持久化命名空间：mathesis-showcase-v1",
+  "nav_default_title": "作业发布",
+  "queue_count": 3
+ },
+ "summary": {
+  "name": "s-recheck-aux",
+  "checks": 4,
+  "passed": 4,
+  "failed": [],
+  "net": [],
+  "ws": [],
+  "console_errors": [],
+  "page_errors": [],
+  "log": [
+   {
+    "t": "04:58:24",
+    "step": "复验-批改回归",
+    "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/grading"
+   }
+  ],
+  "shots": 1
+ }
+}

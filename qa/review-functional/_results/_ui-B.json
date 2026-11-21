@@ -1,0 +1,167 @@
+{
+ "label": "B",
+ "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-20261121-040157/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/guide/B",
+ "body": "π\n智学数研\n学生端\n🔥\n7 连击\n林\n林一川\n高二 (1) 班\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n2\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n1\n👤\n我的\n← 返回首页\n题2\n正三棱柱中的线面关系\n多选 · 立体几何\n1\n2\n3\n4\n已上传 · 内容匹配\n题2.png\nSHA-256 前 8 位：0BC14458\n【上传题目】题2.png\n04:05\n林\nπ\n我收到了这道题（题2 · 第 9 题）。先把它识别成文字，和你确认一下题面。\nπ\n平台识别结果\n9. 在正三棱柱 ABC-A₁B₁C₁ 中，D 为 BC 中点，则\nA. AD⊥A₁C　　B. BC⊥平面 AA₁D\nC. AD∥A₁B₁　　D. CC₁∥平面 AA₁D\n识别内容已与封存基准核对。\nπ\n这道题是正三棱柱里的线面关系，四个选项分别判断。\nπ\n原图没有印单选/多选说明，我们按“找出全部成立的关系”来做——最后允许组合提交。\nπ\n先把底面画清楚：正三角形、\n𝐷\nD 是 \n𝐵\n𝐶\nBC 中点。\nπ\n底面 \n𝐴\n𝐵\n𝐶\nABC 是什么三角形？\n𝐷\nD 是 \n𝐵\n𝐶\nBC 中点，那么 \n𝐴\n𝐷\nAD 与 \n𝐵\n𝐶\nBC 是什么关系？\n本轮\n底面 \n𝐴\n𝐵\n𝐶\nABC 是什么三角形？\n𝐷\nD 是 \n𝐵\n𝐶\nBC 中点，那么 \n𝐴\n𝐷\nAD 与 \n𝐵\n𝐶\nBC 是什么关系？\n发送\n🙋 给个提示\n🤔 我还是不懂，换个问法\n🤖\n⚙",
+ "clickable": [
+  {
+   "tag": "BUTTON",
+   "cls": "user-chip",
+   "text": "林 林一川 高二 (1) 班",
+   "ph": "",
+   "x": 1535,
+   "y": 8,
+   "w": 117,
+   "h": 44
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "collapse-btn",
+   "text": "«",
+   "ph": "",
+   "x": 197,
+   "y": 78,
+   "w": 30,
+   "h": 30
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item active",
+   "text": "🏠 首页",
+   "ph": "",
+   "x": 12,
+   "y": 114,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item",
+   "text": "✏️ 练题 沉浸",
+   "ph": "",
+   "x": 12,
+   "y": 160,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item",
+   "text": "📕 错题 2",
+   "ph": "",
+   "x": 12,
+   "y": 205,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item",
+   "text": "📚 知识库",
+   "ph": "",
+   "x": 12,
+   "y": 251,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item",
+   "text": "📺 资源中心",
+   "ph": "",
+   "x": 12,
+   "y": 296,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item",
+   "text": "🎓 课堂 1",
+   "ph": "",
+   "x": 12,
+   "y": 342,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "DIV",
+   "cls": "nav-item",
+   "text": "👤 我的",
+   "ph": "",
+   "x": 12,
+   "y": 388,
+   "w": 215,
+   "h": 44
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "guide__back",
+   "text": "← 返回首页",
+   "ph": "",
+   "x": 266,
+   "y": 72,
+   "w": 66,
+   "h": 28
+  },
+  {
+   "tag": "DIV",
+   "cls": "guide__input-row",
+   "text": "发送",
+   "ph": "",
+   "x": 589,
+   "y": 830,
+   "w": 1034,
+   "h": 40
+  },
+  {
+   "tag": "INPUT",
+   "cls": "guide__input",
+   "text": "描述 AD 与 BC 的关系",
+   "ph": "描述 AD 与 BC 的关系",
+   "x": 589,
+   "y": 830,
+   "w": 963,
+   "h": 40
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "ms-btn ms-btn--primary",
+   "text": "发送",
+   "ph": "",
+   "x": 1562,
+   "y": 830,
+   "w": 61,
+   "h": 36
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "guide__tool",
+   "text": "🙋 给个提示",
+   "ph": "",
+   "x": 589,
+   "y": 882,
+   "w": 91,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "guide__tool",
+   "text": "🤔 我还是不懂，换个问法",
+   "ph": "",
+   "x": 690,
+   "y": 882,
+   "w": 162,
+   "h": 28
+  },
+  {
+   "tag": "BUTTON",
+   "cls": "ms-host-fab",
+   "text": "⚙",
+   "ph": "",
+   "x": 1620,
+   "y": 889,
+   "w": 38,
+   "h": 38
+  }
+ ]
+}

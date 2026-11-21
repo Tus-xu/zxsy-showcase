@@ -1,0 +1,274 @@
+{
+  "results": [
+    {
+      "name": "home: 页面挂载",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "home: 项目卡片 x3",
+      "ok": true,
+      "extra": 3
+    },
+    {
+      "name": "home: 新建项目入口",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "home: 最近笔记入口",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 三栏页面挂载",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 纸面渲染",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 文献列表 2 篇",
+      "ok": true,
+      "extra": 2
+    },
+    {
+      "name": "read: 默认停在第 4 页",
+      "ok": true,
+      "extra": "4"
+    },
+    {
+      "name": "read: 段落选中态",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 浮动工具条出现",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: Agent 结构化回答卡",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 回答含判断与状态",
+      "ok": true,
+      "extra": "✓ 定理条件 基本成立（条件齐备） 当前上下文：《变分形式与 Céa 引理》第 4 页 · 定理条件  结论：在 V_h"
+    },
+    {
+      "name": "read: 证据来源可点",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 定位原文跳到第 4 页",
+      "ok": true,
+      "extra": "4"
+    },
+    {
+      "name": "read: 目标段落高亮",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 笔记弹层打开",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 加入笔记 toast",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 最近笔记新增",
+      "ok": true,
+      "extra": 4
+    },
+    {
+      "name": "read: 刷新后仍在第 4 页",
+      "ok": true,
+      "extra": "4"
+    },
+    {
+      "name": "read: 刷新后笔记保留",
+      "ok": true,
+      "extra": [
+        "📄\n定理条件 · 基本成立（条件齐备）\n今天 03:41",
+        "📄\nCéa 引理与误差估计\n今天 10:24",
+        "📄\n有限元方法的收敛性\n昨天 20:11"
+      ]
+    },
+    {
+      "name": "read: Agent 回答刷新保留",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "read: 公式检查 sqrt-square",
+      "ok": true,
+      "extra": "需要补充条件"
+    },
+    {
+      "name": "read: 公式检查 cancel-zero",
+      "ok": true,
+      "extra": "需要补充条件"
+    },
+    {
+      "name": "read: 公式检查 complete-square",
+      "ok": true,
+      "extra": "已验证"
+    },
+    {
+      "name": "read: Composer 命中离线问答",
+      "ok": true,
+      "extra": "✓\n证明段落\n已验证（逐步可核对）\n当前上下文：《变分形式与 Céa 引理》第 "
+    },
+    {
+      "name": "write: 页面挂载",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: LaTeX 编辑器",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: 初始编译成功",
+      "ok": true,
+      "extra": "✅ 编译成功 03:41"
+    },
+    {
+      "name": "write: PDF 预览纸面",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: 编译日志",
+      "ok": true,
+      "extra": 6
+    },
+    {
+      "name": "write: 复现编译失败",
+      "ok": true,
+      "extra": "❌ 编译失败 1 个错误"
+    },
+    {
+      "name": "write: 错误解释卡",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: 日志含错误行",
+      "ok": true,
+      "extra": 2
+    },
+    {
+      "name": "write: 日志点击定位到 theory.tex",
+      "ok": true,
+      "extra": "theory.tex\n×"
+    },
+    {
+      "name": "write: 修正后编译成功",
+      "ok": true,
+      "extra": "✅ 编译成功 03:41"
+    },
+    {
+      "name": "write: 预览保留并更新",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: 引用补全卡",
+      "ok": true,
+      "extra": "! 未定义的引用标识符 需要补充  编译日志显示 \\cite{Cea1971} "
+    },
+    {
+      "name": "write: 引用修复后全部可解析",
+      "ok": true,
+      "extra": "✓ 引用检查 全部可解析  正文引用 1 个键，refs.bib 提供 2 条项目内材料；未发现外部"
+    },
+    {
+      "name": "write: PDF 已下载",
+      "ok": true,
+      "extra": 26007
+    },
+    {
+      "name": "write: pypdf 页数",
+      "ok": true,
+      "extra": 1
+    },
+    {
+      "name": "write: pypdf 文本可提取",
+      "ok": true,
+      "extra": 679
+    },
+    {
+      "name": "write: main.tex 已含修复宏包",
+      "ok": true,
+      "extra": true
+    },
+    {
+      "name": "write: 刷新后编辑内容保留",
+      "ok": true,
+      "extra": true
+    },
+    {
+      "name": "write: 刷新后编译状态保留",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: 设置面板可打开",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "write: 复位回到初始工程",
+      "ok": true,
+      "extra": false
+    },
+    {
+      "name": "write: 复位后可编译",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "home: 新建项目进入写作",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "home: 新建项目名回显",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "home: 新建起步工程可编译",
+      "ok": true,
+      "extra": "✅ 编译成功 03:42"
+    },
+    {
+      "name": "home: 新建项目出现在卡片",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "home: 最近笔记显示用户笔记",
+      "ok": true,
+      "extra": ""
+    },
+    {
+      "name": "offline: 页面 fetch/XHR 尝试为 0",
+      "ok": true,
+      "extra": 0
+    }
+  ],
+  "console": []
+}

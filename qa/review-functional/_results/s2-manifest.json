@@ -1,0 +1,108 @@
+{
+ "svg_before": {
+  "viewBox": "0 0 440 280",
+  "shapes": [
+   {
+    "tag": "ellipse",
+    "rx": "150",
+    "ry": "90",
+    "r": null,
+    "cx": "220",
+    "cy": "142",
+    "cls": ""
+   },
+   {
+    "tag": "circle",
+    "rx": null,
+    "ry": null,
+    "r": "4.2",
+    "cx": "100",
+    "cy": "142",
+    "cls": ""
+   },
+   {
+    "tag": "circle",
+    "rx": null,
+    "ry": null,
+    "r": "4.2",
+    "cx": "340",
+    "cy": "142",
+    "cls": ""
+   },
+   {
+    "tag": "circle",
+    "rx": null,
+    "ry": null,
+    "r": "4",
+    "cx": "298.50489268774743",
+    "cy": "65.31027802455733",
+    "cls": ""
+   }
+  ]
+ },
+ "svg_after": {
+  "viewBox": "0 0 440 280",
+  "shapes": [
+   {
+    "tag": "ellipse",
+    "rx": "138",
+    "ry": "92",
+    "r": null,
+    "cx": "220",
+    "cy": "142",
+    "cls": ""
+   },
+   {
+    "tag": "circle",
+    "rx": null,
+    "ry": null,
+    "r": "4.2",
+    "cx": "117.14087303500966",
+    "cy": "142",
+    "cls": ""
+   },
+   {
+    "tag": "circle",
+    "rx": null,
+    "ry": null,
+    "r": "4.2",
+    "cx": "322.8591269649903",
+    "cy": "142",
+    "cls": ""
+   },
+   {
+    "tag": "circle",
+    "rx": null,
+    "ry": null,
+    "r": "4",
+    "cx": "292.22450127272765",
+    "cy": "63.60606198065861",
+    "cls": ""
+   }
+  ]
+ },
+ "exports": {
+  "导出 PPTX": {
+   "path": "D:\\zxsy-math-arena-showcase\\qa\\review-functional\\exports\\s2-椭圆及其标准方程-高二 (1) 班-20261121-课件.pptx",
+   "size": 115456,
+   "name": "椭圆及其标准方程-高二 (1) 班-20261121-课件.pptx"
+  },
+  "导出 PDF": {
+   "path": "D:\\zxsy-math-arena-showcase\\qa\\review-functional\\exports\\s2-椭圆及其标准方程-高二 (1) 班-20261121-课件.pdf",
+   "size": 35236,
+   "name": "椭圆及其标准方程-高二 (1) 班-20261121-课件.pdf"
+  }
+ },
+ "lesson_exports": {
+  "导出 DOCX": {
+   "path": "D:\\zxsy-math-arena-showcase\\qa\\review-functional\\exports\\s2-椭圆及其标准方程第一课时 · 教案-高二 (1) 班-20261121-教案.docx",
+   "size": 11823,
+   "name": "椭圆及其标准方程第一课时 · 教案-高二 (1) 班-20261121-教案.docx"
+  },
+  "导出 Markdown": {
+   "path": "D:\\zxsy-math-arena-showcase\\qa\\review-functional\\exports\\s2-椭圆及其标准方程第一课时 · 教案-高二 (1) 班-20261121-教案.md",
+   "size": 2650,
+   "name": "椭圆及其标准方程第一课时 · 教案-高二 (1) 班-20261121-教案.md"
+  }
+ }
+}

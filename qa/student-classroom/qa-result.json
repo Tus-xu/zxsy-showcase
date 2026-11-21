@@ -1,0 +1,249 @@
+{
+  "viewport": "1672x941 DPR1",
+  "url": "http://127.0.0.1:5202/",
+  "passed": 48,
+  "total": 48,
+  "checks": [
+    {
+      "name": "课堂页加载 + 三 Tab",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "课堂任务默认展示课件任务",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "课堂任务展示作业（待批改）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "预置发布版本可见",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "双师课堂入口（自主课题）可见",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "双师课堂 tab 显示老师课堂卡片",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "双师课堂 tab 显示预置回退说明",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "双师课堂 tab 显示自主双师入口",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "最近课堂初始为空",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "URL 带 tab 参数（刷新可恢复）",
+      "ok": true,
+      "detail": "http://127.0.0.1:5202/#/student/classroom?tab=dual"
+    },
+    {
+      "name": "我的班级：班级信息 + 成员 + 演示标注",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "真实发布记录：同 deck 两个版本都可见",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "最新版 v2 排在前面 + 历史版本标记",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "他班发布记录被过滤（班级隔离）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "发布后不再显示预置回退说明",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "打开最新发布记录（URL 为记录 id）",
+      "ok": true,
+      "detail": "http://127.0.0.1:5202/#/student/dual/pub-mock-v2"
+    },
+    {
+      "name": "按发布快照渲染：教师改过的标题可见",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "发布页显示版本 v2 与班级",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "第 1 / 6 页",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "翻 3 页后到第 4 / 6 页",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "进度写回 progress[deckId]（page/total/pct/updatedAt/recordId）",
+      "ok": true,
+      "detail": "{'page': 4, 'total': 6, 'pct': 67, 'updatedAt': 1795201456869, 'openedAt': 1795201454405, 'recordId': 'pub-mock-v2', 'title': '椭圆及其标准方程（张老师课堂修订版）', 'status': 'opened'}"
+    },
+    {
+      "name": "opened 记录为对象数组",
+      "ok": true,
+      "detail": "[{'recordId': 'pub-mock-v2', 'deckId': 'deck-ellipse', 'deckTitle': '椭圆及其标准方程（张老师课堂修订版）', 'className': '高二 (1) 班', 'version': 2, 'source': 'published', 'at': 1795201454413}]"
+    },
+    {
+      "name": "字幕逐段出现（已推进多段）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "助教命中本页讲稿",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "助教未命中明确说明",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "刷新后回到同一页（第 4 / 6 页）",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "刷新后助教问答仍在",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "刷新后进度与播放位置持久化",
+      "ok": true,
+      "detail": "{'progress': {'page': 4, 'total': 6, 'pct': 67, 'updatedAt': 1795201461249, 'openedAt': 1795201454405, 'recordId': 'pub-mock-v2', 'title': '椭圆及其标准方程（张老师课堂修订版）', 'status': 'opened'}, 'playback': {'page': 4, 'segmentIndex': 2, 'updatedAt': 1795201461249}}"
+    },
+    {
+      "name": "继续讲解后字幕推进",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "暂停讲解生效",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "返回课堂落在双师 tab",
+      "ok": true,
+      "detail": "http://127.0.0.1:5202/#/student/classroom?tab=dual"
+    },
+    {
+      "name": "作业任务显示待批改",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "作业回看：答卷图片真实加载",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "作业回看：待批改 + 题号 + 评分细则",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "教师确认批改后学生端同步得分",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "批改详情：得分 5 + 教师评语",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "刷新后批改结果仍一致",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "自主课题进入双师课堂",
+      "ok": true,
+      "detail": "http://127.0.0.1:5202/#/student/dual/self-ellipse"
+    },
+    {
+      "name": "自主课题也写回进度",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "上传材料（sha256 命中）进入材料课堂",
+      "ok": true,
+      "detail": "http://127.0.0.1:5202/#/student/dual/self-material"
+    },
+    {
+      "name": "材料课堂写回进度",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "材料课堂展示上传的题目原图",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "材料课堂助教问答库可用",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "非演示材料不伪造识别结果",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "最近课堂记录已出现",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "主持人工具旧检查点 /student/dual/dual-deck-0 可打开",
+      "ok": true,
+      "detail": ""
+    },
+    {
+      "name": "零网络请求（fetch/XHR 计数）",
+      "ok": true,
+      "detail": "net=0"
+    },
+    {
+      "name": "控制台无错误",
+      "ok": true,
+      "detail": "[]"
+    }
+  ],
+  "console": []
+}

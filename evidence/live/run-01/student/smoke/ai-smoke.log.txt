@@ -1,0 +1,20 @@
+login: {"demo_code": "642232", "url": "http://127.0.0.1:5176/dialog"}
+text reply (109 chars): 我可以帮你梳理数学概念、拆解解题步骤，还能针对你近期的错题和薄弱点（比如导数定义、单调区间这类）做专项讲解；也能帮你生成适配高一进度的针对性练习题，还会用分步推导的方式带你理清思路。
+
+AI 生成
+· 仅供参考，请核实
+vision image selected via file chooser
+attach_row='vision-smoke.png
+解析中
+×' parsed=True
+vision reply (100 chars): 你是想让我分析这道解方程的题目吗？先和你确认一下，这道题是解一元一次方程 
+3
+𝑥
+−
+5
+=
+10
+3x−5=10，你是哪里不太清楚，还是想知道具体的解题步骤呀？
+
+AI 生成
+· 仅供参考，请核实

@@ -1,0 +1,12 @@
+{
+ "name": "revalidate-new",
+ "checks": 13,
+ "passed": 13,
+ "failed": [],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [],
+ "shots": 4
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "role": "student",
+    "phone": "13800001001",
+    "url": "http://127.0.0.1:5176/dialog",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "demo_code": "828862",
+    "attempt": 1
+  },
+  {
+    "role": "teacher",
+    "phone": "13800001002",
+    "url": "http://127.0.0.1:5176/teacher-v3/prep",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "demo_code": "161946",
+    "attempt": 1
+  },
+  {
+    "role": "researcher",
+    "phone": "13800001003",
+    "url": "http://127.0.0.1:5176/research-workspace",
+    "title": "科研端 · 启动页",
+    "demo_code": "519776",
+    "attempt": 1
+  }
+]

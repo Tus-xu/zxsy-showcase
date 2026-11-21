@@ -1,0 +1,14 @@
+/* ===== 教师端补充样式（壳层主体样式来自原系统 teacher-v3.css） ===== */
+.tv3-page {
+  overflow-y: auto;
+}
+.tv3-page--prep {
+  overflow: hidden;
+}
+.tv3-nav__item--btn {
+  font-family: inherit;
+  font-size: 13px;
+}
+.tv3-nav__item--btn.is-active {
+  font-weight: 700;
+}

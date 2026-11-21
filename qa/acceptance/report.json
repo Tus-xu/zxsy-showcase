@@ -1,0 +1,204 @@
+{
+ "run": "20261121-045202",
+ "entry": "C:\\Users\\徐超\\AppData\\Local\\Temp\\mathesis-accept-20261121-045202\\release\\开始演示.html",
+ "checks": [
+  {
+   "name": "断网冷启动：双击入口进入登录页",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "A 上传：改名后的原图按内容哈希识别",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "A 首轮：识别题面并引导提问（不直接给答案）",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "A 主线：正确作答到达结论",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "A 刷新恢复：结论与轮次保留",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "A 典型错答：助教追问而非直接判错",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "A 求助：只提示当前一步且不泄底",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "重名异图：内容不符给出可恢复提示且不进入会话",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "B 主线：多选组合 B、D 判对并收束",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "B 部分正确：只选 B 被保留并追问 D 项",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "C 主线：61/25 判对并收束",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "压力：乱序上传（题3传到A）被拒且不进入会话",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "压力：连点发送只提交一次",
+   "ok": true,
+   "detail": "出现 1 次（含本轮提问引用）"
+  },
+  {
+   "name": "压力：返回后重进仍恢复原会话",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "教师：页面标题可编辑并显示已保存",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "教师：导出 PPTX 与 PDF 真实下载",
+   "ok": true,
+   "detail": "115921/36690"
+  },
+  {
+   "name": "教师：发布到班级成功并显示版本",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "教师：导出教案 DOCX 真实下载",
+   "ok": true,
+   "detail": "11823"
+  },
+  {
+   "name": "跨端：学生课堂出现教师发布的新版本",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "跨端：学生打开同一课件的修订页标题",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "跨端：教师未发布的后续修改不渗入学生旧版本",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "跨端：教师课堂监测读取学生进度",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "批改：确认后写入终分并进入已确认",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "跨端：学生回看教师确认的分数与评语",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "科研阅读：选中段落提问得到结构化回答与证据来源",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "科研阅读：定位原文与加入笔记可操作",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "科研公式检查：√(x²)=x 缺少 x≥0 条件并给出反例（三案例结构化结论）",
+   "ok": true,
+   "detail": "sqrt-square:OK/cancel-zero:OK/complete-square:OK"
+  },
+  {
+   "name": "科研写作：可恢复编译错误被定位",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "科研写作：修正后重新编译成功",
+   "ok": true,
+   "detail": ""
+  },
+  {
+   "name": "科研写作：导出真实 PDF",
+   "ok": true,
+   "detail": "26088"
+  },
+  {
+   "name": "断网：整个流程无任何 http(s) 网络请求",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "稳定性：无未捕获页面错误",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "稳定性：无线程 console error",
+   "ok": true,
+   "detail": "[]"
+  },
+  {
+   "name": "产物：PPTX 可打开、页数正确且含修订标题",
+   "ok": true,
+   "detail": "6 页"
+  },
+  {
+   "name": "产物：DOCX 可打开且含教案章节",
+   "ok": true,
+   "detail": "53"
+  },
+  {
+   "name": "产物：PDF 可打开、可提取中文且含修订标题",
+   "ok": true,
+   "detail": "2 页 / 1506 字"
+  },
+  {
+   "name": "产物：科研写作 PDF 可打开且非空",
+   "ok": true,
+   "detail": "1 页"
+  }
+ ],
+ "http_requests": [],
+ "console_errors": [],
+ "page_errors": [],
+ "passed": 37,
+ "total": 37,
+ "artifacts": [
+  "final-椭圆-params.pdf",
+  "final-椭圆-params.pptx",
+  "验收-椭圆教案.docx",
+  "验收-椭圆课件.pdf",
+  "验收-椭圆课件.pptx",
+  "验收-科研写作.pdf"
+ ]
+}

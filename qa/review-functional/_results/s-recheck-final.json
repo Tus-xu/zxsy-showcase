@@ -1,0 +1,64 @@
+{
+ "name": "s-recheck-final",
+ "checks": 36,
+ "passed": 34,
+ "failed": [
+  {
+   "label": "主持人工具不再暴露旧工程绝对路径",
+   "ok": false,
+   "detail": ""
+  },
+  {
+   "label": "批改队列 3 份",
+   "ok": false,
+   "detail": "count=0"
+  }
+ ],
+ "net": [],
+ "ws": [],
+ "console_errors": [],
+ "page_errors": [],
+ "log": [
+  {
+   "t": "04:55:53",
+   "step": "复验-登录页",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/login"
+  },
+  {
+   "t": "04:55:54",
+   "step": "复验-主持人工具路径",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/login"
+  },
+  {
+   "t": "04:55:57",
+   "step": "复验-批改工作台直达",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/assign"
+  },
+  {
+   "t": "04:56:03",
+   "step": "复验-PPT改参",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:56:07",
+   "step": "复验-导出完成",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:56:10",
+   "step": "复验-发布成功",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher/prep/w/prep-ellipse/ppt"
+  },
+  {
+   "t": "04:56:20",
+   "step": "复验-学生双师派生内容",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/student/dual/pub-1795208168737"
+  },
+  {
+   "t": "04:56:30",
+   "step": "复验-科研端无浮标",
+   "url": "file:///C:/Users/%E5%BE%90%E8%B6%85/AppData/Local/Temp/ms-final-recheck/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research/read?project=p-fem"
+  }
+ ],
+ "shots": 10
+}
