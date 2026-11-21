@@ -64,6 +64,12 @@ def assemble():
     shutil.copyfile(ENTRY_SRC, os.path.join(RELEASE, '开始演示.html'))
 
     mat = os.path.join(RELEASE, '素材')
+    if os.path.isdir(mat):
+        # 先清空：旧版自造素材（如演示答卷图片）必须撤下，不能随包
+        for fn in os.listdir(mat):
+            fp = os.path.join(mat, fn)
+            if os.path.isfile(fp):
+                os.remove(fp)
     os.makedirs(mat, exist_ok=True)
     for i in (1, 2, 3):
         src = os.path.join(PLANS, f'题{i}.png')
@@ -71,6 +77,17 @@ def assemble():
             shutil.copyfile(src, os.path.join(mat, f'题{i}.png'))
         else:
             print(f'  ⚠ 缺少原题图 {src}')
+
+    # 素材清单（只登记随包的三张题图；哈希匹配仅内部使用，界面不显示）
+    manifest = ['# 素材 SHA-256 清单', '', '| 文件 | 字节 | SHA-256 |', '|---|---|---|']
+    for i in (1, 2, 3):
+        p = os.path.join(mat, f'题{i}.png')
+        if os.path.exists(p):
+            manifest.append(f'| 题{i}.png | {os.path.getsize(p)} | `{sha256(p)}` |')
+    manifest += ['', '说明：三张题图与现役 run-02 上传采证所用文件逐字节一致；'
+                 '离线回放层按上传请求里的 sha256 匹配回放数据（匹配逻辑仅在内部，界面不显示哈希）。']
+    with open(os.path.join(mat, 'SHA256清单.md'), 'w', encoding='utf-8') as f:
+        f.write('\n'.join(manifest) + '\n')
 
     for name in ('主持人手册.md', '现役离线对照表.md', '未通过项.md'):
         src = os.path.join(ROOT, name)
