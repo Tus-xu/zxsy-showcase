@@ -113,7 +113,11 @@ async function submit() {
         : redirectFor(activeRole)
     // 科研端深链：整页跳转（location.assign）直达 5176/research-app/… 科研应用；
     // 平台 SPA 的 vue-router 不承载 /research-app 路径，SPA push 会被 catch-all 吞掉。
-    if (destination.startsWith('/research')) { window.location.assign(destination); return }
+    // 离线单文件（file://）无服务端，整页跳转会落到不存在的文件路径 → 改走 hash 路由。
+    if (destination.startsWith('/research')) {
+      if (import.meta.env.VITE_OFFLINE === '1') { await router.push(destination); return }
+      window.location.assign(destination); return
+    }
     await router.push(destination)
   } catch (value) { showError(value) } finally { loading.value = false }
 }
