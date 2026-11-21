@@ -1,0 +1,144 @@
+{
+ "case": "A",
+ "steps": [
+  {
+   "idx": 0,
+   "how": null,
+   "text": "",
+   "reply_ok": true,
+   "ai_rows": 11,
+   "matched": true,
+   "reply_head": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～ 我先帮你回忆下这类题的核心思路：\n\n双曲线的基本参数关系：对于标准双曲线，实轴长是 \n2\n𝑎\n2a，虚轴长是",
+   "expect_head": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～我先帮你回"
+  },
+  {
+   "idx": 1,
+   "how": null,
+   "text": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/"
+  },
+  {
+   "idx": 1,
+   "how": "composer",
+   "text": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/",
+   "reply_ok": true,
+   "ai_rows": 12,
+   "matched": false,
+   "reply_head": "你这一步化简得很干净：\n2\n𝑏\n=\n7\n⋅\n2\n𝑎\n2b=\n7\n\t​\n\n⋅2a 两边约掉 2，确实得到 \n𝑏\n𝑎\n=\n7\na\nb\n\t​\n\n=\n7\n\t​\n\n。接下来顺着这个结果往下推",
+   "expect_head": "你这一步化简得很干净：$2b=\\sqrt7\\cdot2a$两边约掉2，确实得到$"
+  },
+  {
+   "idx": 2,
+   "how": null,
+   "text": "离心率 e = c/a，而双曲线里 c² = a² + b²。"
+  },
+  {
+   "idx": 2,
+   "how": "composer",
+   "text": "离心率 e = c/a，而双曲线里 c² = a² + b²。",
+   "reply_ok": true,
+   "ai_rows": 13,
+   "matched": false,
+   "reply_head": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：\n\n由 \n𝑐\n2\n=\n𝑎\n2\n+\n𝑏\n2\nc\n2\n=a\n2\n+b\n2\n 两边除以 \n𝑎\n2\na\n2\n，得\n\n",
+   "expect_head": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：由$c^"
+  },
+  {
+   "idx": 3,
+   "how": null,
+   "text": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D"
+  },
+  {
+   "idx": 3,
+   "how": "composer",
+   "text": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D",
+   "reply_ok": true,
+   "ai_rows": 14,
+   "matched": true,
+   "reply_head": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。\n\n🧾 把题目给我，我才能带你解——拍照、贴题、选题、AI 出",
+   "expect_head": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库"
+  },
+  {
+   "idx": 4,
+   "how": null,
+   "text": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2"
+  },
+  {
+   "idx": 4,
+   "how": "composer",
+   "text": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2",
+   "reply_ok": true,
+   "ai_rows": 15,
+   "matched": true,
+   "reply_head": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n\n🧭 引导式解题 · 先读题理解\n读题理解\n在题面上动笔：把你认为关键的部分标出来。\n圈",
+   "expect_head": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划"
+  },
+  {
+   "idx": 5,
+   "how": null,
+   "text": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D"
+  },
+  {
+   "idx": 5,
+   "how": "composer",
+   "text": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D",
+   "reply_ok": true,
+   "ai_rows": 16,
+   "matched": false,
+   "reply_head": "你刚才正确地把“虚轴长是实轴长的 \n7\n7\n\t​\n\n 倍”翻译成了 \n𝑏\n=\n7\n \n𝑎\nb=\n7\n\t​\n\na，这一步很关键。\n\n接下来想想：在双曲线里，\n𝑎\na、\n𝑏\nb 和半焦",
+   "expect_head": "你刚才正确地把“虚轴长是实轴长的$\\sqrt7$倍”翻译成了$b=\\sqrt7\\"
+  },
+  {
+   "idx": 6,
+   "how": null,
+   "text": "[式子] e=2√2"
+  },
+  {
+   "idx": 6,
+   "how": ".si-fallback input",
+   "text": "e=2√2",
+   "reply_ok": true,
+   "ai_rows": 17,
+   "matched": false,
+   "reply_head": "你写的 \n𝑒\n=\n2\n2\ne=2\n2\n\t​\n\n 里，\n𝑒\ne 对应的是 \n𝑐\n𝑎\na\nc\n\t​\n\n。双曲线中 \n𝑎\na、\n𝑏\nb、\n𝑐\nc 满足哪个关系式？\n\n💡 提示 · 窄追问",
+   "expect_head": "你写的$e=2\\sqrt2$里，$e$对应的是$\\frac{c}{a}$。双曲线"
+  },
+  {
+   "idx": 7,
+   "how": null,
+   "text": "[式子] e=2√2"
+  },
+  {
+   "idx": 7,
+   "how": ".si-fallback input",
+   "text": "e=2√2",
+   "reply_ok": true,
+   "ai_rows": 18,
+   "matched": true,
+   "reply_head": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。\n\n读题理解\n已知集合 A={1,2}，B={2,3}，则 A∩B 等于？\n二元判断\n已知集合 A=",
+   "expect_head": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。"
+  },
+  {
+   "idx": 8,
+   "how": null,
+   "text": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D"
+  },
+  {
+   "idx": 8,
+   "how": "composer",
+   "text": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D",
+   "reply_ok": true,
+   "ai_rows": 19,
+   "matched": true,
+   "reply_head": "先把这一小块讲给你——看完马上做下面的检验小题。\n\n🧭 先补 5 分钟：集合与常用逻辑用语\n前置缺口补课\n⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考\n看个最小例子\n\n第 1",
+   "expect_head": "先把这一小块讲给你——看完马上做下面的检验小题。"
+  }
+ ],
+ "turn_count": 9,
+ "att_ready": 1,
+ "terminal": {
+  "has_finish_card": false,
+  "has_remediation": true,
+  "tail": "一下（就 1 小题，过了马上回原题）\n\n已知函数 \n𝑔\n(\n𝑥\n)\n=\nlog\n⁡\n2\n𝑥\ng(x)=log\n2\n\t​\n\nx 的定义域为 \n𝑀\nM，值域为 \n𝑁\nN。判断 \n2\n2 与 \n𝑀\nM 的关系，以及 \n0\n0 与 \n𝑁\nN 的关系（用 \n∈\n∈ 或 \n∉\n∈\n/\n 表示）。\n\n作答这道检验题\n填空补全\n\n已知函数 \n𝑔\n(\n𝑥\n)\n=\nlog\n⁡\n2\n𝑥\ng(x)=log\n2\n\t​\n\nx 的定义域为 \n𝑀\nM，值域为 \n𝑁\nN。判断 \n2\n2 与 \n𝑀\nM 的关系，以及 \n0\n0 与 \n𝑁\nN 的关系（用 \n∈\n∈ 或 \n∉\n∈\n/\n 表示）。\n你的答案：\n\n \n空 1 ▾\n0/1 空已填\n填好了\n提交答案\n↩️ 回原题\n跳过补课，看这步怎么做\nAI 生成\n· 仅供参考，请核实\n03:18 · 自由对话\n我没思路\n来点提示\n直接看答案\n💡 试试这些提问\n▸\n0/4000\n发送\n✦"
+ },
+ "http_reqs": 0,
+ "page_errors": []
+}

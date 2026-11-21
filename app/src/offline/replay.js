@@ -10,7 +10,7 @@ import { getAccessToken, setAccessToken, setAuthScope } from '../api/authSession
 import { findFixture, IMAGE_MAP } from './fixtures'
 import { getSession, patch, setSession, store } from './state'
 import { handleFileRoute, handleUpload } from './handlers/files'
-import { noticeEvents, pickChatTurn, OFFLINE_NOTICE } from './handlers/agent'
+import { noticeEvents, pickChatTurn, conversationMessages, listConversations, OFFLINE_NOTICE } from './handlers/agent'
 
 const DEMO_CODE = '246810'
 const OFFLINE_TOKEN = 'offline-demo-token'
@@ -49,10 +49,24 @@ function jsonResponse(payload, status = 200) {
   if (payload && payload.__binary) {
     return new Response(payload.bytes, { status, headers: { 'Content-Type': payload.ct } })
   }
-  return new Response(typeof payload === 'string' ? payload : JSON.stringify(payload), {
+  let text = typeof payload === 'string' ? payload : JSON.stringify(payload)
+  // 采证到的外部图片（B 站封面等）直接换成 data URI：让 UI 从一开始就拿不到外网地址，
+  // 既保证断网 0 请求，也保证封面真实可显示（不伪造图片）。
+  if (text.includes('http')) text = inlineKnownImages(text)
+  return new Response(text, {
     status,
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   })
+}
+
+const IMAGE_URLS = Object.keys(IMAGE_MAP).sort((a, b) => b.length - a.length)
+
+function inlineKnownImages(text) {
+  let out = text
+  for (const url of IMAGE_URLS) {
+    if (out.includes(url)) out = out.split(url).join(IMAGE_MAP[url])
+  }
+  return out
 }
 
 function binaryPayload(rec) {
@@ -208,6 +222,10 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
     const r = handleUpload(body)
     return jsonResponse(r.payload, r.ok ? 200 : 404)
   }
+  // 预签名直传：现役 uploadInit 可能返回站内相对 upload_url，PUT 到位即视为「字节已收到」
+  if (method === 'PUT' && path.split('?')[0].startsWith('/api/files/')) {
+    return new Response('', { status: 200, headers: { ETag: '"offline"' } })
+  }
   const fileById = handleFileRoute(method, path)
   if (fileById) return jsonResponse(fileById)
 
@@ -224,6 +242,19 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
   }
 
   const role = currentRole()
+
+  // 会话列表 / 消息（离线演示会话与采证列表合并；刷新可恢复）
+  const p0 = path.split('?')[0]
+  if (method === 'GET' && p0 === '/api/agent/conversations') {
+    const base = findFixture(role, method, path) || findFixture(role, 'GET', '/api/agent/conversations')
+    return jsonResponse(listConversations(base?.text || '{}'))
+  }
+  const msgM = p0.match(/^\/api\/agent\/conversations\/([^/]+)\/messages$/)
+  if (method === 'GET' && msgM) {
+    const built = conversationMessages(msgM[1])
+    if (built) return jsonResponse(built)
+  }
+
   // 先按本角色，再按其它角色（跨端页面：学生课堂读取教师发布的同一对象）
   for (const r of [role, ...['teacher', 'student', 'researcher'].filter((x) => x !== role)]) {
     const fx = findFixture(r, method, path)
@@ -319,7 +350,30 @@ export function installReplay() {
 
   console.info('[offline] replay installed · role=', currentRole(), '· published=', (store.published || []).length)
 
+  patchHistory()
   installImageRewriter()
+}
+
+/**
+ * 现役 DialogView 在拿到 conversation_id 时直接 history.replaceState('/dialog/<id>')
+ * （`src/pages/student/DialogView.vue:166`）。file:// 下带路径的 replaceState 会抛
+ * SecurityError，导致该轮消息渲染中断。离线构建里改成写 hash（与 vue-router hash 模式一致）。
+ */
+function patchHistory() {
+  for (const name of ['replaceState', 'pushState']) {
+    const orig = history[name].bind(history)
+    history[name] = function (state, title, url) {
+      if (typeof url === 'string' && url.startsWith('/')) {
+        try {
+          location.hash = '#' + url
+          return undefined
+        } catch {
+          return undefined
+        }
+      }
+      return orig(state, title, url)
+    }
+  }
 }
 
 /**

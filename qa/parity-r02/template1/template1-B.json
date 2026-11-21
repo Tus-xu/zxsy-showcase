@@ -1,0 +1,104 @@
+{
+ "case": "B",
+ "turns": 9,
+ "steps": [
+  {
+   "idx": 0,
+   "input": "",
+   "how": "image-only-send",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 11,
+   "reply_head": "你上传的是一道关于正三棱柱的立体几何选择题，咱们一步步来分析：\n\n首先回忆正三棱柱的性质：底面是正三角形，侧棱垂直于底面",
+   "expect": "你上传的是一道关于正三棱柱的立体几何选择题咱们一"
+  },
+  {
+   "idx": 1,
+   "input": "正三棱柱里 AA₁⊥底面 ABC，所以 AA₁⊥BC；又 D 是正三角形 ABC 的 BC 中点，所",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 12,
+   "reply_head": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n\n🧭 引导式解题 · 先读题",
+   "expect": "先别急着算把题干里有用的条件划出来点选词块可多选"
+  },
+  {
+   "idx": 2,
+   "input": "BC 垂直于平面 AA₁D 内的两条相交直线 AD、AA₁，所以 BC⊥平面 AA₁D，B 成立。",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 13,
+   "reply_head": "你把「线面垂直的性质」和「线面垂直的判定」这两个方向用反了：你说“\n𝐵\n𝐶\nBC 垂直于平面 \n𝐴\n𝐴\n1\n𝐷\nAA\n1",
+   "expect": "你把线面垂直的性质和线面垂直的判定这两个方向用反"
+  },
+  {
+   "idx": 3,
+   "input": "[式子] CC1∥平面AA1D",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 14,
+   "reply_head": "你两次都盯着“\n𝐵\n𝐶\nBC 垂直于平面内两条线”这个方向，但题目第一句给的是 \n𝐴\n𝐴\n1\n⊥\nAA\n1\n\t​\n\n⊥ ",
+   "expect": "你两次都盯着BC垂直于平面内两条线这个方向但题目"
+  },
+  {
+   "idx": 4,
+   "input": "[式子] CC1∥平面AA1D",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 15,
+   "reply_head": "你这几次都卡在同一个地方，说明不是不会，是题目问的东西被绕过去了。我们把步子缩到最小：题目第一句问的是“AA₁⊥底面AB",
+   "expect": "你这几次都卡在同一个地方说明不是不会是题目问的东"
+  },
+  {
+   "idx": 5,
+   "input": "[式子] CC1∥平面AA1D",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 16,
+   "reply_head": "连续三次都写同一个式子，说明你卡在了“该证哪两条线的关系”上，不怪你，这一步确实容易看错对象。咱们先把问题缩小：题目第一",
+   "expect": "连续三次都写同一个式子说明你卡在了该证哪两条线的"
+  },
+  {
+   "idx": 6,
+   "input": "[式子] CC1∥平面AA1D",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": false,
+   "ai_rows": 17,
+   "reply_head": "你写的是 \n𝐶\n𝐶\n1\n∥\nCC\n1\n\t​\n\n∥ 平面 \n𝐴\n𝐴\n1\n𝐷\nAA\n1\n\t​\n\nD，但题目问的是：由 \n𝐴\n",
+   "expect": "你写的是CC1parallel平面AA1D但题目"
+  },
+  {
+   "idx": 7,
+   "input": "[式子] CC1∥平面AA1D",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 18,
+   "reply_head": "连续几次写同一个式子被退回，确实会有点闷。咱们把步子再拆小一点：先只看题干里“\n𝐴\n𝐴\n1\n⊥\nAA\n1\n\t​\n\n⊥ 底",
+   "expect": "连续几次写同一个式子被退回确实会有点闷咱们把步子"
+  },
+  {
+   "idx": 8,
+   "input": "[式子] CC1∥平面AA1D",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": false,
+   "ai_rows": 19,
+   "reply_head": "你连续三次都写 \n𝐶\n𝐶\n1\n∥\nCC\n1\n\t​\n\n∥ 平面 \n𝐴\n𝐴\n1\n𝐷\nAA\n1\n\t​\n\nD，说明你心里想的是“",
+   "expect": "你连续三次都写CC1parallel平面AA1D"
+  }
+ ],
+ "terminal": {
+  "finish_card": false,
+  "remediation": true,
+  "tail": "棱 AA₁ 与底面 ABC 的位置关系，以及底面内的直线 BC\n💡 提示 · 揭示该步\n🔍 错因分析\n这步答错了\n计算错误\n直线与平面垂直的性质\n读题理解\n用下面的点选面板写出这一步的式子。\n式子输入\n写出这一步的完整式子（点选面板输入）\nAA1perpBCx^2()/√π+-\n清空\n写好了\n不知道怎么写\n第 1/5 步\n引导中\n直线与平面垂直的性质\n本题步骤较多，已尽量精简引导\nAI 生成\n· 仅供参考，请核实\n03:59 · 自由对话\n我没思路\n来点提示\n直接看答案\n💡 试试这些提问\n▸\n0/4000\n发送\n✦"
+ },
+ "http": 0,
+ "errors": [],
+ "att_ready": 1
+}

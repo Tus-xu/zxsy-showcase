@@ -91,3 +91,86 @@ export function noticeEvents(message) {
     { event: 'done', data: {} },
   ]
 }
+
+/* ─────────── 会话列表与消息（刷新后恢复用） ─────────── */
+
+function sseText(raw) {
+  let out = ''
+  for (const e of parseSse(raw)) {
+    if (e.event === 'token') out += e.data?.text || ''
+    else if (e.event === 'message') out += e.data?.text || ''
+  }
+  return out
+}
+
+function convMeta(flow) {
+  const first = flow?.turns?.[0]?.sse
+  const meta = first ? parseSse(first).find((e) => e.event === 'meta')?.data : null
+  return meta || {}
+}
+
+/** GET /api/agent/conversations —— 采证列表 + 离线演示新建的会话 */
+export function listConversations(basePayload) {
+  let payload = null
+  try { payload = JSON.parse(basePayload) } catch { payload = null }
+  const items = Array.isArray(payload?.data?.items) ? payload.data.items.slice() : []
+  const chats = store.chat || {}
+  for (const [convId, cur] of Object.entries(chats)) {
+    if (items.some((x) => (x.id || x.conversation_id) === convId)) continue
+    const flow = FLOWS[cur.case]
+    const meta = convMeta(flow)
+    items.unshift({
+      id: convId,
+      title: '请分析我上传的文件',
+      created_at: new Date().toISOString(),
+      updated_at: new Date().toISOString(),
+      message_count: cur.turn * 2,
+      skill: meta.skill || 'chat',
+    })
+  }
+  return { code: 0, message: 'ok', data: { items, hasMore: false } }
+}
+
+/** GET /api/agent/conversations/{id}/messages —— 用采证 SSE 还原该会话的消息 */
+export function conversationMessages(convId) {
+  const cur = (store.chat || {})[convId]
+  if (!cur) return null
+  const flow = FLOWS[cur.case]
+  if (!flow) return null
+  const meta0 = convMeta(flow)
+  const items = []
+  const t0 = Date.now() - 3600_000
+  flow.turns.forEach((turn, i) => {
+    const text = sseText(turn.sse)
+    const evs = parseSse(turn.sse)
+    const meta = evs.find((e) => e.event === 'meta')?.data || {}
+    const fig = evs.filter((e) => e.event === 'figure').map((e) => e.data)
+    items.push({
+      id: `u-${i}`,
+      role: 'user',
+      clientMsgId: `c-${i}`,
+      createdAt: new Date(t0 + i * 60_000).toISOString(),
+      envelope: {
+        role: 'user',
+        blocks: [{ type: 'markdown', content: turn.input || '请分析我上传的文件' }],
+        msg_id: `m-${i}`,
+      },
+      attachments: turn.attachment ? [{ file_id: flow.upload_file_id || '', kind: 'image', filename: flow.image?.name || '题图.png' }] : [],
+      thinking: null,
+    })
+    items.push({
+      id: `a-${i}`,
+      role: 'assistant',
+      clientMsgId: `ai-${i}`,
+      createdAt: new Date(t0 + i * 60_000 + 5000).toISOString(),
+      envelope: {
+        meta: { skill: meta.skill || 'chat', conversation_id: convId, msg_id: `am-${i}` },
+        blocks: [{ type: 'markdown', content: text }],
+        figures: fig,
+      },
+      attachments: [],
+      thinking: null,
+    })
+  })
+  return { code: 0, message: 'ok', data: { items, hasMore: false } }
+}

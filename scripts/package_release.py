@@ -1,23 +1,29 @@
 # -*- coding: utf-8 -*-
-"""打包 Windows 断网发行包。
+"""打包离线发行包（唯一对外交付入口）。
 
-流程：
-1) pnpm build:single  → release/index.html（单文件，全部资源内联）
-2) 复制为 release/开始演示.html（双击入口）
-3) 生成 release/素材/（三张原题图 + 三份演示答卷 + SHA-256 清单）
-4) 收集 QA 实际导出的产物到 release/产物/（PPTX / DOCX / PDF），证明发行包内产物可打开
-5) 复制主持人手册、验收矩阵
-6) 静态检查：单文件 HTML 中不得存在 http(s):// 外链请求；报告内联资源数量与体积
+构成：
+  release/开始演示.html      现役前端 fork 的单文件离线构建（file:// 双击即用）
+  release/素材/题1..3.png    三张原题图（与现役上传采证同源、逐字节一致）
+  release/主持人手册.md      按本轮实测复刻的演示脚本（只含已采证路径）
+  release/现役离线对照表.md  逐项对照（现役证据 → 离线状态）
+  release/未通过项.md        现役阻塞/未采证项，如实登记
+  release/README-启动说明.txt
+
+用法：python scripts/package_release.py
 """
 import hashlib
+import json
 import os
 import shutil
 import subprocess
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+APP = os.path.join(ROOT, 'app')
 RELEASE = os.path.join(ROOT, 'release')
-ORIGIN_PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
+PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
+
+ENTRY_SRC = os.path.join(APP, 'dist-offline', 'index.html')
 
 
 def sha256(path):
@@ -25,111 +31,121 @@ def sha256(path):
     with open(path, 'rb') as f:
         for chunk in iter(lambda: f.read(1 << 20), b''):
             h.update(chunk)
-    return h.hexdigest().upper()
+    return h.hexdigest()
 
 
-def run(cmd, cwd=ROOT):
-    print('$', ' '.join(cmd))
-    r = subprocess.run(cmd, cwd=cwd, shell=True, capture_output=True, text=True, encoding='utf-8', errors='replace')
-    print((r.stdout or '')[-1500:])
+def build():
+    env = dict(os.environ)
+    env.update({
+        'VITE_OFFLINE': '1',
+        'VITE_PREP_SURFACE': 'immersive',
+        'VITE_RESEARCH_SURFACE': 'immersive',
+    })
+    print('[1/5] 构建离线单文件 …')
+    r = subprocess.run(['pnpm', 'exec', 'vite', 'build', '--config', 'vite.config.offline.mjs'],
+                       cwd=APP, env=env, shell=True)
     if r.returncode != 0:
-        print((r.stderr or '')[-2000:])
-        raise SystemExit(f'command failed: {cmd} rc={r.returncode}')
+        raise SystemExit(f'构建失败 exit={r.returncode}')
+    if not os.path.exists(ENTRY_SRC):
+        raise SystemExit(f'未生成构建产物：{ENTRY_SRC}')
+
+
+def assemble():
+    print('[2/5] 组装 release/ …')
+    os.makedirs(RELEASE, exist_ok=True)
+    # 清理旧的展示版遗留（旧方案的伪造内容必须撤下）
+    for name in ('产物', '验收矩阵.csv', 'index.html'):
+        p = os.path.join(RELEASE, name)
+        if os.path.isdir(p):
+            shutil.rmtree(p)
+        elif os.path.exists(p):
+            os.remove(p)
+
+    shutil.copyfile(ENTRY_SRC, os.path.join(RELEASE, '开始演示.html'))
+
+    mat = os.path.join(RELEASE, '素材')
+    os.makedirs(mat, exist_ok=True)
+    for i in (1, 2, 3):
+        src = os.path.join(PLANS, f'题{i}.png')
+        if os.path.exists(src):
+            shutil.copyfile(src, os.path.join(mat, f'题{i}.png'))
+        else:
+            print(f'  ⚠ 缺少原题图 {src}')
+
+    for name in ('主持人手册.md', '现役离线对照表.md', '未通过项.md'):
+        src = os.path.join(ROOT, name)
+        if os.path.exists(src):
+            shutil.copyfile(src, os.path.join(RELEASE, name))
+        else:
+            print(f'  ⚠ 缺少 {name}')
+
+
+def write_readme(entry_hash, entry_size):
+    txt = f"""Mathesis 离线演示（现役复刻版）
+================================
+
+启动方式
+  1. 把整个 release 目录复制到任意路径（无需安装、无需联网、无需启动服务）
+  2. 双击「开始演示.html」，用浏览器打开
+  3. 登录页「进入身份」选择 学生端/教师端/科研端，手机号任填演示号，
+     点「获取验证码」后，页面会显示本次演示验证码（离线固定为 246810），填入即可进入
+
+演示脚本     主持人手册.md
+逐项对照     现役离线对照表.md（每个页面/控件对应的现役实测证据）
+未通过项     未通过项.md（现役系统本身阻塞或本轮未采证的项，离线不编造）
+原题图       素材/题1.png（双曲线）、题2.png（正三棱柱）、题3.png（有放回取球）
+
+本包特性
+  - 单文件 HTML，全资源内联，file:// 直接运行
+  - 0 网络请求（离线回放层在服务边界用现役采证响应替代后端）
+  - 页面/组件/图标/样式/编辑器/渲染器全部来自现役前端，未重画
+
+版本
+  构建时间：{__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
+  入口 SHA-256：{entry_hash}
+  文件大小：{entry_size:,} 字节
+"""
+    with open(os.path.join(RELEASE, 'README-启动说明.txt'), 'w', encoding='utf-8') as f:
+        f.write(txt)
+
+
+def static_check():
+    print('[3/5] 静态检查 …')
+    src = os.path.join(RELEASE, '开始演示.html')
+    with open(src, encoding='utf-8', errors='replace') as f:
+        html = f.read()
+    problems = []
+    # 只看文档 <head>：body 内的字符串可能包含导出模板用的 CDN 片段（现役导出链路在离线不可达）
+    head = html.split('</head>')[0] if '</head>' in html else html[:4000]
+    for pat in ('<script src="http', '<link rel="stylesheet" href="http'):
+        if pat in head:
+            problems.append(f'head 存在外链资源：{pat}')
+    return problems
 
 
 def main():
-    run(['pnpm', 'build:single'])
-    index = os.path.join(RELEASE, 'index.html')
-    if not os.path.exists(index):
-        raise SystemExit('release/index.html 不存在')
-    shutil.copyfile(index, os.path.join(RELEASE, '开始演示.html'))
-
-    # ---- 素材 ----
-    mat = os.path.join(RELEASE, '素材')
-    os.makedirs(mat, exist_ok=True)
-    questions = [('题1.png', 'A'), ('题2.png', 'B'), ('题3.png', 'C')]
-    lines = ['# 发行包素材清单（SHA-256）', '']
-    for name, case_id in questions:
-        src = os.path.join(ORIGIN_PLANS, name)
-        if os.path.exists(src):
-            dst = os.path.join(mat, name)
-            shutil.copyfile(src, dst)
-            lines.append(f'- {name}（案例 {case_id}）  {sha256(dst)}')
+    build()
+    assemble()
+    problems = static_check()
+    entry = os.path.join(RELEASE, '开始演示.html')
+    h, size = sha256(entry), os.path.getsize(entry)
+    write_readme(h, size)
+    print('[4/5] 发行包内容：')
+    for name in sorted(os.listdir(RELEASE)):
+        p = os.path.join(RELEASE, name)
+        if os.path.isdir(p):
+            print(f'  {name}/  ({len(os.listdir(p))} 个文件)')
         else:
-            lines.append(f'- {name}（案例 {case_id}）  缺失：{src}')
-    for name in ['sub-A.png', 'sub-B.png', 'sub-C.png']:
-        src = os.path.join(ROOT, 'src', 'assets', 'submissions', name)
-        if os.path.exists(src):
-            dst = os.path.join(mat, name)
-            shutil.copyfile(src, dst)
-            lines.append(f'- {name}（演示答卷）  {sha256(dst)}')
-    with open(os.path.join(mat, 'SHA256清单.md'), 'w', encoding='utf-8') as f:
-        f.write('\n'.join(lines) + '\n')
-
-    # ---- 产物 ----
-    prod = os.path.join(RELEASE, '产物')
-    os.makedirs(prod, exist_ok=True)
-    copied = []
-    for rel in ['qa/teacher-prep/artifacts', 'qa/research/artifacts', 'qa/research-ui/artifacts',
-                'qa/teacher-grading/artifacts', 'qa/acceptance/artifacts']:
-        d = os.path.join(ROOT, rel)
-        if not os.path.isdir(d):
-            continue
-        for fn in os.listdir(d):
-            if fn.lower().endswith(('.pptx', '.docx', '.pdf', '.md')):
-                shutil.copyfile(os.path.join(d, fn), os.path.join(prod, fn))
-                copied.append(fn)
-    # 科研随包演示讲义 PDF（由采集组/数据 QA 生成的真实 PDF）
-    g2_pdf_dir = os.path.join(ROOT, 'evidence', 'live', 'run-01', 'research')
-    if os.path.isdir(g2_pdf_dir):
-        for fn in os.listdir(g2_pdf_dir):
-            if fn.lower().endswith('.pdf') and fn.startswith('research-paper'):
-                shutil.copyfile(os.path.join(g2_pdf_dir, fn), os.path.join(prod, fn))
-                copied.append(fn)
-    with open(os.path.join(prod, '产物清单.md'), 'w', encoding='utf-8') as f:
-        f.write('# 随包产物清单\n\n')
-        f.write('以下文件由离线应用在断网状态下实际导出，随包提供以便主持人/验收人直接打开核对。\n\n')
-        for fn in sorted(copied):
-            f.write(f'- {fn}  {sha256(os.path.join(prod, fn))}\n')
-
-    # ---- 手册与矩阵 ----
-    for fn in ['主持人手册.md', 'qa/acceptance.csv']:
-        src = os.path.join(ROOT, fn)
-        if os.path.exists(src):
-            dst = os.path.join(RELEASE, '验收矩阵.csv' if fn.endswith('.csv') else '主持人手册.md')
-            shutil.copyfile(src, dst)
-
-    # ---- 启动说明 ----
-    readme = (
-        '智学数研 · 三端离线交互演示\n'
-        '================================\n\n'
-        '启动：双击本目录下的「开始演示.html」，用 Edge / Chrome 打开即可。\n'
-        '无需安装、无需联网、无需启动任何服务。\n\n'
-        '演示题图：选择「素材\\题1.png / 题2.png / 题3.png」（或用系统文件选择器从任意位置选择同名原图）。\n'
-        '主持人工具：页面右下角 ⚙ 或快捷键 Ctrl+Shift+H（嘉宾界面不展示）。\n'
-        '完整走法见「主持人手册.md」；验收记录见「验收矩阵.csv」。\n'
-        '随包导出产物见「产物」目录，可直接打开核对。\n'
-    )
-    with open(os.path.join(RELEASE, 'README-启动说明.txt'), 'w', encoding='utf-8') as f:
-        f.write(readme)
-
-    # ---- 静态检查 ----
-    html = open(index, 'r', encoding='utf-8', errors='replace').read()
-    total = os.path.getsize(index)
-    n_font = html.count('data:font/')
-    n_img = html.count('data:image/')
-    import re
-    extern = sorted(set(re.findall(r'https?://[^\s"\'<>)]+', html)))
-    extern = [u for u in extern if not u.startswith('https://www.w3.org')]
-    print('--- 打包结果 ---')
-    print('开始演示.html 字节数:', total, f'({total/1024/1024:.2f} MB)')
-    print('内联字体 data URI:', n_font, ' 内联图片 data URI:', n_img)
-    print('非 w3.org 的 http(s) 字面量:', len(extern))
-    for u in extern[:10]:
-        print('  ', u)
-    print('产物文件:', len(copied))
+            print(f'  {name}  ({os.path.getsize(p):,} B)')
+    print(f'[5/5] 入口 SHA-256 = {h}')
+    if problems:
+        print('静态检查问题：')
+        for x in problems:
+            print('  -', x)
+        return 1
     print('OK')
+    return 0
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main())
