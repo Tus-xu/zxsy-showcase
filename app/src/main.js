@@ -3,7 +3,11 @@ import { createPinia } from 'pinia'
 import App from './App.vue'
 // 离线发行：必须在任何业务请求之前安装本地回放层（服务边界接本地数据）
 import { installReplay } from './offline/replay'
-if (import.meta.env.VITE_OFFLINE === '1') installReplay()
+import { installHostConsole } from './offline/host'
+if (import.meta.env.VITE_OFFLINE === '1') {
+  installReplay()
+  installHostConsole()
+}
 import { router } from './router'
 import { setAccessToken } from './api/authSession'
 import { resolveMockStartupIdentity, resolveMockUser } from './config/mockIdentity'

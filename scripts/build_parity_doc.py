@@ -181,7 +181,29 @@ def main():
         lines.append('明细：`qa/audit-r02/INVENTORY.csv`（194 行，含 file:line 与四分类）、`qa/audit-r02/AUDIT.md`。\n')
 
     # 6. 证据索引
-    lines.append('## 6. 证据索引\n')
+    # 7. 交互与断网核对
+    lines.append('## 7. 交互与断网核对（发行包实测）\n')
+    sc_path = os.path.join(ROOT, 'qa', 'release-audit', 'self-check.json')
+    au_path = os.path.join(ROOT, 'qa', 'release-audit', 'audit.json')
+    if os.path.exists(sc_path):
+        sc = json.load(open(sc_path, encoding='utf-8'))
+        lines.append('| 核对项 | 结果 |')
+        lines.append('|---|---|')
+        lines.append(f"| 嘉宾界面主持人浮标 | {sc.get('guest_no_host_fab', '?')} 个（应为 0） |")
+        lines.append(f"| 刷新后会话恢复 | 学生对话 {sc.get('ai_before_reload')} 条 → 刷新后 {sc.get('ai_after_reload')} 条；同一会话：{sc.get('reload_same_conv')} |")
+        lines.append(f"| 主持人快捷键 Ctrl+Shift+H | {'可打开' if sc.get('host_panel_opened') else '未打开'} |")
+        lines.append(f"| 教师工作台刷新 | {'正常' if sc.get('teacher_after_reload_ok') else '异常'} |")
+        lines.append(f"| 旧版自造文案残留 | {sc.get('fabricated_hits') or '无'} |")
+        lines.append(f"| 页面错误 | {sc.get('total_page_errors', 0)} |")
+        lines.append('')
+    if os.path.exists(au_path):
+        au = json.load(open(au_path, encoding='utf-8'))
+        t = au.get('totals', {})
+        lines.append('**断网审计**（`qa/release-audit/audit_release.py`）：'
+                     f"覆盖 {t.get('routes_checked')} 条路由 + 样板一全流程；"
+                     f"http(s)/ws 请求 **{t.get('http_requests')} 个**、pageerror **{t.get('page_errors')} 个**。\n")
+
+    lines.append('## 8. 证据索引\n')
     lines.append('| 内容 | 位置 |')
     lines.append('|---|---|')
     lines.append('| 现役三端实测（run-02） | `evidence/live/run-02/student/`、`teacher/`、`research/` |')

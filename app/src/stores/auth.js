@@ -51,6 +51,18 @@ export const useAuthStore = defineStore('auth', {
       this.status = 'bootstrapping'
       this.bootstrapPromise = (async () => {
         try {
+          // 离线发行：file:// 下没有 cookie，现役 refreshSession 依赖 ma_csrf 必然失败。
+          // 这里直接用本地演示会话恢复身份（仅 VITE_OFFLINE=1 生效，现役行为不变）。
+          if (import.meta.env.VITE_OFFLINE === '1') {
+            const { getSession } = await import('../offline/state')
+            const s = getSession()
+            if (s?.user) {
+              setAccessToken('offline-demo-token')
+              if (s.role) setAuthScope(s.role)
+              this.applyIdentity(s.user)
+              return
+            }
+          }
           await authApi.refreshSession()
           this.applyIdentity(await authApi.me())
         } catch {

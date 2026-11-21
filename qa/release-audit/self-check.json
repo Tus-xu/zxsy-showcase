@@ -1,0 +1,18 @@
+{
+ "guest_no_host_fab": 0,
+ "student_home": "/dialog",
+ "ai_before_reload": 11,
+ "after_reload_url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/dialog/1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204",
+ "ai_after_reload": 9,
+ "reload_same_conv": true,
+ "fabricated_hits": [],
+ "host_panel_opened": true,
+ "teacher_block": {
+  "slides_zero": false,
+  "export_disabled_text": false,
+  "publish_disabled": false
+ },
+ "teacher_after_reload_ok": true,
+ "page_errors": [],
+ "total_page_errors": 0
+}
