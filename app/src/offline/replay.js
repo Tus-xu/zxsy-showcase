@@ -7,9 +7,10 @@
  *   3. 跨端一致性由本地状态承托（发布快照等），UI 仍由现役组件渲染。
  */
 import { getAccessToken, setAccessToken, setAuthScope } from '../api/authSession'
-import { findFixture } from './fixtures'
+import { findFixture, IMAGE_MAP } from './fixtures'
 import { getSession, patch, setSession, store } from './state'
-import { handleFileById, handleFileUpload, pickChatTurn } from './handlers/agent'
+import { handleFileRoute, handleUpload } from './handlers/files'
+import { noticeEvents, pickChatTurn, OFFLINE_NOTICE } from './handlers/agent'
 
 const DEMO_CODE = '246810'
 const OFFLINE_TOKEN = 'offline-demo-token'
@@ -45,10 +46,21 @@ function isApi(url) {
 }
 
 function jsonResponse(payload, status = 200) {
+  if (payload && payload.__binary) {
+    return new Response(payload.bytes, { status, headers: { 'Content-Type': payload.ct } })
+  }
   return new Response(typeof payload === 'string' ? payload : JSON.stringify(payload), {
     status,
     headers: { 'Content-Type': 'application/json; charset=utf-8' },
   })
+}
+
+function binaryPayload(rec) {
+  const b64 = rec?.text?.b64 || ''
+  const bin = atob(b64)
+  const bytes = new Uint8Array(bin.length)
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i)
+  return { __binary: true, bytes, ct: rec.text.ct || 'application/octet-stream' }
 }
 
 function envelope(data, message = 'ok') {
@@ -193,28 +205,29 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
 
   // 上传链路（现役契约：uploadInit → 预签名 PUT → parse → detail/content）
   if (method === 'POST' && path.split('?')[0] === '/api/files/upload') {
-    return jsonResponse(handleFileUpload(body))
+    const r = handleUpload(body)
+    return jsonResponse(r.payload, r.ok ? 200 : 404)
   }
-  const fileById = handleFileById(method, path)
+  const fileById = handleFileRoute(method, path)
   if (fileById) return jsonResponse(fileById)
 
-  // 对话 SSE：按 sha256 → 案例 → 第 N 轮采证原文回放
+  // 对话 SSE：按附件 → 案例 → 第 N 轮采证原文回放
   if ((accept || '').includes('text/event-stream') && path.split('?')[0] === '/api/agent/chat') {
     const picked = pickChatTurn(body)
-    if (picked) {
-      return sseResponse(picked.events.map((e) => ({ event: e.event, data: e.data })), { delayMs: 8, signal })
+    if (picked?.events?.length) {
+      return sseResponse(picked.events, { delayMs: 8, signal })
     }
-    return sseResponse([
-      { event: 'token', data: { text: '离线演示：这条输入未在现役系统中采证，因此不生成回答。请按主持人手册的已采证路径操作。' } },
-      { event: 'done', data: {} },
-    ], { delayMs: 8, signal })
+    if (picked?.exhausted) {
+      return sseResponse(noticeEvents('离线演示：现役系统本题已采证的对话轮次到此为止，后续轮次未采证。'), { delayMs: 8, signal })
+    }
+    return sseResponse(noticeEvents(OFFLINE_NOTICE), { delayMs: 8, signal })
   }
 
   const role = currentRole()
   // 先按本角色，再按其它角色（跨端页面：学生课堂读取教师发布的同一对象）
   for (const r of [role, ...['teacher', 'student', 'researcher'].filter((x) => x !== role)]) {
     const fx = findFixture(r, method, path)
-    if (fx) return jsonResponse(fx.text, fx.status)
+    if (fx) return jsonResponse(fx.binary ? binaryPayload(fx) : fx.text, fx.status)
   }
   return notRecorded(path, method)
 }
@@ -305,6 +318,43 @@ export function installReplay() {
   window.XMLHttpRequest = PatchedXHR
 
   console.info('[offline] replay installed · role=', currentRole(), '· published=', (store.published || []).length)
+
+  installImageRewriter()
+}
+
+/**
+ * 外部图片离线化：现役页面里的封面/插图来自外网 CDN，
+ * run-02 已把这些图片原件采证下来；这里把 <img src> 换成采证到的 data URI。
+ * 找不到采证的图片保持原样（会显示现役组件自己的占位/破图态，不伪造）。
+ */
+function installImageRewriter() {
+  const urls = Object.keys(IMAGE_MAP)
+  if (!urls.length) return
+  const has = (src) => src && IMAGE_MAP[src]
+  const fix = (img) => {
+    const src = img.getAttribute('src')
+    if (!has(src)) return
+    img.setAttribute('src', IMAGE_MAP[src])
+  }
+  const scan = () => {
+    document.querySelectorAll('img').forEach(fix)
+  }
+  const obs = new MutationObserver((muts) => {
+    for (const m of muts) {
+      if (m.type === 'attributes' && m.target.tagName === 'IMG') fix(m.target)
+      for (const node of m.addedNodes || []) {
+        if (node.nodeType !== 1) continue
+        if (node.tagName === 'IMG') fix(node)
+        node.querySelectorAll?.('img').forEach(fix)
+      }
+    }
+  })
+  const start = () => {
+    scan()
+    obs.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['src'] })
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start, { once: true })
+  else start()
 }
 
 export { DEMO_CODE, OFFLINE_TOKEN }

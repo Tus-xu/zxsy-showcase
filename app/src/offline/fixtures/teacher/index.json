@@ -5,10 +5,10 @@
   "file": "GET___api__auth__me.json",
   "key": "GET /api/auth/me",
   "method": "GET",
-  "page": "/teacher-v3/grading",
+  "page": "/teacher-v3/resources",
   "slug": "GET___api__auth__me",
   "status": 200,
-  "ts": 1795284590,
+  "ts": 1795287909,
   "url": "/api/auth/me"
  },
  "GET /api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/members": {
@@ -29,10 +29,10 @@
   "file": "GET___api__classes__mine.json",
   "key": "GET /api/classes/mine",
   "method": "GET",
-  "page": "/teacher-v3/grading",
+  "page": "/teacher-v3/assign",
   "slug": "GET___api__classes__mine",
   "status": 200,
-  "ts": 1795284590,
+  "ts": 1795287578,
   "url": "/api/classes/mine"
  },
  "GET /api/student/practice/kp-catalog": {
@@ -44,7 +44,7 @@
   "page": "/teacher-v3/assign",
   "slug": "GET___api__student__practice__kp-catalog",
   "status": 200,
-  "ts": 1795284572,
+  "ts": 1795287578,
   "url": "/api/student/practice/kp-catalog"
  },
  "GET /api/teacher-v3/classes": {
@@ -53,10 +53,10 @@
   "file": "GET___api__teacher-v3__classes.json",
   "key": "GET /api/teacher-v3/classes",
   "method": "GET",
-  "page": "/teacher-v3/today",
+  "page": "/teacher-v3/classroom",
   "slug": "GET___api__teacher-v3__classes",
   "status": 200,
-  "ts": 1795284583,
+  "ts": 1795287559,
   "url": "/api/teacher-v3/classes"
  },
  "GET /api/teacher-v3/folders": {
@@ -68,8 +68,30 @@
   "page": "/teacher-v3/bank",
   "slug": "GET___api__teacher-v3__folders",
   "status": 200,
-  "ts": 1795284569,
+  "ts": 1795287569,
   "url": "/api/teacher-v3/folders"
+ },
+ "GET /api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299": {
+  "bytes": 11079,
+  "ct": "application/json",
+  "file": "GET___api__teacher-v3__prep__conversations__f5c84551-18a7-454d-b49c-8f115e816299.json",
+  "key": "GET /api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+  "method": "GET",
+  "page": "/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299",
+  "slug": "GET___api__teacher-v3__prep__conversations__f5c84551-18a7-454d-b49c-8f115e816299",
+  "status": 200,
+  "ts": 1795287550,
+  "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299"
+ },
+ "GET /api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/events": {
+  "ct": "text/event-stream; charset=utf-8",
+  "key": "GET /api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/events",
+  "method": "GET",
+  "page": "/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299",
+  "slug": "GET___api__teacher-v3__prep__conversations__f5c84551-18a7-454d-b49c-8f115e816299__events",
+  "status": 200,
+  "ts": 1795287550,
+  "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/events"
  },
  "GET /api/teacher-v3/prep/sessions": {
   "bytes": 1004,
@@ -92,7 +114,7 @@
   "page": "/teacher-v3/bank",
   "slug": "GET___api__teacher-v3__quiz__kp-tree",
   "status": 200,
-  "ts": 1795284569,
+  "ts": 1795287569,
   "url": "/api/teacher-v3/quiz/kp-tree"
  },
  "GET /api/teacher-v3/quiz/questions": {
@@ -104,7 +126,7 @@
   "page": "/teacher-v3/classroom",
   "slug": "GET___api__teacher-v3__quiz__questions",
   "status": 200,
-  "ts": 1795284565,
+  "ts": 1795287559,
   "url": "/api/teacher-v3/quiz/questions"
  },
  "GET /api/teacher-v3/quiz/questions?limit=100&offset=0": {
@@ -116,17 +138,19 @@
   "page": "/teacher-v3/bank",
   "slug": "GET___api__teacher-v3__quiz__questions_limit_100_offset_0",
   "status": 200,
-  "ts": 1795284569,
+  "ts": 1795287569,
   "url": "/api/teacher-v3/quiz/questions?limit=100&offset=0"
  },
  "GET /api/teacher-v3/tasks": {
-  "ct": null,
+  "bytes": 89,
+  "ct": "application/json",
+  "file": "GET___api__teacher-v3__tasks.json",
   "key": "GET /api/teacher-v3/tasks",
   "method": "GET",
-  "page": "/teacher-v3/grading",
+  "page": "/teacher-v3/resources",
   "slug": "GET___api__teacher-v3__tasks",
-  "status": null,
-  "ts": 1795284590,
+  "status": 200,
+  "ts": 1795287909,
   "url": "/api/teacher-v3/tasks"
  },
  "GET /api/teacher/assignments": {
@@ -138,7 +162,7 @@
   "page": "/teacher-v3/assign",
   "slug": "GET___api__teacher__assignments",
   "status": 200,
-  "ts": 1795284572,
+  "ts": 1795287578,
   "url": "/api/teacher/assignments"
  },
  "GET /api/teacher/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/insights?actionable=true": {
@@ -186,7 +210,7 @@
   "page": "/teacher-v3/classroom",
   "slug": "GET___api__teacher__classroom-coursewares_class_id_039bcfc5-eb65-41a0-8840-ae3e361544b2",
   "status": 200,
-  "ts": 1795284565,
+  "ts": 1795287559,
   "url": "/api/teacher/classroom-coursewares?class_id=039bcfc5-eb65-41a0-8840-ae3e361544b2"
  },
  "GET /api/teacher/grading/queue?class_id=039bcfc5-eb65-41a0-8840-ae3e361544b2": {
@@ -234,7 +258,7 @@
   "page": "/teacher-v3/resources",
   "slug": "GET___api__teacher__videos_topic_featured_page_size_12",
   "status": 200,
-  "ts": 1795284580,
+  "ts": 1795287909,
   "url": "/api/teacher/videos?topic=featured&page_size=12"
  },
  "POST /api/auth/challenges/sms": {
@@ -269,10 +293,10 @@
   "file": "POST___api__auth__token__refresh.json",
   "key": "POST /api/auth/token/refresh",
   "method": "POST",
-  "page": "/teacher-v3/grading",
+  "page": "/teacher-v3/resources",
   "slug": "POST___api__auth__token__refresh",
   "status": 200,
-  "ts": 1795284590,
+  "ts": 1795287909,
   "url": "/api/auth/token/refresh"
  }
 }

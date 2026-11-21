@@ -1,14 +1,26 @@
 {
+ "GET /api/agent/conversations/986d06b9-cde8-4289-958f-2fb914395a0c/messages?limit=20": {
+  "bytes": 63242,
+  "ct": "application/json",
+  "file": "GET___api__agent__conversations__986d06b9-cde8-4289-958f-2fb914395a0c__messages_limit_20.json",
+  "key": "GET /api/agent/conversations/986d06b9-cde8-4289-958f-2fb914395a0c/messages?limit=20",
+  "method": "GET",
+  "page": "/dialog/986d06b9-cde8-4289-958f-2fb914395a0c",
+  "slug": "GET___api__agent__conversations__986d06b9-cde8-4289-958f-2fb914395a0c__messages_limit_20",
+  "status": 200,
+  "ts": 1795287696,
+  "url": "/api/agent/conversations/986d06b9-cde8-4289-958f-2fb914395a0c/messages?limit=20"
+ },
  "GET /api/agent/conversations?limit=30": {
-  "bytes": 12102,
+  "bytes": 10836,
   "ct": "application/json",
   "file": "GET___api__agent__conversations_limit_30.json",
   "key": "GET /api/agent/conversations?limit=30",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__agent__conversations_limit_30",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/agent/conversations?limit=30"
  },
  "GET /api/agent/features": {
@@ -17,10 +29,10 @@
   "file": "GET___api__agent__features.json",
   "key": "GET /api/agent/features",
   "method": "GET",
-  "page": "/dialog",
+  "page": "/dialog/986d06b9-cde8-4289-958f-2fb914395a0c",
   "slug": "GET___api__agent__features",
   "status": 200,
-  "ts": 1795285192,
+  "ts": 1795287696,
   "url": "/api/agent/features"
  },
  "GET /api/auth/me": {
@@ -29,10 +41,10 @@
   "file": "GET___api__auth__me.json",
   "key": "GET /api/auth/me",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__auth__me",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/auth/me"
  },
  "GET /api/butler/error-detail/46e56349-c46e-4305-a002-348d9b1c288c": {
@@ -44,7 +56,7 @@
   "page": "/errors",
   "slug": "GET___api__butler__error-detail__46e56349-c46e-4305-a002-348d9b1c288c",
   "status": 200,
-  "ts": 1795285199,
+  "ts": 1795287715,
   "url": "/api/butler/error-detail/46e56349-c46e-4305-a002-348d9b1c288c"
  },
  "GET /api/butler/error-diagnosis/46e56349-c46e-4305-a002-348d9b1c288c": {
@@ -56,7 +68,7 @@
   "page": "/errors",
   "slug": "GET___api__butler__error-diagnosis__46e56349-c46e-4305-a002-348d9b1c288c",
   "status": 200,
-  "ts": 1795285199,
+  "ts": 1795287715,
   "url": "/api/butler/error-diagnosis/46e56349-c46e-4305-a002-348d9b1c288c"
  },
  "GET /api/butler/weekly-report": {
@@ -80,7 +92,7 @@
   "page": "/classroom",
   "slug": "GET___api__classes__mine",
   "status": 200,
-  "ts": 1795285210,
+  "ts": 1795287706,
   "url": "/api/classes/mine"
  },
  "GET /api/notifications/unread-count": {
@@ -89,10 +101,10 @@
   "file": "GET___api__notifications__unread-count.json",
   "key": "GET /api/notifications/unread-count",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__notifications__unread-count",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/notifications/unread-count"
  },
  "GET /api/notifications?limit=30": {
@@ -101,10 +113,10 @@
   "file": "GET___api__notifications_limit_30.json",
   "key": "GET /api/notifications?limit=30",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__notifications_limit_30",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/notifications?limit=30"
  },
  "GET /api/student/assignments?status=all&page=1&size=50": {
@@ -116,7 +128,7 @@
   "page": "/classroom",
   "slug": "GET___api__student__assignments_status_all_page_1_size_50",
   "status": 200,
-  "ts": 1795285210,
+  "ts": 1795287706,
   "url": "/api/student/assignments?status=all&page=1&size=50"
  },
  "GET /api/student/assignments?status=todo&size=1": {
@@ -125,10 +137,10 @@
   "file": "GET___api__student__assignments_status_todo_size_1.json",
   "key": "GET /api/student/assignments?status=todo&size=1",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__student__assignments_status_todo_size_1",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/student/assignments?status=todo&size=1"
  },
  "GET /api/student/classroom-coursewares": {
@@ -137,10 +149,10 @@
   "file": "GET___api__student__classroom-coursewares.json",
   "key": "GET /api/student/classroom-coursewares",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__student__classroom-coursewares",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/student/classroom-coursewares"
  },
  "GET /api/student/error-records/46e56349-c46e-4305-a002-348d9b1c288c/detail": {
@@ -152,7 +164,7 @@
   "page": "/errors",
   "slug": "GET___api__student__error-records__46e56349-c46e-4305-a002-348d9b1c288c__detail",
   "status": 200,
-  "ts": 1795285199,
+  "ts": 1795287715,
   "url": "/api/student/error-records/46e56349-c46e-4305-a002-348d9b1c288c/detail"
  },
  "GET /api/student/error-records/due-queue": {
@@ -164,11 +176,11 @@
   "page": "/errors",
   "slug": "GET___api__student__error-records__due-queue",
   "status": 200,
-  "ts": 1795285199,
+  "ts": 1795287715,
   "url": "/api/student/error-records/due-queue"
  },
  "GET /api/student/error-records/filter?page=1&size=50": {
-  "bytes": 8442,
+  "bytes": 8831,
   "ct": "application/json",
   "file": "GET___api__student__error-records__filter_page_1_size_50.json",
   "key": "GET /api/student/error-records/filter?page=1&size=50",
@@ -176,11 +188,11 @@
   "page": "/errors",
   "slug": "GET___api__student__error-records__filter_page_1_size_50",
   "status": 200,
-  "ts": 1795285199,
+  "ts": 1795287715,
   "url": "/api/student/error-records/filter?page=1&size=50"
  },
  "GET /api/student/error-records/memory-heatmap": {
-  "bytes": 2750,
+  "bytes": 2789,
   "ct": "application/json",
   "file": "GET___api__student__error-records__memory-heatmap.json",
   "key": "GET /api/student/error-records/memory-heatmap",
@@ -188,7 +200,7 @@
   "page": "/errors",
   "slug": "GET___api__student__error-records__memory-heatmap",
   "status": 200,
-  "ts": 1795285199,
+  "ts": 1795287715,
   "url": "/api/student/error-records/memory-heatmap"
  },
  "GET /api/student/error-records/review-plan": {
@@ -197,22 +209,22 @@
   "file": "GET___api__student__error-records__review-plan.json",
   "key": "GET /api/student/error-records/review-plan",
   "method": "GET",
-  "page": "/dialog",
+  "page": "/dialog/986d06b9-cde8-4289-958f-2fb914395a0c",
   "slug": "GET___api__student__error-records__review-plan",
   "status": 200,
-  "ts": 1795285192,
+  "ts": 1795287696,
   "url": "/api/student/error-records/review-plan"
  },
  "GET /api/student/error-records?limit=1": {
-  "bytes": 8310,
+  "bytes": 8251,
   "ct": "application/json",
   "file": "GET___api__student__error-records_limit_1.json",
   "key": "GET /api/student/error-records?limit=1",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__student__error-records_limit_1",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/student/error-records?limit=1"
  },
  "GET /api/student/growth/overview": {
@@ -221,10 +233,10 @@
   "file": "GET___api__student__growth__overview.json",
   "key": "GET /api/student/growth/overview",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__student__growth__overview",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/student/growth/overview"
  },
  "GET /api/student/growth/panel": {
@@ -233,10 +245,10 @@
   "file": "GET___api__student__growth__panel.json",
   "key": "GET /api/student/growth/panel",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__student__growth__panel",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/student/growth/panel"
  },
  "GET /api/student/mastery/summary": {
@@ -245,10 +257,10 @@
   "file": "GET___api__student__mastery__summary.json",
   "key": "GET /api/student/mastery/summary",
   "method": "GET",
-  "page": "/me",
+  "page": "/dialog/986d06b9-cde8-4289-958f-2fb914395a0c",
   "slug": "GET___api__student__mastery__summary",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287696,
   "url": "/api/student/mastery/summary"
  },
  "GET /api/student/mastery/today-actions": {
@@ -365,10 +377,10 @@
   "file": "GET___api__student__report__weak-points.json",
   "key": "GET /api/student/report/weak-points",
   "method": "GET",
-  "page": "/me",
+  "page": "/dialog/986d06b9-cde8-4289-958f-2fb914395a0c",
   "slug": "GET___api__student__report__weak-points",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287696,
   "url": "/api/student/report/weak-points"
  },
  "GET /api/student/videos?page_size=1": {
@@ -380,7 +392,7 @@
   "page": "/resources",
   "slug": "GET___api__student__videos_page_size_1",
   "status": 200,
-  "ts": 1795285206,
+  "ts": 1795287892,
   "url": "/api/student/videos?page_size=1"
  },
  "GET /api/tasks?limit=30": {
@@ -389,10 +401,10 @@
   "file": "GET___api__tasks_limit_30.json",
   "key": "GET /api/tasks?limit=30",
   "method": "GET",
-  "page": "/me",
+  "page": "/resources",
   "slug": "GET___api__tasks_limit_30",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/tasks?limit=30"
  },
  "GET /api/v1/kb/documents?kb_name=default&limit=200": {
@@ -404,7 +416,7 @@
   "page": "/library",
   "slug": "GET___api__v1__kb__documents_kb_name_default_limit_200",
   "status": 200,
-  "ts": 1795285203,
+  "ts": 1795287725,
   "url": "/api/v1/kb/documents?kb_name=default&limit=200"
  },
  "GET /api/v1/questions?limit=1": {
@@ -416,7 +428,7 @@
   "page": "/library",
   "slug": "GET___api__v1__questions_limit_1",
   "status": 200,
-  "ts": 1795285203,
+  "ts": 1795287725,
   "url": "/api/v1/questions?limit=1"
  },
  "POST /api/auth/challenges/sms": {
@@ -451,14 +463,14 @@
   "file": "POST___api__auth__token__refresh.json",
   "key": "POST /api/auth/token/refresh",
   "method": "POST",
-  "page": "/me",
+  "page": "/resources",
   "slug": "POST___api__auth__token__refresh",
   "status": 200,
-  "ts": 1795285213,
+  "ts": 1795287892,
   "url": "/api/auth/token/refresh"
  },
  "POST /api/student/videos/recommend": {
-  "bytes": 8749,
+  "bytes": 8893,
   "ct": "application/json",
   "file": "POST___api__student__videos__recommend.json",
   "key": "POST /api/student/videos/recommend",
@@ -467,7 +479,7 @@
   "reqFile": "POST___api__student__videos__recommend.req.txt",
   "slug": "POST___api__student__videos__recommend",
   "status": 200,
-  "ts": 1795285206,
+  "ts": 1795287892,
   "url": "/api/student/videos/recommend"
  }
 }

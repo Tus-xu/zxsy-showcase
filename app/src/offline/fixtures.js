@@ -21,7 +21,7 @@ function dirName(p) {
   return parts[parts.length - 2]
 }
 
-/** { role: { '<METHOD> <path>': { key, text, status } } } */
+/** { role: { '<METHOD> <path>': { key, text, status, binary?, ct? } } } */
 export const FIXTURES = (() => {
   const byRole = {}
   for (const role of ROLES) byRole[role] = {}
@@ -42,16 +42,40 @@ export const FIXTURES = (() => {
     if (base === 'index.json') continue
     if (!byRole[role]) continue
     const idx = indexes[role] || {}
-    // 找到引用本文件的端点 key
     for (const [key, meta] of Object.entries(idx)) {
       if (meta && meta.file === base) {
-        byRole[role][key] = { key, text: String(text), status: meta.status || 200 }
+        const isBinary = base.endsWith('.b64.json')
+        let payload = String(text)
+        if (isBinary) {
+          try {
+            const parsed = JSON.parse(text)
+            payload = { ct: parsed.ct || 'application/octet-stream', b64: parsed.b64 }
+          } catch {
+            payload = { ct: 'application/octet-stream', b64: '' }
+          }
+        }
+        byRole[role][key] = { key, text: payload, status: meta.status || 200, binary: isBinary }
         break
       }
     }
-    // 兜底：文件名反推（slug 不可逆，仅用于脱索引场景）
   }
   return byRole
+})()
+
+/* 外部图片（封面/插图）采证：URL → data URI，离线替换 <img src> 用 */
+const RAW_IMAGES = import.meta.glob('./fixtures/**/images/*.json', { eager: true, query: '?raw', import: 'default' })
+
+export const IMAGE_MAP = (() => {
+  const out = {}
+  for (const text of Object.values(RAW_IMAGES)) {
+    try {
+      const rec = JSON.parse(text)
+      if (rec?.url && rec?.b64) out[rec.url] = `data:${rec.ct || 'image/png'};base64,${rec.b64}`
+    } catch {
+      /* ignore */
+    }
+  }
+  return out
 })()
 
 export function listKeys(role) {

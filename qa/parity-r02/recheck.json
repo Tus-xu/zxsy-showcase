@@ -1,0 +1,42 @@
+[
+ {
+  "slug": "student-resources",
+  "sim": 1.0,
+  "live_broken": 0,
+  "off_broken": 0,
+  "live_imgs": 11,
+  "off_imgs": 11,
+  "live_len": 1157,
+  "off_len": 1157
+ },
+ {
+  "slug": "teacher-resources",
+  "sim": 1.0,
+  "live_broken": 0,
+  "off_broken": 0,
+  "live_imgs": 12,
+  "off_imgs": 12,
+  "live_len": 883,
+  "off_len": 883
+ },
+ {
+  "slug": "research-landing",
+  "sim": 1.0,
+  "live_broken": 0,
+  "off_broken": 0,
+  "live_imgs": 0,
+  "off_imgs": 0,
+  "live_len": 696,
+  "off_len": 696
+ },
+ {
+  "slug": "research-workspace",
+  "sim": 1.0,
+  "live_broken": 0,
+  "off_broken": 0,
+  "live_imgs": 0,
+  "off_imgs": 0,
+  "live_len": 526,
+  "off_len": 526
+ }
+]

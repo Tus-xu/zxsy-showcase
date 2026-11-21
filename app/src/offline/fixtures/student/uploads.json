@@ -1,0 +1,41 @@
+{
+ "A": {
+  "case": "A",
+  "image": "题1.png",
+  "image_path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题1.png",
+  "raw_sha256": "cd2f518f8b705680eef74056f6c23c114ea51899378a00e2198464b3aa4ad9e7",
+  "upload_req": "{\"filename\":\"题1.png\",\"mime\":\"image/png\",\"size_bytes\":30184,\"sha256\":\"cd2f518f8b705680eef74056f6c23c114ea51899378a00e2198464b3aa4ad9e7\",\"multipart\":false}",
+  "upload_resp": "{\"code\":0,\"data\":{\"file_id\":\"5f3a4fd8-9e56-41b5-921d-fb34233a1344\",\"upload_url\":\"\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":0,\"deduplicated\":true}}",
+  "parse_resp": "{\"code\":0,\"data\":{\"file_id\":\"5f3a4fd8-9e56-41b5-921d-fb34233a1344\",\"status\":\"parsed\",\"task_id\":null}}",
+  "file_detail_resp": "{\"code\":0,\"data\":{\"file_id\":\"5f3a4fd8-9e56-41b5-921d-fb34233a1344\",\"filename\":\"题1.png\",\"status\":\"parsed\",\"parse_engine\":\"mimo_vision\",\"parse_quality\":{\"provider\":\"mimo-v2.5\",\"conditions\":[\"双曲线 C 的虚轴长为实轴长的 √7 倍\"],\"confidence\":0.99,\"sampled_pages\":1,\"uncertainties\":[],\"diagram_entities\":{\"items\":[]},\"needs_confirmation\":false},\"error\":null,\"assets\":[{\"asset_id\":\"984ff16d-46ff-4821-9b58-41da0375676c\",\"asset_type\":\"markdown\",\"page_no\":1,\"content\":\"若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为\\nA. √2    B. 2    C. √7    D. 2√2\"}],\"created_at\":\"2026-11-20T18:29:03.351871+00:00\",\"updated_at\":\"2026-11-20T18:29:03.418273+00:00\"}}",
+  "content_resp": null,
+  "file_id": "5f3a4fd8-9e56-41b5-921d-fb34233a1344",
+  "entry_used": "首页空态卡「📷 拍一道不会的题」"
+ },
+ "B": {
+  "case": "B",
+  "image": "题2.png",
+  "image_path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题2.png",
+  "raw_sha256": "0bc14458a696c1caaa37d3b630113fd0f61c06fdda1b5da1c76caf314f392425",
+  "upload_req": "{\"filename\":\"题2.png\",\"mime\":\"image/png\",\"size_bytes\":35639,\"sha256\":\"0bc14458a696c1caaa37d3b630113fd0f61c06fdda1b5da1c76caf314f392425\",\"multipart\":false}",
+  "upload_resp": "{\"code\":0,\"data\":{\"file_id\":\"9010ab45-1ac8-4e31-8529-c17567c195a5\",\"upload_url\":\"\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":0,\"deduplicated\":true}}",
+  "parse_resp": "{\"code\":0,\"data\":{\"file_id\":\"9010ab45-1ac8-4e31-8529-c17567c195a5\",\"status\":\"parsed\",\"task_id\":null}}",
+  "file_detail_resp": "{\"code\":0,\"data\":{\"file_id\":\"9010ab45-1ac8-4e31-8529-c17567c195a5\",\"filename\":\"题2.png\",\"status\":\"parsed\",\"parse_engine\":\"mimo_vision\",\"parse_quality\":{\"provider\":\"mimo-v2.5\",\"conditions\":[],\"confidence\":0.75,\"sampled_pages\":1,\"uncertainties\":[\"视觉直读原文，未经结构化校验\"],\"diagram_entities\":[],\"needs_confirmation\":true},\"error\":null,\"assets\":[{\"asset_id\":\"89a8904b-b937-4cf8-88d0-ca83e42e1637\",\"asset_type\":\"markdown\",\"page_no\":1,\"content\":\"{\\\"question_text\\\":\\\"9. 在正三棱柱 \\\\(ABC-A_1B_1C_1\\\\) 中，\\\\(D\\\\) 为 \\\\(BC\\\\) 中点，则\\\\nA. \\\\(AD \\\\\\\\perp A_1C\\\\)    B. \\\\(BC \\\\\\\\perp\\\\) 平面 \\\\(AA_1D\\\\)\\\\nC. \\\\(AD // A_1B_1\\\\)    D. \\\\(CC_1 //\\\\) 平面 \\\\(AA_1D\\\\)\\\",\\\"conditions\\\":[\\\"在正三棱柱 \\\\(ABC-A_1B_1C_1\\\\) 中\\\",\\\"\\\\(D\\\\) 为 \\\\(BC\\\\) 中点\\\"],\\\"diagram_entities\\\":[\\\"正三棱柱 \\\\(ABC-A_1B_1C_1\\\\)\\\",\\\"点 \\\\(D\\\\) 为 \\\\(BC\\\\) 中点\\\",\\\"线段 \\\\(AD\\\\)\\\",\\\"线段 \\\\(A_1C\\\\)\\\",\\\"线段 \\\\(BC\\\\)\\\",\\\"平面 \\\\(AA_1D\\\\)\\\",\\\"线段 \\\\(A_1B_1\\\\)\\\",\\\"线段 \\\\(CC_1\\\\)\\\"],\\\"uncertainties\\\":[],\\\"confidence\\\":0.98}\"}],\"created_at\":\"2026-11-20T18:31:18.195852+00:00\",\"updated_at\":\"2026-11-20T18:31:18.241500+00:00\"}}",
+  "content_resp": null,
+  "file_id": "9010ab45-1ac8-4e31-8529-c17567c195a5",
+  "entry_used": "首页空态卡「📷 拍一道不会的题」"
+ },
+ "C": {
+  "case": "C",
+  "image": "题3.png",
+  "image_path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题3.png",
+  "raw_sha256": "cd9db0ccf25bfe7c64889a5be5e50a5807d58a7f8bb3bdc0f4bb88a93ae5d676",
+  "upload_req": "{\"filename\":\"题3.png\",\"mime\":\"image/png\",\"size_bytes\":32956,\"sha256\":\"cd9db0ccf25bfe7c64889a5be5e50a5807d58a7f8bb3bdc0f4bb88a93ae5d676\",\"multipart\":false}",
+  "upload_resp": "{\"code\":0,\"data\":{\"file_id\":\"b47adcca-4706-46ac-a4c7-147e6da10301\",\"upload_url\":\"\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":0,\"deduplicated\":true}}",
+  "parse_resp": "{\"code\":0,\"data\":{\"file_id\":\"b47adcca-4706-46ac-a4c7-147e6da10301\",\"status\":\"parsed\",\"task_id\":null}}",
+  "file_detail_resp": "{\"code\":0,\"data\":{\"file_id\":\"b47adcca-4706-46ac-a4c7-147e6da10301\",\"filename\":\"题3.png\",\"status\":\"parsed\",\"parse_engine\":\"mimo_vision\",\"parse_quality\":{\"provider\":\"mimo-v2.5\",\"conditions\":[\"箱子里有 5 个球\",\"球分别以 1～5 标号\",\"有放回取三次\",\"X 表示至少取出一次的球的个数\"],\"confidence\":0.99,\"sampled_pages\":1,\"uncertainties\":[],\"diagram_entities\":{\"items\":[]},\"needs_confirmation\":false},\"error\":null,\"assets\":[{\"asset_id\":\"5a0e6eb6-6176-4db6-90a0-ecdcbb07d1fe\",\"asset_type\":\"markdown\",\"page_no\":1,\"content\":\"14. 一个箱子里有 5 个球，分别以 1～5 标号，若有放回取三次，记至少取出一次的球的个数 X，则 E(X)=________.\"}],\"created_at\":\"2026-11-20T18:32:20.917834+00:00\",\"updated_at\":\"2026-11-20T18:32:20.974723+00:00\"}}",
+  "content_resp": null,
+  "file_id": "b47adcca-4706-46ac-a4c7-147e6da10301",
+  "entry_used": "首页空态卡「📷 拍一道不会的题」"
+ }
+}

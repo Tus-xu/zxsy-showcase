@@ -1,0 +1,32 @@
+{
+ "case": "B",
+ "captured_at": "2026-11-22T02:36:25+0800",
+ "image": {
+  "src": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题2.png",
+  "sha256": "0bc14458a696c1caaa37d3b630113fd0f61c06fdda1b5da1c76caf314f392425",
+  "bytes": 35639
+ },
+ "entry": "首页空态卡「📷 拍一道不会的题」",
+ "upload": {
+  "status": 200,
+  "resp": "{\"code\":0,\"data\":{\"file_id\":\"9010ab45-1ac8-4e31-8529-c17567c195a5\",\"upload_url\":\"\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":0,\"deduplicated\":true}}"
+ },
+ "parse": {
+  "status": 200,
+  "resp": "{\"code\":0,\"data\":{\"file_id\":\"9010ab45-1ac8-4e31-8529-c17567c195a5\",\"status\":\"parsed\",\"task_id\":null}}"
+ },
+ "file_content": {
+  "status": null,
+  "resp": null
+ },
+ "file_detail": {
+  "status": 200,
+  "resp": "{\"code\":0,\"data\":{\"file_id\":\"9010ab45-1ac8-4e31-8529-c17567c195a5\",\"filename\":\"题2.png\",\"status\":\"parsed\",\"parse_engine\":\"mimo_vision\",\"parse_quality\":{\"provider\":\"mimo-v2.5\",\"conditions\":[],\"confidence\":0.75,\"sampled_pages\":1,\"uncertainties\":[\"视觉直读原文，未经结构化校验\"],\"diagram_entities\":[],\"needs_confirmation\":true},\"error\":null,\"assets\":[{\"asset_id\":\"89a8904b-b937-4cf8-88d0-ca83e42e1637\",\"asset_type\":\"markdown\",\"page_no\":1,\"content\":\"{\\\"question_text\\\":\\\"9. 在正三棱柱 \\\\(ABC-A_1B_1C_1\\\\) 中，\\\\(D\\\\) 为 \\\\(BC\\\\) 中点，则\\\\nA. \\\\(AD \\\\\\\\perp A_1C\\\\)    B. \\\\(BC \\\\\\\\perp\\\\) 平面 \\\\(AA_1D\\\\)\\\\nC. \\\\(AD // A_1B_1\\\\)    D. \\\\(CC_1 //\\\\) 平面 \\\\(AA_1D\\\\)\\\",\\\"conditions\\\":[\\\"在正三棱柱 \\\\(ABC-A_1B_1C_1\\\\) 中\\\",\\\"\\\\(D\\\\) 为 \\\\(BC\\\\) 中点\\\"],\\\"diagram_entities\\\":[\\\"正三棱柱 \\\\(ABC-A_1B_1C_1\\\\)\\\",\\\"点 \\\\(D\\\\) 为 \\\\(BC\\\\) 中点\\\",\\\"线段 \\\\(AD\\\\)\\\",\\\"线段 \\\\(A_1C\\\\)\\\",\\\"线段 \\\\(BC\\\\)\\\",\\\"平面 \\\\(AA_1D\\\\)\\\",\\\"线段 \\\\(A_1B_1\\\\)\\\",\\\"线段 \\\\(CC_1\\\\)\\\"],\\\"uncertainties\\\":[],\\\"confidence\\\":0.98}\"}],\"created_at\":\"2026-11-20T18:31:18.195852+00:00\",\"updated_at\":\"2026-11-20T18:31:18.241500+00:00\"}}"
+ },
+ "turns": [],
+ "final_state": {
+  "concluded": false,
+  "last_ai_text": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n\n🧭 引导式解题 · 先读题理解\n读题理解\n在题面上动笔：把你认为关键的部分标出来。\n圈点标注\n圈出：已知条件 / 要求的量 / 关键限定词\n过D平行于侧棱AA的直线垂直于底面，也垂直于BC。\n已圈 0 处 · 建议至少 3 处\n圈好了，交给你看\n改用打字\n我读完了，直接开始\nAI 生成\n· 仅供参考，请核实",
+  "url": "http://127.0.0.1:5176/dialog/b2710c62-0068-4de6-aae4-3803e91046da"
+ }
+}
