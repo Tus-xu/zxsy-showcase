@@ -1,0 +1,33 @@
+# POST http://127.0.0.1:5176/api/auth/challenges/sms
+# status=200 run=p03 step=login t=02:11:41
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/login",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "content-type": "application/json",
+ "sec-ch-ua-mobile": "?0",
+ "accept-language": "zh-CN"
+}
+
+## request body (first 4KB, sanitized)
+{"phone":"13800001003","purpose":"login"}
+
+## response headers (sanitized)
+{
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "content-length": "218",
+ "date": "Sat, 21 Nov 2026 18:11:40 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"code":0,"message":"sent","data":{"challenge_id":"46b871c7-fb0a-41ce-82b5-fbb69e373d4a","expires_in":300,"retry_after":60,"account_exists":true,"demo_code":"879576"},"requestId":"8e4598a2-2213-4621-822f-de48e3db3fb4"}

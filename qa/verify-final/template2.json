@@ -1,0 +1,600 @@
+{
+ "generated_at": "2026-11-22T05:11:21+08:00",
+ "session": "f5c84551-18a7-454d-b49c-8f115e816299",
+ "sides": {
+  "live": {
+   "side": "live",
+   "t1_textbook": {
+    "steps": [],
+    "entry_cards": [
+     "从教材开始",
+     "从已有教案开始",
+     "从已有PPT开始",
+     "备课历史"
+    ],
+    "overlays_before": 0,
+    "overlays_after": 0,
+    "requests_after_click": [
+     "http://127.0.0.1:5176/api/teacher-v3/tasks"
+    ],
+    "business_requests_after_click": [],
+    "text_changed": false,
+    "screenshot": "shots/template2/live-01-prep-textbook-click.png",
+    "visible_text_head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课中心 多轮对话 · 教材学情 · 教案课件一体生成 AI 助教已就绪 任务 张 张老师 高中数学 · 教师 备课中心 AI 助力，让备课更高效 教学资源库 最近使用 高一(3)班 · 数学 从教材开始 选择教材版本与章节，AI 生成备课方案 从已有教案开始 上传或选择已有教案，快速生成 PPT 从已有PPT开始 上传课件，AI 分析并生成教学设计 备课历史 回顾与继续最近的备课 最近备课 2 查看全部 › 椭圆的定义 高一(3)班 · 数学 · 45分钟 知识点：椭圆的标准方程 围绕「椭圆的定义」展开备课 教学设计进行中 最近修改: 2026-11-22 02:18 继续备课 ··· 椭圆的定义 高一(3)班 · 数学 · 45分钟 知识点：椭圆的标准方程 围"
+   },
+   "t2_t3_workbench": {
+    "continue_landing_url": "/teacher-v3/prep/w/393d2558-b8e9-4380-aaa5-5a62e0c2940e/classroom",
+    "landing_url": "/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/classroom",
+    "blueprint_banner": true,
+    "blueprint_banner_text": "本轮生成没有完成，未写入任何内容。",
+    "blueprint_null_note": true,
+    "screenshot_classroom": "shots/template2/live-02-workbench-classroom.png",
+    "retry_button_count": 1,
+    "retry_target": "classroom-actions-bar",
+    "retry_button_disabled": false,
+    "retry_hook": [
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"20aef2d0ce464790\",\"error_key\":\"conflict\"}"
+     }
+    ],
+    "retry_http_status": 409,
+    "retry_http_body_head": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"20aef2d0ce464790\",\"error_key\":\"conflict\"}",
+    "retry_responses": [
+     {
+      "url": "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409
+     }
+    ],
+    "error_boundary": false,
+    "error_boundary_text": null,
+    "conflict_card_present": false,
+    "conflict_card_text": null,
+    "request_id": null,
+    "no_attachment_lost": true,
+    "retry_ui_markers": [
+     "不可执行",
+     "无法重跑",
+     "请重新发送消息"
+    ],
+    "retry_expected_live_text": "动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）",
+    "retry_live_text_present": true,
+    "retry_screenshot": "shots/template2/live-03-retry-result.png",
+    "retry_error_region": [
+     "动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）"
+    ],
+    "requests": [
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+     "http://127.0.0.1:5176/api/teacher-v3/tasks",
+     "http://127.0.0.1:5176/api/teacher-v3/tasks"
+    ],
+    "console_errors": [
+     "Failed to load resource: the server responded with a status of 409 (Conflict)"
+    ],
+    "after_retry_reload_ok": true
+   },
+   "ppt_export_publish": {
+    "url": "/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/ppt",
+    "slide_pager_text": "幻灯片 0 / 0",
+    "zero_pages": true,
+    "deck_tools": [
+     {
+      "t": "添加页",
+      "disabled": true,
+      "title": "AI 生成新页（基于当前环节任务）",
+      "testid": ""
+     },
+     {
+      "t": "T 文本",
+      "disabled": true,
+      "title": "追加文本（真实落库）",
+      "testid": ""
+     },
+     {
+      "t": "Σ 公式",
+      "disabled": true,
+      "title": "追加公式（真实落库）",
+      "testid": ""
+     },
+     {
+      "t": "数学图形",
+      "disabled": true,
+      "title": "按本课主题插入真实数学图形（数列/集合/函数/三角等）",
+      "testid": ""
+     },
+     {
+      "t": "图片",
+      "disabled": true,
+      "title": "为本课补充真实数学配图（最多 3 张，确定性渲染，不是 AI 生图）",
+      "testid": ""
+     },
+     {
+      "t": "备注",
+      "disabled": true,
+      "title": "即将支持",
+      "testid": ""
+     },
+     {
+      "t": "发布课堂",
+      "disabled": true,
+      "title": "发布到班级课堂：学生端 AI 主讲逐页讲解（发布当前课件快照，不改动备课内容）",
+      "testid": "pc-deck-publish"
+     }
+    ],
+    "deck_tool_count": 7,
+    "deck_tools_all_disabled": true,
+    "publish_tool": {
+     "t": "发布课堂",
+     "disabled": true,
+     "title": "发布到班级课堂：学生端 AI 主讲逐页讲解（发布当前课件快照，不改动备课内容）",
+     "testid": "pc-deck-publish"
+    },
+    "publish_disabled": true,
+    "publish_dialog_count": 0,
+    "publish_requests": [],
+    "publish_forbidden": [],
+    "publish_screenshot": "shots/template2/live-04-ppt-publish-click.png",
+    "ppt_screenshot": "shots/template2/live-05-ppt-zero.png",
+    "export_dialog_open": true,
+    "export_cards": [
+     {
+      "title": "课件 PPTX",
+      "desc": "可编辑的 PowerPoint 文件，含全部渲染页与数学图形",
+      "disabled": true,
+      "file": " 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结.pptx",
+      "btn": {
+       "t": "开始导出",
+       "disabled": true,
+       "title": "尚未生成课件，无法导出"
+      }
+     },
+     {
+      "title": "教案 PDF",
+      "desc": "排版好的教案文档，适合打印与教研归档",
+      "disabled": true,
+      "file": " 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.pdf",
+      "btn": {
+       "t": "开始导出",
+       "disabled": true,
+       "title": "尚未生成教案，无法导出"
+      }
+     },
+     {
+      "title": "教案 Markdown",
+      "desc": "纯文本源码，便于二次编辑与迁移",
+      "disabled": true,
+      "file": " 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.md",
+      "btn": {
+       "t": "开始导出",
+       "disabled": true,
+       "title": "尚未生成教案，无法导出"
+      }
+     }
+    ],
+    "export_card_count": 3,
+    "export_all_disabled": true,
+    "downloads": [],
+    "export_requests": [],
+    "export_hook": [],
+    "export_dialog_text": "导出 × 导出为真实产物文件；课件导出会渲染全部页面并做视觉质检，约 40-60 秒。 课件 PPTX 可编辑的 PowerPoint 文件，含全部渲染页与数学图形 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结.pptx 开始导出 教案 PDF 排版好的教案文档，适合打印与教研归档 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.pdf 开始导出 教案 Markdown 纯文本源码，便于二次编辑与迁移 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.md 开始导出",
+    "export_screenshot": "shots/template2/live-06-export-dialog.png",
+    "plan_not_generated": true,
+    "plan_editable": 0,
+    "plan_toolbar_disabled": "14/14",
+    "plan_screenshot": "shots/template2/live-07-plan-empty.png",
+    "after_refresh_plan_still_empty": true,
+    "forbidden_after_all": []
+   },
+   "immersive": {
+    "url": "/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299",
+    "has_session_state": true,
+    "retry_quick_action_count": 1,
+    "forbidden": [],
+    "ppt_words_present": false,
+    "screenshot": "shots/template2/live-08-immersive-workbench.png",
+    "retry_quick_action_count_after": 1,
+    "retry_error_boundary": false,
+    "retry_conflict_present": true,
+    "retry_conflict_text": "会话已被其他操作更新 服务端已有更新的版本。请刷新以获取最新内容，避免覆盖他人修改。 刷新查看新版本 重试 request_id: 0f6e38ca56e545c5",
+    "retry_request_id": "0f6e38ca56e545c5",
+    "retry_hook": [
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"f65dac9ef5a549df\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"a364d1c9d3174edb\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"13918fa8dc8247b2\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"3ec5c203fd494a75\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"0f6e38ca56e545c5\",\"error_key\":\"conflict\"}"
+     }
+    ],
+    "retry_http_status": 409,
+    "retry_ui_markers": [
+     "会话已被其他操作更新",
+     "刷新查看新版本"
+    ],
+    "requests_during_retry": [
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+     "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299"
+    ],
+    "retry_screenshot": "shots/template2/live-09-immersive-retry.png"
+   },
+   "local_state_published": 0,
+   "global_downloads": [],
+   "all_requests": [
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+    "http://127.0.0.1:5176/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299"
+   ],
+   "pageerrors": [],
+   "console_errors": [
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)",
+    "Failed to load resource: the server responded with a status of 409 (Conflict)"
+   ]
+  },
+  "off": {
+   "side": "off",
+   "t1_textbook": {
+    "steps": [],
+    "entry_cards": [
+     "从教材开始",
+     "从已有教案开始",
+     "从已有PPT开始",
+     "备课历史"
+    ],
+    "overlays_before": 0,
+    "overlays_after": 0,
+    "requests_after_click": [],
+    "business_requests_after_click": [],
+    "text_changed": false,
+    "screenshot": "shots/template2/off-01-prep-textbook-click.png",
+    "visible_text_head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课中心 多轮对话 · 教材学情 · 教案课件一体生成 AI 助教已就绪 任务 张 张老师 高中数学 · 教师 备课中心 AI 助力，让备课更高效 教学资源库 最近使用 高一(3)班 · 数学 从教材开始 选择教材版本与章节，AI 生成备课方案 从已有教案开始 上传或选择已有教案，快速生成 PPT 从已有PPT开始 上传课件，AI 分析并生成教学设计 备课历史 回顾与继续最近的备课 最近备课 1 查看全部 › 椭圆的定义 高一(3)班 · 数学 · 45分钟 知识点：椭圆的标准方程 围绕「椭圆的定义」展开备课 教学设计进行中 最近修改: 2026-11-21 03:04 继续备课 ··· AI 备课助手 📐 数学绘图 数学绘图 构造公式图形 · 可插入课件 📚 伴"
+   },
+   "t2_t3_workbench": {
+    "continue_landing_url": "#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/classroom",
+    "landing_url": "#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/classroom",
+    "blueprint_banner": true,
+    "blueprint_banner_text": "本轮生成没有完成，未写入任何内容。",
+    "blueprint_null_note": true,
+    "screenshot_classroom": "shots/template2/off-02-workbench-classroom.png",
+    "retry_button_count": 1,
+    "retry_target": "classroom-actions-bar",
+    "retry_button_disabled": false,
+    "retry_hook": [
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+     }
+    ],
+    "retry_http_status": 409,
+    "retry_http_body_head": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}",
+    "retry_responses": [],
+    "error_boundary": false,
+    "error_boundary_text": null,
+    "conflict_card_present": false,
+    "conflict_card_text": null,
+    "request_id": null,
+    "no_attachment_lost": true,
+    "retry_ui_markers": [
+     "不可执行",
+     "无法重跑",
+     "请重新发送消息"
+    ],
+    "retry_expected_live_text": "动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）",
+    "retry_live_text_present": true,
+    "retry_screenshot": "shots/template2/off-03-retry-result.png",
+    "retry_error_region": [
+     "动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）"
+    ],
+    "requests": [],
+    "console_errors": [],
+    "after_retry_reload_ok": true
+   },
+   "ppt_export_publish": {
+    "url": "#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/ppt",
+    "slide_pager_text": "幻灯片 0 / 0",
+    "zero_pages": true,
+    "deck_tools": [
+     {
+      "t": "添加页",
+      "disabled": true,
+      "title": "AI 生成新页（基于当前环节任务）",
+      "testid": ""
+     },
+     {
+      "t": "T 文本",
+      "disabled": true,
+      "title": "追加文本（真实落库）",
+      "testid": ""
+     },
+     {
+      "t": "Σ 公式",
+      "disabled": true,
+      "title": "追加公式（真实落库）",
+      "testid": ""
+     },
+     {
+      "t": "数学图形",
+      "disabled": true,
+      "title": "按本课主题插入真实数学图形（数列/集合/函数/三角等）",
+      "testid": ""
+     },
+     {
+      "t": "图片",
+      "disabled": true,
+      "title": "为本课补充真实数学配图（最多 3 张，确定性渲染，不是 AI 生图）",
+      "testid": ""
+     },
+     {
+      "t": "备注",
+      "disabled": true,
+      "title": "即将支持",
+      "testid": ""
+     },
+     {
+      "t": "发布课堂",
+      "disabled": true,
+      "title": "发布到班级课堂：学生端 AI 主讲逐页讲解（发布当前课件快照，不改动备课内容）",
+      "testid": "pc-deck-publish"
+     }
+    ],
+    "deck_tool_count": 7,
+    "deck_tools_all_disabled": true,
+    "publish_tool": {
+     "t": "发布课堂",
+     "disabled": true,
+     "title": "发布到班级课堂：学生端 AI 主讲逐页讲解（发布当前课件快照，不改动备课内容）",
+     "testid": "pc-deck-publish"
+    },
+    "publish_disabled": true,
+    "publish_dialog_count": 0,
+    "publish_requests": [],
+    "publish_forbidden": [],
+    "publish_screenshot": "shots/template2/off-04-ppt-publish-click.png",
+    "ppt_screenshot": "shots/template2/off-05-ppt-zero.png",
+    "export_dialog_open": true,
+    "export_cards": [
+     {
+      "title": "课件 PPTX",
+      "desc": "可编辑的 PowerPoint 文件，含全部渲染页与数学图形",
+      "disabled": true,
+      "file": " 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结.pptx",
+      "btn": {
+       "t": "开始导出",
+       "disabled": true,
+       "title": "尚未生成课件，无法导出"
+      }
+     },
+     {
+      "title": "教案 PDF",
+      "desc": "排版好的教案文档，适合打印与教研归档",
+      "disabled": true,
+      "file": " 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.pdf",
+      "btn": {
+       "t": "开始导出",
+       "disabled": true,
+       "title": "尚未生成教案，无法导出"
+      }
+     },
+     {
+      "title": "教案 Markdown",
+      "desc": "纯文本源码，便于二次编辑与迁移",
+      "disabled": true,
+      "file": " 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.md",
+      "btn": {
+       "t": "开始导出",
+       "disabled": true,
+       "title": "尚未生成教案，无法导出"
+      }
+     }
+    ],
+    "export_card_count": 3,
+    "export_all_disabled": true,
+    "downloads": [],
+    "export_requests": [],
+    "export_hook": [],
+    "export_dialog_text": "导出 × 导出为真实产物文件；课件导出会渲染全部页面并做视觉质检，约 40-60 秒。 课件 PPTX 可编辑的 PowerPoint 文件，含全部渲染页与数学图形 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结.pptx 开始导出 教案 PDF 排版好的教案文档，适合打印与教研归档 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.pdf 开始导出 教案 Markdown 纯文本源码，便于二次编辑与迁移 预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.md 开始导出",
+    "export_screenshot": "shots/template2/off-06-export-dialog.png",
+    "plan_not_generated": true,
+    "plan_editable": 0,
+    "plan_toolbar_disabled": "14/14",
+    "plan_screenshot": "shots/template2/off-07-plan-empty.png",
+    "after_refresh_plan_still_empty": true,
+    "forbidden_after_all": []
+   },
+   "immersive": {
+    "url": "#/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299",
+    "has_session_state": true,
+    "retry_quick_action_count": 1,
+    "forbidden": [],
+    "ppt_words_present": false,
+    "screenshot": "shots/template2/off-08-immersive-workbench.png",
+    "retry_quick_action_count_after": 1,
+    "retry_error_boundary": false,
+    "retry_conflict_present": true,
+    "retry_conflict_text": "会话已被其他操作更新 服务端已有更新的版本。请刷新以获取最新内容，避免覆盖他人修改。 刷新查看新版本 重试 request_id: 41a022f006504879",
+    "retry_request_id": "41a022f006504879",
+    "retry_hook": [
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+     },
+     {
+      "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "status": 409,
+      "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+     }
+    ],
+    "retry_http_status": 409,
+    "retry_ui_markers": [
+     "会话已被其他操作更新",
+     "刷新查看新版本"
+    ],
+    "requests_during_retry": [],
+    "retry_screenshot": "shots/template2/off-09-immersive-retry.png"
+   },
+   "local_state_published": 0,
+   "global_downloads": [],
+   "all_requests": [],
+   "pageerrors": [],
+   "console_errors": []
+  }
+ },
+ "compare": {
+  "t3_conflict_present": [
+   false,
+   false
+  ],
+  "t3_conflict_text_norm_live": "",
+  "t3_conflict_text_norm_off": "",
+  "t3_conflict_same_text": false,
+  "t3_request_ids": [
+   null,
+   null
+  ],
+  "t3_no_attachment_lost": [
+   true,
+   true
+  ],
+  "immersive_retry_conflict": [
+   true,
+   true
+  ],
+  "immersive_retry_status": [
+   409,
+   409
+  ],
+  "immersive_retry_error_boundary": [
+   false,
+   false
+  ],
+  "immersive_retry_text_same": true,
+  "t4_zero_pages": [
+   true,
+   true
+  ],
+  "t4_deck_tools_disabled": [
+   true,
+   true
+  ],
+  "t4_publish_disabled": [
+   true,
+   true
+  ],
+  "t6_export_all_disabled": [
+   true,
+   true
+  ],
+  "t6_export_requests": [
+   [],
+   []
+  ],
+  "t6_downloads": [
+   [],
+   []
+  ],
+  "t7_publish_dialog_count": [
+   0,
+   0
+  ],
+  "t2_banner": [
+   true,
+   true
+  ],
+  "t3_status": [
+   409,
+   409
+  ],
+  "t3_error_boundary": [
+   false,
+   false
+  ],
+  "t3_targets": [
+   "classroom-actions-bar",
+   "classroom-actions-bar"
+  ],
+  "continue_landing": [
+   "/teacher-v3/prep/w/393d2558-b8e9-4380-aaa5-5a62e0c2940e/classroom",
+   "#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/classroom"
+  ],
+  "t3_live_text_present": [
+   true,
+   true
+  ],
+  "t3_markers": [
+   [
+    "不可执行",
+    "无法重跑",
+    "请重新发送消息"
+   ],
+   [
+    "不可执行",
+    "无法重跑",
+    "请重新发送消息"
+   ]
+  ],
+  "t1_business_requests": [
+   [],
+   []
+  ],
+  "plan_not_generated": [
+   true,
+   true
+  ],
+  "forbidden_off": [],
+  "published_state_off": 0
+ }
+}

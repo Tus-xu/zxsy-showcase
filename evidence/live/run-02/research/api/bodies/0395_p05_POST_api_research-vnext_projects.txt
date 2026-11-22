@@ -1,0 +1,35 @@
+# POST http://127.0.0.1:5176/api/research-vnext/projects
+# status=201 run=p05 step=new-project t=02:25:50
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace",
+ "accept-language": "zh-CN",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "sec-ch-ua-mobile": "?0",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "content-type": "application/json"
+}
+
+## request body (first 4KB, sanitized)
+{"name":"未命名项目","description":"","client_request_id":"e1004b2c-c3b4-4650-9972-99056251f7df"}
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "x-trace-id": "16bab658bb824d6f97bdc85a5bead570",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "date": "Sat, 21 Nov 2026 18:25:49 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"project":{"id":"d770457a-c91f-4d61-8853-de00e7a7f300","name":"未命名项目","description":null,"tenant_id":"8136b20e-7c92-56c4-aabc-29d2706bdee2","owner_id":"58227ad6-2b09-49fd-bf2a-86fe4697da0f","revision":1,"archived":false,"created_at":"2026-11-21T18:25:50.684660Z","updated_at":"2026-11-21T18:25:50.684660Z","counts":{"sessions":0}}}

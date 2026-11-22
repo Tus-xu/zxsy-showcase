@@ -1,0 +1,885 @@
+{
+  "workspace_url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+  "workspace_title": "科研工作台 · 阅读",
+  "initial": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "canvases": [
+      {
+        "i": 0,
+        "w": 924,
+        "h": 1306,
+        "css": {
+          "w": 924,
+          "h": 1306
+        },
+        "cls": "rw-pdf__canvas",
+        "visible": true,
+        "sampled": 109704,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 0,
+        "topLeftPixel": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "i": 1,
+        "w": 300,
+        "h": 150,
+        "css": {
+          "w": 300,
+          "h": 150
+        },
+        "cls": "hiddenCanvasElement",
+        "visible": true,
+        "sampled": 4091,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 1,
+        "topLeftPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "textLayers": [
+      {
+        "cls": "textLayer rw-pdf__text",
+        "spans": 0,
+        "len": 0,
+        "sample": "",
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "innerStart": ""
+      }
+    ],
+    "pages": [
+      {
+        "cls": "rw-pdf__page",
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "children": [
+          {
+            "tag": "canvas",
+            "cls": "rw-pdf__canvas",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "textLayer rw-pdf__text",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "rw-pdf__marks",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          }
+        ]
+      }
+    ],
+    "tabs": [
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf",
+      "research-03-writing-example.pdf",
+      "PDF research-02-formula-conditions.pdf",
+      "research-02-formula-conditions.pdf",
+      "PDF research-01-cea-lemma.pdf",
+      "research-01-cea-lemma.pdf"
+    ],
+    "docList": [],
+    "toast": "",
+    "skeleton": 0,
+    "selection": "",
+    "pageInputValue": "1",
+    "pageTotalText": "/ 2 155%",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:07\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n155%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "tag": "06-initial",
+    "t": "02:07:14"
+  },
+  "initial_plus6s": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "canvases": [
+      {
+        "i": 0,
+        "w": 924,
+        "h": 1306,
+        "css": {
+          "w": 924,
+          "h": 1306
+        },
+        "cls": "rw-pdf__canvas",
+        "visible": true,
+        "sampled": 109704,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 0,
+        "topLeftPixel": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "i": 1,
+        "w": 300,
+        "h": 150,
+        "css": {
+          "w": 300,
+          "h": 150
+        },
+        "cls": "hiddenCanvasElement",
+        "visible": true,
+        "sampled": 4091,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 1,
+        "topLeftPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "textLayers": [
+      {
+        "cls": "textLayer rw-pdf__text",
+        "spans": 0,
+        "len": 0,
+        "sample": "",
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "innerStart": ""
+      }
+    ],
+    "pages": [
+      {
+        "cls": "rw-pdf__page",
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "children": [
+          {
+            "tag": "canvas",
+            "cls": "rw-pdf__canvas",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "textLayer rw-pdf__text",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "rw-pdf__marks",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          }
+        ]
+      }
+    ],
+    "tabs": [
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf",
+      "research-03-writing-example.pdf",
+      "PDF research-02-formula-conditions.pdf",
+      "research-02-formula-conditions.pdf",
+      "PDF research-01-cea-lemma.pdf",
+      "research-01-cea-lemma.pdf"
+    ],
+    "docList": [],
+    "toast": "",
+    "skeleton": 0,
+    "selection": "",
+    "pageInputValue": "1",
+    "pageTotalText": "/ 2 155%",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:07\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n155%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "tag": "06-initial-plus6s",
+    "t": "02:07:20"
+  },
+  "next_page": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "canvases": [
+      {
+        "i": 0,
+        "w": 924,
+        "h": 1306,
+        "css": {
+          "w": 924,
+          "h": 1306
+        },
+        "cls": "rw-pdf__canvas",
+        "visible": true,
+        "sampled": 109704,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 0,
+        "topLeftPixel": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "i": 1,
+        "w": 300,
+        "h": 150,
+        "css": {
+          "w": 300,
+          "h": 150
+        },
+        "cls": "hiddenCanvasElement",
+        "visible": true,
+        "sampled": 4091,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 1,
+        "topLeftPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "textLayers": [
+      {
+        "cls": "textLayer rw-pdf__text",
+        "spans": 0,
+        "len": 0,
+        "sample": "",
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "innerStart": ""
+      }
+    ],
+    "pages": [
+      {
+        "cls": "rw-pdf__page",
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "children": [
+          {
+            "tag": "canvas",
+            "cls": "rw-pdf__canvas",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "textLayer rw-pdf__text",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "rw-pdf__marks",
+            "rect": {
+              "w": 924,
+              "h": 1306
+            }
+          }
+        ]
+      }
+    ],
+    "tabs": [
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf",
+      "research-03-writing-example.pdf",
+      "PDF research-02-formula-conditions.pdf",
+      "research-02-formula-conditions.pdf",
+      "PDF research-01-cea-lemma.pdf",
+      "research-01-cea-lemma.pdf"
+    ],
+    "docList": [],
+    "toast": "",
+    "skeleton": 0,
+    "selection": "",
+    "pageInputValue": "2",
+    "pageTotalText": "/ 2 155%",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:07\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n155%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "tag": "06-next-page",
+    "t": "02:07:25"
+  },
+  "zoom_width": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "canvases": [
+      {
+        "i": 0,
+        "w": 950,
+        "h": 1343,
+        "css": {
+          "w": 950,
+          "h": 1343
+        },
+        "cls": "rw-pdf__canvas",
+        "visible": true,
+        "sampled": 115987,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 0,
+        "topLeftPixel": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "i": 1,
+        "w": 300,
+        "h": 150,
+        "css": {
+          "w": 300,
+          "h": 150
+        },
+        "cls": "hiddenCanvasElement",
+        "visible": true,
+        "sampled": 4091,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 1,
+        "topLeftPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "textLayers": [
+      {
+        "cls": "textLayer rw-pdf__text",
+        "spans": 0,
+        "len": 0,
+        "sample": "",
+        "rect": {
+          "w": 950,
+          "h": 1343
+        },
+        "innerStart": ""
+      }
+    ],
+    "pages": [
+      {
+        "cls": "rw-pdf__page",
+        "rect": {
+          "w": 950,
+          "h": 1343
+        },
+        "children": [
+          {
+            "tag": "canvas",
+            "cls": "rw-pdf__canvas",
+            "rect": {
+              "w": 950,
+              "h": 1343
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "textLayer rw-pdf__text",
+            "rect": {
+              "w": 950,
+              "h": 1343
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "rw-pdf__marks",
+            "rect": {
+              "w": 950,
+              "h": 1343
+            }
+          }
+        ]
+      }
+    ],
+    "tabs": [
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf",
+      "research-03-writing-example.pdf",
+      "PDF research-02-formula-conditions.pdf",
+      "research-02-formula-conditions.pdf",
+      "PDF research-01-cea-lemma.pdf",
+      "research-01-cea-lemma.pdf"
+    ],
+    "docList": [],
+    "toast": "",
+    "skeleton": 0,
+    "selection": "",
+    "pageInputValue": "1",
+    "pageTotalText": "/ 2 160%",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:07\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n160%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "tag": "06-zoom-width",
+    "t": "02:07:34"
+  },
+  "doc2": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "canvases": [
+      {
+        "i": 0,
+        "w": 950,
+        "h": 1343,
+        "css": {
+          "w": 950,
+          "h": 1343
+        },
+        "cls": "rw-pdf__canvas",
+        "visible": true,
+        "sampled": 115987,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 0,
+        "topLeftPixel": [
+          255,
+          255,
+          255,
+          255
+        ]
+      },
+      {
+        "i": 1,
+        "w": 300,
+        "h": 150,
+        "css": {
+          "w": 300,
+          "h": 150
+        },
+        "cls": "hiddenCanvasElement",
+        "visible": true,
+        "sampled": 4091,
+        "nonWhite": 0,
+        "colored": 0,
+        "nonWhiteRatio": 0,
+        "alpha0Ratio": 1,
+        "topLeftPixel": [
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "textLayers": [
+      {
+        "cls": "textLayer rw-pdf__text",
+        "spans": 0,
+        "len": 0,
+        "sample": "",
+        "rect": {
+          "w": 950,
+          "h": 1343
+        },
+        "innerStart": ""
+      }
+    ],
+    "pages": [
+      {
+        "cls": "rw-pdf__page",
+        "rect": {
+          "w": 950,
+          "h": 1343
+        },
+        "children": [
+          {
+            "tag": "canvas",
+            "cls": "rw-pdf__canvas",
+            "rect": {
+              "w": 950,
+              "h": 1343
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "textLayer rw-pdf__text",
+            "rect": {
+              "w": 950,
+              "h": 1343
+            }
+          },
+          {
+            "tag": "div",
+            "cls": "rw-pdf__marks",
+            "rect": {
+              "w": 950,
+              "h": 1343
+            }
+          }
+        ]
+      }
+    ],
+    "tabs": [
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+      "PDF research-03-writing-example.pdf",
+      "research-03-writing-example.pdf",
+      "PDF research-02-formula-conditions.pdf",
+      "research-02-formula-conditions.pdf",
+      "PDF research-01-cea-lemma.pdf",
+      "research-01-cea-lemma.pdf"
+    ],
+    "docList": [],
+    "toast": "",
+    "skeleton": 0,
+    "selection": "",
+    "pageInputValue": "1",
+    "pageTotalText": "/ 4 160%",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:07\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 4\n160%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "tag": "06-doc2",
+    "t": "02:07:42"
+  },
+  "api_pdf": [],
+  "selection": {
+    "method": "drag-on-text-layer",
+    "selection": "",
+    "toolbar": [],
+    "box": {
+      "x": 301,
+      "y": 153,
+      "w": 950,
+      "h": 1343,
+      "hasTextLayer": true
+    }
+  },
+  "agent_before": {
+    "paneText": "π Research Agent 科研助手 在线 基于文献、公式与项目笔记 新对话 当前上下文 （基于选定文献篇） 当前选定 Mathesis 离线展示项目（自撰演示材料） 项目知识库 · 3 篇 π 今天想推进什么？ 选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。 评判选中内容 先选中一段推导或结论，检查是否成立 → 找相关证据 在项目文献中寻找支持或反对的证据 → LaTeX 对照 正在对照文献与当前草稿…… → 检查公式 检查当前公式的符号、条件与推导 → 更多能力 翻译与改写",
+    "msgCandidates": [],
+    "composer": {
+      "value": "",
+      "disabled": false
+    },
+    "sendButtons": []
+  },
+  "after_检查公式": {
+    "paneText": "π Research Agent 科研助手 在线 基于文献、公式与项目笔记 新对话 当前上下文 （基于选定文献篇） 当前选定 Mathesis 离线展示项目（自撰演示材料） 项目知识库 · 3 篇 π 公式检查 需要补充条件 02:07 当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。 关键信息 1. 缺少可校验的公式 公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。 加入笔记 快捷能力 推导校验 引用补全 LaTeX 对照 公式检查 翻译与改写",
+    "msgCandidates": [],
+    "composer": {
+      "value": "",
+      "disabled": false
+    },
+    "sendButtons": []
+  },
+  "after_评判选中内容": {
+    "error": "Locator.click: Timeout 8000ms exceeded.\nCall log:\n  - waiting for get_by_role(\"button\", name=re.compile(r\"评判选中内容\")).first\n"
+  },
+  "ask": {
+    "question": "请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。",
+    "sent": true,
+    "reply_text": "π Research Agent 科研助手 在线 基于文献、公式与项目笔记 新对话 当前上下文 （基于选定文献篇） 当前选定 Mathesis 离线展示项目（自撰演示材料） 项目知识库 · 3 篇 π 公式检查 需要补充条件 02:07 当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。 关键信息 1. 缺少可校验的公式 公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。 加入笔记 请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。 快捷能力 推导校验 引用补全 LaTeX 对照 公式检查 翻译与改写",
+    "pane_before": "π Research Agent 科研助手 在线 基于文献、公式与项目笔记 新对话 当前上下文 （基于选定文献篇） 当前选定 Mathesis 离线展示项目（自撰演示材料） 项目知识库 · 3 篇 π 公式检查 需要补充条件 02:07 当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。 关键信息 1. 缺少可校验的公式 公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。 加入笔记 快捷能力 推导校验 引用补全 LaTeX 对照 公式检查 翻译与改写",
+    "pane_after": "π Research Agent 科研助手 在线 基于文献、公式与项目笔记 新对话 当前上下文 （基于选定文献篇） 当前选定 Mathesis 离线展示项目（自撰演示材料） 项目知识库 · 3 篇 π 公式检查 需要补充条件 02:07 当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。 关键信息 1. 缺少可校验的公式 公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。 加入笔记 请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。 快捷能力 推导校验 引用补全 LaTeX 对照 公式检查 翻译与改写",
+    "screenshots": [
+      "07-agent-main-poll1.png",
+      "07-agent-main-poll2.png",
+      "07-agent-main-final.png"
+    ],
+    "polls": [
+      {
+        "at": 3,
+        "paneLen": 294
+      },
+      {
+        "at": 6,
+        "paneLen": 294
+      },
+      {
+        "at": 9,
+        "paneLen": 294
+      }
+    ]
+  },
+  "api_agent": [
+    {
+      "id": 5,
+      "step": "login",
+      "t": "02:06:52",
+      "method": "GET",
+      "url": "http://127.0.0.1:5176/src/api/tasks.js",
+      "resource_type": "script",
+      "status": 200,
+      "request_body": null,
+      "response_body": "/**\n * 后台任务中心 + 站内通知 + 学生端 AI 管家对话 端点封装\n * 契约（信封 {code:0,message,data}）：\n * - GET  /api/tasks?status=&since=&limit= → data.items[{task_id,kind,kind_label,role,status,progress,stage,payload,result,error,attempt,elapsed_ms,created_at,finished_at}]\n * - POST /api/tasks {kind,payload,idempotency_key?} → data 含 task_id/status/created\n * - GET  /api/tasks/{id}、POST /api/tasks/{id}/cancel、POST /api/tasks/{id}/retry\n * - GET  /api/notifications?unread_only=&limit= → items[{id,type,title,body,payload{jump},read_at,created_at}]\n * - GET  /api/notifications/unread-count → {count}\n * - POST /api/notifications/{id}/read、POST /api/notifications/read-all\n * - POST /api/butler/chat {message, client_request_id} → data.envelope={replies,actions,run_id}\n *   （学生端管家；404/50301 时调用方需降级为纯任务模式）\n */\nimport { api } from \"/src/api/client.js\"\n\nexport const tasksApi = {\n  list: (params = {}) => api.get('/tasks', params),\n  create: (payload) => api.post('/tasks', payload),\n  detail: (taskId) => api.get(`/tasks/${encodeURIComponent(taskId)}`),\n  cancel: (taskId) => api.post(`/tasks/${encodeURIComponent(taskId)}/cancel`),\n  retry: (taskId) => api.post(`/tasks/${encodeURIComponent(taskId)}/retry`),\n}\n\nexport const notificationsApi = {\n  list: (params = {}) => api.get('/notifications', params),\n  unreadCount: () => api.get('/notifications/unread-count'),\n  markRead: (id) => api.post(`/notifications/${encodeURIComponent(id)}/read`),\n  readAll: () => api.post('/notifications/read-all'),\n}\n\nexport const butlerChatApi = {\n  /** message + client_request_id（幂等）；失败时抛 ApiError（code 404/50301 = 管家未开通，调用方降级） */\n  chat: (message, clientRequestId) => api.post('/butler/chat', { message, client_request_id: clientRequestId }),\n}\n\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRhc2tzLmpzIl0sInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICog5ZCO5Y+w5Lu75Yqh5Lit5b+DICsg56uZ5YaF6YCa55+lICsg5a2m55Sf56uvIEFJIOeuoeWutuWvueivnSDnq6/ngrnlsIHoo4VcbiAqIOWlkee6pu+8iOS/oeWwgSB7Y29kZTowLG1lc3NhZ2UsZGF0YX3vvInvvJpcbiAqIC0gR0VUICAvYXBpL3Rhc2tzP3N0YXR1cz0mc2luY2U9JmxpbWl0PSDihpIgZGF0YS5pdGVtc1t7dGFza19pZCxraW5kLGtpbmRfbGFiZWwscm9sZSxzdGF0dXMscHJvZ3Jlc3Msc3RhZ2UscGF5bG9hZCxyZXN1bHQsZXJyb3IsYXR0ZW1wdCxlbGFwc2VkX21zLGNyZWF0ZWRfYXQsZmluaXNoZWRfYXR9XVxuICogLSBQT1NUIC9hcGkvdGFza3Mge2tpbmQscGF5bG9hZCxpZGVtcG90ZW5jeV9rZXk/fSDihpIgZGF0YSDlkKsgdGFza19pZC9zdGF0dXMvY3JlYXRlZFxuICogLSBHRVQgIC9hcGkvdGFza3Mve2lkfeOAgVBPU1QgL2FwaS90YXNrcy97aWR9L2NhbmNlbOOAgVBPU1QgL2FwaS90YXNrcy97aWR9L3JldHJ5XG4gKiAtIEdFVCAgL2FwaS9ub3RpZmljYXRpb25zP3VucmVhZF9vbmx5PSZsaW1pdD0g4oaSIGl0ZW1zW3tpZCx0eXBlLHRpdGxlLGJvZHkscGF5bG9hZHtqdW1wfSxyZWFkX2F0LGNyZWF0ZWRfYXR9XVxuICogLSBHRVQgIC9hcGkvbm90aWZpY2F0aW9ucy91bnJlYWQtY291bnQg4oaSIHtjb3VudH1cbiAqIC0gUE9TVCAvYXBpL25vdGlmaWNhdGlvbnMve2lkfS9yZWFk44CBUE9TVCAvYXBpL25vdGlmaWNhdGlvbnMvcmVhZC1hbGxcbiAqIC0gUE9TVCAvYXBpL2J1dGxlci9jaGF0IHttZXNzYWdlLCBjbGllbnRfcmVxdWVzdF9pZH0g4oaSIGRhdGEuZW52ZWxvcGU9e3JlcGxpZXMsYWN0aW9ucyxydW5faWR9XG4gKiAgIO+8iOWtpueUn+err+euoeWutu+8mzQwNC81MDMwMSDml7bosIPnlKjmlrnpnIDpmY3nuqfkuLrnuq/ku7vliqHmqKHlvI/vvIlcbiAqL1xuaW1wb3J0IHsgYXBpIH0gZnJvbSBcIi9zcmMvYXBpL2NsaWVudC5qc1wiXG5cbmV4cG9ydCBjb25zdCB0YXNrc0FwaSA9IHtcbiAgbGlzdDogKHBhcmFtcyA9IHt9KSA9PiBhcGkuZ2V0KCcvdGFza3MnLCBwYXJhbXMpLFxuICBjcmVhdGU6IChwYXlsb2FkKSA9PiBhcGkucG9zdCgnL3Rhc2tzJywgcGF5bG9hZCksXG4gIGRldGFpbDogKHRhc2tJZCkgPT4gYXBpLmdldChgL3Rhc2tzLyR7ZW5jb2RlVVJJQ29tcG9uZW50KHRhc2tJZCl9YCksXG4gIGNhbmNlbDogKHRhc2tJZCkgPT4gYXBpLnBvc3QoYC90YXNrcy8ke2VuY29kZVVSSUNvbXBvbmVudCh0YXNrSWQpfS9jYW5jZWxgKSxcbiAgcmV0cnk6ICh0YXNrSWQpID0+IGFwaS5wb3N0KGAvdGFza3MvJHtlbmNvZGVVUklDb21wb25lbnQodGFza0lkKX0vcmV0cnlgKSxcbn1cblxuZXhwb3J0IGNvbnN0IG5vdGlmaWNhdGlvbnNBcGkgPSB7XG4gIGxpc3Q6IChwYXJhbXMgPSB7fSkgPT4gYXBpLmdldCgnL25vdGlmaWNhdGlvbnMnLCBwYXJhbXMpLFxuICB1bnJlYWRDb3VudDogKCkgPT4gYXBpLmdldCgnL25vdGlmaWNhdGlvbnMvdW5yZWFkLWNvdW50JyksXG4gIG1hcmtSZWFkOiAoaWQpID0+IGFwaS5wb3N0KGAvbm90aWZpY2F0aW9ucy8ke2VuY29kZVVSSUNvbXBvbmVudChpZCl9L3JlYWRgKSxcbiAgcmVhZEFsbDogKCkgPT4gYXBpLnBvc3QoJy9ub3RpZmljYXRpb25zL3JlYWQtYWxsJyksXG59XG5cbmV4cG9ydCBjb25zdCBidXRsZXJDaGF0QXBpID0ge1xuICAvKiogbWVzc2FnZSArIGNsaWVudF9yZXF1ZXN0X2lk77yI5bm",
+      "response_headers": {
+        "cache-control": "no-cache",
+        "etag": "W/\"74e-MikP30p5zliJaE6pmcroqVGyrDs\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "http://127.0.0.1:5176",
+        "keep-alive": "timeout=5",
+        "content-length": "9813",
+        "date": "Sat, 21 Nov 2026 18:06:52 GMT",
+        "content-type": "text/javascript",
+        "vary": "Origin"
+      },
+      "request_headers": {
+        "origin": "http://127.0.0.1:5176",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://127.0.0.1:5176/src/components/butler/FloatingButler.vue",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "accept-language": "zh-CN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "body_file": "api\\bodies\\0005_GET_src_api_tasks.js.txt",
+      "note": "",
+      "response_full_len": 9653
+    },
+    {
+      "id": 15,
+      "step": "login",
+      "t": "02:06:56",
+      "method": "GET",
+      "url": "http://127.0.0.1:5176/src/api/tasks.js",
+      "resource_type": "script",
+      "status": 304,
+      "request_body": null,
+      "response_body": null,
+      "response_headers": {
+        "access-control-allow-origin": "http://127.0.0.1:5176",
+        "keep-alive": "timeout=5",
+        "date": "Sat, 21 Nov 2026 18:06:56 GMT",
+        "vary": "Origin",
+        "connection": "keep-alive"
+      },
+      "request_headers": {
+        "origin": "http://127.0.0.1:5176",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://127.0.0.1:5176/src/components/butler/FloatingButler.vue",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "accept-language": "zh-CN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "body_file": "api\\bodies\\0015_GET_src_api_tasks.js.txt",
+      "note": "body_err:Response.text: Response body is unavailable for redirect responses;"
+    },
+    {
+      "id": 25,
+      "step": "enter-workspace",
+      "t": "02:07:00",
+      "method": "GET",
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts",
+      "resource_type": "script",
+      "status": 200,
+      "request_body": null,
+      "response_body": "import { fetchEventSource } from \"/node_modules/.vite/deps/@microsoft_fetch-event-source.js?v=25e43eaa\";\nimport { getAccessToken } from \"/src/api/authSession.js\";\nimport { RESEARCH_API_BASE, rwGet, rwPost } from \"/src/features/research-workspace/api/client.ts\";\nexport async function runTask(projectId, preset, context, message, clientRequestId) {\n  const body = { preset, context, message };\n  if (clientRequestId) body.client_request_id = clientRequestId;\n  return rwPost(\n    `/projects/${projectId}/agent/tasks`,\n    body,\n    void 0,\n    clientRequestId ? { headers: { \"X-Client-Request-Id\": clientRequestId } } : void 0\n  );\n}\nexport async function postSessionMessage(sessionId, payload) {\n  return rwPost(\n    `/sessions/${encodeURIComponent(sessionId)}/messages`,\n    payload\n  );\n}\nexport async function postChatMessage(projectId, payload) {\n  return rwPost(`/projects/${projectId}/agent/chat`, payload);\n}\nexport async function getChatThread(projectId) {\n  return rwGet(`/projects/${projectId}/agent/chat`);\n}\nfunction str(v, fallback = \"\") {\n  return typeof v === \"string\" ? v : v == null ? fallback : String(v);\n}\nexport function normalizeTaskDetail(raw) {\n  const o = raw && typeof raw === \"object\" ? raw : {};\n  const meta = o.task && typeof o.task === \"object\" ? o.task : {};\n  const taskId = str(meta.id, str(meta.task_id, \"\"));\n  const status = str(meta.status, \"running\") || \"running\";\n  const activity = str(meta.activity, \"\") || void 0;\n  const hasResult = typeof o.kind === \"string\" && o.kind.length > 0;\n  const result = hasResult ? {\n    kind: o.kind,\n    status: str(o.status, \"insufficient\") || \"insufficient\",\n    summary: str(o.summary),\n    findings: Array.isArray(o.findings) ? o.findings : [],\n    evidence: Array.isArray(o.evidence) ? o.evidence : [],\n    source_locations: Array.isArray(o.source_locations) ? o.source_locations : [],\n    patches: Array.isArray(o.patches) ? o.patches : [],\n    actions: Array.isArray(o.actions) ? o.actions : [],\n    confidence: typeof o.confidence === \"number\" ? o.confidence : 0\n  } : null;\n  return {\n    task: { task_id: taskId, status, activity, result },\n    result\n  };\n}\nexport async function getTask(taskId) {\n  const raw = await rwGet(`/agent/tasks/${taskId}`);\n  return normalizeTaskDetail(raw);\n}\nexport async function listTasks(projectId, limit = 1) {\n  const r = await rwGet(`/projects/${projectId}/agent/tasks?limit=${limit}`);\n  const items = Array.isArray(r?.items) ? r.items : [];\n  return items.map((it) => {\n    const o = it && typeof it === \"object\" ? it : {};\n    const meta = o.task && typeof o.task === \"object\" ? o.task : {};\n    const preset = str(meta.preset, \"\");\n    return { ...normalizeTaskDetail(it), preset: preset || null };\n  });\n}\nexport async function getTaskResult(taskId) {\n  return rwGet(`/agent/tasks/${taskId}/result`);\n}\nexport async function searchKnowledge(projectId, query, limit = 8) {\n  const r = await rwPost(`/projects/${projectId}/knowledge/search`, {\n    query,\n    limit\n  });\n  return r?.items ?? [];\n}\nexport function streamTask(taskId, options) {\n  const ctrl = new AbortController();\n  const { signal, onEvent } = options;\n  if (signal) {\n    if (signal.aborted) ctrl.abort();\n    else signal.addEventListener(\"abort\", () => ctrl.abort(), { once: true });\n  }\n  const headers = { Accept: \"text/event-stream\" };\n  const token = getAccessToken();\n  if (token) headers.Authorization = `Bearer ${token}`;\n  if (options.lastEventId) headers[\"Last-Event-ID\"] = options.lastEventId;\n  const path = options.path ?? `${RESEARCH_API_BASE}/agent/tasks/${taskId}/stream`;\n  void fetchEventSource(path, {\n    method: \"GET\",\n    headers,\n    signal: ctrl.signal,\n    openWhenHidden: true,\n    onmessage(ev) {\n      const raw = ev.data;\n      if (!raw) return;\n      let parsed = null;\n      try {\n        parsed = JSON.parse(raw);\n      } catch {\n        parsed = { type: \"activity\", activity: raw, id: ev.id };\n      }\n      if (parsed && !parsed.id && ev.id) parsed.id = ev.id;\n      if (parsed) onEvent(parsed);\n    },\n    onerror(err) {\n      throw err;\n    }\n  });\n  return () => ctr",
+      "response_headers": {
+        "cache-control": "no-cache",
+        "etag": "W/\"100d-+R/gy9I304kBFapSk/u0bF/YLog\"",
+        "connection": "keep-alive",
+        "access-control-allow-origin": "http://127.0.0.1:5176",
+        "keep-alive": "timeout=5",
+        "content-length": "22272",
+        "date": "Sat, 21 Nov 2026 18:07:00 GMT",
+        "content-type": "text/javascript",
+        "vary": "Origin"
+      },
+      "request_headers": {
+        "origin": "http://127.0.0.1:5176",
+        "sec-ch-ua-platform": "\"Windows\"",
+        "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/agent.ts",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "accept-language": "zh-CN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "body_file": "api\\bodies\\0025_GET_src_features_research-workspace_api_agent.ts.txt",
+      "note": "",
+      "response_full_len": 22272
+    },
+    {
+      "id": 32,
+      "step": "enter-workspace",
+      "t": "02:07:01",
+      "method": "GET",
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat",
+      "resource_type": "fetch",
+      "status": 200,
+      "request_body": null,
+      "response_body": "{\"session_id\":null,\"timeline\":[]}",
+      "response_headers": {
+        "transfer-encoding": "chunked",
+        "cache-control": "no-store, max-age=0",
+        "connection": "close",
+        "x-trace-id": "7bb803bdba494544b02401c083ff4661",
+        "date": "Sat, 21 Nov 2026 18:07:00 GMT",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "server": "uvicorn"
+      },
+      "request_headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "<redacted>",
+        "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "accept-language": "zh-CN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "body_file": "api\\bodies\\0032_GET_api_research-vnext_projects_e49b27e2-b05f-45c.txt",
+      "note": "",
+      "response_full_len": 33
+    },
+    {
+      "id": 35,
+      "step": "enter-workspace",
+      "t": "02:07:01",
+      "method": "GET",
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1",
+      "resource_type": "fetch",
+      "status": 200,
+      "request_body": null,
+      "response_body": "{\"items\":[]}",
+      "response_headers": {
+        "transfer-encoding": "chunked",
+        "cache-control": "no-store, max-age=0",
+        "connection": "close",
+        "x-trace-id": "480dceb7e34548d7878e76356cdc1015",
+        "date": "Sat, 21 Nov 2026 18:07:00 GMT",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "server": "uvicorn"
+      },
+      "request_headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "<redacted>",
+        "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "accept-language": "zh-CN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "body_file": "api\\bodies\\0035_GET_api_research-vnext_projects_e49b27e2-b05f-45c.txt",
+      "note": "",
+      "response_full_len": 12
+    },
+    {
+      "id": 49,
+      "step": "agent-quick",
+      "t": "02:07:44",
+      "method": "POST",
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks",
+      "resource_type": "fetch",
+      "status": 202,
+      "request_body": "{\"preset\":\"formula_check\",\"context\":{\"mode\":\"read\",\"selection\":\"\"},\"client_request_id\":\"87daf5f8-92f6-4603-a557-a675242e29b7\"}",
+      "response_body": "{\"task_id\":\"17dd2aee-91f2-4a89-82ed-fbf9ff24c19a\",\"status\":\"queued\",\"preset\":\"formula_check\",\"created\":true}",
+      "response_headers": {
+        "transfer-encoding": "chunked",
+        "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+        "cache-control": "no-store, max-age=0",
+        "connection": "close",
+        "access-control-allow-credentials": "true",
+        "x-trace-id": "e4a2606d52624b609d50e9d682c3f85c",
+        "access-control-allow-origin": "http://127.0.0.1:5176",
+        "date": "Sat, 21 Nov 2026 18:07:44 GMT",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "server": "uvicorn"
+      },
+      "request_headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "<redacted>",
+        "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+        "accept-language": "zh-CN",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "sec-ch-ua-mobile": "?0",
+        "x-client-request-id": "87daf5f8-92f6-4603-a557-a675242e29b7",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "content-type": "application/json"
+      },
+      "body_file": "api\\bodies\\0049_POST_api_research-vnext_projects_e49b27e2-b05f-45c.txt",
+      "note": "",
+      "response_full_len": 108
+    },
+    {
+      "id": 50,
+      "step": "agent-quick",
+      "t": "02:07:46",
+      "method": "GET",
+      "url": "http://127.0.0.1:5176/api/research-vnext/agent/tasks/17dd2aee-91f2-4a89-82ed-fbf9ff24c19a",
+      "resource_type": "fetch",
+      "status": 200,
+      "request_body": null,
+      "response_body": "{\"kind\":\"formula_check\",\"status\":\"needs_conditions\",\"actions\":[\"locate\",\"add_note\"],\"patches\":[],\"summary\":\"当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。\",\"evidence\":[],\"findings\":[{\"math\":\"\",\"label\":\"缺少可校验的公式\",\"detail\":\"公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。\"}],\"confidence\":0.4,\"source_locations\":[],\"task\":{\"id\":\"17dd2aee-91f2-4a89-82ed-fbf9ff24c19a\",\"preset\":\"formula_check\",\"status\":\"completed\",\"error_code\":\"\",\"error_message\":\"\",\"created_at\":\"2026-11-21T18:07:44.819289+00:00\",\"finished_at\":\"2026-11-21T18:07:44.851338+00:00\"}}",
+      "response_headers": {
+        "transfer-encoding": "chunked",
+        "cache-control": "no-store, max-age=0",
+        "connection": "close",
+        "x-trace-id": "af40ea86eb6144468fe849970a1f9a61",
+        "date": "Sat, 21 Nov 2026 18:07:45 GMT",
+        "content-type": "application/json",
+        "vary": "Origin",
+        "server": "uvicorn"
+      },
+      "request_headers": {
+        "sec-ch-ua-platform": "\"Windows\"",
+        "authorization": "<redacted>",
+        "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+        "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+        "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+        "accept-language": "zh-CN",
+        "sec-ch-ua-mobile": "?0"
+      },
+      "body_file": "api\\bodies\\0050_GET_api_research-vnext_agent_tasks_17dd2aee-91f2-.txt",
+      "note": "",
+      "response_full_len": 536
+    }
+  ]
+}

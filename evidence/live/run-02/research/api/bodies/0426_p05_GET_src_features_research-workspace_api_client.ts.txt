@@ -1,0 +1,163 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/client.ts
+# status=200 run=p05 step=new-project t=02:25:59
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/project.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "cache-control": "no-cache",
+ "content-length": "23975",
+ "date": "Sat, 21 Nov 2026 18:25:59 GMT",
+ "etag": "W/\"1684-oM3KZ1ryNp4tdo7FYq+eigNknbE\"",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { clearAccessToken, getAccessToken, refreshAccessToken } from "/src/api/authSession.js";
+const BASE = "/api/research-vnext";
+export class RvApiError extends Error {
+  code;
+  status;
+  taskId;
+  retryable;
+  constructor(e) {
+    super(e.message);
+    this.name = "RvApiError";
+    this.code = e.code;
+    this.status = e.status;
+    this.taskId = e.taskId;
+    this.retryable = e.retryable;
+  }
+  toError() {
+    return {
+      code: this.code,
+      status: this.status,
+      message: this.message,
+      taskId: this.taskId,
+      retryable: this.retryable
+    };
+  }
+}
+const LLM_UNAVAILABLE_RE = /(_LLM_|LLM_UNAVAILABLE|LLM_TIMEOUT|TIMEOUT|UPSTREAM|GATEWAY_)/i;
+function isLlmUnavailable(code, status) {
+  const n = Number(code);
+  if (n === -1 || n === -3) return true;
+  if (status === 503 || status === 504) return true;
+  if (n === 503 || n === 504) return true;
+  return LLM_UNAVAILABLE_RE.test(String(code));
+}
+export function mapResearchError(raw = {}) {
+  const code = raw.code ?? -1;
+  const status = raw.status ?? 0;
+  const taskId = raw.taskId;
+  if (status === 401 || Number(code) === 401) {
+    return { code, status: 401, message: "登录已过期，请重新登录。", taskId, retryable: false };
+  }
+  if (status === 403 || Number(code) === 403) {
+    return { code, status: 403, message: "你没有该项目的访问权限。", taskId, retryable: false };
+  }
+  if (status === 404 || Number(code) === 404) {
+    return { code, status: 404, message: "内容不存在或已被删除。", taskId, retryable: false };
+  }
+  if (status === 409 || Number(code) === 409) {
+    return { code, status: 409, message: "文件已在别处修改，已为你刷新最新版本。", taskId, retryable: false };
+  }
+  if (status === 429 || Number(code) === 429) {
+    return { code, status: 429, message: "操作过于频繁，请稍后重试。", taskId, retryable: true };
+  }
+  if (status >= 500 || isLlmUnavailable(code, status)) {
+    return {
+      code,
+      status: status || 503,
+      message: "AI 服务暂时不可用。你的论文已保存。",
+      taskId,
+      retryable: true
+    };
+  }
+  return {
+    code,
+    status: status || 0,
+    message: "操作未能完成，请稍后重试。",
+    taskId,
+    retryable: isLlmUnavailable(code, status)
+  };
+}
+export function toRvError(err) {
+  if (err instanceof RvApiError) return err.toError();
+  if (err && typeof err === "object") {
+    const e = err;
+    return mapResearchError({ code: e.code, status: e.status, message: e.message, taskId: e.taskId });
+  }
+  return mapResearchError({});
+}
+function buildUrl(path, query) {
+  let url = BASE + path;
+  if (query) {
+    const qs = new URLSearchParams();
+    for (const [k, v] of Object.entries(query)) {
+      if (v !== void 0 && v !== null && v !== "") qs.append(k, String(v));
+    }
+    const s = qs.toString();
+    if (s) url += `?${s}`;
+  }
+  return url;
+}
+function extractRawError(json, status) {
+  if (json && typeof json === "object") {
+    const obj = json;
+    const errorObj = obj.error;
+    if (errorObj && typeof errorObj === "object") {
+      const e = errorObj;
+      return {
+        code: e.code ?? status,
+        status,
+        message: e.message ?? "",
+        taskId: e.task_id ?? void 0
+      };
+    }
+    const detail = obj.detail;
+    if (typeof detail === "string") return { code: status, status, message: detail };
+    if (detail && typeof detail === "object") {
+      const d = detail;
+      return { code: d.code ?? status, status, message: d.message ?? "" };
+    }
+    if (typeof obj.message === "string") {
+      return { code: obj.code ?? status, status, message: obj.message };
+    }
+  }
+  return { code: status, status };
+}
+async function request(method, path, opts = {}, retried = false) {
+  const url = buildUrl(path, opts.query);
+  const headers = { ...opts.headers ?? {} };
+  const token = getAccessToken();
+  if (token) headers.Authorization = `Bearer ${token}`;
+  let bodyInit;
+  if (opts.body instanceof FormData) {
+    bodyInit = opts.body;
+  } else if (opts.body !== void 0) {
+    headers["Content-Type"] = "application/json";
+    bodyInit = JSON.stringify(opts.body);
+  }
+  let res;
+  try {
+    res = await fetch(url, {
+      method,
+      headers,
+      body: bodyInit,
+      signal: opts.signal,
+      credential

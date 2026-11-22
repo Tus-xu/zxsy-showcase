@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/agent/tasks/c2e484f5-c6c4-4452-8173-8c7199e476e3
+# status=200 run=p03 step=agent-presets t=02:15:05
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "2c20801d4a634bc5be321ae60970ce7d",
+ "date": "Sat, 21 Nov 2026 18:15:05 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"kind":"translate","status":"insufficient","summary":"任务尚未完成","findings":[],"evidence":[],"source_locations":[],"patches":[],"actions":[],"confidence":0.0,"task":{"id":"c2e484f5-c6c4-4452-8173-8c7199e476e3","preset":"translate","status":"running","error_code":"","error_message":"","created_at":"2026-11-21T18:14:49.396009+00:00","finished_at":null}}

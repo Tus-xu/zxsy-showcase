@@ -1,0 +1,161 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/bank",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "✎ 编辑",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "全部知识点 0",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-tree-row is-sel"
+    },
+    {
+      "t": "＋ 新建",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm tv3-btn--gold"
+    },
+    {
+      "t": "＋ 自编录入",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "＋ 拍照入库",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm tv3-btn--gold"
+    },
+    {
+      "t": "＋ 自编录入",
+      "aria": "",
+      "disabled": false,
+      "cls": "tbtn tbtn--primary"
+    },
+    {
+      "t": "📐 数学绘图 数学绘图 构造公式图形 · 可插入课件",
+      "aria": "数学绘图",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--draw"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "ph": "搜题干关键词",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    }
+  ],
+  "selects": [
+    {
+      "aria": "",
+      "value": "",
+      "opts": [
+        "全部题型",
+        "选择题",
+        "填空题",
+        "解答题",
+        "图片题"
+      ]
+    },
+    {
+      "aria": "",
+      "value": "",
+      "opts": [
+        "全部难度",
+        "容易",
+        "中等",
+        "较难"
+      ]
+    },
+    {
+      "aria": "",
+      "value": "",
+      "opts": [
+        "全部来源",
+        "校本",
+        "区库",
+        "拍照入库",
+        "自编",
+        "AI配题"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    },
+    {
+      "t": "题库",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "组卷",
+      "h": "/teacher-v3/quiz"
+    }
+  ],
+  "headings": [
+    "题库与组卷",
+    "题库为空"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n题库\n分类树 · 专题夹 · 拍照/自编入库\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n📚\n题库与组卷\n题库管理 · 选题组卷 · 发布到学生课堂任务\n题库\n组卷\n图片题原样入库 · 不强转文字公式\n分类树\n模块 ▸ 章 ▸ 知识点\n✎ 编辑\n全部知识点\n0\n我的专题夹\n跨知识点引用\n＋ 新建\n还没有专题夹。新建一个，把分散在各知识点的题按「专题」引用收集（如：圆锥曲线压轴、易错题集）。\n全部知识点\n0 / 0 题\n全部题型\n选择题\n填空题\n解答题\n图片题\n全部难度\n容易\n中等\n较难\n全部来源\n校本\n区库\n拍照入库\n自编\nAI配题\n＋ 自编录入\n＋ 拍照入库\n📚\n题库为空\n题库为空，上传教材自动切片入库，或手动录入题目。\n＋ 自编录入\n📐\n数学绘图\n数学绘图\n构造公式图形 · 可插入课件\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

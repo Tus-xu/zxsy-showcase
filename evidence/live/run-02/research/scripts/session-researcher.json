@@ -1,0 +1,67 @@
+{
+ "cookies": [
+  {
+   "name": "ma_refresh_researcher",
+   "value": "W9NrIv5a7Y3nBMQiMNYwQEVVpVAC0KEpvlPD1r5DKdCJDw5vpzeLOVLs29Wf8dh6",
+   "domain": "127.0.0.1",
+   "path": "/api/auth",
+   "expires": 1795890253.757548,
+   "httpOnly": true,
+   "secure": false,
+   "sameSite": "Lax"
+  },
+  {
+   "name": "ma_refresh",
+   "value": "W9NrIv5a7Y3nBMQiMNYwQEVVpVAC0KEpvlPD1r5DKdCJDw5vpzeLOVLs29Wf8dh6",
+   "domain": "127.0.0.1",
+   "path": "/api/auth",
+   "expires": 1795890253.757757,
+   "httpOnly": true,
+   "secure": false,
+   "sameSite": "Lax"
+  },
+  {
+   "name": "ma_csrf_researcher",
+   "value": "Guwf6rYN2SroSagNTBEXu3wyFKXNCJFRo92VpzPn4c0",
+   "domain": "127.0.0.1",
+   "path": "/",
+   "expires": 1795890253.757672,
+   "httpOnly": false,
+   "secure": false,
+   "sameSite": "Lax"
+  },
+  {
+   "name": "ma_csrf",
+   "value": "Guwf6rYN2SroSagNTBEXu3wyFKXNCJFRo92VpzPn4c0",
+   "domain": "127.0.0.1",
+   "path": "/",
+   "expires": 1795890253.757812,
+   "httpOnly": false,
+   "secure": false,
+   "sameSite": "Lax"
+  }
+ ],
+ "origins": [
+  {
+   "origin": "http://127.0.0.1:5176",
+   "localStorage": [
+    {
+     "name": "ma_research_last_workspace",
+     "value": "read"
+    },
+    {
+     "name": "ma_last_login_phone",
+     "value": "13800001003"
+    },
+    {
+     "name": "rw.panel.v3",
+     "value": "{\"workspace\":\"read\",\"sidebarCollapsed\":false,\"agentCollapsed\":false,\"widths\":{\"readSidebar\":300,\"readAgent\":420,\"writeLeft\":306,\"writeEditor\":590,\"writeAgent\":314,\"logHeight\":164},\"logExpanded\":true,\"openTabs\":[],\"currentProjectId\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\"}"
+    },
+    {
+     "name": "ma_research_last_project",
+     "value": "e49b27e2-b05f-45c3-ac99-dd0792d9ab80"
+    }
+   ]
+  }
+ ]
+}

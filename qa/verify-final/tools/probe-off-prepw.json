@@ -1,0 +1,687 @@
+{
+ "ppt": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/ppt",
+  "text": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课工作台 高二年级 · 2026 秋季学期 AI 助教已就绪 任务 张 张老师 高中数学 · 教师 椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结 · 高一(3)班 · 数学 · 45分钟 课堂设计 PPT 教案 导出 对话 资料 历史 课件尚未生成：确认教学路径后会自动生成。 添加页 T 文本 Σ 公式 数学图形 图片 备注 发布课堂 课件尚未生成 确认教学路径后，会按它生成课件与教案，内容逐页由 AI 充实。 尚未生成教学路径，请先在「课堂设计」中与 AI 确认教学路径。 ‹ 幻灯片 0 / 0 › − 100% ＋ 智能属性 图形属性 页面信息 本页暂无可参数化数学图形。带参数化图形的页面（如「椭圆的定义」）可在此调整 a/b、显隐与样式。 AI 快捷操作 生成推导动画 仅推导/例题页：生成分步推导并逐步播放 让本页更简洁 精简文字，突出重点 生成相似练习题 基于本页内容生成随堂练习 📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+  "buttons": [
+   {
+    "t": "任务",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-task-bell",
+    "cls": "tv3-btn tv3-btn--sm"
+   },
+   {
+    "t": "课堂设计",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab"
+   },
+   {
+    "t": "PPT",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab is-active"
+   },
+   {
+    "t": "教案",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab"
+   },
+   {
+    "t": "导出",
+    "disabled": false,
+    "title": "导出课件与教案",
+    "testid": "",
+    "cls": "pc-header__tool pc-header__tool--outline"
+   },
+   {
+    "t": "对话",
+    "disabled": false,
+    "title": "备课对话 0 条",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "资料",
+    "disabled": true,
+    "title": "完成教材定位后可用",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "历史",
+    "disabled": false,
+    "title": "教学蓝图历史版本",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "添加页",
+    "disabled": true,
+    "title": "AI 生成新页（基于当前环节任务）",
+    "testid": "",
+    "cls": "pc-deck__tool"
+   },
+   {
+    "t": "T 文本",
+    "disabled": true,
+    "title": "追加文本（真实落库）",
+    "testid": "",
+    "cls": "pc-deck__tool"
+   },
+   {
+    "t": "Σ 公式",
+    "disabled": true,
+    "title": "追加公式（真实落库）",
+    "testid": "",
+    "cls": "pc-deck__tool"
+   },
+   {
+    "t": "数学图形",
+    "disabled": true,
+    "title": "按本课主题插入真实数学图形（数列/集合/函数/三角等）",
+    "testid": "",
+    "cls": "pc-deck__tool"
+   },
+   {
+    "t": "图片",
+    "disabled": true,
+    "title": "为本课补充真实数学配图（最多 3 张，确定性渲染，不是 AI 生图）",
+    "testid": "",
+    "cls": "pc-deck__tool"
+   },
+   {
+    "t": "备注",
+    "disabled": true,
+    "title": "即将支持",
+    "testid": "",
+    "cls": "pc-deck__tool"
+   },
+   {
+    "t": "发布课堂",
+    "disabled": true,
+    "title": "发布到班级课堂：学生端 AI 主讲逐页讲解（发布当前课件快照，不改动备课内容）",
+    "testid": "pc-deck-publish",
+    "cls": "pc-deck__tool pc-deck__tool--publish"
+   },
+   {
+    "t": "‹",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-deck__pager-nav"
+   },
+   {
+    "t": "›",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-deck__pager-next"
+   },
+   {
+    "t": "−",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": ""
+   },
+   {
+    "t": "＋",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": ""
+   },
+   {
+    "t": "",
+    "disabled": false,
+    "title": "预览演示",
+    "testid": "",
+    "cls": "pc-deck__zoom-full"
+   },
+   {
+    "t": "",
+    "disabled": false,
+    "title": "取消选中",
+    "testid": "",
+    "cls": "pc-props__close"
+   },
+   {
+    "t": "图形属性",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-props__tab is-active"
+   },
+   {
+    "t": "页面信息",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-props__tab"
+   },
+   {
+    "t": "生成推导动画 仅推导/例题页：生成分步推导并逐步播放",
+    "disabled": true,
+    "title": "生成推导动画",
+    "testid": "",
+    "cls": "pc-props__ai-item"
+   },
+   {
+    "t": "让本页更简洁 精简文字，突出重点",
+    "disabled": true,
+    "title": "让本页更简洁",
+    "testid": "",
+    "cls": "pc-props__ai-item"
+   },
+   {
+    "t": "生成相似练习题 基于本页内容生成随堂练习",
+    "disabled": true,
+    "title": "生成相似练习题",
+    "testid": "",
+    "cls": "pc-props__ai-item"
+   },
+   {
+    "t": "",
+    "disabled": false,
+    "title": "语音输入",
+    "testid": "",
+    "cls": "pc-composer__mic"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-composer__send"
+   },
+   {
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-dock-resource",
+    "cls": "ck-item ck-item--sm ck-item--resource"
+   },
+   {
+    "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-butler-fab",
+    "cls": "ck-item ck-item--ai"
+   }
+  ],
+  "tabs": [
+   {
+    "t": "课堂设计",
+    "active": false
+   },
+   {
+    "t": "PPT",
+    "active": true
+   },
+   {
+    "t": "教案",
+    "active": false
+   }
+  ],
+  "fixed": [
+   {
+    "cls": "pc-composer",
+    "t": ""
+   },
+   {
+    "cls": "ck-root",
+    "t": "📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对"
+   }
+  ]
+ },
+ "plan": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/plan",
+  "text": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课工作台 高二年级 · 2026 秋季学期 AI 助教已就绪 任务 张 张老师 高中数学 · 教师 椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结 · 高一(3)班 · 数学 · 45分钟 课堂设计 PPT 教案 同步到课件 导出 对话 资料 历史 教案大纲 教学目标 教学重难点 教学过程 板书设计 作业布置 教学反思 收起侧栏 正文 16 B I U 1 2 3 教案尚未生成 确认教学路径后，会按它生成课件与教案。 尚未生成教学路径，请先在「课堂设计」中与 AI 确认教学路径。 智能辅助 × 当前定位 教学目标 AI 助手建议 精简语言 让这部分表述更简洁清晰 改成探究式提问 把讲解改为学生探究的问题链 强化教材依据 为本段补充可追溯依据说明 仅实时改写当前教案章节，不会同步到课件页 补充板书要点 基于此内容生成板书设计建议 📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+  "buttons": [
+   {
+    "t": "任务",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-task-bell",
+    "cls": "tv3-btn tv3-btn--sm"
+   },
+   {
+    "t": "课堂设计",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab"
+   },
+   {
+    "t": "PPT",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab"
+   },
+   {
+    "t": "教案",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab is-active"
+   },
+   {
+    "t": "同步到课件",
+    "disabled": true,
+    "title": "教学蓝图确认后可同步",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "导出",
+    "disabled": false,
+    "title": "导出课件与教案",
+    "testid": "",
+    "cls": "pc-header__tool pc-header__tool--outline"
+   },
+   {
+    "t": "对话",
+    "disabled": false,
+    "title": "备课对话 0 条",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "资料",
+    "disabled": true,
+    "title": "完成教材定位后可用",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "历史",
+    "disabled": false,
+    "title": "教学蓝图历史版本",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "教学目标",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__item is-active"
+   },
+   {
+    "t": "教学重难点",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__item"
+   },
+   {
+    "t": "教学过程",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__item"
+   },
+   {
+    "t": "板书设计",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__item"
+   },
+   {
+    "t": "作业布置",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__item"
+   },
+   {
+    "t": "教学反思",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__item"
+   },
+   {
+    "t": "收起侧栏",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-outline__collapse"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "撤销",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "重做",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "正文",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-toolbar__menu"
+   },
+   {
+    "t": "16",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-toolbar__menu pc-toolbar__menu--size"
+   },
+   {
+    "t": "B",
+    "disabled": true,
+    "title": "加粗",
+    "testid": "",
+    "cls": "pc-toolbar__btn pc-toolbar__btn--text"
+   },
+   {
+    "t": "I",
+    "disabled": true,
+    "title": "斜体",
+    "testid": "",
+    "cls": "pc-toolbar__btn pc-toolbar__btn--text"
+   },
+   {
+    "t": "U",
+    "disabled": true,
+    "title": "下划线",
+    "testid": "",
+    "cls": "pc-toolbar__btn pc-toolbar__btn--text"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "左对齐",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "居中",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "无序列表",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "1 2 3",
+    "disabled": true,
+    "title": "有序列表",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "插入图片",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "插入表格",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "插入链接",
+    "testid": "",
+    "cls": "pc-toolbar__btn"
+   },
+   {
+    "t": "×",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-ai__close"
+   },
+   {
+    "t": "精简语言 让这部分表述更简洁清晰",
+    "disabled": true,
+    "title": "教案还没有生成，先等 AI 完成教案内容",
+    "testid": "",
+    "cls": "pc-ai__card"
+   },
+   {
+    "t": "改成探究式提问 把讲解改为学生探究的问题链",
+    "disabled": true,
+    "title": "教案还没有生成，先等 AI 完成教案内容",
+    "testid": "",
+    "cls": "pc-ai__card"
+   },
+   {
+    "t": "强化教材依据 为本段补充可追溯依据说明 仅实时改写当前教案章节，不会同步到课件页",
+    "disabled": true,
+    "title": "教案还没有生成，先等 AI 完成教案内容",
+    "testid": "",
+    "cls": "pc-ai__card"
+   },
+   {
+    "t": "补充板书要点 基于此内容生成板书设计建议",
+    "disabled": true,
+    "title": "教案还没有生成，先等 AI 完成教案内容",
+    "testid": "",
+    "cls": "pc-ai__card"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-ai__send"
+   },
+   {
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-dock-resource",
+    "cls": "ck-item ck-item--sm ck-item--resource"
+   },
+   {
+    "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-butler-fab",
+    "cls": "ck-item ck-item--ai"
+   }
+  ],
+  "tabs": [
+   {
+    "t": "课堂设计",
+    "active": false
+   },
+   {
+    "t": "PPT",
+    "active": false
+   },
+   {
+    "t": "教案",
+    "active": true
+   }
+  ],
+  "fixed": [
+   {
+    "cls": "ck-root",
+    "t": "📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对"
+   }
+  ]
+ },
+ "classroom": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/classroom",
+  "text": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课工作台 高二年级 · 2026 秋季学期 AI 助教已就绪 任务 张 张老师 高中数学 · 教师 椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结 · 高一(3)班 · 数学 · 45分钟 课堂设计 PPT 教案 对话 资料 历史 备课对话 今天想备什么课？ 告诉我课题、课时和教材就行，比如： 椭圆第一课时 · 45 分钟 立体几何二面角 函数单调性与最值 本轮生成没有完成，未写入任何内容。 重试 这节课还没有教学流程 在下方告诉 AI 课题、课时与教材，它会先给出教学方案，确认后生成完整教学流程。 告诉 AI 我的备课想法 教材与资料 0 › 📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+  "buttons": [
+   {
+    "t": "任务",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-task-bell",
+    "cls": "tv3-btn tv3-btn--sm"
+   },
+   {
+    "t": "课堂设计",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab is-active"
+   },
+   {
+    "t": "PPT",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab"
+   },
+   {
+    "t": "教案",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-header__tab"
+   },
+   {
+    "t": "对话",
+    "disabled": false,
+    "title": "备课对话 0 条",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "资料",
+    "disabled": true,
+    "title": "完成教材定位后可用",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "历史",
+    "disabled": false,
+    "title": "教学蓝图历史版本",
+    "testid": "",
+    "cls": "pc-header__tool"
+   },
+   {
+    "t": "椭圆第一课时 · 45 分钟",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-conv__suggest"
+   },
+   {
+    "t": "立体几何二面角",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-conv__suggest"
+   },
+   {
+    "t": "函数单调性与最值",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-conv__suggest"
+   },
+   {
+    "t": "重试",
+    "disabled": false,
+    "title": "重新生成这次的教学方案（不会重复写入其它内容）",
+    "testid": "",
+    "cls": "pc-actions__btn"
+   },
+   {
+    "t": "告诉 AI 我的备课想法",
+    "disabled": false,
+    "title": "",
+    "testid": "",
+    "cls": "pc-actions__btn"
+   },
+   {
+    "t": "教材与资料 0 ›",
+    "disabled": false,
+    "title": "本节课暂无教材依据，打开查看说明",
+    "testid": "",
+    "cls": "pc-classroom__materials"
+   },
+   {
+    "t": "",
+    "disabled": false,
+    "title": "语音输入",
+    "testid": "",
+    "cls": "pc-composer__mic"
+   },
+   {
+    "t": "",
+    "disabled": true,
+    "title": "",
+    "testid": "",
+    "cls": "pc-composer__send pc-composer__send--sq"
+   },
+   {
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-dock-resource",
+    "cls": "ck-item ck-item--sm ck-item--resource"
+   },
+   {
+    "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+    "disabled": false,
+    "title": "",
+    "testid": "tv3-butler-fab",
+    "cls": "ck-item ck-item--ai"
+   }
+  ],
+  "tabs": [
+   {
+    "t": "课堂设计",
+    "active": true
+   },
+   {
+    "t": "PPT",
+    "active": false
+   },
+   {
+    "t": "教案",
+    "active": false
+   }
+  ],
+  "fixed": [
+   {
+    "cls": "pc-classroom__materials",
+    "t": "教材与资料\n0\n›"
+   },
+   {
+    "cls": "pc-composer",
+    "t": ""
+   },
+   {
+    "cls": "ck-root",
+    "t": "📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对"
+   }
+  ]
+ }
+}

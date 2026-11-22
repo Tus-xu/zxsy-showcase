@@ -1,0 +1,239 @@
+{
+  "backend_api_calls": 435,
+  "by_status": {
+    "200": 432,
+    "409": 1,
+    "429": 1,
+    "202": 1
+  },
+  "unique_endpoints": [
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/auth/me",
+      "count": 27
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/members",
+      "count": 1
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/classes/mine",
+      "count": 13
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/student/practice/kp-catalog",
+      "count": 3
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/classes",
+      "count": 31
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/folders",
+      "count": 3
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/lesson-templates",
+      "count": 2
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/393d2558-b8e9-4380-aaa5-5a62e0c2940e",
+      "count": 10
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/393d2558-b8e9-4380-aaa5-5a62e0c2940e/blueprint/revisions",
+      "count": 1
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/393d2558-b8e9-4380-aaa5-5a62e0c2940e/events",
+      "count": 5
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/393d2558-b8e9-4380-aaa5-5a62e0c2940e/messages",
+      "count": 14
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299",
+      "count": 11
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/blueprint/revisions",
+      "count": 2
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/events",
+      "count": 10
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/messages",
+      "count": 20
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/prep/sessions",
+      "count": 19
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/quiz/kp-tree",
+      "count": 5
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/quiz/questions",
+      "count": 8
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/resources",
+      "count": 2
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher-v3/tasks",
+      "count": 165
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/assignments",
+      "count": 3
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/insights",
+      "count": 6
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/learning-overview",
+      "count": 6
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/roster",
+      "count": 6
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/classroom-coursewares",
+      "count": 4
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/grading/queue",
+      "count": 6
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/grading/workspace",
+      "count": 6
+    },
+    {
+      "method": "GET",
+      "status": 200,
+      "path": "/api/teacher/videos",
+      "count": 4
+    },
+    {
+      "method": "POST",
+      "status": 200,
+      "path": "/api/auth/challenges/sms",
+      "count": 6
+    },
+    {
+      "method": "POST",
+      "status": 200,
+      "path": "/api/auth/login/sms",
+      "count": 6
+    },
+    {
+      "method": "POST",
+      "status": 200,
+      "path": "/api/auth/token/refresh",
+      "count": 27
+    },
+    {
+      "method": "POST",
+      "status": 202,
+      "path": "/api/teacher-v3/prep/conversations",
+      "count": 1
+    },
+    {
+      "method": "POST",
+      "status": 409,
+      "path": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "count": 1
+    },
+    {
+      "method": "POST",
+      "status": 429,
+      "path": "/api/auth/challenges/sms",
+      "count": 1
+    }
+  ],
+  "artifacts": {
+    "files": [],
+    "count": 0
+  },
+  "server_errors": [
+    {
+      "file": "run-02b-edit-export-publish.json",
+      "method": "POST",
+      "status": 409,
+      "path": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+      "req": "{\"idempotency_key\":\"072d0b17-eb19-400f-bdb0-78d0ebde52e5\",\"action\":\"retry_run\",\"target\":\"29a20efc-7011-47c6-ba01-c802ea42f418\",\"expected_revision\":11}",
+      "resp": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"2cc296b413b84daf\",\"error_key\":\"conflict\"}",
+      "body_file": "api/bodies/043_POST_teacher-v3_prep_conversations_f5c84551-18a7-454d-b49c-8f115e816299_act.txt"
+    },
+    {
+      "file": "run-03-pages-detail.json",
+      "method": "POST",
+      "status": 429,
+      "path": "/api/auth/challenges/sms",
+      "req": "{\"phone\":\"13800001002\",\"purpose\":\"login\"}",
+      "resp": "{\"code\":42901,\"error_key\":\"AUTH_RATE_LIMITED\",\"message\":\"验证码发送过于频繁\",\"retry_after\":7}",
+      "body_file": "api/bodies/008_POST_auth_challenges_sms.txt"
+    }
+  ]
+}

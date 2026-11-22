@@ -1,0 +1,30 @@
+{
+  "role": "researcher",
+  "nav": [],
+  "visited": [
+    {
+      "href": "/research-workspace",
+      "api": 3,
+      "saved": 3,
+      "url": "http://127.0.0.1:5176/research-workspace"
+    },
+    {
+      "href": "/research-workspace/workspace",
+      "api": 19,
+      "saved": 19,
+      "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read"
+    },
+    {
+      "href": "/research-workspace/account",
+      "api": 4,
+      "saved": 4,
+      "url": "http://127.0.0.1:5176/research-workspace/account"
+    }
+  ],
+  "errors": [],
+  "login_home": {
+    "api": 3,
+    "saved": 3,
+    "url": "http://127.0.0.1:5176/research-workspace"
+  }
+}

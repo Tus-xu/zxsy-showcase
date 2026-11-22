@@ -1,0 +1,131 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/classroom",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "双师课堂",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn is-active"
+    },
+    {
+      "t": "实时互动",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "刷新",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "查看学情",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm tv3-btn--primary"
+    },
+    {
+      "t": "开课",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--primary"
+    },
+    {
+      "t": "📐 数学绘图 数学绘图 构造公式图形 · 可插入课件",
+      "aria": "数学绘图",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--draw"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "ph": "本节课题（可改）",
+      "aria": "",
+      "value": "椭圆及其标准方程 · 习题课",
+      "disabled": false
+    }
+  ],
+  "selects": [
+    {
+      "aria": "选择班级",
+      "value": "039bcfc5-eb65-41a0-8840-ae3e361544b2",
+      "opts": [
+        "高一(3)班 · 数学 · 5 人"
+      ]
+    },
+    {
+      "aria": "",
+      "value": "039bcfc5-eb65-41a0-8840-ae3e361544b2",
+      "opts": [
+        "高一(3)班 · 数学"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    },
+    {
+      "t": "班级",
+      "h": "/teacher-v3/classes"
+    }
+  ],
+  "headings": [
+    "课堂"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n课堂\n双师课堂 · 实时互动 · 班级\nAI 助教已就绪\n任务\n后台任务\n张\n张老师\n高中数学 · 教师\n🎓\n课堂\n双师课堂 · 实时互动 · 班级\n双师课堂\n实时互动\n班级\n班级双师课堂\n发布后的备课课件由 AI 主讲逐页讲解；这里显示真实学习进度与练习正确率（每 3 秒刷新）。\n高一(3)班 · 数学 · 5 人\n刷新\n函数的单调性：从图像到导数\n已发布\n高一(3)班 · 数学 · 5 页 · 发布于 04:05\n1/5\n已打开\n80%\n已参与平均进度\n—\n已作答正确率\n04:05\n更新\n1 人已进入\n查看学情\n📐\n数学绘图\n数学绘图\n构造公式图形 · 可插入课件\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

@@ -1,0 +1,58 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts
+# status=200 run=p04b step=enter-workspace t=02:20:07
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/papers.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"3e4-VzeusI4xZsOgWcCC7nEJXQLy71A\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "4219",
+ "date": "Sat, 21 Nov 2026 18:20:07 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { rwDel, rwGet, rwPatch, rwPost } from "/src/features/research-workspace/api/client.ts";
+export async function listPapers(projectId) {
+  const r = await rwGet(`/projects/${projectId}/papers`);
+  return r?.items ?? [];
+}
+export async function uploadPaper(projectId, file) {
+  const fd = new FormData();
+  fd.append("file", file);
+  const r = await rwPost(`/projects/${projectId}/papers`, fd);
+  return r.paper;
+}
+export async function attachPaperAsset(projectId, assetId) {
+  const r = await rwPost(`/projects/${projectId}/papers`, { asset_id: assetId });
+  return r.paper;
+}
+export async function deletePaper(projectId, paperId) {
+  await rwDel(`/projects/${projectId}/papers/${paperId}`);
+}
+export async function patchPaper(projectId, paperId, body) {
+  const r = await rwPatch(`/projects/${projectId}/papers/${paperId}`, body);
+  return r.paper;
+}
+export async function getPageText(projectId, paperId, page) {
+  return rwGet(`/projects/${projectId}/papers/${paperId}/text`, { page });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInBhcGVycy50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIOaWh+eMriBBUEnvvIhCQUNLRU5ELUNPTlRSQUNUIMKnMy4x77yJ44CCXG4gKiDlhYPmlbDmja7op6PmnpDlpLHotKUqKuS4jeW+lyoq5a+86Ie05paH54yu5LiN5Y+v55So77yaYHBhcnNlX3N0YXR1cz1mYWlsZWRgIOS7jeWPr+ivuyBQREbvvIjlrqrms5UgwqcxMO+8ieOAglxuICovXG5pbXBvcnQgeyByd0RlbCwgcndHZXQsIHJ3UGF0Y2gsIHJ3UG9zdCB9IGZyb20gJy4vY2xpZW50J1xuaW1wb3J0IHR5cGUgeyBQYXBlciwgUGFnZVRleHQgfSBmcm9tICcuL3R5cGVzJ1xuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gbGlzdFBhcGVycyhwcm9qZWN0SWQ6IHN0cmluZyk6IFByb21pc2U8UGFwZXJbXT4ge1xuICBjb25zdCByID0gYXdhaXQgcndHZXQ8eyBpdGVtczogUGFwZXJbXSB9PihgL3Byb2plY3RzLyR7cHJvamVjdElkfS9wYXBlcnNgKVxuICByZXR1cm4gcj8uaXRlbXMgPz8gW11cbn1cblxuLyoqIG11bHRpcGFydCDkuIrkvKDvvIhmaWxl77yJ5oiW5byV55So5pei5pyJIGFzc2V077yIYXNzZXRfaWTvvInjgIIgKi9cbmV4cG9ydCBhc3luYyBmdW5jdGlvbiB1cGxvYWRQYXBlcihwcm9qZWN0SWQ6IHN0cmluZywgZmlsZTogRmlsZSk6IFByb21pc2U8UGFwZXI+IHtcbiAgY29uc3QgZmQgPSBuZXcgRm9ybURhdGEoKVxuICBmZC5hcHBlbmQoJ2ZpbGUnLCBmaWxlKVxuICBjb25zdCByID0gYXdhaXQgcndQb3N0PHsgcGFwZXI6IFBhcGVyIH0+KGAvcHJvamVjdHMvJHtwcm9qZWN0SWR9L3BhcGVyc2AsIGZkKVxuICByZXR1cm4gci5wYXBlclxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gYXR0YWNoUGFwZXJBc3NldChwcm9qZWN0SWQ6IHN0cmluZywgYXNzZXRJZDogc3RyaW5nKTogUHJvbWlzZTxQYXBlcj4ge1xuICBjb25zdCByID0gYXdhaXQgcndQb3N0PHsgcGFwZXI6IFBhcGVyIH0+KGAvcHJvamVjdHMvJHtwcm9qZWN0SWR9L3BhcGVyc2AsIHsgYXNzZXRfaWQ6IGFzc2V0SWQgfSlcbiAgcmV0dXJuIHIucGFwZXJcbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGRlbGV0ZVBhcGVyKHByb2plY3RJZDogc3RyaW5nLCBwYXBlcklkOiBzdHJpbmcpOiBQcm9taXNlPHZvaWQ+IHtcbiAgYXdhaXQgcndEZWw8dm9pZD4oYC9wcm9qZWN0cy8ke3Byb2plY3RJZH0vcGFwZXJzLyR7cGFwZXJJZH1gKVxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gcGF0Y2hQYXBlcihcbiAgcHJvamVjdElkOiBzdHJpbmcsXG4gIHBhcGVySWQ6IHN0cmluZyxcbiAgYm9keTogeyByZWFkX3N0YXRlPzogc3RyaW5nOyBsYXN0X3BhZ2U/OiBudW1iZXIgfSxcbik6IFByb21pc2U8UGFwZXI+IHtcbiAgY29uc3QgciA9IGF3YWl0IHJ3UGF0Y2g8eyBwYXBlcjogUGFwZXIgfT4oYC9wcm9qZWN0cy8ke3Byb2plY3RJZH0vcGFwZXJzLyR7cGFwZXJJZH1gLCBib2R5KVxuICByZXR1cm4gci5wYXBlclxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZ2V0UGFnZVRleHQocHJvamVjdElkOiBzdHJpbmcsIHBhcGVySWQ6IHN0cmluZywgcGFnZTogbnVtYmVyKTogUHJvbWlzZTxQYWdlVGV4dD4ge1xuICByZXR1cm4gcndHZXQ8UGFnZVRleHQ+KGAvcHJvamVjdHMvJHtwcm9qZWN0SWR9L3BhcGVycy8ke3BhcGVySWR9L3RleHRgLCB7IHBhZ2UgfSlcbn1cbiJdLCJtYXBwaW5ncyI6IkFBSUEsU0FBUyxPQUFPLE9BQU8sU0FBUyxjQUFjO0FBRzlDLHNCQUFzQixXQUFXLFdBQXFDO0FBQ3BFLFFBQU0sSUFBSSxNQUFNLE1BQTBCLGFBQWEsU0FBUyxTQUFTO0FBQ3pFLFNBQU8sR0FBRyxTQUFTLENBQUM7QUFDdEI7QUFHQSxzQkFBc0IsWUFBWSxXQUFtQixNQUE0QjtBQUMvRSxRQUFNLEtBQUssSUFBSSxTQUFTO0FBQ3hCLEtBQUcsT0FBTyxRQUFRLElBQUk7QUFDdEIsUUFBTSxJQUFJLE1BQU0sT0FBeUIsYUFBYSxTQUFTLFdBQVcsRUFBRTtBQUM1RSxTQUFPLEVBQUU7QUFDWDtBQUVBLHNCQUFzQixpQkFBaUIsV0FBbUIsU0FBaUM7QUFDekYsUUFBTSxJQUFJLE1BQU0sT0FBeUIsYUFBYSxTQUFTLFdBQVcsRUFBRSxVQUFVLFFBQVEsQ0FBQztBQUMvRixTQUFPLEVBQUU7QUFDWDtBQUVBLHNCQUFzQixZQUFZLFdBQW1CLFNBQWdDO0FBQ25GLFFBQU0sTUFBWSxhQUFhLFNBQVMsV0FBVyxPQUFPLEVBQUU7QUFDOUQ7QUFFQSxzQkFBc0IsV0FDcEIsV0FDQSxTQUNBLE1BQ2dCO0FBQ2hCLFFBQU0sSUFBSSxNQUFNLFFBQTBCLGFBQWEsU0FBUyxXQUFXLE9BQU8sSUFBSSxJQUFJO0FBQzFGLFNBQU8sRUFBRTtBQUNYO0FBRUEsc0JBQXNCLFlBQVksV0FBb

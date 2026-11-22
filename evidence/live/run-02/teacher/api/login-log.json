@@ -1,0 +1,47 @@
+[
+  {
+    "at": "2026-11-22T02:14:00+0800",
+    "first_send": 200,
+    "second_send": null,
+    "demo_code": "811619",
+    "url": "http://127.0.0.1:5176/teacher-v3/prep",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "has_teacher": true
+  },
+  {
+    "at": "2026-11-22T02:15:37+0800",
+    "first_send": 200,
+    "second_send": null,
+    "demo_code": "934649",
+    "url": "http://127.0.0.1:5176/teacher-v3/prep",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "has_teacher": true
+  },
+  {
+    "at": "2026-11-22T02:16:39+0800",
+    "first_send": 429,
+    "second_send": 200,
+    "demo_code": "987081",
+    "url": "http://127.0.0.1:5176/teacher-v3/prep",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "has_teacher": true
+  },
+  {
+    "at": "2026-11-22T02:17:43+0800",
+    "first_send": 200,
+    "second_send": null,
+    "demo_code": "206916",
+    "url": "http://127.0.0.1:5176/teacher-v3/prep",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "has_teacher": true
+  },
+  {
+    "at": "2026-11-22T02:20:37+0800",
+    "first_send": 200,
+    "second_send": null,
+    "demo_code": "519624",
+    "url": "http://127.0.0.1:5176/teacher-v3/prep",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "has_teacher": true
+  }
+]

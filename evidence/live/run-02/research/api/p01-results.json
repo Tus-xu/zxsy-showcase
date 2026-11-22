@@ -1,0 +1,270 @@
+{
+  "landing": {
+    "url": "http://127.0.0.1:5176/research-workspace",
+    "title": "科研端 · 启动页",
+    "bodyLen": 668,
+    "headings": [
+      "阅读、写作与验证， 在同一个项目里发生。",
+      "未命名项目",
+      "今天推进哪项研究？",
+      "最近项目"
+    ],
+    "navs": [
+      "启动页",
+      "工作台",
+      "个人中心",
+      "林 林知远 ⌄"
+    ],
+    "buttons": [
+      "启动页",
+      "工作台",
+      "个人中心",
+      "林 林知远 ⌄",
+      "进入科研工作台 →",
+      "＋ 新建项目",
+      "继续 →",
+      "01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 →",
+      "02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 →",
+      "03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent →",
+      "阅读",
+      "写作"
+    ],
+    "inputs": [],
+    "canvases": [],
+    "pdfSpanCount": 0,
+    "bodyText": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n下一步\n继续阅读与摘录\n继续 →\n∂u/∂t = α∇²u\n读 → 摘 → 证 → 写 → 核\nFROM HERE\n今天推进哪项研究？\n\n三种开始方式，都会进入同一个项目上下文。\n\n01\n📖\n读论文\n导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。\n继续阅读 →\n02\n✍️\n写论文\nLaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。\n继续写作 →\n03\n✦\n问 Agent\n公式检查、引用核查、翻译润色；结论带证据，修改先确认。\n打开 Research Agent →\n读\n→\n摘\n→\n证\n→\n写\n→\n核\n一条链路，一个项目上下文\nRECENT PROJECTS\n最近项目\n＋ 新建项目\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作",
+    "screenshots": [
+      "01-landing-full.png",
+      "01-landing-viewport.png"
+    ],
+    "json": "api/page-01-landing.json",
+    "dom": "artifacts/dom-01-landing.html",
+    "extra": {
+      "cards": [],
+      "startModes": [
+        "01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 →",
+        "02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 →",
+        "03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent →"
+      ],
+      "recentHeading": [
+        "阅读、写作与验证， 在同一个项目里发生。",
+        "未命名项目",
+        "今天推进哪项研究？",
+        "最近项目",
+        "未命名项目",
+        "未命名项目"
+      ]
+    }
+  },
+  "workspace": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "bodyLen": 431,
+    "headings": [
+      "今天想推进什么？"
+    ],
+    "navs": [
+      "阅读",
+      "写作",
+      "未命名项目",
+      "历史",
+      "林 林知远",
+      "文献",
+      "笔记",
+      "项目",
+      "设置",
+      "文献列表",
+      "更多 ›",
+      "新对话"
+    ],
+    "buttons": [
+      "阅读",
+      "写作",
+      "未命名项目",
+      "历史",
+      "通知",
+      "林 林知远",
+      "暂无描述",
+      "AI 项目概览",
+      "文献",
+      "笔记",
+      "项目",
+      "设置",
+      "文献列表",
+      "导入 PDF",
+      "搜索文献",
+      "更多 ›",
+      "文本选择工具",
+      "上一页",
+      "下一页",
+      "缩小",
+      "放大",
+      "选择工具",
+      "抓手工具",
+      "适页",
+      "适宽",
+      "复制选中文字",
+      "全文搜索",
+      "全屏",
+      "新对话",
+      "更多操作",
+      "当前选定",
+      "评判选中内容 先选中一段推导或结论，检查是否成立 →",
+      "找相关证据 在项目文献中寻找支持或反对的证据 →",
+      "LaTeX 对照 正在对照文献与当前草稿…… →",
+      "检查公式 检查当前公式的符号、条件与推导 →",
+      "翻译与改写",
+      "引用当前选区",
+      "提及",
+      "引用项目文献",
+      "发送"
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "",
+        "id": "",
+        "value": "1",
+        "cls": "rw-ptb__pageinput"
+      },
+      {
+        "tag": "textarea",
+        "type": "textarea",
+        "placeholder": "直接告诉我你想完成什么：解释推导、找证据、写入笔记、生成引用…",
+        "id": "",
+        "value": "",
+        "cls": "rw-composer__input"
+      }
+    ],
+    "canvases": [],
+    "pdfSpanCount": 0,
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:05\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n暂无项目数据。导入文献后将自动生成概览。\n\n0\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\n文献加载中\n最近笔记\n更多 ›\n笔记加载中\n/ —\n100%\n\n选择一篇文献开始阅读\n\n左侧文献列表中的 PDF 将在此渲染，支持翻页、缩放、选文与全文搜索。\n\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\n项目知识库\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "screenshots": [
+      "02-workspace-full.png",
+      "02-workspace-viewport.png"
+    ],
+    "json": "api/page-02-workspace.json",
+    "dom": "artifacts/dom-02-workspace.html",
+    "canvasPixels": []
+  },
+  "read-entry-fail": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+    "title": "科研工作台 · 阅读",
+    "bodyLen": 849,
+    "headings": [
+      "今天想推进什么？"
+    ],
+    "navs": [
+      "阅读",
+      "写作",
+      "未命名项目",
+      "历史",
+      "林 林知远",
+      "文献",
+      "笔记",
+      "项目",
+      "设置",
+      "文献列表",
+      "更多 ›",
+      "新对话"
+    ],
+    "buttons": [
+      "阅读",
+      "写作",
+      "未命名项目",
+      "历史",
+      "通知",
+      "林 林知远",
+      "暂无描述",
+      "AI 项目概览",
+      "文献",
+      "笔记",
+      "项目",
+      "设置",
+      "文献列表",
+      "导入 PDF",
+      "搜索文献",
+      "PDF research-03-writing-example.pdf Mathesis 离线展示项目（自撰演示材料） · —",
+      "PDF research-02-formula-conditions.pdf Mathesis 离线展示项目（自撰演示材料） · —",
+      "PDF research-01-cea-lemma.pdf Mathesis 离线展示项目（自撰演示材料） · —",
+      "更多 ›",
+      "PDF research-03-writing-example.pdf",
+      "关闭标签",
+      "PDF research-02-formula-conditions.pdf",
+      "PDF research-01-cea-lemma.pdf",
+      "导入新文献",
+      "文本选择工具",
+      "上一页",
+      "下一页",
+      "缩小",
+      "放大",
+      "选择工具",
+      "抓手工具",
+      "适页",
+      "适宽",
+      "复制选中文字",
+      "全文搜索",
+      "全屏",
+      "新对话",
+      "更多操作",
+      "当前选定",
+      "Mathesis 离线展示项目（自撰演示材料）",
+      "评判选中内容 先选中一段推导或结论，检查是否成立 →",
+      "找相关证据 在项目文献中寻找支持或反对的证据 →",
+      "LaTeX 对照 正在对照文献与当前草稿…… →",
+      "检查公式 检查当前公式的符号、条件与推导 →",
+      "翻译与改写",
+      "引用当前选区",
+      "提及",
+      "引用项目文献",
+      "发送"
+    ],
+    "inputs": [
+      {
+        "tag": "input",
+        "type": "text",
+        "placeholder": "",
+        "id": "",
+        "value": "1",
+        "cls": "rw-ptb__pageinput"
+      },
+      {
+        "tag": "textarea",
+        "type": "textarea",
+        "placeholder": "直接告诉我你想完成什么：解释推导、找证据、写入笔记、生成引用…",
+        "id": "",
+        "value": "",
+        "cls": "rw-composer__input"
+      }
+    ],
+    "canvases": [
+      {
+        "w": 924,
+        "h": 1306,
+        "rect": {
+          "w": 924,
+          "h": 1306
+        },
+        "cls": "rw-pdf__canvas"
+      },
+      {
+        "w": 300,
+        "h": 150,
+        "rect": {
+          "w": 300,
+          "h": 150
+        },
+        "cls": "hiddenCanvasElement"
+      }
+    ],
+    "pdfSpanCount": 0,
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:05\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n155%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "screenshots": [
+      "05-read-entry-fail-full.png",
+      "05-read-entry-fail-viewport.png"
+    ],
+    "json": "api/page-05-read-entry-fail.json",
+    "dom": "artifacts/dom-05-read-entry-fail.html"
+  }
+}

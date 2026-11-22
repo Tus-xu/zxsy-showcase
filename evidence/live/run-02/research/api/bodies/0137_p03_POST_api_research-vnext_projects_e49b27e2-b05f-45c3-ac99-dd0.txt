@@ -1,0 +1,35 @@
+# POST http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers
+# status=201 run=p03 step=import-pdf t=02:12:56
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "accept-language": "zh-CN",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "sec-ch-ua-mobile": "?0",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "content-type": "multipart/form-data; boundary=----WebKitFormBoundaryRD1DuslK859R2JuO"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "x-trace-id": "a457d19244fa46bb9cbb6bfb70e4b790",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "date": "Sat, 21 Nov 2026 18:12:54 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"paper":{"id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","asset_id":"01e75bb5-8eff-4eda-99eb-51eab15eb573","title":"research-paper-1.pdf","authors":["Mathesis 离线演示项目（自撰演示材料）"],"year":null,"venue":"","doi":"","read_state":"unread","last_page":1,"page_count":6,"parse_status":"parsed","parse_error":"","created_at":"2026-11-21T18:12:55.544889+00:00","updated_at":"2026-11-21T18:12:55.544889+00:00"},"deduplicated":false}

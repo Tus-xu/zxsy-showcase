@@ -1,0 +1,117 @@
+{
+  "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+  "title": "科研工作台 · 阅读",
+  "canvases": [
+    {
+      "i": 0,
+      "w": 924,
+      "h": 1306,
+      "css": {
+        "w": 924,
+        "h": 1306
+      },
+      "cls": "rw-pdf__canvas",
+      "visible": true,
+      "sampled": 109704,
+      "nonWhite": 0,
+      "colored": 0,
+      "nonWhiteRatio": 0,
+      "alpha0Ratio": 0,
+      "topLeftPixel": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "i": 1,
+      "w": 300,
+      "h": 150,
+      "css": {
+        "w": 300,
+        "h": 150
+      },
+      "cls": "hiddenCanvasElement",
+      "visible": true,
+      "sampled": 4091,
+      "nonWhite": 0,
+      "colored": 0,
+      "nonWhiteRatio": 0,
+      "alpha0Ratio": 1,
+      "topLeftPixel": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "textLayers": [
+    {
+      "cls": "textLayer rw-pdf__text",
+      "spans": 0,
+      "len": 0,
+      "sample": "",
+      "rect": {
+        "w": 924,
+        "h": 1306
+      },
+      "innerStart": ""
+    }
+  ],
+  "pages": [
+    {
+      "cls": "rw-pdf__page",
+      "rect": {
+        "w": 924,
+        "h": 1306
+      },
+      "children": [
+        {
+          "tag": "canvas",
+          "cls": "rw-pdf__canvas",
+          "rect": {
+            "w": 924,
+            "h": 1306
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "textLayer rw-pdf__text",
+          "rect": {
+            "w": 924,
+            "h": 1306
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "rw-pdf__marks",
+          "rect": {
+            "w": 924,
+            "h": 1306
+          }
+        }
+      ]
+    }
+  ],
+  "tabs": [
+    "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+    "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+    "PDF research-03-writing-example.pdf",
+    "research-03-writing-example.pdf",
+    "PDF research-02-formula-conditions.pdf",
+    "research-02-formula-conditions.pdf",
+    "PDF research-01-cea-lemma.pdf",
+    "research-01-cea-lemma.pdf"
+  ],
+  "docList": [],
+  "toast": "",
+  "skeleton": 0,
+  "selection": "",
+  "pageInputValue": "2",
+  "pageTotalText": "/ 2 155%",
+  "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:07\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n155%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+  "tag": "06-next-page",
+  "t": "02:07:25"
+}

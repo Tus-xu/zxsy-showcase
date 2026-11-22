@@ -1,0 +1,662 @@
+: open
+
+event: meta
+data: {"conversation_id": "0599bf6c-17a8-404b-a570-489316534a70", "msg_id": "7866c4b0-433d-495f-ab10-c2cc475df05f", "skill": "chat", "confidence": 0.85, "provider": "spark"}
+
+event: file_parsed
+data: {"file_id": "b8e34136-4cfb-49c3-b6cb-782adef67398", "filename": "题2.png", "status": "parsed", "parse_engine": "mimo_vision", "summary": "{\"question_text\":\"9. 在正三棱柱 \\(ABC-A_1B_1C_1\\) 中，\\(D\\) 为 \\(BC\\) 中点，则\\n\\nA. \\(AD \\perp A_1C\\)\\n\\nB. \\(B"}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "我"}
+
+event: token
+data: {"text": "们"}
+
+event: token
+data: {"text": "来"}
+
+event: token
+data: {"text": "一"}
+
+event: token
+data: {"text": "起分"}
+
+event: token
+data: {"text": "析"}
+
+event: token
+data: {"text": "这"}
+
+event: token
+data: {"text": "道正"}
+
+event: token
+data: {"text": "三棱"}
+
+event: token
+data: {"text": "柱"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "立"}
+
+event: token
+data: {"text": "体"}
+
+event: token
+data: {"text": "几"}
+
+event: token
+data: {"text": "何题"}
+
+event: token
+data: {"text": "，先"}
+
+event: token
+data: {"text": "从"}
+
+event: token
+data: {"text": "你已"}
+
+event: token
+data: {"text": "经掌握"}
+
+event: token
+data: {"text": "的基"}
+
+event: token
+data: {"text": "础"}
+
+event: token
+data: {"text": "知识点"}
+
+event: token
+data: {"text": "入手"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "一步"}
+
+event: token
+data: {"text": "步推"}
+
+event: token
+data: {"text": "导："}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "\n首"}
+
+event: token
+data: {"text": "先"}
+
+event: token
+data: {"text": "回"}
+
+event: token
+data: {"text": "忆正"}
+
+event: token
+data: {"text": "三"}
+
+event: token
+data: {"text": "棱柱"}
+
+event: token
+data: {"text": "的性"}
+
+event: token
+data: {"text": "质"}
+
+event: token
+data: {"text": "：上"}
+
+event: token
+data: {"text": "下"}
+
+event: token
+data: {"text": "底"}
+
+event: token
+data: {"text": "面是全"}
+
+event: token
+data: {"text": "等"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "正"}
+
+event: token
+data: {"text": "三角"}
+
+event: token
+data: {"text": "形"}
+
+event: token
+data: {"text": "，侧"}
+
+event: token
+data: {"text": "棱"}
+
+event: token
+data: {"text": "垂直"}
+
+event: token
+data: {"text": "于"}
+
+event: token
+data: {"text": "底"}
+
+event: token
+data: {"text": "面，"}
+
+event: token
+data: {"text": "所有"}
+
+event: token
+data: {"text": "侧"}
+
+event: token
+data: {"text": "棱互"}
+
+event: token
+data: {"text": "相"}
+
+event: token
+data: {"text": "平行"}
+
+event: token
+data: {"text": "且"}
+
+event: token
+data: {"text": "相"}
+
+event: token
+data: {"text": "等。"}
+
+event: token
+data: {"text": "已知"}
+
+event: token
+data: {"text": "D"}
+
+event: token
+data: {"text": "是B"}
+
+event: token
+data: {"text": "C中"}
+
+event: token
+data: {"text": "点，"}
+
+event: token
+data: {"text": "我们"}
+
+event: token
+data: {"text": "逐"}
+
+event: token
+data: {"text": "个分"}
+
+event: token
+data: {"text": "析"}
+
+event: token
+data: {"text": "选"}
+
+event: token
+data: {"text": "项"}
+
+event: token
+data: {"text": "："}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "\n1"}
+
+event: token
+data: {"text": "."}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "先"}
+
+event: token
+data: {"text": "看选"}
+
+event: token
+data: {"text": "项B"}
+
+event: token
+data: {"text": "："}
+
+event: token
+data: {"text": "`B"}
+
+event: token
+data: {"text": "C ⊥"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "平"}
+
+event: token
+data: {"text": "面"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "AA"}
+
+event: token
+data: {"text": "₁D"}
+
+event: token
+data: {"text": "`"}
+
+event: token
+data: {"text": "\n "}
+
+event: token
+data: {"text": "  -"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "因"}
+
+event: token
+data: {"text": "为AB"}
+
+event: token
+data: {"text": "C"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": "正"}
+
+event: token
+data: {"text": "三角"}
+
+event: token
+data: {"text": "形，"}
+
+event: token
+data: {"text": "D"}
+
+event: token
+data: {"text": "是B"}
+
+event: token
+data: {"text": "C"}
+
+event: token
+data: {"text": "中点，"}
+
+event: token
+data: {"text": "根据"}
+
+event: token
+data: {"text": "正三"}
+
+event: token
+data: {"text": "角"}
+
+event: token
+data: {"text": "形三"}
+
+event: token
+data: {"text": "线合"}
+
+event: token
+data: {"text": "一，A"}
+
+event: token
+data: {"text": "D"}
+
+event: token
+data: {"text": " ⊥"}
+
+event: token
+data: {"text": " B"}
+
+event: token
+data: {"text": "C"}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "  "}
+
+event: token
+data: {"text": " -"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "又"}
+
+event: token
+data: {"text": "因"}
+
+event: token
+data: {"text": "为"}
+
+event: token
+data: {"text": "A"}
+
+event: token
+data: {"text": "A₁"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": "侧棱"}
+
+event: token
+data: {"text": "，垂直"}
+
+event: token
+data: {"text": "于"}
+
+event: token
+data: {"text": "底面"}
+
+event: token
+data: {"text": "AB"}
+
+event: token
+data: {"text": "C"}
+
+event: token
+data: {"text": "，所"}
+
+event: token
+data: {"text": "以AA"}
+
+event: token
+data: {"text": "₁"}
+
+event: token
+data: {"text": " ⊥"}
+
+event: token
+data: {"text": " B"}
+
+event: token
+data: {"text": "C\n "}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": " -"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "A"}
+
+event: token
+data: {"text": "D"}
+
+event: token
+data: {"text": "和A"}
+
+event: token
+data: {"text": "A₁"}
+
+event: token
+data: {"text": "都"}
+
+event: token
+data: {"text": "在"}
+
+event: token
+data: {"text": "平"}
+
+event: token
+data: {"text": "面"}
+
+event: token
+data: {"text": "A"}
+
+event: token
+data: {"text": "A₁"}
+
+event: token
+data: {"text": "D里"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "且"}
+
+event: token
+data: {"text": "它"}
+
+event: token
+data: {"text": "们"}
+
+event: token
+data: {"text": "相交"}
+
+event: token
+data: {"text": "于"}
+
+event: token
+data: {"text": "点"}
+
+event: token
+data: {"text": "A，"}
+
+event: token
+data: {"text": "根"}
+
+event: token
+data: {"text": "据线"}
+
+event: token
+data: {"text": "面垂"}
+
+event: token
+data: {"text": "直"}
+
+event: token
+data: {"text": "的判"}
+
+event: token
+data: {"text": "定定"}
+
+event: token
+data: {"text": "理"}
+
+event: token
+data: {"text": "，B"}
+
+event: token
+data: {"text": "C"}
+
+event: token
+data: {"text": "垂直"}
+
+event: token
+data: {"text": "于平"}
+
+event: token
+data: {"text": "面内"}
+
+event: token
+data: {"text": "两"}
+
+event: token
+data: {"text": "条相"}
+
+event: token
+data: {"text": "交直"}
+
+event: token
+data: {"text": "线，"}
+
+event: token
+data: {"text": "所"}
+
+event: token
+data: {"text": "以B"}
+
+event: token
+data: {"text": "C ⊥"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "平"}
+
+event: token
+data: {"text": "面"}
+
+event: token
+data: {"text": " A"}
+
+event: token
+data: {"text": "A₁"}
+
+event: token
+data: {"text": "D"}
+
+event: token
+data: {"text": "\n "}
+
+event: token
+data: {"text": "  "}
+
+event: token
+data: {"text": "-"}
+
+event: token
+data: {"text": " 这"}
+
+event: token
+data: {"text": "个"}
+
+event: token
+data: {"text": "结"}
+
+event: token
+data: {"text": "论"}
+
+event: token
+data: {"text": "是成"}
+
+event: token
+data: {"text": "立"}
+
+event: token
+data: {"text": "的，"}
+
+event: token
+data: {"text": "你可"}
+
+event: token
+data: {"text": "以再"}
+
+event: token
+data: {"text": "验证"}
+
+event: token
+data: {"text": "一下"}
+
+event: token
+data: {"text": "其他"}
+
+event: token
+data: {"text": "选"}
+
+event: token
+data: {"text": "项是"}
+
+event: token
+data: {"text": "否"}
+
+event: token
+data: {"text": "正确"}
+
+event: token
+data: {"text": "~\n"}
+
+event: token
+data: {"text": "\n你"}
+
+event: token
+data: {"text": "觉得"}
+
+event: token
+data: {"text": "这个"}
+
+event: token
+data: {"text": "推"}
+
+event: token
+data: {"text": "导"}
+
+event: token
+data: {"text": "思路"}
+
+event: token
+data: {"text": "清"}
+
+event: token
+data: {"text": "楚"}
+
+event: token
+data: {"text": "吗？"}
+
+event: token
+data: {"text": "或者"}
+
+event: token
+data: {"text": "想先"}
+
+event: token
+data: {"text": "试试"}
+
+event: token
+data: {"text": "分"}
+
+event: token
+data: {"text": "析其他选项？"}
+
+event: title
+data: {"title": "分析用户上传的文件内容"}
+
+event: done
+data: {"usage": {"tokens_in": 4355, "tokens_out": 227}, "latency_ms": 3282, "message_id": "74cd08c4-a7f4-4f50-aedd-fd3393766fc0", "title": "分析用户上传的文件内容", "meta": {"latency_ms": 3266}}
+

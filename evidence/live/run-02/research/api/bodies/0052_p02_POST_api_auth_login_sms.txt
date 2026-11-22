@@ -1,0 +1,33 @@
+# POST http://127.0.0.1:5176/api/auth/login/sms
+# status=200 run=p02 step=login t=02:06:56
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/login",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "content-type": "application/json",
+ "sec-ch-ua-mobile": "?0",
+ "accept-language": "zh-CN"
+}
+
+## request body (first 4KB, sanitized)
+{"remember":false,"preferred_role":"researcher","phone":"13800001003","challenge_id":"2607b59e-8b7b-4ea8-9112-eb21301fd597","code":"<redacted>"}
+
+## response headers (sanitized)
+{
+ "cache-control": "no-store, max-age=0",
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "content-length": "753",
+ "date": "Sat, 21 Nov 2026 18:06:55 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"code":0,"message":"ok","data":{"access_token":"<redacted>","expires_in":900,"onboarding_required":false,"user":{"id":"58227ad6-2b09-49fd-bf2a-86fe4697da0f","nickname":"林知远","active_role":"researcher","roles":[{"role":"researcher","status":"approved","verified":true},{"role":"student","status":"approved","verified":true}]},"identity_status":"authenticated"},"requestId":"fb80fc94-0c9e-461a-8199-aae2d0e1fd58"}

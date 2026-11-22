@@ -1,0 +1,1 @@
+{"code":0,"message":"sent","data":{"challenge_id":"ed947052-90fb-41fd-a620-bfe72a1e7a32","expires_in":300,"retry_after":60,"account_exists":true,"demo_code":"432767"},"requestId":"ad193f62-4b5f-47f2-971b-cc555499bf63"}

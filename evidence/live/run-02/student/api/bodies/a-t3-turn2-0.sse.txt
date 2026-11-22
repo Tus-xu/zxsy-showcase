@@ -1,0 +1,17 @@
+: open
+
+event: meta
+data: {"conversation_id": "edd40135-1e80-4298-9df0-3049130b5ab8", "msg_id": "37be803e-6c86-4038-b16a-78673db71b52", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "再看看题目里给出的条件，它能让我们得到什么？先说说你的想法。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "step_no": 2, "interaction_id": "ix_39431419e27b", "form": "expr_input", "move": "confirm", "stage": "reading", "prompt_lead": "用下面的点选面板写出这一步的式子。", "spec": {"prompt": "写出这一步的完整式子（点选面板输入）", "keypad": ["P", "(", "A", "i", ")", "=", "1", "-", "{", "}", "64", "125", "61", "x"]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "不知道怎么写", "interaction_reason": "T18→expr_input[rt_material_failed]", "form_source": "router", "routing_reason": "T18→expr_input[rt_material_failed]"}
+
+event: card
+data: {"card_type": "socratic_progress", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "current_step": 2, "steps_count": 2, "hint_level": 0, "attempts_on_step": 0, "verdict": "correct", "phase": "guiding", "scaffold_level": 0, "scaffold_label": "probe", "kp_name": "1.4 随机事件的运算", "rounds_used": 0, "rounds_limit": 8, "oversplit": false, "oversplit_steps": 2, "fast_path": false, "mastery_state": "improving"}
+
+event: done
+data: {"usage": {"tokens_in": 12, "tokens_out": 12}, "latency_ms": 4953, "message_id": "954f6008-3f8e-477b-adcd-089815ffbfd8", "meta": {"skill": "socratic_solver", "tutor_action": "attempt", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "steps_count": 2, "verified": false, "difficulty": "easy", "verdict": "correct", "p_before": 0.3, "p_after": 0.831, "fragile": false, "current_step": 2, "hint_level": 0, "status": "active", "leak_blocked": 0, "socratic": {"phase": "guiding", "scaffold_level": 0, "verdict": "correct", "misconception": null, "error_move": null, "kp_code": "MATH-PEP-BBIXI1-88F4BA1908", "detour_active": false, "round_used": 0, "leak_blocked": 2, "repetition_blocked": 0, "template_blocked": 0, "form": "expr_input", "form_reason": "T18→expr_input[rt_material_failed]", "move": "confirm", "tier": 1, "stage": "reading"}}}
+

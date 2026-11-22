@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/agent/tasks/85d54344-5784-4a5e-a3a1-fdd7aff919a7
+# status=200 run=p08 step=agent-citation t=02:33:54
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "67a261ae42b240d6970c694d51dbc8da",
+ "date": "Sat, 21 Nov 2026 18:33:53 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"kind":"citation","status":"supported","actions":["locate","view_evidence","insert_citation"],"patches":[],"summary":"在项目文献中找到 3 条与「在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。」相关的候选引用。","evidence":[{"page":1,"year":0,"title":"在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离","authors":"Mathesis 离线演示项目（自撰演示材料）","locator":{"bbox":[62.81,199.4,525.42,209.49],"page":1,"section":"摘要","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","selected_text":""},"section":"摘要","snippet":"在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。","support":"正文引用","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120"},{"page":1,"year":0,"title":"理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 ","authors":"Mathesis 离线演示项目（自撰演示材料）","locator":{"bbox":[62.81,181.8,525.18,191.44],"page":1,"section":"摘要","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","selected_text":""},"section":"摘要","snippet":"理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。","support":"正文引用","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120"},{"page":1,"year":0,"title":"research-paper-1.pdf","authors":"Mathesis 离线演示项目（自撰演示材料）","locator":{"bbox":[63.6,77.73,261.04,97.22],"page":1,"section":"","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","selected_text":""},"section":"","snippet":"变分形式与 Céa 引理","support":"正文引用","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120"}],"findings":[],"confidence":0.81,"source_locations":[],"task":{"id":"85d54344-5784-4a5e-a3a1-fdd7aff919a7","preset":"citation","status":"completed","error_code":"","error_message":"","created_at":"2026-11-21T18:33:53.257665+00:00","finished_at":"2026-11-21T18:33:53.399532+00:00"}}

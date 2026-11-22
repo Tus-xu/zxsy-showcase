@@ -1,0 +1,30 @@
+# GET http://127.0.0.1:5176/api/auth/me
+# status=200 run=p05 step=new-project t=02:25:59
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/d770457a-c91f-4d61-8853-de00e7a7f300/write",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-store, max-age=0",
+ "content-length": "541",
+ "date": "Sat, 21 Nov 2026 18:25:59 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn",
+ "connection": "close"
+}
+
+## response body (first 4KB, sanitized)
+{"code":0,"message":"ok","data":{"id":"58227ad6-2b09-49fd-bf2a-86fe4697da0f","nickname":"林知远","avatar_url":null,"phone_masked":"138****1003","created_at":"2026-10-26T20:01:55.120530+00:00","status":"active","onboarding_status":"completed","active_role":"researcher","identity_status":"authenticated","roles":[{"role":"researcher","status":"approved","verified":true,"org_name":"浙江大学数学科学学院"},{"role":"student","status":"approved","verified":true,"org_name":null}]},"requestId":"0058ac98-0b68-4a8d-a097-3a84e1383576"}

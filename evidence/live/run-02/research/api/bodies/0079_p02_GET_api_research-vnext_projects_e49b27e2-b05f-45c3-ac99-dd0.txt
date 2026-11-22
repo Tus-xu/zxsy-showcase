@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview
+# status=200 run=p02 step=enter-workspace t=02:07:01
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "e083ff88779b4cfab4ae337cdaa630f8",
+ "date": "Sat, 21 Nov 2026 18:07:00 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","name":"未命名项目","summary":"这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。","stats":{"papers":3,"drafts":0,"notes":0,"data":0},"source":"llm:project-memory","updated_at":"2026-11-20T18:58:34.942610+00:00"}

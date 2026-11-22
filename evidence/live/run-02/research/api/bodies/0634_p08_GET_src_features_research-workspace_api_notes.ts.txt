@@ -1,0 +1,53 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts
+# status=200 run=p08 step=open-read t=02:32:58
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/notes.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"2d2-/TIHUswZdJezuhWINlpf+Bz7mRE\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "3093",
+ "date": "Sat, 21 Nov 2026 18:32:58 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { rwDel, rwGet, rwPatch, rwPost } from "/src/features/research-workspace/api/client.ts";
+export async function listNotes(projectId) {
+  const r = await rwGet(`/projects/${projectId}/notes`);
+  return r?.items ?? [];
+}
+export async function recentNotes(projectId, limit = 6) {
+  const r = await rwGet(`/projects/${projectId}/notes/recent`, { limit });
+  return r?.items ?? [];
+}
+export async function createNote(projectId, input) {
+  const r = await rwPost(`/projects/${projectId}/notes`, input);
+  return r.note;
+}
+export async function patchNote(noteId, body) {
+  const r = await rwPatch(`/notes/${noteId}`, body);
+  return r.note;
+}
+export async function deleteNote(noteId) {
+  await rwDel(`/notes/${noteId}`);
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIm5vdGVzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICog56yU6K6wIEFQSe+8iEJBQ0tFTkQtQ09OVFJBQ1QgwqczLjLvvInjgIJcbiAqIOeslOiusOW4piBsb2NhdG9y77yIcGFwZXIvcGFnZS9zZWN0aW9uL3NlbGVjdGVkX3RleHTvvInvvIzngrnlh7vlv4Xpobvog73lm57liLDpmIXor7vkvY3nva7vvIjlrqrms5UgwqcxMe+8ieOAglxuICovXG5pbXBvcnQgeyByd0RlbCwgcndHZXQsIHJ3UGF0Y2gsIHJ3UG9zdCB9IGZyb20gJy4vY2xpZW50J1xuaW1wb3J0IHR5cGUgeyBOb3RlLCBOb3RlSW5wdXQgfSBmcm9tICcuL3R5cGVzJ1xuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gbGlzdE5vdGVzKHByb2plY3RJZDogc3RyaW5nKTogUHJvbWlzZTxOb3RlW10+IHtcbiAgY29uc3QgciA9IGF3YWl0IHJ3R2V0PHsgaXRlbXM6IE5vdGVbXSB9PihgL3Byb2plY3RzLyR7cHJvamVjdElkfS9ub3Rlc2ApXG4gIHJldHVybiByPy5pdGVtcyA/PyBbXVxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gcmVjZW50Tm90ZXMocHJvamVjdElkOiBzdHJpbmcsIGxpbWl0ID0gNik6IFByb21pc2U8Tm90ZVtdPiB7XG4gIGNvbnN0IHIgPSBhd2FpdCByd0dldDx7IGl0ZW1zOiBOb3RlW10gfT4oYC9wcm9qZWN0cy8ke3Byb2plY3RJZH0vbm90ZXMvcmVjZW50YCwgeyBsaW1pdCB9KVxuICByZXR1cm4gcj8uaXRlbXMgPz8gW11cbn1cblxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGNyZWF0ZU5vdGUocHJvamVjdElkOiBzdHJpbmcsIGlucHV0OiBOb3RlSW5wdXQpOiBQcm9taXNlPE5vdGU+IHtcbiAgY29uc3QgciA9IGF3YWl0IHJ3UG9zdDx7IG5vdGU6IE5vdGUgfT4oYC9wcm9qZWN0cy8ke3Byb2plY3RJZH0vbm90ZXNgLCBpbnB1dClcbiAgcmV0dXJuIHIubm90ZVxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gcGF0Y2hOb3RlKG5vdGVJZDogc3RyaW5nLCBib2R5OiBQYXJ0aWFsPE5vdGVJbnB1dD4pOiBQcm9taXNlPE5vdGU+IHtcbiAgY29uc3QgciA9IGF3YWl0IHJ3UGF0Y2g8eyBub3RlOiBOb3RlIH0+KGAvbm90ZXMvJHtub3RlSWR9YCwgYm9keSlcbiAgcmV0dXJuIHIubm90ZVxufVxuXG5leHBvcnQgYXN5bmMgZnVuY3Rpb24gZGVsZXRlTm90ZShub3RlSWQ6IHN0cmluZyk6IFByb21pc2U8dm9pZD4ge1xuICBhd2FpdCByd0RlbDx2b2lkPihgL25vdGVzLyR7bm90ZUlkfWApXG59XG4iXSwibWFwcGluZ3MiOiJBQUlBLFNBQVMsT0FBTyxPQUFPLFNBQVMsY0FBYztBQUc5QyxzQkFBc0IsVUFBVSxXQUFvQztBQUNsRSxRQUFNLElBQUksTUFBTSxNQUF5QixhQUFhLFNBQVMsUUFBUTtBQUN2RSxTQUFPLEdBQUcsU0FBUyxDQUFDO0FBQ3RCO0FBRUEsc0JBQXNCLFlBQVksV0FBbUIsUUFBUSxHQUFvQjtBQUMvRSxRQUFNLElBQUksTUFBTSxNQUF5QixhQUFhLFNBQVMsaUJBQWlCLEVBQUUsTUFBTSxDQUFDO0FBQ3pGLFNBQU8sR0FBRyxTQUFTLENBQUM7QUFDdEI7QUFFQSxzQkFBc0IsV0FBVyxXQUFtQixPQUFpQztBQUNuRixRQUFNLElBQUksTUFBTSxPQUF1QixhQUFhLFNBQVMsVUFBVSxLQUFLO0FBQzVFLFNBQU8sRUFBRTtBQUNYO0FBRUEsc0JBQXNCLFVBQVUsUUFBZ0IsTUFBeUM7QUFDdkYsUUFBTSxJQUFJLE1BQU0sUUFBd0IsVUFBVSxNQUFNLElBQUksSUFBSTtBQUNoRSxTQUFPLEVBQUU7QUFDWDtBQUVBLHNCQUFzQixXQUFXLFFBQStCO0FBQzlELFFBQU0sTUFBWSxVQUFVLE1BQU0sRUFBRTtBQUN0QzsiLCJuYW1lcyI6W119

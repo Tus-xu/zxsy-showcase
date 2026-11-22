@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1
+# status=200 run=p05 step=start-modes t=02:25:14
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "e992afd6c1a84c1fa5fc687b5b12fa34",
+ "date": "Sat, 21 Nov 2026 18:25:13 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"items":[{"kind":"translate","status":"supported","actions":["apply_patch","recompile"],"patches":[{"file":"main.tex","line":0,"after":"The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and citations and page numbers can be checked line by line against the pages of this lecture note. Keywords: variational problem; Galerkin approximation; Céa's lemma; V-ellipticity; a priori error estimates | Reading Tip: You can select any paragraph, ask a question in the right Research Agent, then click \"Locate Original Text\" to return to the corresponding paragraph on this page.","before":"理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。","reason":"替换为译文（需用户确认后写入）"}],"summary":"已完成翻译（英文；218 字符 → 739 字符）。","evidence":[],"findings":[],"confidence":0.75,"terminology":{"source":"project-terminology-memory","conflicts":0,"known_terms":0,"learned_terms":9},"source_locations":[],"task":{"id":"c2e484f5-c6c4-4452-8173-8c7199e476e3","preset":"translate","status":"completed","error_code":"","error_message":"","created_at":"2026-11-21T18:14:49.396009+00:00","finished_at":"2026-11-21T18:15:06.927093+00:00"}}]}

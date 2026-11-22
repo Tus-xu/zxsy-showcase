@@ -1,0 +1,834 @@
+{
+ "student/dialog": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/dialog",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 889
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 1175,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n＋ 新对话\n置顶\n错题本录入 · 极值点判断\n10/27\n可视化讲解 · 导数与极值\n10/27\n举一反三 · 三次函数变式链\n10/27\n引导式解题 · 三次函数极值\n10/27\n导数的几何意义怎么理解\n10/27\n今天\n分析用户上传的文件\n02:53\n新对话\n02:50\n新对话\n02:42\n新对话\n02:42\n新对话\n02:42\n新对话\n02:40\n新对话\n",
+  "scroll": {
+   "w": 1672,
+   "h": 949
+  },
+  "console_errors": [
+   "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9890:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%",
+   "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-a"
+  ],
+  "pageerrors": []
+ },
+ "student/practice": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/practice",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 881
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 410,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n今日训练 ·\n5 题导数的概念与运算\n小林，「导数的概念与运算」当前掌握度 4%，是最薄弱环节，按 3:2:1 难度配比定向突破。 做完预计掌握度 4% → 18%。\n⏱ 已用 0:00 / 15 分钟\n·\n📚 当前知识点：导数的概念与运算\n（薄弱 Top1，由后端推荐）\n🎯 今日推荐\n🔍 自己选题\n📝 真题模考\n🎯 今日推荐 · 薄弱 Top1\n导数的概念与运",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "student/errors": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/errors",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 2183
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "errors-left modal-mode",
+    "t": "错题详情 · 第 01 题 🗑 删除 ⏭ 下一题 ✕ 关闭 全部 按错因 按知"
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 2947,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n24\n全部错题\n20\n今天该复习\n4\n记得较牢\n📷 拍错题入本\n📷 拍错题入本\n把做错/不会的题拍下来自动识别题干——入本自动排期复习\n＋ 打开录入\n错题详情 · 第 01 题\n🗑 删除\n⏭ 下一题\n✕ 关闭\n全部\n按错因\n按知识点\n按时间\n按遗忘风险\n01 / 24\n未标注知识点\n入本 10/27 · 已答错 16 次 · 复习 0 次\n原题\n\n帮我一步步解这",
+  "scroll": {
+   "w": 1672,
+   "h": 2243
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "student/library": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/library",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 881
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 551,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n📚 知识库\n把资料变成可引用的证据，把题目变成可执行的练习。\n4\n份资料\n4\n可引用\n4\n切片\n24\n题库\n📄 我的资料\n4\n📝 我的题库\n24\n上传后自动解析 · 对话可引用 · 点开可看切片\n📥\n把资料变成可引用的知识\n\nPDF / Word / PPT / Markdown / 图片，≤30MB。上传后自动解析、切片、向量化；图片会保留原图。\n\n分类\n教材",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "student/resources": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/resources",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 1098
+   }
+  },
+  "imgs": {
+   "total": 11,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 1157,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n📺 资源中心\n针对「导数的运算法则与复合求导」从 B 站挑出的讲解视频，点封面直接去 B 站看。\n↻ 刷新\n🎯 为你推荐\n🧭 按知识点浏览\n83:47\n▶ 833.6 万\n你凭本事刷到了这个视频！【高中数学】从零开始1.3小时掌握导数全部知识点\n@一数\n🎯 按「导数的运算法则与复合求导」匹配的函数与导数讲解\n7:17\n▶ 3.6 万\n高中数学，导数的概念，根据导",
+  "scroll": {
+   "w": 1672,
+   "h": 1158
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "student/classroom": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/classroom",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 881
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 474,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n🎓 课堂\n老师布置的任务、我的班级、AI 双师课堂——师生同一条线。\n📋 课堂任务\n🏫 我的班级\n🎬 双师课堂\n课堂任务中心 ·\n2 项\n待完成\n老师下发的作业、组卷与课堂课件，都在这里统一接收；完成情况实时同步给老师。\n↻ 刷新\n全部 3\n待完成 2\n已逾期 1\n已完成 1\n🎓\n学前作业课前预习 · 函数的图象与性质\n👨‍🏫 张老师\n⏰ 已逾期 · 截止 10",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "student/me": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/me",
+  "boxes": {
+   "header.topbar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   "aside.sidebar": {
+    "x": 0,
+    "y": 60,
+    "w": 240,
+    "h": 881
+   },
+   "main.main": {
+    "x": 240,
+    "y": 60,
+    "w": 1432,
+    "h": 2078
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ambient",
+    "t": ""
+   },
+   {
+    "cls": "fb-root",
+    "t": "✦"
+   }
+  ],
+  "text_len": 1208,
+  "text_head": "π\n智学数研\n学生端\n🔥\n13 连击\n小\n小林\n学习闭环\n«\n🏠\n首页\n✏️\n练题\n沉浸\n📕\n错题\n24\n📚\n知识库\n📺\n资源中心\n🎓\n课堂\n2\n👤\n我的\n👤 我的\n学情分析、知识掌握地图、个人设置——都收在这里。\n📈 学情报告\n🧠 掌握地图\n📝 体验反馈\n⚙️ 个人设置\n🎯 今日行动\n今日到期错题 22 道\n🔁\n复习 22 道到期错题 · 约 10 分钟\n间隔复习到点了——换个条件再试试，做对它才算真正翻篇\n→\n🎯\n专练「导数的概念与运算」 · 约 15 分钟\n当前掌握度 4%，是你最薄弱的环节\n→\n⚡\n挑战 1",
+  "scroll": {
+   "w": 1672,
+   "h": 2138
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "student/__requests": 0,
+ "teacher/prep": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/prep",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 885
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "pc-home__ai",
+    "t": "AI 备课助手"
+   },
+   {
+    "cls": "ck-root",
+    "t": "📐 数学绘图 数学绘图 构造公式图形 · 可插入课件 📚 伴随资源 伴随资源"
+   }
+  ],
+  "text_len": 459,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n备课中心\n多轮对话 · 教材学情 · 教案课件一体生成\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n备课中心\n\nAI 助力，让备课更高效\n\n教学资源库\n最近使用\n高一(3)班 · 数学\n从教材开始\n选择教材版本与章节，AI 生成备课方案\n从已有教案开始\n上传或选择已有教案，快速生成 PPT\n从已有PPT开始\n上传课件，AI 分析并生成教学设计\n备课历史\n回顾与继续最近的备课\n最",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [
+   "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9890:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%",
+   "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-a"
+  ],
+  "pageerrors": []
+ },
+ "teacher/classes": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/classes",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 885
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ck-root",
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对"
+   }
+  ],
+  "text_len": 538,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n班级管理\n建班 · 邀请码 · 成员确认\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n🏫\n班级管理\n\n建班 · 邀请码 · 成员确认\n\n＋ 建班\n我的班级\n1 个\n高一(3)班 · 数学\n高一 · 5 名学生\n邀请码 FJA2JH\n›\n高一(3)班 · 数学 · 成员\n学生输码申请后需你确认；确认后才计入任务与学情\n重置邀请码\n当前邀请码\nFJA2JH\n学生：课堂 → 我的班级",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/bank": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/bank",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 885
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ck-root",
+    "t": "📐 数学绘图 数学绘图 构造公式图形 · 可插入课件 📚 伴随资源 伴随资源"
+   }
+  ],
+  "text_len": 484,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n题库\n分类树 · 专题夹 · 拍照/自编入库\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n📚\n题库与组卷\n\n题库管理 · 选题组卷 · 发布到学生课堂任务\n\n题库\n组卷\n图片题原样入库 · 不强转文字公式\n分类树\n模块 ▸ 章 ▸ 知识点\n✎ 编辑\n全部知识点\n0\n我的专题夹\n跨知识点引用\n＋ 新建\n还没有专题夹。新建一个，把分散在各知识点的题按「专题」引用收集（如：圆锥曲线压",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/assign": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/assign",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 628
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ck-root",
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对"
+   }
+  ],
+  "text_len": 697,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n作业与批改\n四步发布 · 学前/课后 · 批改终审\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n作业与批改\n学前作业 / 课后习题 · 四步发布 · 批改工作台人工终审\n选择自动判 · 主观题人工批\n批改工作台 →\n学情洞察 →\n发布作业\n组卷 → 确认题集 → 建作业 → 发布（每步真实落库，可中断）\n1. 选班\n2. 组卷\n3. 确认发布\n4. 完成\n高一(3)班 · 数学",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/insights": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/insights",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 885
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ck-root",
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对"
+   }
+  ],
+  "text_len": 603,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n学情洞察\n热力图 · 错因 · 诊断\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n📊\n学情洞察\n\n班级聚合 · 每生掌握 · 备课画像同步\n\n高一(3)班 · 数学\n高一(3)班 · 数学\n⟳ 同步到备课画像\n班级平均掌握度\n61%\n来自已确认批改的 BKT 掌握度\n待批积压\n0\n全部已批完\n近 14 天提交\n0 份\n高频错因（近窗口）\n—\n暂无错题聚集\n知识点薄弱热力\n窗口内",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/resources": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/resources",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 963
+   }
+  },
+  "imgs": {
+   "total": 12,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ck-root",
+    "t": "📐 数学绘图 数学绘图 构造公式图形 · 可插入课件 ∫ AI AI 助教 对"
+   }
+  ],
+  "text_len": 885,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n资源中心\n资源 · 数学识别 · 构造配方库\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n📺\n资源中心\n\n与高中数学教学相关的 B 站备课视频，点封面直接去 B 站看\n\n⭐ 备课精选\n⭐ 备课精选\n📘 教材解读\n🎬 专题微课\n✏️ 解题方法\n🔥 高考备考\n🏆 竞赛拓展\n↻ 刷新\n1:02:20\n▶ 998.8 万\n“基本不等式”学懵了？保姆级教程在此！\n@一数\n2:10:54\n",
+  "scroll": {
+   "w": 1672,
+   "h": 1019
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/grading": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/grading",
+  "boxes": {
+   "aside.tv3-nav": {
+    "x": 0,
+    "y": 0,
+    "w": 216,
+    "h": 941
+   },
+   "header.tv3-topbar": {
+    "x": 216,
+    "y": 0,
+    "w": 1456,
+    "h": 56
+   },
+   "main.tv3-page": {
+    "x": 216,
+    "y": 56,
+    "w": 1456,
+    "h": 885
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [
+   {
+    "cls": "ck-root",
+    "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用 ∫ AI AI 助教 对"
+   }
+  ],
+  "text_len": 678,
+  "text_head": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n批改工作台\n题聚焦 · 匿名队列 · 原图终审\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n✍️\n批改工作台\n\n题聚焦 · 匿名队列 · 原图对照 · 教师终审唯一写分\n\n高一(3)班 · 数学\n讲评要点\n高一(3)班 · 数学\n课后作业 · 导数与函数单调性\n第 1 题\n第 2 题\n第 3 题\n第 4 题\n第 5 题\n全部\n待批\n需复核\n自动批\n已批\n已批 1 / 1 · 待",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/workbench": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299",
+  "boxes": {
+   "header.focus-shell__bar": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 69
+   },
+   "main.focus-shell__body": {
+    "x": 0,
+    "y": 69,
+    "w": 1672,
+    "h": 2076
+   },
+   ".surface": {
+    "x": 0,
+    "y": 69,
+    "w": 1672,
+    "h": 2076
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [],
+  "text_len": 1179,
+  "text_head": "我的备课\n新的备课会话\n\n会话状态 进行中\n\n已连接\n0 项已就绪 · 1 项待确认\n\n还没有确认的教材与班级信息 —— 在下面直接说，我会和你一起澄清。\n\n教师\n02:26\n椭圆第一课时：椭圆的定义与标准方程\n\nAI 没接上，已转手工填写\n\n智学助教\n02:26\n\n这轮没能完成，你说的「椭圆第一课时：椭圆的定义与标准方程」我先记着。可以点重试，或直接补充/修改要求后重新发送。\n\nAI 这次没能接上，你可以先手工填写，稍后再试\n用一句话开始备课，或继续修改刚才的方案\n确认\n教师\n02:49\n请为「椭圆第一课时：椭圆",
+  "scroll": {
+   "w": 1672,
+   "h": 2146
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "teacher/__requests": 0,
+ "researcher/landing": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research-workspace",
+  "boxes": {
+   "header.rh-head": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 64
+   },
+   "main.rl-main": {
+    "x": 246,
+    "y": 64,
+    "w": 1180,
+    "h": 1137
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [],
+  "text_len": 707,
+  "text_head": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n",
+  "scroll": {
+   "w": 1672,
+   "h": 1201
+  },
+  "console_errors": [
+   "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9890:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%",
+   "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-a"
+  ],
+  "pageerrors": []
+ },
+ "researcher/workspace": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research-workspace/d770457a-c91f-4d61-8853-de00e7a7f300/read",
+  "boxes": {
+   "header.rw-header": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   ".rw-body": {
+    "x": 0,
+    "y": 60,
+    "w": 1672,
+    "h": 881
+   },
+   "aside.rw-sb": {
+    "x": 0,
+    "y": 60,
+    "w": 300,
+    "h": 881
+   },
+   ".rw-pane--agent": {
+    "x": 1252,
+    "y": 60,
+    "w": 420,
+    "h": 881
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [],
+  "text_len": 540,
+  "text_head": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 04:14\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n该项目目前尚未命名，也还没有确定明确的研究主题。项目中暂时没有文献、草稿、笔记或数据可供归纳，因此无法总结出具体的研究方向与问题。待补充材料后，才能进一步梳理其研究内容。\n\n0\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\n\n还没有文献，点击右上「＋」导入 PDF。\n\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\n/ —\n1",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "researcher/read": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+  "boxes": {
+   "header.rw-header": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 60
+   },
+   ".rw-body": {
+    "x": 0,
+    "y": 60,
+    "w": 1672,
+    "h": 881
+   },
+   "aside.rw-sb": {
+    "x": 0,
+    "y": 60,
+    "w": 300,
+    "h": 881
+   },
+   ".rw-pane--agent": {
+    "x": 1252,
+    "y": 60,
+    "w": 420,
+    "h": 881
+   }
+  },
+  "imgs": {
+   "total": 2,
+   "broken": 0
+  },
+  "fixed_corner": [],
+  "text_len": 3586,
+  "text_head": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 04:14\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n本项目围绕椭圆型偏微分方程有限元方法的变分形式、Galerkin 逼近与 Céa 引理展开，在有限维子空间上讨论相关命题，并给出 Céa 引理的完整证明。材料还涉及约分需分母非零、配方法恒等式等推导条件与校验清单，强调引用和页码可逐条核对、结果可复现。整体内容面向离线演示，便于按讲义页面逐项核验。\n\n4\n文献\n1\n草稿\n2\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nres",
+  "scroll": {
+   "w": 1672,
+   "h": 963
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "researcher/write": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research-workspace",
+  "boxes": {
+   "header.rh-head": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 64
+   },
+   "main.rl-main": {
+    "x": 246,
+    "y": 64,
+    "w": 1180,
+    "h": 1137
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [],
+  "text_len": 707,
+  "text_head": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n",
+  "scroll": {
+   "w": 1672,
+   "h": 1201
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "researcher/account": {
+  "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/research-workspace/account",
+  "boxes": {
+   "header.rh-head": {
+    "x": 0,
+    "y": 0,
+    "w": 1672,
+    "h": 64
+   },
+   "main.ra-main": {
+    "x": 296,
+    "y": 64,
+    "w": 1080,
+    "h": 754
+   }
+  },
+  "imgs": {
+   "total": 0,
+   "broken": 0
+  },
+  "fixed_corner": [],
+  "text_len": 429,
+  "text_head": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\n林\n林知远\n科研端 · 研究者\n📱 138****1003\n🏛 浙江大学数学科学学院\n📅 2026/10 加入\n进入科研工作台\n退出登录\n个人资料\n账号安全\n科研概览\n账号信息\n来自统一身份认证\n昵称\n林知远\n手机号\n138****1003\n当前身份\n科研端 · 研究者\n账号 ID\n58227ad6-2b09-49fd-bf2a-86fe4697da0f\n加入时间\n2026/10/27\n账号状态\n正常\n\n修改手机号、注销账号等全局",
+  "scroll": {
+   "w": 1672,
+   "h": 941
+  },
+  "console_errors": [],
+  "pageerrors": []
+ },
+ "researcher/__requests": 0
+}

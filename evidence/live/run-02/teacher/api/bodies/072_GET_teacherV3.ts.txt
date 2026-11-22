@@ -1,0 +1,57 @@
+import { fetchEventSource } from "/node_modules/.vite/deps/@microsoft_fetch-event-source.js?v=25e43eaa";
+import { authHeaders } from "/src/api/client.js";
+import { redirectTeacherDenied } from "/src/api/teacher/client.ts";
+import { teacherGet, teacherPost, teacherRequest } from "/src/api/teacher/client.ts";
+export const v3Api = {
+  /* ==================== catalog 基础目录域 ==================== */
+  catalog: {
+    today: (signal) => teacherGet("/teacher-v3/today", void 0, signal),
+    classes: () => teacherGet("/teacher-v3/classes"),
+    tasks: (signal) => teacherGet("/teacher-v3/tasks", void 0, signal),
+    deckTemplates: () => teacherGet("/teacher-v3/deck-templates"),
+    lessonTemplates: () => teacherGet("/teacher-v3/lesson-templates"),
+    recipes: () => teacherGet("/teacher-v3/recipes"),
+    quizQuestions: (query) => teacherGet("/teacher-v3/quiz/questions", query),
+    /** P4：知识点分类树 */
+    quizKpTree: () => teacherGet("/teacher-v3/quiz/kp-tree"),
+    /** P4：扫描入库存一道题（手写/拍照 → 识别 → 进题库，含图片题型；题干/解答双图分开传） */
+    quizScanImport: (body) => teacherPost("/teacher-v3/quiz/scan-import", body),
+    /** V3.2：知识点分类树编辑（个人定制层：加子级/改名/删除） */
+    kpTreeAdd: (body) => teacherPost("/teacher-v3/quiz/kp-tree", body),
+    kpTreeRename: (id, name) => teacherRequest("PATCH", `/teacher-v3/quiz/kp-tree/${id}`, { body: { name } }),
+    kpTreeRemove: (id) => teacherRequest("DELETE", `/teacher-v3/quiz/kp-tree/${id}`),
+    /** V3.2：AI 识别知识点（拍照/题干 → 建议归属 + 备选） */
+    kpSuggest: (body) => teacherPost(
+      "/teacher-v3/quiz/kp-suggest",
+      body
+    ),
+    /** V3.1：自编题录入（结构化手输，source='自编'）；2026-10-05 支持选填题干配图（stem_image = MinIO key） */
+    quizCreate: (body) => teacherPost("/teacher-v3/quiz/questions", body),
+    /** V3.3：删除一道题（含拍照入库题；会从题库及所有专题夹引用中移除） */
+    quizRemove: (id) => teacherRequest("DELETE", `/teacher-v3/quiz/questions/${id}`),
+    /** V3.1：五件套级联数据源（教材版本 → 章节路径） */
+    textbookChapters: () => teacherGet("/teacher-v3/textbook-chapters"),
+    /** V3.3：上传教材 → AI 重建「知识库目录」（章节由目录驱动，可再编辑/替换，替代写死示例） */
+    textbookRebuild: (body) => teacherPost("/teacher-v3/textbooks/rebuild-index", body),
+    /** V3.1：我的专题夹（跨知识点引用式收集） */
+    folders: {
+      list: () => teacherGet("/teacher-v3/folders"),
+      create: (body) => teacherPost("/teacher-v3/folders", body),
+      remove: (id) => teacherRequest("DELETE", `/teacher-v3/folders/${id}`),
+      addQuestions: (id, body) => teacherPost(`/teacher-v3/folders/${id}/questions`, body),
+      removeQuestion: (id, qid) => teacherRequest("DELETE", `/teacher-v3/folders/${id}/questions/${qid}`)
+    },
+    /** V3.1：上传教案/课件 → 质量体检（反套话 + 栏目完整度），帮老师挑出值得当模板的 1-3 份 */
+    planTemplatesImport: (body) => teacherPost("/teacher-v3/plan-templates/import", body),
+    /** V3.1：把通过体检的上传件提炼为「我的模板」（个人知识库档，仅本人可见） */
+    planTemplatesExtract: (body) => teacherPost("/teacher-v3/plan-templates/extract", body),
+    insights: (classId) => teacherGet("/teacher-v3/insights/overview", { class_id: classId }),
+    resources: () => teacherGet("/teacher-v3/resources"),
+    /* tel T2（B3 落地端点）：两端统一的教材目录事实源（AC 切片白名单镜像，质量门禁后入库） */
+    textbooks: () => teacherGet("/teacher-v3/textbooks"),
+    textbookSections: (sourceId) => teacherGet(`/teacher-v3/textbooks/${sourceId}/sections`)
+  },
+  /* ==================== 课件 decks（generation 域数据面） ==================== */
+  decks: {
+    list: () => teacherGet("/teacher-v3/decks"),
+    get: (id, signal) => teacherGet(`/teacher-v3/decks/${id}`, void 0, sig

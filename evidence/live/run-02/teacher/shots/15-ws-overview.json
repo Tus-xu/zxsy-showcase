@@ -1,0 +1,140 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/overview",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "课堂设计",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "PPT",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "教案",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "对话 10",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "资料",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "历史",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "返回备课首页",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-ov__back"
+    },
+    {
+      "t": "尚未生成，无法导出",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ov__btn"
+    },
+    {
+      "t": "尚未生成，无法导出",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ov__btn"
+    },
+    {
+      "t": "尚未生成，无法导出",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ov__btn"
+    },
+    {
+      "t": "发布到班级课堂",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ov__btn is-primary pc-ov__publish-btn"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [],
+  "selects": [],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [
+    "椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结",
+    "备课完成情况",
+    "版本管理",
+    "导出备课成果",
+    "一致性检查 无法核对"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "10",
+    "教学设计进行中",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n备课工作台\n高二年级 · 2026 秋季学期\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n·\n高一(3)班 · 数学 · 45分钟\n课堂设计\nPPT\n教案\n对话\n10\n资料\n历史\n返回备课首页\n本次备课\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n高一(3)班 · 数学 · 45分钟\n教学设计进行中\n最后修改: 2026-11-21 03:04\n本次备课尚未全部完成，可继续在课堂设计 / PPT / 教案中完善。\n备课完成情况\n教材等你确认\n高一(3)班 · 数学\n教学设计等你确认\n教学目标、重难点、教学过程\nPPT 待生成\n尚未生成课件\n教案待生成\n尚未生成教案\n数学内容待检查\n尚未生成课件\n版本管理\n该备课暂无历史版本。\n导出备课成果\n已生成完整的 PPT 和教案，支持多种格式导出，便于您在课堂中使用。\n导出 PPTX\n尚未生成，无法导出\n导出 PDF\n尚未生成，无法导出\n导出教案\n尚未生成，无法导出\n发布到班级课堂\n学生端「课堂」按这份课件逐页学；已打开人数、进度与练习正确率实时回到「课堂 · 双师课堂」。\n发布到班级课堂\n一致性检查\n无法核对\n课件或教案尚未生成，暂无法核对。\n您可以在“课堂设计 / PPT / 教案”中继续修改，修改后可再次导出或保存新版本。\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

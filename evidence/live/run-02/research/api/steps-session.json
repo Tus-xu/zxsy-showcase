@@ -1,0 +1,12 @@
+{
+  "base": "http://127.0.0.1:5176",
+  "viewport": "1672x941 dpr=1",
+  "captured_steps": [],
+  "console_errors": [],
+  "console_warnings": [],
+  "page_errors": [],
+  "api_steps": [],
+  "login_ok": true,
+  "last": "{\"code\": \"927450\", \"url\": \"http://127.0.0.1:5176/research-workspace\", \"text\": \"π\\n智学数研\\n科研端\\n启动页\\n工作台\\n个人中心\\n科研身份 · 研究者\\n林\\n林知远\\n⌄\\nRESEARCH WORKSPACE\\n阅读、写作与验证，\\n在同一个项目里发生。\\n\\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\\n\\n进入科研工作台 →\\n＋ 新建项目\\n真实文献\\n·\\n真实 LaTeX 编译\\n·\\n证据可回溯\\nπ\\nPROJECT MEMORY\\n最近项目\\n未命名项目\\n\\n从一篇论文、一个公式或一段论证开始。\\n\\n— 文献\\n— 草稿\\n— 笔记\\n下一步\\n继续阅读与摘录\\n继续 →\\n∂u/∂t = ",
+  "url": "http://127.0.0.1:5176/research-workspace"
+}

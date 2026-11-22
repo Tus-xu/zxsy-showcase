@@ -1,0 +1,42 @@
+{
+ "route": "/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299",
+ "clicked": true,
+ "calls": [
+  {
+   "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+   "method": "POST",
+   "reqBody": "{\"action\":\"retry_run\",\"target\":\"29a20efc-7011-47c6-ba01-c802ea42f418\",\"expected_revision\":11,\"idempotency_key\":\"fe-retry_run-mwqw1xuh-wf1h6e\",\"payload\":null}",
+   "status": 409,
+   "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"4e8dd36e99534d33\",\"error_key\":\"conflict\"}"
+  },
+  {
+   "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+   "method": "POST",
+   "reqBody": "{\"action\":\"retry_run\",\"target\":\"29a20efc-7011-47c6-ba01-c802ea42f418\",\"expected_revision\":11,\"idempotency_key\":\"fe-retry_run-mwqw1y47-f4hgza\",\"payload\":null}",
+   "status": 409,
+   "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"b0c3944014554180\",\"error_key\":\"conflict\"}"
+  },
+  {
+   "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+   "method": "POST",
+   "reqBody": "{\"action\":\"retry_run\",\"target\":\"29a20efc-7011-47c6-ba01-c802ea42f418\",\"expected_revision\":11,\"idempotency_key\":\"fe-retry_run-mwqw1yq4-wo2evs\",\"payload\":null}",
+   "status": 409,
+   "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"6e824d6b01094948\",\"error_key\":\"conflict\"}"
+  },
+  {
+   "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+   "method": "POST",
+   "reqBody": "{\"action\":\"retry_run\",\"target\":\"29a20efc-7011-47c6-ba01-c802ea42f418\",\"expected_revision\":11,\"idempotency_key\":\"fe-retry_run-mwqw1zih-17ggnm\",\"payload\":null}",
+   "status": 409,
+   "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"0e522e3be1324588\",\"error_key\":\"conflict\"}"
+  },
+  {
+   "url": "/api/teacher-v3/prep/conversations/f5c84551-18a7-454d-b49c-8f115e816299/actions",
+   "method": "POST",
+   "reqBody": "{\"action\":\"retry_run\",\"target\":\"29a20efc-7011-47c6-ba01-c802ea42f418\",\"expected_revision\":11,\"idempotency_key\":\"fe-retry_run-mwqw207d-7tjctg\",\"payload\":null}",
+   "status": 409,
+   "body": "{\"code\":40900,\"message\":\"动作 'retry_run' 不可执行：消息无上下文快照，无法重跑（请重新发送消息）\",\"data\":null,\"request_id\":\"41a022f006504879\",\"error_key\":\"conflict\"}"
+  }
+ ],
+ "page_errors": []
+}

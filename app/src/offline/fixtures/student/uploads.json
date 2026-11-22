@@ -1,0 +1,53 @@
+{
+ "A": {
+  "case": "A",
+  "image": "题1.png",
+  "image_path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题1.png",
+  "raw_sha256": "cd2f518f8b705680eef74056f6c23c114ea51899378a00e2198464b3aa4ad9e7",
+  "upload_req": "{\"filename\":\"题1.png\",\"sha256\":\"cd2f518f8b705680eef74056f6c23c114ea51899378a00e2198464b3aa4ad9e7\",\"size_bytes\":30184,\"mime\":\"image/png\",\"multipart\":false}",
+  "upload_resp": "{\"code\":0,\"data\":{\"file_id\":\"0633903b-98b0-4de0-b77a-419b73645706\",\"upload_url\":\"\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":0,\"deduplicated\":true}}",
+  "parse_resp": "{\"code\":0,\"data\":{\"file_id\":\"0633903b-98b0-4de0-b77a-419b73645706\",\"status\":\"parsed\",\"task_id\":null}}",
+  "content_resp": null,
+  "file_id": "0633903b-98b0-4de0-b77a-419b73645706",
+  "entry_used": "首页空态卡「📷 拍一道不会的题」",
+  "collector_account": {
+   "phone": "13800001004",
+   "tag": "x",
+   "note": "主账号 13800001001 触发每用户每小时 10 次上传限流；备用同班演示学生采集"
+  }
+ },
+ "B": {
+  "case": "B",
+  "image": "题2.png",
+  "image_path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题2.png",
+  "raw_sha256": "0bc14458a696c1caaa37d3b630113fd0f61c06fdda1b5da1c76caf314f392425",
+  "upload_req": "{\"filename\":\"题2.png\",\"sha256\":\"0bc14458a696c1caaa37d3b630113fd0f61c06fdda1b5da1c76caf314f392425\",\"size_bytes\":35639,\"mime\":\"image/png\",\"multipart\":false}",
+  "upload_resp": "{\"code\":0,\"data\":{\"file_id\":\"b8e34136-4cfb-49c3-b6cb-782adef67398\",\"upload_url\":\"\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":0,\"deduplicated\":true}}",
+  "parse_resp": "{\"code\":0,\"data\":{\"file_id\":\"b8e34136-4cfb-49c3-b6cb-782adef67398\",\"status\":\"parsed\",\"task_id\":null}}",
+  "content_resp": null,
+  "file_id": "b8e34136-4cfb-49c3-b6cb-782adef67398",
+  "entry_used": "首页空态卡「📷 拍一道不会的题」",
+  "collector_account": {
+   "phone": "13800001004",
+   "tag": "x",
+   "note": "主账号 13800001001 触发每用户每小时 10 次上传限流；备用同班演示学生采集"
+  }
+ },
+ "C": {
+  "case": "C",
+  "image": "题3.png",
+  "image_path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题3.png",
+  "raw_sha256": "cd9db0ccf25bfe7c64889a5be5e50a5807d58a7f8bb3bdc0f4bb88a93ae5d676",
+  "upload_req": "{\"filename\":\"题3.png\",\"sha256\":\"cd9db0ccf25bfe7c64889a5be5e50a5807d58a7f8bb3bdc0f4bb88a93ae5d676\",\"size_bytes\":32956,\"mime\":\"image/png\",\"multipart\":false}",
+  "upload_resp": "{\"code\":0,\"data\":{\"file_id\":\"3b8856ce-ce56-4084-9429-c3632e2afa75\",\"upload_url\":\"/api/files/3b8856ce-ce56-4084-9429-c3632e2afa75/local-upload?token=<redacted>\",\"upload_id\":null,\"part_size\":5242880,\"expires_in\":900,\"deduplicated\":false}}",
+  "parse_resp": "{\"code\":0,\"data\":{\"file_id\":\"3b8856ce-ce56-4084-9429-c3632e2afa75\",\"status\":\"parsing\",\"task_id\":\"a2e7d89a4cfc4b0e8b0ab2d317bd3dc8\"}}",
+  "content_resp": "{\"code\":0,\"data\":{\"url\":\"/api/files/3b8856ce-ce56-4084-9429-c3632e2afa75/raw?token=<redacted>\",\"expires_in\":null,\"mime\":\"image/png\",\"name\":\"题3.png\"}}",
+  "file_id": "3b8856ce-ce56-4084-9429-c3632e2afa75",
+  "entry_used": "首页空态卡「📷 拍一道不会的题」",
+  "collector_account": {
+   "phone": "13800001004",
+   "tag": "x",
+   "note": "主账号 13800001001 触发每用户每小时 10 次上传限流；备用同班演示学生采集"
+  }
+ }
+}

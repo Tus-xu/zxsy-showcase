@@ -1,0 +1,30 @@
+# GET http://127.0.0.1:5176/api/notifications?limit=20
+# status=200 run=p03 step=enter-read t=02:11:47
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/workspace",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-store, max-age=0",
+ "content-length": "45",
+ "date": "Sat, 21 Nov 2026 18:11:46 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn",
+ "connection": "close"
+}
+
+## response body (first 4KB, sanitized)
+{"code":0,"message":"ok","data":{"items":[]}}

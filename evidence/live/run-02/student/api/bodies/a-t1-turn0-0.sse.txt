@@ -1,0 +1,608 @@
+: open
+
+event: meta
+data: {"conversation_id": "1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204", "msg_id": "8e62001f-72be-4ab1-8a00-c5b3578ad76c", "skill": "chat", "confidence": 0.85, "provider": "spark"}
+
+event: file_parsed
+data: {"file_id": "0633903b-98b0-4de0-b77a-419b73645706", "filename": "题1.png", "status": "parsed", "parse_engine": "mimo_vision", "summary": "3. 若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为"}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "上传的"}
+
+event: token
+data: {"text": "是一"}
+
+event: token
+data: {"text": "道"}
+
+event: token
+data: {"text": "双"}
+
+event: token
+data: {"text": "曲线离"}
+
+event: token
+data: {"text": "心"}
+
+event: token
+data: {"text": "率"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "计算"}
+
+event: token
+data: {"text": "题，"}
+
+event: token
+data: {"text": "和"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "最"}
+
+event: token
+data: {"text": "近"}
+
+event: token
+data: {"text": "做"}
+
+event: token
+data: {"text": "错"}
+
+event: token
+data: {"text": "的那"}
+
+event: token
+data: {"text": "道"}
+
+event: token
+data: {"text": "题"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": "同"}
+
+event: token
+data: {"text": "类"}
+
+event: token
+data: {"text": "型"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "哦"}
+
+event: token
+data: {"text": "～ "}
+
+event: token
+data: {"text": "我"}
+
+event: token
+data: {"text": "先帮"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "回"}
+
+event: token
+data: {"text": "忆下"}
+
+event: token
+data: {"text": "这类"}
+
+event: token
+data: {"text": "题"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "核"}
+
+event: token
+data: {"text": "心"}
+
+event: token
+data: {"text": "思"}
+
+event: token
+data: {"text": "路：\n"}
+
+event: token
+data: {"text": "1"}
+
+event: token
+data: {"text": ". "}
+
+event: token
+data: {"text": "双曲"}
+
+event: token
+data: {"text": "线的"}
+
+event: token
+data: {"text": "基"}
+
+event: token
+data: {"text": "本参"}
+
+event: token
+data: {"text": "数关"}
+
+event: token
+data: {"text": "系：对"}
+
+event: token
+data: {"text": "于"}
+
+event: token
+data: {"text": "标"}
+
+event: token
+data: {"text": "准"}
+
+event: token
+data: {"text": "双"}
+
+event: token
+data: {"text": "曲"}
+
+event: token
+data: {"text": "线，"}
+
+event: token
+data: {"text": "实"}
+
+event: token
+data: {"text": "轴"}
+
+event: token
+data: {"text": "长"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "$"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": "a"}
+
+event: token
+data: {"text": "$，"}
+
+event: token
+data: {"text": "虚"}
+
+event: token
+data: {"text": "轴"}
+
+event: token
+data: {"text": "长"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": " $"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": "b$"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "离心"}
+
+event: token
+data: {"text": "率 "}
+
+event: token
+data: {"text": "$e ="}
+
+event: token
+data: {"text": " \\"}
+
+event: token
+data: {"text": "fr"}
+
+event: token
+data: {"text": "a"}
+
+event: token
+data: {"text": "c{"}
+
+event: token
+data: {"text": "c"}
+
+event: token
+data: {"text": "}"}
+
+event: token
+data: {"text": "{a"}
+
+event: token
+data: {"text": "}$"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "且"}
+
+event: token
+data: {"text": "满"}
+
+event: token
+data: {"text": "足 "}
+
+event: token
+data: {"text": "$c"}
+
+event: token
+data: {"text": "^"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": " ="}
+
+event: token
+data: {"text": " a"}
+
+event: token
+data: {"text": "^"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "+"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "b"}
+
+event: token
+data: {"text": "^"}
+
+event: token
+data: {"text": "2$"}
+
+event: token
+data: {"text": "\n2"}
+
+event: token
+data: {"text": "."}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "题"}
+
+event: token
+data: {"text": "目"}
+
+event: token
+data: {"text": "给"}
+
+event: token
+data: {"text": "出"}
+
+event: token
+data: {"text": "虚"}
+
+event: token
+data: {"text": "轴"}
+
+event: token
+data: {"text": "长是实"}
+
+event: token
+data: {"text": "轴长的 "}
+
+event: token
+data: {"text": "$"}
+
+event: token
+data: {"text": "\\"}
+
+event: token
+data: {"text": "sq"}
+
+event: token
+data: {"text": "r"}
+
+event: token
+data: {"text": "t"}
+
+event: token
+data: {"text": "{"}
+
+event: token
+data: {"text": "7"}
+
+event: token
+data: {"text": "}$"}
+
+event: token
+data: {"text": " 倍"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "你之"}
+
+event: token
+data: {"text": "前"}
+
+event: token
+data: {"text": "已经"}
+
+event: token
+data: {"text": "能"}
+
+event: token
+data: {"text": "转化"}
+
+event: token
+data: {"text": "为 "}
+
+event: token
+data: {"text": "$b ="}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "\\"}
+
+event: token
+data: {"text": "s"}
+
+event: token
+data: {"text": "q"}
+
+event: token
+data: {"text": "r"}
+
+event: token
+data: {"text": "t"}
+
+event: token
+data: {"text": "{"}
+
+event: token
+data: {"text": "7}"}
+
+event: token
+data: {"text": "a"}
+
+event: token
+data: {"text": "$"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "这一"}
+
+event: token
+data: {"text": "步"}
+
+event: token
+data: {"text": "是对的"}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "\n那"}
+
+event: token
+data: {"text": "接下"}
+
+event: token
+data: {"text": "来"}
+
+event: token
+data: {"text": "你可"}
+
+event: token
+data: {"text": "以"}
+
+event: token
+data: {"text": "试着"}
+
+event: token
+data: {"text": "用 "}
+
+event: token
+data: {"text": "$b ="}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "\\"}
+
+event: token
+data: {"text": "s"}
+
+event: token
+data: {"text": "q"}
+
+event: token
+data: {"text": "r"}
+
+event: token
+data: {"text": "t"}
+
+event: token
+data: {"text": "{7"}
+
+event: token
+data: {"text": "}a"}
+
+event: token
+data: {"text": "$"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "结"}
+
+event: token
+data: {"text": "合 "}
+
+event: token
+data: {"text": "$c"}
+
+event: token
+data: {"text": "^"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": " ="}
+
+event: token
+data: {"text": " a"}
+
+event: token
+data: {"text": "^"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "+"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "b^"}
+
+event: token
+data: {"text": "2$"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "推"}
+
+event: token
+data: {"text": "导出"}
+
+event: token
+data: {"text": " $"}
+
+event: token
+data: {"text": "c"}
+
+event: token
+data: {"text": "$"}
+
+event: token
+data: {"text": " 和"}
+
+event: token
+data: {"text": " $"}
+
+event: token
+data: {"text": "a"}
+
+event: token
+data: {"text": "$"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "的关"}
+
+event: token
+data: {"text": "系"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "再算"}
+
+event: token
+data: {"text": "离"}
+
+event: token
+data: {"text": "心"}
+
+event: token
+data: {"text": "率"}
+
+event: token
+data: {"text": "？需"}
+
+event: token
+data: {"text": "要"}
+
+event: token
+data: {"text": "我给"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "一"}
+
+event: token
+data: {"text": "点小提示吗？"}
+
+event: title
+data: {"title": "分析用户上传的文件"}
+
+event: done
+data: {"usage": {"tokens_in": 4148, "tokens_out": 200}, "latency_ms": 2437, "message_id": "f1add8ba-b067-4c6e-8003-185a79dfffd2", "title": "分析用户上传的文件", "meta": {"latency_ms": 2422}}
+

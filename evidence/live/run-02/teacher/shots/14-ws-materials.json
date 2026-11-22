@@ -1,0 +1,241 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/materials",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "课堂设计",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "PPT",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "教案",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "对话 10",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "资料",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "历史",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "教材解析 0",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__tree-row is-active"
+    },
+    {
+      "t": "相关图片 0",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__tree-row"
+    },
+    {
+      "t": "思维导图 0",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__tree-row"
+    },
+    {
+      "t": "例题素材 0",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__tree-row"
+    },
+    {
+      "t": "拓展资料 0",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__tree-row"
+    },
+    {
+      "t": "+ 上传资料",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__upload"
+    },
+    {
+      "t": "单页",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-reader__view-btn is-active"
+    },
+    {
+      "t": "连续",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-reader__view-btn"
+    },
+    {
+      "t": "跳转",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-reader__foot-btn"
+    },
+    {
+      "t": "资料",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-reader__foot-btn"
+    },
+    {
+      "t": "AI 生成建议",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-reader__foot-btn is-primary"
+    },
+    {
+      "t": "定位原文",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-mat__locate"
+    },
+    {
+      "t": "加入备课依据",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-mat__join"
+    },
+    {
+      "t": "+ 上传资料",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-mat__upload"
+    },
+    {
+      "t": "",
+      "aria": "开始语音输入",
+      "disabled": false,
+      "cls": "pc-composer__mic"
+    },
+    {
+      "t": "",
+      "aria": "发送给 AI",
+      "disabled": true,
+      "cls": "pc-composer__send"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "file",
+      "ph": "",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "ph": "在教材中检索",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "number",
+      "ph": "页码",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "file",
+      "ph": "",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    }
+  ],
+  "selects": [],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [
+    "椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结",
+    "教材与资料",
+    "我的资料",
+    "教材来源",
+    "拓展资料",
+    "相关图片",
+    "我的资料"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "10",
+    "0",
+    "0",
+    "0",
+    "0",
+    "0",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n备课工作台\n高二年级 · 2026 秋季学期\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n·\n高一(3)班 · 数学 · 45分钟\n课堂设计\nPPT\n教案\n对话\n10\n资料\n历史\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n高一(3)班 · 数学 · 45分钟\n教材与资料\n教材解析\n0\n相关图片\n0\n思维导图\n0\n例题素材\n0\n拓展资料\n0\n我的资料\n个人上传\n暂无上传资料\n+ 上传资料\n100%\n单页\n连续\n本次备课还没有定位教材章节；定位后这里会显示教材原文。\n跳转\n资料\nAI 生成建议\n教材来源\n—\n—\n定位原文\n加入备课依据\n拓展资料\n与本课相关的教材片段（探究 / 思考 / 前置知识）\n暂无拓展资料\n相关图片\n本节切片暂无插图\n我的资料\n暂无个人资料，可点击下方上传\n+ 上传资料\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

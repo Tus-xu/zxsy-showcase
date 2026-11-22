@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "D:\zxsy-math-arena-showcase\evidence\live\run-02\student\scripts\p02_upload_guide.py", line 1077, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "D:\zxsy-math-arena-showcase\evidence\live\run-02\student\scripts\p02_upload_guide.py", line 1071, in main
+    log("saved", API / results_name)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\zxsy-math-arena-showcase\evidence\live\run-02\student\scripts\p02_upload_guide.py", line 201, in log
+    LOG.write(s + "\n")
+    ~~~~~~~~~^^^^^^^^^^
+ValueError: I/O operation on closed file.

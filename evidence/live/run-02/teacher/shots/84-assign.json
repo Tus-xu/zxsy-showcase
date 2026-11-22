@@ -1,0 +1,190 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/assign",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "1. 选班",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn is-active"
+    },
+    {
+      "t": "2. 组卷",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "3. 确认发布",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "4. 完成",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "② 生成题集",
+      "aria": "",
+      "disabled": true,
+      "cls": "tv3-btn tv3-btn--primary"
+    },
+    {
+      "t": "刷新",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "ph": "作业标题（如：椭圆标准方程 · 学前诊断）",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "datetime-local",
+      "ph": "",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "number",
+      "ph": "",
+      "aria": "",
+      "value": "6",
+      "disabled": false
+    },
+    {
+      "type": "number",
+      "ph": "",
+      "aria": "",
+      "value": "4",
+      "disabled": false
+    },
+    {
+      "type": "number",
+      "ph": "",
+      "aria": "",
+      "value": "1",
+      "disabled": false
+    },
+    {
+      "type": "number",
+      "ph": "",
+      "aria": "",
+      "value": "1",
+      "disabled": false
+    }
+  ],
+  "selects": [
+    {
+      "aria": "",
+      "value": "039bcfc5-eb65-41a0-8840-ae3e361544b2",
+      "opts": [
+        "高一(3)班 · 数学（5 人）"
+      ]
+    },
+    {
+      "aria": "",
+      "value": "pre_class",
+      "opts": [
+        "🎓 学前作业",
+        "📝 课后习题",
+        "✏️ 课堂练习"
+      ]
+    },
+    {
+      "aria": "",
+      "value": "",
+      "opts": [
+        "全部班级",
+        "高一(3)班 · 数学"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    },
+    {
+      "t": "批改工作台 →",
+      "h": "/teacher-v3/grading"
+    },
+    {
+      "t": "学情洞察 →",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "去组卷并发布 →",
+      "h": "/teacher-v3/quiz"
+    },
+    {
+      "t": "批改进度 →",
+      "h": "/teacher-v3/grading"
+    },
+    {
+      "t": "批改进度 →",
+      "h": "/teacher-v3/grading"
+    }
+  ],
+  "headings": [],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n作业与批改\n四步发布 · 学前/课后 · 批改终审\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n作业与批改\n学前作业 / 课后习题 · 四步发布 · 批改工作台人工终审\n选择自动判 · 主观题人工批\n批改工作台 →\n学情洞察 →\n发布作业\n组卷 → 确认题集 → 建作业 → 发布（每步真实落库，可中断）\n1. 选班\n2. 组卷\n3. 确认发布\n4. 完成\n高一(3)班 · 数学（5 人）\n🎓 学前作业\n📝 课后习题\n✏️ 课堂练习\n截止\n知识点（题库有题的章节；可多选）\n当前 8000 题库没有可出题知识点——直接去「题库与组卷」选 786 道校本题，发布后学生课堂任务立即可见。\n去组卷并发布 →\n题量\n题型配比（选择/填空/解答）\n② 生成题集\n作业列表\n来自班级任务权威（8000）· 学生提交与批改进度在批改工作台\n全部班级\n高一(3)班 · 数学\n刷新\n🎓 学前作业\n课前预习 · 函数的图象与性质\n高一(3)班 · 数学 · 创建于 2026-10-27 04:01 · 截止 2026-10-31 04:01\n已发布\n批改进度 →\n📝 课后习题\n课后作业 · 导数与函数单调性\n高一(3)班 · 数学 · 创建于 2026-10-27 04:01 · 截止 2026-10-29 04:01\n已发布\n批改进度 →\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

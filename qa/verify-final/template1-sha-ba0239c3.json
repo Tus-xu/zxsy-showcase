@@ -1,0 +1,913 @@
+{
+ "generated_at": "2026-11-22T04:27:33+08:00",
+ "image_sha256_expected": "cd2f518f8b705680eef74056f6c23c114ea51899378a00e2198464b3aa4ad9e7",
+ "turns": 9,
+ "sides": {
+  "off": {
+   "side": "off",
+   "started_at": "2026-11-22T04:27:43+08:00",
+   "steps": [
+    {
+     "idx": 0,
+     "kind": "image-only",
+     "input": "",
+     "attachment": true,
+     "how": "image-only-send",
+     "wait": {
+      "ok": true,
+      "rows": 11,
+      "sec": 6.4
+     },
+     "reply": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～ 我先帮你回忆下这类题的核心思路：\n\n双曲线的基本参数关系：对于标准双曲线，实轴长是 2a，虚轴长是 2b，离心率 e=ac​，且满足 c2=a2+b2\n题目给出虚轴长是实轴长的 7​ 倍，你之前已经能转化为 b=7​a，这一步是对的\n\n那接下来你可以试着用 b=7​a 结合 c2=a2+b2，推导出 c 和 a 的关系，再算离心率？需要我给你一点小提示吗？\nAI 生成· 仅供参考，请核实",
+     "evidence": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～ 我先帮你回忆下这类题的核心思路：\n1. 双曲线的基本参数关系：对于标准双曲线，实轴长是 $2a$，虚轴长是 $2b$，离心率 $e = \\frac{c}{a}$，且满足 $c^2 = a^2 + b^2$\n2. 题目给出虚轴长是实轴长的 $\\sqrt{7}$ 倍，你之前已经能转化为 $b = \\sqrt{7}a$，这一步是对的\n\n那接下来你可以试着用 $b = \\sqrt{7}a$ 结合 $c^2 = a^2 + b^2$，推导出 $c$ 和 $a$ 的关系，再算离心率？需要我给你一点小提示吗？",
+     "metrics": {
+      "prose_segments": 6,
+      "prose_covered": 2,
+      "prose_coverage": 0.333,
+      "missing_prose": [
+       "1双曲线的基本参数关系",
+       "对于标准双曲线实轴长是虚轴长是离心率且满足",
+       "2题目给出虚轴长是实轴长的倍你之前已经能转化为这一步是对的",
+       "那接下来你可以试着用结合推导出和的关系再算离心率"
+      ],
+      "norm_similarity": 0.921,
+      "prefix24_in_dom": true,
+      "dom_len": 231,
+      "evidence_len": 286
+     },
+     "card_events": [
+      "status"
+     ],
+     "ai_rows": 11,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 142,
+      "dom_cn_len": 151
+     }
+    },
+    {
+     "idx": 1,
+     "kind": "text",
+     "input": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/a = √7。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/a = √7。",
+     "wait": {
+      "ok": true,
+      "rows": 12,
+      "sec": 4.7
+     },
+     "reply": "你这一步化简得很干净：2b=7​⋅2a 两边约掉 2，确实得到 ab​=7​。接下来顺着这个结果往下推：\n\n双曲线中 c2=a2+b2，所以c2=a2+7a2=8a2,c=22​a.\n离心率定义为 e=ac​【1】，于是e=a22​a​=22​.\n\n所以离心率是 22​。这里用到的关系是：ab​ 决定开口大小，而 ac​=1+(ab​)2​ 也随之确定【1】——你算出的 e=1+7​=22​ 正好和这个公式一致。\n顺便确认一下：题目里除了\"虚轴长是实轴长的 7​ 倍\"，还有没有给出焦点位置、过某点之类的条件？如果只是求离心率，那答案就是 22​；如果还要写双曲线方程，就需要知道焦点在 x 轴还是 y 轴。\n难度：easy\n【1】教材苏教版·选择性必修第一册【2】教材苏教版·选择性必修第一册【3】教材人教A版2019·选择性必修第一册【4】教材北师大版·选择性必修第一册L2-知识库AI 生成· 仅供参考，请核实",
+     "evidence": "你这一步化简得很干净：$2b=\\sqrt7\\cdot 2a$ 两边约掉 2，确实得到 $\\dfrac{b}{a}=\\sqrt7$。接下来顺着这个结果往下推：\n\n1. 双曲线中 $c^2=a^2+b^2$，所以\n$$c^2=a^2+7a^2=8a^2,\\quad c=2\\sqrt2\\,a.$$\n2. 离心率定义为 $e=\\dfrac{c}{a}$【1】，于是\n$$e=\\frac{2\\sqrt2\\,a}{a}=2\\sqrt2.$$\n\n所以离心率是 $2\\sqrt2$。这里用到的关系是：$\\dfrac{b}{a}$ 决定开口大小，而 $\\dfrac{c}{a}=\\sqrt{1+\\left(\\dfrac{b}{a}\\right)^2}$ 也随之确定【1】——你算出的 $e=\\sqrt{1+7}=2\\sqrt2$ 正好和这个公式一致。\n\n顺便确认一下：题目里除了\"虚轴长是实轴长的 $\\sqrt7$ 倍\"，还有没有给出焦点位置、过某点之类的条件？如果只是求离心率，那答案就是 $2\\sqrt2$；如果还要写双曲线方程，就需要知道焦点在 $x$ 轴还是 $y$ 轴。\n\n难度：easy",
+     "metrics": {
+      "prose_segments": 12,
+      "prose_covered": 7,
+      "prose_coverage": 0.583,
+      "missing_prose": [
+       "1双曲线中所以",
+       "2离心率定义为1于是",
+       "决定开口大小而也随之确定1你算出的正好和这个公式一致",
+       "题目里除了虚轴长是实轴长的倍还有没有给出焦点位置过某点之类的"
+      ],
+      "norm_similarity": 0.646,
+      "prefix24_in_dom": false,
+      "dom_len": 410,
+      "evidence_len": 491
+     },
+     "card_events": [
+      "status",
+      "status",
+      "status"
+     ],
+     "ai_rows": 12,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 158,
+      "dom_cn_len": 223
+     }
+    },
+    {
+     "idx": 2,
+     "kind": "text",
+     "input": "离心率 e = c/a，而双曲线里 c² = a² + b²。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "离心率 e = c/a，而双曲线里 c² = a² + b²。",
+     "wait": {
+      "ok": true,
+      "rows": 13,
+      "sec": 4.7
+     },
+     "reply": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：\n由 c2=a2+b2 两边除以 a2，得\na2c2​=1+a2b2​\n所以\ne=ac​=1+(ab​)2​\n【2】。这个式子说明：ab​ 越大，e 越大；而 ab​ 恰好是渐近线 y=±ab​x 的斜率的绝对值，ab​ 越大双曲线开口越大【2】。所以 e 也就刻画了双曲线的\"张口\"大小【4】。\n另外注意 c>a>0，所以双曲线的 e>1【1】——这一点和椭圆（0<e<1）不同。\n现在留个问题给你：如果已知某双曲线的渐近线是 y=±43​x，你能直接说出它的离心率吗？试试看，说说你的思路。\n难度：easy\n【1】教材人教A版2019·选择性必修第一册【2】教材苏教版·选择性必修第一册【3】教材北师大版·选择性必修第一册【4】教材人教A版2019·选择性必修第一册L2-知识库AI 生成· 仅供参考，请核实",
+     "evidence": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：\n\n由 $c^2=a^2+b^2$ 两边除以 $a^2$，得\n\n$$\\frac{c^2}{a^2}=1+\\frac{b^2}{a^2}$$\n\n所以\n\n$$e=\\frac{c}{a}=\\sqrt{1+\\left(\\frac{b}{a}\\right)^2}$$\n\n【2】。这个式子说明：$\\frac{b}{a}$ 越大，$e$ 越大；而 $\\frac{b}{a}$ 恰好是渐近线 $y=\\pm\\frac{b}{a}x$ 的斜率的绝对值，$\\frac{b}{a}$ 越大双曲线开口越大【2】。所以 $e$ 也就刻画了双曲线的\"张口\"大小【4】。\n\n另外注意 $c>a>0$，所以双曲线的 $e>1$【1】——这一点和椭圆（$0<e<1$）不同。\n\n现在留个问题给你：如果已知某双曲线的渐近线是 $y=\\pm\\frac{3}{4}x$，你能直接说出它的离心率吗？试试看，说说你的思路。\n\n难度：easy",
+     "metrics": {
+      "prose_segments": 10,
+      "prose_covered": 5,
+      "prose_coverage": 0.5,
+      "missing_prose": [
+       "由两边除以得",
+       "而恰好是渐近线的斜率的绝对值越大双曲线开口越大2",
+       "所以也就刻画了双曲线的张口大小4",
+       "另外注意所以双曲线的1这一点和椭圆不同"
+      ],
+      "norm_similarity": 0.673,
+      "prefix24_in_dom": true,
+      "dom_len": 392,
+      "evidence_len": 433
+     },
+     "card_events": [
+      "status",
+      "status",
+      "status"
+     ],
+     "ai_rows": 13,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 151,
+      "dom_cn_len": 216
+     }
+    },
+    {
+     "idx": 3,
+     "kind": "text",
+     "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "wait": {
+      "ok": true,
+      "rows": 14,
+      "sec": 3.9
+     },
+     "reply": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。\n🧾 把题目给我，我才能带你解——拍照、贴题、选题、AI 出题都行📷 拍照上传题目⌨️ 把题目打出来📚 从题库挑一道（按薄弱点推荐）🎲 让 AI 出一道再带我解AI 生成· 仅供参考，请核实",
+     "evidence": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 2,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.605,
+      "prefix24_in_dom": true,
+      "dom_len": 154,
+      "evidence_len": 59
+     },
+     "card_events": [
+      "card"
+     ],
+     "ai_rows": 14,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 52,
+      "dom_cn_len": 114
+     }
+    },
+    {
+     "idx": 4,
+     "kind": "text",
+     "input": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2，B 2，C √7，D 2√2）",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2，B 2，C √7，D 2√2）",
+     "wait": {
+      "ok": true,
+      "rows": 15,
+      "sec": 3.9
+     },
+     "reply": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n 🧭 引导式解题 · 先读题理解读题理解在题面上动笔：把你认为关键的部分标出来。圈点标注圈出：已知条件 / 要求的量 / 关键限定词若双曲线C的虚轴长为实轴长的7倍，则C的离心率为（A2，B2，C7，D22） 已圈 0 处 · 建议至少 2 处圈好了，交给你看改用打字我读完了，直接开始AI 生成· 仅供参考，请核实",
+     "evidence": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。",
+     "metrics": {
+      "prose_segments": 1,
+      "prose_covered": 1,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.363,
+      "prefix24_in_dom": true,
+      "dom_len": 204,
+      "evidence_len": 45
+     },
+     "card_events": [
+      "status",
+      "card",
+      "status",
+      "card"
+     ],
+     "ai_rows": 15,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 35,
+      "dom_cn_len": 142
+     }
+    },
+    {
+     "idx": 5,
+     "kind": "form_text",
+     "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "wait": {
+      "ok": true,
+      "rows": 16,
+      "sec": 3.9
+     },
+     "reply": "你刚才正确地把“虚轴长是实轴长的 7​ 倍”翻译成了 b=7​a，这一步很关键。\n接下来想想：在双曲线里，a、b 和半焦距 c 之间有一个固定的关系式，你还记得它长什么样吗？\n步骤 1观察双曲线的实轴与虚轴，注意虚轴长是实轴长的 √7 倍🖐 可拖动▶ 演示标注点与辅助线 重播 读题理解用下面的点选面板写出这一步的式子。式子输入写出这一步的完整式子（点选面板输入）c=2ax^2()/√π+-清空写好了不知道怎么写第 2/3 步引导中圆锥曲线AI 生成· 仅供参考，请核实",
+     "evidence": "你刚才正确地把“虚轴长是实轴长的 $\\sqrt7$ 倍”翻译成了 $b=\\sqrt7\\,a$，这一步很关键。\n\n接下来想想：在双曲线里，$a$、$b$ 和半焦距 $c$ 之间有一个固定的关系式，你还记得它长什么样吗？",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你刚才正确地把虚轴长是实轴长的倍翻译成了这一步很关键",
+       "在双曲线里和半焦距之间有一个固定的关系式你还记得它长什么样吗"
+      ],
+      "norm_similarity": 0.519,
+      "prefix24_in_dom": false,
+      "dom_len": 236,
+      "evidence_len": 108
+     },
+     "card_events": [
+      "card",
+      "card"
+     ],
+     "ai_rows": 16,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 61,
+      "dom_cn_len": 168
+     }
+    },
+    {
+     "idx": 6,
+     "kind": "form_expr",
+     "input": "[式子] e=2√2",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "[式子] e=2√2",
+     "wait": {
+      "ok": true,
+      "rows": 17,
+      "sec": 3.9
+     },
+     "reply": "你写的 e=22​ 里，e 对应的是 ac​。双曲线中 a、b、c 满足哪个关系式？\n 💡 提示 · 窄追问🔍 错因分析这步答错了计算错误圆锥曲线读题理解用下面的点选面板写出这一步的式子。式子输入写出这一步的完整式子（点选面板输入）c=2ax^2()/√π+-清空写好了不知道怎么写第 2/3 步引导中圆锥曲线AI 生成· 仅供参考，请核实",
+     "evidence": "你写的 $e=2\\sqrt2$ 里，$e$ 对应的是 $\\frac{c}{a}$。双曲线中 $a$、$b$、$c$ 满足哪个关系式？",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你写的里对应的是",
+       "双曲线中满足哪个关系式"
+      ],
+      "norm_similarity": 0.341,
+      "prefix24_in_dom": false,
+      "dom_len": 170,
+      "evidence_len": 66
+     },
+     "card_events": [
+      "card",
+      "card",
+      "card",
+      "card"
+     ],
+     "ai_rows": 17,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 19,
+      "dom_cn_len": 110
+     }
+    },
+    {
+     "idx": 7,
+     "kind": "form_expr",
+     "input": "[式子] e=2√2",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "[式子] e=2√2",
+     "wait": {
+      "ok": true,
+      "rows": 18,
+      "sec": 3.9
+     },
+     "reply": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。\n读题理解已知集合 A={1,2}，B={2,3}，则 A∩B 等于？二元判断已知集合 A={1,2}，B={2,3}，则 A∩B 等于？A{2}B{1,2,3}C{1,3}就这样判断改用打字跳过探测，直接讲🧭 先补 5 分钟：集合与常用逻辑用语前置缺口（掌握度 0.0） ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考检验一下（就 1 小题，过了马上回原题）已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 与 M 的关系，以及 0 与 N 的关系（用 ∈ 或 ∈/ 表示）。\n提交答案↩️ 回原题跳过补课，看这步怎么做AI 生成· 仅供参考，请核实",
+     "evidence": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 2,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.265,
+      "prefix24_in_dom": true,
+      "dom_len": 329,
+      "evidence_len": 40
+     },
+     "card_events": [
+      "card",
+      "card"
+     ],
+     "ai_rows": 18,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 34,
+      "dom_cn_len": 177
+     }
+    },
+    {
+     "idx": 8,
+     "kind": "form_text",
+     "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "wait": {
+      "ok": true,
+      "rows": 19,
+      "sec": 3.9
+     },
+     "reply": "先把这一小块讲给你——看完马上做下面的检验小题。\n🧭 先补 5 分钟：集合与常用逻辑用语前置缺口补课 ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考看个最小例子第 1 步：回顾集合的表示与元素已知函数 f(x)=2x，其定义域为 A={x∣x∈R}，值域为 B={y∣y>0}。第 2 步：用描述法表示集合将 B 写成 B={y∣y=2x, x∈R}，注意集合的代表元素是 y。第 3 步：判断元素与集合的关系因为 20=1，所以 1∈B；而 −1 不在 B 中，记作 −1∈/B。\n检验一下（就 1 小题，过了马上回原题）已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 与 M 的关系，以及 0 与 N 的关系（用 ∈ 或 ∈/ 表示）。\n作答这道检验题填空补全已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 与 M 的关系，以及 0 与 N 的关系（用 ∈ 或 ∈/ 表示）。你的答案：\n空 1 ▾0/1 空已填填好了提交答案↩️ 回原题跳过补课，看这步怎么做AI 生成· 仅供参考，请核实",
+     "evidence": "先把这一小块讲给你——看完马上做下面的检验小题。",
+     "metrics": {
+      "prose_segments": 1,
+      "prose_covered": 1,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.124,
+      "prefix24_in_dom": true,
+      "dom_len": 473,
+      "evidence_len": 24
+     },
+     "card_events": [
+      "card"
+     ],
+     "ai_rows": 19,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 21,
+      "dom_cn_len": 250
+     }
+    }
+   ],
+   "upload": {
+    "image": {
+     "path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题1.png",
+     "bytes": 30184
+    },
+    "upload_entry": "composer-camera",
+    "attachment_ready": true,
+    "attachment_failed": false
+   },
+   "ai_before": 10,
+   "terminal": {
+    "has_remediation": true,
+    "has_remediation_card": true,
+    "has_blank_0_1": true,
+    "has_step_badge": true,
+    "has_finish_card": false,
+    "concluded_words": [],
+    "tail": "− 1 ∉ 𝐵 −1∈ / B。 检验一下（就 1 小题，过了马上回原题） 已知函数 𝑔 ( 𝑥 ) = log ⁡ 2 𝑥 g(x)=log 2 ​ x 的定义域为 𝑀 M，值域为 𝑁 N。判断 2 2 与 𝑀 M 的关系，以及 0 0 与 𝑁 N 的关系（用 ∈ ∈ 或 ∉ ∈ / 表示）。 作答这道检验题 填空补全 已知函数 𝑔 ( 𝑥 ) = log ⁡ 2 𝑥 g(x)=log 2 ​ x 的定义域为 𝑀 M，值域为 𝑁 N。判断 2 2 与 𝑀 M 的关系，以及 0 0 与 𝑁 N 的关系（用 ∈ ∈ 或 ∉ ∈ / 表示）。 你的答案： 空 1 ▾ 0/1 空已填 填好了 提交答案 ↩️ 回原题 跳过补课，看这步怎么做 AI 生成 · 仅供参考，请核实 04:30 · 自由对话 我没思路 来点提示 直接看答案 💡 试试这些提问 ▸ 0/4000 发送 ✦",
+    "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/dialog/1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204"
+   },
+   "terminal_evidence": {
+    "concluded": false
+   },
+   "refresh": {
+    "before_rows": 19,
+    "after_rows": 9,
+    "rows_restored": false,
+    "last_reply_restored": false,
+    "remediation_after_refresh": false,
+    "url_after_refresh": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/dialog/1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204"
+   },
+   "observers": {
+    "request_count": 0,
+    "request_sample": [],
+    "pageerrors": [],
+    "console_errors": [
+     "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9890:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9891:702]",
+     "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9891:702\").",
+     "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9890:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9891:702]",
+     "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9891:702\")."
+    ],
+    "responses": []
+   }
+  },
+  "live": {
+   "side": "live",
+   "started_at": "2026-11-22T04:30:22+08:00",
+   "steps": [
+    {
+     "idx": 0,
+     "kind": "image-only",
+     "input": "",
+     "attachment": true,
+     "how": "image-only-send",
+     "wait": {
+      "ok": true,
+      "rows": 1,
+      "sec": 7.1
+     },
+     "reply": "我们先来看这道双曲线离心率的题目，你之前做过这道题还出错了，咱们一步步理清楚思路：\n\n首先回忆双曲线的基本参数关系：对于标准形式的双曲线 a2x2​−b2y2​=1，实轴长是 2a，虚轴长是 2b，离心率 e=ac​，而且满足 c2=a2+b2（这是双曲线的核心恒等式）。\n题目说“虚轴长为实轴长的 7​ 倍”，那我们可以先把这个条件转化成式子：虚轴长 2b=7​×实轴长2a，两边都除以2，就能得到 b=7​a。\n接下来把 b=7​a 代入 c2=a2+b2，计算一下：c2=a2+(7​a)2=a2+7a2=8a2。\n最后求离心率 e，因为 e=ac​，所以两边开平方的话，c=8a2​=22​a，那 e=a22​a​=22​，对应选项D。\n\n你之前这道题出错是在计算 c2 这一步吗？还是哪里有疑问呀？难度：medium\nAI 生成· 仅供参考，请核实",
+     "evidence": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～ 我先帮你回忆下这类题的核心思路：\n1. 双曲线的基本参数关系：对于标准双曲线，实轴长是 $2a$，虚轴长是 $2b$，离心率 $e = \\frac{c}{a}$，且满足 $c^2 = a^2 + b^2$\n2. 题目给出虚轴长是实轴长的 $\\sqrt{7}$ 倍，你之前已经能转化为 $b = \\sqrt{7}a$，这一步是对的\n\n那接下来你可以试着用 $b = \\sqrt{7}a$ 结合 $c^2 = a^2 + b^2$，推导出 $c$ 和 $a$ 的关系，再算离心率？需要我给你一点小提示吗？",
+     "metrics": {
+      "prose_segments": 6,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你上传的是一道双曲线离心率的计算题和你最近做错的那道题是同类",
+       "1双曲线的基本参数关系",
+       "对于标准双曲线实轴长是虚轴长是离心率且满足",
+       "2题目给出虚轴长是实轴长的倍你之前已经能转化为这一步是对的"
+      ],
+      "norm_similarity": 0.246,
+      "prefix24_in_dom": false,
+      "dom_len": 379,
+      "evidence_len": 286
+     },
+     "card_events": [
+      "status"
+     ],
+     "ai_rows": 1,
+     "metrics_cn": {
+      "retention": 0.451,
+      "evidence_cn_len": 142,
+      "dom_cn_len": 198
+     }
+    },
+    {
+     "idx": 1,
+     "kind": "text",
+     "input": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/a = √7。",
+     "attachment": false,
+     "how": "composer",
+     "sent": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/a = √7。",
+     "wait": {
+      "ok": true,
+      "rows": 2,
+      "sec": 17.0
+     },
+     "reply": "你的推导是对的，而且思路很干净。我帮你把每一步的依据点一下：\n\n双曲线中，实轴长 =2a，虚轴长 =2b【4】；\n题设\"虚轴长是实轴长的 7​ 倍\"，即 2b=7​⋅2a；\n两边同时除以 2a（a>0，可以除），得 ab​=7​。\n\n所以 ab​=7​ 完全正确。\n顺便提醒一个后面马上会用到的关系：由 ac​=1+(ab​)2​【1】，代入 ab​=7​ 可得\nac​=1+7​=22​.\n也就是说这条双曲线的离心率 e=22​。如果题目后面要求离心率或标准方程，这个值直接就能用上。\n你接下来是想求离心率，还是要求双曲线的标准方程？告诉我题目的完整条件，咱们接着往下走。\n难度：easy\n【1】教材苏教版·选择性必修第一册【2】教材北师大版·选择性必修第一册【3】教材北师大版·必修第二册【4】教材人教A版2019·选择性必修第一册L2-知识库AI 生成· 仅供参考，请核实",
+     "evidence": "你这一步化简得很干净：$2b=\\sqrt7\\cdot 2a$ 两边约掉 2，确实得到 $\\dfrac{b}{a}=\\sqrt7$。接下来顺着这个结果往下推：\n\n1. 双曲线中 $c^2=a^2+b^2$，所以\n$$c^2=a^2+7a^2=8a^2,\\quad c=2\\sqrt2\\,a.$$\n2. 离心率定义为 $e=\\dfrac{c}{a}$【1】，于是\n$$e=\\frac{2\\sqrt2\\,a}{a}=2\\sqrt2.$$\n\n所以离心率是 $2\\sqrt2$。这里用到的关系是：$\\dfrac{b}{a}$ 决定开口大小，而 $\\dfrac{c}{a}=\\sqrt{1+\\left(\\dfrac{b}{a}\\right)^2}$ 也随之确定【1】——你算出的 $e=\\sqrt{1+7}=2\\sqrt2$ 正好和这个公式一致。\n\n顺便确认一下：题目里除了\"虚轴长是实轴长的 $\\sqrt7$ 倍\"，还有没有给出焦点位置、过某点之类的条件？如果只是求离心率，那答案就是 $2\\sqrt2$；如果还要写双曲线方程，就需要知道焦点在 $x$ 轴还是 $y$ 轴。\n\n难度：easy",
+     "metrics": {
+      "prose_segments": 12,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你这一步化简得很干净",
+       "两边约掉2确实得到",
+       "接下来顺着这个结果往下推",
+       "1双曲线中所以"
+      ],
+      "norm_similarity": 0.123,
+      "prefix24_in_dom": false,
+      "dom_len": 389,
+      "evidence_len": 491
+     },
+     "card_events": [
+      "status",
+      "status",
+      "status"
+     ],
+     "ai_rows": 2,
+     "metrics_cn": {
+      "retention": 0.241,
+      "evidence_cn_len": 158,
+      "dom_cn_len": 228
+     }
+    },
+    {
+     "idx": 2,
+     "kind": "text",
+     "input": "离心率 e = c/a，而双曲线里 c² = a² + b²。",
+     "attachment": false,
+     "how": "composer",
+     "sent": "离心率 e = c/a，而双曲线里 c² = a² + b²。",
+     "wait": {
+      "ok": true,
+      "rows": 3,
+      "sec": 17.9
+     },
+     "reply": "你这两句都对，而且它们正好能串起来——把 c2=a2+b2 代进 e=ac​，就能看出离心率和双曲线\"张口\"大小的关系。\n先看这个变形：\ne=ac​=aa2+b2​​=1+(ab​)2​\n这一步的依据就是 c2=a2+b2（资料【4】里给出 c2=a2+b2，【2】里也直接写出 ac​=1+(ab​)2​）。\n那我想先问你一个问题，别急着答\"是/否\"，说说理由：\n当 ab​ 变大时，e 会怎么变？双曲线的开口又会怎么变？\n提示一下：ab​ 是渐近线 y=±ab​x 的斜率绝对值，它决定了双曲线夹在两条渐近线之间的\"张口\"大小【2】。你顺着这个思路推一推，看看 e 和\"张口\"是不是同向变化。\n另外顺带留个小对比：椭圆里 e 越大图形越扁，双曲线里 e 越大开口越大——同样是 e=ac​，为什么效果相反？想清楚这个，你对离心率的理解就到位了。\n你先说说上面那个问题的判断和理由，我们再往下走。\n【1】教材人教A版2019·选择性必修第一册【2】教材苏教版·选择性必修第一册【3】教材人教A版2019·选择性必修第一册【4】教材北师大版·选择性必修第一册L2-知识库AI 生成· 仅供参考，请核实",
+     "evidence": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：\n\n由 $c^2=a^2+b^2$ 两边除以 $a^2$，得\n\n$$\\frac{c^2}{a^2}=1+\\frac{b^2}{a^2}$$\n\n所以\n\n$$e=\\frac{c}{a}=\\sqrt{1+\\left(\\frac{b}{a}\\right)^2}$$\n\n【2】。这个式子说明：$\\frac{b}{a}$ 越大，$e$ 越大；而 $\\frac{b}{a}$ 恰好是渐近线 $y=\\pm\\frac{b}{a}x$ 的斜率的绝对值，$\\frac{b}{a}$ 越大双曲线开口越大【2】。所以 $e$ 也就刻画了双曲线的\"张口\"大小【4】。\n\n另外注意 $c>a>0$，所以双曲线的 $e>1$【1】——这一点和椭圆（$0<e<1$）不同。\n\n现在留个问题给你：如果已知某双曲线的渐近线是 $y=\\pm\\frac{3}{4}x$，你能直接说出它的离心率吗？试试看，说说你的思路。\n\n难度：easy",
+     "metrics": {
+      "prose_segments": 10,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你观察得很准这两条关系正是双曲线离心率的核心",
+       "顺着你的思路往下推一步",
+       "由两边除以得",
+       "这个式子说明"
+      ],
+      "norm_similarity": 0.132,
+      "prefix24_in_dom": false,
+      "dom_len": 500,
+      "evidence_len": 433
+     },
+     "card_events": [
+      "status",
+      "status",
+      "status"
+     ],
+     "ai_rows": 3,
+     "metrics_cn": {
+      "retention": 0.272,
+      "evidence_cn_len": 151,
+      "dom_cn_len": 300
+     }
+    },
+    {
+     "idx": 3,
+     "kind": "text",
+     "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "attachment": false,
+     "how": "composer",
+     "sent": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "wait": {
+      "ok": true,
+      "rows": 4,
+      "sec": 5.5
+     },
+     "reply": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。\n🧾 把题目给我，我才能带你解——拍照、贴题、选题、AI 出题都行📷 拍照上传题目⌨️ 把题目打出来📚 从题库挑一道（按薄弱点推荐）🎲 让 AI 出一道再带我解AI 生成· 仅供参考，请核实",
+     "evidence": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 2,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.605,
+      "prefix24_in_dom": true,
+      "dom_len": 154,
+      "evidence_len": 59
+     },
+     "card_events": [
+      "card"
+     ],
+     "ai_rows": 4,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 52,
+      "dom_cn_len": 114
+     }
+    },
+    {
+     "idx": 4,
+     "kind": "text",
+     "input": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2，B 2，C √7，D 2√2）",
+     "attachment": false,
+     "how": "composer",
+     "sent": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2，B 2，C √7，D 2√2）",
+     "wait": {
+      "ok": true,
+      "rows": 5,
+      "sec": 6.4
+     },
+     "reply": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n 🧭 引导式解题 · 先读题理解读题理解在题面上动笔：把你认为关键的部分标出来。圈点标注圈出：已知条件 / 要求的量 / 关键限定词若双曲线C的虚轴长为实轴长的7倍，则C的离心率为（A2，B2，C7，D22） 已圈 0 处 · 建议至少 2 处圈好了，交给你看改用打字我读完了，直接开始AI 生成· 仅供参考，请核实",
+     "evidence": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。",
+     "metrics": {
+      "prose_segments": 1,
+      "prose_covered": 1,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.363,
+      "prefix24_in_dom": true,
+      "dom_len": 204,
+      "evidence_len": 45
+     },
+     "card_events": [
+      "status",
+      "card",
+      "status",
+      "card"
+     ],
+     "ai_rows": 5,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 35,
+      "dom_cn_len": 142
+     }
+    },
+    {
+     "idx": 5,
+     "kind": "form_text",
+     "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "wait": {
+      "ok": true,
+      "rows": 6,
+      "sec": 8.0
+     },
+     "reply": "你刚才能把“虚轴长是实轴长的 7​ 倍”翻译成 b=7​a，这个转化做得很准确。\n现在想一想：双曲线里除了 a 和 b，还有一个 c，它和 a、b 之间有没有一个你熟悉的关系式？\n步骤 1观察双曲线的实轴与虚轴，理解 b 与 a 的比例关系🖐 可拖动▶ 演示标注点与辅助线 重播 读题理解用下面的点选面板写出这一步的式子。式子输入写出这一步的完整式子（点选面板输入）c=2ax^2()/√π+-清空写好了不知道怎么写第 2/3 步引导中圆锥曲线AI 生成· 仅供参考，请核实",
+     "evidence": "你刚才正确地把“虚轴长是实轴长的 $\\sqrt7$ 倍”翻译成了 $b=\\sqrt7\\,a$，这一步很关键。\n\n接下来想想：在双曲线里，$a$、$b$ 和半焦距 $c$ 之间有一个固定的关系式，你还记得它长什么样吗？",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你刚才正确地把虚轴长是实轴长的倍翻译成了这一步很关键",
+       "在双曲线里和半焦距之间有一个固定的关系式你还记得它长什么样吗"
+      ],
+      "norm_similarity": 0.301,
+      "prefix24_in_dom": false,
+      "dom_len": 237,
+      "evidence_len": 108
+     },
+     "card_events": [
+      "card",
+      "card"
+     ],
+     "ai_rows": 6,
+     "metrics_cn": {
+      "retention": 0.557,
+      "evidence_cn_len": 61,
+      "dom_cn_len": 162
+     }
+    },
+    {
+     "idx": 6,
+     "kind": "form_expr",
+     "input": "[式子] e=2√2",
+     "attachment": false,
+     "how": "card-expr",
+     "sent": "e=2√2",
+     "wait": {
+      "ok": true,
+      "rows": 7,
+      "sec": 5.5
+     },
+     "reply": "你写的 e=22​ 里，e=ac​。题干说虚轴长是实轴长的 7​ 倍，那 b 和 a 的关系该写成 b=7​a 还是 b=7a？先把这个关系定下来，再想 c 与 a、b 满足哪个等式——你刚才算 e 时用的是哪个 c 与 a、b 的关系式？\n 💡 提示 · 窄追问🔍 错因分析这步答错了计算错误圆锥曲线读题理解用下面的点选面板写出这一步的式子。式子输入写出这一步的完整式子（点选面板输入）c=2ax^2()/√π+-清空写好了不知道怎么写第 2/3 步引导中圆锥曲线AI 生成· 仅供参考，请核实",
+     "evidence": "你写的 $e=2\\sqrt2$ 里，$e$ 对应的是 $\\frac{c}{a}$。双曲线中 $a$、$b$、$c$ 满足哪个关系式？",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 0,
+      "prose_coverage": 0.0,
+      "missing_prose": [
+       "你写的里对应的是",
+       "双曲线中满足哪个关系式"
+      ],
+      "norm_similarity": 0.184,
+      "prefix24_in_dom": false,
+      "dom_len": 248,
+      "evidence_len": 66
+     },
+     "card_events": [
+      "card",
+      "card",
+      "card",
+      "card"
+     ],
+     "ai_rows": 7,
+     "metrics_cn": {
+      "retention": 0.684,
+      "evidence_cn_len": 19,
+      "dom_cn_len": 150
+     }
+    },
+    {
+     "idx": 7,
+     "kind": "form_expr",
+     "input": "[式子] e=2√2",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "[式子] e=2√2",
+     "wait": {
+      "ok": true,
+      "rows": 8,
+      "sec": 8.8
+     },
+     "reply": "你卡在这一步，多半是「任意角与三角函数定义」还没打牢。先花几分钟补上它，马上回来。\n读题理解角α终边过点P(-3,4)，则sinα的值为？二元判断角α终边过点P(-3,4)，则sinα的值为？A4/5B-3/5C-4/5就这样判断改用打字跳过探测，直接讲🧭 先补 5 分钟：任意角与三角函数定义前置缺口（掌握度 0.0） ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考检验一下（就 1 小题，过了马上回原题）已知角 α 的终边经过点 P(−3,4)，求 sinα、cosα、tanα 的值。\n提交答案↩️ 回原题跳过补课，看这步怎么做AI 生成· 仅供参考，请核实",
+     "evidence": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。",
+     "metrics": {
+      "prose_segments": 2,
+      "prose_covered": 1,
+      "prose_coverage": 0.5,
+      "missing_prose": [
+       "你卡在这一步多半是集合与常用逻辑用语还没打牢"
+      ],
+      "norm_similarity": 0.215,
+      "prefix24_in_dom": false,
+      "dom_len": 284,
+      "evidence_len": 40
+     },
+     "card_events": [
+      "card",
+      "card"
+     ],
+     "ai_rows": 8,
+     "metrics_cn": {
+      "retention": 0.765,
+      "evidence_cn_len": 34,
+      "dom_cn_len": 167
+     }
+    },
+    {
+     "idx": 8,
+     "kind": "form_text",
+     "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "attachment": false,
+     "how": "card-typewrite",
+     "sent": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+     "wait": {
+      "ok": true,
+      "rows": 9,
+      "sec": 6.4
+     },
+     "reply": "先把这一小块讲给你——看完马上做下面的检验小题。\n🧭 先补 5 分钟：任意角与三角函数定义前置缺口补课 ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考看个最小例子第1步：从函数概念出发 把角 θ 看作自变量，三角函数就是“角→比值”的函数，记 sinθ=ry​，cosθ=rx​，tanθ=xy​（r=x2+y2​>0）。第2步：用直线与圆定位终边 在平面直角坐标系中，以原点为圆心作单位圆，角 θ 的终边与圆交于点 P(x,y)，则 r=1，于是 sinθ=y，cosθ=x。第3步：用向量与函数性质统一符号 终边方向由向量 (x,y) 决定，当 θ 为第二象限角时 x<0,y>0，故 sinθ>0，cosθ<0，tanθ<0；这与“函数值符号随自变量所在区间变化”的单调性思想一致。\n检验一下（就 1 小题，过了马上回原题）已知角 α 的终边经过点 P(−3,4)，求 sinα、cosα、tanα 的值。\n作答这道检验题填空补全已知角 α 的终边经过点 P(−3,4)，求 sinα、cosα、tanα 的值。你的答案：\n空 1 ▾0/1 空已填填好了提交答案↩️ 回原题跳过补课，看这步怎么做AI 生成· 仅供参考，请核实",
+     "evidence": "先把这一小块讲给你——看完马上做下面的检验小题。",
+     "metrics": {
+      "prose_segments": 1,
+      "prose_covered": 1,
+      "prose_coverage": 1.0,
+      "missing_prose": [],
+      "norm_similarity": 0.109,
+      "prefix24_in_dom": true,
+      "dom_len": 518,
+      "evidence_len": 24
+     },
+     "card_events": [
+      "card"
+     ],
+     "ai_rows": 9,
+     "metrics_cn": {
+      "retention": 1.0,
+      "evidence_cn_len": 21,
+      "dom_cn_len": 278
+     }
+    }
+   ],
+   "upload": {
+    "image": {
+     "path": "D:\\zxsy-math-arena\\docs\\superpowers\\plans\\题1.png",
+     "bytes": 30184
+    },
+    "upload_entry": "hero-card",
+    "attachment_ready": true,
+    "attachment_failed": false
+   },
+   "ai_before": 0,
+   "terminal": {
+    "has_remediation": true,
+    "has_remediation_card": true,
+    "has_blank_0_1": true,
+    "has_step_badge": true,
+    "has_finish_card": false,
+    "concluded_words": [],
+    "tail": " sin ⁡ 𝜃 > 0 sinθ>0， cos ⁡ 𝜃 < 0 cosθ<0， tan ⁡ 𝜃 < 0 tanθ<0；这与“函数值符号随自变量所在区间变化”的单调性思想一致。 检验一下（就 1 小题，过了马上回原题） 已知角 𝛼 α 的终边经过点 𝑃 ( − 3 , 4 ) P(−3,4)，求 sin ⁡ 𝛼 sinα、 cos ⁡ 𝛼 cosα、 tan ⁡ 𝛼 tanα 的值。 作答这道检验题 填空补全 已知角 𝛼 α 的终边经过点 𝑃 ( − 3 , 4 ) P(−3,4)，求 sin ⁡ 𝛼 sinα、 cos ⁡ 𝛼 cosα、 tan ⁡ 𝛼 tanα 的值。 你的答案： 空 1 ▾ 0/1 空已填 填好了 提交答案 ↩️ 回原题 跳过补课，看这步怎么做 AI 生成 · 仅供参考，请核实 04:32 · 自由对话 我没思路 来点提示 直接看答案 💡 试试这些提问 ▸ 0/4000 发送 ✦",
+    "url": "http://127.0.0.1:5176/dialog/ea17910d-71c8-4e2b-aae6-221784ea20f1"
+   },
+   "terminal_evidence": {
+    "concluded": false
+   },
+   "refresh": {
+    "before_rows": 9,
+    "after_rows": 9,
+    "rows_restored": true,
+    "last_reply_restored": true,
+    "remediation_after_refresh": true,
+    "url_after_refresh": "http://127.0.0.1:5176/dialog/ea17910d-71c8-4e2b-aae6-221784ea20f1"
+   },
+   "observers": {
+    "request_count": 560,
+    "request_sample": [
+     "http://127.0.0.1:5176/login",
+     "http://127.0.0.1:5176/@vite/client",
+     "http://127.0.0.1:5176/src/main.js",
+     "http://127.0.0.1:5176/node_modules/.pnpm/vite@5.4.21_@types+node@26.5.0/node_modules/vite/dist/client/env.mjs",
+     "http://127.0.0.1:5176/node_modules/.vite/deps/vue.js?v=25e43eaa",
+     "http://127.0.0.1:5176/node_modules/.vite/deps/pinia.js?v=25e43eaa",
+     "http://127.0.0.1:5176/src/App.vue",
+     "http://127.0.0.1:5176/src/router/index.js"
+    ],
+    "pageerrors": [],
+    "console_errors": [],
+    "responses": [
+     {
+      "url": "http://127.0.0.1:5176/api/student/growth/panel",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/assignments?status=todo&size=1",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/agent/features",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/agent/conversations/ea17910d-71c8-4e2b-aae6-221784ea20f1/messages?limit=20",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/error-records/review-plan",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/error-records/due-queue",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/mastery/summary",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/growth/overview",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/files/5f3a4fd8-9e56-41b5-921d-fb34233a1344/content",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/classroom-coursewares",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/report/weak-points",
+      "status": 200
+     },
+     {
+      "url": "http://127.0.0.1:5176/api/student/error-records?limit=1",
+      "status": 200
+     }
+    ]
+   }
+  }
+ },
+ "round_summary": [
+  {
+   "idx": 0,
+   "kind": "image-only",
+   "how": "image-only-send",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.921,
+   "off_consistent": true
+  },
+  {
+   "idx": 1,
+   "kind": "text",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.646,
+   "off_consistent": true
+  },
+  {
+   "idx": 2,
+   "kind": "text",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.673,
+   "off_consistent": true
+  },
+  {
+   "idx": 3,
+   "kind": "text",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.605,
+   "off_consistent": true
+  },
+  {
+   "idx": 4,
+   "kind": "text",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.363,
+   "off_consistent": true
+  },
+  {
+   "idx": 5,
+   "kind": "form_text",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.519,
+   "off_consistent": true
+  },
+  {
+   "idx": 6,
+   "kind": "form_expr",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.341,
+   "off_consistent": true
+  },
+  {
+   "idx": 7,
+   "kind": "form_expr",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.265,
+   "off_consistent": true
+  },
+  {
+   "idx": 8,
+   "kind": "form_text",
+   "how": "card-typewrite",
+   "off_retention_cn": 1.0,
+   "off_similarity_full": 0.124,
+   "off_consistent": true
+  }
+ ],
+ "off_consistent_rounds": 9,
+ "rounds": 9,
+ "metric_note": "主判据=仅中文字符序列的采证保留率（KaTeX 会重复渲染公式与符号，故剔除 ASCII/公式后比较）；辅助=全文归一化相似度。"
+}

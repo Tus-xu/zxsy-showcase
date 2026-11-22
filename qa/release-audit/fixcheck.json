@@ -1,0 +1,31 @@
+{
+ "retry": {
+  "clicked": true,
+  "has_409_message": false,
+  "has_crash": false,
+  "page_errors": [],
+  "still_workbench": false,
+  "same_text_len": -1094
+ },
+ "refresh": {
+  "pre": {
+   "count": 2,
+   "roles": [
+    "user",
+    "ai"
+   ],
+   "firstBubble": "请分析我上传的文件"
+  },
+  "post": {
+   "count": 2,
+   "roles": [
+    "user",
+    "ai"
+   ],
+   "firstRowText": "请分析我上传的文件\n\n04:01",
+   "hasAttachmentLost": false,
+   "hasRemediation": false
+  },
+  "page_errors": []
+ }
+}

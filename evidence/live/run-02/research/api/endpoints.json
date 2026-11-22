@@ -1,0 +1,952 @@
+{
+  "GET /src/api/authSession.js": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/api/auth.js": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/api/client.js": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/api/httpPolicy.ts": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/api/index.js": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/api/tasks.js": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/api/idempotency.ts": {
+    "count": 28,
+    "statuses": {
+      "200": 16,
+      "304": 12
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "POST /api/auth/challenges/sms": {
+    "count": 5,
+    "statuses": {
+      "200": 5
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b"
+    ]
+  },
+  "POST /api/auth/login/sms": {
+    "count": 5,
+    "statuses": {
+      "200": 5
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b"
+    ]
+  },
+  "POST /api/auth/token/refresh": {
+    "count": 23,
+    "statuses": {
+      "200": 23
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/auth/me": {
+    "count": 25,
+    "statuses": {
+      "200": 25
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/projects.ts": {
+    "count": 23,
+    "statuses": {
+      "200": 15,
+      "304": 8
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/client.ts": {
+    "count": 23,
+    "statuses": {
+      "200": 15,
+      "304": 8
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects": {
+    "count": 38,
+    "statuses": {
+      "200": 38
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/papers.ts": {
+    "count": 15,
+    "statuses": {
+      "200": 14,
+      "304": 1
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/files.ts": {
+    "count": 15,
+    "statuses": {
+      "200": 14,
+      "304": 1
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/agent.ts": {
+    "count": 15,
+    "statuses": {
+      "200": 14,
+      "304": 1
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/compile.ts": {
+    "count": 15,
+    "statuses": {
+      "200": 14,
+      "304": 1
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/types.ts": {
+    "count": 15,
+    "statuses": {
+      "200": 14,
+      "304": 1
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/notifications": {
+    "count": 15,
+    "statuses": {
+      "200": 15
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/notifications/unread-count": {
+    "count": 15,
+    "statuses": {
+      "200": 15
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /src/features/research-workspace/api/notes.ts": {
+    "count": 15,
+    "statuses": {
+      "200": 14,
+      "304": 1
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80": {
+    "count": 13,
+    "statuses": {
+      "200": 13
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent": {
+    "count": 13,
+    "statuses": {
+      "200": 13
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers": {
+    "count": 26,
+    "statuses": {
+      "200": 26
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files": {
+    "count": 14,
+    "statuses": {
+      "200": 14
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/notes/recent": {
+    "count": 11,
+    "statuses": {
+      "200": 11
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat": {
+    "count": 13,
+    "statuses": {
+      "200": 13
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks": {
+    "count": 13,
+    "statuses": {
+      "200": 13
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/assets/9186742d-c56d-45bd-ac3c-c79f19a52744/content": {
+    "count": 6,
+    "statuses": {
+      "200": 6
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/ef090edd-ea1d-49e9-8bd7-a2915b77971a/text": {
+    "count": 4,
+    "statuses": {
+      "200": 4
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview": {
+    "count": 14,
+    "statuses": {
+      "200": 14
+    },
+    "runs": [
+      "p01",
+      "p02",
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "PATCH /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/ef090edd-ea1d-49e9-8bd7-a2915b77971a": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p02"
+    ]
+  },
+  "GET /api/research-vnext/assets/d6d75c54-0298-4ba4-a0b1-3f26f87b2e21/content": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p02"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/99a92b56-86da-4dbb-9b69-0576fe15b43b/text": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p02"
+    ]
+  },
+  "POST /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks": {
+    "count": 6,
+    "statuses": {
+      "202": 6
+    },
+    "runs": [
+      "p02",
+      "p03",
+      "p06",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/agent/tasks/17dd2aee-91f2-4a89-82ed-fbf9ff24c19a": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p02"
+    ]
+  },
+  "POST /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers": {
+    "count": 1,
+    "statuses": {
+      "201": 1
+    },
+    "runs": [
+      "p03"
+    ]
+  },
+  "GET /api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content": {
+    "count": 20,
+    "statuses": {
+      "200": 20
+    },
+    "runs": [
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/2d3e8406-06e3-41aa-8051-ad8b404dd120/text": {
+    "count": 9,
+    "statuses": {
+      "200": 9
+    },
+    "runs": [
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06",
+      "p07",
+      "p08",
+      "p09"
+    ]
+  },
+  "POST /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/notes": {
+    "count": 2,
+    "statuses": {
+      "201": 2
+    },
+    "runs": [
+      "p03",
+      "p08"
+    ]
+  },
+  "POST /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat": {
+    "count": 1,
+    "statuses": {
+      "201": 1
+    },
+    "runs": [
+      "p03"
+    ]
+  },
+  "GET /api/research-vnext/agent/tasks/c2e484f5-c6c4-4452-8173-8c7199e476e3": {
+    "count": 12,
+    "statuses": {
+      "200": 12
+    },
+    "runs": [
+      "p03"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex": {
+    "count": 9,
+    "statuses": {
+      "404": 3,
+      "200": 6
+    },
+    "runs": [
+      "p03",
+      "p04",
+      "p04b",
+      "p05",
+      "p06"
+    ]
+  },
+  "POST /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile": {
+    "count": 5,
+    "statuses": {
+      "422": 1,
+      "201": 4
+    },
+    "runs": [
+      "p04",
+      "p04b",
+      "p06"
+    ]
+  },
+  "POST /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files": {
+    "count": 1,
+    "statuses": {
+      "201": 1
+    },
+    "runs": [
+      "p04b"
+    ]
+  },
+  "PUT /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex": {
+    "count": 4,
+    "statuses": {
+      "200": 4
+    },
+    "runs": [
+      "p04b",
+      "p06"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/16aa6754-3691-4b83-b549-bb8f190ba568/pdf": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p04b"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/5ef05264-f399-4045-8804-2d3b06fef59e/pdf": {
+    "count": 3,
+    "statuses": {
+      "200": 3
+    },
+    "runs": [
+      "p04b",
+      "p05",
+      "p06"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/outline": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05",
+      "p06"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/latest": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05",
+      "p06"
+    ]
+  },
+  "POST /api/research-vnext/projects": {
+    "count": 1,
+    "statuses": {
+      "201": 1
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/papers": {
+    "count": 4,
+    "statuses": {
+      "200": 4
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/notes/recent": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/agent/chat": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/agent/tasks": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/files": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/recent": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/overview": {
+    "count": 2,
+    "statuses": {
+      "200": 2
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/outline": {
+    "count": 1,
+    "statuses": {
+      "404": 1
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/compile-runs/latest": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p05"
+    ]
+  },
+  "GET /api/research-vnext/agent/tasks/4378c70f-6ba5-46f3-a1dd-1e4e196ab72e": {
+    "count": 3,
+    "statuses": {
+      "200": 3
+    },
+    "runs": [
+      "p06"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/7612c393-0c18-4b0c-a6a1-b94eb5f3b4ba/pdf": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p06"
+    ]
+  },
+  "GET /api/auth/sessions": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p06"
+    ]
+  },
+  "GET /api/research-vnext/assets/62dfb809-8843-490f-bd7c-63a986311456/content": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p07"
+    ]
+  },
+  "GET /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/42268b61-10d7-47da-be50-ca22f3a90644/text": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p07"
+    ]
+  },
+  "GET /api/research-vnext/agent/tasks/9dd15df3-ddc7-4aa3-8c25-4e396f6e9538": {
+    "count": 6,
+    "statuses": {
+      "200": 6
+    },
+    "runs": [
+      "p08"
+    ]
+  },
+  "GET /api/research-vnext/agent/tasks/85d54344-5784-4a5e-a3a1-fdd7aff919a7": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p08"
+    ]
+  },
+  "PUT /api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent": {
+    "count": 1,
+    "statuses": {
+      "200": 1
+    },
+    "runs": [
+      "p08"
+    ]
+  },
+  "GET /api/research-vnext/agent/tasks/2fe60b1f-676a-49a1-ad01-d3e75fd0330e": {
+    "count": 4,
+    "statuses": {
+      "200": 4
+    },
+    "runs": [
+      "p09"
+    ]
+  }
+}

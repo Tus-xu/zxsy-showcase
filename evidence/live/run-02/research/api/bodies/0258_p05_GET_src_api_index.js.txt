@@ -1,0 +1,123 @@
+# GET http://127.0.0.1:5176/src/api/index.js
+# status=200 run=p05 step=session t=02:24:51
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/stores/conv.js",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"2e83-i7P5jLh2v+ESDqNXTInG4uverJs\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "64422",
+ "date": "Sat, 21 Nov 2026 18:24:51 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+/**
+ * 全部后端端点封装（M0–M2 全量 + admin 管理后台）
+ * 页面组件只允许调用这里导出的函数，禁止散落 fetch。
+ */
+import { api } from "/src/api/client.js"
+import { setHttpPolicy } from "/src/api/httpPolicy.ts"
+import { uuid } from "/src/utils/uuid.js"
+
+// LLM 重接口超时策略（2026-10-11 学生端出题 30s 超时事故）：
+// 出题/批改/错题分析等服务端真实耗时 35-90s，全局默认 30s 会把成功请求掐死在前端。
+// 匹配按注册序首个前缀命中：具体前缀在前，宽前缀兜底在后。
+setHttpPolicy({
+  timeoutByPrefix: {
+    '/student/practice/start': 180000,
+    '/student/practice/submit': 180000,
+    '/student/practice/smart-score': 180000,
+    '/student/': 120000,
+    '/agent/': 180000,
+  },
+})
+export { authApi } from "/src/api/auth.js"
+
+/* ===== 认证 /api/auth ===== */
+
+/* ===== 智能体 /api/agent ===== */
+export const agentApi = {
+  // M2：支持 limit / before(updated_at 游标) / q 搜索；旧后端忽略未知参数，前端配合去重兜底
+  conversations: (params = {}) => api.get('/agent/conversations', params),
+  createConversation: (workspace = 'student') => api.post('/agent/conversations', { workspace }),
+  // M2：支持 limit / before(消息 id 游标)
+  conversationMessages: (id, params = {}) => api.get(`/agent/conversations/${id}/messages`, params),
+  deleteConversation: (id) => api.del(`/agent/conversations/${id}`),
+  // M2 新增：重命名 / 置顶（旧后端 405/404，调用方需优雅降级）
+  patchConversation: (id, payload) => api.patch(`/agent/conversations/${id}`, payload),
+  // M2：body 新旧双写（message_id/value 新契约，target_msg_id 旧契约；FastAPI 忽略多余字段）
+  feedback: (msgId, value, reason = '') =>
+    api.post('/agent/feedback', { message_id: msgId, target_msg_id: msgId, value, reason }),
+  // M2 新增端点（旧后端 404，调用方降级）
+  stopChat: (conversation_id, client_msg_id = '') =>
+    api.post('/agent/chat/stop', { conversation_id, ...(client_msg_id ? { client_msg_id } : {}) }),
+  activateMessage: (messageId) => api.post(`/agent/messages/${messageId}/activate`),
+  memories: () => api.get('/agent/memories'),
+  deleteMemory: (id) => api.del(`/agent/memories/${id}`),
+  // 平台功能地图 + 能力开关（阶段 6A）：capabilities.web_search_opt_in_enabled
+  features: () => api.get('/agent/features'),
+}
+
+/* ===== 文件 /api/files ===== */
+export const filesApi = {
+  uploadInit: (payload) => api.post('/files/upload', payload),
+  complete: (fileId, payload) => api.post(`/files/${fileId}/complete`, payload),
+  parse: (fileId, payload = {}) => api.post(`/files/${fileId}/parse`, payload),
+  detail: (fileId) => api.get(`/files/${fileId}`),
+  assetUrl: (fileId, assetId) => api.get(`/files/${fileId}/assets/${assetId}/url`),
+  // M2 新增：取原文件预签名 GET / 代理内容（旧后端 404，前端降级图标）
+  contentUrl: (fileId) => api.get(`/files/${fileId}/content`),
+}
+
+/* ===== 语音 /api/agent/speech ===== */
+export const speechApi = {
+  asrToken: () => api.post('/agent/speech/asr-token'),
+  // 后端契约：{asr_text, session_id, conversation_id?, context_kp?}
+  toLatex: (asr_text, { session_id, conversation_id, context_kp } = {}) =>
+    api.post('/agent/speech/to-latex', {
+      asr_text,
+      session_id: session_id || `web_${uuid()}`,
+      ...(conversation_id ? { conversation_id } : {}),
+      ...(context_kp ? { context_kp } : {}),
+    }),
+}
+
+/* ===== 学生端 /api/student ===== */
+export const studentApi = {
+  // F4 错题本
+  errorRecords: (params = {}) => api.get('/student/error-records', params),
+  createErrorRecord: (payload) => api.post('/student/error-records', payload),
+  reviewErrorRecord: (id, payload) => api.post(`/student/error-records/${id}/review`, payload),
+  // S6 错题删除（后端软删；越权 404 不泄露存在性）
+  deleteErrorRecord: (id) => api.del(`/student/error-records/${id}`),
+  // 迭代15 L0-3：学习事件总线（判分上报 → 错题/学情/复习服务端统一分发）
+  reportLearningEvent: (payload) => api.post('/student/learning-events', payload),
+  // F3/F5 刷题作答
+  practiceStart: (payload) => api.post('/student/practice/start', payload),
+  practiceSubmit: (payload) => api.post('/student/practice/submit', payload),
+  practiceDaily: () => api.get('/student/practice/daily'),
+  streak: () => api.get('/student/streak'),
+  // F6 学情
+  masterySummary: () => api.get('/student/mastery/summary'),
+  masteryTrend: (days = 30) => api.get('/student/mastery/trend', { days }),
+  weakPoints: () => api.get('/student/report/weak-points'),
+  growthOverview: () => api.get('/student/growth/overview'),
+  // 迭代15 B6：今日 3 件事行动清单（学情页首

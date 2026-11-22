@@ -1,0 +1,1887 @@
+{
+  "login_page": {
+    "url": "http://127.0.0.1:5176/login",
+    "title": "智学数研 · 数学智能助学平台（v4）",
+    "body": "π\n\n智学数研\n\n一个账号，连接学习、教学与科研\n\n完成手机号验证后，直接进入你选择的学习、教学或科研端口。\n\n学生个性化学习与成长画像\n教师备课、课堂与评价闭环\n科研推导验证与知识协作\n\n统一身份认证\n\n欢迎回来\n短信验证码\n密码登录\n进入身份\n学生端\n教师端\n科研端\n\n登录后将进入所选身份对应的端口。\n\n手机号\n短信验证码\n获取验证码\n在这台设备上保持登录\n安全登录\n\n忘记密码？ · 取消账号注销\n\n第一次使用？注册新账号\n\n登录即表示你同意平台服务协议与隐私政策。",
+    "roles": [
+      {
+        "v": "student",
+        "t": "学生端"
+      },
+      {
+        "v": "teacher",
+        "t": "教师端"
+      },
+      {
+        "v": "researcher",
+        "t": "科研端"
+      }
+    ]
+  },
+  "landing": {
+    "url": "http://127.0.0.1:5176/research-workspace",
+    "title": "科研端 · 启动页",
+    "headings": [
+      {
+        "tag": "h1",
+        "text": "阅读、写作与验证， 在同一个项目里发生。"
+      },
+      {
+        "tag": "h2",
+        "text": "未命名项目"
+      },
+      {
+        "tag": "h2",
+        "text": "今天推进哪项研究？"
+      },
+      {
+        "tag": "h2",
+        "text": "最近项目"
+      },
+      {
+        "tag": "h3",
+        "text": "未命名项目"
+      },
+      {
+        "tag": "h3",
+        "text": "未命名项目"
+      }
+    ],
+    "buttons": [
+      "启动页",
+      "工作台",
+      "个人中心",
+      "林 林知远 ⌄",
+      "进入科研工作台 →",
+      "＋ 新建项目",
+      "继续 →",
+      "01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 →",
+      "02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 →",
+      "03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent →",
+      "＋ 新建项目",
+      "阅读",
+      "写作",
+      "阅读",
+      "写作"
+    ],
+    "inputs": [],
+    "cards": [
+      {
+        "cls": "rl-start",
+        "text": "FROM HERE 今天推进哪项研究？ 三种开始方式，都会进入同一个项目上下文。 01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 → 02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 → 03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent → 读 → 摘 → 证 → 写 → 核 一条链路，一个项目上下文"
+      }
+    ],
+    "kv": [
+      "RESEARCH WORKSPACE",
+      "进入科研工作台 → ＋ 新建项目"
+    ],
+    "bodyText": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n下一步\n继续阅读与摘录\n继续 →\n∂u/∂t = α∇²u\n读 → 摘 → 证 → 写 → 核\nFROM HERE\n今天推进哪项研究？\n\n三种开始方式，都会进入同一个项目上下文。\n\n01\n📖\n读论文\n导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。\n继续阅读 →\n02\n✍️\n写论文\nLaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。\n继续写作 →\n03\n✦\n问 Agent\n公式检查、引用核查、翻译润色；结论带证据，修改先确认。\n打开 Research Agent →\n读\n→\n摘\n→\n证\n→\n写\n→\n核\n一条链路，一个项目上下文\nRECENT PROJECTS\n最近项目\n＋ 新建项目\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n1 天前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作",
+    "screenshots": [
+      "12-landing-full.png",
+      "12-landing-viewport.png"
+    ],
+    "json": "api/page-12-landing.json",
+    "recent": []
+  },
+  "account": {
+    "url": "http://127.0.0.1:5176/research-workspace/account",
+    "title": "科研端 · 个人中心",
+    "headings": [
+      {
+        "tag": "h2",
+        "text": "账号信息"
+      },
+      {
+        "tag": "h2",
+        "text": "身份与机构"
+      },
+      {
+        "tag": "h2",
+        "text": "快捷入口"
+      }
+    ],
+    "buttons": [
+      "启动页",
+      "工作台",
+      "个人中心",
+      "林 林知远 ⌄",
+      "进入科研工作台",
+      "退出登录",
+      "个人资料",
+      "账号安全",
+      "科研概览",
+      "切换",
+      "进入科研工作台 继续最近项目",
+      "科研启动页 最近项目与三个起点",
+      "账号安全 密码与登录设备"
+    ],
+    "inputs": [],
+    "cards": [
+      {
+        "cls": "ra-card",
+        "text": "账号信息 来自统一身份认证 昵称 林知远 手机号 138****1003 当前身份 科研端 · 研究者 账号 ID 58227ad6-2b09-49fd-bf2a-86fe4697da0f 加入时间 2026/10/27 账号状态 正常 修改手机号、注销账号等全局设置请前往 账号与安全。"
+      },
+      {
+        "cls": "ra-card-head",
+        "text": "账号信息 来自统一身份认证"
+      },
+      {
+        "cls": "ra-card",
+        "text": "身份与机构 已批准的身份才能切换 科研端 · 研究者 浙江大学数学科学学院 当前 学生端 未绑定机构 切换 科研端与讲台、学生端共享同一账号；切换身份会进入对应端口。"
+      },
+      {
+        "cls": "ra-card-head",
+        "text": "身份与机构 已批准的身份才能切换"
+      },
+      {
+        "cls": "ra-card ra-card--wide",
+        "text": "快捷入口 常用动作 进入科研工作台 继续最近项目 科研启动页 最近项目与三个起点 账号安全 密码与登录设备 全局账号设置 手机号 / 注销"
+      },
+      {
+        "cls": "ra-card-head",
+        "text": "快捷入口 常用动作"
+      }
+    ],
+    "kv": [
+      "昵称 林知远 手机号 138****1003 当前身份 科研端 · 研究者 账号 ID 58227ad6-2b09-49fd-bf2a-86fe4697da0f 加入时间 2026/10/27 账号状态 正常",
+      "昵称",
+      "林知远",
+      "手机号",
+      "138****1003",
+      "当前身份",
+      "科研端 · 研究者",
+      "账号 ID",
+      "58227ad6-2b09-49fd-bf2a-86fe4697da0f",
+      "加入时间",
+      "2026/10/27",
+      "账号状态",
+      "正常",
+      "科研端 · 研究者 浙江大学数学科学学院 当前",
+      "学生端 未绑定机构 切换"
+    ],
+    "bodyText": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\n林\n林知远\n科研端 · 研究者\n📱 138****1003\n🏛 浙江大学数学科学学院\n📅 2026/10 加入\n进入科研工作台\n退出登录\n个人资料\n账号安全\n科研概览\n账号信息\n来自统一身份认证\n昵称\n林知远\n手机号\n138****1003\n当前身份\n科研端 · 研究者\n账号 ID\n58227ad6-2b09-49fd-bf2a-86fe4697da0f\n加入时间\n2026/10/27\n账号状态\n正常\n\n修改手机号、注销账号等全局设置请前往 账号与安全。\n\n身份与机构\n已批准的身份才能切换\n科研端 · 研究者\n浙江大学数学科学学院\n当前\n学生端\n未绑定机构\n切换\n\n科研端与讲台、学生端共享同一账号；切换身份会进入对应端口。\n\n快捷入口\n常用动作\n进入科研工作台\n继续最近项目\n科研启动页\n最近项目与三个起点\n账号安全\n密码与登录设备\n全局账号设置\n手机号 / 注销",
+    "screenshots": [
+      "13-account-full.png",
+      "13-account-viewport.png"
+    ],
+    "json": "api/page-13-account.json",
+    "tabs": [],
+    "tabPages": {}
+  },
+  "start_modes": {
+    "读论文": {
+      "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+      "title": "科研工作台 · 阅读",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "结论：目前无法作答"
+        },
+        {
+          "tag": "h2",
+          "text": "需要你补充的最小信息（任选一种）"
+        },
+        {
+          "tag": "h2",
+          "text": "拿到材料后我会给出的形式"
+        },
+        {
+          "tag": "h2",
+          "text": "说明"
+        },
+        {
+          "tag": "h2",
+          "text": "结论：仍然无法作答"
+        },
+        {
+          "tag": "h2",
+          "text": "需要你补充的最小信息（任选其一即可）"
+        }
+      ],
+      "bodyHead": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:25\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n本材料为离线演示而自撰，围绕椭圆型偏微分方程有限元方法的三个基础环节展开：变分形式、Galerkin 逼近与 Céa 引理，全部命题在有限维子空间上讨论，并给出 Céa 引理的完整证明。内容同时涉及变分问题中空间与双线性型的设定、约分需分母非零的条件、配方法恒等式及论证结构与可复现性校验。\n\n4\n文献\n1\n草稿\n1\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-paper-1.pdf\nMathesis 离线演示项目（自撰演示材料） · —\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与\n今天 02:13\nPDF\nresearch-paper-1.pdf\nPDF\nresearch-03-writing-e",
+      "screenshot": "12-start-read.png"
+    },
+    "写论文": {
+      "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+      "title": "科研工作台 · 写作",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "结论：目前无法作答"
+        },
+        {
+          "tag": "h2",
+          "text": "需要你补充的最小信息（任选一种）"
+        },
+        {
+          "tag": "h2",
+          "text": "拿到材料后我会给出的形式"
+        },
+        {
+          "tag": "h2",
+          "text": "说明"
+        },
+        {
+          "tag": "h2",
+          "text": "结论：仍然无法作答"
+        },
+        {
+          "tag": "h2",
+          "text": "需要你补充的最小信息（任选其一即可）"
+        }
+      ],
+      "bodyHead": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\nmain.tex\n论文结构\n1 实测写作小节\nmain.tex\n已保存\nB\nI\n{}\nπ\n⌐\n行号\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n\n/ 1\n100%\n编译日志\n1\n错误\n0\n警告\n0\n信息\n1\n清空日志\n02:21:12\nCompiling main.tex (XeLaTeX)...\n02:21:12\nOutput written on main.pdf (1 pages, 0.0 MB).\n02:25:26\n✅ 编译完成，用时 17.4 秒。\nXeL",
+      "screenshot": "12-start-write.png"
+    },
+    "问 Agent": {
+      "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+      "title": "科研工作台 · 阅读",
+      "headings": [
+        {
+          "tag": "h2",
+          "text": "结论：目前无法作答"
+        },
+        {
+          "tag": "h2",
+          "text": "需要你补充的最小信息（任选一种）"
+        },
+        {
+          "tag": "h2",
+          "text": "拿到材料后我会给出的形式"
+        },
+        {
+          "tag": "h2",
+          "text": "说明"
+        },
+        {
+          "tag": "h2",
+          "text": "结论：仍然无法作答"
+        },
+        {
+          "tag": "h2",
+          "text": "需要你补充的最小信息（任选其一即可）"
+        }
+      ],
+      "bodyHead": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:25\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n本材料为离线演示而自撰，围绕椭圆型偏微分方程有限元方法的三个基础环节展开：变分形式、Galerkin 逼近与 Céa 引理，全部命题在有限维子空间上讨论，并给出 Céa 引理的完整证明。内容同时涉及变分问题中空间与双线性型的设定、约分需分母非零的条件、配方法恒等式及论证结构与可复现性校验。\n\n4\n文献\n1\n草稿\n1\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-paper-1.pdf\nMathesis 离线演示项目（自撰演示材料） · —\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与\n今天 02:13\nPDF\nresearch-paper-1.pdf\nPDF\nresearch-03-writing-e",
+      "screenshot": "12-start-agent.png"
+    }
+  },
+  "new_project": {
+    "url": "http://127.0.0.1:5176/research-workspace/d770457a-c91f-4d61-8853-de00e7a7f300/read",
+    "title": "科研工作台 · 阅读",
+    "project_id": "d770457a-c91f-4d61-8853-de00e7a7f300",
+    "mode": "read",
+    "bodyHead": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:25\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n该项目目前尚未命名，也还没有收录任何文献、草稿、笔记或数据，因此具体研究主题尚无法确定。待补充相关材料后，可进一步明确研究问题与方向。\n\n0\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\n\n还没有文献，点击右上「＋」导入 PDF。\n\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\n/ —\n100%\n\n选择一篇文献开始阅读\n\n左侧文献列表中的 PDF 将在此渲染，支持翻页、缩放、选文与全文搜索。\n\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\n项目知识库\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+    "screenshot": "12-new-project.png",
+    "api": [
+      {
+        "id": 11,
+        "step": "session",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+        "req": "",
+        "resp": "import { rwGet, rwPatch, rwPost, rwPut } from \"/src/features/research-workspace/api/client.ts\";\nexport async function listProjects() {\n  const r = await rwGet(\"/projects\");\n  return r?.items ?? [];\n}\nexport async function createProject(input) {\n  const r = await rwPost(\"/projects\", input);\n  return r.project;\n}\nexport async function getProject(projectId) {\n  const r = await rwGet(`/projects/${projectId}`);\n  return r.project;\n}\nexport async function patchProject(projectId, body) {\n  const r = aw"
+      },
+      {
+        "id": 12,
+        "step": "session",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\",\"revision\":1,\"archived\":false,\"created_at\":\"2026-11-20T18:50:08.796508Z\",\"updated_at\":\"2026-11-20T18:50:08.796508Z\",\"counts\":null},{\"id\":\"338a4eb7-0990-45c1-96e1-7a474a0c942f\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\""
+      },
+      {
+        "id": 23,
+        "step": "landing",
+        "method": "GET",
+        "status": 304,
+        "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+        "req": "",
+        "resp": ""
+      },
+      {
+        "id": 24,
+        "step": "landing",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\",\"revision\":1,\"archived\":false,\"created_at\":\"2026-11-20T18:50:08.796508Z\",\"updated_at\":\"2026-11-20T18:50:08.796508Z\",\"counts\":null},{\"id\":\"338a4eb7-0990-45c1-96e1-7a474a0c942f\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\""
+      },
+      {
+        "id": 26,
+        "step": "account",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\",\"revision\":1,\"archived\":false,\"created_at\":\"2026-11-20T18:50:08.796508Z\",\"updated_at\":\"2026-11-20T18:50:08.796508Z\",\"counts\":null},{\"id\":\"338a4eb7-0990-45c1-96e1-7a474a0c942f\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\""
+      },
+      {
+        "id": 37,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 304,
+        "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+        "req": "",
+        "resp": ""
+      },
+      {
+        "id": 38,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\",\"revision\":1,\"archived\":false,\"created_at\":\"2026-11-20T18:50:08.796508Z\",\"updated_at\":\"2026-11-20T18:50:08.796508Z\",\"counts\":null},{\"id\":\"338a4eb7-0990-45c1-96e1-7a474a0c942f\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\""
+      },
+      {
+        "id": 46,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\",\"revision\":1,\"archived\":false,\"created_at\":\"2026-11-20T18:50:08.796508Z\",\"updated_at\":\"2026-11-20T18:50:08.796508Z\",\"counts\":null},{\"id\":\"338a4eb7-0990-45c1-96e1-7a474a0c942f\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\""
+      },
+      {
+        "id": 48,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80",
+        "req": "",
+        "resp": "{\"project\":{\"id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"description\":null,\"tenant_id\":\"8136b20e-7c92-56c4-aabc-29d2706bdee2\",\"owner_id\":\"58227ad6-2b09-49fd-bf2a-86fe4697da0f\",\"revision\":1,\"archived\":false,\"created_at\":\"2026-11-20T18:50:08.796508Z\",\"updated_at\":\"2026-11-20T18:50:08.796508Z\",\"counts\":{\"sessions\":1}}}"
+      },
+      {
+        "id": 49,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat",
+        "req": "",
+        "resp": "{\"session_id\":\"44517fb5-0cc5-48b8-897c-5a9e02d76a1a\",\"timeline\":[{\"id\":\"ae55c700-a24c-476d-abec-4f0f4101a30f\",\"role\":\"user\",\"text\":\"请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。\",\"createdAt\":\"2026-11-21T18:08:14.033066+00:00\",\"evidenceRefs\":[]},{\"id\":\"297f1a64-0228-432a-b186-c8b03761cd97\",\"role\":\"assistant\",\"text\":\"## 结论：目前无法作答\\n\\n本会话中**没有这篇文献**：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。\\n\\n## 需要你补充的最小信息（任选一种）\\n\\n1. **原文**：把第 1 页的文本粘贴进来，或上传 PDF 或截图；\\n2. **题"
+      },
+      {
+        "id": 50,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/notes/recent?limit=6",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"0a0f01fc-29f2-4b6c-b730-a19856a49172\",\"project_id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"title\":\"理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 \",\"body\":\"理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。\",\"paper_id\":\"2d3e8406-06e3-41aa-8051-ad8b404dd120\",\"page\":1,\"section\":\"摘要\",\"selected_text\":\"理椭圆型偏微分方程有限元方法的三个基础环节：变"
+      },
+      {
+        "id": 51,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"2d3e8406-06e3-41aa-8051-ad8b404dd120\",\"project_id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"asset_id\":\"01e75bb5-8eff-4eda-99eb-51eab15eb573\",\"title\":\"research-paper-1.pdf\",\"authors\":[\"Mathesis 离线演示项目（自撰演示材料）\"],\"year\":null,\"venue\":\"\",\"doi\":\"\",\"read_state\":\"unread\",\"last_page\":1,\"page_count\":6,\"parse_status\":\"parsed\",\"parse_error\":\"\",\"created_at\":\"2026-11-21T18:12:55.544889+00:00\",\"updated_at\":\"2026-11-21T18:12:55.544889+00:00\"},{\"id\":\"ef090edd-ea1d-49e9-8bd7-a2915b77971a\",\"project"
+      },
+      {
+        "id": 52,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview",
+        "req": "",
+        "resp": "{\"project_id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"name\":\"未命名项目\",\"summary\":\"本材料为离线演示而自撰，围绕椭圆型偏微分方程有限元方法的三个基础环节展开：变分形式、Galerkin 逼近与 Céa 引理，全部命题在有限维子空间上讨论，并给出 Céa 引理的完整证明。内容同时涉及变分问题中空间与双线性型的设定、约分需分母非零的条件、配方法恒等式及论证结构与可复现性校验。\",\"stats\":{\"papers\":4,\"drafts\":1,\"notes\":1,\"data\":0},\"source\":\"llm:project-memory\",\"updated_at\":\"2026-11-21T18:21:06.798433+00:00\"}"
+      },
+      {
+        "id": 53,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent",
+        "req": "",
+        "resp": "{\"recent\":null}"
+      },
+      {
+        "id": 54,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files",
+        "req": "",
+        "resp": "{\"tree\":[{\"name\":\"main.tex\",\"path\":\"main.tex\",\"type\":\"file\",\"kind\":\"tex\",\"revision\":3,\"size\":278,\"updated_at\":\"2026-11-21T18:21:06.798433+00:00\",\"children\":[]}],\"items\":[{\"id\":\"6cb9c247-efb8-4a1d-88f2-b652c9402112\",\"path\":\"main.tex\",\"kind\":\"tex\",\"revision\":3,\"asset_id\":null,\"size\":278,\"updated_at\":\"2026-11-21T18:21:06.798433+00:00\",\"saved_at\":\"2026-11-21T18:21:06.798433+00:00\"}]}"
+      },
+      {
+        "id": 55,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1",
+        "req": "",
+        "resp": "{\"items\":[{\"kind\":\"translate\",\"status\":\"supported\",\"actions\":[\"apply_patch\",\"recompile\"],\"patches\":[{\"file\":\"main.tex\",\"line\":0,\"after\":\"The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and cita"
+      },
+      {
+        "id": 56,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers",
+        "req": "",
+        "resp": "{\"items\":[{\"id\":\"2d3e8406-06e3-41aa-8051-ad8b404dd120\",\"project_id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"asset_id\":\"01e75bb5-8eff-4eda-99eb-51eab15eb573\",\"title\":\"research-paper-1.pdf\",\"authors\":[\"Mathesis 离线演示项目（自撰演示材料）\"],\"year\":null,\"venue\":\"\",\"doi\":\"\",\"read_state\":\"unread\",\"last_page\":1,\"page_count\":6,\"parse_status\":\"parsed\",\"parse_error\":\"\",\"created_at\":\"2026-11-21T18:12:55.544889+00:00\",\"updated_at\":\"2026-11-21T18:12:55.544889+00:00\"},{\"id\":\"ef090edd-ea1d-49e9-8bd7-a2915b77971a\",\"project"
+      },
+      {
+        "id": 58,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex",
+        "req": "",
+        "resp": "{\"file\":{\"id\":\"6cb9c247-efb8-4a1d-88f2-b652c9402112\",\"path\":\"main.tex\",\"kind\":\"tex\",\"revision\":3,\"asset_id\":null,\"size\":278,\"updated_at\":\"2026-11-21T18:21:06.798433+00:00\",\"saved_at\":\"2026-11-21T18:21:06.798433+00:00\",\"content\":\"\\\\documentclass{article}\\n\\\\usepackage{ctex}\\n\\\\usepackage{amsmath}\\n\\\\begin{document}\\n\\\\section{实测写作小节}\\n变分形式与 Céa 引理：对任意 $v_h\\\\in V_h$，有\\n\\\\begin{equation}\\n  \\\\|u-u_h\\\\| \\\\le \\\\frac{M}{\\\\alpha}\\\\,\\\\inf_{v_h\\\\in V_h}\\\\|u-v_h\\\\|.\\n\\\\end{equation}\\n本节由现役系统实测输入生成。\\n\\\\end"
+      },
+      {
+        "id": 60,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 200,
+        "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/2d3e8406-06e3-41aa-8051-ad8b404dd120/text?page=1",
+        "req": "",
+        "resp": "{\"paper_id\":\"2d3e8406-06e3-41aa-8051-ad8b404dd120\",\"page\":1,\"width\":595.28,\"height\":841.89,\"blocks\":[{\"bbox\":[62.65,51.24,527.98,59.27],\"text\":\"Mathesis 科研工作台 · 离线演示 随包演示讲义（自撰，非外部论文）\",\"section\":\"\"},{\"bbox\":[63.6,77.73,261.04,97.22],\"text\":\"变分形式与 Céa 引理\",\"section\":\"\"},{\"bbox\":[62.72,112.01,291.68,122.77],\"text\":\"椭圆型偏微分方程有限元误差估计的预备讲义\",\"section\":\"\"},{\"bbox\":[62.93,129.58,200.94,138.39],\"text\":\"随包演示讲义（自撰，非外部论文）\",\"section\":\"\"},{\"bbox\":[62.64,143.62,165.44,152.0],\"text\":\"2026 年 11 月 · 演示版\",\"section\":\""
+      },
+      {
+        "id": 71,
+        "step": "start-modes",
+        "method": "GET",
+        "status": 304,
+        "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+        "req": "",
+        "resp": ""
+      }
+    ],
+    "write": {
+      "url": "http://127.0.0.1:5176/research-workspace/d770457a-c91f-4d61-8853-de00e7a7f300/write",
+      "tree": [
+        "未命名项目"
+      ],
+      "bodyHead": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\n论文结构\n尚未解析到结构。创建 main.tex 并使用 \\section{} / \\subsection{} 后，这里会实时生成论文结构。\nB\nI\n{}\nπ\n⌐\n行号\n\n选择文件开始编辑\n\n左侧文件树中选择 .tex 文件；编辑器支持行号、语法高亮、自动保存与论文结构定位。\n\n/ –\n100%\n\n暂无编译产物\n\n点击顶栏「重新编译」后将在此显示真实 PDF 预览。\n\n编译日志\n0\n错误\n0\n警告\n0\n信息\n0\n清空日志\n\n尚无编译记录。点击顶栏「重新编译」生成 PDF。\n\nXeLaTeX\n自动编译\n重新编译\n未编译\nπ\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex\n当前 Section\n相关论文\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n解释编译错误\n读取编译日志，定位并解释错误\n→\n改进建议\n分析草稿结构与论证，给出可执行建议\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n语言润色\n翻译成英文",
+      "screenshot": "12-new-project-write.png"
+    }
+  },
+  "landing_after": {
+    "url": "http://127.0.0.1:5176/research-workspace",
+    "bodyText": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n下一步\n继续写作与编译\n继续 →\n∂u/∂t = α∇²u\n读 → 摘 → 证 → 写 → 核\nFROM HERE\n今天推进哪项研究？\n\n三种开始方式，都会进入同一个项目上下文。\n\n01\n📖\n读论文\n导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。\n继续阅读 →\n02\n✍️\n写论文\nLaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。\n继续写作 →\n03\n✦\n问 Agent\n公式检查、引用核查、翻译润色；结论带证据，修改先确认。\n打开 Research Agent →\n读\n→\n摘\n→\n证\n→\n写\n→\n核\n一条链路，一个项目上下文\nRECENT PROJECTS\n最近项目\n＋ 新建项目\nπ\n刚刚\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n1 天前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作"
+  },
+  "api_all": [
+    {
+      "id": 1,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 2,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 3,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 4,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 5,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 6,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 7,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 8,
+      "step": "session",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 9,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 10,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 11,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 12,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 13,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 14,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 15,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 16,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 17,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 18,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 19,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 20,
+      "step": "landing",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 21,
+      "step": "landing",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 22,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 23,
+      "step": "landing",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 24,
+      "step": "landing",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 25,
+      "step": "account",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 26,
+      "step": "account",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 27,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 28,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 29,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 30,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 31,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 32,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 33,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 34,
+      "step": "start-modes",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 35,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 36,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 37,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 38,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 39,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts"
+    },
+    {
+      "id": 40,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts"
+    },
+    {
+      "id": 41,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts"
+    },
+    {
+      "id": 42,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts"
+    },
+    {
+      "id": 43,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts"
+    },
+    {
+      "id": 44,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count"
+    },
+    {
+      "id": 45,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20"
+    },
+    {
+      "id": 46,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 47,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts"
+    },
+    {
+      "id": 48,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80"
+    },
+    {
+      "id": 49,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat"
+    },
+    {
+      "id": 50,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/notes/recent?limit=6"
+    },
+    {
+      "id": 51,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers"
+    },
+    {
+      "id": 52,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview"
+    },
+    {
+      "id": 53,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent"
+    },
+    {
+      "id": 54,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files"
+    },
+    {
+      "id": 55,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1"
+    },
+    {
+      "id": 56,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers"
+    },
+    {
+      "id": 57,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content"
+    },
+    {
+      "id": 58,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex"
+    },
+    {
+      "id": 59,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content"
+    },
+    {
+      "id": 60,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/2d3e8406-06e3-41aa-8051-ad8b404dd120/text?page=1"
+    },
+    {
+      "id": 61,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 62,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 63,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 64,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 65,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 66,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 67,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 68,
+      "step": "start-modes",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 69,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 70,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 71,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 72,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 73,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts"
+    },
+    {
+      "id": 74,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts"
+    },
+    {
+      "id": 75,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts"
+    },
+    {
+      "id": 76,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts"
+    },
+    {
+      "id": 77,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts"
+    },
+    {
+      "id": 78,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count"
+    },
+    {
+      "id": 79,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20"
+    },
+    {
+      "id": 81,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts"
+    },
+    {
+      "id": 80,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 82,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80"
+    },
+    {
+      "id": 83,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat"
+    },
+    {
+      "id": 84,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers"
+    },
+    {
+      "id": 85,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview"
+    },
+    {
+      "id": 86,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent"
+    },
+    {
+      "id": 87,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files"
+    },
+    {
+      "id": 88,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1"
+    },
+    {
+      "id": 89,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers"
+    },
+    {
+      "id": 90,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex"
+    },
+    {
+      "id": 91,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content"
+    },
+    {
+      "id": 92,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/outline?entry=main.tex"
+    },
+    {
+      "id": 93,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/latest"
+    },
+    {
+      "id": 94,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex"
+    },
+    {
+      "id": 95,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/5ef05264-f399-4045-8804-2d3b06fef59e/pdf"
+    },
+    {
+      "id": 96,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 97,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 98,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 99,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 100,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 101,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 102,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 103,
+      "step": "start-modes",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 104,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 105,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 106,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 107,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 108,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts"
+    },
+    {
+      "id": 109,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts"
+    },
+    {
+      "id": 110,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts"
+    },
+    {
+      "id": 111,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts"
+    },
+    {
+      "id": 112,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts"
+    },
+    {
+      "id": 113,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts"
+    },
+    {
+      "id": 114,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count"
+    },
+    {
+      "id": 115,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20"
+    },
+    {
+      "id": 116,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 117,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/notes/recent?limit=6"
+    },
+    {
+      "id": 118,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80"
+    },
+    {
+      "id": 119,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat"
+    },
+    {
+      "id": 120,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent"
+    },
+    {
+      "id": 121,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview"
+    },
+    {
+      "id": 122,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers"
+    },
+    {
+      "id": 123,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files"
+    },
+    {
+      "id": 124,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1"
+    },
+    {
+      "id": 125,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers"
+    },
+    {
+      "id": 126,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex"
+    },
+    {
+      "id": 127,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content"
+    },
+    {
+      "id": 128,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content"
+    },
+    {
+      "id": 129,
+      "step": "start-modes",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/2d3e8406-06e3-41aa-8051-ad8b404dd120/text?page=1"
+    },
+    {
+      "id": 130,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 131,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 132,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 133,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 134,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 135,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 136,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 137,
+      "step": "new-project",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 138,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 139,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 140,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 141,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 142,
+      "step": "new-project",
+      "method": "POST",
+      "status": 201,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 143,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts"
+    },
+    {
+      "id": 144,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts"
+    },
+    {
+      "id": 145,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts"
+    },
+    {
+      "id": 146,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts"
+    },
+    {
+      "id": 147,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts"
+    },
+    {
+      "id": 148,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts"
+    },
+    {
+      "id": 149,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count"
+    },
+    {
+      "id": 150,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20"
+    },
+    {
+      "id": 151,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/papers"
+    },
+    {
+      "id": 152,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 153,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/notes/recent?limit=6"
+    },
+    {
+      "id": 154,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/agent/chat"
+    },
+    {
+      "id": 155,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300"
+    },
+    {
+      "id": 156,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/agent/tasks?limit=1"
+    },
+    {
+      "id": 157,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/papers"
+    },
+    {
+      "id": 158,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/files"
+    },
+    {
+      "id": 159,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/recent"
+    },
+    {
+      "id": 160,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/overview"
+    },
+    {
+      "id": 161,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 162,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 163,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 164,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 165,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 166,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 167,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 168,
+      "step": "new-project",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 169,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 170,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 171,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts"
+    },
+    {
+      "id": 172,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts"
+    },
+    {
+      "id": 173,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 174,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts"
+    },
+    {
+      "id": 175,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts"
+    },
+    {
+      "id": 176,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts"
+    },
+    {
+      "id": 177,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20"
+    },
+    {
+      "id": 178,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count"
+    },
+    {
+      "id": 179,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts"
+    },
+    {
+      "id": 180,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    },
+    {
+      "id": 181,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300"
+    },
+    {
+      "id": 182,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/agent/chat"
+    },
+    {
+      "id": 183,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/papers"
+    },
+    {
+      "id": 184,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/overview"
+    },
+    {
+      "id": 185,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/files"
+    },
+    {
+      "id": 186,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/agent/tasks?limit=1"
+    },
+    {
+      "id": 187,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/recent"
+    },
+    {
+      "id": 188,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/papers"
+    },
+    {
+      "id": 189,
+      "step": "new-project",
+      "method": "GET",
+      "status": 404,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/outline?entry=main.tex"
+    },
+    {
+      "id": 190,
+      "step": "new-project",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/d770457a-c91f-4d61-8853-de00e7a7f300/compile-runs/latest"
+    },
+    {
+      "id": 191,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js"
+    },
+    {
+      "id": 192,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js"
+    },
+    {
+      "id": 193,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js"
+    },
+    {
+      "id": 194,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts"
+    },
+    {
+      "id": 195,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js"
+    },
+    {
+      "id": 196,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js"
+    },
+    {
+      "id": 197,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts"
+    },
+    {
+      "id": 198,
+      "step": "landing-after",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh"
+    },
+    {
+      "id": 199,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me"
+    },
+    {
+      "id": 200,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts"
+    },
+    {
+      "id": 201,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts"
+    },
+    {
+      "id": 202,
+      "step": "landing-after",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects"
+    }
+  ]
+}

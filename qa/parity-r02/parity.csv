@@ -1,0 +1,19 @@
+﻿role,route,slug,verdict,verdict_kind,layout_max_delta,pixel_ratio,live_lines,off_lines,text_diff_count,number_time_drift_only,reason
+student,/dialog,dialog,差异,data_drift,0,0.00433,157,158,7,False,结构一致；7 处内容行不同（列表/数字/时间等真实数据漂移）
+student,/practice,practice,差异,data_drift,0,0.01495,46,46,5,False,结构一致；5 处内容行不同（列表/数字/时间等真实数据漂移）
+student,/errors,errors,差异,data_drift,0,0.01676,201,196,9,False,结构一致；9 处内容行不同（列表/数字/时间等真实数据漂移）
+student,/library,library,一致,number_time_drift,0,3e-05,107,107,1,True,布局盒≤0px、文本仅数字/时间戳漂移（1 处）
+student,/resources,resources,差异,media,0,0.36381,87,87,13,False,离线图片破图 11 张（现役 0 张），文本一致但视觉资源缺失
+student,/classroom,classroom,一致,number_time_drift,0,3e-05,62,62,1,True,布局盒≤0px、文本仅数字/时间戳漂移（1 处）
+student,/me,me,差异,data_drift,0,0.00995,131,131,10,False,结构一致；10 处内容行不同（列表/数字/时间等真实数据漂移）
+teacher,/teacher-v3/prep,prep,差异,data_drift,0,0.05965,63,55,2,False,结构一致；2 处内容行不同（列表/数字/时间等真实数据漂移）
+teacher,/teacher-v3/today,today,差异,data_drift,0,0.05965,63,55,2,False,结构一致；2 处内容行不同（列表/数字/时间等真实数据漂移）
+teacher,/teacher-v3/classes,classes,一致,none,0,1e-05,70,70,0,False,布局盒≤0px、可见文本逐行一致、破图数一致
+teacher,/teacher-v3/bank,bank,一致,none,0,1e-05,68,68,0,False,布局盒≤0px、可见文本逐行一致、破图数一致
+teacher,/teacher-v3/assign,assign,一致,none,0,0.0,63,63,0,False,布局盒≤0px、可见文本逐行一致、破图数一致
+teacher,/teacher-v3/insights,insights,差异,data_drift,0,0.00638,60,60,3,False,结构一致；3 处内容行不同（列表/数字/时间等真实数据漂移）
+teacher,/teacher-v3/resources,resources,差异,media,0,0.35716,85,85,0,False,离线图片破图 12 张（现役 0 张），文本一致但视觉资源缺失
+teacher,/teacher-v3/grading,grading,差异,data_drift,0,0.0,114,113,1,False,结构一致；1 处内容行不同（列表/数字/时间等真实数据漂移）
+researcher,/research-workspace,landing,差异,data_drift,0,0.00022,92,83,1,False,结构一致；1 处内容行不同（列表/数字/时间等真实数据漂移）
+researcher,/research-workspace/workspace,workspace,不一致,structure,0,0.1117,63,175,8,False,工作区内容结构不同：63 行 vs 175 行（离线打开了历史项目文档，现役为空项目）
+researcher,/research-workspace/account,account,一致,none,0,0.0,55,55,0,False,布局盒≤0px、可见文本逐行一致、破图数一致

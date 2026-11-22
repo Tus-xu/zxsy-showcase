@@ -1,0 +1,29 @@
+{
+  "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+  "title": "科研工作台 · 写作",
+  "compileBar": "XeLaTeX 自动编译 重新编译 编译成功 02:28",
+  "log": "编译日志 1 错误 0 警告 0 信息 1 清空日志 02:28:26 Compiling main.tex (XeLaTeX)... 02:28:26 Output written on main.pdf (1 pages, 0.0 MB). 02:28:47 ✅ 编译完成，用时 20.9 秒。",
+  "logTabs": "编译日志 1 错误 0 警告 0 信息 1 清空日志",
+  "editor": {
+    "lines": 14,
+    "text": "\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n"
+  },
+  "preview": {
+    "text": "/ 1 100%",
+    "canvases": [
+      {
+        "w": 595,
+        "h": 841,
+        "nonWhiteRatio": 0.0069
+      }
+    ],
+    "pageTotal": "/ 1",
+    "zoom": "100%"
+  },
+  "toasts": [
+    "已保存"
+  ],
+  "agent": "π Research Agent 在线 基于草稿、编译日志与项目文献 当前上下文 main.tex L10 当前 Section 相关论文 · 4 篇 π LaTeX 错误解释 存在冲突 02:27 ! 数学模式定界符缺失 第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 来补救并报错；也可能是前面某个 来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 . . . ... 包裹；前文某个 或数学环境未正确闭合，使第 11 行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第 11 行需要数学排版的内容并用 或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用... 包裹，同时确认前文所有 包裹，同时确认前文所有 与数学环境都已成对闭合。 文件位置 main.tex · 第 11 行 定位到第 11 行 加入笔记 快捷能力 LaTeX 错误解释 改进建议 引用补全 公式检查 语言润色 翻译成英文",
+  "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\nmain.tex\n论文结构\n1 实测写作小节\nmain.tex\n已保存\nB\nI\n{}\nπ\n⌐\n行号\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n\n/ 1\n100%\n编译日志\n1\n错误\n0\n警告\n0\n信息\n1\n清空日志\n02:28:26\nCompiling main.tex (XeLaTeX)...\n02:28:26\nOutput written on main.pdf (1 pages, 0.0 MB).\n02:28:47\n✅ 编译完成，用时 20.9 秒。\nXeLaTeX\n自动编译\n重新编译\n编译成功 02:28\nπ\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex L10\n当前 Section\n相关论文 · 4 篇\nπ\nLaTeX 错误解释\n存在冲突\n02:27\n!\n数学模式定界符缺失\n\n第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 \n来补救并报错；也可能是前面某个\n来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 \n.\n.\n.\n... 包裹；前文某个 \n或数学环境未正确闭合，使第\n11\n行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第\n11\n行需要数学排版的内容并用\n或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用...\n包裹，同时确认前文所有\n包裹，同时确认前文所有 与数学环境都已成对闭合。\n\n文件位置\n\nmain.tex · 第 11 行\n\n定位到第 11 行\n加入笔记\n快捷能力\nLaTeX 错误解释\n改进建议\n引用补全\n公式检查\n语言润色\n翻译成英文",
+  "tag": "15-recovered"
+}

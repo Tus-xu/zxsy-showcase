@@ -1,0 +1,104 @@
+{
+ "case": "C",
+ "turns": 9,
+ "steps": [
+  {
+   "idx": 0,
+   "input": "",
+   "how": "image-only-send",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 11,
+   "reply_head": "首先我们来拆解这道概率期望的题目，先理清楚已知条件和要求：\n\n已知是有放回取球，每次从1-5号球中取，取3次\n随机变量X",
+   "expect": "首先我们来拆解这道概率期望的题目先理清楚已知条件"
+  },
+  {
+   "idx": 1,
+   "input": "记 A_i 为第 i 号球至少被取出一次，一次不取到它的概率是 4/5，三次都没取到是 (4/5)³",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 12,
+   "reply_head": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n\n🧭 引导式解题 · 先读题",
+   "expect": "先别急着算把题干里有用的条件划出来点选词块可多选"
+  },
+  {
+   "idx": 2,
+   "input": "所以 P(A_i) = 1 - 64/125 = 61/125。",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 13,
+   "reply_head": "再看看题目里给出的条件，它能让我们得到什么？先说说你的想法。\n\n读题理解\n用下面的点选面板写出这一步的式子。\n式子输入\n",
+   "expect": "再看看题目里给出的条件它能让我们得到什么先说说你"
+  },
+  {
+   "idx": 3,
+   "input": "[式子] E(X)=5*61/125",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 14,
+   "reply_head": "再看看题目里给出的条件，它能让我们得到什么？先说说你的想法。\n\n💡 提示 · 窄追问\n🔍 错因分析\n这步答错了\n计算错误",
+   "expect": "再看看题目里给出的条件它能让我们得到什么先说说你"
+  },
+  {
+   "idx": 4,
+   "input": "[式子] E(X)=5*61/125",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 15,
+   "reply_head": "这步有点难，我陪你拆小一点，一步一步来。（支持强度调整：emerging → cold）再看看题目里给出的条件，它能让我",
+   "expect": "这步有点难我陪你拆小一点一步一步来支持强度调整e"
+  },
+  {
+   "idx": 5,
+   "input": "[式子] E(X)=5*61/125",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 16,
+   "reply_head": "连续三次都卡在同一个式子上，说明不是你不认真，是这个式子的来路还没接稳，我们把它拆成一小步一小步来。\n\n💡 提示 · 揭",
+   "expect": "连续三次都卡在同一个式子上说明不是你不认真是这个"
+  },
+  {
+   "idx": 6,
+   "input": "[式子] E(X)=5*61/125",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 17,
+   "reply_head": "连续三次都卡在同一个式子上，换谁都会有点烦。我们先把这一步拆小一点，只看一个球。\n\n💡 提示 · 揭示该步\n🔍 错因分析",
+   "expect": "连续三次都卡在同一个式子上换谁都会有点烦我们先把"
+  },
+  {
+   "idx": 7,
+   "input": "[式子] E(X)=5*61/125",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 18,
+   "reply_head": "你这三次都写了同一个式子，说明卡住的地方一直没变，我们先把它拆小一点。\n\n💡 提示 · 揭示该步\n🔍 错因分析\n这步答错",
+   "expect": "你这三次都写了同一个式子说明卡住的地方一直没变我"
+  },
+  {
+   "idx": 8,
+   "input": "[式子] E(X)=5*61/125",
+   "how": "si-fallback",
+   "reply_ok": true,
+   "matched": true,
+   "ai_rows": 19,
+   "reply_head": "你连着交了三遍同一个式子，说明卡点一直没被戳破，这不怪你。先把式子放一边，只回答一个问题：\n\n题目里“一次不取到它”的概",
+   "expect": "你连着交了三遍同一个式子说明卡点一直没被戳破这不"
+  }
+ ],
+ "terminal": {
+  "finish_card": false,
+  "remediation": true,
+  "tail": "\n5\n5\n4\n\t​\n\n，那么“三次都没取到它”这个事件，和“至少被取出一次”是什么关系？\n\n💡 提示 · 揭示该步\n🔍 错因分析\n这步答错了\n计算错误\n1.4 随机事件的运算\n读题理解\n用下面的点选面板写出这一步的式子。\n式子输入\n写出这一步的完整式子（点选面板输入）\nP(Ai)=1-{}6412561x\n清空\n写好了\n不知道怎么写\n第 2/2 步\n引导中\n1.4 随机事件的运算\nAI 生成\n· 仅供参考，请核实\n03:49 · 自由对话\n我没思路\n来点提示\n直接看答案\n💡 试试这些提问\n▸\n0/4000\n发送\n✦"
+ },
+ "http": 0,
+ "errors": [],
+ "att_ready": 1
+}

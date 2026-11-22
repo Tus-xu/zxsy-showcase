@@ -1,0 +1,181 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/grading",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "讲评要点",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "第 1 题",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn is-active"
+    },
+    {
+      "t": "第 2 题",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "第 3 题",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "第 4 题",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "第 5 题",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "全部",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn is-active"
+    },
+    {
+      "t": "待批",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "需复核",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "自动批",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "已批",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-seg__btn"
+    },
+    {
+      "t": "← 上一份",
+      "aria": "",
+      "disabled": true,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "下一份待批 →",
+      "aria": "",
+      "disabled": true,
+      "cls": "tv3-btn tv3-btn--sm tv3-btn--primary"
+    },
+    {
+      "t": "✦ 生成 AI 建议（解答题触发 AI 初批，仅参考）",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "✓ 确认批改（写入终分）",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--primary"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "number",
+      "ph": "",
+      "aria": "",
+      "value": "1",
+      "disabled": false
+    }
+  ],
+  "selects": [
+    {
+      "aria": "",
+      "value": "039bcfc5-eb65-41a0-8840-ae3e361544b2",
+      "opts": [
+        "高一(3)班 · 数学"
+      ]
+    },
+    {
+      "aria": "",
+      "value": "a9107e51-d407-4299-8791-0d1b22cb3ca6",
+      "opts": [
+        "课后作业 · 导数与函数单调性"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [
+    "批改工作台"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n批改工作台\n题聚焦 · 匿名队列 · 原图终审\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n✍️\n批改工作台\n题聚焦 · 匿名队列 · 原图对照 · 教师终审唯一写分\n高一(3)班 · 数学\n讲评要点\n高一(3)班 · 数学\n课后作业 · 导数与函数单调性\n第 1 题\n第 2 题\n第 3 题\n第 4 题\n第 5 题\n全部\n待批\n需复核\n自动批\n已批\n已批 1 / 1 · 待批 0\n作答队列\n默认匿名 · 批完自动跳下一份\n第 1 份作答\n建议 1 分\n自动批\n第 1 份作答\n选择题\n← 上一份\n下一份待批 →\n已知函数\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\n−\n3\n𝑥\nf(x)=x\n3\n−3x，则\n𝑓\n(\n𝑥\n)\nf(x) 的单调递减区间是（ ）\n参考答案：\n𝐵\nB\n解析：由\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\n−\n3\n<\n0\nf\n′\n(x)=3x\n2\n−3<0 得\n−\n1\n<\n𝑥\n<\n1\n−1<x<1。\n未设量规（按参考答案整体给分）\n学生作答原图\n文本作答（原文）：\nB\n规则自动判分\n建议 1 分\n已依据已持久化标准答案判定：答案一致\n✦ 生成 AI 建议（解答题触发 AI 初批，仅参考）\n教师终审给分（必填）\n/ 未设满分\n评语（将展示给学生）\n✓ 确认批改（写入终分）\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

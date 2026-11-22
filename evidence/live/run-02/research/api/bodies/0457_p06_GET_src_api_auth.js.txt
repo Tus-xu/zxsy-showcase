@@ -1,0 +1,90 @@
+# GET http://127.0.0.1:5176/src/api/auth.js
+# status=200 run=p06 step=session t=02:27:09
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/stores/auth.js",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"b85-3dAqjRyGg/FPA2XPhtVkMdeCUSY\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "15780",
+ "date": "Sat, 21 Nov 2026 18:27:09 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { api } from "/src/api/client.js"
+import { authScopeHeaders, refreshAccessToken, setAccessToken, setAuthScope } from "/src/api/authSession.js"
+
+export const authApi = {
+  challengeSms: (phone, purpose) => api.post('/auth/challenges/sms', { phone, purpose }),
+  loginSms: async (payload) => {
+    const data = await api.post('/auth/login/sms', payload)
+    setAccessToken(data.access_token)
+    if (data?.user?.active_role) setAuthScope(data.user.active_role)
+    return data
+  },
+  loginPassword: async (payload) => {
+    const data = await api.post('/auth/login/password', payload)
+    setAccessToken(data.access_token)
+    if (data?.user?.active_role) setAuthScope(data.user.active_role)
+    return data
+  },
+  registerSms: async (payload) => {
+    const data = await api.post('/auth/register/sms', payload)
+    setAccessToken(data.access_token)
+    if (data?.user?.active_role) setAuthScope(data.user.active_role)
+    return data
+  },
+  refreshSession: () => refreshAccessToken({ allowFallback: true }),
+  me: () => api.get('/auth/me'),
+  logout: () => api.post('/auth/logout', undefined, undefined, { headers: authScopeHeaders() }),
+  logoutAll: () => api.post('/auth/logout-all', undefined, undefined, { headers: authScopeHeaders() }),
+  switchRole: async (role) => {
+    const data = await api.post('/auth/role/switch', { role })
+    setAccessToken(data.access_token || data.token)
+    if (data?.active_role) setAuthScope(data.active_role)
+    return data
+  },
+  setPassword: (password) => api.post('/auth/password/set', { password }),
+  resetPassword: (payload) => api.post('/auth/password/reset', payload),
+  onboardStudent: (payload) => api.post('/identity/onboarding/student', payload),
+  submitRoleApplication: (payload) => api.post('/identity/role-applications', payload),
+  currentRoleApplications: () => api.get('/identity/role-applications/current'),
+}
+
+export const securityApi = {
+  sessions: () => api.get('/auth/sessions'),
+  revokeSession: (id) => api.del(`/auth/sessions/${id}`, { headers: authScopeHeaders() }),
+  changePhone: (payload) => api.post('/identity/phone/change', payload),
+  requestDeletion: () => api.post('/identity/account/deletion'),
+  deletionStatus: () => api.get('/identity/account/deletion'),
+  cancelDeletion: (payload) => api.post('/identity/account/deletion/cancel', payload),
+  reauthenticate: (payload) => api.post('/auth/reauth', payload),
+  sendReauthCode: (phone) => authApi.challengeSms(phone, 'admin_reauth'),
+}
+
+export const adminIdentityApi = {
+  applications: (query = {}) => api.get('/admin/identity/applications', query),
+  approve: (id, note = '') => api.post(`/admin/identity/applications/${id}/approve`, { note }),
+  reject: (id, note = '') => api.post(`/admin/identity/applications/${id}/reject`, { note }),
+  requestMoreInfo: (id, note = '') => api.post(`/admin/identity/applications/${id}/request-more-info`, { note }),
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImF1dGguanMiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgYXBpIH0gZnJvbSBcIi9zcmMvYXBpL2NsaWVudC5qc1wiXHJcbmltcG9ydCB7IGF1dGhTY29wZUhlYWRlcnMsIHJlZnJlc2hBY2Nlc3NUb2tlbiwgc2V0QWNjZXNzVG9rZW4sIHNldEF1dGhTY29wZSB9IGZyb20gXCIvc3JjL2FwaS9hdXRoU2Vzc2lvbi5qc1wiXHJcblxyXG5leHBvcnQgY29uc3QgYXV0aEFwaSA9IHtcclxuICBjaGFsbGVuZ2VTbXM6IChwaG9uZSwgcHVycG9zZSkgPT4gYXBpLnBvc3QoJy9hdXRoL2NoYWxsZW5nZXMvc21zJywgeyBwaG9uZSwgcHVycG9zZSB9KSxcclxuICBsb2dpblNtczogYXN5bmMgKHBheWxvYWQpID0+IHtcclxuICAgIGNvbnN0IGRhdGEgPSBhd2FpdCBhcGkucG9zdCgnL2F1dGgvbG9naW4vc21zJywgcGF5bG9hZClcclxuICAgIHNldEFjY2Vzc1Rva2VuKGRhdGEuYWNjZXNzX3Rva2VuKVxyXG4gICAgaWYgKGRhdGE/LnVzZXI/LmFjdGl2ZV9yb2xlKSBzZXRBdXRoU2NvcGUoZGF0YS51c2VyLmFjdGl2ZV9yb2xlKVxyXG4gICAgcmV0dXJuIGRhdGFcclxuICB9LFxyXG4gIGxvZ2luUGFzc3dvcmQ6IGFzeW5jIChwYXlsb2FkKSA9PiB7XHJcbiAgICBjb25zdCBkYXRhID0gYXdhaXQgYXBpLnBvc3QoJy9hdXRoL2xvZ2luL3Bhc3N3b3JkJywgcGF5bG9hZClcclxuICAgIHNldEFjY2Vzc1Rva2VuKGRhdGEuYWNjZXNzX3Rva2VuKVxyXG4gICAgaWYgKGRhdGE/LnVzZXI/LmFjdGl2ZV9yb2xlKSBzZXRBdXRoU2NvcGUoZGF0YS51c2VyLmFjdGl2ZV9yb2xlKVxyXG4gICAgcmV0dXJuIGRhdGFcclxuICB9

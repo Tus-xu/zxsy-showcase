@@ -1,0 +1,411 @@
+{
+  "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+  "title": "科研工作台 · 阅读",
+  "canvases": [
+    {
+      "i": 0,
+      "w": 924,
+      "h": 1306,
+      "cls": "rw-pdf__canvas",
+      "nonWhiteRatio": 0.0254
+    },
+    {
+      "i": 1,
+      "w": 0,
+      "h": 0,
+      "cls": "hiddenCanvasElement",
+      "error": "IndexSizeError: Failed to execute 'getImageData' on 'CanvasRenderingContext2D': The source width is 0."
+    }
+  ],
+  "textLayers": [
+    {
+      "spans": 16,
+      "len": 368,
+      "sample": "Mathesis 科研工作台 · 离线演示 随包演示讲义（自撰，非外部论文） 变分形式与 Céa 引理 椭圆型偏微分方程有限元误差估计的预备讲义 随包演示讲义（自撰，非外部论文） 2026 年 11 月 · 演示版 摘要 本讲义整理椭圆型偏"
+    }
+  ],
+  "pageTotal": "/ 6 155%",
+  "pageInput": "1",
+  "searchbar": "",
+  "marks": [],
+  "notes": [
+    "理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 今天 02:13"
+  ],
+  "noteCount": 1,
+  "toast": "",
+  "selection": "",
+  "composerValue": "",
+  "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:30\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n本材料为离线演示而自撰，围绕椭圆型偏微分方程有限元方法的三个基础环节展开：变分形式、Galerkin 逼近与 Céa 引理，全部命题在有限维子空间上讨论，并给出 Céa 引理的完整证明。内容同时涉及变分问题中空间与双线性型的设定、约分需分母非零的条件、配方法恒等式及论证结构与可复现性校验。\n\n4\n文献\n1\n草稿\n1\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-paper-1.pdf\nMathesis 离线演示项目（自撰演示材料） · —\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与\n今天 02:13\nPDF\nresearch-paper-1.pdf\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 6\n155%\nMathesis 科研工作台 · 离线演示\n \n随包演示讲义（自撰，非外部论文）\n\n\n变分形式与 Céa 引理\n\n\n椭圆型偏微分方程有限元误差估计的预备讲义\n\n\n随包演示讲义（自撰，非外部论文）\n\n\n2026 年 11 月 · 演示版\n\n\n摘要\n\n\n本讲义整理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所\n\n\n有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰\n\n\n，引用与页码均可与本讲义页面逐条核对。\n\n\n关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计\n\n\n| 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。\n\n\n变分形式与 Céa 引理 · 第 1 页\n \n第 1 页 / 共 6 页\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线演示项目（自撰演示材料）\nmain.tex\n项目知识库 · 4 篇\n\n请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。\n\nπ\nResearch Agent\n结论：目前无法作答\n\n本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。\n\n需要你补充的最小信息（任选一种）\n原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。\n拿到材料后我会给出的形式\n一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广；\n原文出处：给出可核验的定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。\n\n说明\n\n若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。\n\n这篇论文第 1 页讲了什么？请用两句话概括，并指出原文依据。\n\nπ\nResearch Agent\n结论：仍然无法作答\n\n这与上一轮的判断一致：本会话没有这篇文献。会话摘要显示 artifact_count = 0（附件数为 0），摘要中也没有任何题录、DOI、正文片段或第 1 页的文本与图像。因此“第 1 页讲了什么”缺少唯一的输入对象——连“第 1 页”指向哪一篇都无法确定，我既不能概括其内容，也不能给出原文依据。\n\n在这里，编造一条结论加一条看似精确的出处（例如虚构的 §1, p.\\,1 与 DOI），比不回答的危害更大：错误引文一旦进入稿件，后续所有基于它的推导都会失去可核验性。\n\n需要你补充的最小信息（任选其一即可）\n原文：把第 1 页的正文粘贴进来，或上传 PDF／第 1 页截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：若你已知结论所在位置，给出小节号或图表号，例如 Abstract 末句、§1 第 3 段、Theorem 1.1。\n拿到材料后我会给出的形式\n两句话概括：每句独立成句，逐句保留原文的限定条件（适用范围、假设、量词），不做跨页推广；两句话之间按“主结论 / 次要结果或方法”分层，而不是把一句话拆成两句凑数；\n原文依据：给出可核验定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为支撑；引文与转述会显式区分，绝不把“我的概括”冒充“作者原话”。\n\n一个需要你先决定的点\n\n若第 1 页含多个并列结论（摘要里给出 2–3 条贡献是常见情形），我可以按两种方式处理：\n\n分层式：主结论一句、次要结果一句，各自附引文；\n指定式：你指出要哪一条，我只写那一条并在第二句给出其支撑引文。\n\n请说明你偏好哪一种，或直接把第 1 页材料贴进来，我据此产出两句话概括与对应出处。\n\nπ\nLaTeX 错误解释\n存在冲突\n02:30\n!\n数学模式定界符缺失\n\n第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 \n来补救并报错；也可能是前面某个\n来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 \n.\n.\n.\n... 包裹；前文某个 \n或数学环境未正确闭合，使第\n11\n行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第\n11\n行需要数学排版的内容并用\n或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用...\n包裹，同时确认前文所有\n包裹，同时确认前文所有 与数学环境都已成对闭合。\n\n文件位置\n\nmain.tex · 第 11 行\n\n加入笔记\n快捷能力\n推导校验\n引用补全\nLaTeX 对照\n公式检查\n翻译与改写",
+  "tag": "16-initial",
+  "t": "02:30:43",
+  "console_since_mark": [
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"来\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"补\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"救\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"并\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"报\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"错\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"；\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"也\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"可\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"能\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"是\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"前\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"面\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"某\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"个\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"或\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"数\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"学\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"环\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"境\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"未\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"正\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"确\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"闭\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"合\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"，\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"使\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"第\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"行\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"被\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"误\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"判\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"为\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"普\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"通\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"文\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"本\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"；\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"行\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"内\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"含\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"有\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"未\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"转\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"义\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"的\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"特\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"殊\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"字\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"符\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"，\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"被\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"当\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"作\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"数\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"学\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"或\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"命\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"令\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"起\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"始\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"符\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"号\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"。\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"检\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"查\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"第\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"行\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"需\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"要\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"数\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"学\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"排\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"版\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"的\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"内\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"容\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"并\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"用\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"包\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"裹\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"，\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"同\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"时\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"确\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"认\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"前\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"文\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"所\" used in math mode [unicodeTextInMathMode]"
+    },
+    {
+      "type": "warning",
+      "text": "LaTeX-incompatible input and strict mode is set to 'warn': Unicode text character \"有\" used in math mode [unicodeTextInMathMode]"
+    }
+  ]
+}

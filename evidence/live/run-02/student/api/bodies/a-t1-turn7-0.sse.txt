@@ -1,0 +1,17 @@
+: open
+
+event: meta
+data: {"conversation_id": "1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204", "msg_id": "603e4549-7f6a-43d5-b2f5-46672690e7a5", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "78a56e81-c258-41de-b618-038713df1d25", "step_no": 0, "interaction_id": "ix_1ce0b2160a1a", "form": "binary", "move": "probe", "stage": "reading", "prompt_lead": "已知集合 A={1,2}，B={2,3}，则 A∩B 等于？", "spec": {"question": "已知集合 A={1,2}，B={2,3}，则 A∩B 等于？", "options": [{"id": "o1", "label": "{2}"}, {"id": "o2", "label": "{1,2,3}", "maps_to": {"misconception": "concept"}}, {"id": "o3", "label": "{1,3}", "maps_to": {"misconception": "logic"}}]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "跳过探测，直接讲", "interaction_reason": "T6→probe[binary]", "form_source": "router", "routing_reason": "T6→probe[binary]"}
+
+event: card
+data: {"card_type": "socratic_detour", "session_id": "78a56e81-c258-41de-b618-038713df1d25", "detour_id": "44e211fbb4f6", "kp_code": "SET-01", "kp_name": "集合与常用逻辑用语", "worked_example": "", "check_question": "已知函数 $g(x)=\\log_2 x$ 的定义域为 $M$，值域为 $N$。判断 $2$ 与 $M$ 的关系，以及 $0$ 与 $N$ 的关系（用 $\\in$ 或 $\\notin$ 表示）。", "origin_step": 2, "reason": "前置缺口（掌握度 0.0）", "check_form": "cloze", "check_spec": {"body": "已知函数 $g(x)=\\log_2 x$ 的定义域为 $M$，值域为 $N$。判断 $2$ 与 $M$ 的关系，以及 $0$ 与 $N$ 的关系（用 $\\in$ 或 $\\notin$ 表示）。\n你的答案：$□_1$", "blanks": [{"id": "b1", "answer_kind": "expr"}], "palette_by_blank": {"b1": ["-$2\\in M$，$0\\in N$", "$2\\in M$，$0\\in N$"]}}, "stage": "probing", "probe": {"question": "已知集合 A={1,2}，B={2,3}，则 A∩B 等于？", "form": "binary", "interaction_id": "ix_1ce0b2160a1a"}, "citations": [], "degraded": {"zh": "未找到教材原文，本讲解由 AI 生成，仅供参考", "why": "kb_no_hit"}}
+
+event: done
+data: {"usage": {"tokens_in": 4, "tokens_out": 16}, "latency_ms": 1937, "message_id": "023114fe-a663-49e1-be62-af580aa05258", "meta": {"skill": "socratic_solver", "tutor_action": "interact", "verdict": "wrong", "misconception": "calculation", "interaction_form": "expr_input", "interaction_reason": "T18→expr_input[rt_material_failed]", "p_before": 0.0814, "p_after": 0.0056, "fragile": false, "routing_reason": "rt_gap_detour", "route_detour_attempted": true, "detour_started": "44e211fbb4f6", "current_step": 2, "hint_level": 1, "status": "active", "leak_blocked": 0, "socratic": {"phase": "detour", "scaffold_level": 1, "verdict": "wrong", "misconception": "calculation", "error_move": null, "kp_code": "JH-02", "detour_active": true, "round_used": 2, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "binary", "form_reason": "T6→probe[binary]", "move": "probe_cause", "tier": 0, "stage": "reading"}}}
+
