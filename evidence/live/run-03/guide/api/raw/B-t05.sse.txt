@@ -1,0 +1,32 @@
+: open
+
+event: meta
+data: {"conversation_id": "0cd000d9-900c-47f1-9bbc-82722149d28c", "msg_id": "70320ca1-d80f-441a-8c1b-11240e7d0840", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: status
+data: {"stage": "guiding", "text": "开始解题——第 1 步。"}
+
+event: token
+data: {"text": "我在，咱们慢慢捋这道题，不着急。"}
+
+event: token
+data: {"text": "\n\n"}
+
+event: token
+data: {"text": "先看题干给的两个条件：正三棱柱、$D$ 为 $BC$ 中点。"}
+
+event: token
+data: {"text": "你觉得这两个条件分别能推出哪些线段之间的关系？"}
+
+event: token
+data: {"text": "比如底面 $ABC$ 是什么形状，$AD$ 和 $BC$ 会有什么关系？"}
+
+event: figure
+data: {"frames": [{"data_uri": "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MjAiIGhlaWdodD0iMzIwIiB2aWV3Qm94PSIwIDAgNDIwIDMyMCI+CjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSI0MjAiIGhlaWdodD0iMzIwIiBmaWxsPSIjZmZmZmZmIi8+Cjxwb2x5Z29uIHBvaW50cz0iMTM0LjYxOSwyOTAgMzMzLjA4LDIxNC42MTkgMzMzLjA4LDMwIDEzNC42MTksMTA1LjM4MSIgZmlsbD0iI2U4ZWVmNyIgc3Ryb2tlPSJub25lIiBvcGFjaXR5PSIwLjkiLz4KPHBvbHlnb24gcG9pbnRzPSIxMzQuNjE5LDEwNS4zODEgMzMzLjA4LDMwIDg2LjkyLDMwIiBmaWxsPSIjZThlZWY3IiBzdHJva2U9Im5vbmUiIG9wYWNpdHk9IjAuOSIvPgo8bGluZSB4MT0iMTM0LjYxOSIgeTE9IjI5MCIgeDI9Ijg2LjkyIiB5Mj0iMjE0LjYxOSIgc3Ryb2tlPSIjNWI2NTcyIiBzdHJva2Utd2lkdGg9IjEuNCIgZmlsbD0ibm9uZSIgc3Ryb2tlLWRhc2hhcnJheT0iNSw0Ii8+CjxsaW5lIHgxPSIzMzMuMDgiIHkxPSIyMTQuNjE5IiB4Mj0iODYuOTIiIHkyPSIyMTQuNjE5IiBzdHJva2U9IiM1YjY1NzIiIHN0cm9rZS13aWR0aD0iMS40IiBmaWxsPSJub25lIiBzdHJva2UtZGFzaGFycmF5PSI1LDQiLz4KPGxpbmUgeDE9Ijg2LjkyIiB5MT0iMjE0LjYxOSIgeDI9Ijg2LjkyIiB5Mj0iMzAiIHN0cm9rZT0iIzViNjU3MiIgc3Ryb2tlLXdpZHRoPSIxLjQiIGZpbGw9Im5vbmUiIHN0cm9rZS1kYXNoYXJyYXk9IjUsNCIvPgo8bGluZSB4MT0iMTM0LjYxOSIgeTE9IjI5MCIgeDI9IjMzMy4wOCIgeTI9IjIxNC42MTkiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIxLjciIGZpbGw9Im5vbmUiLz4KPGxpbmUgeDE9IjEzNC42MTkiIHkxPSIxMDUuMzgxIiB4Mj0iMzMzLjA4IiB5Mj0iMzAiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIxLjciIGZpbGw9Im5vbmUiLz4KPGxpbmUgeDE9IjMzMy4wOCIgeTE9IjMwIiB4Mj0iODYuOTIiIHkyPSIzMCIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEuNyIgZmlsbD0ibm9uZSIvPgo8bGluZSB4MT0iMTM0LjYxOSIgeTE9IjEwNS4zODEiIHgyPSI4Ni45MiIgeTI9IjMwIiBzdHJva2U9IiMyMjIyMjIiIHN0cm9rZS13aWR0aD0iMS43IiBmaWxsPSJub25lIi8+CjxsaW5lIHgxPSIzMzMuMDgiIHkxPSIyMTQuNjE5IiB4Mj0iMzMzLjA4IiB5Mj0iMzAiIHN0cm9rZT0iIzIyMjIyMiIgc3Ryb2tlLXdpZHRoPSIxLjciIGZpbGw9Im5vbmUiLz4KPGxpbmUgeDE9IjEzNC42MTkiIHkxPSIyOTAiIHgyPSIxMzQuNjE5IiB5Mj0iMTA1LjM4MSIgc3Ryb2tlPSIjMjIyMjIyIiBzdHJva2Utd2lkdGg9IjEuNyIgZmlsbD0ibm9uZSIvPgo8Y2lyY2xlIGN4PSIxMzQuNjE5IiBjeT0iMjkwIiByPSIxLjkiIGZpbGw9IiMyMjIyMjIiLz4KPGNpcmNsZSBjeD0iMTM0LjYxOSIgY3k9IjEwNS4zODEiIHI9IjEuOSIgZmlsbD0iIzIyMjIyMiIvPgo8Y2lyY2xlIGN4PSIzMzMuMDgiIGN5PSIyMTQuNjE5IiByPSIxLjkiIGZpbGw9IiMyMjIyMjIiLz4KPGNpcmNsZSBjeD0iMzMzLjA4IiBjeT0iMzAiIHI9IjEuOSIgZmlsbD0iIzIyMjIyMiIvPgo8Y2lyY2xlIGN4PSI4Ni45MiIgY3k9IjIxNC42MTkiIHI9IjEuOSIgZmlsbD0iIzIyMjIyMiIvPgo8Y2lyY2xlIGN4PSI4Ni45MiIgY3k9IjMwIiByPSIxLjkiIGZpbGw9IiMyMjIyMjIiLz4KPHRleHQgeD0iMTMwLjk2MyIgeT0iMjk4LjM3NCIgZm9udC1zaXplPSIxMyIgc3R5bGU9ImZvbnQtZmFtaWx5Okdlb3JnaWEsICdUaW1lcyBOZXcgUm9tYW4nLCBzZXJpZjtmb250LXN0eWxlOml0YWxpYyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzIyMjIyMiI+QTwvdGV4dD4KPHRleHQgeD0iMTI2LjE4NCIgeT0iOTYuMzIxIiBmb250LXNpemU9IjEzIiBzdHlsZT0iZm9udC1mYW1pbHk6R2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmO2ZvbnQtc3R5bGU6aXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjIyMjIyIj5B4oKBPC90ZXh0Pgo8dGV4dCB4PSIzNDMuMDk4IiB5PSIyMTcuMTYxIiBmb250LXNpemU9IjEzIiBzdHlsZT0iZm9udC1mYW1pbHk6R2VvcmdpYSwgJ1RpbWVzIE5ldyBSb21hbicsIHNlcmlmO2ZvbnQtc3R5bGU6aXRhbGljIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjMjIyMjIyIj5CPC90ZXh0Pgo8dGV4dCB4PSIzNDEuNzAxIiB5PSIyMS4xNjgiIGZvbnQtc2l6ZT0iMTMiIHN0eWxlPSJmb250LWZhbWlseTpHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWY7Zm9udC1zdHlsZTppdGFsaWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMyMjIyMjIiPkLigoE8L3RleHQ+Cjx0ZXh0IHg9Ijc3Ljg0OSIgeT0iMjE4Ljg0MSIgZm9udC1zaXplPSIxMyIgc3R5bGU9ImZvbnQtZmFtaWx5Okdlb3JnaWEsICdUaW1lcyBOZXcgUm9tYW4nLCBzZXJpZjtmb250LXN0eWxlOml0YWxpYyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzIyMjIyMiI+QzwvdGV4dD4KPHRleHQgeD0iNzkuODc1IiB5PSIxOS41NTMiIGZvbnQtc2l6ZT0iMTMiIHN0eWxlPSJmb250LWZhbWlseTpHZW9yZ2lhLCAnVGltZXMgTmV3IFJvbWFuJywgc2VyaWY7Zm9udC1zdHlsZTppdGFsaWMiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMyMjIyMjIiPkPigoE8L3RleHQ+PC9zdmc+", "label": "几何体"}], "step_no": 1, "caption": "观察正三棱柱中 D 为 BC 中点，AD 是底面正三角形的高，AA₁ 垂直于底面", "figure_params": {"size": [420, 320], "type": "triangular_prism", "labels": {"A1": "A₁", "B1": "B₁", "C1": "C₁"}, "params": {"base": "equilateral", "side": 4, "height": 3}}}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "step_no": 1, "interaction_id": "ix_61c9a6a8e8b6", "form": "expr_input", "move": "elicit", "stage": null, "prompt_lead": "用下面的点选面板写出这一步的式子。", "spec": {"prompt": "写出这一步的完整式子（点选面板输入）", "keypad": ["AA", "1", "perp", "BC", "x", "^2", "(", ")", "/", "√", "π", "+", "-"]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "不知道怎么写", "interaction_reason": "T18→expr_input[rt_material_failed]", "form_source": "router", "routing_reason": "T18→expr_input[rt_material_failed]"}
+
+event: done
+data: {"usage": {"tokens_in": 24, "tokens_out": 42}, "latency_ms": 2031, "message_id": "486faa1c-5304-4413-8205-fea3a395491a", "meta": {"skill": "socratic_solver", "current_step": 1, "status": "active", "leak_blocked": 0, "socratic": {"phase": "opening", "scaffold_level": 0, "verdict": null, "misconception": null, "error_move": null, "kp_code": "MATH-PEP-BBIXI2-4EEF23D0C9", "detour_active": false, "round_used": 0, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "expr_input", "form_reason": "T18→expr_input[rt_material_failed]", "move": "elicit", "tier": 0, "stage": ""}}}
+

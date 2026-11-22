@@ -1,0 +1,17 @@
+: open
+
+event: meta
+data: {"conversation_id": "0cd000d9-900c-47f1-9bbc-82722149d28c", "msg_id": "01af9d2e-202e-4456-992e-762bb9bcabe6", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "好，我们直接开始拆解思路。"}
+
+event: token
+data: {"text": "题目读透了。动笔前先把思路排个队——想通再算，少走弯路（也可以点「直接开始做」）。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "step_no": 0, "interaction_id": "ix_67d68f411155", "form": "cloze", "move": "demonstrate", "stage": "planning", "prompt_lead": "把关键空补上——每空从面板点选。", "spec": {"body": "这一步的依据是：$□_2$（定理/公式/规则名）", "blanks": [{"id": "b1", "answer_kind": "relation"}], "palette_by_blank": {"b1": ["正三角形中线即高正三棱柱", "直接观察图像", "代入特殊值验证"]}, "mode": "worked_example"}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "直接开始做", "interaction_reason": "opening×planning×demonstrate×T0→cloze[R6]", "form_source": "router", "routing_reason": "opening×planning×demonstrate×T0→cloze[R6]"}
+
+event: done
+data: {"usage": {"tokens_in": 3, "tokens_out": 21}, "latency_ms": 45, "message_id": "787cc615-b160-409c-8bbf-610c7710c004", "meta": {"skill": "socratic_solver", "tutor_action": "skip", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "steps_count": 5, "verified": false, "difficulty": "medium", "current_step": 1, "status": "active", "leak_blocked": 0, "hint_level": 0, "socratic": {"phase": "opening", "scaffold_level": 0, "verdict": null, "misconception": null, "error_move": null, "kp_code": "MATH-PEP-BBIXI2-4EEF23D0C9", "detour_active": false, "round_used": 0, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "cloze", "form_reason": "opening×planning×demonstrate×T0→cloze[R6]", "move": null, "tier": 0, "stage": "planning"}}}
+

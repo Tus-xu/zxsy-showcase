@@ -1,0 +1,1 @@
+{"code":0,"message":"ok","data":{"record_id":"37abd118-372c-4bf4-aa4e-559f609dde98","error_type":"calculation","subtype":"calc_arithmetic","subtype_zh":"计算失误","kp_code":"DR-02","kp_name":"导数的运算法则与复合求导","diagnosis":"①你作答的是导数化简结果，并非题干要求的正负区间判断，且未明确说明计算失误的具体过程。\n②先明确题目要求，再按导数正负区间判断步骤解题。\n③重新梳理导数正负区间判断的逻辑，完成对应练习。"}}

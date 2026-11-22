@@ -1,0 +1,35 @@
+{
+ "cs_items": 30,
+ "opened": [
+  {
+   "i": 0,
+   "msgs": 0,
+   "url": "/dialog/476cd423-eb5c-4afa-ae92-de859a3d",
+   "offline_missing": true
+  },
+  {
+   "i": 1,
+   "msgs": 0,
+   "url": "/dialog/9467100a-51db-4485-a50d-4f5765c4",
+   "offline_missing": true
+  },
+  {
+   "i": 2,
+   "msgs": 0,
+   "url": "/dialog/1fa3e4c2-58b3-49d7-8425-191d148f",
+   "offline_missing": true
+  },
+  {
+   "i": 3,
+   "msgs": 0,
+   "url": "/dialog/192cb473-6f2d-4e85-9c06-fa22f855",
+   "offline_missing": true
+  }
+ ],
+ "deck": {
+  "url": "/dual/5304e914-edb1-47d2-b0db-7cbb804bcd86",
+  "indicator": "5 / 5",
+  "len": 822
+ },
+ "errors": []
+}

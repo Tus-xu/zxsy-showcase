@@ -1,0 +1,17 @@
+: open
+
+event: meta
+data: {"conversation_id": "6314ae21-efa2-4aec-aa64-b0d83604d4d0", "msg_id": "97116bd8-0266-4a40-a350-802b119b911a", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "这步咱们试了好几轮了，我先完整做一遍给你看，你看了告诉我为什么这么做，行吗？（回复「好」我就讲这一步）"}
+
+event: card
+data: {"card_type": "socratic_exit_offer", "session_id": "04f76bfd-a9b6-4248-b2de-815590ba8657", "step_no": 2, "buttons": [{"label": "好，看这一步的完整做法", "action": "answer_confirm"}, {"label": "我再试试", "action": "demo_retry"}], "confirm_text_hint": "回复「好」也可以"}
+
+event: card
+data: {"card_type": "socratic_progress", "session_id": "04f76bfd-a9b6-4248-b2de-815590ba8657", "current_step": 2, "steps_count": 5, "hint_level": 1, "attempts_on_step": 0, "verdict": "wrong", "phase": "guiding", "scaffold_level": 1, "scaffold_label": "focused_scaffold", "kp_name": "古典概型", "rounds_used": 2, "rounds_limit": 8, "oversplit": false, "oversplit_steps": 5, "fast_path": false, "mastery_state": "improving"}
+
+event: done
+data: {"usage": {"tokens_in": 56, "tokens_out": 20}, "latency_ms": 3296, "message_id": "057cc090-43b8-4f45-88e5-5f544fc24896", "meta": {"skill": "socratic_solver", "session_id": "04f76bfd-a9b6-4248-b2de-815590ba8657", "steps_count": 5, "verified": false, "difficulty": "medium", "verdict": "wrong", "misconception": "logic", "error_move": "跳过“X=1 即三次号码全相同”的关系判断，直接改用指示变量求期望", "p_before": 0.0753, "p_after": 0.0054, "fragile": false, "bypass_exit": true, "routing_reason": "rt_bypass_exit", "current_step": 2, "hint_level": 1, "status": "active", "leak_blocked": 0, "socratic": {"phase": "guiding", "scaffold_level": 1, "verdict": "wrong", "misconception": "logic", "error_move": "跳过“X=1 即三次号码全相同”的关系判断，直接改用指示变量求期望", "kp_code": "MATH-PEP-BIXI2-F1C3784B23", "detour_active": false, "round_used": 2, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "cloze", "form_reason": "guiding×probe_cause×T1→cloze[R21]", "move": "probe_cause", "tier": 1, "stage": ""}}}
+

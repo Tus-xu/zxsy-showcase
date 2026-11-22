@@ -1,0 +1,1 @@
+{"code":0,"message":"ok","data":{"record_id":"434ad34f-ea93-4201-a1d8-7d9d8fc1bd28","error_type":"calculation","subtype":"calc_arithmetic","subtype_zh":"计算失误","kp_code":"JH-02","kp_name":"圆锥曲线","diagnosis":"作答信息不足，无法定位具体错误过程。\n认真核对计算步骤，别漏算关键推导环节。\n建议梳理圆锥曲线离心率推导的计算过程，逐步检查每一步运算。"}}

@@ -1,0 +1,145 @@
+{
+ "tab": "按知识点浏览",
+ "active_topic": "featured",
+ "dom_cards": 12,
+ "covers_dom": [
+  {
+   "title": "高中数学基础与解法全集（涵盖所有）|长期更新|从零开始拯救所有学渣！2025年新视频持续更新中！|涵盖新教材必修一必修二选必一选必二选必三|看完视频记得刷题练习",
+   "cover": "https://i0.hdslb.com/bfs/archive/8c963f3eef8a75aef37807da987b2b6805863821.jpg",
+   "complete": true,
+   "naturalWidth": 1658
+  },
+  {
+   "title": "2027高考数学必刷100讲【常规版】",
+   "cover": "https://i1.hdslb.com/bfs/archive/6a51c78459df3bc46fec46cb0e3e02614a638203.jpg",
+   "complete": true,
+   "naturalWidth": 1024
+  },
+  {
+   "title": "中考数学复习全集|关注「一数-初中版」长期更新中考数学！",
+   "cover": "https://i2.hdslb.com/bfs/archive/ed529f7b93b9ae10a6b74a290ef4172cdc0d831d.jpg",
+   "complete": true,
+   "naturalWidth": 1730
+  },
+  {
+   "title": "2027高考数学必刷100讲【基础+中档】",
+   "cover": "https://i2.hdslb.com/bfs/archive/9d6a0ccd726015f9a041976d666f326e1a674c7a.jpg",
+   "complete": true,
+   "naturalWidth": 1024
+  },
+  {
+   "title": "【高一数学】必修一零基础讲解！从零开始拯救学渣！",
+   "cover": "https://i1.hdslb.com/bfs/archive/2b0bd72359e4e129f0ad3452fb37b6befc08e064.jpg",
+   "complete": true,
+   "naturalWidth": 1205
+  },
+  {
+   "title": "高中学习看这个就够了！「一系列」全科账号学习指南！",
+   "cover": "https://i0.hdslb.com/bfs/archive/18b76d52d710409fd07f67ed23724b9ddb1ee610.jpg",
+   "complete": true,
+   "naturalWidth": 1208
+  },
+  {
+   "title": "高中数学「最全」大合集预告！",
+   "cover": "https://i0.hdslb.com/bfs/archive/3ac18b67e54fbc5ea494c549c017b0f6071e5cba.jpg",
+   "complete": true,
+   "naturalWidth": 1049
+  },
+  {
+   "title": "“基本不等式”学懵了？保姆级教程在此！",
+   "cover": "https://i1.hdslb.com/bfs/archive/6ddd567869101aa4e26b4b7b5ecebd7106c7f873.jpg",
+   "complete": true,
+   "naturalWidth": 1856
+  },
+  {
+   "title": "2025高考数学必刷100讲【常规版】",
+   "cover": "https://i1.hdslb.com/bfs/archive/04411f1e97103f42e59560595cb1bafdf609b34d.jpg",
+   "complete": true,
+   "naturalWidth": 1200
+  },
+  {
+   "title": "初中数学【二次函数】从零基础到中考压轴难度合集！|通俗易懂|奥赛保送生主讲",
+   "cover": "https://i1.hdslb.com/bfs/archive/e7066e485ae05ec44290949828bfbffe2494dcaf.jpg",
+   "complete": true,
+   "naturalWidth": 970
+  },
+  {
+   "title": "高考数学系统复习【函数概念与性质】|函数篇1|小姚老师",
+   "cover": "https://i2.hdslb.com/bfs/archive/2922ece15ec663a6418f6b9776b9dba546233038.jpg",
+   "complete": true,
+   "naturalWidth": 1387
+  },
+  {
+   "title": "「排列组合」学习指南！",
+   "cover": "https://i1.hdslb.com/bfs/archive/cf173bfcc37df1fd73a75214d92b549031364a87.jpg",
+   "complete": true,
+   "naturalWidth": 1884
+  }
+ ],
+ "videos": {
+  "videos_probe": {
+   "url": "http://127.0.0.1:5176/api/student/videos?page_size=1",
+   "status": 200,
+   "ct": "application/json",
+   "file": "covers/bodies/videos_page_size1.json",
+   "bytes": 8760
+  },
+  "videos_topic_featured": {
+   "url": "http://127.0.0.1:5176/api/student/videos?topic=featured&page_size=12",
+   "status": 200,
+   "ct": "application/json",
+   "file": "covers/bodies/videos_topic_featured_page_size12.json",
+   "bytes": 8761,
+   "items": 12,
+   "topics": 9,
+   "item0_keys": [
+    "author",
+    "author_avatar",
+    "bvid",
+    "cover",
+    "danmaku",
+    "desc",
+    "duration",
+    "duration_sec",
+    "play",
+    "pubdate",
+    "title",
+    "url"
+   ],
+   "cover_field": "cover",
+   "response_source": "fallback"
+  }
+ },
+ "shot": "shots/43-resources-topic-covers.png",
+ "cover_urls_in_dom": [
+  "https://i0.hdslb.com/bfs/archive/8c963f3eef8a75aef37807da987b2b6805863821.jpg",
+  "https://i1.hdslb.com/bfs/archive/6a51c78459df3bc46fec46cb0e3e02614a638203.jpg",
+  "https://i2.hdslb.com/bfs/archive/ed529f7b93b9ae10a6b74a290ef4172cdc0d831d.jpg",
+  "https://i2.hdslb.com/bfs/archive/9d6a0ccd726015f9a041976d666f326e1a674c7a.jpg",
+  "https://i1.hdslb.com/bfs/archive/2b0bd72359e4e129f0ad3452fb37b6befc08e064.jpg",
+  "https://i0.hdslb.com/bfs/archive/18b76d52d710409fd07f67ed23724b9ddb1ee610.jpg",
+  "https://i0.hdslb.com/bfs/archive/3ac18b67e54fbc5ea494c549c017b0f6071e5cba.jpg",
+  "https://i1.hdslb.com/bfs/archive/6ddd567869101aa4e26b4b7b5ecebd7106c7f873.jpg",
+  "https://i1.hdslb.com/bfs/archive/04411f1e97103f42e59560595cb1bafdf609b34d.jpg",
+  "https://i1.hdslb.com/bfs/archive/e7066e485ae05ec44290949828bfbffe2494dcaf.jpg",
+  "https://i2.hdslb.com/bfs/archive/2922ece15ec663a6418f6b9776b9dba546233038.jpg",
+  "https://i1.hdslb.com/bfs/archive/cf173bfcc37df1fd73a75214d92b549031364a87.jpg"
+ ],
+ "dom_urls_with_file": [
+  "https://i0.hdslb.com/bfs/archive/8c963f3eef8a75aef37807da987b2b6805863821.jpg",
+  "https://i1.hdslb.com/bfs/archive/6a51c78459df3bc46fec46cb0e3e02614a638203.jpg",
+  "https://i2.hdslb.com/bfs/archive/ed529f7b93b9ae10a6b74a290ef4172cdc0d831d.jpg",
+  "https://i2.hdslb.com/bfs/archive/9d6a0ccd726015f9a041976d666f326e1a674c7a.jpg",
+  "https://i1.hdslb.com/bfs/archive/2b0bd72359e4e129f0ad3452fb37b6befc08e064.jpg",
+  "https://i0.hdslb.com/bfs/archive/18b76d52d710409fd07f67ed23724b9ddb1ee610.jpg",
+  "https://i0.hdslb.com/bfs/archive/3ac18b67e54fbc5ea494c549c017b0f6071e5cba.jpg",
+  "https://i1.hdslb.com/bfs/archive/6ddd567869101aa4e26b4b7b5ecebd7106c7f873.jpg",
+  "https://i1.hdslb.com/bfs/archive/04411f1e97103f42e59560595cb1bafdf609b34d.jpg",
+  "https://i1.hdslb.com/bfs/archive/e7066e485ae05ec44290949828bfbffe2494dcaf.jpg",
+  "https://i2.hdslb.com/bfs/archive/2922ece15ec663a6418f6b9776b9dba546233038.jpg",
+  "https://i1.hdslb.com/bfs/archive/cf173bfcc37df1fd73a75214d92b549031364a87.jpg"
+ ],
+ "dom_urls_missing_file": [],
+ "file_paths_relative_to": "file 字段相对 covers/；path 为相对证据根 evidence/live/run-03b/",
+ "capture_note": "封面经「按知识点浏览」Tab 懒加载真实下载；浏览器响应路径与 img src 直取字节一致，最终采用直取结果"
+}

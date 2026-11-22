@@ -1,0 +1,14 @@
+: open
+
+event: meta
+data: {"conversation_id": "e3cbe343-41f8-43a5-a7e9-ca9abd2be841", "msg_id": "64e6d167-67f8-4db0-8ed0-3bf8ddad0c31", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "看来这个前置你其实已经会了——那我们直接回原题，把卡住的那步再试一次。"}
+
+event: card
+data: {"card_type": "socratic_detour_result", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "detour_id": "4112de758b47", "status": "passed", "bridge_text": "probe 通过（根因证伪），回原步继续引导", "stage": "probe_pass"}
+
+event: done
+data: {"usage": {"tokens_in": 22, "tokens_out": 14}, "latency_ms": 2342, "message_id": "ab2d8fd0-24c5-4557-bada-a5f4f318fdc7", "meta": {"skill": "socratic_solver", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "steps_count": 3, "verified": false, "difficulty": "easy", "detour_active": true, "verdict": "correct", "current_step": 2, "hint_level": 2, "status": "active", "leak_blocked": 0, "socratic": {"phase": "guiding", "scaffold_level": 2, "verdict": "correct", "misconception": null, "error_move": null, "kp_code": "JH-02", "detour_active": false, "round_used": 2, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "binary", "form_reason": "T6→probe[binary]", "move": "probe_cause", "tier": 0, "stage": ""}}}
+

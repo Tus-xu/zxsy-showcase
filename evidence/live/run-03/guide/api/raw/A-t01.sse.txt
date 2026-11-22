@@ -1,0 +1,353 @@
+: open
+
+event: meta
+data: {"conversation_id": "e3cbe343-41f8-43a5-a7e9-ca9abd2be841", "msg_id": "e50ffb13-94b9-4388-961d-119014bc765d", "skill": "qa_rag", "confidence": 0.85, "provider": "spark"}
+
+event: status
+data: {"stage": "retrieving", "text": "正在检索教材知识库..."}
+
+event: status
+data: {"stage": "generating", "text": "正在基于教材生成回答..."}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "你这"}
+
+event: token
+data: {"text": "一步推"}
+
+event: token
+data: {"text": "得"}
+
+event: token
+data: {"text": "挺利索——由"}
+
+event: token
+data: {"text": " $2b="}
+
+event: token
+data: {"text": "\\sqrt"}
+
+event: token
+data: {"text": "7\\cdo"}
+
+event: token
+data: {"text": "t "}
+
+event: token
+data: {"text": "2a$ "}
+
+event: token
+data: {"text": "约去 "}
+
+event: token
+data: {"text": "2 得 $\\frac{b"}
+
+event: token
+data: {"text": "}{a}=\\sq"}
+
+event: token
+data: {"text": "rt7$，即 $b="}
+
+event: token
+data: {"text": "\\sqrt7 a"}
+
+event: token
+data: {"text": "$，这"}
+
+event: token
+data: {"text": "个变形没问题。"}
+
+event: token
+data: {"text": "\n\n不"}
+
+event: token
+data: {"text": "过我想先跟你确认一"}
+
+event: token
+data: {"text": "下"}
+
+event: token
+data: {"text": "：*"}
+
+event: token
+data: {"text": "*"}
+
+event: token
+data: {"text": "题目里除了"}
+
+event: token
+data: {"text": "\"虚轴长是实轴长的 $"}
+
+event: token
+data: {"text": "\\sqrt"}
+
+event: token
+data: {"text": "7$"}
+
+event: token
+data: {"text": " 倍\"，还有没"}
+
+event: token
+data: {"text": "有别的"}
+
+event: token
+data: {"text": "条件？**"}
+
+event: token
+data: {"text": " 比如焦点"}
+
+event: token
+data: {"text": "在哪个"}
+
+event: token
+data: {"text": "轴上、"}
+
+event: token
+data: {"text": "有没"}
+
+event: token
+data: {"text": "有给焦距"}
+
+event: token
+data: {"text": "或者离"}
+
+event: token
+data: {"text": "心"}
+
+event: token
+data: {"text": "率、"}
+
+event: token
+data: {"text": "有没有过某个"}
+
+event: token
+data: {"text": "点"}
+
+event: token
+data: {"text": "？\n\n因"}
+
+event: token
+data: {"text": "为光有 $\\frac{b"}
+
+event: token
+data: {"text": "}{a}=\\sqrt"}
+
+event: token
+data: {"text": "7$ 这"}
+
+event: token
+data: {"text": "一个关"}
+
+event: token
+data: {"text": "系"}
+
+event: token
+data: {"text": "，双曲线"}
+
+event: token
+data: {"text": "的\""}
+
+event: token
+data: {"text": "形"}
+
+event: token
+data: {"text": "状\"是定"}
+
+event: token
+data: {"text": "了（开口"}
+
+event: token
+data: {"text": "大小固定）"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "但**大"}
+
+event: token
+data: {"text": "小（"}
+
+event: token
+data: {"text": "$a$ 具体是多少"}
+
+event: token
+data: {"text": "）还没定"}
+
+event: token
+data: {"text": "**——$\\"}
+
+event: token
+data: {"text": "frac{x"}
+
+event: token
+data: {"text": "^2}{a^2}-\\f"}
+
+event: token
+data: {"text": "rac{y^"}
+
+event: token
+data: {"text": "2}{7a^"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": "}="}
+
+event: token
+data: {"text": "1$ 对任意"}
+
+event: token
+data: {"text": " $a>"}
+
+event: token
+data: {"text": "0$ 都"}
+
+event: token
+data: {"text": "满"}
+
+event: token
+data: {"text": "足这个比"}
+
+event: token
+data: {"text": "例。所"}
+
+event: token
+data: {"text": "以要么题目还"}
+
+event: token
+data: {"text": "给了别的"}
+
+event: token
+data: {"text": "信息"}
+
+event: token
+data: {"text": "，要么这题"}
+
+event: token
+data: {"text": "问的"}
+
+event: token
+data: {"text": "就是"}
+
+event: token
+data: {"text": "一个比值类的"}
+
+event: token
+data: {"text": "量（比如离心率"}
+
+event: token
+data: {"text": "）"}
+
+event: token
+data: {"text": "。\n\n"}
+
+event: token
+data: {"text": "顺便"}
+
+event: token
+data: {"text": "提一句，既"}
+
+event: token
+data: {"text": "然你已经拿到 $\\fra"}
+
+event: token
+data: {"text": "c{b"}
+
+event: token
+data: {"text": "}{a}=\\sq"}
+
+event: token
+data: {"text": "rt7$，"}
+
+event: token
+data: {"text": "那离"}
+
+event: token
+data: {"text": "心率其实"}
+
+event: token
+data: {"text": "一步就能出来：\n\n$$e"}
+
+event: token
+data: {"text": "=\\frac{c}{a}"}
+
+event: token
+data: {"text": "=\\sqrt{1+\\"}
+
+event: token
+data: {"text": "left(\\frac{"}
+
+event: token
+data: {"text": "b}{a}\\right)^"}
+
+event: token
+data: {"text": "2"}
+
+event: token
+data: {"text": "}$"}
+
+event: token
+data: {"text": "$\n\n"}
+
+event: token
+data: {"text": "【2】里正好"}
+
+event: token
+data: {"text": "给"}
+
+event: token
+data: {"text": "了这"}
+
+event: token
+data: {"text": "个关"}
+
+event: token
+data: {"text": "系。你先自"}
+
+event: token
+data: {"text": "己"}
+
+event: token
+data: {"text": "算一下这"}
+
+event: token
+data: {"text": "个"}
+
+event: token
+data: {"text": "值是"}
+
+event: token
+data: {"text": "多少"}
+
+event: token
+data: {"text": "？算完把结果告"}
+
+event: token
+data: {"text": "诉"}
+
+event: token
+data: {"text": "我，我们再"}
+
+event: token
+data: {"text": "对一"}
+
+event: token
+data: {"text": "下。\n\n难"}
+
+event: token
+data: {"text": "度：easy"}
+
+event: citation
+data: {"items": [{"n": 1, "chunk_id": "f1b74b11-69b0-489d-95a0-f331fd241bb6", "source": "人教A版2019·选择性必修第一册", "kind": "教材", "loc": "《人教A版2019·选择性必修第一册》 选择性必修第一册 5. 离心率 · 切片 f1b74b11"}, {"n": 2, "chunk_id": "c9c320d9-0d7b-4222-8031-70cdd2d38921", "source": "苏教版·选择性必修第一册", "kind": "教材", "loc": "《苏教版·选择性必修第一册》 选择性必修第一册 5. 离心率 · 切片 c9c320d9"}, {"n": 3, "chunk_id": "196f92a0-f7ef-4a3f-93b9-e2faa7b23e5c", "source": "人教A版2019·选择性必修第一册", "kind": "教材", "loc": "《人教A版2019·选择性必修第一册》 选择性必修第一册 3. 顶点 · 切片 196f92a0"}, {"n": 4, "chunk_id": "7faebff1-3514-4264-a806-d1fce403b5e8", "source": "苏教版·选择性必修第一册", "kind": "教材", "loc": "《苏教版·选择性必修第一册》 选择性必修第一册 3. 顶点 · 切片 7faebff1"}]}
+
+event: badge
+data: {"level": "L2-知识库"}
+
+event: done
+data: {"usage": {"tokens_in": 4701, "tokens_out": 280}, "latency_ms": 18938, "message_id": "55fdda60-c916-4bef-b2f2-f8ae1c391d12", "meta": {"latency_ms": 18047, "degraded": false, "chunks_used": 4}}
+

@@ -1,0 +1,37 @@
+{
+ "conversations": {
+  "count": 2,
+  "sample": [
+   "＋ 新对话",
+   "置顶"
+  ]
+ },
+ "conv_messages": [],
+ "errors": {
+  "first_pair": "01 / 26",
+  "text_len": 3160
+ },
+ "resources_kp": {
+  "imgs": 12,
+  "broken": 0,
+  "sample_src": [
+   "data:image/jpeg;base64,/",
+   "data:image/jpeg;base64,/",
+   "data:image/jpeg;base64,/"
+  ]
+ },
+ "classroom": {
+  "has_100": false,
+  "snippet": "4:01 | 📍 关联 导数的综合应用、指数与指数函数 | 未开始 · 共 2 项 | ▶ 开始 | 📝 | 课后习题课后作业 · 导数与函数单调性 | 👨‍🏫 张老师 | ⏰ 截止 10/29 04:01 | 📍 关联 导数的概念与运算、导数的运算法则与复合求导 | ✓ 已完成 | ↻ 查看作答 | 🎬 | 老师课件函数的单调性：从图像到导数 | 👨‍🏫 张老师 | 🏫 高一(3)班 · 数学 | 发布于 10-27 04:05 | ✓ 已学完 | ↻ 复习 | ✦"
+ },
+ "deck": {
+  "indicator": null,
+  "url": "/classroom",
+  "clicked": false
+ },
+ "network": {
+  "http": 0,
+  "sample": [],
+  "errors": []
+ }
+}

@@ -1,0 +1,11 @@
+{
+ "found": true,
+ "item_count": 30,
+ "url": "http://127.0.0.1:5176/api/agent/conversations?limit=30",
+ "status": 200,
+ "ct": "application/json",
+ "file": "conversations/bodies/conversations_limit30.json",
+ "bytes": 11801,
+ "total": 112,
+ "hasMore": true
+}

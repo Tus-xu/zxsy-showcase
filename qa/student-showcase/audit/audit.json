@@ -1,0 +1,160 @@
+{
+ "entry": "file:///D:/zxsy-math-arena-showcase-student/release/开始演示.html",
+ "routes": {
+  "student/dialog": {
+   "http_during_nav": 0,
+   "text_len": 1184,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 ＋ 新对话"
+  },
+  "student/practice": {
+   "http_during_nav": 0,
+   "text_len": 427,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 今日训练 "
+  },
+  "student/errors": {
+   "http_during_nav": 0,
+   "text_len": 3203,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 26 全部"
+  },
+  "student/library": {
+   "http_during_nav": 0,
+   "text_len": 574,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 📚 知识"
+  },
+  "student/resources": {
+   "http_during_nav": 0,
+   "text_len": 1178,
+   "imgs": 11,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 📺 资源"
+  },
+  "student/classroom": {
+   "http_during_nav": 0,
+   "text_len": 488,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 🎓 课堂"
+  },
+  "student/me": {
+   "http_during_nav": 0,
+   "text_len": 1249,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 👤 我的"
+  },
+  "student__errors": [],
+  "teacher/teacher-v3/prep": {
+   "http_during_nav": 0,
+   "text_len": 461,
+   "imgs": 0,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课中心 多轮对话 · 教材学情 · 教案课件一体生"
+  },
+  "teacher/teacher-v3/classes": {
+   "http_during_nav": 0,
+   "text_len": 540,
+   "imgs": 0,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 班级管理 建班 · 邀请码 · 成员确认 AI 助教"
+  },
+  "teacher/teacher-v3/bank": {
+   "http_during_nav": 0,
+   "text_len": 488,
+   "imgs": 0,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 题库 分类树 · 专题夹 · 拍照/自编入库 AI "
+  },
+  "teacher/teacher-v3/assign": {
+   "http_during_nav": 0,
+   "text_len": 702,
+   "imgs": 0,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 作业与批改 四步发布 · 学前/课后 · 批改终审 "
+  },
+  "teacher/teacher-v3/insights": {
+   "http_during_nav": 0,
+   "text_len": 605,
+   "imgs": 0,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 学情洞察 热力图 · 错因 · 诊断 AI 助教已就"
+  },
+  "teacher/teacher-v3/resources": {
+   "http_during_nav": 0,
+   "text_len": 891,
+   "imgs": 12,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 资源中心 资源 · 数学识别 · 构造配方库 AI "
+  },
+  "teacher/teacher-v3/grading": {
+   "http_during_nav": 0,
+   "text_len": 690,
+   "imgs": 0,
+   "broken": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 批改工作台 题聚焦 · 匿名队列 · 原图终审 AI"
+  },
+  "teacher/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299": {
+   "http_during_nav": 0,
+   "text_len": 1179,
+   "imgs": 0,
+   "broken": 0,
+   "head": "我的备课 新的备课会话 会话状态 进行中 已连接 0 项已就绪 · 1 项待确认 还没有确认的教材与班级信息 —— 在下面直接说，我会和你一起澄清。 教师 02:26 椭圆第一课时"
+  },
+  "teacher__errors": [],
+  "researcher/research-workspace": {
+   "http_during_nav": 0,
+   "text_len": 707,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 科研端 启动页 工作台 个人中心 科研身份 · 研究者 林 林知远 ⌄ RESEARCH WORKSPACE 阅读、写作与验证， 在同一个项目里发生。 把文献、笔记、"
+  },
+  "researcher/research-workspace/workspace": {
+   "http_during_nav": 0,
+   "text_len": 540,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:46 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 该项目目前尚未命名，也还没有确定明确的研究主题。项目"
+  },
+  "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read": {
+   "http_during_nav": 0,
+   "text_len": 3619,
+   "imgs": 2,
+   "broken": 0,
+   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:46 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 本项目围绕椭圆型偏微分方程有限元方法的变分形式、Ga"
+  },
+  "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write": {
+   "http_during_nav": 0,
+   "text_len": 2808,
+   "imgs": 2,
+   "broken": 1,
+   "head": "π 智学数研 科研端 阅读 写作 历史 林 林知远 未命名项目 学术论文项目 · 进行中 项目 文献 笔记 设置 文件树 论文结构 未命名项目 main.tex 论文结构 尚未解析"
+  },
+  "researcher/research-workspace/account": {
+   "http_during_nav": 0,
+   "text_len": 432,
+   "imgs": 0,
+   "broken": 0,
+   "head": "π 智学数研 科研端 启动页 工作台 个人中心 科研身份 · 研究者 林 林知远 ⌄ 林 林知远 科研端 · 研究者 📱 138****1003 🏛 浙江大学数学科学学院 📅"
+  },
+  "researcher__errors": []
+ },
+ "template1": {
+  "att_ready": 0,
+  "ai_rows": 1,
+  "reply_head": "你提到的这道双曲线离心率的题目，我先帮你梳理下思路：\n\n首先回忆双曲线的基本参数关系：双曲线中，实轴长是\n2\n𝑎\n2a，虚轴长是\n2\n𝑏\n2b，离心率\n𝑒\n=\n𝑐\n𝑎\ne=\na\nc\n\t​\n\n，且满足\n𝑐\n2\n=\n𝑎\n2\n+\n𝑏\n2\nc\n2\n",
+  "http": 0,
+  "errors": []
+ },
+ "totals": {
+  "http_requests": 0,
+  "page_errors": 0,
+  "routes_checked": 20
+ }
+}

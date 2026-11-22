@@ -1,0 +1,86 @@
+{
+ "https://i0.hdslb.com/bfs/archive/8c963f3eef8a75aef37807da987b2b6805863821.jpg": {
+  "file": "files/cover-01.jpg",
+  "ct": "image/jpeg",
+  "bytes": 153727,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-01.jpg"
+ },
+ "https://i1.hdslb.com/bfs/archive/6a51c78459df3bc46fec46cb0e3e02614a638203.jpg": {
+  "file": "files/cover-02.jpg",
+  "ct": "image/jpeg",
+  "bytes": 53724,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-02.jpg"
+ },
+ "https://i2.hdslb.com/bfs/archive/ed529f7b93b9ae10a6b74a290ef4172cdc0d831d.jpg": {
+  "file": "files/cover-03.jpg",
+  "ct": "image/jpeg",
+  "bytes": 167758,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-03.jpg"
+ },
+ "https://i2.hdslb.com/bfs/archive/9d6a0ccd726015f9a041976d666f326e1a674c7a.jpg": {
+  "file": "files/cover-04.jpg",
+  "ct": "image/jpeg",
+  "bytes": 52632,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-04.jpg"
+ },
+ "https://i1.hdslb.com/bfs/archive/2b0bd72359e4e129f0ad3452fb37b6befc08e064.jpg": {
+  "file": "files/cover-05.jpg",
+  "ct": "image/jpeg",
+  "bytes": 115766,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-05.jpg"
+ },
+ "https://i0.hdslb.com/bfs/archive/18b76d52d710409fd07f67ed23724b9ddb1ee610.jpg": {
+  "file": "files/cover-06.jpg",
+  "ct": "image/jpeg",
+  "bytes": 109482,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-06.jpg"
+ },
+ "https://i0.hdslb.com/bfs/archive/3ac18b67e54fbc5ea494c549c017b0f6071e5cba.jpg": {
+  "file": "files/cover-07.jpg",
+  "ct": "image/jpeg",
+  "bytes": 54973,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-07.jpg"
+ },
+ "https://i1.hdslb.com/bfs/archive/6ddd567869101aa4e26b4b7b5ecebd7106c7f873.jpg": {
+  "file": "files/cover-08.jpg",
+  "ct": "image/jpeg",
+  "bytes": 108626,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-08.jpg"
+ },
+ "https://i1.hdslb.com/bfs/archive/04411f1e97103f42e59560595cb1bafdf609b34d.jpg": {
+  "file": "files/cover-09.jpg",
+  "ct": "image/jpeg",
+  "bytes": 87727,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-09.jpg"
+ },
+ "https://i1.hdslb.com/bfs/archive/e7066e485ae05ec44290949828bfbffe2494dcaf.jpg": {
+  "file": "files/cover-10.jpg",
+  "ct": "image/jpeg",
+  "bytes": 71992,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-10.jpg"
+ },
+ "https://i2.hdslb.com/bfs/archive/2922ece15ec663a6418f6b9776b9dba546233038.jpg": {
+  "file": "files/cover-11.jpg",
+  "ct": "image/jpeg",
+  "bytes": 102897,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-11.jpg"
+ },
+ "https://i1.hdslb.com/bfs/archive/cf173bfcc37df1fd73a75214d92b549031364a87.jpg": {
+  "file": "files/cover-12.jpg",
+  "ct": "image/jpeg",
+  "bytes": 161206,
+  "source": "direct-fetch",
+  "path": "covers/files/cover-12.jpg"
+ }
+}

@@ -1,0 +1,176 @@
+: open
+
+event: meta
+data: {"conversation_id": "0cd000d9-900c-47f1-9bbc-82722149d28c", "msg_id": "1648c456-f14e-4d1a-baf6-b5452b81bab1", "skill": "chat", "confidence": 0.85, "provider": "spark"}
+
+event: file_parsed
+data: {"file_id": "9010ab45-1ac8-4e31-8529-c17567c195a5", "filename": "题2.png", "status": "parsed", "parse_engine": "mimo_vision", "summary": "{\"question_text\":\"9. 在正三棱柱 \\(ABC-A_1B_1C_1\\) 中，\\(D\\) 为 \\(BC\\) 中点，则\\nA. \\(AD \\\\perp A_1C\\)    B. \\(BC"}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "上传"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "是一"}
+
+event: token
+data: {"text": "道"}
+
+event: token
+data: {"text": "关"}
+
+event: token
+data: {"text": "于正"}
+
+event: token
+data: {"text": "三棱"}
+
+event: token
+data: {"text": "柱的立"}
+
+event: token
+data: {"text": "体"}
+
+event: token
+data: {"text": "几何"}
+
+event: token
+data: {"text": "选"}
+
+event: token
+data: {"text": "择题，"}
+
+event: token
+data: {"text": "咱"}
+
+event: token
+data: {"text": "们先"}
+
+event: token
+data: {"text": "一步"}
+
+event: token
+data: {"text": "步来"}
+
+event: token
+data: {"text": "分"}
+
+event: token
+data: {"text": "析"}
+
+event: token
+data: {"text": "每个"}
+
+event: token
+data: {"text": "选"}
+
+event: token
+data: {"text": "项，"}
+
+event: token
+data: {"text": "你可"}
+
+event: token
+data: {"text": "以先"}
+
+event: token
+data: {"text": "试"}
+
+event: token
+data: {"text": "着回"}
+
+event: token
+data: {"text": "忆"}
+
+event: token
+data: {"text": "一"}
+
+event: token
+data: {"text": "下正"}
+
+event: token
+data: {"text": "三"}
+
+event: token
+data: {"text": "棱柱"}
+
+event: token
+data: {"text": "的性质"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "然后"}
+
+event: token
+data: {"text": "告诉"}
+
+event: token
+data: {"text": "我你"}
+
+event: token
+data: {"text": "觉"}
+
+event: token
+data: {"text": "得"}
+
+event: token
+data: {"text": "哪"}
+
+event: token
+data: {"text": "个"}
+
+event: token
+data: {"text": "选项"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": "对"}
+
+event: token
+data: {"text": "的，"}
+
+event: token
+data: {"text": "或"}
+
+event: token
+data: {"text": "者"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "先"}
+
+event: token
+data: {"text": "说"}
+
+event: token
+data: {"text": "说"}
+
+event: token
+data: {"text": "你对"}
+
+event: token
+data: {"text": "这"}
+
+event: token
+data: {"text": "道题的思路~"}
+
+event: title
+data: {"title": "分析用户上传的文件"}
+
+event: done
+data: {"usage": {"tokens_in": 4780, "tokens_out": 56}, "latency_ms": 1717, "message_id": "b8f41d4b-c023-4751-a608-12a4371d8862", "title": "分析用户上传的文件", "meta": {"latency_ms": 1702}}
+

@@ -1,0 +1,75 @@
+{
+ "GET /api/student/error-records?limit=1": {
+  "url": "http://127.0.0.1:5176/api/student/error-records?limit=1",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_student_error-records_limit_1.json",
+  "bytes": 8349,
+  "page": "dialog",
+  "trigger": "/dialog 首屏自动请求（当前态）"
+ },
+ "GET /api/student/assignments?status=todo&size=1": {
+  "url": "http://127.0.0.1:5176/api/student/assignments?status=todo&size=1",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_student_assignments_status_todo_size_1.json",
+  "bytes": 369,
+  "page": "dialog",
+  "trigger": "/dialog 首屏待办角标（当前态）"
+ },
+ "GET /api/student/classroom-coursewares": {
+  "url": "http://127.0.0.1:5176/api/student/classroom-coursewares",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_student_classroom-coursewares.json",
+  "bytes": 565,
+  "page": "classroom",
+  "trigger": "点击「🎬 双师课堂」Tab 刷新老师课件（当前进度）"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_student_error-records_filter_page_1_size_50.json",
+  "bytes": 9676,
+  "page": "errors",
+  "trigger": "进入 /errors 自动请求（当前错题列表）"
+ },
+ "GET /api/student/assignments?status=all&page=1&size=50": {
+  "url": "http://127.0.0.1:5176/api/student/assignments?status=all&page=1&size=50",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_student_assignments_status_all_page_1_size_50.json",
+  "bytes": 717,
+  "page": "classroom",
+  "trigger": "进入 /classroom 默认「课堂任务」Tab（当前态）"
+ },
+ "GET /api/classroom/sessions?limit=5": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions?limit=5",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_classroom_sessions_limit_5.json",
+  "bytes": 765,
+  "page": "classroom",
+  "trigger": "点击「🎬 双师课堂」Tab → 最近课堂"
+ },
+ "POST /api/student/classroom-coursewares/6baf153d-f2e7-440e-a703-cc08a8ae06e4/open": {
+  "url": "http://127.0.0.1:5176/api/student/classroom-coursewares/6baf153d-f2e7-440e-a703-cc08a8ae06e4/open",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/post_api_student_classroom-coursewares_6baf153d-f2e7-440e-a703-cc08a8ae06e4_open.json",
+  "bytes": 187,
+  "page": "classroom",
+  "trigger": "双师课堂 → 点击老师课件卡 → POST open 建课堂会话",
+  "reqBody": ""
+ },
+ "GET /api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_classroom_sessions_5304e914-edb1-47d2-b0db-7cbb804bcd86.json",
+  "bytes": 31559,
+  "page": "dual",
+  "trigger": "进入 /dual/5304e914-edb1-47d2-b0db-7cbb804bcd86 播放页 → GET 课件会话详情（当前进度/页码）"
+ }
+}

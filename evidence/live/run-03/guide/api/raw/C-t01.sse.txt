@@ -1,0 +1,23 @@
+: open
+
+event: meta
+data: {"conversation_id": "6314ae21-efa2-4aec-aa64-b0d83604d4d0", "msg_id": "548e5d3f-c202-4b56-aa58-79fe880b4e16", "skill": "socratic_solver", "confidence": 0.85, "provider": "spark"}
+
+event: status
+data: {"stage": "kb_search", "text": "正在检索题库，看有没有匹配的标准解析…"}
+
+event: card
+data: {"card_type": "socratic_start", "session_id": "04f76bfd-a9b6-4248-b2de-815590ba8657", "steps_count": null, "verified": false, "draft_source": "llm", "phase": "opening", "stage": "reading"}
+
+event: status
+data: {"stage": "reading", "text": "我们先把题目读进眼睛——先动笔，再动脑。"}
+
+event: token
+data: {"text": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "04f76bfd-a9b6-4248-b2de-815590ba8657", "step_no": 0, "interaction_id": "ix_413c4842841c", "form": "annotate", "move": "mark", "stage": "reading", "prompt_lead": "在题面上动笔：把你认为关键的部分标出来。", "spec": {"mode": "tokens", "canvas": {"type": "tokens", "text": "袋中有 1-5 号球，有放回地取 3 次，X 表示三次取球中出现过的不同号码种数，求 E(X)。", "tokens": ["袋中", "有", "1", "-", "5", "号球", "，", "有放", "回地", "取", "3", "次", "，", "X", "表示", "三次", "取球", "中出", "现过", "的不", "同号", "码种", "数", "，", "求", "E", "(", "X", ")", "。"]}, "targets_hint": ["已知条件", "要求的量", "关键限定词"], "n_expected": 4}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "我读完了，直接开始", "interaction_reason": "opening×reading×mark×T1→annotate[R3]", "form_source": "router", "routing_reason": "opening×reading×mark×T1→annotate[R3]"}
+
+event: done
+data: {"usage": {"tokens_in": 20, "tokens_out": 18}, "latency_ms": 5015, "message_id": "9ea43f17-0532-48dd-852f-f45b1e7fba99", "meta": {"skill": "socratic_solver", "confidence": 0.9, "session_id": "04f76bfd-a9b6-4248-b2de-815590ba8657", "solve_pending": true, "phase": "opening", "stage": "reading"}}
+
