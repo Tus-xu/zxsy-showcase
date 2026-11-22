@@ -3,3 +3,4 @@
 app/index.html text eol=lf
 app/vite.config.offline.mjs text eol=lf
 app/src/** text eol=lf
+.gitattributes text eol=lf
