@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/ef090edd-ea1d-49e9-8bd7-a2915b77971a/text?page=1
+# status=200 run=p01 step=account-nav t=02:05:11
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "43650be0d2ee4c18aa09e85f956d4a9c",
+ "date": "Sat, 21 Nov 2026 18:05:10 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"paper_id":"ef090edd-ea1d-49e9-8bd7-a2915b77971a","page":1,"width":595.28,"height":841.89,"blocks":[{"bbox":[110.31,71.64,474.51,90.44],"text":"演示讲义三：科研写作示例（LaTeX 摘录）","section":""},{"bbox":[74.49,115.84,467.23,124.3],"text":"说明：本文为展示项目自撰的演示讲义（非外部论文、非教材原文），用于真实平台阅读/问答取证。","section":""},{"bbox":[75.61,151.71,152.74,164.66],"text":"1 摘要式段落","section":"1 摘要式段落"},{"bbox":[96.5,177.17,426.75,187.51],"text":"本文给出一个极简的变分问题示例，并说明 Céa 引理如何把 Galerkin","section":"1 摘要式段落"},{"bbox":[74.42,195.17,407.94,205.47],"text":"解的误差控制转化为子空间逼近问题。所有公式与数值均为演示用途。","section":"1 摘要式段落"},{"bbox":[96.42,218.77,480.73,229.86],"text":"对应的 LaTeX 源码片段：\\begin{equation} \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\, \\inf_{v_h\\in","section":"1 摘要式段落"},{"bbox":[74.21,236.77,205.71,247.86],"text":"V_h}\\|u-v_h\\|. \\end{equation}","section":"1 摘要式段落"},{"bbox":[74.75,273.71,138.47,286.72],"text":"2 论证结构","section":"2 论证结构"},{"bbox":[96.46,299.12,375.23,309.51],"text":"第一节给出问题和两条基本假设；第二节陈述并证明 Céa","section":"2 论证结构"},{"bbox":[75.27,317.21,275.94,327.47],"text":"引理；第三节讨论对称与非对称两种情形。","section":"2 论证结构"},{"bbox":[96.76,341.17,473.94,351.51],"text":"写作检查点：符号定义先于使用；每个不等式给出依据；反例给出可复算数值。","section":"2 论证结构"},{"bbox":[74.86,377.71,138.85,390.72],"text":"3 可复现性","section":"3 可复现性"},{"bbox":[96.5,403.21,505.22,413.51],"text":"本例中唯一数值示例是 x=−2 时 √(x²)=2≠−2，以及分母为零的 x=1 处原式无定义。","section":"3 可复现性"},{"bbox":[96.76,427.17,495.94,437.47],"text":"写作时不要把演示数据写成实验结果，也不要把未经核对的外部文献当成引用证据。","section":"3 可复现性"},{"bbox":[74.52,463.66,208.19,476.82],"text":"4 本页用于写作工作区","section":"4 本页用于写作工作区"},{"bbox":[96.42,489.17,413.93,499.77],"text":"在 /research-workspace/:id/write 中抄录第 1 节公式，编译后核对 PDF","section":"4 本页用于写作工作区"},{"bbox":[74.64,507.17,485.22,517.47],"text":"是否与上述公式一致；故意制造一个 LaTeX 语法错误，再修正重编译，记录可恢复性。","section":"4 本页用于写作工作区"}],"parse_status":"parsed","available":true}

@@ -1,0 +1,52 @@
+{
+  "title": "科研端 · 启动页",
+  "url": "http://127.0.0.1:5176/research-workspace",
+  "bodyLen": 668,
+  "bodyText": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n下一步\n继续阅读与摘录\n继续 →\n∂u/∂t = α∇²u\n读 → 摘 → 证 → 写 → 核\nFROM HERE\n今天推进哪项研究？\n\n三种开始方式，都会进入同一个项目上下文。\n\n01\n📖\n读论文\n导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。\n继续阅读 →\n02\n✍️\n写论文\nLaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。\n继续写作 →\n03\n✦\n问 Agent\n公式检查、引用核查、翻译润色；结论带证据，修改先确认。\n打开 Research Agent →\n读\n→\n摘\n→\n证\n→\n写\n→\n核\n一条链路，一个项目上下文\nRECENT PROJECTS\n最近项目\n＋ 新建项目\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作",
+  "headings": [
+    "阅读、写作与验证， 在同一个项目里发生。",
+    "未命名项目",
+    "今天推进哪项研究？",
+    "最近项目"
+  ],
+  "buttons": [
+    "启动页",
+    "工作台",
+    "个人中心",
+    "林 林知远 ⌄",
+    "进入科研工作台 →",
+    "＋ 新建项目",
+    "继续 →",
+    "01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 →",
+    "02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 →",
+    "03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent →",
+    "阅读",
+    "写作"
+  ],
+  "navs": [
+    "启动页",
+    "工作台",
+    "个人中心",
+    "林 林知远 ⌄"
+  ],
+  "inputs": [],
+  "mains": [
+    {
+      "tag": "main",
+      "cls": "rl-main",
+      "id": "",
+      "text": "RESEARCH WORKSPACE 阅读、写作与验证， 在同一个项目里发生。 把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。 进入科研工作台 → ＋ 新建项目 真实文献 · 真实 LaTeX 编译 · 证据可回溯 π PROJECT"
+    }
+  ],
+  "canvases": [],
+  "pdfSpanCount": 0,
+  "pdfSpanSamples": [],
+  "pdfLayerInfo": [],
+  "iframes": [],
+  "htmlLang": "zh-CN",
+  "scrollHeight": 1201,
+  "viewport": {
+    "w": 1672,
+    "h": 941
+  }
+}

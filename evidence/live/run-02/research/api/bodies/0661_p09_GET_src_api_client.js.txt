@@ -1,0 +1,136 @@
+# GET http://127.0.0.1:5176/src/api/client.js
+# status=200 run=p09 step=session t=02:34:35
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/components/V4Layout.vue",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"2f0d-bDuu0Lw8tWVnrXi5fqzhk7W8Q6g\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "66828",
+ "date": "Sat, 21 Nov 2026 18:34:35 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+/**
+ * 统一 API 客户端
+ * - 信封约定：{ code, message, data, request_id }，code === 0 成功，其余抛 ApiError
+ * - 401 自动清登并跳转登录页
+ * - 扩展（向后兼容）：自定义 headers / AbortSignal / Idempotency-Key / request_id / 204 与非 JSON 安全处理。
+ *        api.get/post/put/patch/del 签名与返回值保持原样（返回 envelope.data）；
+ *        新增 api.raw(method, path, opts) 返回 { data, status, request_id } 供教师端使用。
+ */
+import { clearAccessToken, getAccessToken, getCsrfToken, refreshAccessToken, setAccessToken } from "/src/api/authSession.js"
+import { getHttpPolicy, runWithGate, setHttpPolicy, resetHttpPolicy } from "/src/api/httpPolicy.ts"
+
+const BASE = '/api'
+const USER_KEY = 'ma_user'
+
+export class ApiError extends Error {
+  constructor(code, message, opts = {}) {
+    super(message || `请求失败 (${code})`)
+    this.name = 'ApiError'
+    this.code = code
+    if (opts.status !== undefined) this.status = opts.status
+    if (opts.retryAfter !== undefined) this.retryAfter = opts.retryAfter
+  }
+}
+
+/** 网络层错误（断网/无法连接）。保留 code=-1 以兼容既有 e.code 判断。 */
+export class NetworkError extends ApiError {
+  constructor(message) { super(-1, message || '网络连接失败，请确认后端已启动', { status: undefined }); this.name = 'NetworkError' }
+}
+/** 超时（超过 policy 设定的阈值，区别于用户主动取消）。 */
+export class TimeoutError extends ApiError {
+  constructor(message) { super(-3, message || '请求超时，请稍后重试', { status: undefined }); this.name = 'TimeoutError' }
+}
+/** 用户主动取消（AbortSignal）。保留 code=-2 兼容既有 e.code===-2 判断，不计入重试。 */
+export class AbortError extends ApiError {
+  constructor(message) { super(-2, message || '请求已取消', { status: undefined }); this.name = 'AbortError' }
+}
+/** 触发限流（HTTP 429 / Retry-After）。保留 code 与 status 以兼容既有 e.code 判断。 */
+export class RateLimitError extends ApiError {
+  constructor(code, message, retryAfter) {
+    super(code ?? 429, message || '请求过于频繁，请稍后重试', { status: 429, retryAfter })
+    this.name = 'RateLimitError'
+  }
+}
+
+export function getToken() { return getAccessToken() }
+export function setToken(t) { setAccessToken(t) }
+export function getCachedUser() {
+  try { return JSON.parse(localStorage.getItem(USER_KEY) || 'null') } catch { return null }
+}
+export function setCachedUser(u) { u ? localStorage.setItem(USER_KEY, JSON.stringify(u)) : localStorage.removeItem(USER_KEY) }
+
+export function authHeaders() {
+  const t = getAccessToken()
+  return t ? { Authorization: `Bearer ${t}` } : {}
+}
+
+export function redirectLogin() {
+  if (location.pathname.startsWith('/login')) return
+  import("/src/router/index.js").then(({ router }) => {
+    router.push({ path: '/login', query: { redirect: location.pathname } }).catch(() => {})
+  }).catch(() => { location.href = '/login' })
+}
+
+function buildUrl(path, query) {
+  let url = BASE + path
+  if (query) {
+    const qs = new URLSearchParams()
+    Object.entries(query).forEach(([k, v]) => {
+      if (v !== undefined && v !== null && v !== '') qs.append(k, String(v))
+    })
+    const s = qs.toString()
+    if (s) url += `?${s}`
+  }
+  return url
+}
+
+// ---- 弹性能力：超时 / 重试 / 错误分类（零依赖，可配置）----
+
+/** 合并调用方 signal 与超时信号：任一方 abort 都会中断请求，且互不替换。 */
+function prepareSignal(signal, timeoutMs) {
+  const ctrl = new AbortController()
+  const timeoutCtrl = new AbortController()
+  let timer = null
+  const clear = () => { if (timer) clearTimeout(timer) }
+  if (timeoutMs && timeoutMs > 0) timer = setTimeout(() => timeoutCtrl.abort(), timeoutMs)
+  if (signal) {
+    if (signal.aborted) ctrl.abort(signal.reason)
+    else signal.addEventListener('abort', () => ctrl.abort(signal.reason), { once: true })
+  }
+  timeoutCtrl.signal.addEventListener('abort', () => ctrl.abort(), { once: true })
+  ctrl.signal.addEventListener('abort', clear, { once: true })
+  return { signal: ctrl.signal, timeoutCtrl, clear }
+}
+
+function parseRetryAfter(header) {
+  if (header == null) return undefined
+  const secs = Number(header)
+  if (!Number.isNaN(secs)) return secs
+  const d = Date.parse(header)
+  if (!Number.isNaN(d)) return Math.max(0, Math.round((d - Date.now()) / 1000))
+  return undefined
+}
+
+function resolveTimeout(opts, path) {
+  if (typeof opts

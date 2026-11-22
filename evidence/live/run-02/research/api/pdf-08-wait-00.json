@@ -1,0 +1,117 @@
+{
+  "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+  "title": "科研工作台 · 阅读",
+  "canvases": [
+    {
+      "i": 0,
+      "w": 924,
+      "h": 1306,
+      "css": {
+        "w": 924,
+        "h": 1306
+      },
+      "cls": "rw-pdf__canvas",
+      "visible": true,
+      "sampled": 109704,
+      "nonWhite": 0,
+      "colored": 0,
+      "nonWhiteRatio": 0,
+      "alpha0Ratio": 0,
+      "topLeftPixel": [
+        255,
+        255,
+        255,
+        255
+      ]
+    },
+    {
+      "i": 1,
+      "w": 300,
+      "h": 150,
+      "css": {
+        "w": 300,
+        "h": 150
+      },
+      "cls": "hiddenCanvasElement",
+      "visible": true,
+      "sampled": 4091,
+      "nonWhite": 0,
+      "colored": 0,
+      "nonWhiteRatio": 0,
+      "alpha0Ratio": 1,
+      "topLeftPixel": [
+        0,
+        0,
+        0,
+        0
+      ]
+    }
+  ],
+  "textLayers": [
+    {
+      "cls": "textLayer rw-pdf__text",
+      "spans": 0,
+      "len": 0,
+      "sample": "",
+      "rect": {
+        "w": 924,
+        "h": 1306
+      },
+      "innerStart": ""
+    }
+  ],
+  "pages": [
+    {
+      "cls": "rw-pdf__page",
+      "rect": {
+        "w": 924,
+        "h": 1306
+      },
+      "children": [
+        {
+          "tag": "canvas",
+          "cls": "rw-pdf__canvas",
+          "rect": {
+            "w": 924,
+            "h": 1306
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "textLayer rw-pdf__text",
+          "rect": {
+            "w": 924,
+            "h": 1306
+          }
+        },
+        {
+          "tag": "div",
+          "cls": "rw-pdf__marks",
+          "rect": {
+            "w": 924,
+            "h": 1306
+          }
+        }
+      ]
+    }
+  ],
+  "tabs": [
+    "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+    "PDF research-03-writing-example.pdf PDF research-02-formula-conditions.pdf PDF research-01-cea-lemma.pdf",
+    "PDF research-03-writing-example.pdf",
+    "research-03-writing-example.pdf",
+    "PDF research-02-formula-conditions.pdf",
+    "research-02-formula-conditions.pdf",
+    "PDF research-01-cea-lemma.pdf",
+    "research-01-cea-lemma.pdf"
+  ],
+  "docList": [],
+  "toast": "",
+  "skeleton": 0,
+  "selection": "",
+  "pageInputValue": "1",
+  "pageTotalText": "/ 2 155%",
+  "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:11\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n这是 Mathesis 的一套自撰离线演示材料，围绕数学论证的写法与校验展开。内容一方面讨论 Céa 引理与变分形式的对称性、正定性，另一方面梳理约分时分母非零、配方法恒等式等具体条件，并配有校验清单。材料同时关注摘要式段落、论证结构与可复现性，用于展示从问题设定到结论核验的完整过程。\n\n3\n文献\n0\n草稿\n0\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n\n还没有笔记。阅读时选中文字即可添加，点击条目可回到原文位置。\n\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 2\n155%\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线展示项目（自撰演示材料）\n项目知识库 · 3 篇\n\n请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。\n\nπ\nResearch Agent\n结论：目前无法作答\n\n本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。\n\n需要你补充的最小信息（任选一种）\n原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。\n拿到材料后我会给出的形式\n一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广；\n原文出处：给出可核验的定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。\n\n说明\n\n若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。\n\nπ\n公式检查\n需要补充条件\n02:11\n\n当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。\n\n关键信息\n\n1.\n缺少可校验的公式\n公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。\n加入笔记\n快捷能力\n推导校验\n引用补全\nLaTeX 对照\n公式检查\n翻译与改写",
+  "tag": "08-wait-00",
+  "t": "02:12:02"
+}

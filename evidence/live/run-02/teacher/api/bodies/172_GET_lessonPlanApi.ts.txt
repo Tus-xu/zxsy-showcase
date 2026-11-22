@@ -1,0 +1,77 @@
+import { getAccessToken } from "/src/api/authSession.js";
+import { PrepCenterApiError } from "/src/features/teacher-prep-center/api/prepCenterApi.ts";
+export const LESSON_PLAN_API_BASE = "/api/teacher-v3/artifacts/lesson-plans";
+function authHeader() {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+function newIdempotencyKey() {
+  return crypto?.randomUUID?.() ?? `pc-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+async function planRequest(path, init) {
+  let res;
+  try {
+    res = await fetch(`${LESSON_PLAN_API_BASE}${path}`, {
+      ...init,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        ...authHeader(),
+        ...init.headers || {}
+      }
+    });
+  } catch (e) {
+    if (e?.name === "AbortError") throw e;
+    throw new PrepCenterApiError({ kind: "network", status: null, code: null, detail: e?.message });
+  }
+  let body = null;
+  try {
+    body = await res.json();
+  } catch {
+    body = null;
+  }
+  if (!res.ok || !body || typeof body.code === "number" && body.code !== 0) {
+    const status = res.status;
+    let kind = "error";
+    if (status === 401) kind = "unauthenticated";
+    else if (status === 403) kind = "forbidden";
+    else if (status === 409) kind = "conflict";
+    else if (status === 404) kind = "not_found";
+    else if (status === 429) kind = "rate_limited";
+    throw new PrepCenterApiError({
+      kind,
+      status,
+      code: typeof body?.code === "number" ? body.code : null,
+      detail: body?.message || body?.detail || `lesson-plan api error: ${status}`,
+      requestId: body?.request_id ?? res.headers.get("x-request-id") ?? null,
+      data: body?.data && typeof body.data === "object" ? body.data : null,
+      errorKey: typeof body?.error_key === "string" ? body.error_key : null
+    });
+  }
+  return body.data ?? body;
+}
+export function fetchLessonPlanSpec(specId, signal) {
+  return planRequest(`/${encodeURIComponent(specId)}`, { method: "GET", signal });
+}
+export function createLessonPlanPatch(specId, payload, signal) {
+  return planRequest(`/${encodeURIComponent(specId)}/patches`, {
+    method: "POST",
+    body: JSON.stringify({ idempotency_key: newIdempotencyKey(), source: "human", ...payload }),
+    signal
+  });
+}
+export function applyLessonPlanPatch(specId, patchId, expectedRevision, signal) {
+  return planRequest(
+    `/${encodeURIComponent(specId)}/patches/${encodeURIComponent(patchId)}/apply`,
+    { method: "POST", body: JSON.stringify({ expected_revision: expectedRevision }), signal }
+  );
+}
+export function regenLessonPlanBlock(specId, payload, signal) {
+  return planRequest(`/${encodeURIComponent(specId)}/regen`, {
+    method: "POST",
+    body: JSON.stringify(payload),
+    signal
+  });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImxlc3NvblBsYW5BcGkudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiDmlZnmoYjvvIhMZXNzb25QbGFuU3BlY++8iVJFU1Qg5a6i5oi356uv77yIUjUgwrcg5pWZ5biI56uv5aSH6K++5Lit5b+D77yJ44CCXG4gKlxuICog56uv54K577yIODEwMCDmlZnmoYjmnYPlqIHpnaLvvIznu48gdml0ZSDku6PnkIblkIzmupDvvInvvJpcbiAqIC0gR0VUICBgL2FwaS90ZWFjaGVyLXYzL2FydGlmYWN0cy9sZXNzb24tcGxhbnMve3NwZWNfaWR9YCAgICAgICAgICAgIOivu+WFqOmHjyBzcGVjXG4gKiAtIFBPU1QgYC9hcGkvdGVhY2hlci12My9hcnRpZmFjdHMvbGVzc29uLXBsYW5zL3tzcGVjX2lkfS9wYXRjaGVzYCAgICDlnZfnuqfnvJbovpHmj5DmoYhcbiAqIC0gUE9TVCBgL2FwaS90ZWFjaGVyLXYzL2FydGlmYWN0cy9sZXNzb24tcGxhbnMve3NwZWNfaWR9L3BhdGNoZXMve2lkfS9hcHBseWAg5bqU55So77yIcmV2aXNpb24rMe+8iVxuICogLSBQT1NUIGAvYXBpL3RlYWNoZXItdjMvYXJ0aWZhY3RzL2xlc3Nvbi1wbGFucy97c3BlY19pZH0vcmVnZW5gICAgICAgQUkg5bGA6YOo6YeN55Sf5oiQ77yI55yf5a6eIExMTe+8iVxuICpcbiAqIOmTgeW+i++8mlxuICogLSDlj6rmiZPnnJ/lrp7lkI7nq6/vvJvmnKzmlofku7bkuI3mj5Dkvpvku7vkvZUgbW9jayDliIbmlK/jgIJcbiAqIC0gQmVhcmVyIHRva2VuIOWkjeeUqOS4u+W6lOeUqCBgQC9hcGkvYXV0aFNlc3Npb25g77yI5LiN5paw5aKe56ys5LqM5aWX5Luk54mM5p2l5rqQ77yJ44CCXG4gKiAtIOWTjeW6lOS/oeWwgSBge2NvZGUsbWVzc2FnZSxkYXRhfWDvvJpjb2RlIT09MCDkuIDlvovmipsgUHJlcENlbnRlckFwaUVycm9y77yM5LiN5ZCe5LiN5Lyq6KOF5oiQ5Yqf44CCXG4gKiAtIOaJgOacieivt+axguaYvuW8j+aQuuW4piBBYm9ydFNpZ25hbO+8jOeUseiwg

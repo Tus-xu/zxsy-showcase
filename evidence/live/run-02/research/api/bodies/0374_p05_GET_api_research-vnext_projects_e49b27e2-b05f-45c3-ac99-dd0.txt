@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview
+# status=200 run=p05 step=start-modes t=02:25:38
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "661d88f8b77542a089f9451b94c2d018",
+ "date": "Sat, 21 Nov 2026 18:25:37 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","name":"未命名项目","summary":"本材料为离线演示而自撰，围绕椭圆型偏微分方程有限元方法的三个基础环节展开：变分形式、Galerkin 逼近与 Céa 引理，全部命题在有限维子空间上讨论，并给出 Céa 引理的完整证明。内容同时涉及变分问题中空间与双线性型的设定、约分需分母非零的条件、配方法恒等式及论证结构与可复现性校验。","stats":{"papers":4,"drafts":1,"notes":1,"data":0},"source":"llm:project-memory","updated_at":"2026-11-21T18:21:06.798433+00:00"}

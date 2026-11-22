@@ -1,0 +1,91 @@
+{
+  "role": "teacher",
+  "nav": [
+    {
+      "href": "/teacher-v3/prep",
+      "text": "备课中心"
+    },
+    {
+      "href": "/teacher-v3/classroom",
+      "text": "课堂"
+    },
+    {
+      "href": "/teacher-v3/bank",
+      "text": "题库与组卷"
+    },
+    {
+      "href": "/teacher-v3/assign",
+      "text": "作业与批改"
+    },
+    {
+      "href": "/teacher-v3/insights",
+      "text": "学情洞察"
+    },
+    {
+      "href": "/teacher-v3/resources",
+      "text": "资源中心"
+    }
+  ],
+  "visited": [
+    {
+      "href": "/teacher-v3/prep",
+      "api": 5,
+      "saved": 5,
+      "url": "http://127.0.0.1:5176/teacher-v3/prep"
+    },
+    {
+      "href": "/teacher-v3/classroom",
+      "api": 7,
+      "saved": 7,
+      "url": "http://127.0.0.1:5176/teacher-v3/classroom"
+    },
+    {
+      "href": "/teacher-v3/bank",
+      "api": 7,
+      "saved": 7,
+      "url": "http://127.0.0.1:5176/teacher-v3/bank"
+    },
+    {
+      "href": "/teacher-v3/assign",
+      "api": 6,
+      "saved": 6,
+      "url": "http://127.0.0.1:5176/teacher-v3/assign"
+    },
+    {
+      "href": "/teacher-v3/insights",
+      "api": 10,
+      "saved": 10,
+      "url": "http://127.0.0.1:5176/teacher-v3/insights"
+    },
+    {
+      "href": "/teacher-v3/resources",
+      "api": 4,
+      "saved": 4,
+      "url": "http://127.0.0.1:5176/teacher-v3/resources"
+    },
+    {
+      "href": "/teacher-v3/today",
+      "api": 6,
+      "saved": 6,
+      "url": "http://127.0.0.1:5176/teacher-v3/prep"
+    },
+    {
+      "href": "/teacher-v3/classes",
+      "api": 6,
+      "saved": 5,
+      "url": "http://127.0.0.1:5176/teacher-v3/classes"
+    },
+    {
+      "href": "/teacher-v3/grading",
+      "api": 11,
+      "saved": 10,
+      "url": "http://127.0.0.1:5176/teacher-v3/grading"
+    }
+  ],
+  "errors": [],
+  "login_home": {
+    "api": 6,
+    "saved": 6,
+    "url": "http://127.0.0.1:5176/teacher-v3/prep"
+  }
+}

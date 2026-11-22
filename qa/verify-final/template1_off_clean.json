@@ -1,0 +1,229 @@
+{
+ "generated_at": "2026-11-22T05:11:21+0800",
+ "new_chat_probe": {
+  "hero_ai_rows": 0,
+  "hero_has_he_card": 4,
+  "hero_text": "念与运算\n16%\nFSRS 复习队列\n保持率实时计算\n64%\n已知抛物线 y=x^2-4x+3 的顶点为 C，与 x 轴交于 A,B，求 triangle ABC 的面积。\n复习\n先做最该做的事，再做想做的事\n完整学情 →\n复习「对数与对数函数」 · 保持率 64%\nFSRS 到期\n专攻「导数的运算法则与复合求导」 · 掌握度 5%\nBKT 薄弱点\n📝\n出 3 道「导数的概念与运算」变式\n依据错题归因\n📝\n分析我的错题规律\n我贴道题，帮我出几道变式巩固\n📝\n出一道二次函数题，再带我一步步解\n📝\n讲讲定积分的几何意义\n📚\n来一场 60 分钟全真模拟\n帮我梳理本周该复习什么\n0/4000\n发送\n✦",
+  "after_new_ai_rows": 0,
+  "after_new_url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/dialog/offline-1795295489155",
+  "after_new_text_tail": "\n🔴\n复习到期错题\n最近学习\n新对话\n继续 →\n错题本录入 · 极值点判断\n继续 →\n可视化讲解 · 导数与极值\n继续 →\n学情脉搏\nBKT · FSRS\n↻\n2\n%\nBKT 掌握 · 8/407 考点\n今天有 22 道题到复习期\nFSRS 预计「对数与对数函数」保持率 64%，越晚越容易忘\n开始复习 →\n13\n天连击\n0\n题本周\n薄弱点\nBKT 掌握概率\n导数的运算法则与复合求导\n5%\n导数的概念与运算\n16%\nFSRS 复习队列\n保持率实时计算\n64%\n已知抛物线 y=x^2-4x+3 的顶点为 C，与 x 轴交于 A,B，求 triangle ABC 的面积。\n复习\n先做最该做的事，再做想做的事\n完整学情 →\n复习「对数与对数函数」 · 保持率 64%\nFSRS 到期\n专攻「导数的运算法则与复合求导」 · 掌握度 5%\nBKT 薄弱点\n📝\n出 3 道「导数的概念与运算」变式\n依据错题归因\n📝\n分析我的错题规律\n我贴道题，帮我出几道变式巩固\n📝\n出一道二次函数题，再带我一步步解\n📝\n讲讲定积分的几何意义\n📚\n来一场 60 分钟全真模拟\n帮我梳理本周该复习什么\n0/4000\n发送\n✦",
+  "after_new_has_he_card": 4,
+  "after_new_last_ai": "",
+  "requests": 0
+ },
+ "clean_replay": {
+  "steps": [
+   {
+    "idx": 0,
+    "kind": "image-only",
+    "input": "",
+    "how": "image-only-send",
+    "wait": {
+     "ok": true,
+     "rows": 1,
+     "sec": 6.4
+    },
+    "reply": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～ 我先帮你回忆下这类题的核心思路：\n\n双曲线的基本参数关系：对于标准双曲线，实轴长是 2a，虚轴长是 2b，离心率 e=ac​，且满足 c2=a2+b2\n题目给出虚轴长是实轴长的 7​ 倍，你之前已经能转化为 b=7​a，这一步是对的\n\n那接下来你可以试着用 b=7​a 结合 c2=a2+b2，推导出 c 和 a 的关系，再算离心率？需要我给你一点小提示吗？\nAI 生成· 仅供参考，请核实",
+    "evidence": "你上传的是一道双曲线离心率的计算题，和你最近做错的那道题是同类型的哦～ 我先帮你回忆下这类题的核心思路：\n1. 双曲线的基本参数关系：对于标准双曲线，实轴长是 $2a$，虚轴长是 $2b$，离心率 $e = \\frac{c}{a}$，且满足 $c^2 = a^2 + b^2$\n2. 题目给出虚轴长是实轴长的 $\\sqrt{7}$ 倍，你之前已经能转化为 $b = \\sqrt{7}a$，这一步是对的\n\n那接下来你可以试着用 $b = \\sqrt{7}a$ 结合 $c^2 = a^2 + b^2$，推导出 $c$ 和 $a$ 的关系，再算离心率？需要我给你一点小提示吗？",
+    "retention_cn": 1.0,
+    "similarity_full": 0.728,
+    "ai_rows": 1
+   },
+   {
+    "idx": 1,
+    "kind": "text",
+    "input": "已知虚轴长是实轴长的 √7 倍，也就是 2b = √7·2a，约掉 2 得 b/a = √7。",
+    "how": "composer",
+    "wait": {
+     "ok": true,
+     "rows": 2,
+     "sec": 4.7
+    },
+    "reply": "你这一步化简得很干净：2b=7​⋅2a 两边约掉 2，确实得到 ab​=7​。接下来顺着这个结果往下推：\n\n双曲线中 c2=a2+b2，所以c2=a2+7a2=8a2,c=22​a.\n离心率定义为 e=ac​【1】，于是e=a22​a​=22​.\n\n所以离心率是 22​。这里用到的关系是：ab​ 决定开口大小，而 ac​=1+(ab​)2​ 也随之确定【1】——你算出的 e=1+7​=22​ 正好和这个公式一致。\n顺便确认一下：题目里除了\"虚轴长是实轴长的 7​ 倍\"，还有没有给出焦点位置、过某点之类的条件？如果只是求离心率，那答案就是 22​；如果还要写双曲线方程，就需要知道焦点在 x 轴还是 y 轴。\n难度：easy\n【1】教材苏教版·选择性必修第一册【2】教材苏教版·选择性必修第一册【3】教材人教A版2019·选择性必修第一册【4】教材北师大版·选择性必修第一册L2-知识库AI 生成· 仅供参考，请核实",
+    "evidence": "你这一步化简得很干净：$2b=\\sqrt7\\cdot 2a$ 两边约掉 2，确实得到 $\\dfrac{b}{a}=\\sqrt7$。接下来顺着这个结果往下推：\n\n1. 双曲线中 $c^2=a^2+b^2$，所以\n$$c^2=a^2+7a^2=8a^2,\\quad c=2\\sqrt2\\,a.$$\n2. 离心率定义为 $e=\\dfrac{c}{a}$【1】，于是\n$$e=\\frac{2\\sqrt2\\,a}{a}=2\\sqrt2.$$\n\n所以离心率是 $2\\sqrt2$。这里用到的关系是：$\\dfrac{b}{a}$ 决定开口大小，而 $\\dfrac{c}{a}=\\sqrt{1+\\left(\\dfrac{b}{a}\\right)^2}$ 也随之确定【1】——你算出的 $e=\\sqrt{1+7}=2\\sqrt2$ 正好和这个公式一致。\n\n顺便确认一下：题目里除了\"虚轴长是实轴长的 $\\sqrt7$ 倍\"，还有没有给出焦点位置、过某点之类的条件？如果只是求离心率，那答案就是 $2\\sqrt2$；如果还要写双曲线方程，就需要知道焦点在 $x$ 轴还是 $y$ 轴。\n\n难度：easy",
+    "retention_cn": 1.0,
+    "similarity_full": 0.529,
+    "ai_rows": 2
+   },
+   {
+    "idx": 2,
+    "kind": "text",
+    "input": "离心率 e = c/a，而双曲线里 c² = a² + b²。",
+    "how": "composer",
+    "wait": {
+     "ok": true,
+     "rows": 3,
+     "sec": 4.7
+    },
+    "reply": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：\n由 c2=a2+b2 两边除以 a2，得\na2c2​=1+a2b2​\n所以\ne=ac​=1+(ab​)2​\n【2】。这个式子说明：ab​ 越大，e 越大；而 ab​ 恰好是渐近线 y=±ab​x 的斜率的绝对值，ab​ 越大双曲线开口越大【2】。所以 e 也就刻画了双曲线的\"张口\"大小【4】。\n另外注意 c>a>0，所以双曲线的 e>1【1】——这一点和椭圆（0<e<1）不同。\n现在留个问题给你：如果已知某双曲线的渐近线是 y=±43​x，你能直接说出它的离心率吗？试试看，说说你的思路。\n难度：easy\n【1】教材人教A版2019·选择性必修第一册【2】教材苏教版·选择性必修第一册【3】教材北师大版·选择性必修第一册【4】教材人教A版2019·选择性必修第一册L2-知识库AI 生成· 仅供参考，请核实",
+    "evidence": "你观察得很准，这两条关系正是双曲线离心率的核心。顺着你的思路往下推一步：\n\n由 $c^2=a^2+b^2$ 两边除以 $a^2$，得\n\n$$\\frac{c^2}{a^2}=1+\\frac{b^2}{a^2}$$\n\n所以\n\n$$e=\\frac{c}{a}=\\sqrt{1+\\left(\\frac{b}{a}\\right)^2}$$\n\n【2】。这个式子说明：$\\frac{b}{a}$ 越大，$e$ 越大；而 $\\frac{b}{a}$ 恰好是渐近线 $y=\\pm\\frac{b}{a}x$ 的斜率的绝对值，$\\frac{b}{a}$ 越大双曲线开口越大【2】。所以 $e$ 也就刻画了双曲线的\"张口\"大小【4】。\n\n另外注意 $c>a>0$，所以双曲线的 $e>1$【1】——这一点和椭圆（$0<e<1$）不同。\n\n现在留个问题给你：如果已知某双曲线的渐近线是 $y=\\pm\\frac{3}{4}x$，你能直接说出它的离心率吗？试试看，说说你的思路。\n\n难度：easy",
+    "retention_cn": 1.0,
+    "similarity_full": 0.589,
+    "ai_rows": 3
+   },
+   {
+    "idx": 3,
+    "kind": "text",
+    "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+    "how": "composer",
+    "wait": {
+     "ok": true,
+     "rows": 4,
+     "sec": 3.9
+    },
+    "reply": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。\n🧾 把题目给我，我才能带你解——拍照、贴题、选题、AI 出题都行📷 拍照上传题目⌨️ 把题目打出来📚 从题库挑一道（按薄弱点推荐）🎲 让 AI 出一道再带我解AI 生成· 仅供参考，请核实",
+    "evidence": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。",
+    "retention_cn": 1.0,
+    "similarity_full": 0.584,
+    "ai_rows": 4
+   },
+   {
+    "idx": 4,
+    "kind": "text",
+    "input": "题目是：若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（A √2，B 2，C √7，D 2√2）",
+    "how": "composer",
+    "wait": {
+     "ok": true,
+     "rows": 5,
+     "sec": 3.9
+    },
+    "reply": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。\n 🧭 引导式解题 · 先读题理解读题理解在题面上动笔：把你认为关键的部分标出来。圈点标注圈出：已知条件 / 要求的量 / 关键限定词若双曲线C的虚轴长为实轴长的7倍，则C的离心率为（A2，B2，C7，D22） 已圈 0 处 · 建议至少 2 处圈好了，交给你看改用打字我读完了，直接开始AI 生成· 仅供参考，请核实",
+    "evidence": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。",
+    "retention_cn": 1.0,
+    "similarity_full": 0.39,
+    "ai_rows": 5
+   },
+   {
+    "idx": 5,
+    "kind": "form_text",
+    "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+    "how": "card-typewrite",
+    "wait": {
+     "ok": true,
+     "rows": 6,
+     "sec": 3.9
+    },
+    "reply": "你刚才正确地把“虚轴长是实轴长的 7​ 倍”翻译成了 b=7​a，这一步很关键。\n接下来想想：在双曲线里，a、b 和半焦距 c 之间有一个固定的关系式，你还记得它长什么样吗？\n步骤 1观察双曲线的实轴与虚轴，注意虚轴长是实轴长的 √7 倍🖐 可拖动▶ 演示标注点与辅助线 重播 读题理解用下面的点选面板写出这一步的式子。式子输入写出这一步的完整式子（点选面板输入）c=2ax^2()/√π+-清空写好了不知道怎么写第 2/3 步引导中圆锥曲线AI 生成· 仅供参考，请核实",
+    "evidence": "你刚才正确地把“虚轴长是实轴长的 $\\sqrt7$ 倍”翻译成了 $b=\\sqrt7\\,a$，这一步很关键。\n\n接下来想想：在双曲线里，$a$、$b$ 和半焦距 $c$ 之间有一个固定的关系式，你还记得它长什么样吗？",
+    "retention_cn": 1.0,
+    "similarity_full": 0.492,
+    "ai_rows": 6
+   },
+   {
+    "idx": 6,
+    "kind": "form_expr",
+    "input": "[式子] e=2√2",
+    "how": "card-expr",
+    "wait": {
+     "ok": true,
+     "rows": 7,
+     "sec": 3.9
+    },
+    "reply": "你写的 e=22​ 里，e 对应的是 ac​。双曲线中 a、b、c 满足哪个关系式？\n 💡 提示 · 窄追问🔍 错因分析这步答错了计算错误圆锥曲线读题理解用下面的点选面板写出这一步的式子。式子输入写出这一步的完整式子（点选面板输入）c=2ax^2()/√π+-清空写好了不知道怎么写第 2/3 步引导中圆锥曲线AI 生成· 仅供参考，请核实",
+    "evidence": "你写的 $e=2\\sqrt2$ 里，$e$ 对应的是 $\\frac{c}{a}$。双曲线中 $a$、$b$、$c$ 满足哪个关系式？",
+    "retention_cn": 1.0,
+    "similarity_full": 0.318,
+    "ai_rows": 7
+   },
+   {
+    "idx": 7,
+    "kind": "form_expr",
+    "input": "[式子] e=2√2",
+    "how": "card-typewrite",
+    "wait": {
+     "ok": true,
+     "rows": 8,
+     "sec": 3.9
+    },
+    "reply": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。\n读题理解已知集合 A={1,2}，B={2,3}，则 A∩B 等于？二元判断已知集合 A={1,2}，B={2,3}，则 A∩B 等于？A{2}B{1,2,3}C{1,3}就这样判断改用打字跳过探测，直接讲🧭 先补 5 分钟：集合与常用逻辑用语前置缺口（掌握度 0.0） ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考检验一下（就 1 小题，过了马上回原题）已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 与 M 的关系，以及 0 与 N 的关系（用 ∈ 或 ∈/ 表示）。\n提交答案↩️ 回原题跳过补课，看这步怎么做AI 生成· 仅供参考，请核实",
+    "evidence": "你卡在这一步，多半是「集合与常用逻辑用语」还没打牢。先花几分钟补上它，马上回来。",
+    "retention_cn": 1.0,
+    "similarity_full": 0.241,
+    "ai_rows": 8
+   },
+   {
+    "idx": 8,
+    "kind": "form_text",
+    "input": "所以 c² = a² + 7a² = 8a²，e = c/a = 2√2，选 D。",
+    "how": "card-typewrite",
+    "wait": {
+     "ok": true,
+     "rows": 9,
+     "sec": 3.9
+    },
+    "reply": "先把这一小块讲给你——看完马上做下面的检验小题。\n🧭 先补 5 分钟：集合与常用逻辑用语前置缺口补课 ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考看个最小例子第 1 步：回顾集合的表示与元素已知函数 f(x)=2x，其定义域为 A={x∣x∈R}，值域为 B={y∣y>0}。第 2 步：用描述法表示集合将 B 写成 B={y∣y=2x, x∈R}，注意集合的代表元素是 y。第 3 步：判断元素与集合的关系因为 20=1，所以 1∈B；而 −1 不在 B 中，记作 −1∈/B。\n检验一下（就 1 小题，过了马上回原题）已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 与 M 的关系，以及 0 与 N 的关系（用 ∈ 或 ∈/ 表示）。\n作答这道检验题填空补全已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 与 M 的关系，以及 0 与 N 的关系（用 ∈ 或 ∈/ 表示）。你的答案：\n空 1 ▾0/1 空已填填好了提交答案↩️ 回原题跳过补课，看这步怎么做AI 生成· 仅供参考，请核实",
+    "evidence": "先把这一小块讲给你——看完马上做下面的检验小题。",
+    "retention_cn": 1.0,
+    "similarity_full": 0.113,
+    "ai_rows": 9
+   }
+  ],
+  "hero_ai_rows": 0,
+  "hero_has_he_card": 4,
+  "attachment_ready": true,
+  "ai_before": 0,
+  "terminal": {
+   "ix": 5,
+   "si": 4,
+   "att": 0,
+   "fill": 2,
+   "has0_1": true,
+   "hasRemediation": true
+  },
+  "terminal_text_tail": "一下（就 1 小题，过了马上回原题） 已知函数 𝑔 ( 𝑥 ) = log ⁡ 2 𝑥 g(x)=log 2 ​ x 的定义域为 𝑀 M，值域为 𝑁 N。判断 2 2 与 𝑀 M 的关系，以及 0 0 与 𝑁 N 的关系（用 ∈ ∈ 或 ∉ ∈ / 表示）。 作答这道检验题 填空补全 已知函数 𝑔 ( 𝑥 ) = log ⁡ 2 𝑥 g(x)=log 2 ​ x 的定义域为 𝑀 M，值域为 𝑁 N。判断 2 2 与 𝑀 M 的关系，以及 0 0 与 𝑁 N 的关系（用 ∈ ∈ 或 ∉ ∈ / 表示）。 你的答案： 空 1 ▾ 0/1 空已填 填好了 提交答案 ↩️ 回原题 跳过补课，看这步怎么做 AI 生成 · 仅供参考，请核实 05:12 · 自由对话 我没思路 来点提示 直接看答案 💡 试试这些提问 ▸ 0/4000 发送 ✦",
+  "before_refresh": {
+   "ix": 5,
+   "si": 4,
+   "att": 0,
+   "fill": 2,
+   "has0_1": true,
+   "hasRemediation": true
+  },
+  "before_refresh_rows": 9,
+  "before_refresh_last_ai": "先把这一小块讲给你——看完马上做下面的检验小题。\n🧭 先补 5 分钟：集合与常用逻辑用语前置缺口补课 ⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考看个最小例子第 1 步：回顾集合的表示与元素已知函数 f(x)=2x，其定义域为 A={x∣x∈R}，值域为 B={y∣y>0}。第 2 步：用描述法表示集合将 B 写成 B={y∣y=2x, x∈R}，注意集合的代表元素是 y。第 3 步：判断元素与集合的关系因为 20=1，所以 1∈B；而 −1 不在 B 中，记作 −1∈/B。\n检验一下（就 1 小题，过了马上回原题）已知函数 g(x)=log2​x 的定义域为 M，值域为 N。判断 2 ",
+  "thread_before_refresh": {
+   "total": 18,
+   "ai_count": 9,
+   "user_count": 9,
+   "seq": "user,ai,user,ai,user,ai,user,ai,user,ai,user,ai,user,ai,user,ai,user,ai",
+   "alternates": true,
+   "first_user": "请分析我上传的文件 05:11",
+   "last_ai": "先把这一小块讲给你——看完马上做下面的检验小题。\n\n🧭 先补 5 分钟：集合与常用逻辑用语\n前置缺口补课\n⚠ 未找到教材原文，本讲解由 AI 生成，仅供参考\n看个最小例子\n\n第 1 步：回顾集合的表示与元素\n已知函数 \n𝑓\n(\n𝑥\n)\n=\n2\n𝑥\nf(x)=2\nx\n，其定义域为 \n𝐴\n=\n{\n𝑥\n∣\n𝑥\n∈\n𝑅\n}\nA={x∣x∈R}，值域为 \n𝐵\n=\n{\n𝑦\n∣\n𝑦\n>\n0\n}\nB={y∣y>0}。\n第 2 步：用描述法表示集合\n将 \n𝐵\nB 写成 \n𝐵\n=\n{\n𝑦\n∣\n𝑦\n=\n2\n𝑥\n,\n \n𝑥\n∈\n𝑅\n}\nB={y∣y=2\nx\n, x∈R}，注意集合的代表元素是 \n𝑦\ny。\n第 3 步：判断元素与集合的关系\n因为 \n2\n0\n=\n1\n2\n0\n=1，所以 \n1\n∈\n𝐵\n1∈B；而 \n−\n1\n−1 不在 \n𝐵\nB 中，记作 \n−\n1\n∉\n𝐵\n−1∈\n/\nB。\n\n检验一下（就 1 小题，过了马上回原题）\n\n已知函数 \n𝑔\n(\n𝑥\n)\n=\nlog\n⁡\n2\n𝑥\ng(x)=log\n2\n\t​\n\nx 的定义域为 \n𝑀\nM，值域为 \n𝑁\nN。判断 \n2\n2 与 \n𝑀\nM 的关系，以及 \n0\n0 与 \n𝑁\nN 的关系（用 \n∈\n∈ 或 \n∉\n∈\n/\n 表示）。\n\n作答这道检验题\n填空补全\n\n已知函数 \n𝑔\n(\n𝑥\n)\n=\nlog\n⁡\n2\n𝑥\ng(x)=log\n2\n\t​\n\nx 的定义域为 \n𝑀\nM，值域为 \n𝑁\nN。判断 \n2\n2 与 \n𝑀\nM 的关系，以及 \n0\n0 与 \n𝑁\nN 的关系（用 \n∈\n∈ 或 \n∉\n∈\n/\n 表示）。\n你的答案：\n\n \n空 1 ▾\n0/1 空已填\n填好了\n提交答案\n↩️ 回原题\n跳过补课，看这步怎么做\nAI 生成\n· 仅供参考，请核实",
+   "attach_lost": false
+  },
+  "after_refresh": {
+   "ix": 0,
+   "si": 0,
+   "att": 0,
+   "fill": 0,
+   "has0_1": false,
+   "hasRemediation": false
+  },
+  "after_refresh_rows": 9,
+  "after_refresh_last_ai": "先把这一小块讲给你——看完马上做下面的检验小题。\nAI 生成· 仅供参考，请核实",
+  "thread_after_refresh": {
+   "total": 18,
+   "ai_count": 9,
+   "user_count": 9,
+   "seq": "user,ai,user,ai,user,ai,user,ai,user,ai,user,ai,user,ai,user,ai,user,ai",
+   "alternates": true,
+   "first_user": "请分析我上传的文件 04:12",
+   "last_ai": "先把这一小块讲给你——看完马上做下面的检验小题。\n\nAI 生成\n· 仅供参考，请核实",
+   "attach_lost": false
+  },
+  "after_refresh_url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html#/dialog/1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204",
+  "after_refresh_text_has_remediation": false,
+  "last_ai_round8_retention": 1.0,
+  "first_user_is_upload": true,
+  "http_requests": 0,
+  "pageerrors": [],
+  "console_errors": [
+   "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9901:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9902:702]",
+   "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9902:702\").",
+   "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9901:8572),     at file:///D:/zxsy-math-arena-showcase/release…E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9902:702]",
+   "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:9902:702\")."
+  ]
+ },
+ "consistent_rounds": 9,
+ "rounds": 9
+}

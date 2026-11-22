@@ -1,0 +1,36 @@
+# POST http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks
+# status=202 run=p09 step=verb-cite t=02:35:05
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "accept-language": "zh-CN",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "sec-ch-ua-mobile": "?0",
+ "x-client-request-id": "36daa6d9-a48f-481c-8e3e-51376a229f02",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "content-type": "application/json"
+}
+
+## request body (first 4KB, sanitized)
+{"preset":"derivation_check","context":{"mode":"read","selection":"码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。","paperId":"2d3e8406-06e3-41aa-8051-ad8b404dd120","page":1,"section":"摘要","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","selected_text":"码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。","bbox":[62.377697368421046,215.04552631578952,548.0039910567433,270.92072368421054]},"client_request_id":"36daa6d9-a48f-481c-8e3e-51376a229f02"}
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "x-trace-id": "1fad5707466c4c68a2bc4d65bc4a9c9e",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "date": "Sat, 21 Nov 2026 18:35:05 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"task_id":"2fe60b1f-676a-49a1-ad01-d3e75fd0330e","status":"queued","preset":"derivation_check","created":true}

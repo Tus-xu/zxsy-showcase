@@ -1,0 +1,476 @@
+: open
+
+event: meta
+data: {"conversation_id": "327d9a88-718b-4dcc-805c-36563d74aa12", "msg_id": "3d67bcef-10d1-4cae-be42-d052c93aa848", "skill": "qa_rag", "confidence": 0.85, "provider": "spark"}
+
+event: status
+data: {"stage": "retrieving", "text": "正在检索教材知识库..."}
+
+event: status
+data: {"stage": "generating", "text": "正在基于教材生成回答..."}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "你这"}
+
+event: token
+data: {"text": "一步推"}
+
+event: token
+data: {"text": "导本"}
+
+event: token
+data: {"text": "身"}
+
+event: token
+data: {"text": "没问题"}
+
+event: token
+data: {"text": "，$2b=\\sqrt7\\"}
+
+event: token
+data: {"text": "cdot "}
+
+event: token
+data: {"text": "2a$"}
+
+event: token
+data: {"text": " 约掉 "}
+
+event: token
+data: {"text": "2 得 $\\"}
+
+event: token
+data: {"text": "frac{b}{a}="}
+
+event: token
+data: {"text": "\\sqr"}
+
+event: token
+data: {"text": "t"}
+
+event: token
+data: {"text": "7$，这是纯代数变形"}
+
+event: token
+data: {"text": "。但它对应"}
+
+event: token
+data: {"text": "的**双曲线"}
+
+event: token
+data: {"text": "知"}
+
+event: token
+data: {"text": "识"}
+
+event: token
+data: {"text": "点*"}
+
+event: token
+data: {"text": "*，"}
+
+event: token
+data: {"text": "得看你"}
+
+event: token
+data: {"text": "想用它干什么"}
+
+event: token
+data: {"text": "——"}
+
+event: token
+data: {"text": "资料里能"}
+
+event: token
+data: {"text": "对上"}
+
+event: token
+data: {"text": "的是下面这"}
+
+event: token
+data: {"text": "条："}
+
+event: token
+data: {"text": "\n\n**$\\frac{"}
+
+event: token
+data: {"text": "b}{"}
+
+event: token
+data: {"text": "a}$"}
+
+event: token
+data: {"text": " 决定双曲线开口"}
+
+event: token
+data: {"text": "的大"}
+
+event: token
+data: {"text": "小**"}
+
+event: token
+data: {"text": "。"}
+
+event: token
+data: {"text": "资料【1】里明"}
+
+event: token
+data: {"text": "确"}
+
+event: token
+data: {"text": "说：双"}
+
+event: token
+data: {"text": "曲线夹在两条"}
+
+event: token
+data: {"text": "渐近线 $y=\\pm\\fr"}
+
+event: token
+data: {"text": "ac{b}{a"}
+
+event: token
+data: {"text": "}x$ 之间，$\\fr"}
+
+event: token
+data: {"text": "ac{b}{a"}
+
+event: token
+data: {"text": "}$ 越"}
+
+event: token
+data: {"text": "大，开口越大；$\\fr"}
+
+event: token
+data: {"text": "ac{b}{a"}
+
+event: token
+data: {"text": "}$ 越小，开口越小"}
+
+event: token
+data: {"text": "。所以你这个 $\\fra"}
+
+event: token
+data: {"text": "c{b}{a}=\\s"}
+
+event: token
+data: {"text": "qrt"}
+
+event: token
+data: {"text": "7$"}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "就是"}
+
+event: token
+data: {"text": "在刻画\"这条双"}
+
+event: token
+data: {"text": "曲"}
+
+event: token
+data: {"text": "线开口有多开"}
+
+event: token
+data: {"text": "\"。"}
+
+event: token
+data: {"text": "\n\n"}
+
+event: token
+data: {"text": "顺着这条"}
+
+event: token
+data: {"text": "线，"}
+
+event: token
+data: {"text": "还能推出**离心率**"}
+
+event: token
+data: {"text": "：\n\n$$\\frac{c"}
+
+event: token
+data: {"text": "}{a}=\\sqrt{1"}
+
+event: token
+data: {"text": "+\\left(\\fra"}
+
+event: token
+data: {"text": "c{b}{a}\\right"}
+
+event: token
+data: {"text": ")^2}=\\sq"}
+
+event: token
+data: {"text": "rt"}
+
+event: token
+data: {"text": "{1+7}=2\\sqrt2$$"}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "\n也就是"}
+
+event: token
+data: {"text": "说，由 $\\frac{b"}
+
+event: token
+data: {"text": "}{a}=\\sqr"}
+
+event: token
+data: {"text": "t"}
+
+event: token
+data: {"text": "7$ 可以定"}
+
+event: token
+data: {"text": "出 $e=2\\s"}
+
+event: token
+data: {"text": "qr"}
+
+event: token
+data: {"text": "t2$。资"}
+
+event: token
+data: {"text": "料【"}
+
+event: token
+data: {"text": "1】里讲得"}
+
+event: token
+data: {"text": "很清楚：$\\frac{"}
+
+event: token
+data: {"text": "c}{a}$ "}
+
+event: token
+data: {"text": "越大，双曲"}
+
+event: token
+data: {"text": "线开"}
+
+event: token
+data: {"text": "口越大，离心率 $e"}
+
+event: token
+data: {"text": "=\\frac{c"}
+
+event: token
+data: {"text": "}{"}
+
+event: token
+data: {"text": "a}"}
+
+event: token
+data: {"text": "$ 正是反映"}
+
+event: token
+data: {"text": "开口大"}
+
+event: token
+data: {"text": "小的量，且双曲"}
+
+event: token
+data: {"text": "线 $e>1"}
+
+event: token
+data: {"text": "$。"}
+
+event: token
+data: {"text": "\n\n另外，"}
+
+event: token
+data: {"text": "$a$、$"}
+
+event: token
+data: {"text": "b$"}
+
+event: token
+data: {"text": " 本身"}
+
+event: token
+data: {"text": "的几何含义在"}
+
+event: token
+data: {"text": "资料"}
+
+event: token
+data: {"text": "【2】里"}
+
+event: token
+data: {"text": "：实轴长"}
+
+event: token
+data: {"text": " $2a$"}
+
+event: token
+data: {"text": "（$a"}
+
+event: token
+data: {"text": "$ 为"}
+
+event: token
+data: {"text": "实半轴长）、"}
+
+event: token
+data: {"text": "虚轴长 $"}
+
+event: token
+data: {"text": "2b$（$"}
+
+event: token
+data: {"text": "b$ 为"}
+
+event: token
+data: {"text": "虚"}
+
+event: token
+data: {"text": "半轴长）。"}
+
+event: token
+data: {"text": "你题目里\""}
+
+event: token
+data: {"text": "虚轴长是实轴长的 $"}
+
+event: token
+data: {"text": "\\sqrt7$"}
+
+event: token
+data: {"text": " 倍"}
+
+event: token
+data: {"text": "\"就是"}
+
+event: token
+data: {"text": "在比较这两条轴。\n"}
+
+event: token
+data: {"text": "\n所以一句话总"}
+
+event: token
+data: {"text": "结："}
+
+event: token
+data: {"text": "**这个推"}
+
+event: token
+data: {"text": "导对"}
+
+event: token
+data: {"text": "应的是\"$\\frac{"}
+
+event: token
+data: {"text": "b}{"}
+
+event: token
+data: {"text": "a}$（进"}
+
+event: token
+data: {"text": "而离心"}
+
+event: token
+data: {"text": "率 $e=\\frac{"}
+
+event: token
+data: {"text": "c}{a}$）刻"}
+
+event: token
+data: {"text": "画双曲线开口大小\"这"}
+
+event: token
+data: {"text": "一知识点"}
+
+event: token
+data: {"text": "*"}
+
+event: token
+data: {"text": "*，"}
+
+event: token
+data: {"text": "并且能由它反推"}
+
+event: token
+data: {"text": "离"}
+
+event: token
+data: {"text": "心率 $e=2\\sqr"}
+
+event: token
+data: {"text": "t2$。\n"}
+
+event: token
+data: {"text": "\n要不"}
+
+event: token
+data: {"text": "要接着往下"}
+
+event: token
+data: {"text": "走"}
+
+event: token
+data: {"text": "一步？"}
+
+event: token
+data: {"text": "比如："}
+
+event: token
+data: {"text": "如果"}
+
+event: token
+data: {"text": "还告"}
+
+event: token
+data: {"text": "诉"}
+
+event: token
+data: {"text": "你焦点坐标"}
+
+event: token
+data: {"text": "或"}
+
+event: token
+data: {"text": "焦距"}
+
+event: token
+data: {"text": "，你能把这条双曲线"}
+
+event: token
+data: {"text": "的标准方程"}
+
+event: token
+data: {"text": "写出来吗"}
+
+event: token
+data: {"text": "？"}
+
+event: token
+data: {"text": "先说"}
+
+event: token
+data: {"text": "说你会从哪个条件入"}
+
+event: token
+data: {"text": "手。\n\n难"}
+
+event: token
+data: {"text": "度：easy"}
+
+event: citation
+data: {"items": [{"n": 1, "chunk_id": "c9c320d9-0d7b-4222-8031-70cdd2d38921", "source": "苏教版·选择性必修第一册", "kind": "教材", "loc": "《苏教版·选择性必修第一册》 选择性必修第一册 5. 离心率 · 切片 c9c320d9"}, {"n": 2, "chunk_id": "196f92a0-f7ef-4a3f-93b9-e2faa7b23e5c", "source": "人教A版2019·选择性必修第一册", "kind": "教材", "loc": "《人教A版2019·选择性必修第一册》 选择性必修第一册 3. 顶点 · 切片 196f92a0"}, {"n": 3, "chunk_id": "56623e33-2382-4890-be27-d919db4a8037", "source": "北师大版·必修第二册", "kind": "教材", "loc": "《北师大版·必修第二册》 必修第二册 4.1 平面向量基本定理 · 切片 56623e33"}, {"n": 4, "chunk_id": "6baad55c-6a70-4b01-b0de-b994b8e784f4", "source": "北师大版·选择性必修第一册", "kind": "教材", "loc": "《北师大版·选择性必修第一册》 选择性必修第一册 4. 离心率 · 切片 6baad55c"}]}
+
+event: badge
+data: {"level": "L2-知识库"}
+
+event: done
+data: {"usage": {"tokens_in": 5651, "tokens_out": 440}, "latency_ms": 17171, "message_id": "ed636bab-ecfd-46db-920a-abbfba0bdcad", "meta": {"latency_ms": 16108, "degraded": false, "chunks_used": 4}}
+

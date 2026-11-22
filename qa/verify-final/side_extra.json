@@ -1,0 +1,58 @@
+[
+ {
+  "path": "shots/side-sample1-upload.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template1\\live-01-uploaded.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template1\\offclean-01-uploaded.png"
+  ]
+ },
+ {
+  "path": "shots/side-sample1-terminal.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template1\\live-99-terminal.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template1\\offclean-99-terminal.png"
+  ]
+ },
+ {
+  "path": "shots/side-template2-retry.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\live-03-retry-result.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\off-03-retry-result.png"
+  ]
+ },
+ {
+  "path": "shots/side-template2-conflict.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\live-09-immersive-retry.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\off-09-immersive-retry.png"
+  ]
+ },
+ {
+  "path": "shots/side-sample1-refresh.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template1\\live-98-after-refresh.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template1\\offclean-98-after-refresh.png"
+  ]
+ },
+ {
+  "path": "shots/side-template2-ppt.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\live-05-ppt-zero.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\off-05-ppt-zero.png"
+  ]
+ },
+ {
+  "path": "shots/side-template2-export.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\live-06-export-dialog.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\template2\\off-06-export-dialog.png"
+  ]
+ },
+ {
+  "path": "shots/side-student-me.png",
+  "from": [
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\live-student-me.png",
+   "D:\\zxsy-math-arena-showcase\\qa\\verify-final\\shots\\off-student-me.png"
+  ]
+ }
+]

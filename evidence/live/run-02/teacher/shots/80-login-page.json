@@ -1,0 +1,85 @@
+{
+  "url": "http://127.0.0.1:5176/login",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "短信验证码",
+      "aria": "",
+      "disabled": false,
+      "cls": "active"
+    },
+    {
+      "t": "密码登录",
+      "aria": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "t": "获取验证码",
+      "aria": "",
+      "disabled": true,
+      "cls": "btn"
+    },
+    {
+      "t": "安全登录",
+      "aria": "",
+      "disabled": true,
+      "cls": "btn btn-primary submit"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "tel",
+      "ph": "请输入中国大陆手机号",
+      "aria": "手机号",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "text",
+      "ph": "6 位验证码",
+      "aria": "短信验证码",
+      "value": "",
+      "disabled": false
+    },
+    {
+      "type": "checkbox",
+      "ph": "",
+      "aria": "",
+      "value": "on",
+      "disabled": false
+    }
+  ],
+  "selects": [
+    {
+      "aria": "进入身份",
+      "value": "student",
+      "opts": [
+        "学生端",
+        "教师端",
+        "科研端"
+      ]
+    }
+  ],
+  "links": [
+    {
+      "t": "忘记密码？",
+      "h": "/account/password"
+    },
+    {
+      "t": "取消账号注销",
+      "h": "/account/deletion/cancel"
+    },
+    {
+      "t": "注册新账号",
+      "h": "/register"
+    }
+  ],
+  "headings": [
+    "一个账号，连接学习、教学与科研",
+    "欢迎回来"
+  ],
+  "nav": [],
+  "badges": [],
+  "text": "π\n智学数研\n一个账号，连接学习、教学与科研\n完成手机号验证后，直接进入你选择的学习、教学或科研端口。\n学生个性化学习与成长画像\n教师备课、课堂与评价闭环\n科研推导验证与知识协作\n统一身份认证\n欢迎回来\n短信验证码\n密码登录\n进入身份\n学生端\n教师端\n科研端\n登录后将进入所选身份对应的端口。\n手机号\n短信验证码\n获取验证码\n在这台设备上保持登录\n安全登录\n忘记密码？ · 取消账号注销\n第一次使用？注册新账号\n登录即表示你同意平台服务协议与隐私政策。"
+}

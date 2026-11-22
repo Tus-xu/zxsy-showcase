@@ -1,0 +1,233 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/plan",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "课堂设计",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "PPT",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "教案",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab is-active"
+    },
+    {
+      "t": "同步到课件",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "导出",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool pc-header__tool--outline"
+    },
+    {
+      "t": "对话 10",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "资料",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "历史",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "教学目标",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__item is-active"
+    },
+    {
+      "t": "教学重难点",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__item"
+    },
+    {
+      "t": "教学过程",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__item"
+    },
+    {
+      "t": "板书设计",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__item"
+    },
+    {
+      "t": "作业布置",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__item"
+    },
+    {
+      "t": "教学反思",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__item"
+    },
+    {
+      "t": "收起侧栏",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-outline__collapse"
+    },
+    {
+      "t": "正文",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-toolbar__menu"
+    },
+    {
+      "t": "16",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-toolbar__menu pc-toolbar__menu--size"
+    },
+    {
+      "t": "B",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-toolbar__btn pc-toolbar__btn--text"
+    },
+    {
+      "t": "I",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-toolbar__btn pc-toolbar__btn--text"
+    },
+    {
+      "t": "U",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-toolbar__btn pc-toolbar__btn--text"
+    },
+    {
+      "t": "1 2 3",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-toolbar__btn"
+    },
+    {
+      "t": "×",
+      "aria": "关闭智能辅助",
+      "disabled": false,
+      "cls": "pc-ai__close"
+    },
+    {
+      "t": "精简语言 让这部分表述更简洁清晰",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ai__card"
+    },
+    {
+      "t": "改成探究式提问 把讲解改为学生探究的问题链",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ai__card"
+    },
+    {
+      "t": "强化教材依据 为本段补充可追溯依据说明 仅实时改写当前教案章节，不会同步到课件页",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ai__card"
+    },
+    {
+      "t": "补充板书要点 基于此内容生成板书设计建议",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-ai__card"
+    },
+    {
+      "t": "",
+      "aria": "发送给 AI",
+      "disabled": true,
+      "cls": "pc-ai__send"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [],
+  "selects": [],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [
+    "教案大纲",
+    "智能辅助",
+    "AI 助手建议"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "10",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n备课工作台\n高二年级 · 2026 秋季学期\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n·\n高一(3)班 · 数学 · 45分钟\n课堂设计\nPPT\n教案\n同步到课件\n导出\n对话\n10\n资料\n历史\n教案大纲\n教学目标\n教学重难点\n教学过程\n板书设计\n作业布置\n教学反思\n收起侧栏\n正文\n16\nB\nI\nU\n1\n2\n3\n教案尚未生成\n确认教学路径后，会按它生成课件与教案。\n尚未生成教学路径，请先在「课堂设计」中与 AI 确认教学路径。\n智能辅助\n×\n当前定位\n教学目标\nAI 助手建议\n精简语言\n让这部分表述更简洁清晰\n改成探究式提问\n把讲解改为学生探究的问题链\n强化教材依据\n为本段补充可追溯依据说明\n仅实时改写当前教案章节，不会同步到课件页\n补充板书要点\n基于此内容生成板书设计建议\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

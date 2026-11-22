@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/agent/tasks/17dd2aee-91f2-4a89-82ed-fbf9ff24c19a
+# status=200 run=p02 step=agent-quick t=02:07:46
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "af40ea86eb6144468fe849970a1f9a61",
+ "date": "Sat, 21 Nov 2026 18:07:45 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"kind":"formula_check","status":"needs_conditions","actions":["locate","add_note"],"patches":[],"summary":"当前上下文还缺少可校验的公式。请在论文中选中要检查的公式，或在输入框里写出待验证的等式。","evidence":[],"findings":[{"math":"","label":"缺少可校验的公式","detail":"公式检查需要明确的等式与取值条件。可先选中论文中的公式，Agent 会据此代入验证。"}],"confidence":0.4,"source_locations":[],"task":{"id":"17dd2aee-91f2-4a89-82ed-fbf9ff24c19a","preset":"formula_check","status":"completed","error_code":"","error_message":"","created_at":"2026-11-21T18:07:44.819289+00:00","finished_at":"2026-11-21T18:07:44.851338+00:00"}}

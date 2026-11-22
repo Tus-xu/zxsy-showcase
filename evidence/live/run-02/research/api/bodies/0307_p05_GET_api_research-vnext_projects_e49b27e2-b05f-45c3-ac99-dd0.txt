@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files
+# status=200 run=p05 step=start-modes t=02:25:14
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "1159926ace2347d0874a46e748e8627e",
+ "date": "Sat, 21 Nov 2026 18:25:13 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"tree":[{"name":"main.tex","path":"main.tex","type":"file","kind":"tex","revision":3,"size":278,"updated_at":"2026-11-21T18:21:06.798433+00:00","children":[]}],"items":[{"id":"6cb9c247-efb8-4a1d-88f2-b652c9402112","path":"main.tex","kind":"tex","revision":3,"asset_id":null,"size":278,"updated_at":"2026-11-21T18:21:06.798433+00:00","saved_at":"2026-11-21T18:21:06.798433+00:00"}]}

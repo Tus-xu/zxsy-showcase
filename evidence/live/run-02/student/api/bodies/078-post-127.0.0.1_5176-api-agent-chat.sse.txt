@@ -1,0 +1,272 @@
+: open
+
+event: meta
+data: {"conversation_id": "327d9a88-718b-4dcc-805c-36563d74aa12", "msg_id": "97e799aa-4a8a-4da6-8be3-c188617251de", "skill": "qa_rag", "confidence": 0.85, "provider": "spark"}
+
+event: status
+data: {"stage": "retrieving", "text": "正在检索教材知识库..."}
+
+event: status
+data: {"stage": "generating", "text": "正在基于教材生成回答..."}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "这句话把"}
+
+event: token
+data: {"text": "两"}
+
+event: token
+data: {"text": "个"}
+
+event: token
+data: {"text": "关键关系都摆出来了"}
+
+event: token
+data: {"text": "，正好是理解"}
+
+event: token
+data: {"text": "双曲线"}
+
+event: token
+data: {"text": "离心率"}
+
+event: token
+data: {"text": "的核心。咱"}
+
+event: token
+data: {"text": "们顺着往下推"}
+
+event: token
+data: {"text": "一步：\n\n由 "}
+
+event: token
+data: {"text": "$c^2 = a"}
+
+event: token
+data: {"text": "^2 + b"}
+
+event: token
+data: {"text": "^2"}
+
+event: token
+data: {"text": "$，两边除以"}
+
+event: token
+data: {"text": " $a"}
+
+event: token
+data: {"text": "^2$，得到\n\n$$\\f"}
+
+event: token
+data: {"text": "rac{c^"}
+
+event: token
+data: {"text": "2}{a^2}"}
+
+event: token
+data: {"text": " = 1 + \\fr"}
+
+event: token
+data: {"text": "ac{b^2}{a^"}
+
+event: token
+data: {"text": "2}$$\n\n也就"}
+
+event: token
+data: {"text": "是 $e^2 ="}
+
+event: token
+data: {"text": " 1 + \\left(\\fr"}
+
+event: token
+data: {"text": "ac{b}{a}\\ri"}
+
+event: token
+data: {"text": "ght)^2"}
+
+event: token
+data: {"text": "$，所以\n\n$$e ="}
+
+event: token
+data: {"text": " \\sqrt{1 +"}
+
+event: token
+data: {"text": " \\left(\\fra"}
+
+event: token
+data: {"text": "c{b}{a}\\right)^"}
+
+event: token
+data: {"text": "2}$"}
+
+event: token
+data: {"text": "$\n\n"}
+
+event: token
+data: {"text": "这正是资料【"}
+
+event: token
+data: {"text": "1】里给出"}
+
+event: token
+data: {"text": "的式子 $\\frac"}
+
+event: token
+data: {"text": "{c}{a} = \\"}
+
+event: token
+data: {"text": "sqrt{1 + \\left"}
+
+event: token
+data: {"text": "(\\frac{b}{a}"}
+
+event: token
+data: {"text": "\\right)^"}
+
+event: token
+data: {"text": "2}$。资料"}
+
+event: token
+data: {"text": "【4】也把"}
+
+event: token
+data: {"text": "它写成 $\\frac"}
+
+event: token
+data: {"text": "{b}{a} = \\s"}
+
+event: token
+data: {"text": "qrt{e^2"}
+
+event: token
+data: {"text": " - "}
+
+event: token
+data: {"text": "1}$"}
+
+event: token
+data: {"text": "，两种写法是同一件"}
+
+event: token
+data: {"text": "事。"}
+
+event: token
+data: {"text": "\n\n那么问"}
+
+event: token
+data: {"text": "题来了："}
+
+event: token
+data: {"text": "**这"}
+
+event: token
+data: {"text": "个式子说明"}
+
+event: token
+data: {"text": "了什么？"}
+
+event: token
+data: {"text": "** "}
+
+event: token
+data: {"text": "想一想 $\\frac{"}
+
+event: token
+data: {"text": "b}"}
+
+event: token
+data: {"text": "{a"}
+
+event: token
+data: {"text": "}$ 在图"}
+
+event: token
+data: {"text": "形上代"}
+
+event: token
+data: {"text": "表什么"}
+
+event: token
+data: {"text": "（"}
+
+event: token
+data: {"text": "提示：看看"}
+
+event: token
+data: {"text": "渐近线 $y = \\pm\\"}
+
+event: token
+data: {"text": "frac{b}"}
+
+event: token
+data: {"text": "{a}x$ "}
+
+event: token
+data: {"text": "的斜率）"}
+
+event: token
+data: {"text": "，它变"}
+
+event: token
+data: {"text": "大时双曲线的开"}
+
+event: token
+data: {"text": "口会"}
+
+event: token
+data: {"text": "怎样？"}
+
+event: token
+data: {"text": "再结合上面的"}
+
+event: token
+data: {"text": "式子"}
+
+event: token
+data: {"text": "，$e$"}
+
+event: token
+data: {"text": " 和开"}
+
+event: token
+data: {"text": "口大小是什么关"}
+
+event: token
+data: {"text": "系？"}
+
+event: token
+data: {"text": "\n\n你先"}
+
+event: token
+data: {"text": "说说你的"}
+
+event: token
+data: {"text": "判断，"}
+
+event: token
+data: {"text": "我们"}
+
+event: token
+data: {"text": "再往下"}
+
+event: token
+data: {"text": "对答案。\n\n难"}
+
+event: token
+data: {"text": "度：easy"}
+
+event: citation
+data: {"items": [{"n": 1, "chunk_id": "c9c320d9-0d7b-4222-8031-70cdd2d38921", "source": "苏教版·选择性必修第一册", "kind": "教材", "loc": "《苏教版·选择性必修第一册》 选择性必修第一册 5. 离心率 · 切片 c9c320d9"}, {"n": 2, "chunk_id": "f1b74b11-69b0-489d-95a0-f331fd241bb6", "source": "人教A版2019·选择性必修第一册", "kind": "教材", "loc": "《人教A版2019·选择性必修第一册》 选择性必修第一册 5. 离心率 · 切片 f1b74b11"}, {"n": 3, "chunk_id": "3439f924-2064-49bb-a728-74e2ccb57c54", "source": "人教A版2019·选择性必修第三册", "kind": "教材", "loc": "《人教A版2019·选择性必修第三册》 选择性必修第三册 7.1.2 全概率公式 · 切片 3439f924"}, {"n": 4, "chunk_id": "eb88495e-18a6-4979-b33a-5d683b3e2df0", "source": "北师大版·选择性必修第一册", "kind": "教材", "loc": "《北师大版·选择性必修第一册》 选择性必修第一册 4. 离心率 · 切片 eb88495e"}]}
+
+event: badge
+data: {"level": "L2-知识库"}
+
+event: done
+data: {"usage": {"tokens_in": 6579, "tokens_out": 265}, "latency_ms": 15937, "message_id": "5d252131-9f27-41bd-9064-e5d93edcd3b0", "meta": {"latency_ms": 15062, "degraded": false, "chunks_used": 4}}
+

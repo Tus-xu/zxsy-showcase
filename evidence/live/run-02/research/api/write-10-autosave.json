@@ -1,0 +1,380 @@
+{
+  "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+  "title": "科研工作台 · 阅读",
+  "buttons": [
+    {
+      "text": "阅读",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-seg__item rw-seg__item--active"
+    },
+    {
+      "text": "写作",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-seg__item"
+    },
+    {
+      "text": "未命名项目",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-psel__capsule"
+    },
+    {
+      "text": "历史",
+      "label": "历史",
+      "disabled": false,
+      "cls": "rw-hist__btn"
+    },
+    {
+      "text": "通知",
+      "label": "通知",
+      "disabled": false,
+      "cls": "rw-notif__btn"
+    },
+    {
+      "text": "林 林知远",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-header__user"
+    },
+    {
+      "text": "未命名项目",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-idc__name"
+    },
+    {
+      "text": "暂无描述",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-idc__desc"
+    },
+    {
+      "text": "AI 项目概览",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-ovc__head"
+    },
+    {
+      "text": "文献",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-nav__item rw-nav__item--active"
+    },
+    {
+      "text": "笔记",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-nav__item"
+    },
+    {
+      "text": "项目",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-nav__item"
+    },
+    {
+      "text": "设置",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-nav__item"
+    },
+    {
+      "text": "文献列表",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-lit__fold"
+    },
+    {
+      "text": "导入 PDF",
+      "label": "导入 PDF",
+      "disabled": false,
+      "cls": "rw-lit__icon"
+    },
+    {
+      "text": "搜索文献",
+      "label": "搜索文献",
+      "disabled": false,
+      "cls": "rw-lit__icon"
+    },
+    {
+      "text": "PDF research-paper-1.pdf Mathesis 离线演示项目（自撰演示材料） · —",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-lit__open"
+    },
+    {
+      "text": "PDF research-03-writing-example.pdf Mathesis 离线展示项目（自撰演示材料） · —",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-lit__open"
+    },
+    {
+      "text": "PDF research-02-formula-conditions.pdf Mathesis 离线展示项目（自撰演示材料） · —",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-lit__open"
+    },
+    {
+      "text": "PDF research-01-cea-lemma.pdf Mathesis 离线展示项目（自撰演示材料） · —",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-lit__open"
+    },
+    {
+      "text": "更多 ›",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-notes__more"
+    },
+    {
+      "text": "理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 今天 02:13",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-notes__item"
+    },
+    {
+      "text": "PDF research-paper-1.pdf",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-dtabs__tab rw-dtabs__tab--active"
+    },
+    {
+      "text": "关闭标签",
+      "label": "关闭标签",
+      "disabled": null,
+      "cls": "rw-dtabs__close"
+    },
+    {
+      "text": "PDF research-03-writing-example.pdf",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-dtabs__tab"
+    },
+    {
+      "text": "关闭标签",
+      "label": "关闭标签",
+      "disabled": null,
+      "cls": "rw-dtabs__close"
+    },
+    {
+      "text": "PDF research-02-formula-conditions.pdf",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-dtabs__tab"
+    },
+    {
+      "text": "关闭标签",
+      "label": "关闭标签",
+      "disabled": null,
+      "cls": "rw-dtabs__close"
+    },
+    {
+      "text": "PDF research-01-cea-lemma.pdf",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-dtabs__tab"
+    },
+    {
+      "text": "关闭标签",
+      "label": "关闭标签",
+      "disabled": null,
+      "cls": "rw-dtabs__close"
+    },
+    {
+      "text": "导入新文献",
+      "label": "导入新文献",
+      "disabled": false,
+      "cls": "rw-dtabs__add"
+    },
+    {
+      "text": "文本选择工具",
+      "label": "文本选择工具",
+      "disabled": false,
+      "cls": "rw-ptb__btn rw-ptb__btn--on"
+    },
+    {
+      "text": "上一页",
+      "label": "上一页",
+      "disabled": true,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "下一页",
+      "label": "下一页",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "缩小",
+      "label": "缩小",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "放大",
+      "label": "放大",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "选择工具",
+      "label": "选择工具",
+      "disabled": false,
+      "cls": "rw-ptb__btn rw-ptb__btn--on"
+    },
+    {
+      "text": "抓手工具",
+      "label": "抓手工具",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "适页",
+      "label": "适页",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "适宽",
+      "label": "适宽",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "复制选中文字",
+      "label": "复制选中文字",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "全文搜索",
+      "label": "全文搜索",
+      "disabled": false,
+      "cls": "rw-ptb__btn rw-ptb__btn--tail"
+    },
+    {
+      "text": "全屏",
+      "label": "全屏",
+      "disabled": false,
+      "cls": "rw-ptb__btn"
+    },
+    {
+      "text": "新对话",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-agent-header__new"
+    },
+    {
+      "text": "更多操作",
+      "label": "更多操作",
+      "disabled": false,
+      "cls": "rw-agent-header__menu"
+    },
+    {
+      "text": "当前选定",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-ctx__chip"
+    },
+    {
+      "text": "Mathesis 离线演示项目（自撰演示材料）",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-ctx__chip"
+    },
+    {
+      "text": "应用修复",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-actions__btn rw-actions__btn--outline"
+    },
+    {
+      "text": "加入笔记",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-actions__btn rw-actions__btn--primary"
+    },
+    {
+      "text": "重新编译",
+      "label": "",
+      "disabled": false,
+      "cls": "rw-actions__btn rw-actions__btn--outline"
+    },
+    {
+      "text": "推导校验",
+      "label": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "text": "引用补全",
+      "label": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "text": "LaTeX 对照",
+      "label": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "text": "公式检查",
+      "label": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "text": "翻译与改写",
+      "label": "",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "text": "引用当前选区",
+      "label": "引用当前选区",
+      "disabled": false,
+      "cls": "rw-composer__tool"
+    },
+    {
+      "text": "提及",
+      "label": "提及",
+      "disabled": false,
+      "cls": "rw-composer__tool"
+    },
+    {
+      "text": "引用项目文献",
+      "label": "引用项目文献",
+      "disabled": false,
+      "cls": "rw-composer__tool"
+    },
+    {
+      "text": "发送",
+      "label": "发送",
+      "disabled": true,
+      "cls": "rw-composer__send"
+    }
+  ],
+  "tree": [],
+  "treeHint": "",
+  "editor": {
+    "present": false,
+    "contentEditable": "",
+    "lines": 0,
+    "textSample": "",
+    "textLen": 0,
+    "activeFile": ""
+  },
+  "saveIndicator": "",
+  "compileBar": "",
+  "log": "",
+  "logCounts": "",
+  "previewCanvases": [],
+  "previewText": "",
+  "toasts": [],
+  "selection": "",
+  "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n未命名项目\n已同步\n今天 02:17\n历史\n林\n林知远\n未命名项目\n暂无描述\nAI 项目概览\n\n本项目围绕椭圆型偏微分方程有限元方法的基础理论展开，梳理变分形式、Galerkin 逼近与 Céa 引理三个环节，相关命题均在有限维子空间上讨论，并给出 Céa 引理的完整证明。材料还涉及论证结构、约分需要分母非零、配方法恒等式与校验清单等内容，属于离线演示用的自撰讲义，强调引用与页码可逐条核对。\n\n4\n文献\n0\n草稿\n1\n笔记\n0\n数据\n文献\n笔记\n项目\n设置\n文献列表\nPDF\nresearch-paper-1.pdf\nMathesis 离线演示项目（自撰演示材料） · —\nPDF\nresearch-03-writing-example.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-02-formula-conditions.pdf\nMathesis 离线展示项目（自撰演示材料） · —\nPDF\nresearch-01-cea-lemma.pdf\nMathesis 离线展示项目（自撰演示材料） · —\n最近笔记\n更多 ›\n理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与\n今天 02:13\nPDF\nresearch-paper-1.pdf\nPDF\nresearch-03-writing-example.pdf\nPDF\nresearch-02-formula-conditions.pdf\nPDF\nresearch-01-cea-lemma.pdf\n/ 6\n155%\nMathesis 科研工作台 · 离线演示\n \n随包演示讲义（自撰，非外部论文）\n\n\n变分形式与 Céa 引理\n\n\n椭圆型偏微分方程有限元误差估计的预备讲义\n\n\n随包演示讲义（自撰，非外部论文）\n\n\n2026 年 11 月 · 演示版\n\n\n摘要\n\n\n本讲义整理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所\n\n\n有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰\n\n\n，引用与页码均可与本讲义页面逐条核对。\n\n\n关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计\n\n\n| 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。\n\n\n变分形式与 Céa 引理 · 第 1 页\n \n第 1 页 / 共 6 页\nπ\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线演示项目（自撰演示材料）\n项目知识库 · 4 篇\n\n请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。\n\nπ\nResearch Agent\n结论：目前无法作答\n\n本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。\n\n需要你补充的最小信息（任选一种）\n原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。\n拿到材料后我会给出的形式\n一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广；\n原文出处：给出可核验的定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。\n\n说明\n\n若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。\n\n这篇论文第 1 页讲了什么？请用两句话概括，并指出原文依据。\n\nπ\nResearch Agent\n结论：仍然无法作答\n\n这与上一轮的判断一致：本会话没有这篇文献。会话摘要显示 artifact_count = 0（附件数为 0），摘要中也没有任何题录、DOI、正文片段或第 1 页的文本与图像。因此“第 1 页讲了什么”缺少唯一的输入对象——连“第 1 页”指向哪一篇都无法确定，我既不能概括其内容，也不能给出原文依据。\n\n在这里，编造一条结论加一条看似精确的出处（例如虚构的 §1, p.\\,1 与 DOI），比不回答的危害更大：错误引文一旦进入稿件，后续所有基于它的推导都会失去可核验性。\n\n需要你补充的最小信息（任选其一即可）\n原文：把第 1 页的正文粘贴进来，或上传 PDF／第 1 页截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：若你已知结论所在位置，给出小节号或图表号，例如 Abstract 末句、§1 第 3 段、Theorem 1.1。\n拿到材料后我会给出的形式\n两句话概括：每句独立成句，逐句保留原文的限定条件（适用范围、假设、量词），不做跨页推广；两句话之间按“主结论 / 次要结果或方法”分层，而不是把一句话拆成两句凑数；\n原文依据：给出可核验定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为支撑；引文与转述会显式区分，绝不把“我的概括”冒充“作者原话”。\n\n一个需要你先决定的点\n\n若第 1 页含多个并列结论（摘要里给出 2–3 条贡献是常见情形），我可以按两种方式处理：\n\n分层式：主结论一句、次要结果一句，各自附引文；\n指定式：你指出要哪一条，我只写那一条并在第二句给出其支撑引文。\n\n请说明你偏好哪一种，或直接把第 1 页材料贴进来，我据此产出两句话概括与对应出处。\n\nπ\n翻译与改写\n证据充分\n02:17\n\n已完成翻译（英文；218 字符 → 739 字符）。\n\n建议修改\n\n-理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。\n+The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and citations and page numbers can be checked line by line against the pages of this lecture note. Keywords: variational problem; Galerkin approximation; Céa's lemma; V-ellipticity; a priori error estimates | Reading Tip: You can select any paragraph, ask a question in the right Research Agent, then click \"Locate Original Text\" to return to the corresponding paragraph on this page.\n应用修复\n加入笔记\n重新编译\n快捷能力\n推导校验\n引用补全\nLaTeX 对照\n公式检查\n翻译与改写",
+  "tag": "10-autosave"
+}

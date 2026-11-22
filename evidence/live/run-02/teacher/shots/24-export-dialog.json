@@ -1,0 +1,241 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/prep/w/f5c84551-18a7-454d-b49c-8f115e816299/ppt",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "课堂设计",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "PPT",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab is-active"
+    },
+    {
+      "t": "教案",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tab"
+    },
+    {
+      "t": "导出",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool pc-header__tool--outline"
+    },
+    {
+      "t": "对话 10",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "资料",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "历史",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-header__tool"
+    },
+    {
+      "t": "添加页",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-deck__tool"
+    },
+    {
+      "t": "T 文本",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-deck__tool"
+    },
+    {
+      "t": "Σ 公式",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-deck__tool"
+    },
+    {
+      "t": "数学图形",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-deck__tool"
+    },
+    {
+      "t": "图片",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-deck__tool"
+    },
+    {
+      "t": "备注",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-deck__tool"
+    },
+    {
+      "t": "发布课堂",
+      "aria": "发布到班级课堂",
+      "disabled": true,
+      "cls": "pc-deck__tool pc-deck__tool--publish"
+    },
+    {
+      "t": "‹",
+      "aria": "上一页",
+      "disabled": true,
+      "cls": "pc-deck__pager-nav"
+    },
+    {
+      "t": "›",
+      "aria": "下一页",
+      "disabled": true,
+      "cls": "pc-deck__pager-next"
+    },
+    {
+      "t": "−",
+      "aria": "缩小",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "t": "＋",
+      "aria": "放大",
+      "disabled": false,
+      "cls": ""
+    },
+    {
+      "t": "图形属性",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-props__tab is-active"
+    },
+    {
+      "t": "页面信息",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-props__tab"
+    },
+    {
+      "t": "生成推导动画 仅推导/例题页：生成分步推导并逐步播放",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-props__ai-item"
+    },
+    {
+      "t": "让本页更简洁 精简文字，突出重点",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-props__ai-item"
+    },
+    {
+      "t": "生成相似练习题 基于本页内容生成随堂练习",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-props__ai-item"
+    },
+    {
+      "t": "",
+      "aria": "开始语音输入",
+      "disabled": false,
+      "cls": "pc-composer__mic"
+    },
+    {
+      "t": "",
+      "aria": "发送给 AI",
+      "disabled": true,
+      "cls": "pc-composer__send"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    },
+    {
+      "t": "×",
+      "aria": "关闭",
+      "disabled": false,
+      "cls": "pc-export__close"
+    },
+    {
+      "t": "开始导出",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-export__btn"
+    },
+    {
+      "t": "开始导出",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-export__btn"
+    },
+    {
+      "t": "开始导出",
+      "aria": "",
+      "disabled": true,
+      "cls": "pc-export__btn"
+    }
+  ],
+  "inputs": [],
+  "selects": [],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "10",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n备课工作台\n高二年级 · 2026 秋季学期\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n·\n高一(3)班 · 数学 · 45分钟\n课堂设计\nPPT\n教案\n导出\n对话\n10\n资料\n历史\n课件尚未生成：确认教学路径后会自动生成。\n添加页\nT\n文本\nΣ\n公式\n数学图形\n图片\n备注\n发布课堂\n课件尚未生成\n确认教学路径后，会按它生成课件与教案，内容逐页由 AI 充实。\n尚未生成教学路径，请先在「课堂设计」中与 AI 确认教学路径。\n‹\n幻灯片 0 / 0\n›\n−\n100%\n＋\n智能属性\n图形属性\n页面信息\n本页暂无可参数化数学图形。带参数化图形的页面（如「椭圆的定义」）可在此调整 a/b、显隐与样式。\nAI 快捷操作\n生成推导动画\n仅推导/例题页：生成分步推导并逐步播放\n让本页更简洁\n精简文字，突出重点\n生成相似练习题\n基于本页内容生成随堂练习\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作\n导出\n×\n导出为真实产物文件；课件导出会渲染全部页面并做视觉质检，约 40-60 秒。\n课件 PPTX\n可编辑的 PowerPoint 文件，含全部渲染页与数学图形\n预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结.pptx\n开始导出\n教案 PDF\n排版好的教案文档，适合打印与教研归档\n预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.pdf\n开始导出\n教案 Markdown\n纯文本源码，便于二次编辑与迁移\n预计文件名：椭圆第一课时：椭圆的定义（含 2aF1F2 条件）、标准方程的推导、焦点三角形例题与课堂小结-教案.md\n开始导出"
+}

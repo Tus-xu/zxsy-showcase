@@ -1,0 +1,4 @@
+[login] http://127.0.0.1:5176/dialog
+===== case A =====
+[conv] {'url_before': 'http://127.0.0.1:5176/dialog', 'url': 'http://127.0.0.1:5176/dialog/48a40680-8475-4427-bd69-a62534312598', 'title': '???'}
+[upload] {"parsed": false, "failed": true, "error": null, "control_clicked": "???????? ?????????.he-card?"}

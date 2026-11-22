@@ -1,0 +1,14 @@
+: open
+
+event: meta
+data: {"conversation_id": "1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204", "msg_id": "8e32beae-eed3-4aa1-814d-01349bdcfae9", "skill": "socratic_solver", "confidence": 0.85, "provider": "spark"}
+
+event: token
+data: {"text": "我还没看到题目——引导式解题需要先有一道题。你可以拍照上传、把题目打出来、从题库挑一道，或者让我出一道再带你一步步解。"}
+
+event: card
+data: {"card_type": "socratic_need_problem", "entries": [{"kind": "upload", "label": "📷 拍照上传题目", "action": "trigger_upload"}, {"kind": "type", "label": "⌨️ 把题目打出来", "action": "focus_input"}, {"kind": "pick", "label": "📚 从题库挑一道（按薄弱点推荐）", "action": "open_kp_picker"}, {"kind": "quiz", "label": "🎲 让 AI 出一道再带我解", "action": "route_quiz"}], "hint": "把题目给我，我才能带你解——拍照、贴题、选题、AI 出题都行"}
+
+event: done
+data: {"usage": {"tokens_in": 16, "tokens_out": 23}, "latency_ms": 2296, "message_id": "dc00c542-d010-4709-8dd0-1fdb09d87485", "meta": {"skill": "socratic_solver", "confidence": 0.3, "problem_gate": "need_problem"}}
+

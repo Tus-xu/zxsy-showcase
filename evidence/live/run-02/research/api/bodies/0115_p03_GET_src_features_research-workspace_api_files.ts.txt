@@ -1,0 +1,113 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/files.ts
+# status=200 run=p03 step=enter-read t=02:11:47
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/files.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"bb0-Ud6ZdKC/c3prz7GFv108ZdrtRNk\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "13067",
+ "date": "Sat, 21 Nov 2026 18:11:47 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { rwDel, rwGet, rwPost, rwPut } from "/src/features/research-workspace/api/client.ts";
+function treeFromItems(items) {
+  const root = { name: "", path: "", type: "dir", kind: "dir", children: [] };
+  for (const it of items) {
+    const parts = String(it.path || "").split("/").filter(Boolean);
+    let cur = root;
+    parts.forEach((seg, i) => {
+      const isLeaf = i === parts.length - 1;
+      const acc = parts.slice(0, i + 1).join("/");
+      cur.children = cur.children ?? [];
+      let next = cur.children.find((c) => c.name === seg);
+      if (!next) {
+        next = isLeaf ? { name: seg, path: acc, type: "file", kind: it.kind, revision: it.revision, size: it.size, children: [] } : { name: seg, path: acc, type: "dir", kind: "dir", children: [] };
+        cur.children.push(next);
+      }
+      cur = next;
+    });
+  }
+  const sortNodes = (nodes) => {
+    nodes.sort((a, b) => (a.type !== "dir" ? 1 : 0) - (b.type !== "dir" ? 1 : 0) || a.name.localeCompare(b.name));
+    for (const n of nodes) if (n.children) n.children = sortNodes(n.children);
+    return nodes;
+  };
+  return sortNodes(root.children ?? []);
+}
+export async function getTree(projectId) {
+  const r = await rwGet(`/projects/${projectId}/files`);
+  if (Array.isArray(r?.tree) && r.tree.length) return r.tree;
+  return treeFromItems(r?.items ?? []);
+}
+export async function getFile(projectId, path) {
+  const r = await rwGet(`/projects/${projectId}/files/${encodePath(path)}`);
+  const f = r?.file;
+  return {
+    path: f?.path ?? path,
+    content: f?.content ?? "",
+    revision: Number(f?.revision ?? 0),
+    saved_at: f?.saved_at ?? f?.updated_at ?? ""
+  };
+}
+export async function putFile(projectId, path, content, expectedRevision) {
+  const r = await rwPut(`/projects/${projectId}/files/${encodePath(path)}`, {
+    content,
+    expected_revision: expectedRevision
+  });
+  const f = r?.file;
+  return {
+    path: f?.path ?? path,
+    content,
+    revision: Number(f?.revision ?? expectedRevision + 1),
+    saved_at: f?.saved_at ?? f?.updated_at ?? ""
+  };
+}
+export async function createFile(projectId, path, kind = "tex", content = "") {
+  const r = await rwPost(`/projects/${projectId}/files`, { path, kind, content });
+  const f = r?.file;
+  return {
+    path: f?.path ?? path,
+    content,
+    revision: Number(f?.revision ?? 1),
+    saved_at: f?.saved_at ?? f?.updated_at ?? ""
+  };
+}
+export async function deleteFile(projectId, path) {
+  await rwDel(`/projects/${projectId}/files/${encodePath(path)}`);
+}
+export async function renameFile(projectId, from, to) {
+  await rwPost(`/projects/${projectId}/files:rename`, { from, to });
+}
+export async function getOutline(projectId, entry = "main.tex") {
+  const r = await rwGet(
+    `/projects/${projectId}/outline`,
+    { entry }
+  );
+  const src = r?.source_file ?? entry;
+  return (r?.items ?? []).map((it) => ({ ...it, file: it.file || src }));
+}
+function encodePath(path) {
+  return path.split("/").map((seg) => encodeURIComponent(seg)).join("/");
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGVzLnRzIl0sInNvdXJjZXNDb250ZW50IjpbIi8qKlxuICog6I2J56i/5paH5Lu25qCRIEFQSe+8iEJBQ0tFTkQtQ09OVFJBQ1QgwqczLjPvvInjgIJcbiAqXG4gKiDlrp7mtYvlkI7nq6/kv6HlsIHvvIgyMDI2LTA5LTE277yM57uPIDgwMDAg572R5YWz77yJ77yaXG4gKiAtIGBHRVQgIC9wcm9qZWN0cy97aWR9L2ZpbGVzYCAgICAgICAgICAgIOKGkiBgeyB0cmVlOiBGaWxlTm9kZVtdLCBpdGVtczogRmlsZU1ldGFbXSB9YFxuICogLSBgR0VUICAvcHJvamVjdHMve2lkfS9maWxlcy97cGF0aH1gICAgICDihpIgYHsgZmlsZTogeyDigKYsIGNvbnRlbnQsIHJldmlzaW9uLCBzYXZlZF9hdCB9IH1gXG4gKiAtIGBQVVQgIC9wcm9qZWN0cy97aWR9L2ZpbGVzL3twYXRofWAgICAgIOKGkiBgeyBmaWxlOiB7IOKApiwgcmV2aXNpb24sIHNhdmVkX2F0IH0gfWDvvIhgZXhwZWN0ZWRfcmV2aXNpb25gIOS4jeWMuemFjSDihpIgNDA577yJXG4gKiAtIGBQT1NUIC9wcm9qZWN0cy97aWR9L2ZpbGVzYCAgICAgICAgICAgIOKGkiBgeyBmaWxlOiB7Li4ufSB9YO+8iDIwMe+8iVxuICogLSBgR0VUICAvcHJvamVjdHMve2lkfS9vdXRsaW5lYCAgICAgICAgICDihpIgYHsgc291cmNlX2ZpbGUsIGl0ZW1zOiBPdXRsaW5lSXRlbVtdLCB0cmVlLCByZXZpc2lvbiB9YFxuICpcbiAqIOacrOWxgui0n+i0oyoq6Kej5YyF5L+h5bCBKirvvIzlr7nkuIrlsYLvvIhzdG9yZe+8ieS/neaMgeeos+WumuW9oueKtu+8m2BQVVRgIOW4piBgZXhwZWN0ZWRfcmV2aXNpb25gI

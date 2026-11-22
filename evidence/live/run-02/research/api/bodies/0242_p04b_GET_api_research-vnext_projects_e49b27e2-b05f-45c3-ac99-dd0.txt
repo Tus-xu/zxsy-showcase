@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers
+# status=200 run=p04b step=enter-workspace t=02:20:08
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "d602940b1fa04491b285794ad3f57bb0",
+ "date": "Sat, 21 Nov 2026 18:20:07 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"items":[{"id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","asset_id":"01e75bb5-8eff-4eda-99eb-51eab15eb573","title":"research-paper-1.pdf","authors":["Mathesis 离线演示项目（自撰演示材料）"],"year":null,"venue":"","doi":"","read_state":"unread","last_page":1,"page_count":6,"parse_status":"parsed","parse_error":"","created_at":"2026-11-21T18:12:55.544889+00:00","updated_at":"2026-11-21T18:12:55.544889+00:00"},{"id":"ef090edd-ea1d-49e9-8bd7-a2915b77971a","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","asset_id":"9186742d-c56d-45bd-ac3c-c79f19a52744","title":"research-03-writing-example.pdf","authors":["Mathesis 离线展示项目（自撰演示材料）"],"year":null,"venue":"","doi":"","read_state":"reading","last_page":1,"page_count":2,"parse_status":"parsed","parse_error":"","created_at":"2026-11-20T18:58:34.942610+00:00","updated_at":"2026-11-21T18:07:26.173050+00:00"},{"id":"99a92b56-86da-4dbb-9b69-0576fe15b43b","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","asset_id":"d6d75c54-0298-4ba4-a0b1-3f26f87b2e21","title":"research-02-formula-conditions.pdf","authors":["Mathesis 离线展示项目（自撰演示材料）"],"year":null,"venue":"","doi":"","read_state":"unread","last_page":1,"page_count":4,"parse_status":"parsed","parse_error":"","created_at":"2026-11-20T18:56:26.361834+00:00","updated_at":"2026-11-20T18:56:26.361834+00:00"},{"id":"42268b61-10d7-47da-be50-ca22f3a90644","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","asset_id":"62dfb809-8843-490f-bd7c-63a986311456","title":"research-01-cea-lemma.pdf","authors":["Mathesis 离线展示项目（自撰演示材料）"],"year":null,"venue":"","doi":"","read_state":"unread","last_page":1,"page_count":4,"parse_status":"parsed","parse_error":"","created_at":"2026-11-20T18:54:18.029501+00:00","updated_at":"2026-11-20T18:54:18.029501+00:00"}]}

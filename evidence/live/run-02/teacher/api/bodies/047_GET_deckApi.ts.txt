@@ -1,0 +1,102 @@
+import { getAccessToken } from "/src/api/authSession.js";
+import { PrepCenterApiError } from "/src/features/teacher-prep-center/api/prepCenterApi.ts";
+export const DECK_API_BASE = "/api/teacher-v3/artifacts/decks";
+function authHeader() {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+async function deckRequest(deckId, path, init) {
+  let res;
+  try {
+    res = await fetch(`${DECK_API_BASE}/${encodeURIComponent(deckId)}${path}`, {
+      ...init,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        ...authHeader(),
+        ...init.headers || {}
+      }
+    });
+  } catch (e) {
+    throw new PrepCenterApiError({ kind: "network", status: null, code: null, detail: e?.message });
+  }
+  const body = await res.json().catch(() => null);
+  if (!res.ok || !body || typeof body.code === "number" && body.code !== 0) {
+    const status = res.status;
+    let kind = "error";
+    if (status === 401) kind = "unauthenticated";
+    else if (status === 403) kind = "forbidden";
+    else if (status === 409) kind = "conflict";
+    else if (status === 404) kind = "not_found";
+    else if (status === 429) kind = "rate_limited";
+    throw new PrepCenterApiError({
+      kind,
+      status,
+      code: typeof body?.code === "number" ? body.code : null,
+      detail: body?.message || body?.detail || `deck api error: ${status}`,
+      requestId: body?.request_id ?? null
+    });
+  }
+  return body.data ?? body;
+}
+export async function fetchDeckAssetUrl(deckId, assetId, signal) {
+  return deckRequest(
+    deckId,
+    `/assets/${encodeURIComponent(assetId)}/url`,
+    { method: "GET", signal }
+  );
+}
+export function newIdempotencyKey() {
+  return crypto?.randomUUID?.() ?? `pc-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+}
+export function createDeckPatch(deckId, payload, signal) {
+  return deckRequest(deckId, "/patches", {
+    method: "POST",
+    body: JSON.stringify({
+      idempotency_key: newIdempotencyKey(),
+      source: "human",
+      ...payload
+    }),
+    signal
+  });
+}
+export function applyDeckPatch(deckId, patchId, expectedRevision, signal) {
+  return deckRequest(deckId, `/patches/${encodeURIComponent(patchId)}/apply`, {
+    method: "POST",
+    body: JSON.stringify({ expected_revision: expectedRevision }),
+    signal
+  });
+}
+export function regenDeckPage(deckId, payload, signal) {
+  return deckRequest(deckId, "/regen", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    signal
+  });
+}
+export function ensureDeckFigures(deckId, payload, signal) {
+  return deckRequest(deckId, "/figures", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    signal
+  });
+}
+export function enrichDeck(deckId, expectedRevision, signal) {
+  return deckRequest(deckId, "/enrich", {
+    method: "POST",
+    body: JSON.stringify({ expected_revision: expectedRevision }),
+    signal
+  });
+}
+export function addDeckPage(deckId, payload, signal) {
+  return deckRequest(deckId, "/pages", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    signal
+  });
+}
+export function getDeckQa(deckId, signal) {
+  return deckRequest(deckId, "/qa", { method: "GET", signal });
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImRlY2tBcGkudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBkZWNr77yIVGVhY2hpbmdEZWNrU3BlY++8iee8lui+kSBSRVNUIOWuouaIt+err++8iFI077yJ44CCXG4gKlxuICog56uv54K577yIODEwMCBgL2FwaS90ZWFjaGVyLXYzL2FydGlmYWN0cy9kZWNrcy97ZGVja19pZH1g77yMcHB0X3YyIOadg+Wogemdou+8ie+8mlxuICogLSBQT1NUIC9wYXRjaGVzIOKGkiDmj5DmoYjvvJtQT1NUIC9wYXRjaGVzL3tpZH0vYXBwbHkg4oaSIOW6lOeUqO+8iHJldmlzaW9uKzHvvIlcbiAqIC0gUE9TVCAvcmVnZW4g4oaSIEFJIOWNlemhteS/ruaUuSAvIOW/q+aNt+aTjeS9nO+8iGNvbnRlbnQgfCBub3RlX3ByYWN0aWNl77yJXG4gKiAtIFBPU1QgL3BhZ2VzIOKGkiBBSSDmt7vliqDpobXvvIjln7rkuo7plJrngrnpobXnlJ/miJDnnJ/lrp7lhoXlrrnvvIznpoHmraLnqbrnmb3lgYfpobXvvIlcbiAqIC0gUE9TVCAvZW5yaWNoIOKGkiDpgJDpobXlop7nqKDvvIjlvILmraXkvZzkuJrvvJvov5vluqbnu48gYGFydGlmYWN0cy9leHBvcnRzL3tqb2JfaWR9YCDmn6Xor6LvvIlcbiAqXG4gKiDpk4HlvovvvJrkuI4gcHJlcENlbnRlckFwaSDlkIzkuIDplJnor6/or63kuYnvvIhjb2RlIT09

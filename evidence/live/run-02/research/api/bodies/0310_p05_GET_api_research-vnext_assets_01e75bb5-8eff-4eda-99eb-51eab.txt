@@ -1,0 +1,32 @@
+# GET http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content
+# status=200 run=p05 step=start-modes t=02:25:14
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "721a398a4ca84a638b01427157bc2dd5",
+ "date": "Sat, 21 Nov 2026 18:25:14 GMT",
+ "content-type": "application/pdf",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+<binary/unavailable>
+## binary PDF artifact: artifacts\live-0057-api_research-vnext_assets_01e75bb5-8eff-.pdf (63024 bytes)

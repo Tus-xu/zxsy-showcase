@@ -1,0 +1,23 @@
+: open
+
+event: meta
+data: {"conversation_id": "edd40135-1e80-4298-9df0-3049130b5ab8", "msg_id": "5cfc0fcc-60af-4f87-bc87-86c690d67333", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "再看看题目里给出的条件，它能让我们得到什么？先说说你的想法。"}
+
+event: card
+data: {"card_type": "socratic_hint", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "level": 1, "level_name": "point", "scaffold_label": "focused_scaffold"}
+
+event: card
+data: {"card_type": "socratic_error_analysis", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "step_no": 2, "verdict": "wrong", "misconception": "calculation", "misconception_zh": "计算错误", "error_move": null, "evidence_quote": null, "kp_name": "1.4 随机事件的运算", "probe_question": null}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "step_no": 2, "interaction_id": "ix_344b29c34d6d", "form": "expr_input", "move": "probe_cause", "stage": "reading", "prompt_lead": "用下面的点选面板写出这一步的式子。", "spec": {"prompt": "写出这一步的完整式子（点选面板输入）", "keypad": ["P", "(", "A", "i", ")", "=", "1", "-", "{", "}", "64", "125", "61", "x"]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "不知道怎么写", "interaction_reason": "T18→expr_input[rt_material_failed]", "form_source": "router", "routing_reason": "T18→expr_input[rt_material_failed]"}
+
+event: card
+data: {"card_type": "socratic_progress", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "current_step": 2, "steps_count": 2, "hint_level": 1, "attempts_on_step": 1, "verdict": "wrong", "phase": "guiding", "scaffold_level": 1, "scaffold_label": "focused_scaffold", "kp_name": "1.4 随机事件的运算", "rounds_used": 1, "rounds_limit": 8, "oversplit": false, "oversplit_steps": 2, "fast_path": false, "mastery_state": "improving"}
+
+event: done
+data: {"usage": {"tokens_in": 7, "tokens_out": 12}, "latency_ms": 3125, "message_id": "d7fb2e3e-05e3-4d54-baa6-cf09d155b37e", "meta": {"skill": "socratic_solver", "tutor_action": "interact", "verdict": "wrong", "misconception": "calculation", "interaction_form": "expr_input", "interaction_reason": "T18→expr_input[rt_material_failed]", "p_before": 0.55, "p_after": 0.0717, "fragile": false, "routing_reason": "rt_first_fail_guide", "current_step": 2, "hint_level": 1, "status": "active", "leak_blocked": 2, "socratic": {"phase": "guiding", "scaffold_level": 1, "verdict": "wrong", "misconception": "calculation", "error_move": null, "kp_code": "MATH-PEP-BBIXI1-88F4BA1908", "detour_active": false, "round_used": 1, "leak_blocked": 4, "repetition_blocked": 0, "template_blocked": 0, "form": "expr_input", "form_reason": "T18→expr_input[rt_material_failed]", "move": "probe_cause", "tier": 1, "stage": "reading"}}}
+

@@ -1,0 +1,54 @@
+import { teacherRequest } from "/src/api/teacher/client.ts";
+function putWithProgress(url, file, headers, onProgress, signal) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest();
+    xhr.open("PUT", url, true);
+    for (const [k, v] of Object.entries(headers || {})) xhr.setRequestHeader(k, v);
+    xhr.upload.onprogress = (e) => {
+      if (e.lengthComputable) onProgress?.(e.loaded / e.total);
+    };
+    xhr.onload = () => xhr.status >= 200 && xhr.status < 300 ? resolve() : reject(new Error(`上传失败 (HTTP ${xhr.status})`));
+    xhr.onerror = () => reject(new Error("上传失败：网络中断"));
+    xhr.onabort = () => reject(new Error("上传已取消"));
+    signal?.addEventListener("abort", () => xhr.abort(), { once: true });
+    xhr.send(file);
+  });
+}
+export async function presignUpload(file, opts = {}) {
+  const first = await teacherRequest("POST", "/teacher-v3/upload/presign", {
+    body: { filename: file.name, content_type: file.type || "application/octet-stream", size: file.size },
+    signal: opts.signal
+  });
+  let { key, url, headers, demo } = first.data;
+  if (url) {
+    try {
+      await putWithProgress(url, file, headers, opts.onProgress, opts.signal);
+    } catch {
+      const retry = await teacherRequest("POST", "/teacher-v3/upload/presign", {
+        body: { filename: file.name, content_type: file.type || "application/octet-stream", size: file.size, retry_of: key },
+        signal: opts.signal
+      });
+      key = retry.data.key;
+      url = retry.data.url;
+      headers = retry.data.headers;
+      demo = retry.data.demo;
+      if (!url) return { key, demo: !!demo };
+      opts.onProgress?.(0);
+      await putWithProgress(url, file, headers, opts.onProgress, opts.signal);
+    }
+  }
+  return { key, demo: !!demo };
+}
+export async function uploadFile(file, opts = {}) {
+  const form = new FormData();
+  form.append("file", file);
+  const r = await teacherRequest(
+    "POST",
+    "/teacher-v3/upload/file",
+    { body: form, signal: opts.signal }
+  );
+  opts.onProgress?.(1);
+  return { key: r.data.key, demo: false };
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInRlYWNoZXJWM1VwbG9hZC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcbiAqIOmihOetvuWQjeebtOS8oOWKqeaJi++8iEEwIE0yLUPvvIwwMi1BUkNISVRFQ1RVUkUgwqc1IC8gSUZDLTAwNO+8ie+8mlxuICogICAxKSBQT1NUIC90ZWFjaGVyLXYzL3VwbG9hZC9wcmVzaWduIOaLvyB7a2V5LCB1cmw/fVxuICogICAyKSB1cmwg5a2Y5ZyoIOKGkiBYSFIgUFVUIOijuOaWh+S7tuS9k+ebtOS8oCBNaW5JT++8iOWOn+WbvuWOn+agt++8jOe6oue6vyAz77ya5YmN56uv6Zu25pyJ5o2f5Y6L57yp77yJ77yMXG4gKiAgICAgIFhIUi51cGxvYWQub25wcm9ncmVzcyDmj5Dkvpvov5vluqbvvIhmZXRjaCDml6DkuIrkvKDov5vluqbvvIzop4Egbm90ZXMvQTAtbm90ZXMubWQg5Li76aKY5LqM77yJXG4gKiAgIDMpIOWksei0peiHquWKqOmHjeaWsCBwcmVzaWduIOWGjeS8oOS4gOasoe+8iFVSTCDnn63ml7bmlYjvvIzkuI3nm7Lor5Xov4fmnJ8gVVJM77yJXG4gKiAgIDQpIHVybCDkuLrnqbogPSBtb2NrL+a8lOekuuaooeW8j++8muWPquWPkSBrZXnvvIjkuI3lj5HlrZfoioLvvInvvIxkZW1vPXRydWVcbiAqIOS4muWKoeerr+eCuemaj+WQjuWPquaUtiBrZXnvvIhEQiDlj6rlrZgga2V5IOS4jeWtmCBVUkzvvIwwMi1BUkNISVRFQ1RVUkUgwqc1IOinhOWIme+8ieOAglxuICovXG5pbXBvcnQgeyB0ZWFjaGVyUmVxdWVzdCB9IGZyb20gJy4vdGVhY2hlci9jbGllbnQnXG5cbmV4cG9ydCBpbnRlcmZhY2UgUHJlc2lnblJlc3VsdCB7XG4gIGtleTogc3RyaW5nXG4gIHVybD86IHN0cmluZyB8IG51bGxcbiAgaGVhZGVycz86IFJlY29yZDxzdHJpbmcsIHN0cmluZz5cbiAgZGVtbz86IGJvb2xlYW5cbn1cblxuZXhwb3J0IGludGVyZmFjZSBVcGxvYWRIYW5kbGUge1xuICBrZXk6IHN0cmluZ1xuICBkZW1vOiBib29sZWFuXG59XG5cbmV4cG9ydCBpbnRlcmZhY2UgUHJlc2lnblVwbG9hZE9wdGlvbnMge1xuICAvKiogMC0x77yb55So5LqO5pyA5bCP5LiK5Lyg6L+b5bqm5p2h77yI5LiN5pS55biD5bGA77yJICovXG4gIG9uUHJvZ3Jlc3M/OiAoZnJhY3Rpb246IG51bWJlcikgPT4gdm9pZFxuICBzaWduYWw/OiBBYm9ydFNpZ25hbFxufVxuXG5mdW5jdGlvbiBwdXRXaXRoUHJvZ3Jlc3ModXJsOiBzdHJpbmcsIGZpbGU6IEZpbGUsIGhlYWRlcnM6IFJlY29yZDxzdHJpbmcsIHN0cmluZz4gfCB1bmRlZmluZWQsIG9uUHJvZ3Jlc3M/OiAoZjogbnVtYmVyKSA9PiB2b2lkLCBzaWduYWw/OiBBYm9ydFNpZ25hbCk6IFByb21pc2U8dm9pZD4ge1xuICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT4ge1xuICAgIGNvbnN0IHhociA9IG5ldyBYTUxIdHRwUmVxdWVzdCgpXG4gICAgeGhyLm9wZW4oJ1BVVCcsIHVybCwgdHJ1ZSlcbiAgICBmb3IgKGNvbnN0IFtrLCB2XSBvZiBPYmplY3QuZW50cmllcyhoZWFkZXJzIHx8IH

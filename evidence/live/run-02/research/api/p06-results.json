@@ -1,0 +1,1078 @@
+{
+  "entry": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+    "title": "科研工作台 · 写作"
+  },
+  "injected": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+    "title": "科研工作台 · 写作",
+    "compileBar": "XeLaTeX 自动编译 重新编译 编译成功 02:27",
+    "log": "编译日志 1 错误 0 警告 0 信息 1 清空日志 02:21:12 Compiling main.tex (XeLaTeX)... 02:21:12 Output written on main.pdf (1 pages, 0.0 MB). 02:27:15 ✅ 编译完成，用时 17.4 秒。",
+    "logTabs": "编译日志 1 错误 0 警告 0 信息 1 清空日志",
+    "editor": {
+      "lines": 15,
+      "text": "\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\\begin{equation}\n\n\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n"
+    },
+    "preview": {
+      "text": "/ 1 100%",
+      "canvases": [
+        {
+          "w": 595,
+          "h": 841,
+          "nonWhiteRatio": 0.0069
+        }
+      ],
+      "pageTotal": "/ 1",
+      "zoom": "100%"
+    },
+    "toasts": [
+      "已保存"
+    ],
+    "agent": "π Research Agent 在线 基于草稿、编译日志与项目文献 当前上下文 main.tex L11 当前 Section 相关论文 · 4 篇 请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。 π Research Agent 结论：目前无法作答 本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。 需要你补充的最小信息（任选一种） 原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图； 题录：标题、作者、期刊或 arXiv 编号、年份、DOI； 定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。 拿到材料后我会给出的形式 一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广； 原文出处：给出可核验的定位，形如 [作者, 年, 期刊] § 1, p. 1, 第 𝑘 段, 句 𝑚 ( DOI : ⋯ ) [作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯) 并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。 说明 若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。 这篇论文第 1 页讲了什么？请用两句话概括，并指出原文依据。 π Research Agent 结论：仍然无法作答 这与上一轮的判断一致：本会话没有这篇文献。会话摘要显示 artifact_count = 0（附件数为 0），摘要中也没有任何题录、DOI、正文片段或第 1 页的文本与图像。因此“第 1 页讲了什么”缺少唯一的输入对象——连“第 1 页”指向哪一篇都无法确定，我既不能概括其内容，也不能给出原文依据。 在这里，编造一条结论加一条看似精确的出处（例如虚构的 §1, p.\\,1 与 DOI），比不回答的危害更大：错误引文一旦进入稿件，后续所有基于它的推导都会失去可核验性。 需要你补充的最小信息（任选其一即可） 原文：把第 1 页的正文粘贴进来，或上传 PDF／第 1 页截图； 题录：标题、作者、期刊或 arXiv 编号、年份、DOI； 定位线索：若你已知结论所在位置，给出小节号或图表号，例如 Abstract 末句、§1 第 3 段、Theorem 1.1。 拿到材料后我会给出的形式 两句话概括：每句独立成句，逐句保留原文的限定条件（适用范围、假设、量词），不做跨页推广；两句话之间按“主结论 / 次要结果或方法”分层，而不是把一句话拆成两句凑数； 原文依据：给出可核验定位，形如 [作者, 年, 期刊] § 1, p. 1, 第 𝑘 段, 句 𝑚 ( DOI : ⋯ ) [作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯) 并附逐字引文（quoted text）作为支撑；引文与转述会显式区分，绝不把“我的概括”冒充“作者原话”。 一个需要你先决定的点 若第 1 页含多个并列结论（摘要里给出 2–3 条贡献是常见情形），我可以按两种方式处理： 分层式：主结论一句、次要结果一句，各自附引文； 指定式：你指出要哪一条，我只写那一条并在第二句给出其支撑引文。 请说明你偏好哪一种，或直接把第 1 页材料贴进来，我据此产出两句话概括与对应出处。 π 翻译成英文 证据充分 02:27 已完成翻译（英文；218 字符 → 739 字符）。 建议修改 -理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。 +The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and citations and page numbers can be checked line by line against the pages of this lecture note. Keywords: variational problem; Galerkin approximation; Céa's lemma; V-ellipticity; a priori error estimates | Reading Tip: You can select any paragraph, ask a question in the right Research Agent, then click \"Locate Original Text\" to return to the corresponding paragraph on this page. 应用修复 加入笔记 重新编译 快捷能力 LaTeX 错误解释 改进建议 引用补全 公式检查 语言润色 翻译成英文",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\nmain.tex\n论文结构\n1 实测写作小节\nmain.tex\n已保存\nB\nI\n{}\nπ\n⌐\n行号\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\\begin{equation}\n\n\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n\n/ 1\n100%\n编译日志\n1\n错误\n0\n警告\n0\n信息\n1\n清空日志\n02:21:12\nCompiling main.tex (XeLaTeX)...\n02:21:12\nOutput written on main.pdf (1 pages, 0.0 MB).\n02:27:15\n✅ 编译完成，用时 17.4 秒。\nXeLaTeX\n自动编译\n重新编译\n编译成功 02:27\nπ\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex L11\n当前 Section\n相关论文 · 4 篇\n\n请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。\n\nπ\nResearch Agent\n结论：目前无法作答\n\n本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。\n\n需要你补充的最小信息（任选一种）\n原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。\n拿到材料后我会给出的形式\n一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广；\n原文出处：给出可核验的定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。\n\n说明\n\n若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。\n\n这篇论文第 1 页讲了什么？请用两句话概括，并指出原文依据。\n\nπ\nResearch Agent\n结论：仍然无法作答\n\n这与上一轮的判断一致：本会话没有这篇文献。会话摘要显示 artifact_count = 0（附件数为 0），摘要中也没有任何题录、DOI、正文片段或第 1 页的文本与图像。因此“第 1 页讲了什么”缺少唯一的输入对象——连“第 1 页”指向哪一篇都无法确定，我既不能概括其内容，也不能给出原文依据。\n\n在这里，编造一条结论加一条看似精确的出处（例如虚构的 §1, p.\\,1 与 DOI），比不回答的危害更大：错误引文一旦进入稿件，后续所有基于它的推导都会失去可核验性。\n\n需要你补充的最小信息（任选其一即可）\n原文：把第 1 页的正文粘贴进来，或上传 PDF／第 1 页截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：若你已知结论所在位置，给出小节号或图表号，例如 Abstract 末句、§1 第 3 段、Theorem 1.1。\n拿到材料后我会给出的形式\n两句话概括：每句独立成句，逐句保留原文的限定条件（适用范围、假设、量词），不做跨页推广；两句话之间按“主结论 / 次要结果或方法”分层，而不是把一句话拆成两句凑数；\n原文依据：给出可核验定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为支撑；引文与转述会显式区分，绝不把“我的概括”冒充“作者原话”。\n\n一个需要你先决定的点\n\n若第 1 页含多个并列结论（摘要里给出 2–3 条贡献是常见情形），我可以按两种方式处理：\n\n分层式：主结论一句、次要结果一句，各自附引文；\n指定式：你指出要哪一条，我只写那一条并在第二句给出其支撑引文。\n\n请说明你偏好哪一种，或直接把第 1 页材料贴进来，我据此产出两句话概括与对应出处。\n\nπ\n翻译成英文\n证据充分\n02:27\n\n已完成翻译（英文；218 字符 → 739 字符）。\n\n建议修改\n\n-理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。\n+The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and citations and page numbers can be checked line by line against the pages of this lecture note. Keywords: variational problem; Galerkin approximation; Céa's lemma; V-ellipticity; a priori error estimates | Reading Tip: You can select any paragraph, ask a question in the right Research Agent, then click \"Locate Original Text\" to return to the corresponding paragraph on this page.\n应用修复\n加入笔记\n重新编译\n快捷能力\nLaTeX 错误解释\n改进建议\n引用补全\n公式检查\n语言润色\n翻译成英文",
+    "tag": "15-injected"
+  },
+  "inject_saved": {
+    "saveIndicator": "已保存",
+    "files": [
+      "文件树\n论文结构",
+      "文件树",
+      "论文结构",
+      "",
+      ""
+    ]
+  },
+  "fail_from": 47,
+  "fail_wait": {
+    "polls": [
+      {
+        "at": 3,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 5,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 8,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 10,
+        "bar": "XeLaTeX 自动编译 重新编译 编译失败"
+      }
+    ]
+  },
+  "fail_state": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+    "title": "科研工作台 · 写作",
+    "compileBar": "XeLaTeX 自动编译 重新编译 编译失败",
+    "log": "编译日志 1 错误 1 警告 0 信息 0 清空日志 02:27:32 Compiling main.tex (XeLaTeX)... 02:27:32 Missing $ inserted. main.tex:11 02:27:43 ❌ 编译失败。xelatex 退出码 1（1 个错误）",
+    "logTabs": "编译日志 1 错误 1 警告 0 信息 0 清空日志",
+    "editor": {
+      "lines": 15,
+      "text": "\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\\begin{equation}\n\n\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n"
+    },
+    "preview": {
+      "text": "/ 1 100%",
+      "canvases": [
+        {
+          "w": 595,
+          "h": 841,
+          "nonWhiteRatio": 0.0069
+        }
+      ],
+      "pageTotal": "/ 1",
+      "zoom": "100%"
+    },
+    "toasts": [
+      "已保存"
+    ],
+    "agent": "π Research Agent 在线 基于草稿、编译日志与项目文献 当前上下文 main.tex L11 当前 Section 相关论文 · 4 篇 请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。 π Research Agent 结论：目前无法作答 本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。 需要你补充的最小信息（任选一种） 原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图； 题录：标题、作者、期刊或 arXiv 编号、年份、DOI； 定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。 拿到材料后我会给出的形式 一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广； 原文出处：给出可核验的定位，形如 [作者, 年, 期刊] § 1, p. 1, 第 𝑘 段, 句 𝑚 ( DOI : ⋯ ) [作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯) 并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。 说明 若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。 这篇论文第 1 页讲了什么？请用两句话概括，并指出原文依据。 π Research Agent 结论：仍然无法作答 这与上一轮的判断一致：本会话没有这篇文献。会话摘要显示 artifact_count = 0（附件数为 0），摘要中也没有任何题录、DOI、正文片段或第 1 页的文本与图像。因此“第 1 页讲了什么”缺少唯一的输入对象——连“第 1 页”指向哪一篇都无法确定，我既不能概括其内容，也不能给出原文依据。 在这里，编造一条结论加一条看似精确的出处（例如虚构的 §1, p.\\,1 与 DOI），比不回答的危害更大：错误引文一旦进入稿件，后续所有基于它的推导都会失去可核验性。 需要你补充的最小信息（任选其一即可） 原文：把第 1 页的正文粘贴进来，或上传 PDF／第 1 页截图； 题录：标题、作者、期刊或 arXiv 编号、年份、DOI； 定位线索：若你已知结论所在位置，给出小节号或图表号，例如 Abstract 末句、§1 第 3 段、Theorem 1.1。 拿到材料后我会给出的形式 两句话概括：每句独立成句，逐句保留原文的限定条件（适用范围、假设、量词），不做跨页推广；两句话之间按“主结论 / 次要结果或方法”分层，而不是把一句话拆成两句凑数； 原文依据：给出可核验定位，形如 [作者, 年, 期刊] § 1, p. 1, 第 𝑘 段, 句 𝑚 ( DOI : ⋯ ) [作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯) 并附逐字引文（quoted text）作为支撑；引文与转述会显式区分，绝不把“我的概括”冒充“作者原话”。 一个需要你先决定的点 若第 1 页含多个并列结论（摘要里给出 2–3 条贡献是常见情形），我可以按两种方式处理： 分层式：主结论一句、次要结果一句，各自附引文； 指定式：你指出要哪一条，我只写那一条并在第二句给出其支撑引文。 请说明你偏好哪一种，或直接把第 1 页材料贴进来，我据此产出两句话概括与对应出处。 π 翻译成英文 证据充分 02:27 已完成翻译（英文；218 字符 → 739 字符）。 建议修改 -理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。 +The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and citations and page numbers can be checked line by line against the pages of this lecture note. Keywords: variational problem; Galerkin approximation; Céa's lemma; V-ellipticity; a priori error estimates | Reading Tip: You can select any paragraph, ask a question in the right Research Agent, then click \"Locate Original Text\" to return to the corresponding paragraph on this page. 应用修复 加入笔记 重新编译 快捷能力 LaTeX 错误解释 改进建议 引用补全 公式检查 语言润色 翻译成英文",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\nmain.tex\n论文结构\n1 实测写作小节\nmain.tex\n已保存\nB\nI\n{}\nπ\n⌐\n行号\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\\begin{equation}\n\n\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n\n/ 1\n100%\n编译日志\n1\n错误\n1\n警告\n0\n信息\n0\n清空日志\n02:27:32\nCompiling main.tex (XeLaTeX)...\n02:27:32\nMissing $ inserted.\nmain.tex:11\n02:27:43\n❌ 编译失败。xelatex 退出码 1（1 个错误）\nXeLaTeX\n自动编译\n重新编译\n编译失败\nπ\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex L11\n当前 Section\n相关论文 · 4 篇\n\n请用一句话解释这篇文献第 1 页的主要结论，并给出原文出处。\n\nπ\nResearch Agent\n结论：目前无法作答\n\n本会话中没有这篇文献：附件数为 0，没有题录信息、DOI、正文片段，也没有第 1 页的任何图片或文本。因此我无法判断“第 1 页的主要结论”是什么，也不会凭空生成一条结论或伪造一条出处。编造引文比不回答的危害更大。\n\n需要你补充的最小信息（任选一种）\n原文：把第 1 页的文本粘贴进来，或上传 PDF 或截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：如果你已知结论大致位置，给出小节号或图表号（例如 “Abstract 末句”“§1 第 3 段”“Theorem 1.1”）。\n拿到材料后我会给出的形式\n一句话结论：限制在单句内，保留原文的限定条件（适用范围、假设、量词），不做过度推广；\n原文出处：给出可核验的定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为依据；引文与转述会明确区分，避免把“我的概括”写成“作者原话”。\n\n说明\n\n若第 1 页含多个并列结论（例如摘要给出 2–3 条贡献），我会先问清你要哪一条，或按“主结论、次要结果”分层列出，而不是强行压成一句造成失真。\n\n这篇论文第 1 页讲了什么？请用两句话概括，并指出原文依据。\n\nπ\nResearch Agent\n结论：仍然无法作答\n\n这与上一轮的判断一致：本会话没有这篇文献。会话摘要显示 artifact_count = 0（附件数为 0），摘要中也没有任何题录、DOI、正文片段或第 1 页的文本与图像。因此“第 1 页讲了什么”缺少唯一的输入对象——连“第 1 页”指向哪一篇都无法确定，我既不能概括其内容，也不能给出原文依据。\n\n在这里，编造一条结论加一条看似精确的出处（例如虚构的 §1, p.\\,1 与 DOI），比不回答的危害更大：错误引文一旦进入稿件，后续所有基于它的推导都会失去可核验性。\n\n需要你补充的最小信息（任选其一即可）\n原文：把第 1 页的正文粘贴进来，或上传 PDF／第 1 页截图；\n题录：标题、作者、期刊或 arXiv 编号、年份、DOI；\n定位线索：若你已知结论所在位置，给出小节号或图表号，例如 Abstract 末句、§1 第 3 段、Theorem 1.1。\n拿到材料后我会给出的形式\n两句话概括：每句独立成句，逐句保留原文的限定条件（适用范围、假设、量词），不做跨页推广；两句话之间按“主结论 / 次要结果或方法”分层，而不是把一句话拆成两句凑数；\n原文依据：给出可核验定位，形如\n[作者, 年, 期刊]\n§\n \n1, p.\n \n1, 第 \n𝑘\n 段, 句 \n𝑚\n(\nDOI\n:\n⋯\n \n)\n[作者, 年, 期刊]§1, p.1, 第 k 段, 句 m(DOI:⋯)\n\n并附逐字引文（quoted text）作为支撑；引文与转述会显式区分，绝不把“我的概括”冒充“作者原话”。\n\n一个需要你先决定的点\n\n若第 1 页含多个并列结论（摘要里给出 2–3 条贡献是常见情形），我可以按两种方式处理：\n\n分层式：主结论一句、次要结果一句，各自附引文；\n指定式：你指出要哪一条，我只写那一条并在第二句给出其支撑引文。\n\n请说明你偏好哪一种，或直接把第 1 页材料贴进来，我据此产出两句话概括与对应出处。\n\nπ\n翻译成英文\n证据充分\n02:27\n\n已完成翻译（英文；218 字符 → 739 字符）。\n\n建议修改\n\n-理椭圆型偏微分方程有限元方法的三个基础环节：变分形式、Galerkin 逼近与 Céa 引理。所 有命题都在有限维子空间上讨论，并在第 2.3 节给出 Céa 引理的完整证明。本材料为离线演示而自撰 ，引用与页码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。\n+The three fundamental components of the finite element method for elliptic partial differential equations: variational formulation, Galerkin approximation, and Céa's lemma. All propositions are discussed on finite-dimensional subspaces, and a complete proof of Céa's lemma is given in Section 2.3. This material is self-written for offline demonstration, and citations and page numbers can be checked line by line against the pages of this lecture note. Keywords: variational problem; Galerkin approximation; Céa's lemma; V-ellipticity; a priori error estimates | Reading Tip: You can select any paragraph, ask a question in the right Research Agent, then click \"Locate Original Text\" to return to the corresponding paragraph on this page.\n应用修复\n加入笔记\n重新编译\n快捷能力\nLaTeX 错误解释\n改进建议\n引用补全\n公式检查\n语言润色\n翻译成英文",
+    "tag": "15-failed"
+  },
+  "fail_api": [
+    {
+      "id": 48,
+      "step": "compile-fail",
+      "method": "POST",
+      "status": 201,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile",
+      "req": "{\"engine\":\"xelatex\",\"entry\":\"main.tex\"}",
+      "resp": "{\"compile_run\":{\"id\":\"990ebabc-28f0-459a-bf87-d614e7eb1be8\",\"project_id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"engine\":\"xelatex\",\"entry\":\"main.tex\",\"status\":\"failed\",\"pdf_artifact_id\":null,\"pdf_available\":false,\"page_count\":0,\"pdf_size_bytes\":0,\"duration_ms\":10828,\"error_count\":1,\"warning_count\":0,\"exit_code\":1,\"log_lines\":[{\"ts\":\"2026-11-21T18:27:32.260576+00:00\",\"level\":\"error\",\"text\":\"Missing $ inserted.\",\"file\":\"main.tex\",\"line\":11}],\"diagnostics\":{\"bib_tool\":\"\",\"log_char_count\":29660,\"engine\":\"xelatex\",\"entry\":\"main.tex\"},\"error_code\":\"EXPORT_COMPILE_FAILED\",\"error_message\":\"xelatex 退出码 1（1 个错误）\",\"created_at\":\"2026-11-21T18:27:32.260576+00:00\",\"finished_at\":\"2026-11-21T18:27:43.099019+00:00\"},\"last_successful_pdf_artifact_id\":\"e90b0426-f9a1-43eb-8483-22fdb09166f5\"}",
+      "pdf_artifact": null
+    }
+  ],
+  "write_agent_starters": [
+    "更多操作",
+    "main.tex L11",
+    "当前 Section",
+    "解释编译错误 读取编译日志，定位并解释错误 →",
+    "改进建议 分析草稿结构与论证，给出可执行建议 →",
+    "找相关证据 在项目文献中寻找支持或反对的证据 →",
+    "检查公式 检查当前公式的符号、条件与推导 →",
+    "语言润色",
+    "翻译成英文",
+    "引用当前选区",
+    "提及",
+    "引用项目文献",
+    "发送"
+  ],
+  "agent_error_reply": "π\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex L11\n当前 Section\n相关论文 · 4 篇\nπ\nLaTeX 错误解释\n存在冲突\n02:27\n!\n数学模式定界符缺失\n\n第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 \n来补救并报错；也可能是前面某个\n来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 \n.\n.\n.\n... 包裹；前文某个 \n或数学环境未正确闭合，使第\n11\n行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第\n11\n行需要数学排版的内容并用\n或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用...\n包裹，同时确认前文所有\n包裹，同时确认前文所有 与数学环境都已成对闭合。\n\n文件位置\n\nmain.tex · 第 11 行\n\n定位到第 11 行\n加入笔记\n快捷能力\nLaTeX 错误解释\n改进建议\n引用补全\n公式检查\n语言润色\n翻译成英文",
+  "recover_from": 52,
+  "after_undo": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+    "title": "科研工作台 · 写作",
+    "compileBar": "XeLaTeX 自动编译 重新编译 编译失败",
+    "log": "编译日志 1 错误 1 警告 0 信息 0 清空日志 02:27:32 Compiling main.tex (XeLaTeX)... 02:27:32 Missing $ inserted. main.tex:11 02:27:43 ❌ 编译失败。xelatex 退出码 1（1 个错误）",
+    "logTabs": "编译日志 1 错误 1 警告 0 信息 0 清空日志",
+    "editor": {
+      "lines": 14,
+      "text": "\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n"
+    },
+    "preview": {
+      "text": "/ 1 100%",
+      "canvases": [
+        {
+          "w": 595,
+          "h": 841,
+          "nonWhiteRatio": 0.0069
+        }
+      ],
+      "pageTotal": "/ 1",
+      "zoom": "100%"
+    },
+    "toasts": [
+      "已保存"
+    ],
+    "agent": "π Research Agent 在线 基于草稿、编译日志与项目文献 当前上下文 main.tex L10 当前 Section 相关论文 · 4 篇 π LaTeX 错误解释 存在冲突 02:27 ! 数学模式定界符缺失 第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 来补救并报错；也可能是前面某个 来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 . . . ... 包裹；前文某个 或数学环境未正确闭合，使第 11 行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第 11 行需要数学排版的内容并用 或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用... 包裹，同时确认前文所有 包裹，同时确认前文所有 与数学环境都已成对闭合。 文件位置 main.tex · 第 11 行 定位到第 11 行 加入笔记 快捷能力 LaTeX 错误解释 改进建议 引用补全 公式检查 语言润色 翻译成英文",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\nmain.tex\n论文结构\n1 实测写作小节\nmain.tex\n已保存\nB\nI\n{}\nπ\n⌐\n行号\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n\n/ 1\n100%\n编译日志\n1\n错误\n1\n警告\n0\n信息\n0\n清空日志\n02:27:32\nCompiling main.tex (XeLaTeX)...\n02:27:32\nMissing $ inserted.\nmain.tex:11\n02:27:43\n❌ 编译失败。xelatex 退出码 1（1 个错误）\nXeLaTeX\n自动编译\n重新编译\n编译失败\nπ\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex L10\n当前 Section\n相关论文 · 4 篇\nπ\nLaTeX 错误解释\n存在冲突\n02:27\n!\n数学模式定界符缺失\n\n第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 \n来补救并报错；也可能是前面某个\n来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 \n.\n.\n.\n... 包裹；前文某个 \n或数学环境未正确闭合，使第\n11\n行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第\n11\n行需要数学排版的内容并用\n或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用...\n包裹，同时确认前文所有\n包裹，同时确认前文所有 与数学环境都已成对闭合。\n\n文件位置\n\nmain.tex · 第 11 行\n\n定位到第 11 行\n加入笔记\n快捷能力\nLaTeX 错误解释\n改进建议\n引用补全\n公式检查\n语言润色\n翻译成英文",
+    "tag": "15-undone"
+  },
+  "recover_wait": {
+    "polls": [
+      {
+        "at": 3,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 5,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 8,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 10,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 13,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 15,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 18,
+        "bar": "XeLaTeX 自动编译 重新编译 编译中…"
+      },
+      {
+        "at": 20,
+        "bar": "XeLaTeX 自动编译 重新编译 编译成功 02:28"
+      }
+    ]
+  },
+  "recovered": {
+    "url": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+    "title": "科研工作台 · 写作",
+    "compileBar": "XeLaTeX 自动编译 重新编译 编译成功 02:28",
+    "log": "编译日志 1 错误 0 警告 0 信息 1 清空日志 02:28:26 Compiling main.tex (XeLaTeX)... 02:28:26 Output written on main.pdf (1 pages, 0.0 MB). 02:28:47 ✅ 编译完成，用时 20.9 秒。",
+    "logTabs": "编译日志 1 错误 0 警告 0 信息 1 清空日志",
+    "editor": {
+      "lines": 14,
+      "text": "\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n"
+    },
+    "preview": {
+      "text": "/ 1 100%",
+      "canvases": [
+        {
+          "w": 595,
+          "h": 841,
+          "nonWhiteRatio": 0.0069
+        }
+      ],
+      "pageTotal": "/ 1",
+      "zoom": "100%"
+    },
+    "toasts": [
+      "已保存"
+    ],
+    "agent": "π Research Agent 在线 基于草稿、编译日志与项目文献 当前上下文 main.tex L10 当前 Section 相关论文 · 4 篇 π LaTeX 错误解释 存在冲突 02:27 ! 数学模式定界符缺失 第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 来补救并报错；也可能是前面某个 来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 . . . ... 包裹；前文某个 或数学环境未正确闭合，使第 11 行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第 11 行需要数学排版的内容并用 或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用... 包裹，同时确认前文所有 包裹，同时确认前文所有 与数学环境都已成对闭合。 文件位置 main.tex · 第 11 行 定位到第 11 行 加入笔记 快捷能力 LaTeX 错误解释 改进建议 引用补全 公式检查 语言润色 翻译成英文",
+    "bodyText": "π\n智学数研\n科研端\n阅读\n写作\n历史\n林\n林知远\n\n未命名项目\n\n学术论文项目 · 进行中\n\n项目\n文献\n笔记\n设置\n文件树\n论文结构\n未命名项目\nmain.tex\n论文结构\n1 实测写作小节\nmain.tex\n已保存\nB\nI\n{}\nπ\n⌐\n行号\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n\n\n/ 1\n100%\n编译日志\n1\n错误\n0\n警告\n0\n信息\n1\n清空日志\n02:28:26\nCompiling main.tex (XeLaTeX)...\n02:28:26\nOutput written on main.pdf (1 pages, 0.0 MB).\n02:28:47\n✅ 编译完成，用时 20.9 秒。\nXeLaTeX\n自动编译\n重新编译\n编译成功 02:28\nπ\n\nResearch Agent\n在线\n\n基于草稿、编译日志与项目文献\n\n当前上下文\nmain.tex L10\n当前 Section\n相关论文 · 4 篇\nπ\nLaTeX 错误解释\n存在冲突\n02:27\n!\n数学模式定界符缺失\n\n第 11 行出现了只能在数学模式下使用的符号或命令（如上下标、希腊字母等），但该处并未处于数学环境，编译器因此插入 \n来补救并报错；也可能是前面某个\n来补救并报错；也可能是前面某个 未配对闭合，导致数学环境错位到这一行。 可能原因：在该行直接写了上下标、希腊字母等数学符号，却没有用 \n.\n.\n.\n... 包裹；前文某个 \n或数学环境未正确闭合，使第\n11\n行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第\n11\n行需要数学排版的内容并用\n或数学环境未正确闭合，使第11行被误判为普通文本；行内含有未转义的特殊字符，被当作数学或命令起始符号。检查第11行需要数学排版的内容并用...\n包裹，同时确认前文所有\n包裹，同时确认前文所有 与数学环境都已成对闭合。\n\n文件位置\n\nmain.tex · 第 11 行\n\n定位到第 11 行\n加入笔记\n快捷能力\nLaTeX 错误解释\n改进建议\n引用补全\n公式检查\n语言润色\n翻译成英文",
+    "tag": "15-recovered"
+  },
+  "recover_api": [
+    {
+      "id": 53,
+      "method": "PUT",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex",
+      "resp": "{\"file\":{\"id\":\"6cb9c247-efb8-4a1d-88f2-b652c9402112\",\"path\":\"main.tex\",\"kind\":\"tex\",\"revision\":5,\"asset_id\":null,\"size\":278,\"updated_at\":\"2026-11-21T18:28:19.382285+00:00\",\"saved_at\":\"2026-11-21T18:28:19.382285+00:00\"}}",
+      "pdf_artifact": null,
+      "pdf_bytes": null
+    },
+    {
+      "id": 54,
+      "method": "POST",
+      "status": 201,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile",
+      "resp": "{\"compile_run\":{\"id\":\"7612c393-0c18-4b0c-a6a1-b94eb5f3b4ba\",\"project_id\":\"e49b27e2-b05f-45c3-ac99-dd0792d9ab80\",\"engine\":\"xelatex\",\"entry\":\"main.tex\",\"status\":\"success\",\"pdf_artifact_id\":\"a8227a9c-cfe1-4e63-a602-2c3d451a9a5f\",\"pdf_available\":true,\"page_count\":1,\"pdf_size_bytes\":22880,\"duration_ms\":20906,\"error_count\":0,\"warning_count\":0,\"exit_code\":0,\"log_lines\":[{\"ts\":\"2026-11-21T18:28:26.688019+00:00\",\"level\":\"info\",\"text\":\"Output written (1 pages)\",\"file\":\"main.tex\",\"line\":null}],\"diagnostics\":{\"bib_tool\":\"\",\"log_char_count\":59428,\"engine\":\"xelatex\",\"entry\":\"main.tex\"},\"error_code\":\"\",\"error_message\":\"\",\"created_at\":\"2026-11-21T18:28:26.688019+00:00\",\"finished_at\":\"2026-11-21T18:28:47.625362+00:00\"},\"last_successful_pdf_artifact_id\":\"a8227a9c-cfe1-4e63-a602-2c3d451a9a5f\"}",
+      "pdf_artifact": null,
+      "pdf_bytes": null
+    },
+    {
+      "id": 55,
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/7612c393-0c18-4b0c-a6a1-b94eb5f3b4ba/pdf",
+      "resp": "",
+      "pdf_artifact": "artifacts\\live-0055-api_research-vnext_projects_e49b27e2-b05.pdf",
+      "pdf_bytes": 22880
+    }
+  ],
+  "read_agent_starters": [
+    "新对话",
+    "更多操作",
+    "当前选定",
+    "Mathesis 离线演示项目（自撰演示材料）",
+    "main.tex",
+    "评判选中内容 先选中一段推导或结论，检查是否成立 →",
+    "找相关证据 在项目文献中寻找支持或反对的证据 →",
+    "LaTeX 对照 正在对照文献与当前草稿…… →",
+    "检查公式 检查当前公式的符号、条件与推导 →",
+    "翻译与改写",
+    "引用当前选区",
+    "提及",
+    "引用项目文献",
+    "发送"
+  ],
+  "read_agent_pane": "π\n\nResearch Agent\n科研助手\n在线\n\n基于文献、公式与项目笔记\n\n新对话\n当前上下文\n（基于选定文献篇）\n当前选定\nMathesis 离线演示项目（自撰演示材料）\nmain.tex\n项目知识库 · 4 篇\nπ\n今天想推进什么？\n\n选中论文中的一句话或公式，我会在这里帮你解释、评判、找证据。\n\n评判选中内容\n先选中一段推导或结论，检查是否成立\n→\n找相关证据\n在项目文献中寻找支持或反对的证据\n→\nLaTeX 对照\n正在对照文献与当前草稿……\n→\n检查公式\n检查当前公式的符号、条件与推导\n→\n更多能力\n翻译与改写",
+  "account_tabs": {
+    "账号安全": "林\n林知远\n科研端 · 研究者\n📱 138****1003\n🏛 浙江大学数学科学学院\n📅 2026/10 加入\n进入科研工作台\n退出登录\n个人资料\n账号安全\n科研概览\n修改密码\n至少 15 个字符\n新密码\n确认新密码\n设置新密码\n\n设置密码后，可在登录页选择「密码登录」。忘记密码请从登录页重置。\n\n登录设备\n刷新\n未知设备\n当前\n科研端 · 研究者 · IP 未记录 · 刚刚\n未知设备\n科研端 · 研究者 · IP 未记录 · 7 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 9 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 11 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 17 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 19 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 22 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 24 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 26 分钟前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 23 小时前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 23 小时前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 23 小时前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 23 小时前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 23 小时前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 23 小时前\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 11月21日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 11月21日\n未知设备\n科研端 · 研究者 · IP 未记录 · 11月20日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 11月20日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 10月27日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 10月27日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 10月27日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 10月27日\n退出该设备\n未知设备\n科研端 · 研究者 · IP 未记录 · 10月27日\n退出该设备\n退出全部设备\n会结束所有设备上的登录，需要重新验证。\n退出全部\n更多账号设置\n统一身份认证\n\n更换绑定手机、下载个人数据、申请注销账号等全局安全操作，在平台统一的账号与安全页完成。\n\n前往账号与安全 →",
+    "科研概览": "林\n林知远\n科研端 · 研究者\n📱 138****1003\n🏛 浙江大学数学科学学院\n📅 2026/10 加入\n进入科研工作台\n退出登录\n个人资料\n账号安全\n科研概览\n3\n项目\n0\n文献\n0\n草稿\n0\n笔记\n最近项目\n启动页\n未命名项目\n暂无描述 · 3 分钟前\n阅读\n写作\n未命名项目\n暂无描述 · 23 小时前\n阅读\n写作\n未命名项目\n暂无描述 · 11月21日\n阅读\n写作\n\n统计只展示真实项目数据；没有数据的项目显示为 —。"
+  },
+  "api_all": [
+    {
+      "id": 1,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 2,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 3,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 4,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 5,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 6,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 7,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 8,
+      "step": "session",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh",
+      "pdf_artifact": null
+    },
+    {
+      "id": 9,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me",
+      "pdf_artifact": null
+    },
+    {
+      "id": 10,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 11,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 12,
+      "step": "session",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+      "pdf_artifact": null
+    },
+    {
+      "id": 13,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 14,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/auth.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 15,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/client.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 16,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 17,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/index.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 18,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 19,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 20,
+      "step": "open-write",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh",
+      "pdf_artifact": null
+    },
+    {
+      "id": 21,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me",
+      "pdf_artifact": null
+    },
+    {
+      "id": 22,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 23,
+      "step": "open-write",
+      "method": "GET",
+      "status": 304,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 24,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 25,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 26,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 27,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 28,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 29,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count",
+      "pdf_artifact": null
+    },
+    {
+      "id": 30,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20",
+      "pdf_artifact": null
+    },
+    {
+      "id": 31,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+      "pdf_artifact": null
+    },
+    {
+      "id": 32,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 33,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80",
+      "pdf_artifact": null
+    },
+    {
+      "id": 34,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat",
+      "pdf_artifact": null
+    },
+    {
+      "id": 35,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent",
+      "pdf_artifact": null
+    },
+    {
+      "id": 36,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview",
+      "pdf_artifact": null
+    },
+    {
+      "id": 37,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files",
+      "pdf_artifact": null
+    },
+    {
+      "id": 38,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers",
+      "pdf_artifact": null
+    },
+    {
+      "id": 39,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1",
+      "pdf_artifact": null
+    },
+    {
+      "id": 40,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers",
+      "pdf_artifact": null
+    },
+    {
+      "id": 41,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex",
+      "pdf_artifact": null
+    },
+    {
+      "id": 42,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content",
+      "pdf_artifact": "artifacts\\live-0042-api_research-vnext_assets_01e75bb5-8eff-.pdf"
+    },
+    {
+      "id": 43,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/latest",
+      "pdf_artifact": null
+    },
+    {
+      "id": 44,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/outline?entry=main.tex",
+      "pdf_artifact": null
+    },
+    {
+      "id": 45,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/5ef05264-f399-4045-8804-2d3b06fef59e/pdf",
+      "pdf_artifact": "artifacts\\live-0045-api_research-vnext_projects_e49b27e2-b05.pdf"
+    },
+    {
+      "id": 46,
+      "step": "open-write",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex",
+      "pdf_artifact": null
+    },
+    {
+      "id": 47,
+      "step": "inject-error",
+      "method": "PUT",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex",
+      "pdf_artifact": null
+    },
+    {
+      "id": 48,
+      "step": "compile-fail",
+      "method": "POST",
+      "status": 201,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile",
+      "pdf_artifact": null
+    },
+    {
+      "id": 49,
+      "step": "agent-explain-error",
+      "method": "POST",
+      "status": 202,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks",
+      "pdf_artifact": null
+    },
+    {
+      "id": 50,
+      "step": "agent-explain-error",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/agent/tasks/4378c70f-6ba5-46f3-a1dd-1e4e196ab72e",
+      "pdf_artifact": null
+    },
+    {
+      "id": 51,
+      "step": "agent-explain-error",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/agent/tasks/4378c70f-6ba5-46f3-a1dd-1e4e196ab72e",
+      "pdf_artifact": null
+    },
+    {
+      "id": 52,
+      "step": "agent-explain-error",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/agent/tasks/4378c70f-6ba5-46f3-a1dd-1e4e196ab72e",
+      "pdf_artifact": null
+    },
+    {
+      "id": 53,
+      "step": "recover",
+      "method": "PUT",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex",
+      "pdf_artifact": null
+    },
+    {
+      "id": 54,
+      "step": "recover",
+      "method": "POST",
+      "status": 201,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile",
+      "pdf_artifact": null
+    },
+    {
+      "id": 55,
+      "step": "recover",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/7612c393-0c18-4b0c-a6a1-b94eb5f3b4ba/pdf",
+      "pdf_artifact": "artifacts\\live-0055-api_research-vnext_projects_e49b27e2-b05.pdf"
+    },
+    {
+      "id": 56,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 57,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 58,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 59,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 60,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 61,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 62,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 63,
+      "step": "agent-read-starters",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh",
+      "pdf_artifact": null
+    },
+    {
+      "id": 64,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me",
+      "pdf_artifact": null
+    },
+    {
+      "id": 65,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 66,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 67,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 68,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/files.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 69,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/types.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 70,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 71,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 72,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications?limit=20",
+      "pdf_artifact": null
+    },
+    {
+      "id": 73,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/notifications/unread-count",
+      "pdf_artifact": null
+    },
+    {
+      "id": 74,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/notes.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 75,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+      "pdf_artifact": null
+    },
+    {
+      "id": 76,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/notes/recent?limit=6",
+      "pdf_artifact": null
+    },
+    {
+      "id": 77,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80",
+      "pdf_artifact": null
+    },
+    {
+      "id": 78,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/chat",
+      "pdf_artifact": null
+    },
+    {
+      "id": 79,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers",
+      "pdf_artifact": null
+    },
+    {
+      "id": 80,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/overview",
+      "pdf_artifact": null
+    },
+    {
+      "id": 81,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files",
+      "pdf_artifact": null
+    },
+    {
+      "id": 82,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/recent",
+      "pdf_artifact": null
+    },
+    {
+      "id": 83,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/agent/tasks?limit=1",
+      "pdf_artifact": null
+    },
+    {
+      "id": 84,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers",
+      "pdf_artifact": null
+    },
+    {
+      "id": 85,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content",
+      "pdf_artifact": "artifacts\\live-0085-api_research-vnext_assets_01e75bb5-8eff-.pdf"
+    },
+    {
+      "id": 86,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/assets/01e75bb5-8eff-4eda-99eb-51eab15eb573/content",
+      "pdf_artifact": "artifacts\\live-0086-api_research-vnext_assets_01e75bb5-8eff-.pdf"
+    },
+    {
+      "id": 87,
+      "step": "agent-read-starters",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/2d3e8406-06e3-41aa-8051-ad8b404dd120/text?page=1",
+      "pdf_artifact": null
+    },
+    {
+      "id": 88,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/authSession.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 89,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/auth.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 90,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/client.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 91,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/httpPolicy.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 92,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/index.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 93,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/tasks.js",
+      "pdf_artifact": null
+    },
+    {
+      "id": 94,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/api/idempotency.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 95,
+      "step": "account-tabs",
+      "method": "POST",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/token/refresh",
+      "pdf_artifact": null
+    },
+    {
+      "id": 96,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me",
+      "pdf_artifact": null
+    },
+    {
+      "id": 97,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/client.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 98,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/src/features/research-workspace/api/projects.ts",
+      "pdf_artifact": null
+    },
+    {
+      "id": 99,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/me",
+      "pdf_artifact": null
+    },
+    {
+      "id": 100,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/research-vnext/projects",
+      "pdf_artifact": null
+    },
+    {
+      "id": 101,
+      "step": "account-tabs",
+      "method": "GET",
+      "status": 200,
+      "url": "http://127.0.0.1:5176/api/auth/sessions",
+      "pdf_artifact": null
+    }
+  ]
+}

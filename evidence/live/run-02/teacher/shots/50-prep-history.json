@@ -1,0 +1,75 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/prep/history",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "教学设计进行中",
+      "aria": "",
+      "disabled": false,
+      "cls": "pc-hist__pill is-active"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [],
+  "selects": [],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [
+    "备课历史",
+    "版本管理"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n备课历史\n高二年级 · 2026 秋季学期\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n备课历史\n汇总你的全部备课记录，随时回到任意一次备课。\n椭圆第一课时：椭圆的定义（含 2a>|F1F2| 条件）、标准方程的推导、焦点三角形例题与课堂小结\n高一(3)班 · 数学 · 45分钟 · 2026-11-21 03:04\n教学设计进行中\n版本管理\n选择一个备课，查看它的历史版本。\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}

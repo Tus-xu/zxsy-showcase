@@ -1,0 +1,67 @@
+import { ApiError, api } from "/src/api/client.js";
+import { redirectTeacherDenied } from "/src/api/teacher/client.ts";
+function guard(e) {
+  if (e instanceof ApiError && e.code === 40301) redirectTeacherDenied();
+  throw e;
+}
+async function raw(method, path, opts = {}) {
+  const r = await api.raw(method, path, opts);
+  return r.data;
+}
+export const api8000 = {
+  /* ---------- 班级（8000 /api/classes*，身份与成员唯一权威） ---------- */
+  classes: {
+    list: () => raw("GET", "/classes/mine").catch(guard),
+    create: (body) => raw("POST", "/classes", { body }).catch(guard),
+    members: (classId) => raw("GET", `/classes/${classId}/members`).catch(guard),
+    /** 教师确认/取消确认成员（pending → confirmed 才进任务/学情口径，D3） */
+    setMemberConfirmed: (classId, userId, confirmed) => raw("PATCH", `/classes/${classId}/members/${userId}`, { body: { confirmed } }).catch(guard),
+    resetInviteCode: (classId) => raw("POST", `/classes/${classId}/invite-code/reset`).catch(guard)
+  },
+  /* ---------- 组卷 / 产物（quiz_set draft → 教师显式 confirm → 建 Assignment） ---------- */
+  quizzes: {
+    /** 四步编排第 1 步：题库供给组卷（题量不足时 degraded=true + warnings，前端如实呈现） */
+    generate: (body) => raw("POST", "/teacher/quizzes/generate", { body }).catch(guard)
+  },
+  artifacts: {
+    get: (artifactId) => raw("GET", `/teacher/artifacts/${artifactId}`).catch(guard),
+    /** 四步编排第 2 步：教师显式确认题集（无静默；schema ArtifactActionRequest） */
+    confirm: async (artifactId, clientRequestId, idempotencyKey) => {
+      const r = await raw(
+        "POST",
+        `/teacher/artifacts/${artifactId}/confirm`,
+        { body: { client_request_id: clientRequestId }, idempotencyKey }
+      ).catch(guard);
+      const art = r.artifact ?? r;
+      return Object.assign(art, { replayed: r.replayed });
+    }
+  },
+  /* ---------- 作业（draft → publish；client_assignment_id 为前端稳定幂等键） ---------- */
+  assignments: {
+    list: (query) => raw("GET", "/teacher/assignments", { query }).catch(guard),
+    /** 四步编排第 3 步：创建 draft（artifact 必须 confirmed，否则 422 confirmation_required） */
+    create: (body) => raw("POST", "/teacher/assignments", { body }).catch(guard),
+    /** 四步编排第 4 步：发布 → 学生任务中心可见 */
+    publish: (assignmentId, clientRequestId, idempotencyKey) => raw("POST", `/teacher/assignments/${assignmentId}/publish`, {
+      body: { client_request_id: clientRequestId },
+      idempotencyKey
+    }).catch(guard),
+    close: (assignmentId, clientRequestId, idempotencyKey) => raw("POST", `/teacher/assignments/${assignmentId}/close`, {
+      body: { client_request_id: clientRequestId },
+      idempotencyKey
+    }).catch(guard)
+  },
+  /* ---------- 批改工作台（题聚焦投影 + 原图 + confirm 唯一写分入口） ---------- */
+  grading: {
+    queue: (classId) => raw("GET", "/teacher/grading/queue", { query: classId ? { class_id: classId } : void 0 }).catch(guard),
+    workspace: (query) => raw("GET", "/teacher/grading/workspace", { query }).catch(guard),
+    detail: (submissionItemId) => raw("GET", `/teacher/grading/${submissionItemId}`).catch(guard),
+    /** 学生手写原图：鉴权字节流，不出域；前端 blob 化后本地展示（无公开 URL） */
+    fetchFileBlob: (submissionItemId) => api.download(`/teacher/grading/${submissionItemId}/file`).catch(guard),
+    /** tel D9/A6：教师显式触发 AI 建议分（仅参考；confirm 仍是唯一正式分） */
+    suggest: (submissionItemId, classId, clientRequestId) => raw("POST", `/teacher/grading/${submissionItemId}/suggest`, {
+      body: { class_id: classId, client_request_id: clientRequestId }
+    }).catch(guard),
+    /** 教师终审确认：唯一正式分入口（suggestion_id + decision + final_score） */
+    confirm: (submissionItemId, body) => raw("POST", `/teacher/grading/${submissionItemId}/confirm`, { body }).catch(guard),
+    /** 批量确认：逐项独立校�

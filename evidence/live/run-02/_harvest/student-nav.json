@@ -1,0 +1,54 @@
+{
+  "role": "student",
+  "nav": [],
+  "visited": [
+    {
+      "href": "/dialog",
+      "api": 18,
+      "saved": 18,
+      "url": "http://127.0.0.1:5176/dialog"
+    },
+    {
+      "href": "/practice",
+      "api": 16,
+      "saved": 16,
+      "url": "http://127.0.0.1:5176/practice"
+    },
+    {
+      "href": "/errors",
+      "api": 18,
+      "saved": 18,
+      "url": "http://127.0.0.1:5176/errors"
+    },
+    {
+      "href": "/library",
+      "api": 14,
+      "saved": 14,
+      "url": "http://127.0.0.1:5176/library"
+    },
+    {
+      "href": "/resources",
+      "api": 14,
+      "saved": 14,
+      "url": "http://127.0.0.1:5176/resources"
+    },
+    {
+      "href": "/classroom",
+      "api": 15,
+      "saved": 15,
+      "url": "http://127.0.0.1:5176/classroom"
+    },
+    {
+      "href": "/me",
+      "api": 21,
+      "saved": 21,
+      "url": "http://127.0.0.1:5176/me"
+    }
+  ],
+  "errors": [],
+  "login_home": {
+    "api": 18,
+    "saved": 18,
+    "url": "http://127.0.0.1:5176/dialog"
+  }
+}

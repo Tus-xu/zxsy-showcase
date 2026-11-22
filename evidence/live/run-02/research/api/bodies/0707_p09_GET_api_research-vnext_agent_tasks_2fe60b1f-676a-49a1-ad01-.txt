@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/agent/tasks/2fe60b1f-676a-49a1-ad01-d3e75fd0330e
+# status=200 run=p09 step=verb-cite t=02:35:11
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "44db646cc0304d4faeb9cbbac5bfa290",
+ "date": "Sat, 21 Nov 2026 18:35:11 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"kind":"derivation_check","status":"needs_conditions","actions":["locate","view_evidence","add_note"],"patches":[],"summary":"该段文字只是页面导航与阅读提示，罗列了若干关键词（变分问题、Galerkin 逼近、Céa 引理、V-椭圆性、先验误差估计），但未给出任何具体命题、公式或假设，无法逐条核验其数学推导。要判定是否成立，需给出实际的定理陈述与条件。当前缺少的条件：缺少被核验的定理或不等式的完整陈述（如 $\\|u-u_h\\|_V \\le \\frac{M}{\\alpha}\\inf_{v_h\\in V_h}\\|u-v_h\\|_V$）；缺少双线性形式 $a(\\cdot,\\cdot)$ 在有界性和 $V$-椭圆性方面的假设声明；缺少逼近空间 $V_h \\subset V$ 及其逼近性质的说明。","evidence":[{"id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","page":1,"year":0,"title":"research-paper-1.pdf","authors":"Mathesis 离线演示项目（自撰演示材料）","locator":{"bbox":[63.77,217.0,251.58,227.09],"page":1,"section":"摘要","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120","selected_text":"码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。"},"section":"摘要","snippet":"码均可与本讲义页面逐条核对。 关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计 | 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。","paper_id":"2d3e8406-06e3-41aa-8051-ad8b404dd120"}],"findings":[{"math":"","label":"选中内容仅为阅读提示","detail":"不含命题、公式或证明步骤。"},{"math":"","label":"关键词未附带具体陈述","detail":"Céa 引理等仅以词条形式出现。"},{"math":"","label":"无假设声明可核对","detail":"如 $V$-椭圆性、连续性等条件均未写出。"},{"math":"","label":"无可推导的结论","detail":"缺少误差估计的具体不等式形式。"},{"math":"","label":"当前论文中缺少的假设","detail":"缺少被核验的定理或不等式的完整陈述（如 $\\|u-u_h\\|_V \\le \\frac{M}{\\alpha}\\inf_{v_h\\in V_h}\\|u-v_h\\|_V$）；缺少双线性形式 $a(\\cdot,\\cdot)$ 在有界性和 $V$-椭圆性方面的假设声明；缺少逼近空间 $V_h \\subset V$ 及其逼近性质的说明"}],"confidence":0.6,"source_locations":[],"task":{"id":"2fe60b1f-676a-49a1-ad01-d3e75fd0330e","preset":"derivation_check","status":"completed","error_code":"","error_message":"","created_at":"2026-11-21T18:35:05.802785+00:00","finished_at":"2026-11-21T18:35:10.755803+00:00"}}

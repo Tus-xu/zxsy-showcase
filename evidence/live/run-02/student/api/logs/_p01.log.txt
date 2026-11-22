@@ -1,0 +1,19 @@
+[page] 登录页 -> http://127.0.0.1:5176/login shot=s01-login.png
+[login] role options: [{'value': 'student', 'label': '学生端'}, {'value': 'teacher', 'label': '教师端'}, {'value': 'researcher', 'label': '科研端'}]
+[login] demo note: 演示环境验证码：942019 landed: http://127.0.0.1:5176/dialog
+[page] 首页（对话学习） -> http://127.0.0.1:5176/dialog shot=s02-home.png
+[page] 学生端 · 练题 -> http://127.0.0.1:5176/practice shot=s03-practice.png
+[page] 学生端 · 错题 -> http://127.0.0.1:5176/errors shot=s04-errors.png
+[page] 学生端 · 错题（关闭详情浮窗后的列表态） -> http://127.0.0.1:5176/errors shot=s04b-errors-list.png
+[page] 学生端 · 知识库 -> http://127.0.0.1:5176/library shot=s05-library.png
+[page] 学生端 · 资源中心 -> http://127.0.0.1:5176/resources shot=s06-resources.png
+[page] 学生端 · 课堂 -> http://127.0.0.1:5176/classroom shot=s07-classroom.png
+[page] 学生端 · 我的 -> http://127.0.0.1:5176/me shot=s08-me.png
+[page] 我的 · 学情报告 -> http://127.0.0.1:5176/me shot=s09-me-report.png
+[page] 我的 · 掌握地图 -> http://127.0.0.1:5176/me?tab=graph shot=s10-me-graph.png
+[page] 我的 · 体验反馈 -> http://127.0.0.1:5176/me?tab=trial shot=s11-me-trial.png
+[page] 我的 · 个人设置 -> http://127.0.0.1:5176/me?tab=profile shot=s12-me-profile.png
+[page] 课堂 · 课堂任务（默认 Tab） -> http://127.0.0.1:5176/classroom shot=s13-classroom-tasks.png
+[page] 课堂 · 我的班级 -> http://127.0.0.1:5176/classroom?tab=class shot=s14-classroom-class.png
+[page] 课堂 · 双师课堂 -> http://127.0.0.1:5176/classroom?tab=dual shot=s15-classroom-dual.png
+[summary] nav: [{'text': '🏠 首页', 'tip': '首页', 'cls': 'nav-item'}, {'text': '✏️ 练题 沉浸', 'tip': '练题', 'cls': 'nav-item'}, {'text': '📕 错题 22', 'tip': '错题', 'cls': 'nav-item'}, {'text': '📚 知识库', 'tip': '知识库', 'cls': 'nav-item'}, {'text': '📺 资源中心', 'tip': '资源中心', 'cls': 'nav-item'}, {'text': '🎓 课堂 2', 'tip': '课堂', 'cls': 'nav-item active'}, {'text': '👤 我的', 'tip': '我的', 'cls': 'nav-item'}]

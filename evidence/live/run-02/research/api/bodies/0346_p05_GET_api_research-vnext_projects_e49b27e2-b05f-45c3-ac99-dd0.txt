@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile-runs/latest
+# status=200 run=p05 step=start-modes t=02:25:26
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "7e220ae4676d4654b5870741b2f40fcc",
+ "date": "Sat, 21 Nov 2026 18:25:26 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"compile_run":{"id":"5ef05264-f399-4045-8804-2d3b06fef59e","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","engine":"xelatex","entry":"main.tex","status":"success","pdf_artifact_id":"e90b0426-f9a1-43eb-8483-22fdb09166f5","pdf_available":true,"page_count":1,"pdf_size_bytes":22880,"duration_ms":17405,"error_count":0,"warning_count":0,"exit_code":0,"log_lines":[{"ts":"2026-11-21T18:21:12.038727+00:00","file":"main.tex","line":null,"text":"Output written (1 pages)","level":"info"}],"diagnostics":{"entry":"main.tex","engine":"xelatex","bib_tool":"","log_char_count":59428},"error_code":"","error_message":"","created_at":"2026-11-21T18:21:12.038727+00:00","finished_at":"2026-11-21T18:21:29.468651+00:00"},"last_successful_pdf_artifact_id":"e90b0426-f9a1-43eb-8483-22fdb09166f5"}

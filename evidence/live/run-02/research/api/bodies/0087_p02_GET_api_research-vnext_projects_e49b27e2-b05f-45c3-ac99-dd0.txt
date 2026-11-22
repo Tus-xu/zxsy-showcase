@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/ef090edd-ea1d-49e9-8bd7-a2915b77971a/text?page=2
+# status=200 run=p02 step=read-paging t=02:07:21
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "a8583f14e76f4fbd9919c3604d56a1c5",
+ "date": "Sat, 21 Nov 2026 18:07:20 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"paper_id":"ef090edd-ea1d-49e9-8bd7-a2915b77971a","page":2,"width":595.28,"height":841.89,"blocks":[{"bbox":[96.76,70.17,499.8,80.51],"text":"写作工作区的最小可验证动作：编辑 \\section 标题 → 保存 → 编译 → 打开生成的 PDF","section":""},{"bbox":[74.46,88.17,509.27,98.81],"text":"检查标题已变；再故意写成 \\begin{equation} 缺少 \\end{equation}，记录编译错误与恢复步骤。","section":""},{"bbox":[96.5,112.21,165.3,122.51],"text":"若平台提供 AI","section":"若平台提供 AI"},{"bbox":[74.85,130.17,429.94,140.51],"text":"改稿，需先展示差异再接受或拒绝；本讲义只用于取证，不进入离线成品。","section":"若平台提供 AI"}],"parse_status":"parsed","available":true}

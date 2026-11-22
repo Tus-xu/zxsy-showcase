@@ -1,0 +1,152 @@
+{
+  "url": "http://127.0.0.1:5176/research-workspace",
+  "title": "科研端 · 启动页",
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "阅读、写作与验证， 在同一个项目里发生。"
+    },
+    {
+      "tag": "h2",
+      "text": "未命名项目"
+    },
+    {
+      "tag": "h2",
+      "text": "今天推进哪项研究？"
+    },
+    {
+      "tag": "h2",
+      "text": "最近项目"
+    },
+    {
+      "tag": "h3",
+      "text": "未命名项目"
+    },
+    {
+      "tag": "h3",
+      "text": "未命名项目"
+    },
+    {
+      "tag": "h3",
+      "text": "未命名项目"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "启动页",
+      "label": "",
+      "cls": "active",
+      "disabled": false
+    },
+    {
+      "text": "工作台",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "个人中心",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "林 林知远 ⌄",
+      "label": "",
+      "cls": "rh-user",
+      "disabled": false
+    },
+    {
+      "text": "进入科研工作台 →",
+      "label": "",
+      "cls": "rl-cta rl-cta--primary",
+      "disabled": false
+    },
+    {
+      "text": "＋ 新建项目",
+      "label": "",
+      "cls": "rl-cta",
+      "disabled": false
+    },
+    {
+      "text": "继续 →",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 →",
+      "label": "",
+      "cls": "rl-path",
+      "disabled": false
+    },
+    {
+      "text": "02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 →",
+      "label": "",
+      "cls": "rl-path",
+      "disabled": false
+    },
+    {
+      "text": "03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent →",
+      "label": "",
+      "cls": "rl-path",
+      "disabled": false
+    },
+    {
+      "text": "＋ 新建项目",
+      "label": "",
+      "cls": "rl-mini-btn",
+      "disabled": false
+    },
+    {
+      "text": "阅读",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "写作",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "阅读",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "写作",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "阅读",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    },
+    {
+      "text": "写作",
+      "label": "",
+      "cls": "",
+      "disabled": false
+    }
+  ],
+  "inputs": [],
+  "cards": [
+    {
+      "cls": "rl-start",
+      "text": "FROM HERE 今天推进哪项研究？ 三种开始方式，都会进入同一个项目上下文。 01 📖 读论文 导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。 继续阅读 → 02 ✍️ 写论文 LaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。 继续写作 → 03 ✦ 问 Agent 公式检查、引用核查、翻译润色；结论带证据，修改先确认。 打开 Research Agent → 读 → 摘 → 证 → 写 → 核 一条链路，一个项目上下文"
+    }
+  ],
+  "kv": [
+    "RESEARCH WORKSPACE",
+    "进入科研工作台 → ＋ 新建项目"
+  ],
+  "bodyText": "π\n智学数研\n科研端\n启动页\n工作台\n个人中心\n科研身份 · 研究者\n林\n林知远\n⌄\nRESEARCH WORKSPACE\n阅读、写作与验证，\n在同一个项目里发生。\n\n把文献、笔记、公式和草稿放进一个 Research Project。读到哪里、论证到哪一步、下一步该做什么，都不再散落在多个工具里。\n\n进入科研工作台 →\n＋ 新建项目\n真实文献\n·\n真实 LaTeX 编译\n·\n证据可回溯\nπ\nPROJECT MEMORY\n最近项目\n未命名项目\n\n从一篇论文、一个公式或一段论证开始。\n\n— 文献\n— 草稿\n— 笔记\n下一步\n继续写作与编译\n继续 →\n∂u/∂t = α∇²u\n读 → 摘 → 证 → 写 → 核\nFROM HERE\n今天推进哪项研究？\n\n三种开始方式，都会进入同一个项目上下文。\n\n01\n📖\n读论文\n导入 PDF，边读边记；选中段落或公式，直接问 Research Agent。\n继续阅读 →\n02\n✍️\n写论文\nLaTeX 编辑器、真实编译、PDF 预览；让论证和引用一起生长。\n继续写作 →\n03\n✦\n问 Agent\n公式检查、引用核查、翻译润色；结论带证据，修改先确认。\n打开 Research Agent →\n读\n→\n摘\n→\n证\n→\n写\n→\n核\n一条链路，一个项目上下文\nRECENT PROJECTS\n最近项目\n＋ 新建项目\nπ\n刚刚\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n23 小时前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作\nπ\n1 天前\n未命名项目\n\n暂无项目描述\n\n— 文献\n— 草稿\n— 笔记\n阅读\n写作",
+  "htmlLang": "zh-CN",
+  "modals": []
+}

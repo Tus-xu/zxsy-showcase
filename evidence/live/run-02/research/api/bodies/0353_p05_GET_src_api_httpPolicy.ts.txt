@@ -1,0 +1,106 @@
+# GET http://127.0.0.1:5176/src/api/httpPolicy.ts
+# status=200 run=p05 step=start-modes t=02:25:33
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/api/client.js",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "cache-control": "no-cache",
+ "content-length": "8208",
+ "date": "Sat, 21 Nov 2026 18:25:33 GMT",
+ "etag": "W/\"72d-e3YL2xN2br3SbseCqtjtwkOI+k4\"",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+export function createSemaphore(concurrency) {
+  const queue = [];
+  let active = 0;
+  const next = () => {
+    if (queue.length === 0) return;
+    const { fn, resolve, reject } = queue.shift();
+    active++;
+    fn().then(resolve, reject).finally(() => {
+      active--;
+      next();
+    });
+  };
+  const sem = {
+    run(fn) {
+      return new Promise((resolve, reject) => {
+        if (active < concurrency) {
+          active++;
+          fn().then(resolve, reject).finally(() => {
+            active--;
+            next();
+          });
+        } else {
+          queue.push({ fn, resolve, reject });
+        }
+      });
+    },
+    get active() {
+      return active;
+    }
+  };
+  return sem;
+}
+export const defaultHttpPolicy = {
+  defaultTimeoutMs: 3e4,
+  globalConcurrency: 8,
+  domainConcurrency: 4,
+  maxRetries: 2,
+  retryableStatuses: [408, 429, 500, 502, 503, 504],
+  baseRetryDelayMs: 300,
+  maxRetryDelayMs: 8e3,
+  maxRetryAfterMs: 1e4,
+  timeoutByPrefix: {}
+};
+let policy = { ...defaultHttpPolicy };
+let globalGate = null;
+const domainGates = /* @__PURE__ */ new Map();
+export function getHttpPolicy() {
+  return policy;
+}
+export function setHttpPolicy(p) {
+  policy = { ...policy, ...p };
+  resetGates();
+}
+export function resetHttpPolicy() {
+  policy = { ...defaultHttpPolicy };
+  resetGates();
+}
+function resetGates() {
+  globalGate = null;
+  domainGates.clear();
+}
+function domainOf(path) {
+  const seg = path.split("/").filter(Boolean).find((p) => p !== "api");
+  return seg || "root";
+}
+export function runWithGate(path, fn) {
+  const gate = globalGate ??= createSemaphore(policy.globalConcurrency);
+  const dom = domainOf(path);
+  let dgate = domainGates.get(dom);
+  if (!dgate) {
+    dgate = createSemaphore(policy.domainConcurrency);
+    domainGates.set(dom, dgate);
+  }
+  return gate.run(() => dgate.run(fn));
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImh0dHBQb2xpY3kudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiBXZWIg5Z+656GA5aWX5Lu2IMK3IEhUVFAg5by55oCn562W55WlXG4gKiDoh6rlrp7njrDnmoTmnoHnroDlubblj5Hpl7jpl6jvvIhzZW1hcGhvcmXvvIkrIOWPr+mFjee9ruetlueVpe+8jOmbtuS+nei1luOAglxuICog5LuF6KKrIHNyYy9hcGkvY2xpZW50LmpzIOS9v+eUqO+8m+a1i+ivlemAmui/hyBzZXRIdHRwUG9saWN5IOazqOWFpeS9juWAvOS7peWKoOmAn+OAglxuICovXG5leHBvcnQgaW50ZXJmYWNlIFNlbWFwaG9yZSB7XG4gIHJ1bjxUPihmbjogKCkgPT4gUHJvbWlzZTxUPik6IFByb21pc2U8VD5cbiAgcmVhZG9ubHkgYWN0aXZlOiBudW1iZXJcbn1cblxuLyoqIOaegeeugOS/oeWPt+mHj++8mui2hei/h+W5tuWPkeS4iumZkOaXtuWFpemYn+etieW+he+8jOiAjOmdnuS4ouW8g+ivt+axguOAgiAqL1xuZXhwb3J0IGZ1bmN0aW9uIGNyZWF0ZVNlbWFwaG9yZShjb25jdXJyZW5jeTogbnVtYmVyKTogU2VtYXBob3JlIHtcbiAgdHlwZSBUYXNrID0geyBmbjogKCkgPT4gUHJvbWlzZTx1bmtub3duPjsgcmVzb2x2ZTogKHY6IHVua25vd24pID0+IHZvaWQ7IHJlamVjdDogKGU6IHVua25vd24pID0+IHZvaWQgfVxuICBjb25zdCBxdWV1ZTogVGFza1tdID0gW11cbiAgbGV0IGFjdGl2ZSA9IDBcbiAgY29uc3QgbmV4dCA9ICgpID0+IHtcbiAgICBpZiAocXVldWUubGVuZ3RoID09PSAwKSByZXR1cm5cbiAgICBjb25zdCB7IGZuLCByZXNvbHZlLCByZWplY3QgfSA9IHF1ZXVlLnNoaWZ0KCkgYXMgVGFza1xuICAgIGFjdGl2ZSsrXG4gICAgZm4oKS50aGVuKHJlc29sdmUsIHJlamVjdCkuZmluYWxseSgoKSA9PiB7IGFjdGl2ZS0tOyBuZXh0KCkgfSlcbiAgfVxuICBjb25zdCBzZW06IFNlbWFwaG9yZSA9IHtcbiAgICBydW48VD4oZm46ICgpID0+IFByb21pc2U8VD4pOiBQcm9taXNlPFQ+IHtcbiAgICAgIHJldHVybiBuZXcgUHJvbWlzZTxUPigocmVzb2x2ZSwgcmVqZWN0KSA9PiB7XG4gICAgICAgIGlmIChhY3RpdmUgPCBjb25jdXJyZW5jeSkge1xuICAgICAgICAgIGFjdGl2ZSsrXG4gICAgICAgICAgZm4oKS50aGVuKHJlc29sdmUsIHJlamVjdCkuZmluYWxseSgoKSA9PiB7IGFjdGl2ZS0tOyBuZXh0KCkgfSlcbiAgICAgICAgfSBlbHNlIHtcbiAgICAgICAgICBxdWV1ZS5wdXNoKHsgZm4sIHJlc29sdmU6IHJlc29sdmUgYXMgKHY6IHVua25vd24pID0+IHZvaWQsIHJlamVjdCB9KVxuICAgICAgICB9XG4gICAgICB9KVxuICAgIH0sXG4gICAgZ2V0IGFjdGl2ZSgpIHsgcmV0dXJuIGFjdGl2ZSB9LFxuICB9XG4gIHJldHVybiBzZW1cbn1cblxuZXhwb3J0IGludGVyZmFjZSBIdHRwUG9saWN5IHtcbiAgZGVmYXVsdFRpbWVvdXRNczogbnVtYmVyXG4gIGdsb2JhbENvbmN1cnJlbmN5OiBudW1iZXJcbiAgZG9tYWluQ29uY3VycmVuY3k6IG51bWJlclxuICBtYXhSZXRyaWVzOiBudW1iZXJcbiAgcmV0cnlhYmxlU3RhdHVzZXM6IG51bWJlcltdXG4gIGJhc2VSZXRyeURlbGF5TXM6IG51bWJlclxuICBtYXhSZXRyeURlbGF5TXM6IG51bWJlclxuICBtYXhSZXRyeUFmdGVyTXM6IG51bWJlclxuICAvKiog5oyJIFVSTCDliY3nvIDopobnm5botoXml7bvvIzplb/ogJfml7bnlJ/miJDmjqXlj6Pn

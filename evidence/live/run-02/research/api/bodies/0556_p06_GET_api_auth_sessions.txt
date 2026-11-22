@@ -1,0 +1,30 @@
+# GET http://127.0.0.1:5176/api/auth/sessions
+# status=200 run=p06 step=account-tabs t=02:29:06
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/account",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-store, max-age=0",
+ "content-length": "5819",
+ "date": "Sat, 21 Nov 2026 18:29:06 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn",
+ "connection": "close"
+}
+
+## response body (first 4KB, sanitized)
+{"code":0,"message":"ok","data":[{"id":"d8c32904-cadf-4b58-8f8a-fb90526d23b7","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:29:01.688628+00:00","expires_at":"2026-11-28T18:24:14.337022+00:00","revoked":false,"current":true},{"id":"4b270d4b-4cdb-4f17-9fc7-8200df575a05","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:21:51.448714+00:00","expires_at":"2026-11-28T18:21:39.828128+00:00","revoked":false,"current":false},{"id":"60a0a08a-fd19-4da8-a250-171f53be5830","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:20:02.941587+00:00","expires_at":"2026-11-28T18:20:02.736216+00:00","revoked":false,"current":false},{"id":"4e4bf0af-c68e-4679-bc23-d620629d10c8","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:17:33.154308+00:00","expires_at":"2026-11-28T18:17:32.999186+00:00","revoked":false,"current":false},{"id":"f2852447-6d02-4a32-b3ec-d95e4ca9eff1","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:11:43.243650+00:00","expires_at":"2026-11-28T18:11:42.955443+00:00","revoked":false,"current":false},{"id":"566a1b1b-f16c-4d46-ab10-220be6ac95ad","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:10:02.537907+00:00","expires_at":"2026-11-28T18:09:54.576876+00:00","revoked":false,"current":false},{"id":"488df25b-5d17-4130-8a5a-5b223568d99c","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:06:56.351099+00:00","expires_at":"2026-11-28T18:06:56.041318+00:00","revoked":false,"current":false},{"id":"df81168a-2046-4439-9dcb-adca16d75497","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:04:55.024735+00:00","expires_at":"2026-11-28T18:04:54.804348+00:00","revoked":false,"current":false},{"id":"c7e3382a-9f4d-4a4e-a848-1673f2962327","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-21T18:02:23.478795+00:00","expires_at":"2026-11-28T18:02:23.300346+00:00","revoked":false,"current":false},{"id":"f20776f0-e2d6-4bcd-bc0d-8c4b151a61e6","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T19:21:42.019330+00:00","expires_at":"2026-11-27T19:21:37.854081+00:00","revoked":false,"current":false},{"id":"670e296b-f9f6-4fa0-9be6-43920e42a7d6","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T19:19:38.451075+00:00","expires_at":"2026-11-27T19:19:34.310546+00:00","revoked":false,"current":false},{"id":"8f7ace25-1ac6-44a3-8057-09a50aa8d936","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T19:17:59.442776+00:00","expires_at":"2026-11-27T19:17:55.270503+00:00","revoked":false,"current":false},{"id":"d678ebff-7e06-4fc4-bc2d-0bf2cf8636d0","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T19:16:54.127035+00:00","expires_at":"2026-11-27T19:11:29.913990+00:00","revoked":false,"current":false},{"id":"b8d20b94-a733-4ec7-ba35-b6268d3391c5","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T18:58:29.846689+00:00","expires_at":"2026-11-27T18:54:08.435598+00:00","revoked":false,"current":false},{"id":"d6f91dc7-fd07-4f83-92e9-721b79442a7a","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T18:50:04.655884+00:00","expires_at":"2026-11-27T18:50:00.485465+00:00","revoked":false,"current":false},{"id":"abb7eba7-682b-44f3-97d1-58c89df5bd8b","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T18:26:08.252802+00:00","expires_at":"2026-11-27T18:24:27.702422+00:00","revoked":false,"current":false},{"id":"c028b781-bfbe-465e-a8bb-306cf7848ddd","active_role":"researcher","device_name":null,"ip_prefix":null,"last_seen_at":"2026-11-20T18:18:44.228425+00:00","expires_at":"2026-11-27T18:17:27.577590+00:00","revoked":true,"current":false},{"

@@ -1,0 +1,35 @@
+# PUT http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/files/main.tex
+# status=200 run=p06 step=recover t=02:28:19
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+ "accept-language": "zh-CN",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "sec-ch-ua-mobile": "?0",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "content-type": "application/json"
+}
+
+## request body (first 4KB, sanitized)
+{"content":"\\documentclass{article}\n\\usepackage{ctex}\n\\usepackage{amsmath}\n\\begin{document}\n\\section{实测写作小节}\n变分形式与 Céa 引理：对任意 $v_h\\in V_h$，有\n\\begin{equation}\n  \\|u-u_h\\| \\le \\frac{M}{\\alpha}\\,\\inf_{v_h\\in V_h}\\|u-v_h\\|.\n\\end{equation}\n本节由现役系统实测输入生成。\n\\end{document}\n\\begin{equation}\n  1 = 1\n","expected_revision":4}
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "x-trace-id": "1ea3f8013cf34643b0d318a3f5ba4f15",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "date": "Sat, 21 Nov 2026 18:28:18 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"file":{"id":"6cb9c247-efb8-4a1d-88f2-b652c9402112","path":"main.tex","kind":"tex","revision":5,"asset_id":null,"size":278,"updated_at":"2026-11-21T18:28:19.382285+00:00","saved_at":"2026-11-21T18:28:19.382285+00:00"}}

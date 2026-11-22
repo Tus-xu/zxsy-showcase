@@ -1,0 +1,35 @@
+# POST http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/compile
+# status=201 run=p06 step=recover t=02:28:47
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write",
+ "accept-language": "zh-CN",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "sec-ch-ua-mobile": "?0",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "content-type": "application/json"
+}
+
+## request body (first 4KB, sanitized)
+{"engine":"xelatex","entry":"main.tex"}
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "access-control-expose-headers": "X-Request-Id, X-Idempotent-Replay",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "access-control-allow-credentials": "true",
+ "x-trace-id": "bb1871f4c3964505ab06e8b791b4f694",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "date": "Sat, 21 Nov 2026 18:28:26 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"compile_run":{"id":"7612c393-0c18-4b0c-a6a1-b94eb5f3b4ba","project_id":"e49b27e2-b05f-45c3-ac99-dd0792d9ab80","engine":"xelatex","entry":"main.tex","status":"success","pdf_artifact_id":"a8227a9c-cfe1-4e63-a602-2c3d451a9a5f","pdf_available":true,"page_count":1,"pdf_size_bytes":22880,"duration_ms":20906,"error_count":0,"warning_count":0,"exit_code":0,"log_lines":[{"ts":"2026-11-21T18:28:26.688019+00:00","level":"info","text":"Output written (1 pages)","file":"main.tex","line":null}],"diagnostics":{"bib_tool":"","log_char_count":59428,"engine":"xelatex","entry":"main.tex"},"error_code":"","error_message":"","created_at":"2026-11-21T18:28:26.688019+00:00","finished_at":"2026-11-21T18:28:47.625362+00:00"},"last_successful_pdf_artifact_id":"a8227a9c-cfe1-4e63-a602-2c3d451a9a5f"}

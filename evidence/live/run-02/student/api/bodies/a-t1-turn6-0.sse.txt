@@ -1,0 +1,26 @@
+: open
+
+event: meta
+data: {"conversation_id": "1d9dcbb2-695d-490b-a4b8-a1ba5dd3f204", "msg_id": "e496d977-3ee2-4e13-8076-12bb1eb3bb46", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "你写的 $e=2\\sqrt2$ 里，$e$ 对应的是 $\\frac{c}{a}$。"}
+
+event: token
+data: {"text": "双曲线中 $a$、$b$、$c$ 满足哪个关系式？"}
+
+event: card
+data: {"card_type": "socratic_hint", "session_id": "78a56e81-c258-41de-b618-038713df1d25", "level": 1, "level_name": "point", "scaffold_label": "focused_scaffold"}
+
+event: card
+data: {"card_type": "socratic_error_analysis", "session_id": "78a56e81-c258-41de-b618-038713df1d25", "step_no": 2, "verdict": "wrong", "misconception": "calculation", "misconception_zh": "计算错误", "error_move": null, "evidence_quote": null, "kp_name": "圆锥曲线", "probe_question": null}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "78a56e81-c258-41de-b618-038713df1d25", "step_no": 2, "interaction_id": "ix_f1c47bbdbf99", "form": "expr_input", "move": "probe_cause", "stage": "reading", "prompt_lead": "用下面的点选面板写出这一步的式子。", "spec": {"prompt": "写出这一步的完整式子（点选面板输入）", "keypad": ["c", "=", "2", "a", "x", "^2", "(", ")", "/", "√", "π", "+", "-"]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "不知道怎么写", "interaction_reason": "T18→expr_input[rt_material_failed]", "form_source": "router", "routing_reason": "T18→expr_input[rt_material_failed]"}
+
+event: card
+data: {"card_type": "socratic_progress", "session_id": "78a56e81-c258-41de-b618-038713df1d25", "current_step": 2, "steps_count": 3, "hint_level": 1, "attempts_on_step": 1, "verdict": "wrong", "phase": "guiding", "scaffold_level": 1, "scaffold_label": "focused_scaffold", "kp_name": "圆锥曲线", "rounds_used": 1, "rounds_limit": 8, "oversplit": false, "oversplit_steps": 3, "fast_path": false, "mastery_state": "improving"}
+
+event: done
+data: {"usage": {"tokens_in": 4, "tokens_out": 26}, "latency_ms": 1671, "message_id": "4368d9db-1efb-4ea2-ba39-8b2786c48627", "meta": {"skill": "socratic_solver", "tutor_action": "interact", "verdict": "wrong", "misconception": "calculation", "interaction_form": "expr_input", "interaction_reason": "T18→expr_input[rt_material_failed]", "p_before": 0.584, "p_after": 0.0814, "fragile": false, "routing_reason": "rt_first_fail_guide", "current_step": 2, "hint_level": 1, "status": "active", "leak_blocked": 0, "socratic": {"phase": "guiding", "scaffold_level": 1, "verdict": "wrong", "misconception": "calculation", "error_move": null, "kp_code": "JH-02", "detour_active": false, "round_used": 1, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "expr_input", "form_reason": "T18→expr_input[rt_material_failed]", "move": "probe_cause", "tier": 0, "stage": "reading"}}}
+

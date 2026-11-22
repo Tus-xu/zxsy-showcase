@@ -1,0 +1,31 @@
+# GET http://127.0.0.1:5176/api/research-vnext/projects/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/papers/42268b61-10d7-47da-be50-ca22f3a90644/text?page=1
+# status=200 run=p07 step=cid-pdf t=02:30:44
+
+## request headers (sanitized)
+{
+ "sec-ch-ua-platform": "\"Windows\"",
+ "authorization": "<redacted>",
+ "referer": "http://127.0.0.1:5176/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "transfer-encoding": "chunked",
+ "cache-control": "no-store, max-age=0",
+ "connection": "close",
+ "x-trace-id": "3fd0a3b8ed9a47e6be5525b9864066b8",
+ "date": "Sat, 21 Nov 2026 18:30:43 GMT",
+ "content-type": "application/json",
+ "vary": "Origin",
+ "server": "uvicorn"
+}
+
+## response body (first 4KB, sanitized)
+{"paper_id":"42268b61-10d7-47da-be50-ca22f3a90644","page":1,"width":595.28,"height":841.89,"blocks":[{"bbox":[145.31,71.64,450.05,90.38],"text":"演示讲义一：Céa 引理与变分形式","section":""},{"bbox":[74.49,115.84,467.23,124.3],"text":"说明：本文为展示项目自撰的演示讲义（非外部论文、非教材原文），用于真实平台阅读/问答取证。","section":""},{"bbox":[75.61,151.81,138.47,164.72],"text":"1 问题设定","section":"1 问题设定"},{"bbox":[96.64,177.17,479.66,187.64],"text":"设 V 为实的 Hilbert 空间，a(·,·): V×V→R 为连续、强制的双线性形式，f∈V*","section":"1 问题设定"},{"bbox":[74.59,195.17,448.13,205.64],"text":"为连续线性泛函。考虑变分问题：求 u∈V，使得对任意 v∈V 都有 a(u,v)=f(v)。","section":"1 问题设定"}],"parse_status":"parsed","available":true}

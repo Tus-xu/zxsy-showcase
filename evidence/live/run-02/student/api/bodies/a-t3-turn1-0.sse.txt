@@ -1,0 +1,23 @@
+: open
+
+event: meta
+data: {"conversation_id": "edd40135-1e80-4298-9df0-3049130b5ab8", "msg_id": "83e8b33c-922a-461f-b99a-664c661ef8df", "skill": "socratic_solver", "confidence": 0.85, "provider": "spark"}
+
+event: status
+data: {"stage": "kb_search", "text": "正在检索题库，看有没有匹配的标准解析…"}
+
+event: card
+data: {"card_type": "socratic_start", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "steps_count": null, "verified": false, "draft_source": "llm", "phase": "opening", "stage": "reading"}
+
+event: status
+data: {"stage": "reading", "text": "我们先把题目读进眼睛——先动笔，再动脑。"}
+
+event: token
+data: {"text": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "step_no": 0, "interaction_id": "ix_3f0a6f073959", "form": "annotate", "move": "mark", "stage": "reading", "prompt_lead": "在题面上动笔：把你认为关键的部分标出来。", "spec": {"mode": "tokens", "canvas": {"type": "tokens", "text": "记 A_i 为第 i 号球至少被取出一次，一次不取到它的概率是 4/5，三次都没取到是 (4/5)³ = 64/125。", "tokens": ["记", "A_i", "为第", "i", "号球", "至少", "被取", "出一", "次", "，", "一次", "不取", "到它", "的概", "率是", "4", "/", "5", "，", "三次", "都没", "取到", "是", "(", "4", "/", "5", ")", "=", "64", "/", "125", "。"]}, "targets_hint": ["已知条件", "要求的量", "关键限定词"], "n_expected": 3}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "我读完了，直接开始", "interaction_reason": "opening×reading×mark×T1→annotate[R3]", "form_source": "router", "routing_reason": "opening×reading×mark×T1→annotate[R3]"}
+
+event: done
+data: {"usage": {"tokens_in": 24, "tokens_out": 18}, "latency_ms": 4515, "message_id": "19f0c0d4-030c-41c6-9ebf-3ee88d4636a0", "meta": {"skill": "socratic_solver", "confidence": 0.9, "session_id": "11cb4b50-96ec-47e3-9d82-6a7bc222309f", "solve_pending": true, "phase": "opening", "stage": "reading"}}
+

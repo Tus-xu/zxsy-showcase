@@ -1,0 +1,21 @@
+{
+  "judge": {
+    "selection": "码均可与本讲义页面逐条核对。\n关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计\n| 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。",
+    "clicked": true
+  },
+  "cite": {
+    "selection": "码均可与本讲义页面逐条核对。\n关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计\n| 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。",
+    "clicked": false,
+    "toast": "",
+    "clipboard": ""
+  },
+  "highlight": {
+    "selection": "码均可与本讲义页面逐条核对。\n关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计\n| 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。",
+    "clicked": false,
+    "marks": []
+  },
+  "evidence": {
+    "selection": "码均可与本讲义页面逐条核对。\n关键词：变分问题；Galerkin 逼近；Céa 引理；V-椭圆性；先验误差估计\n| 阅读提示：可选中任一段落后，在右侧 Research Agent 中提问，再点击“定位原文”回到本页对应段落。",
+    "clicked": false
+  }
+}

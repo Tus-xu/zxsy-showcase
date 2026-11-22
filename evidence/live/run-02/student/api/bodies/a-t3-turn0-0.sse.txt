@@ -1,0 +1,404 @@
+: open
+
+event: meta
+data: {"conversation_id": "edd40135-1e80-4298-9df0-3049130b5ab8", "msg_id": "9c0306bc-6ca9-4e54-b135-c1987d577e7a", "skill": "chat", "confidence": 0.85, "provider": "spark"}
+
+event: file_parsed
+data: {"file_id": "3b8856ce-ce56-4084-9429-c3632e2afa75", "filename": "题3.png", "status": "parsed", "parse_engine": "mimo_vision", "summary": "14. 一个箱子里有5个球，分别以1～5标号，若有放回取三次，记至少取出一次的球的个数X，则E(X)=________."}
+
+event: status
+data: {"stage": "fallback", "text": "线路有点波动，已切换备用通道，马上好…"}
+
+event: token
+data: {"text": "首"}
+
+event: token
+data: {"text": "先"}
+
+event: token
+data: {"text": "我"}
+
+event: token
+data: {"text": "们来"}
+
+event: token
+data: {"text": "拆解"}
+
+event: token
+data: {"text": "这"}
+
+event: token
+data: {"text": "道概"}
+
+event: token
+data: {"text": "率"}
+
+event: token
+data: {"text": "期"}
+
+event: token
+data: {"text": "望"}
+
+event: token
+data: {"text": "的题"}
+
+event: token
+data: {"text": "目，"}
+
+event: token
+data: {"text": "先理"}
+
+event: token
+data: {"text": "清"}
+
+event: token
+data: {"text": "楚已"}
+
+event: token
+data: {"text": "知"}
+
+event: token
+data: {"text": "条"}
+
+event: token
+data: {"text": "件"}
+
+event: token
+data: {"text": "和"}
+
+event: token
+data: {"text": "要"}
+
+event: token
+data: {"text": "求："}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "1."}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "已知"}
+
+event: token
+data: {"text": "是"}
+
+event: token
+data: {"text": "*"}
+
+event: token
+data: {"text": "*有"}
+
+event: token
+data: {"text": "放"}
+
+event: token
+data: {"text": "回取"}
+
+event: token
+data: {"text": "球"}
+
+event: token
+data: {"text": "*"}
+
+event: token
+data: {"text": "*"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "每"}
+
+event: token
+data: {"text": "次"}
+
+event: token
+data: {"text": "从"}
+
+event: token
+data: {"text": "1"}
+
+event: token
+data: {"text": "-"}
+
+event: token
+data: {"text": "5"}
+
+event: token
+data: {"text": "号"}
+
+event: token
+data: {"text": "球"}
+
+event: token
+data: {"text": "中"}
+
+event: token
+data: {"text": "取"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "取"}
+
+event: token
+data: {"text": "3次"}
+
+event: token
+data: {"text": "\n2"}
+
+event: token
+data: {"text": "."}
+
+event: token
+data: {"text": " "}
+
+event: token
+data: {"text": "随"}
+
+event: token
+data: {"text": "机变"}
+
+event: token
+data: {"text": "量X"}
+
+event: token
+data: {"text": "是「"}
+
+event: token
+data: {"text": "至"}
+
+event: token
+data: {"text": "少"}
+
+event: token
+data: {"text": "取"}
+
+event: token
+data: {"text": "出一"}
+
+event: token
+data: {"text": "次"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "球"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "个"}
+
+event: token
+data: {"text": "数」"}
+
+event: token
+data: {"text": "，"}
+
+event: token
+data: {"text": "求它"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "期望"}
+
+event: token
+data: {"text": "E"}
+
+event: token
+data: {"text": "("}
+
+event: token
+data: {"text": "X"}
+
+event: token
+data: {"text": ")\n"}
+
+event: token
+data: {"text": "\n"}
+
+event: token
+data: {"text": "先给"}
+
+event: token
+data: {"text": "你"}
+
+event: token
+data: {"text": "一个"}
+
+event: token
+data: {"text": "小提"}
+
+event: token
+data: {"text": "示"}
+
+event: token
+data: {"text": "：对"}
+
+event: token
+data: {"text": "于"}
+
+event: token
+data: {"text": "这"}
+
+event: token
+data: {"text": "种"}
+
+event: token
+data: {"text": "“计"}
+
+event: token
+data: {"text": "数类"}
+
+event: token
+data: {"text": "”"}
+
+event: token
+data: {"text": "的"}
+
+event: token
+data: {"text": "随机"}
+
+event: token
+data: {"text": "变量"}
+
+event: token
+data: {"text": "，用"}
+
+event: token
+data: {"text": "*"}
+
+event: token
+data: {"text": "*指"}
+
+event: token
+data: {"text": "示"}
+
+event: token
+data: {"text": "变"}
+
+event: token
+data: {"text": "量"}
+
+event: token
+data: {"text": "法*"}
+
+event: token
+data: {"text": "*（"}
+
+event: token
+data: {"text": "也"}
+
+event: token
+data: {"text": "叫线"}
+
+event: token
+data: {"text": "性"}
+
+event: token
+data: {"text": "期"}
+
+event: token
+data: {"text": "望"}
+
+event: token
+data: {"text": "的拆"}
+
+event: token
+data: {"text": "分"}
+
+event: token
+data: {"text": "）会"}
+
+event: token
+data: {"text": "比直"}
+
+event: token
+data: {"text": "接算"}
+
+event: token
+data: {"text": "概率"}
+
+event: token
+data: {"text": "分"}
+
+event: token
+data: {"text": "布"}
+
+event: token
+data: {"text": "简单"}
+
+event: token
+data: {"text": "很"}
+
+event: token
+data: {"text": "多，"}
+
+event: token
+data: {"text": "你可"}
+
+event: token
+data: {"text": "以"}
+
+event: token
+data: {"text": "先"}
+
+event: token
+data: {"text": "想"}
+
+event: token
+data: {"text": "想"}
+
+event: token
+data: {"text": "怎么"}
+
+event: token
+data: {"text": "把"}
+
+event: token
+data: {"text": "X拆"}
+
+event: token
+data: {"text": "成"}
+
+event: token
+data: {"text": "几个"}
+
+event: token
+data: {"text": "更简"}
+
+event: token
+data: {"text": "单"}
+
+event: token
+data: {"text": "的变"}
+
+event: token
+data: {"text": "量之"}
+
+event: token
+data: {"text": "和"}
+
+event: token
+data: {"text": "？\n\n难度："}
+
+event: token
+data: {"text": "medium"}
+
+event: title
+data: {"title": "分析用户上传的文件"}
+
+event: done
+data: {"usage": {"tokens_in": 4246, "tokens_out": 131}, "latency_ms": 2155, "message_id": "5f9dd3bd-123d-453c-b1fe-11df05827b0b", "title": "分析用户上传的文件", "meta": {"latency_ms": 2141}}
+

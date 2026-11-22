@@ -1,0 +1,125 @@
+import { getAccessToken } from "/src/api/authSession.js";
+export const PREP_CENTER_API_BASE = "/api/teacher-v3/prep";
+export class PrepCenterApiError extends Error {
+  kind;
+  status;
+  code;
+  detail;
+  requestId;
+  /** 服务端 fail 信封 data（如 time_budget_exceeded 的超额分钟数）。 */
+  data;
+  /** 服务端 error_key（契约化业务错误标识，如 time_budget_exceeded）。 */
+  errorKey;
+  constructor(info) {
+    super(info.detail || `prep-center api error: ${info.kind}`);
+    this.name = "PrepCenterApiError";
+    this.kind = info.kind;
+    this.status = info.status;
+    this.code = info.code;
+    this.detail = info.detail;
+    this.requestId = info.requestId ?? null;
+    this.data = info.data ?? null;
+    this.errorKey = info.errorKey ?? (info.data?.error_key ?? null);
+  }
+}
+function normalizeError(input) {
+  const status = input.status ?? null;
+  let kind;
+  if (status === 401) kind = "unauthenticated";
+  else if (status === 403) kind = "forbidden";
+  else if (status === 409) kind = "conflict";
+  else if (status === 404) kind = "not_found";
+  else if (status === 429) kind = "rate_limited";
+  else if (status === null || status === -1) kind = "network";
+  else kind = "error";
+  return new PrepCenterApiError({
+    kind,
+    status,
+    code: input.code ?? null,
+    detail: input.detail,
+    requestId: input.requestId,
+    data: input.data ?? null,
+    errorKey: input.errorKey ?? null
+  });
+}
+function authHeader() {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+async function request(path, init = {}) {
+  let res;
+  try {
+    res = await fetch(`${PREP_CENTER_API_BASE}${path}`, {
+      ...init,
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+        ...authHeader(),
+        ...init.headers || {}
+      }
+    });
+  } catch (e) {
+    if (e?.name === "AbortError") throw e;
+    throw normalizeError({ status: null, detail: e?.message });
+  }
+  if (!res.ok) {
+    let code = null;
+    let detail;
+    let data = null;
+    let errorKey = res.headers.get("x-error-key");
+    let requestId = res.headers.get("x-request-id");
+    try {
+      const body2 = await res.json();
+      code = typeof body2?.code === "number" ? body2.code : null;
+      detail = typeof body2?.message === "string" ? body2?.message : body2?.detail;
+      requestId = requestId ?? (body2?.request_id ?? null);
+      if (body2?.data && typeof body2.data === "object") data = body2.data;
+      errorKey = errorKey ?? (typeof body2?.error_key === "string" ? body2.error_key : null);
+    } catch {
+    }
+    throw normalizeError({ status: res.status, code, detail, requestId, data, errorKey });
+  }
+  if (res.status === 204) return void 0;
+  const body = await res.json();
+  if (body && typeof body === "object" && "data" in body) {
+    const env = body;
+    if (typeof env.code === "number" && env.code !== 0) {
+      throw normalizeError({
+        status: res.status,
+        code: env.code,
+        detail: env.message,
+        requestId: env.request_id ?? res.headers.get("x-request-id"),
+        data: env.data && typeof env.data === "object" ? env.data : null,
+        errorKey: typeof env.error_key === "string" ? env.error_key : null
+      });
+    }
+    return env.data;
+  }
+  return body;
+}
+export function listSessions(signal) {
+  return request("/sessions", { method: "GET", signal });
+}
+export function createConversation(payload, signal) {
+  return request("/conversations", {
+    method: "POST",
+    body: JSON.stringify(payload),
+    signal
+  });
+}
+export function getWorkspace(sessionId, signal) {
+  return request(
+    `/conversations/${encodeURIComponent(sessionId)}`,
+    { method: "GET", signal }
+  );
+}
+export function listSessionSpecs(sessionId, signal) {
+  return request(
+    `/conversations/${encodeURIComponent(sessionId)}/specs`,
+    { method: "GET", signal }
+  );
+}
+export function publishClassroom(sessionId, body, signal) {
+  return request(
+    `/sessions/${encodeURIComponent(sessionId)}/publish-classroom`,
+    { method: "POST", body: JSON.stringify(bod

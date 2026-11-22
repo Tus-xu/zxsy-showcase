@@ -1,0 +1,138 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/agent.ts
+# status=200 run=p05 step=start-modes t=02:25:38
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/agent.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "cache-control": "no-cache",
+ "content-length": "22272",
+ "date": "Sat, 21 Nov 2026 18:25:38 GMT",
+ "etag": "W/\"100d-+R/gy9I304kBFapSk/u0bF/YLog\"",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { fetchEventSource } from "/node_modules/.vite/deps/@microsoft_fetch-event-source.js?v=25e43eaa";
+import { getAccessToken } from "/src/api/authSession.js";
+import { RESEARCH_API_BASE, rwGet, rwPost } from "/src/features/research-workspace/api/client.ts";
+export async function runTask(projectId, preset, context, message, clientRequestId) {
+  const body = { preset, context, message };
+  if (clientRequestId) body.client_request_id = clientRequestId;
+  return rwPost(
+    `/projects/${projectId}/agent/tasks`,
+    body,
+    void 0,
+    clientRequestId ? { headers: { "X-Client-Request-Id": clientRequestId } } : void 0
+  );
+}
+export async function postSessionMessage(sessionId, payload) {
+  return rwPost(
+    `/sessions/${encodeURIComponent(sessionId)}/messages`,
+    payload
+  );
+}
+export async function postChatMessage(projectId, payload) {
+  return rwPost(`/projects/${projectId}/agent/chat`, payload);
+}
+export async function getChatThread(projectId) {
+  return rwGet(`/projects/${projectId}/agent/chat`);
+}
+function str(v, fallback = "") {
+  return typeof v === "string" ? v : v == null ? fallback : String(v);
+}
+export function normalizeTaskDetail(raw) {
+  const o = raw && typeof raw === "object" ? raw : {};
+  const meta = o.task && typeof o.task === "object" ? o.task : {};
+  const taskId = str(meta.id, str(meta.task_id, ""));
+  const status = str(meta.status, "running") || "running";
+  const activity = str(meta.activity, "") || void 0;
+  const hasResult = typeof o.kind === "string" && o.kind.length > 0;
+  const result = hasResult ? {
+    kind: o.kind,
+    status: str(o.status, "insufficient") || "insufficient",
+    summary: str(o.summary),
+    findings: Array.isArray(o.findings) ? o.findings : [],
+    evidence: Array.isArray(o.evidence) ? o.evidence : [],
+    source_locations: Array.isArray(o.source_locations) ? o.source_locations : [],
+    patches: Array.isArray(o.patches) ? o.patches : [],
+    actions: Array.isArray(o.actions) ? o.actions : [],
+    confidence: typeof o.confidence === "number" ? o.confidence : 0
+  } : null;
+  return {
+    task: { task_id: taskId, status, activity, result },
+    result
+  };
+}
+export async function getTask(taskId) {
+  const raw = await rwGet(`/agent/tasks/${taskId}`);
+  return normalizeTaskDetail(raw);
+}
+export async function listTasks(projectId, limit = 1) {
+  const r = await rwGet(`/projects/${projectId}/agent/tasks?limit=${limit}`);
+  const items = Array.isArray(r?.items) ? r.items : [];
+  return items.map((it) => {
+    const o = it && typeof it === "object" ? it : {};
+    const meta = o.task && typeof o.task === "object" ? o.task : {};
+    const preset = str(meta.preset, "");
+    return { ...normalizeTaskDetail(it), preset: preset || null };
+  });
+}
+export async function getTaskResult(taskId) {
+  return rwGet(`/agent/tasks/${taskId}/result`);
+}
+export async function searchKnowledge(projectId, query, limit = 8) {
+  const r = await rwPost(`/projects/${projectId}/knowledge/search`, {
+    query,
+    limit
+  });
+  return r?.items ?? [];
+}
+export function streamTask(taskId, options) {
+  const ctrl = new AbortController();
+  const { signal, onEvent } = options;
+  if (signal) {
+    if (signal.aborted) ctrl.abort();
+    else signal.addEventListener("abort", () => ctrl.abort(), { once: true });
+  }
+  const headers = { Accept: "text/event-stream" };
+  const token = getAccessToken();
+  if (token) headers.Authorization = `Bearer ${token}`;
+  if (options.lastEventId) headers["Last-Event-ID"] = options.lastEventId;
+  const path = options.path ?? `${RESEARCH_API_BASE}/agent/tasks/${taskId}/stream`;
+  void fetchEventSource(path, {
+    method: "GET",
+    headers,
+    signal: ctrl.signal,
+    openWhenHidden: true,
+    onmessage(ev) {
+      const raw = ev.data;
+      if (!raw) return;
+      let parsed = null;
+      try {
+        parsed = JSON.parse(raw);
+      } catch {
+        parsed = { type: "activity", activity: raw, id: ev.id };
+      }
+      if (parsed && !parsed.id && ev.id) parsed.id = ev.id;
+      if (parsed) onEvent(parsed);
+    },
+    onerror(err) {
+      throw err;
+    }
+  });
+  return () => ctr

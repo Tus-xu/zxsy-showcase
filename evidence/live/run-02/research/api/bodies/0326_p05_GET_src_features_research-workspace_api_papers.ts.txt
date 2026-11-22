@@ -1,0 +1,28 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/papers.ts
+# status=304 run=p05 step=start-modes t=02:25:25
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/papers.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "date": "Sat, 21 Nov 2026 18:25:25 GMT",
+ "vary": "Origin",
+ "connection": "keep-alive"
+}
+
+## response body (first 4KB, sanitized)
+<binary/unavailable>

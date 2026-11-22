@@ -1,0 +1,103 @@
+import { getAccessToken } from "/src/api/authSession.js";
+import { PREP_CENTER_API_BASE } from "/src/features/teacher-prep-center/api/prepCenterApi.ts";
+function authHeader() {
+  const token = getAccessToken();
+  return token ? { Authorization: `Bearer ${token}` } : {};
+}
+export function openPrepEventStream(sessionId, handlers) {
+  let controller = null;
+  let closed = false;
+  let lastSeq = 0;
+  let attempts = 0;
+  const MAX_ATTEMPTS = 8;
+  async function connect() {
+    while (!closed && attempts < MAX_ATTEMPTS) {
+      controller = new AbortController();
+      handlers.onStatus?.(attempts === 0 ? "connecting" : "reconnecting");
+      try {
+        const res = await fetch(
+          `${PREP_CENTER_API_BASE}/conversations/${encodeURIComponent(sessionId)}/events`,
+          {
+            method: "GET",
+            headers: {
+              Accept: "text/event-stream",
+              "Cache-Control": "no-cache",
+              ...lastSeq > 0 ? { "Last-Event-ID": String(lastSeq) } : {},
+              ...authHeader()
+            },
+            signal: controller.signal
+          }
+        );
+        if (!res.ok || !res.body) {
+          throw new Error(`sse connect failed: ${res.status}`);
+        }
+        attempts = 0;
+        handlers.onStatus?.("open");
+        const reader = res.body.getReader();
+        const decoder = new TextDecoder("utf-8");
+        let buffer = "";
+        for (; ; ) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          buffer += decoder.decode(value, { stream: true });
+          let sep;
+          while ((sep = buffer.indexOf("\n\n")) >= 0) {
+            const rawBlock = buffer.slice(0, sep);
+            buffer = buffer.slice(sep + 2);
+            handleBlock(rawBlock);
+          }
+        }
+      } catch (err) {
+        if (closed || err?.name === "AbortError") return;
+        handlers.onStatus?.("reconnecting");
+        handlers.onError?.(err);
+      }
+      attempts += 1;
+      if (!closed && attempts < MAX_ATTEMPTS) {
+        await new Promise((r) => setTimeout(r, Math.min(600 * 2 ** attempts, 5e3)));
+      }
+    }
+  }
+  function handleBlock(rawBlock) {
+    let eventName = "";
+    const dataLines = [];
+    let id = null;
+    for (const line of rawBlock.split("\n")) {
+      if (!line || line.startsWith(":")) continue;
+      if (line.startsWith("event:")) eventName = line.slice(6).trim();
+      else if (line.startsWith("data:")) dataLines.push(line.slice(5).trimStart());
+      else if (line.startsWith("id:")) id = line.slice(3).trim();
+    }
+    if (id) {
+      const n = Number(id);
+      if (Number.isFinite(n) && n > lastSeq) lastSeq = n;
+    }
+    if (!dataLines.length) return;
+    let data;
+    try {
+      data = JSON.parse(dataLines.join("\n"));
+    } catch {
+      return;
+    }
+    if (closed) return;
+    if (eventName === "snapshot") {
+      handlers.onSnapshot?.(data);
+      return;
+    }
+    if (eventName === "event" && data && typeof data === "object" && "event_type" in data) {
+      handlers.onEvent?.(data);
+    }
+  }
+  void connect();
+  return {
+    sessionId,
+    close() {
+      closed = true;
+      controller?.abort();
+      controller = null;
+      handlers.onStatus?.("closed");
+    }
+  };
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImV2ZW50c0NsaWVudC50cyJdLCJzb3VyY2VzQ29udGVudCI6WyIvKipcclxuICog5aSH6K++5Lya6K+dIFNTRSDlrqLmiLfnq6/vvIhmZXRjaCDmtYHlvI/op6PmnpDvvJtFdmVudFNvdXJjZSDml6Dms5XluKYgQXV0aG9yaXphdGlvbiDlpLTvvInjgIJcclxuICpcclxuICog6YCa6YGT5aWR57qm77yIODEwMCBHRVQgL3ByZXAvY29udmVyc2F0aW9ucy97aWR9L2V2ZW50c++8jGZyYW1lPVwid3JhcHBlZFwi77yJ77yaXHJcbiAqIC0g6aaW5binIGBzbmFwc2hvdGDvvJpkYXRhID0g5a6M5pW0IHdvcmtzcGFjZSDlv6vnhafvvIjmnYPlqIHmipXlvbHvvInvvJtcclxuICogLSDkuovku7bluKcgYGV2ZW50YO+8mmRhdGEgPSB7c2VxLGV2ZW50X3R5cGUscGF5bG9hZCwuLi5977yMaWQgPSBzZXHvvIhMYXN0LUV2ZW50LUlEIOaWreeCuee7reS8oO+8ie+8m1xyXG4gKiAtIOW/g+i3syBgOiBwaW5nYCDms6jph4rooYzvvJtgcmV0cnk6IDMwMDBgIOmHjei/numXtOmalOOAglxyXG4gKlxyXG4gKiDmlq3nur/oh6rliqjph43ov57vvIjmjIfmlbDpgIDpgb8g4omkMyDmrKHvvInvvIzph43ov57luKYgTGFzdC1FdmVudC1JRO+8iGR1cmFibGUgcm

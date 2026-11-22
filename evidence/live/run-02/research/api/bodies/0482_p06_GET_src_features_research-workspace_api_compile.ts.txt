@@ -1,0 +1,103 @@
+# GET http://127.0.0.1:5176/src/features/research-workspace/api/compile.ts
+# status=200 run=p06 step=open-write t=02:27:14
+
+## request headers (sanitized)
+{
+ "origin": "http://127.0.0.1:5176",
+ "sec-ch-ua-platform": "\"Windows\"",
+ "referer": "http://127.0.0.1:5176/src/features/research-workspace/stores/files.ts",
+ "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+ "sec-ch-ua": "\"HeadlessChrome\";v=\"153\", \"Not_A Brand\";v=\"8\", \"Chromium\";v=\"153\"",
+ "accept-language": "zh-CN",
+ "sec-ch-ua-mobile": "?0"
+}
+
+## request body (first 4KB, sanitized)
+<empty>
+
+## response headers (sanitized)
+{
+ "cache-control": "no-cache",
+ "etag": "W/\"9da-7pG5UlIGD8x2kYl0DE7VpVttmvE\"",
+ "connection": "keep-alive",
+ "access-control-allow-origin": "http://127.0.0.1:5176",
+ "keep-alive": "timeout=5",
+ "content-length": "12625",
+ "date": "Sat, 21 Nov 2026 18:27:14 GMT",
+ "content-type": "text/javascript",
+ "vary": "Origin"
+}
+
+## response body (first 4KB, sanitized)
+import { getAccessToken } from "/src/api/authSession.js";
+import { RESEARCH_API_BASE, RvApiError, rwGet, rwPost } from "/src/features/research-workspace/api/client.ts";
+export const COMPILE_IN_PROGRESS = "COMPILE_IN_PROGRESS";
+export const COMPILE_IN_PROGRESS_MESSAGE = "正在编译中，请稍候…";
+export function isCompileInProgress(err) {
+  if (!err || typeof err !== "object") return false;
+  return String(err.code) === COMPILE_IN_PROGRESS;
+}
+function toCompileRun(env) {
+  const r = env?.compile_run;
+  if (!r) return null;
+  return {
+    run_id: String(r.id),
+    status: r.status,
+    engine: r.engine,
+    entry: r.entry,
+    pdf_artifact_id: r.pdf_artifact_id ?? null,
+    pdf_available: Boolean(r.pdf_available ?? r.pdf_artifact_id),
+    last_successful_pdf_artifact_id: env?.last_successful_pdf_artifact_id ?? null,
+    log_lines: r.log_lines ?? [],
+    duration_ms: r.duration_ms ?? null,
+    page_count: r.page_count ?? null,
+    pdf_size_bytes: r.pdf_size_bytes ?? null,
+    error_count: r.error_count ?? 0,
+    warning_count: r.warning_count ?? 0,
+    error_code: r.error_code ?? "",
+    error_message: r.error_message ?? ""
+  };
+}
+export async function compile(projectId, entry = "main.tex", engine = "xelatex", signal) {
+  try {
+    const env = await rwPost(
+      `/projects/${projectId}/compile`,
+      { engine, entry },
+      void 0,
+      { signal }
+    );
+    return toCompileRun(env);
+  } catch (e) {
+    if (isCompileInProgress(e)) {
+      throw new RvApiError({
+        code: COMPILE_IN_PROGRESS,
+        status: 409,
+        message: COMPILE_IN_PROGRESS_MESSAGE,
+        retryable: true
+      });
+    }
+    throw e;
+  }
+}
+export async function compileRun(projectId, runId) {
+  const env = await rwGet(`/projects/${projectId}/compile-runs/${runId}`);
+  return toCompileRun(env);
+}
+export async function latestRun(projectId) {
+  const env = await rwGet(`/projects/${projectId}/compile-runs/latest`);
+  return toCompileRun(env);
+}
+export async function downloadRunPdf(projectId, runId) {
+  const url = `${RESEARCH_API_BASE}/projects/${projectId}/compile-runs/${encodeURIComponent(runId)}/pdf`;
+  const headers = { Accept: "application/pdf" };
+  const token = getAccessToken();
+  if (token) headers.Authorization = `Bearer ${token}`;
+  const res = await fetch(url, { headers, credentials: "include" });
+  if (!res.ok) {
+    throw Object.assign(new Error("PDF 暂不可用"), { status: res.status, code: res.status });
+  }
+  const buf = await res.arrayBuffer();
+  return new Uint8Array(buf);
+}
+
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBpbGUudHMiXSwic291cmNlc0NvbnRlbnQiOlsiLyoqXG4gKiDpobnnm67nuqfnvJbor5EgQVBJ77yIQkFDS0VORC1DT05UUkFDVCDCpzMuNCAvIEZST05URU5ELUFSQ0ggwqcwLTLvvInjgIJcbiAqXG4gKiDlrp7mtYvlkI7nq6/kv6HlsIHvvIgyMDI2LTA5LTE277yJ77yaXG4gKiAtIGBQT1NUIC9wcm9qZWN0cy97aWR9L2NvbXBpbGVgICAgICAgICAgICAgICAg4oaSIGB7IGNvbXBpbGVfcnVuLCBsYXN0X3N1Y2Nlc3NmdWxfcGRmX2FydGlmYWN0X2lkIH1g77yIMjAx77yJXG4gKiAtIGBHRVQgIC9wcm9qZWN0cy97aWR9L2NvbXBpbGUtcnVucy97cnVuX2lkfWAg4oaSIGB7IGNvbXBpbGVfcnVuLCBsYXN0X3N1Y2Nlc3NmdWxfcGRmX2FydGlmYWN0X2lkIH1gXG4gKiAtIGBHRVQgIC9wcm9qZWN0cy97aWR9L2NvbXBpbGUtcnVucy9sYXRlc3RgICAg4oaSIGB7IGNvbXBpbGVfcnVufG51bGwsIGxhc3Rfc3VjY2Vzc2Z1bF9wZGZfYXJ0aWZhY3RfaWQgfWBcbiAqIC0gYEdFVCAgL3Byb2plY3RzL3tpZH0vY29tcGlsZS1ydW5zL3tydW5faWR9L3BkZmAg4oaSIOWOn+WniyBQREYg5a2X6IqC77yIYGFwcGxpY2F0aW9uL3BkZmDvvIlcbiAqXG4gKiDlkI7nq6/nvJbor5HkuLoqKuWQjOatpemYu+Whnioq77yI4omIMTV+MjVzIOWQjui/lOWbnuW3suWujOaIkOeahCBydW7vvInvvIxgc3RhdHVzIOKIiCBydW5uaW5nfHN1Y2Nlc3N8ZmFpbGVkfHRpbWVvdXRg44CCXG4gKiDlpLHotKUqKuS4jeW+l+a4heepuiBwcmV2aWV3KirvvJpsYXRlc3Qg5ZCM5pe26L+U5ZueIGBsYXN0X3N1Y2Nlc3NmdWxfcGRmX2FydGlmYWN0X2lkYO+8iOWuquazlSDCpzIz77yJ44CCXG4gKiDmnKzlsYLmiorlkI7nq68gcGF5bG9hZCDlvZLkuIDljJbkuLrliY3nq68gYENvbXBpbGVSdW5g77yIYGlkIOKGkiBydW5faWRg77yM6YCP5LygIGBsYXN0X3N1Y2Nlc3NmdWxfcGRmX2FydGlmYWN0X2lkYO+8ieOAglxuICovXG5pbXBvcnQgeyBnZXRBY2Nlc3NUb2tlbiB9IGZyb20gJ0AvYXBpL2F1dGhTZXNzaW9uJ1xuaW1wb3J0IHsgUkVTRUFSQ0hfQVBJX0JBU0UsIFJ2QXBpRXJyb3IsIHJ3R2V0LCByd1Bvc3QgfSBmcm9tICcuL2NsaWVudCdcbmltcG9ydCB0eXBlIHsgQ29tcGlsZVJ1biwgQ29tcGlsZVN0YXR1cyB9IGZyb20gJy4vdHl

@@ -1,0 +1,57 @@
+{
+ "student_new_chat": {
+  "before_ai_rows": 0,
+  "before_he_card": 4,
+  "before_hero": 1,
+  "after_ai_rows": 0,
+  "after_he_card": 4,
+  "after_url": "http://127.0.0.1:5176/dialog/68e6a596-8062-4784-ba68-9596fc7d644c",
+  "after_body_head": "π | 智学数研 | 学生端 | 🔥 | 13 连击 | 小 | 小林 | 学习闭环 | « | 🏠 | 首页 | ✏️ | 练题 | 沉浸 | 📕 | 错题 | 24 | 📚 | 知识库 | 📺 | 资源中心 | 🎓 | 课堂 | 2 | 👤 | 我的 | ＋ 新对话 | 置顶 | 错题本录入 · 极值点判断 | 10/27 | 可视化讲解 · 导数与极值 | 10/27 | 举一反三 · 三次函数变式链 | 10/27 | 引导式解题 · 三次函数极值 | 10/27 | 导数的几何意义怎么理解 | 10/27 | 今天 | 分析用户上传的文件内容 | 04:32 | 分析用户上传的文件 | 02:53 | 新对话 | 02:50 | 新对话 | 02:42 | 新对话 | 02:42 | 新对话 | 02:42 | 新对话 | 02:40 | 新对话 | 02:40 | 新对话 | 02:39 | 新对话 | 02:39 | 新对话 | 02:39 | 分析用户上传的文件 | 02:37 | 请求分析上传的文件 | 02:37 | 分析用户上传的文件 | 02:37 | 分析用户上传的文件内容 | 02:36 | 分析用户上传的文件 | 02:32 | 分析用户"
+ },
+ "research_read_overview": [
+  {
+   "at_s": 5,
+   "has_overview_sentence": true,
+   "empty_overview": false,
+   "overview_text": "",
+   "counts": [
+    "4\n文献",
+    "1\n草稿",
+    "2\n笔记"
+   ]
+  },
+  {
+   "at_s": 10,
+   "has_overview_sentence": true,
+   "empty_overview": false,
+   "overview_text": "",
+   "counts": [
+    "4\n文献",
+    "1\n草稿",
+    "2\n笔记"
+   ]
+  },
+  {
+   "at_s": 15,
+   "has_overview_sentence": true,
+   "empty_overview": false,
+   "overview_text": "",
+   "counts": [
+    "4\n文献",
+    "1\n草稿",
+    "2\n笔记"
+   ]
+  },
+  {
+   "at_s": 20,
+   "has_overview_sentence": true,
+   "empty_overview": false,
+   "overview_text": "",
+   "counts": [
+    "4\n文献",
+    "1\n草稿",
+    "2\n笔记"
+   ]
+  }
+ ]
+}

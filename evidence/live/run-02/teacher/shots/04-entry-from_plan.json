@@ -1,0 +1,148 @@
+{
+  "url": "http://127.0.0.1:5176/teacher-v3/prep-templates",
+  "title": "智学数研 · 数学智能助学平台（v4）",
+  "buttons": [
+    {
+      "t": "任务",
+      "aria": "",
+      "disabled": false,
+      "cls": "tv3-btn tv3-btn--sm"
+    },
+    {
+      "t": "←",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptx-back"
+    },
+    {
+      "t": "⬆ 上传教案提炼模板",
+      "aria": "",
+      "disabled": false,
+      "cls": "ailp-btn-primary ptl-upload"
+    },
+    {
+      "t": "全部模板",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-tab"
+    },
+    {
+      "t": "我的模板",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-tab is-on"
+    },
+    {
+      "t": "优质课蓝本",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-tab"
+    },
+    {
+      "t": "内置标准",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-tab"
+    },
+    {
+      "t": "资源库引用",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-tab"
+    },
+    {
+      "t": "全部",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-filter is-on"
+    },
+    {
+      "t": "新授课",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-filter"
+    },
+    {
+      "t": "习题课",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-filter"
+    },
+    {
+      "t": "复习课",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-filter"
+    },
+    {
+      "t": "讲评课",
+      "aria": "",
+      "disabled": false,
+      "cls": "ptl-filter"
+    },
+    {
+      "t": "📚 伴随资源 伴随资源 按教学意图推荐 · 随取随用",
+      "aria": "伴随资源",
+      "disabled": false,
+      "cls": "ck-item ck-item--sm ck-item--resource"
+    },
+    {
+      "t": "∫ AI AI 助教 对话 · 搜索 · 语音公式 · 应用内操作",
+      "aria": "AI 助教",
+      "disabled": false,
+      "cls": "ck-item ck-item--ai"
+    }
+  ],
+  "inputs": [
+    {
+      "type": "text",
+      "ph": "搜索模板名称",
+      "aria": "",
+      "value": "",
+      "disabled": false
+    }
+  ],
+  "selects": [],
+  "links": [
+    {
+      "t": "备课中心",
+      "h": "/teacher-v3/prep"
+    },
+    {
+      "t": "课堂",
+      "h": "/teacher-v3/classroom"
+    },
+    {
+      "t": "题库与组卷",
+      "h": "/teacher-v3/bank"
+    },
+    {
+      "t": "作业与批改",
+      "h": "/teacher-v3/assign"
+    },
+    {
+      "t": "学情洞察",
+      "h": "/teacher-v3/insights"
+    },
+    {
+      "t": "资源中心",
+      "h": "/teacher-v3/resources"
+    }
+  ],
+  "headings": [
+    "教案模板库"
+  ],
+  "nav": [
+    "备课中心",
+    "课堂",
+    "题库与组卷",
+    "作业与批改",
+    "学情洞察",
+    "资源中心"
+  ],
+  "badges": [
+    "∫",
+    "∫"
+  ],
+  "text": "∫\n教师工作台\n智学数研 · AI 备课教学\n每日教学\n备课中心\n课堂\n资源与测评\n题库与组卷\n作业与批改\n学情洞察\n资源中心\n教案模板库\n高二年级 · 2026 秋季学期\nAI 助教已就绪\n任务\n张\n张老师\n高中数学 · 教师\n←\n教案模板库\n⬆ 上传教案提炼模板\n李\n全部模板\n我的模板\n优质课蓝本\n内置标准\n资源库引用\n全部\n新授课\n习题课\n复习课\n讲评课\n排序：最近使用 ▾\n📁 你已提炼\n0\n份个人模板 · 累计使用\n0\n次\n这一分类下暂无模板。\n📚\n伴随资源\n伴随资源\n按教学意图推荐 · 随取随用\n∫\nAI\nAI 助教\n对话 · 搜索 · 语音公式 · 应用内操作"
+}
