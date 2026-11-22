@@ -1,0 +1,5 @@
+﻿# 只对文本源固定 LF：保证离线单文件构建与 checkout 路径/平台设置无关。
+# 注意：不要写成 app/**（会把 app/public 下的 PNG 当文本做换行转换，破坏图片）。
+app/index.html text eol=lf
+app/vite.config.offline.mjs text eol=lf
+app/src/** text eol=lf
