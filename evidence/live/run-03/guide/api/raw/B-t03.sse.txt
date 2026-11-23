@@ -1,0 +1,17 @@
+: open
+
+event: meta
+data: {"conversation_id": "0cd000d9-900c-47f1-9bbc-82722149d28c", "msg_id": "f4a9e5ca-746d-43c3-9f8c-4c4666c32ebf", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "好，我们直接进入复述检查——你来当老师。"}
+
+event: token
+data: {"text": "我把读到的题意复述一遍——里面有一处我故意读歪了，你来当老师挑错："}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "step_no": 0, "interaction_id": "ix_967d23a34909", "form": "restate_check", "move": "clarify", "stage": "reading", "prompt_lead": "我复述的题意里藏了一处错误，你来当老师把它抓出来。", "spec": {"portrait": ["已知：正三棱柱 ABC-A₁B₁C₁ 中", "要求：判断四个选项的正误（多选）"], "first_move": "你想先看 AD 与 A₁C 是否垂直", "flawed": true, "flaw_desc": "漏掉了一个条件（对照原题看少了哪一句）", "note": "AI 的复述里有一处读错了——点出那句；如果两句都准确，点「全部正确」"}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "看不出来，直接开始", "interaction_reason": "opening×reading×clarify×T0→restate_check[R4]", "form_source": "router", "routing_reason": "opening×reading×clarify×T0→restate_check[R4]"}
+
+event: done
+data: {"usage": {"tokens_in": 3, "tokens_out": 21}, "latency_ms": 1672, "message_id": "a5146f9a-09d5-4677-824c-0265f03ad1ba", "meta": {"skill": "socratic_solver", "tutor_action": "skip", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "steps_count": 5, "verified": false, "difficulty": "medium", "current_step": 1, "status": "active", "leak_blocked": 0, "hint_level": 0, "socratic": {"phase": "opening", "scaffold_level": 0, "verdict": null, "misconception": null, "error_move": null, "kp_code": "MATH-PEP-BBIXI2-4EEF23D0C9", "detour_active": false, "round_used": 0, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "restate_check", "form_reason": "opening×reading×clarify×T0→restate_check[R4]", "move": null, "tier": 0, "stage": "reading"}}}
+

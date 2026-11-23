@@ -1,13 +1,16 @@
 /**
- * 离线 fixture 装载：把 run-02 采集到的现役真实响应打包进构建产物。
+ * 离线 fixture 装载与匹配。
  *
- * 目录约定（由 .work/scripts/r02-harvest.py 生产）：
- *   src/offline/fixtures/<role>/index.json   { "<METHOD> <path>": { file, status, ... } }
- *   src/offline/fixtures/<role>/<slug>.json  原始响应文本（现役真实返回）
+ * 数据来源（现役真机采证，逐响应原文）：
+ *   run-02：`fixtures/<role>/index.json` + `<slug>.json`（角色级基线）
+ *   run-03：`fixtures/student/run03/<slug>.json`（学生端列表参数补采，见 evidence/live/run-03/data）
  *
- * 运行时只读；不做任何改写（除 token 脱敏），保证「回放的就是采证到的」。
+ * 匹配原则（`findFixture`）：
+ *   1) 同 method 下**按 query 语义匹配**：逐参数比较，采证时见过的参数组合才命中；
+ *   2) 不做前缀退化——未知端点返回 null，由回放层给现役 UI 自己的错误态；
+ *   3) 无 query 的请求回退到同路径采证项（如 /auth/me）。
  */
-const RAW = import.meta.glob('./fixtures/*/*.json', { eager: true, query: '?raw', import: 'default' })
+const RAW = import.meta.glob('./fixtures/**/*.json', { eager: true, query: '?raw', import: 'default' })
 
 const ROLES = ['student', 'teacher', 'researcher']
 
@@ -21,48 +24,89 @@ function dirName(p) {
   return parts[parts.length - 2]
 }
 
-/** { role: { '<METHOD> <path>': { key, text, status, binary?, ct? } } } */
+/** 角色名 = 路径中第一个 fixtures/ 之后的段（兼容 student/run03/… 的嵌套采集目录） */
+function roleName(p) {
+  const parts = p.split('/')
+  const i = parts.indexOf('fixtures')
+  if (i >= 0 && parts[i + 1]) return parts[i + 1]
+  return parts[parts.length - 2]
+}
+
+/** 解析 index.json → [key, meta] */
+function readIndex(p, text) {
+  try {
+    return Object.entries(JSON.parse(text))
+  } catch {
+    return []
+  }
+}
+
+function parseQuery(urlOrPath) {
+  const i = urlOrPath.indexOf('?')
+  if (i < 0) return {}
+  const qs = new URLSearchParams(urlOrPath.slice(i + 1))
+  const out = {}
+  for (const [k, v] of qs.entries()) out[k] = v
+  return out
+}
+
+/** { role: { '<METHOD> <path>': { key, text, status, binary?, query? } } } */
 export const FIXTURES = (() => {
   const byRole = {}
   for (const role of ROLES) byRole[role] = {}
 
-  const indexes = {}
+  // 1) 收集所有 index 里的端点元数据
+  //    文件名允许 index.json / index.txt.json（run-03 导入器把响应体统一改成 .json 后缀时
+  //    会与 index 本身撞名，故导入器把 index 记为 index.txt.json）
+  const metas = [] // { role, key, meta, dir }
   for (const [p, text] of Object.entries(RAW)) {
-    if (baseName(p) !== 'index.json') continue
-    try {
-      indexes[dirName(p)] = JSON.parse(text)
-    } catch {
-      /* 忽略坏索引 */
+    const bn = baseName(p)
+    if (bn !== 'index.json' && bn !== 'index.txt.json') continue
+    const role = roleName(p)
+    if (!byRole[role]) continue
+    for (const [key, meta] of readIndex(p, text)) {
+      metas.push({ role, key, meta: meta || {}, dir: p.split('/').slice(-2, -1)[0] })
     }
   }
 
+  // 2) 文件内容按文件名挂到对应端点（按目录区分，避免跨目录同名覆盖）
+  const byFile = {}
+  for (const m of metas) {
+    if (m.meta?.file) byFile[`${m.role}/${m.dir}/${m.meta.file}`] = m
+    if (m.meta?.sseFiles) byFile[`${m.role}/${m.dir}/${m.meta.sseFiles}`] = m
+  }
   for (const [p, text] of Object.entries(RAW)) {
-    const role = dirName(p)
+    const role = roleName(p)
     const base = baseName(p)
-    if (base === 'index.json') continue
-    if (!byRole[role]) continue
-    const idx = indexes[role] || {}
-    for (const [key, meta] of Object.entries(idx)) {
-      if (meta && meta.file === base) {
-        const isBinary = base.endsWith('.b64.json')
-        let payload = String(text)
-        if (isBinary) {
-          try {
-            const parsed = JSON.parse(text)
-            payload = { ct: parsed.ct || 'application/octet-stream', b64: parsed.b64 }
-          } catch {
-            payload = { ct: 'application/octet-stream', b64: '' }
-          }
-        }
-        byRole[role][key] = { key, text: payload, status: meta.status || 200, binary: isBinary }
-        break
+    if (base === 'index.json' || base === 'index.txt.json' || !byRole[role]) continue
+    const dir = p.slice(0, p.length - base.length - 1).split('/').pop()
+    const holder = byFile[`${role}/${dir}/${base}`]
+    if (!holder) continue
+    const isBinary = base.endsWith('.b64.json')
+    let payload = String(text)
+    if (isBinary) {
+      try {
+        const parsed = JSON.parse(text)
+        payload = { ct: parsed.ct || 'application/octet-stream', b64: parsed.b64 }
+      } catch {
+        payload = { ct: 'application/octet-stream', b64: '' }
       }
+    }
+    const method = holder.meta.method || (holder.key.startsWith('SSE ') ? 'SSE' : 'GET')
+    byRole[role][holder.key] = {
+      key: holder.key,
+      text: payload,
+      status: holder.meta.status || 200,
+      binary: isBinary,
+      query: parseQuery(holder.key),
+      path: holder.key.split(' ').slice(1).join(' ').split('?')[0],
+      method,
     }
   }
   return byRole
 })()
 
-/* 外部图片（封面/插图）采证：URL → data URI，离线替换 <img src> 用 */
+/* 外部图片（封面/插图）采证：URL → data URI */
 const RAW_IMAGES = import.meta.glob('./fixtures/**/images/*.json', { eager: true, query: '?raw', import: 'default' })
 
 export const IMAGE_MAP = (() => {
@@ -82,30 +126,46 @@ export function listKeys(role) {
   return Object.keys(FIXTURES[role] || {})
 }
 
-/** 精确 key 查询 */
 export function fixtureText(role, key) {
   const hit = FIXTURES[role]?.[key]
   return hit ? hit.text : null
 }
 
+/** 按 query 键值比较：候选的每个参数都必须与请求一致（候选参数多于请求参数视为不命中） */
+function queryMatches(candidateQuery, wantedQuery) {
+  const cw = Object.keys(candidateQuery || {})
+  const ww = Object.keys(wantedQuery || {})
+  if (cw.length !== ww.length) return false
+  for (const k of cw) {
+    if (candidateQuery[k] !== wantedQuery[k]) return false
+  }
+  return true
+}
+
 /**
- * 按 (method, path) 查询，只做「同端点」匹配，**不做前缀退化**：
- *   1) 完全一致（含 query）；2) 忽略 query；3) 同 method 且未带 query 的同路径。
- * 说明：上一版有「把路径末段当 id 的前缀匹配」，会把未知 POST（如 …/actions）误配到
- *      其它端点（实测出现 200 + 短信验证码信封 → 教师工作台 ErrorBoundary 崩溃）。
- *      采证时已覆盖演示用到的全部具体 URL（含固定 id），因此不需要前缀猜测。
+ * 按 (method, path[, query]) 查找。语义：
+ *  - 完全一致（key 含相同 query）直接命中；
+ *  - 否则在「同 method + 同 path」的候选里做 query 全等比较；
+ *  - 请求无 query 时回退到任一同路径项（/auth/me 这类无参数端点）。
+ * 不做路径前缀猜测——未知端点返回 null。
  */
 export function findFixture(role, method, path) {
   const bucket = FIXTURES[role]
   if (!bucket) return null
+  const wanted = parseQuery(path)
+  const noQuery = path.split('?')[0]
   const exact = `${method} ${path}`
   if (bucket[exact]) return bucket[exact]
-  const noQuery = path.split('?')[0]
-  if (bucket[`${method} ${noQuery}`]) return bucket[`${method} ${noQuery}`]
+
+  const candidates = []
   for (const [key, val] of Object.entries(bucket)) {
     const [m, kp] = key.split(' ')
     if (m !== method || !kp) continue
-    if (kp.split('?')[0] === noQuery) return val
+    if (kp.split('?')[0] !== noQuery) continue
+    candidates.push(val)
   }
-  return null
+  if (!candidates.length) return null
+  if (Object.keys(wanted).length === 0) return candidates[0]
+  const hit = candidates.find((c) => queryMatches(c.query, wanted))
+  return hit || null
 }

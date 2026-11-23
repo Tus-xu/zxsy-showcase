@@ -1,0 +1,16 @@
+{
+ "found": true,
+ "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50",
+ "status": 200,
+ "ct": "application/json",
+ "file": "errors/bodies/error-records_filter_page1_size50.json",
+ "bytes": 9676,
+ "total": 26,
+ "items": 26,
+ "data_keys": [
+  "items",
+  "page",
+  "size",
+  "total"
+ ]
+}

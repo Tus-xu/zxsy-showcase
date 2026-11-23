@@ -1,0 +1,49 @@
+﻿id,入口,路由,账号/前置数据,触发动作,预期业务结果,现役采证,离线用例,截图编号,功能结论,视觉结论,未通过原因
+S-DLG-01,首页空态入口,/dialog,学生 13800001001（小林）,正常登录进入,显示欢迎语、四个入口卡（拍照/上传/练题/复习）、最近学习、学情脉搏,FQA-01 / VQA p1,FQA-01 / VQA p1,fqa/shots/01a-dialog-initial.png; vqa/side/p01-dialog.png,通过,通过,
+S-DLG-02,会话列表,/dialog,学生 13800001001（小林）,查看左侧会话列表,按置顶/今天/7 天内分组，条数与最近会话可点击进入,FQA-01 / VQA p1,FQA-01 / VQA p1,fqa/shots/01a-dialog-initial.png; vqa/side/p01-dialog.png,通过,通过,本轮补采后 30 条会话（run-03b）
+S-DLG-03,新建会话,/dialog,学生 13800001001（小林）,点「＋ 新对话」,生成新会话并进入空态（0 条消息）,FQA-02,FQA-02,fqa/shots/02a-new-dialog.png,通过,,
+S-DLG-04,会话历史进入,/dialog/:id,学生 13800001001（小林）,点历史会话,进入该会话并还原消息顺序/内容,FQA-03 / P3 会话 30 条点开,FQA-03 / P3 会话 30 条点开,fqa/shots/03a-history-restored.png,通过,,11 条为空会话（现役真实空数据）
+S-DLG-05,题图上传-识别,/dialog,学生 13800001001（小林）；题1.png,拍照识题上传题1,附件卡 hashing→上传→解析→已就绪，发出默认指令,probes/smoke-A2（att ready→首轮回复）,probes/smoke-A2（att ready→首轮回复）,probes/smoke-A2.png,通过,,
+S-DLG-06,三题导学 A,/dialog,学生 13800001001（小林）；题1.png,逐轮按卡片提示作答,收束到 e=2√2 选 D（校对稿见 math/PROOFREAD.md）,G flow-A（10 轮）,G flow-A（10 轮）,evidence/live/run-03/guide/shots/A-t09-after.png,BLOCKED,,现役 socratic solver 未收束：第 9 轮重复第 6 轮追问（a、b、c 关系式），并把「求离心率」误判为缺定大小条件；无完成卡
+S-DLG-07,三题导学 B,/dialog,学生 13800001001（小林）；题2.png,逐轮按卡片提示作答,收束到 BD,G flow-B（8 轮）,G flow-B（8 轮）,evidence/live/run-03/guide/shots/B-t04-after.png,BLOCKED,,现役结构化卡目标式抽取与提问不一致（keypad 只给 AA_1D），数学正确的 BC⊥AA₁ 被判错，停在第 2/5 步
+S-DLG-08,三题导学 C,/dialog,学生 13800001001（小林）；题3.png,逐轮按卡片提示作答,收束到 E(X)=61/25=2.44,G flow-C（9 轮）,G flow-C（9 轮）,evidence/live/run-03/guide/shots/C-*.png,BLOCKED,,现役在给出正确指示变量推导后转示范并改问 X=3，不回收束，停在第 3/5 步
+S-DLG-09,刷新恢复,/dialog/:id,学生 13800001001（小林）,导学中/后刷新页面,消息顺序、卡片状态、可继续输入与现役一致,FQA-12 刷新 / probes,FQA-12 刷新 / probes,fqa/shots/12a-refresh-dialog.png,通过,,卡片面板不重建（已知偏差，见 未通过项 C）
+S-DLG-10,举一反三,/dialog,学生 13800001001（小林）,结论卡「举一反三」,出现变式练习并可作答/判分,,,,待采证,,
+S-DLG-11,动态数学图形,/dialog,学生 13800001001（小林）,结论卡图形交互,图形可拖动/演示，参数联动,,,,待采证,,
+S-PRC-01,今日推荐,/practice,学生 13800001001（小林）,进入练题,显示今日训练题量与难度分布,,,,待采证,,
+S-PRC-02,题库/自选题,/practice,学生 13800001001（小林）,切「自己选题」+ 知识点筛选,按知识点筛出题目列表,,,,待采证,,
+S-PRC-03,开练与作答,/practice,学生 13800001001（小林）,选一组题开始,进入答题态，可作答/交卷,,,,待采证,,
+S-PRC-04,判分与解析,/practice,学生 13800001001（小林）,提交答案,正确/错误结果、解析与错因回流,,,,待采证,,
+S-ERR-01,自动详情浮窗,/errors,学生 13800001001（小林）,进入错题页,自动打开第 01 题详情（现役真实行为）,FQA-07 / VQA p5,FQA-07 / VQA p5,fqa/shots/07a-errors-autodetail.png; vqa/side/p05-errors.png,通过,通过,
+S-ERR-02,筛选,/errors,学生 13800001001（小林）,切 5 个筛选 Tab,全部/按错因/按知识点/按时间/按遗忘风险 列表随之变化,FQA-07 / run-03 5 个筛选 Tab,FQA-07 / run-03 5 个筛选 Tab,fqa/shots/07b-errors-list.png,通过,,
+S-ERR-03,详情与正解,/errors,学生 13800001001（小林）,打开任一错题详情,显示原题、我的作答、正解、错因、复习排期,run-03b 7 条详情 × 3 端点 / P3 01/26,run-03b 7 条详情 × 3 端点 / P3 01/26,evidence/live/run-03b/shots/34-errors-detail-01-*.png,通过,,
+S-ERR-04,引导重解,/errors,学生 13800001001（小林）,点「引导重解」,跳转/打开引导解题,,,,待采证,,
+S-ERR-05,刷新与复习,/errors,学生 13800001001（小林）,刷新；点复习,状态保留、错题仍在队列,,,,待采证,,
+S-LIB-01,资料列表,/library,学生 13800001001（小林）,进入知识库,显示资料列表/可引用计数/切片数,VQA p2,VQA p2,vqa/side/p02-library-docs.png,通过,通过,
+S-LIB-02,我的题库列表,/library,学生 13800001001（小林）,切「我的题库」Tab,显示平台题库总数与**实际分页列表**（>1 条）,FQA-04 / VQA p3 / P3,FQA-04 / VQA p3 / P3,fqa/shots/04a-library-questions.png; vqa/side/p03-library-questions.png,通过,通过,24/24 条（现役同）
+S-LIB-03,题库搜索/筛选,/library,学生 13800001001（小林）,输入关键词/切换筛选,列表按参数变化（不同关键词不同结果）,FQA-05（守门线）,FQA-05（守门线）,fqa/shots/05a-search-hanshu.png,通过,,函数 14/14、导数 6/6、清空 24/24
+S-LIB-04,题库分页,/library,学生 13800001001（小林）,翻到第 2 页,页数与条数按分页参数变化,run-03 采证 offset>0 现役不可达（24<页长 30）,run-03 采证 offset>0 现役不可达（24<页长 30）,,待采证,,现役 UI 无「加载更多」
+S-LIB-05,资料原文/切片,/library,学生 13800001001（小林）,打开资料原文,显示原文与切片，可选中提问,,,,待采证,,
+S-LIB-06,引用回对话,/library,学生 13800001001（小林）,在资料上提问,回答引用原文并可回跳,,,,待采证,,
+S-RES-01,推荐列表,/resources,学生 13800001001（小林）,进入资源中心,显示 ≥10 张视频卡（封面/标题/时长）,FQA-06 / VQA p4,FQA-06 / VQA p4,fqa/shots/06a-resources-reco.png; vqa/side/p04-resources.png,通过,通过,
+S-RES-02,知识点浏览,/resources,学生 13800001001（小林）,切「按知识点浏览」,按知识点分组的卡片,run-03b 12 张封面内联 / P3 0 破图,run-03b 12 张封面内联 / P3 0 破图,probes/p3-resources-kp.png,通过,,
+S-RES-03,站外跳转,/resources,学生 13800001001（小林）,点卡片,跳转到真实站外目标（外部依赖，需联网）,FQA-06,FQA-06,,BLOCKED,,外部依赖：卡片目标为 bilibili.com，断网不可达
+S-CLS-01,课堂任务 Tab,/classroom,学生 13800001001（小林）,进入课堂,显示课堂任务列表与状态,FQA-08 / VQA p6,FQA-08 / VQA p6,fqa/shots/08a-classroom-tasks.png; vqa/side/p06-classroom.png,通过,通过,
+S-CLS-02,我的班级,/classroom,学生 13800001001（小林）,切「我的班级」,班级成员/动态/共享错题,,,,待采证,,
+S-CLS-03,老师课件列表,/classroom,学生 13800001001（小林）,切「双师课堂」,显示已发布课件卡（含《函数的单调性》5 页）,P3 双师课堂卡片（已学完/复习）,P3 双师课堂卡片（已学完/复习）,probes/p3-deck2.png,通过,,
+S-CLS-04,课件播放,/dual/:sessionId,学生 13800001001（小林）；教师已发布 5 页课件,打开课件,逐页翻页、讲稿/讲解可见、进度保存,FQA-09 / VQA p7 / P3 5/5,FQA-09 / VQA p7 / P3 5/5,fqa/shots/09a-deck-open.png; vqa/side/p07-dual.png,通过,通过,
+S-CLS-05,课件内问答,/dual/:sessionId,学生 13800001001（小林）,提问助教,回答命中/未命中均有明确反馈,,,,待采证,,
+S-CLS-06,续播,/dual/:sessionId,学生 13800001001（小林）,退出后重新进入,回到上次页码/进度,P3 续播落点 5/5（现役同）,P3 续播落点 5/5（现役同）,probes/p3-deck2.png,通过,,
+S-ASG-01,作业详情,/tasks/:id,学生 13800001001（小林）,进入作业,显示题面/要求/截止,,,,待采证,,
+S-ASG-02,作业作答提交,/tasks/:id,学生 13800001001（小林）,作答并提交,提交成功、状态变为已提交,,,,待采证,,
+S-ASG-03,批改反馈,/tasks/:id,学生 13800001001（小林）,教师批改后回看,显示分数与评语（同一份提交）,FQA-10 / VQA p8,FQA-10 / VQA p8,fqa/shots/10a-task-feedback-graded.png; vqa/side/p08-task-graded.png,通过,通过,teacher_feedback 为 null 属现役数据
+S-ASG-04,模考选卷,/practice?tab=exam,学生 13800001001（小林）,进入模考 Tab,真题列表可选,,,,待采证,,
+S-ASG-05,模考作答交卷,/exam/:id,学生 13800001001（小林）,开始并交卷,计时/评分/结果可见,,,,待采证,,
+S-ME-01,学情报告,/me,学生 13800001001（小林）,进入我的,报告数字与页面其它处一致,VQA p9,VQA p9,vqa/side/p09-me-report.png,通过,通过,
+S-ME-02,掌握地图,/me,学生 13800001001（小林）,切「掌握地图」,树形/星系 + 知识点详情,VQA p10,VQA p10,vqa/side/p10-me-map.png,通过,通过,
+S-ME-03,体验反馈,/me,学生 13800001001（小林）,切「体验反馈」,档案加载失败或正常（以现役为准）,FQA-11,FQA-11,,BLOCKED,,现役缺陷：/api/api/trial/metrics 恒 404
+S-ME-04,个人设置,/me,学生 13800001001（小林）,切「个人设置」,可保存偏好并在刷新后保留,FQA-11（3/4 Tab 正常）,FQA-11（3/4 Tab 正常）,,待验,,
+S-ROL-01,首次使用引导,/onboarding/student,学生 13800001001（小林）（已开户）,新账号首登,现役是否进入引导流程（按实测）,,,,待采证,,
+S-ROL-02,角色可见性,/dialog,学生 13800001001（小林）,以学生身份访问教师/科研路由,被导航拦回学生端（不串端）,,,,待验,,
+S-ROL-03,兼容跳转,/tasks、/exam,学生 13800001001（小林）,访问旧书签,跳到现役落点（/classroom?tab=tasks、/practice?tab=exam）,,,,待采证,,
+S-ROL-04,课堂互动 H5,/classroom-h5,学生 13800001001（小林）,课堂码进入（若现役支持）,按现役实测记录，不可用则登记 BLOCKED,,,,待采证,,

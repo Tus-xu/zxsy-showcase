@@ -1,0 +1,23 @@
+: open
+
+event: meta
+data: {"conversation_id": "e3cbe343-41f8-43a5-a7e9-ca9abd2be841", "msg_id": "9478a286-2796-4657-b44f-73654169b007", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "你刚才从“虚轴长是实轴长的 $\\sqrt7$ 倍”准确推出了 $b=\\sqrt7a$，这个关系抓得很准。"}
+
+event: token
+data: {"text": "\n\n"}
+
+event: token
+data: {"text": "现在想一想：在双曲线里，$a$、$b$、$c$ 三者之间有一个固定的关系式，你还记得它是什么样的吗？"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "step_no": 2, "interaction_id": "ix_0f0521bc8595", "form": "expr_input", "move": "confirm", "stage": null, "prompt_lead": "用下面的点选面板写出这一步的式子。", "spec": {"prompt": "写出这一步的完整式子（点选面板输入）", "keypad": ["c", "=", "2", "a", "x", "^2", "(", ")", "/", "√", "π", "+", "-"]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "不知道怎么写", "interaction_reason": "T18→expr_input[rt_material_failed]", "form_source": "router", "routing_reason": "T18→expr_input[rt_material_failed]"}
+
+event: card
+data: {"card_type": "socratic_progress", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "current_step": 2, "steps_count": 3, "hint_level": 0, "attempts_on_step": 0, "verdict": "correct", "phase": "guiding", "scaffold_level": 0, "scaffold_label": "probe", "kp_name": "圆锥曲线", "rounds_used": 0, "rounds_limit": 8, "oversplit": false, "oversplit_steps": 3, "fast_path": false, "mastery_state": "mastered"}
+
+event: done
+data: {"usage": {"tokens_in": 48, "tokens_out": 41}, "latency_ms": 3593, "message_id": "e631724e-7688-4bc2-bb43-0fd08d7af00b", "meta": {"skill": "socratic_solver", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "steps_count": 3, "verified": false, "difficulty": "easy", "verdict": "correct", "p_before": 1.0, "p_after": 1.0, "fragile": false, "current_step": 2, "hint_level": 0, "status": "active", "leak_blocked": 0, "socratic": {"phase": "guiding", "scaffold_level": 0, "verdict": "correct", "misconception": null, "error_move": null, "kp_code": "JH-02", "detour_active": false, "round_used": 0, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "expr_input", "form_reason": "T18→expr_input[rt_material_failed]", "move": "confirm", "tier": 0, "stage": ""}}}
+

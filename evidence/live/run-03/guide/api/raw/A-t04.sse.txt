@@ -1,0 +1,20 @@
+: open
+
+event: meta
+data: {"conversation_id": "e3cbe343-41f8-43a5-a7e9-ca9abd2be841", "msg_id": "37be2ca7-a5a9-4781-a687-65b5b39781f8", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: status
+data: {"stage": "guiding", "text": "开始解题——第 1 步。"}
+
+event: token
+data: {"text": "我们先把“虚轴长是实轴长的 $\\sqrt7$ 倍”这句话拆开看——你觉得它对应的是双曲线里哪两条线段的长？"}
+
+event: token
+data: {"text": "如果把它们写成含 $a$、$b$ 的式子，会得到什么关系？"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "step_no": 1, "interaction_id": "ix_b9206d525133", "form": "assemble", "move": "elicit", "stage": null, "prompt_lead": "把这一步的结果用符号面板拼出来（不用打字）。", "spec": {"seed_latex": "", "slots": [{"id": "s1", "kind": "expr"}], "palette": [{"t": "var", "v": "b"}, {"t": "op", "v": "="}, {"t": "op", "v": "\\sqrt"}, {"t": "num", "v": "7"}, {"t": "var", "v": "a"}, {"t": "op", "v": "\\frac"}], "structure_hint": "双曲线虚轴长为 $2b$、实轴长为 $2a$，按题意列等式并约去 $2$"}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "不知道怎么拼", "interaction_reason": "opening×elicit×T0→assemble[R9]", "form_source": "router", "routing_reason": "opening×elicit×T0→assemble[R9]"}
+
+event: done
+data: {"usage": {"tokens_in": 39, "tokens_out": 32}, "latency_ms": 1516, "message_id": "fb408248-2149-4feb-b16d-bc055d2610ec", "meta": {"skill": "socratic_solver", "current_step": 1, "status": "active", "leak_blocked": 0, "socratic": {"phase": "opening", "scaffold_level": 0, "verdict": null, "misconception": null, "error_move": null, "kp_code": "JH-02", "detour_active": false, "round_used": 0, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "assemble", "form_reason": "opening×elicit×T0→assemble[R9]", "move": "elicit", "tier": 0, "stage": ""}}}
+

@@ -1,0 +1,43 @@
+{
+ "courseware_card_text": "👩‍🏫 张老师 | 已学完 | 函数的单调性：从图像到导数 | 🏫 高一(3)班 · 数学 | 5 页 | 10-27 04:05 | 我的进度 100% | 练习正确率 — | 继续学习 →",
+ "courseware_item": {
+  "courseware_id": "6baf153d-f2e7-440e-a703-cc08a8ae06e4",
+  "title": "函数的单调性：从图像到导数",
+  "class_name": "高一(3)班 · 数学",
+  "page_count": 5,
+  "progress_pct": 100.0,
+  "last_session_id": "5304e914-edb1-47d2-b0db-7cbb804bcd86",
+  "item_keys": [
+   "class_id",
+   "class_name",
+   "courseware_id",
+   "deck_id",
+   "deck_revision",
+   "last_session_id",
+   "opened",
+   "page_count",
+   "practice_accuracy",
+   "progress_pct",
+   "published_at",
+   "teacher_name",
+   "title"
+  ]
+ },
+ "player_url": "http://127.0.0.1:5176/dual/5304e914-edb1-47d2-b0db-7cbb804bcd86",
+ "session_id": "5304e914-edb1-47d2-b0db-7cbb804bcd86",
+ "player_page_indicator": {
+  "pagechip": "5 / 5",
+  "ctl_page": "第 5 / 5 页"
+ },
+ "session_detail_file": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86",
+  "status": 200,
+  "ct": "application/json",
+  "file": "baseline/bodies/get_api_classroom_sessions_5304e914-edb1-47d2-b0db-7cbb804bcd86.json",
+  "bytes": 31559,
+  "page": "dual",
+  "trigger": "进入 /dual/5304e914-edb1-47d2-b0db-7cbb804bcd86 播放页 → GET 课件会话详情（当前进度/页码）"
+ },
+ "shot_player": "shots/46-baseline-dual-player.png",
+ "note": "只读操作：未翻页/未改进度，页码=打开时的续播位置"
+}

@@ -1,0 +1,23 @@
+: open
+
+event: meta
+data: {"conversation_id": "0cd000d9-900c-47f1-9bbc-82722149d28c", "msg_id": "dd972200-1f77-42a0-9384-56e3767c27a0", "skill": "socratic_solver", "confidence": 0.85, "provider": "spark"}
+
+event: status
+data: {"stage": "kb_search", "text": "正在检索题库，看有没有匹配的标准解析…"}
+
+event: card
+data: {"card_type": "socratic_start", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "steps_count": null, "verified": false, "draft_source": "llm", "phase": "opening", "stage": "reading"}
+
+event: status
+data: {"stage": "reading", "text": "我们先把题目读进眼睛——先动笔，再动脑。"}
+
+event: token
+data: {"text": "先别急着算——把题干里「有用的条件」划出来（点选词块，可多选），漏了没关系，先划你看到的。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "step_no": 0, "interaction_id": "ix_44be80e6200c", "form": "annotate", "move": "mark", "stage": "reading", "prompt_lead": "在题面上动笔：把你认为关键的部分标出来。", "spec": {"mode": "tokens", "canvas": {"type": "tokens", "text": "在正三棱柱 ABC-A₁B₁C₁ 中，D 为 BC 中点，则（多选）A. AD⊥A₁C；B. BC⊥平面 AA₁D；C. AD∥A₁B₁；D. CC₁∥平面 AA₁D。", "tokens": ["在正", "三棱", "柱", "ABC", "-", "A", "B", "C", "中", "，", "D", "为", "BC", "中点", "，", "则", "（", "多选", "）", "A", "AD", "A", "C", "；", "B", "BC", "平面", "AA", "D", "；", "C", "AD", "A", "B", "；", "D", "CC", "平面", "AA", "D", "。"]}, "targets_hint": ["已知条件", "要求的量", "关键限定词"], "n_expected": 3}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "我读完了，直接开始", "interaction_reason": "opening×reading×mark×T1→annotate[R3]", "form_source": "router", "routing_reason": "opening×reading×mark×T1→annotate[R3]"}
+
+event: done
+data: {"usage": {"tokens_in": 38, "tokens_out": 18}, "latency_ms": 6015, "message_id": "611ac5d7-1f86-44ed-a99d-81f4c20eac6a", "meta": {"skill": "socratic_solver", "confidence": 0.9, "session_id": "0b500294-0a30-443a-b1e2-67742b0e4414", "solve_pending": true, "phase": "opening", "stage": "reading"}}
+

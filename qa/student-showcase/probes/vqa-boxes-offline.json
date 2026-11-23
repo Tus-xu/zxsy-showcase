@@ -1,0 +1,412 @@
+{
+ "p01-dialog-home": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 848
+  },
+  "view": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 848
+  },
+  "tabs": null,
+  "first-card": null,
+  "greeting": null,
+  "primary-btn": {
+   "x": 12,
+   "y": 458.2,
+   "w": 215,
+   "h": 30
+  },
+  "input": {
+   "x": 12,
+   "y": 488.2,
+   "w": 215,
+   "h": 30
+  }
+ },
+ "p02-library-docs": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 840
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 666.6
+  },
+  "tabs": {
+   "x": 276,
+   "y": 159.6,
+   "w": 1128,
+   "h": 51
+  },
+  "first-card": null,
+  "greeting": null,
+  "primary-btn": null,
+  "input": {
+   "x": 302,
+   "y": 313.9,
+   "w": 929.6,
+   "h": 20
+  }
+ },
+ "p03-library-bank": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 2152.9
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 2100.9
+  },
+  "tabs": {
+   "x": 276,
+   "y": 159.6,
+   "w": 1128,
+   "h": 51
+  },
+  "first-card": null,
+  "greeting": null,
+  "primary-btn": null,
+  "input": {
+   "x": 302,
+   "y": 231.6,
+   "w": 851,
+   "h": 20
+  }
+ },
+ "p04-resources": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 1133.9
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 1081.9
+  },
+  "tabs": null,
+  "first-card": {
+   "x": 276,
+   "y": 203,
+   "w": 270,
+   "h": 310.5
+  },
+  "greeting": null,
+  "primary-btn": null,
+  "input": {
+   "x": 1137.3,
+   "y": 86,
+   "w": 190,
+   "h": 36
+  }
+ },
+ "p05-errors": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 2182.6
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 2130.6
+  },
+  "tabs": null,
+  "first-card": null,
+  "greeting": null,
+  "primary-btn": {
+   "x": 1167,
+   "y": 368,
+   "w": 50,
+   "h": 30
+  },
+  "input": {
+   "x": 787,
+   "y": 368,
+   "w": 374,
+   "h": 30
+  }
+ },
+ "p06-classroom-tasks": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 840
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 663
+  },
+  "tabs": {
+   "x": 276,
+   "y": 169.5,
+   "w": 1128,
+   "h": 41.6
+  },
+  "first-card": {
+   "x": 276,
+   "y": 371.1,
+   "w": 1128,
+   "h": 122
+  },
+  "greeting": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 61.5
+  },
+  "primary-btn": {
+   "x": 1311.1,
+   "y": 390.1,
+   "w": 71.9,
+   "h": 35.2
+  },
+  "input": null
+ },
+ "p07-dual-player": {
+  "shell.topbar": null,
+  "shell.sidebar": null,
+  "shell.main": null,
+  "view": null,
+  "tabs": null,
+  "first-card": null,
+  "greeting": null,
+  "primary-btn": {
+   "x": 1349.5,
+   "y": 842,
+   "w": 69.5,
+   "h": 34
+  },
+  "input": {
+   "x": 0,
+   "y": 0,
+   "w": 0,
+   "h": 0
+  }
+ },
+ "p08-task-graded": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 1531.4
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 1479.4
+  },
+  "tabs": null,
+  "first-card": null,
+  "greeting": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 61.5
+  },
+  "primary-btn": null,
+  "input": {
+   "x": 295,
+   "y": 864.8,
+   "w": 1090,
+   "h": 37
+  }
+ },
+ "p09-me-report": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 2078
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 2026
+  },
+  "tabs": {
+   "x": 276,
+   "y": 169.5,
+   "w": 1128,
+   "h": 41.6
+  },
+  "first-card": null,
+  "greeting": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 61.5
+  },
+  "primary-btn": {
+   "x": 293,
+   "y": 1041.7,
+   "w": 257.5,
+   "h": 35.2
+  },
+  "input": null
+ },
+ "p10-me-map": {
+  "shell.topbar": {
+   "x": 0,
+   "y": 0,
+   "w": 1440,
+   "h": 60
+  },
+  "shell.sidebar": {
+   "x": 0,
+   "y": 60,
+   "w": 240,
+   "h": 840
+  },
+  "shell.main": {
+   "x": 240,
+   "y": 60,
+   "w": 1200,
+   "h": 2340.9
+  },
+  "view": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 2288.9
+  },
+  "tabs": {
+   "x": 276,
+   "y": 169.5,
+   "w": 1128,
+   "h": 41.6
+  },
+  "first-card": null,
+  "greeting": {
+   "x": 276,
+   "y": 86,
+   "w": 1128,
+   "h": 61.5
+  },
+  "primary-btn": {
+   "x": 1012.6,
+   "y": 878.6,
+   "w": 182.2,
+   "h": 38
+  },
+  "input": null
+ }
+}

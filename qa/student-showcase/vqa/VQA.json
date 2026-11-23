@@ -1,0 +1,240 @@
+{
+ "task": "R03 · 学生端离线复刻包（dist-offline）独立视觉 QA",
+ "generated_at": "2026-11-23T03:06:00+08:00",
+ "candidate": {
+  "path": "app/dist-offline/index.html",
+  "url": "file:///D:/zxsy-math-arena-showcase-student/app/dist-offline/index.html",
+  "sha256": "637B909A02163AF1E10F887FFCAA063707AF89F98F82403C6662486E831FF8F8"
+ },
+ "environment": {
+  "live": "http://127.0.0.1:5176",
+  "backend_health": "http://127.0.0.1:8000/api/health → 200 {\"status\":\"ok\",\"version\":\"1.0.0\"}",
+  "browser": "HeadlessChrome 153.0.8010.12（Playwright chromium-1243）",
+  "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/153.0.8010.12 Safari/537.36",
+  "viewport": "1440x900",
+  "dpr": 1,
+  "zoom": "100%",
+  "locale": "zh-CN",
+  "offline_context": "offline=True（候选侧禁止任何 http(s) 请求）",
+  "account": "13800001001（学生）",
+  "otp_offline": "246810（离线 replay 固定码）",
+  "otp_live": ".demo-note 读取的 6 位演示码（本次观测 274698 / 757010）",
+  "captured_at": "2026-11-23T02:46 ~ 03:06（Asia/Shanghai）",
+  "settle": "主区域锚点出现 + 800ms；KaTeX/图片/接口页额外 1.5–4.5s 稳定等待"
+ },
+ "method": {
+  "region_checks": ["Shell/顶栏", "侧栏", "内容区", "输入区", "表格/卡片行", "弹窗/抽屉", "字号字重(200%)", "公式 KaTeX(200%)", "图片/破图", "列表行数据"],
+  "quantitative": "DOM bounding box 逐页对比（topbar/sidebar/main/view/tabs/first-card/greeting/primary-btn/input）；正文行级 diff + 数字集合 diff",
+  "veto_rules": "结构漂移 / 可见内容缺失 / 错数据（题号·计数·分数）/ 公式重叠裁切 / 破图 / 控件被遮挡 / 现役有而离线无的可见控件"
+ },
+ "summary": {"PASS": 10, "FAIL": 0, "BLOCKED": 0},
+ "page_order": ["p01-dialog-home", "p02-library-docs", "p03-library-bank", "p04-resources", "p05-errors", "p06-classroom-tasks", "p07-dual-player", "p08-task-graded", "p09-me-report", "p10-me-map"],
+ "pages": [
+  {
+   "page": "p01-dialog-home",
+   "route": "/dialog",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "π 智学数研 · 学生端｜🔥 13 连击｜小/小林｜h=60px", "offline": "同左，逐项一致；box(x=0,y=0,w=1440,h=60)", "severity": "none"},
+    {"region": "侧栏", "live": "6 导航项一致；徽标：错题 25、课堂 1", "offline": "6 导航项一致；徽标：错题 24、课堂 2", "severity": "medium"},
+    {"region": "内容区·Hero/4 入口卡/最近学习", "live": "标题「今天想搞定什么数学题」+ 4 卡 + 最近学习 3 条（同文同序）", "offline": "逐项一致", "severity": "none"},
+    {"region": "内容区·学情脉搏面板", "live": "BKT 8/407 考点、13 天连击、FRS 64%、「今天有 24 道题到复习期」、薄弱点 导数运算法则 5% / 集合与常用逻辑 20%", "offline": "BKT 8/407、13 天连击、FRS 64% 一致；「今天有 22 道题到复习期」；薄弱点 5% 一致、第二项 20% 一致（名称排序不同）", "severity": "medium"},
+    {"region": "内容区·推荐提问 chips", "live": "含「出 3 道【集合与常用逻辑用语】变式」", "offline": "含「出 3 道【导数的概念与运算】变式」（动态薄弱点推荐）", "severity": "low"},
+    {"region": "侧栏·对话历史", "live": "条目文字一致；时间「今天 02:46/02:12/01:39/01:24/01:20」", "offline": "条目文字一致；时间「10/27、11/21…」", "severity": "low"},
+    {"region": "输入区", "live": "输入框 + 附件/图片/语音/提示 4 图标 + 0/4000 + 发送", "offline": "逐项一致（位置/尺寸一致）", "severity": "none"},
+    {"region": "字号字重(200%)", "live": "导航/标题/正文 200% 裁切核对", "offline": "字体、字号、字重一致（同像素基线）", "severity": "none"},
+    {"region": "公式 KaTeX / 图片", "live": "katex=0，图片=0（本页无公式/图）", "offline": "katex=0，图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": [
+    "对话历史时间戳（今天 02:46… vs 11/21）— 明确随时间变化",
+    "学情脉搏「今天有 N 道题到复习期」24 vs 22 — 复习排期随时间/活动变化（现役态快照后漂移）",
+    "薄弱点推荐/变式 chips 文案差异 — 动态推荐（AI/画像驱动）"
+   ],
+   "assertions": {"text_lines": "157 vs 157", "katex": "0/0", "broken_imgs": "0/0", "topbar/sidebar/main box": "完全一致", "hero/cards": "一致"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p01-dialog-home.png", "offline": "qa/student-showcase/vqa/offline/p01-dialog-home.png", "side": "qa/student-showcase/vqa/side/p01-dialog-home.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p01-dialog-home-topnav-200.png", "qa/student-showcase/vqa/zoom/p01-dialog-home-sidebar-200.png", "qa/student-showcase/vqa/zoom/p01-dialog-home-content-top-200.png", "qa/student-showcase/vqa/zoom/p01-dialog-home-content-mid-200.png"]
+  },
+  {
+   "page": "p02-library-docs",
+   "route": "/library?tab=materials",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致（同 p01）", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "内容区·统计卡", "live": "4 份资料 / 4 可引用 / 4 切片 / 24 题库", "offline": "4 / 4 / 4 / 24（逐项一致）", "severity": "none"},
+    {"region": "Tab 行", "live": "📄 我的资料 4（激活）｜📝 我的题库 24", "offline": "同左，tab 几何一致（tabs box x=276,y=159.6,w=1128,h=51 两侧相同）", "severity": "none"},
+    {"region": "内容区·上传卡/搜索/筛选", "live": "上传资料卡、分类「其他」、搜索「搜索资料标题…」、最近上传、刷新、chips 全部4 教材1 笔记2 试卷1 题目 其他", "offline": "逐项一致", "severity": "none"},
+    {"region": "列表行数据", "live": "教材 1 份：空间几何体外接球模型.md ✔可引用 1 切片 10/26；笔记 2 份：三角函数恒等变换_错题整理.md、导数与函数单调性_课堂笔记.md（均 10/26）；试卷 1 份：2024新高考1卷_导数真题选编.md", "offline": "同文同序同日期（10/26）", "severity": "none"},
+    {"region": "字号字重(200%)+侧栏放大", "live": "导航项字号/字重/图标对齐", "offline": "一致（zoom/sidebar 逐字对齐）", "severity": "none"},
+    {"region": "公式/图片/破图", "live": "katex=0、图片=0", "offline": "katex=0、图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": ["侧栏徽标 25/1 vs 24/2 — 现役用户数据在快照后变化"],
+   "assertions": {"text_lines": "107 vs 107", "tabs_box": "tabs x=276 y=159.6 w=1128 h=51 两侧一致", "docs": "4 条一致", "katex": "0/0", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p02-library-docs.png", "offline": "qa/student-showcase/vqa/offline/p02-library-docs.png", "side": "qa/student-showcase/vqa/side/p02-library-docs.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p02-library-docs-topnav-200.png", "qa/student-showcase/vqa/zoom/p02-library-docs-sidebar-200.png", "qa/student-showcase/vqa/zoom/p02-library-docs-content-top-200.png", "qa/student-showcase/vqa/zoom/p02-library-docs-content-mid-200.png"]
+  },
+  {
+   "page": "p03-library-bank",
+   "route": "/library?tab=questions",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "Tab 行（重点计数）", "live": "📝 我的题库 24（激活）；平台题库说明「支持搜索/筛选/直接开练」", "offline": "📝 我的题库 24（激活）；同说明", "severity": "none"},
+    {"region": "筛选/计数行", "live": "搜索题干关键词…｜全部题型｜全部难度｜共 24 题", "offline": "同左（共 24 题）", "severity": "none"},
+    {"region": "表格/卡片行（题号+数据）", "live": "01 函数 f(x)=√(x-1) 的定义域____（填空题·基础·函数概念与基本初等函数）… 02 已知 f(x)=2x+1，则 f(f(1))=____，03 不等式 log_2 x > 1 的解集为____，04 已知 2^a=3，2^b=5，则 2^a+b=____，05 (x^2 sin x)'=____，06 等差数列 a_n 中 a_1=2，d=3，则 a_10=____，07 等差数列前 n 项和 S_n 的公式为____，08 等比数列 b_n 中 b_1=1，q=2，则 b_1+b_2+…+b_5=____", "offline": "01–08 题号/题干/题型/难度/知识点标签逐字一致；行高与卡片几何一致（view h=2100.9 两侧相同）", "severity": "none"},
+    {"region": "字号字重(200%)", "live": "tab/题号/题干/标签字号字重", "offline": "一致（zoom content-top 逐字对齐）", "severity": "none"},
+    {"region": "公式 KaTeX", "live": "katex=0（题干为纯文本 Unicode 数学，双端一致）", "offline": "katex=0", "severity": "none"},
+    {"region": "图片/破图", "live": "图片=0", "offline": "图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": ["侧栏徽标 25/1 vs 24/2（现役用户数据漂移）"],
+   "assertions": {"library_total": "现役 24 条 / 离线 24 条（两侧 tab 徽标与「共 24 题」均一致）", "text_lines": "201 vs 201", "view_height": "2100.9 vs 2100.9", "rows_01_08": "逐字一致", "katex": "0/0", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p03-library-bank.png", "offline": "qa/student-showcase/vqa/offline/p03-library-bank.png", "side": "qa/student-showcase/vqa/side/p03-library-bank.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p03-library-bank-topnav-200.png", "qa/student-showcase/vqa/zoom/p03-library-bank-sidebar-200.png", "qa/student-showcase/vqa/zoom/p03-library-bank-content-top-200.png", "qa/student-showcase/vqa/zoom/p03-library-bank-content-mid-200.png"]
+  },
+  {
+   "page": "p04-resources",
+   "route": "/resources",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "内容区·标题/Tab/搜索", "live": "资源中心｜针对「导数的运算法则与复合求导」…｜为你推荐（激活）/按知识点浏览｜搜索「数列求和」…｜刷新", "offline": "逐项一致", "severity": "none"},
+    {"region": "卡片行（推荐列表）", "live": "11 卡；封面 11 图全部加载（broken=0）；卡片标题/播放量/时长/知识点匹配标签与离线逐项一致（如「高中数学导数知识点 1小时速成全部掌握」833.6万 83:47；「原函数 vs 导函数 对称互推」3.6万 6:44；「5.1导数的概念及其意义」32.1万 33:15…）", "offline": "11 卡同文同序；封面 11 图加载（broken=0）", "severity": "none"},
+    {"region": "布局量化", "live": "first-card box x=276,y=203,w=270,h=310.5；view h=1081.9", "offline": "同左（完全一致）", "severity": "none"},
+    {"region": "字号字重(200%)", "live": "卡片标题 17px 级/元信息/播放量徽标", "offline": "一致（zoom content-top 逐字对齐）", "severity": "none"},
+    {"region": "公式/图片", "live": "katex=0；图片 11 张全部有效", "offline": "katex=0；图片 11 张全部有效（0 破图）", "severity": "none"}
+   ],
+   "allowed_diffs": ["侧栏徽标 25/1 vs 24/2（现役用户数据漂移）", "现役推荐接口首屏加载约 4.2s（XingchenError(20354) 降级后仍列出同一批卡片）；初拍 800ms 时为「正在从 B 站取视频…」加载态，已按稳定等待补拍"],
+   "assertions": {"cards": "11 vs 11（标题/播放量/时长一致）", "text_lines": "87 vs 87", "first_card_box": "一致", "imgs": "11/11 全有效", "broken_imgs": "0/0", "katex": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p04-resources.png", "offline": "qa/student-showcase/vqa/offline/p04-resources.png", "side": "qa/student-showcase/vqa/side/p04-resources.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p04-resources-topnav-200.png", "qa/student-showcase/vqa/zoom/p04-resources-sidebar-200.png", "qa/student-showcase/vqa/zoom/p04-resources-content-top-200.png", "qa/student-showcase/vqa/zoom/p04-resources-content-mid-200.png"]
+  },
+  {
+   "page": "p05-errors",
+   "route": "/errors",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "弹窗（自动详情浮窗）", "live": "错题详情·第 01 题｜01 / 25｜未标注知识点｜入本 10/27·已答错 16 次·复习 0 次｜删除/下一题/关闭｜全部/按错因/按知识点/按时间/按遗忘风险｜原题+生成动态图形+正解(已缓存，秒开)+①~⑥ 解析+最终答案｜AI 问诊/答疑｜FSRS 记忆状态｜隐藏答案重做/标记已掌握", "offline": "同结构同控件；计数为「01 / 24」", "severity": "medium"},
+    {"region": "列表行数据（抽屉后）", "live": "「📚 全部 25 道 · 点击展开详情」；列表含新增第 25 题（圆锥曲线·虚轴长是实轴长 √7 倍…，复习 0 次·记得 100%）", "offline": "「📚 全部 24 道」；列表 24 条（与现役前 24 条同文同序）", "severity": "medium"},
+    {"region": "解析/公式渲染(200%)", "live": "①~⑥ 步骤、最终答案文本一致；f'(x)=3x²-6x-9 等上标正立、无重叠裁切", "offline": "逐字一致；上标/减号/区间符号渲染一致", "severity": "none"},
+    {"region": "AI 问诊文案", "live": "「作答信息不足，无法定位具体错误过程。/无对应可操作记忆口诀。/请补充…」", "offline": "「…无法定位具体错误过程；暂无可操作的记忆口诀；请补充完整作答过程与错误细节以便精准诊断。」", "severity": "low"},
+    {"region": "输入区", "live": "「输入你的思路或疑问…回车发送」+ 发送按钮（y=390.1 因多一行列表出现下移）", "offline": "同控件（y=368，无新增行）", "severity": "none"},
+    {"region": "字号字重(200%)/控件遮挡", "live": "弹窗标题/正文/标签字号一致，无控件遮挡", "offline": "一致（zoom content-top 对齐）", "severity": "none"},
+    {"region": "图片/破图", "live": "图片=0", "offline": "图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": ["错题总数 24→25：现役快照后新增 1 条错题（列表多 1 行，弹窗 01/25）", "FSRS「记得 X%」逐行数值（100%/78%/79%… vs 79%/60%/38%…）— 记忆保持率随时间衰减", "AI 问诊/诊断文案 — 随机 AI 文案"],
+   "assertions": {"auto_drawer": "两侧自动浮窗均出现", "text_lines": "现役 208 / 离线 201（+1 错题行的展开文本）", "main_height": "2261.6 vs 2182.6（+79px = 1 行）", "step_text": "①~⑥ 一致", "katex": "0/0", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p05-errors.png", "offline": "qa/student-showcase/vqa/offline/p05-errors.png", "side": "qa/student-showcase/vqa/side/p05-errors.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p05-errors-topnav-200.png", "qa/student-showcase/vqa/zoom/p05-errors-sidebar-200.png", "qa/student-showcase/vqa/zoom/p05-errors-content-top-200.png", "qa/student-showcase/vqa/zoom/p05-errors-content-mid-200.png"]
+  },
+  {
+   "page": "p06-classroom-tasks",
+   "route": "/classroom?tab=tasks",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "Tab 行", "live": "📋 课堂任务（激活）/🏫 我的班级/🎬 双师课堂", "offline": "同左；tabs box 一致", "severity": "none"},
+    {"region": "标题/计数", "live": "课堂任务中心 · 1 项 待完成", "offline": "课堂任务中心 · 2 项 待完成", "severity": "medium"},
+    {"region": "筛选 chips", "live": "全部 3｜待完成 1｜已逾期 1｜已完成 2", "offline": "全部 3｜待完成 2｜已逾期 1｜已完成 1", "severity": "medium"},
+    {"region": "卡片行数据（任务列表）", "live": "①学前作业 课前预习·函数的图象与性质（张老师/已逾期·截止 10/31 04:01/关联 导数的综合应用、指数与指数函数/未开始·共2项/开始）②课后习题 课后作业·导数与函数单调性（截止 10/29 04:01/✓已完成/查看作答）③老师课件 函数的单调性：从图像到导数（张老师/高一(3)班·数学/发布于 10-27 04:05/✓已学完/↻ 复习）", "offline": "①同学前作业 ②老师课件（了看 80%·共 5 页/继续学习）③同课后习题✓已完成；其余文字一致", "severity": "medium"},
+    {"region": "字号字重(200%)/卡片几何", "live": "卡片标题/徽标/按钮字号字重一致；first-card box x=276,y=371.1,w=1128,h=122", "offline": "同左（完全一致）；view h 651 vs 663（排序/状态导致 12px 差）", "severity": "none"},
+    {"region": "公式/图片/破图", "live": "katex=0；图片=0", "offline": "katex=0；图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": ["待完成 1↔2 / 已完成 2↔1 / 卡片顺序：现役该课件进度已 80%→100%（已学完），任务状态随之从「继续学习」变「复习」；离线包保持快照态（已看 80%）", "侧栏徽标 25/1 vs 24/2（现役用户数据漂移）"],
+   "assertions": {"text_lines": "62 vs 62", "tabs": "一致", "first_card_box": "一致", "courseware_state": "现役 ✓已学完 vs 离线 已看 80%·共 5 页（数据态差异，非结构/样式差异）", "katex": "0/0", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p06-classroom-tasks.png", "offline": "qa/student-showcase/vqa/offline/p06-classroom-tasks.png", "side": "qa/student-showcase/vqa/side/p06-classroom-tasks.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p06-classroom-tasks-topnav-200.png", "qa/student-showcase/vqa/zoom/p06-classroom-tasks-sidebar-200.png", "qa/student-showcase/vqa/zoom/p06-classroom-tasks-content-top-200.png", "qa/student-showcase/vqa/zoom/p06-classroom-tasks-content-mid-200.png"]
+  },
+  {
+   "page": "p07-dual-player",
+   "route": "/dual/5304e914-edb1-47d2-b0db-7cbb804bcd86（现役经课堂→双师课堂→老师课件卡片进入，URL 同 id）",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell", "live": "沉浸式全屏：无 topbar/sidebar（DOM 均为 null）", "offline": "同左（均为 null，结构一致）", "severity": "none"},
+    {"region": "顶栏（播放器）", "live": "⬡ 双师课堂｜函数的单调性：从图像到导数｜5 / 5｜🎓 老师课件·张老师·高一(3)班·数学｜🏠 学生端｜📋 课堂任务｜⏱ 本次 00:00:19｜▶/⏹/⛶ 全屏课堂/⚙/👤", "offline": "同控件同顺序；4 / 5；「🎓 老师课件」（无老师/班级 badge）；⏱ 00:00:19", "severity": "medium"},
+    {"region": "课程大纲/课堂回顾/知识图谱", "live": "5 条目（1–5 勾选状态：1–4 ✓，5 当前）；大纲计划 15 分钟", "offline": "5 条目结构一致（1–3 ✓，4 当前）；大纲计划 12 分钟", "severity": "low"},
+    {"region": "课件内容区（幻灯片）", "live": "第 5 页「五 当堂检测」：f'(x₀)=0 极值必要条件/反例 f(x)=x³/先找驻点/单调区间写法/「课堂检测：判断 f'(x₀)=0 是否一定是极值点」；无图", "offline": "第 4 页「四 例题：f(x)=x³-3x」：求导/令 f'=0/判断符号/写出单调区间/易错点/含函数图像 SVG（坐标轴+曲线，正常渲染）", "severity": "medium"},
+    {"region": "公式 KaTeX(200%)", "live": "f'(x) 上标、区间 (−∞,−1) 等无重叠/裁切", "offline": "公式渲染同样正确（3x²−3=3(x−1)(x+1) 等无重叠），katex=12", "severity": "none"},
+    {"region": "AI 主讲/AI 助教/随堂小测", "live": "布局一致；AI 主讲文案随页变化（本页「当堂检测…」）", "offline": "同布局；文案随页（「另外注意，单调区间必须写成区间形式…」）", "severity": "low"},
+    {"region": "控制条/发送区", "live": "播放/上一页/下一页/进度条/「这页学跑了吗? 记住了 要重听」/白板推导/公式工具/课堂笔记/分层练习 基础·进阶·挑战/继续追问+发送", "offline": "逐项一致（primary-btn box x=1349.5,y=842,w=69.5,h=34 两侧相同）", "severity": "none"},
+    {"region": "字号字重(200%)/图片/破图", "live": "标签/正文/公式 200% 对齐；图片 4 张（SVG 图标/图）有效", "offline": "一致；图片 4 张有效（broken=0）", "severity": "none"}
+   ],
+   "allowed_diffs": ["页码 5/5（现役 100% 学完态）vs 4/5（离线快照 80% 态）— 现役进度快照后推进；两侧为该课件的相邻两页", "⏱ 本次 00:00:19 vs 00:00:20 — 会话计时", "大纲计划 15 vs 12 分钟 — AI 生成大纲文案", "AI 主讲文案 — 随机 AI 文案"],
+   "assertions": {"deck_title": "一致（函数的单调性：从图像到导数，5 页）", "katex": "现役 7 / 离线 12（当前页码不同）", "broken_imgs": "0/0（各 4 图有效）", "layout": "沉浸式外壳一致（both null），控件盒一致"},
+   "supplementary": ["qa/student-showcase/vqa/offline/p07-dual-via-classroom.png（离线经课堂入口进入后出现「🎓 老师课件·张老师·高一(3)班·数学」badge，证明 badge 差异仅由直接深链入口缺失 sessionStorage 交接造成，候选包本身具备该能力）"],
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p07-dual-player.png", "offline": "qa/student-showcase/vqa/offline/p07-dual-player.png", "side": "qa/student-showcase/vqa/side/p07-dual-player.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p07-dual-player-topnav-200.png", "qa/student-showcase/vqa/zoom/p07-dual-player-sidebar-200.png", "qa/student-showcase/vqa/zoom/p07-dual-player-content-top-200.png", "qa/student-showcase/vqa/zoom/p07-dual-player-content-mid-200.png"]
+  },
+  {
+   "page": "p08-task-graded",
+   "route": "/tasks/a9107e51-d407-4299-8791-0d1b22cb3ca6（现役经课堂→已完成→查看作答，URL 同 id）",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "内容区·标题/说明", "live": "课后习题 课后作业·导数与函数单调性｜「答案与照片会真实提交给老师，教师确认后可在此查看终分和反馈。」", "offline": "逐字一致", "severity": "none"},
+    {"region": "题目行/选项/公式", "live": "1 已知函数 f(x)=x³-3x，则 f(x) 的单调递减区间是（）A (-∞,-1) B (-1,1) C (1,+∞) D (-∞,+∞)；2 若 sinα+cosα=1/5，且 0<α<π，则 tanα=（）…；3 棱长 2 的正方体外接球表面积…；4 抛物线 y=x²-4x+3 的顶点坐标…", "offline": "1–4 题逐字/逐项一致（含答案选中态、分数字样）；共 katex=26 两侧相同", "severity": "none"},
+    {"region": "字号字重(200%)/公式", "live": "题干/选项/分数字号与字重一致；LaTeX 分式/幂无重叠", "offline": "一致（zoom content-top 逐字对齐）", "severity": "none"},
+    {"region": "已批改信息/分数", "live": "本页为已批改作业页，正文 233 行均一致", "offline": "233 行逐行一致（分数/评语一致）", "severity": "none"},
+    {"region": "图片/破图", "live": "图片=0", "offline": "图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": ["侧栏徽标 25/1 vs 24/2（现役用户数据漂移，作业内容无关）"],
+   "assertions": {"text_lines": "233 vs 233（逐行一致）", "katex": "26 vs 26", "questions": "1–4 题文/选项/答案标记一致", "view_height": "1479.4 vs 1479.4", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p08-task-graded.png", "offline": "qa/student-showcase/vqa/offline/p08-task-graded.png", "side": "qa/student-showcase/vqa/side/p08-task-graded.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p08-task-graded-topnav-200.png", "qa/student-showcase/vqa/zoom/p08-task-graded-sidebar-200.png", "qa/student-showcase/vqa/zoom/p08-task-graded-content-top-200.png", "qa/student-showcase/vqa/zoom/p08-task-graded-content-mid-200.png"]
+  },
+  {
+   "page": "p09-me-report",
+   "route": "/me?tab=report",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "Tab 行", "live": "📈 学情报告（激活）/🧠 掌握地图/📝 体验反馈/⚙️ 个人设置", "offline": "同左（tabs box 一致）", "severity": "none"},
+    {"region": "今日行动", "live": "复习 24 道到期错题·约 10 分钟（右上角「今日到期错题 24 道」）；专练「导数的运算法则与复合求导」·约 15 分钟（掌握度 5%）；挑战 1 道…", "offline": "24 变 22（「复习 22 道…」/「今日到期错题 22 道」）；其余文字一致", "severity": "medium"},
+    {"region": "周报卡（AI 文案）", "live": "综合分 74；本周 0 题·正确率 0%·连击 13 天；薄弱点顺序 导数运算/集合/导数概念", "offline": "综合分 73；其余结构一致；AI 总结文案不同（允许）", "severity": "medium"},
+    {"region": "本周亮点", "live": "连续学习（已连续学习 13 天，节奏稳定）/正确率突破「【函数的图象与表示】累计正确率达 82%（22 题样本）」", "offline": "同左逐字一致", "severity": "none"},
+    {"region": "掌握度百分比/卡片行", "live": "74%/36%/24%/24%/16%/12%/12%（知识点掌握度）", "offline": "73%/25%/21%/17%/13%/13%（同一知识点条目的动态掌握度）", "severity": "medium"},
+    {"region": "字号字重(200%)/公式/图片", "live": "字号字重一致；无公式；图片=0", "offline": "一致；图片=0", "severity": "none"}
+   ],
+   "allowed_diffs": ["今日到期错题 24 vs 22 — 复习排期随时间变化", "综合分 74 vs 73、掌握度百分比 — 由现役学习行为动态计算（快照后漂移）", "周报 AI 文案 — 随机 AI 文案"],
+   "assertions": {"text_lines": "131 vs 131", "week_highlight": "一致", "kpi": "连击 13 天一致；综合分 74/73（动态）", "view_height": "2026 vs 2026", "katex": "0/0", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p09-me-report.png", "offline": "qa/student-showcase/vqa/offline/p09-me-report.png", "side": "qa/student-showcase/vqa/side/p09-me-report.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p09-me-report-topnav-200.png", "qa/student-showcase/vqa/zoom/p09-me-report-sidebar-200.png", "qa/student-showcase/vqa/zoom/p09-me-report-content-top-200.png", "qa/student-showcase/vqa/zoom/p09-me-report-content-mid-200.png"]
+  },
+  {
+   "page": "p10-me-map",
+   "route": "/me?tab=graph",
+   "verdict": "PASS",
+   "diffs": [
+    {"region": "Shell/顶栏", "live": "一致", "offline": "一致", "severity": "none"},
+    {"region": "侧栏", "live": "错题 25、课堂 1", "offline": "错题 24、课堂 2", "severity": "medium"},
+    {"region": "Tab 行", "live": "🧠 掌握地图（激活）/学情报告/体验反馈/个人设置", "offline": "同左（tabs box 一致）", "severity": "none"},
+    {"region": "视图/图例", "live": "树形/星系切换（树形激活）｜基础/进阶/拔高｜0 临危 / 0 巩固 / 2 已稳 / 未学 405", "offline": "逐项一致", "severity": "none"},
+    {"region": "章节列表行", "live": "集合与常用逻辑用语（未学 1 个考点）、函数概念与基本初等函数、函数的单调性与奇偶性、指数函数与对数函数、导数的概念与运算、导数的应用… 逐行「未学 1 个考点」", "offline": "逐行逐字一致（view h=2288.9 两侧相同）", "severity": "none"},
+    {"region": "ALEKS Pie/卡片", "live": "我的学习蓝图·ALEKS Pie：0%（已掌握 0%·2/407，2/407 已启动）；集合与常用逻辑用语 0%（基础/无前置依赖/下一步推荐「前置均已达标，可以直接针对本节点开练」）", "offline": "逐项一致", "severity": "none"},
+    {"region": "字号字重(200%)/图片/公式", "live": "字号字重一致；无公式；无破图", "offline": "一致", "severity": "none"}
+   ],
+   "allowed_diffs": ["侧栏徽标 25/1 vs 24/2（现役用户数据漂移）"],
+   "assertions": {"text_lines": "169 vs 169", "pie": "0% / 2/407 两侧一致", "badges": "0/0/2/405 一致", "chapters": "逐行一致", "view_height": "2288.9 vs 2288.9", "katex": "0/0", "broken_imgs": "0/0"},
+   "shot_paths": {"live": "qa/student-showcase/vqa/live/p10-me-map.png", "offline": "qa/student-showcase/vqa/offline/p10-me-map.png", "side": "qa/student-showcase/vqa/side/p10-me-map.png"},
+   "zoom": ["qa/student-showcase/vqa/zoom/p10-me-map-topnav-200.png", "qa/student-showcase/vqa/zoom/p10-me-map-sidebar-200.png", "qa/student-showcase/vqa/zoom/p10-me-map-content-top-200.png", "qa/student-showcase/vqa/zoom/p10-me-map-content-mid-200.png"]
+  }
+ ],
+ "drift_note": {
+  "summary": "现役（共享演示账号 13800001001）在离线包快照生成后仍被使用，用户数据已漂移：错题 24→25、老师课件进度 80%→100%（课堂任务 待完成 2→1/已完成 1→2）、待复习到期 22→24、综合分 73→74、对话时间戳由 11/21 变为今天。候选包内部与快照态自洽。",
+  "evidence": [
+   "侧栏徽标：现役 错题 25/课堂 1 vs 离线 24/2（全部 10 页一致复现）",
+   "p02/p03 题库：现役 24 / 离线 24（重点断言通过）",
+   "p05：现役 01/25 · 全部 25 道；离线 01/24 · 全部 24 道（现役多 1 条圆锥曲线新错题）",
+   "p06：现役 老师课件「✓已学完 / ↻ 复习」；离线「已看 80% / 继续学习」",
+   "p07：现役播放器 5/5（100%）；离线 4/5（80%）",
+   "p09：现役 综合分 74 / 今日到期 24；离线 73 / 22"
+  ],
+  "impact": "未发现候选包自身的结构、样式、公式或静态内容缺陷；上述差异均可在现役侧解释为用户数据演进。若验收要求「与现役严格同态」，需对离线包按最新现役态重新基线化后再复拍。"
+ }
+}

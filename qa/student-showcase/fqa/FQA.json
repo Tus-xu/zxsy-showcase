@@ -1,0 +1,192 @@
+{
+ "meta": {
+  "task": "R03 独立功能 QA · 学生端离线复刻验收",
+  "tester": "r03-fqa（独立代理，不参考他人判定，自行登录走链路）",
+  "candidate": "D:/zxsy-math-arena-showcase-student/app/dist-offline/index.html",
+  "entry": "file:///D:/zxsy-math-arena-showcase-student/app/dist-offline/index.html",
+  "viewport": "1440x900",
+  "dpr": 1,
+  "offline": true,
+  "browser": "headless Chromium（playwright 1.x / chromium）",
+  "login": "student / 13800001001 / 246810（离线固定码）→ 落 #/dialog",
+  "run_at": "2026-11-23T02:20–02:58 (+08:00)",
+  "evidence_dir": "qa/student-showcase/fqa/shots/",
+  "note": "两条独立会话完成：主链路 final.py（T01–T12）＋补证轮（T06 分组/T09 播放/T10 批改结果/T12 刷新后题库）。所有结论以页面可见业务结果为准，不以 200/无报错代替。"
+ },
+ "counts": {
+  "pass": 10,
+  "fail": 0,
+  "blocked": 2,
+  "blocked_items": ["06", "11"],
+  "data_gap_notes": ["03", "07"],
+  "total": 12
+ },
+ "network_total": {
+  "http_requests": 10,
+  "ws_requests": 0,
+  "pageerrors": 0,
+  "console_errors": 16,
+  "http_requests_breakdown": "10 条全部为 https://i{0,1,2}.hdslb.com/bfs/archive/*.jpg（资源中心·按知识点浏览 Tab 的 B 站封面外链，离线被阻断 ERR_INTERNET_DISCONNECTED）；其余 11 项检查全程 0 请求",
+  "console_errors_breakdown": "10 条 net::ERR_INTERNET_DISCONNECTED（同上封面）＋ MathLive CMaps 字体目录告警（未通过项.md C 已知偏差）＋ 相关堆栈文本；无 pageerror、无白屏",
+  "broken_images": {
+   "dialog_refresh": 0,
+   "library_refresh": 0,
+   "resources_recommend_tab": 0,
+   "resources_kp_tab": 10,
+   "errors": 0,
+   "classroom": 0,
+   "dual_deck": 0,
+   "tasks_feedback": 0,
+   "me": 0
+  }
+ },
+ "items": [
+  {
+   "id": "01",
+   "step": "登录 → /dialog 首页空态：欢迎语 / 四个入口卡 / 最近学习 / 学情脉搏",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/01a-login-before.png", "note": "file:// 打开后的登录页：角色选择 + 手机号 + 获取验证码"},
+    {"shot": "shots/01b-login-dialog.png", "note": "246810 登录后落 #/dialog，左栏会话列表 + 中间空态"},
+    {"shot": "shots/01c-dialog-empty.png", "note": "欢迎语「夜深了，小林👋/今天想搞定什么数学题？」；4 入口卡（拍一道不会的题/上传我的资料/开始今日练题/复习到期错题）；「最近学习」3 条；右侧学情脉搏（BKT·FSRS、22 道到期、保持率 64%）"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "与现役同态：空态结构齐全，全部可见，无请求无报错。"
+  },
+  {
+   "id": "02",
+   "step": "点「＋ 新对话」→ URL 变 #/dialog/offline-<ts>、0 条消息、4 个入口卡",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/01c-dialog-empty.png", "note": "操作前：首页空态，「＋ 新对话」按钮位于左栏顶部（未点击）"},
+    {"shot": "shots/02-new-dialog.png", "note": "点击后落 #/dialog/offline-1795372736141；标题「新对话」；消息区 0 条 .msg-row；4 入口卡与空态欢迎语保留；左栏新增「新对话」条目"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "URL 规则、空消息、入口卡三项均可见满足；无请求无报错。"
+  },
+  {
+   "id": "03",
+   "step": "点左侧历史会话 → 还原消息（条数>1、顺序 user→ai）",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/03-history-session.png", "note": "点左侧「分析用户上传的文件」(986d06b9…) → #/dialog/986d06b9-cde8-4289-958f-2fb914395a0c；还原 20 条消息（10 user + 10 ai），首条为 user，user→ai 交替"},
+    {"shot": "shots/03b-uncollected-toast.png", "note": "点另一条未采证会话（错题本录入·极值点判断）→ 页面如实提示「离线演示未收录该数据：GET /api/agent/conversations/<id>/messages?limit=20」，不伪造消息"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "还原链路可用：20 条消息、顺序 user→ai、可滚动。数据覆盖率：30 条会话中仅 1 条（986d06b9…）采证了消息；其余点击时显示「未收录」诚实回退（数据缺口，非界面缺陷；对应未通过项.md「不编造」口径）。"
+  },
+  {
+   "id": "04",
+   "step": "我的题库：#/library → 切「我的题库」→ 页脚「已显示 24 / 24」，行内有题号/类型/难度/知识点；点任一题进详情",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/04-bank-24.png", "note": "页脚「已显示 24 / 24」；24 个 .q-card；行样例：01 | 函数 f(x)=√(x-1) 的定义域… | 填空题 | 基础 | 函数概念与基本初等函数"},
+    {"shot": "shots/04b-bank-detail.png", "note": "点第 1 题 → 右侧详情抽屉「题库题目 / 填空题」，含难度/知识点标签、题干、「显示答案与解析」按钮"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "题号(q-index)、类型(q-tag--type)、难度(基础/进阶/压轴)、知识点(q-tag--kp) 四要素均可见；详情可打开。"
+  },
+  {
+   "id": "05",
+   "step": "题库搜索（参数敏感回放守门线）：输入「函数」→已显示 14/14；「导数」→6/6；清空→24",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/05a-search-函数.png", "note": "搜索框输入「函数」→ 页脚「已显示 14 / 14」，列表仅剩函数相关题"},
+    {"shot": "shots/05b-search-导数.png", "note": "改为「导数」→「已显示 6 / 6」，列表切换为导数题"},
+    {"shot": "shots/05c-search-cleared.png", "note": "清空 → 恢复「已显示 24 / 24」"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "三个查询词返回三种不同计数与不同列表，说明是按 query 参数命中的真实回放（不是静态常量）；14/6/24 与验收口径完全一致。"
+  },
+  {
+   "id": "06",
+   "step": "资源中心：#/resources → 卡片数≥10（封面/标题/时长）→「按知识点浏览」有分组 → 点卡片只记录跳转目标（站外，需联网）",
+   "verdict": "BLOCKED",
+   "evidence": [
+    {"shot": "shots/06a-resources.png", "note": "「为你推荐」11 张 .rc-card（≥10）：封面图/标题/时长(83:47、7:17…)/播放量/B站作者均可见；破图 0"},
+    {"shot": "shots/06b-resources-kp.png", "note": "「按知识点浏览」：9 个分组 chip（精选推荐/函数与导数/三角函数/数列/立体几何/解析几何/概率统计/集合与不等式/高考总复习）＋ 分组卡片；但该 Tab 的 10 张封面为 B站 CDN 外链，离线下显示为破图占位"},
+    {"shot": "shots/06c-card-click.png", "note": "点击首卡（目标 https://www.bilibili.com/video/BV147411K7xu）后仍停在 #/resources，未发生站外导航"}
+   ],
+   "network": {"http": 10, "pageerrors": 0, "broken": 10},
+   "notes": "页面内检查全部通过：卡片 11≥10、封面(推荐Tab)/标题/时长齐全、按知识点 9 分组存在。BLOCKED 原因：卡片跳转目标为站外 https://www.bilibili.com/video/*，离线不可达（按验收口径判 BLOCKED-外部依赖）；「按知识点浏览」Tab 封面为 i*.hdslb.com 外链，离线破图 10 张并产生 10 条被阻断请求（同一外部依赖，非回放层缺陷）。"
+  },
+  {
+   "id": "07",
+   "step": "错题：#/errors → 自动弹详情浮窗 → 关闭 → 切 5 个筛选 Tab → 点一条看详情（原题/正解/错因）",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/07a-errors-autodrawer.png", "note": "进入即自动弹「错题详情 · 第 01 题」浮窗（现役行为）：原题、正解(已缓存)、AI 问诊·错因、记忆状态(FSRS)、隐藏答案重做"},
+    {"shot": "shots/07b-errors-list.png", "note": "点「✕ 关闭」后浮窗消失，列表（今日到期 24 道 / 全部 24 道）恢复可操作"},
+    {"shot": "shots/07c-filter-全部.png", "note": "Tab「全部」激活"},
+    {"shot": "shots/07c-filter-按错因.png", "note": "Tab「按错因」激活，列表区出现维度取值 概念不清/公式记错/计算失误/思路错误/审题偏差"},
+    {"shot": "shots/07c-filter-按知识点.png", "note": "Tab「按知识点」出现 圆锥曲线/导数的运算法则与复合求导/集合与常用逻辑用语/…"},
+    {"shot": "shots/07c-filter-按时间.png", "note": "Tab「按时间」出现 近 7 天 / 近 30 天 / 近 90 天"},
+    {"shot": "shots/07c-filter-按遗忘风险.png", "note": "Tab「按遗忘风险」出现 稳定区 / 衰减中 / 临忘（衰减红）"},
+    {"shot": "shots/07f-filter-7d.png", "note": "按时间+近 7 天：列表标题由「全部 24 道」变为「全部 2 道」，行数随筛选变化（列表确实随 Tab 取值变化）"},
+    {"shot": "shots/07d-error-detail.png", "note": "点列表行打开详情；该记录（cda80afd…）未采证 → 如实显示「详情加载失败：离线演示未收录该数据：GET /api/student/error-records/<id>/detail」"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "5 个 Tab 均有可验证的可见变化（维度取值出现 + 近7天过滤 24→2）；自动浮窗与关闭行为与现役一致。数据缺口：24 条错题中仅第 01 题（46e563…）采证了详情，点其它行诚实提示「未收录」（不伪造，属数据覆盖而非界面缺陷）。"
+  },
+  {
+   "id": "08",
+   "step": "课堂任务：#/classroom → 3 条任务（学前作业/老师课件/课后习题），状态与现役同（1 已完成、2 待完成、1 已逾期）",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/08-classroom-tasks.png", "note": "Tab 计数 全部 3 / 待完成 2 / 已逾期 1 / 已完成 1；三张任务卡：学前作业（已逾期·截止 10/31 04:01，未开始·共2项）、老师课件 函数的单调性（已看 80%·共5页）、课后习题（✓已完成 + 查看作答）"},
+    {"shot": "shots/08b-classroom-completed.png", "note": "点「已完成 1」Tab 后列表只剩「课后习题·已批」一条（状态筛选生效）"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "任务类型、数量、完成/待完成/逾期状态与验收口径完全一致。"
+  },
+  {
+   "id": "09",
+   "step": "课件播放：课堂→双师课堂→继续学习→#/dual/<id>、显示 4/5、大纲 5 项前 3 打勾、点 ⟩ 到 5/5、再点无变化、▶/随堂练习/提问 按钮存在",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/09a-dual-tab.png", "note": "「双师课堂」Tab：老师课堂卡（张老师·函数的单调性·5 页·我的进度 80%）＋「继续学习 →」"},
+    {"shot": "shots/09b-deck-open-4of5.png", "note": "点「继续学习」→ #/dual/5304e914-…；顶部徽标 4 / 5，「第 4 / 5 页」；左栏课程大纲 5 项、前 3 项 ✓（第4项当前高亮）；播放条 ▶ 存在；右侧「提问」按钮存在"},
+    {"shot": "shots/09c-deck-page5.png", "note": "点 ⟩（下一页）→ 徽标 5 / 5、「第 5 / 5 页」，末页「当堂检测」内容"},
+    {"shot": "shots/09d-deck-still5.png", "note": "末页再点 ⟩ 无变化，仍 5 / 5；下一页按钮已 disabled"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "URL/页码/翻页/末页禁用/大纲勾选/▶/提问 全部符合。附注：验收口径中的「随堂练习」按钮是窄屏横向页码条入口（.dcx-o-strip 在 1440 宽下 display:none，源码 DualView.vue L337/L2805/L2820）；1440×900 下可见的等价练习入口是右栏「🎯 分层练习」题卡与「🎯 随堂小测」chip（同一组件、与现役行为同源，非离线差异）。"
+  },
+  {
+   "id": "10",
+   "step": "学生查看反馈：课堂任务→已完成→查看作答→#/tasks/<id>，显示已批改/30 分/5 道题；teacher_feedback 为空属现役真实数据",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/10-task-feedback.png", "note": "点「↻ 查看作答」→ #/tasks/a9107e51-d407-4299-8791-0d1b22cb3ca6；标题「课后作业·导数与函数单调性」，作答页第 1–5 题均渲染（含 LaTeX 公式与选项）"},
+    {"shot": "shots/10b-task-feedback-graded.png", "note": "页内「批改结果」区：状态「老师已批阅」、总分 30；第1题 10 / 第2题 0 / 第3题 10 / 第4题 10 / 第5题 0"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "已批改、30 分、5 道题三项均可见。teacher_feedback：fixture 中 5 个 item 的 teacher_feedback 均为 null（现役真实数据），页面未显示评语——按口径如实记录，不计 FAIL。"
+  },
+  {
+   "id": "11",
+   "step": "/me 四个 Tab（学情报告/掌握地图/体验反馈/个人设置）能打开；体验反馈 404 为现役缺陷",
+   "verdict": "BLOCKED",
+   "evidence": [
+    {"shot": "shots/11-me-report.png", "note": "「学情报告」Tab 正常：今日行动、周报、薄弱环节、掌握度曲线等"},
+    {"shot": "shots/11-me-map.png", "note": "「掌握地图」Tab 正常：树形/星系视图、分层（基础/进阶/拔高）"},
+    {"shot": "shots/11-me-feedback.png", "note": "「体验反馈」Tab 显示「我的使用档案（后台真实留痕）→ 档案加载失败，请稍后重试。」"},
+    {"shot": "shots/11-me-settings.png", "note": "「个人设置」Tab 正常：昵称/学校/ID 等信息"}
+   ],
+   "network": {"http": 0, "pageerrors": 0, "broken": 0},
+   "notes": "4 个 Tab 均可点击打开；学情报告/掌握地图/个人设置 3 个正常渲染。体验反馈的「档案加载失败，请稍后重试。」= 现役缺陷（未通过项.md A3 已登记同款现象），按验收口径判 BLOCKED，不计离线 FAIL。"
+  },
+  {
+   "id": "12",
+   "step": "断网与刷新：全程记录 http(s)/ws 请求、pageerror、破图；/dialog 与 /library 各刷新一次，状态保留",
+   "verdict": "PASS",
+   "evidence": [
+    {"shot": "shots/12a-refresh-dialog.png", "note": "/dialog 刷新后：欢迎语、最近学习、学情脉搏、会话列表全部保留（hash 仍 #/dialog）"},
+    {"shot": "shots/12b-refresh-library.png", "note": "/library 刷新后：知识库页、我的资料 4 份文档保留"},
+    {"shot": "shots/12c-refresh-library-bank24.png", "note": "刷新后切「我的题库」仍「已显示 24 / 24」"}
+   ],
+   "network": {"http": 10, "pageerrors": 0, "broken": 0},
+   "notes": "刷新状态保留通过。断网实测：http(s)=10（全部为资源中心·按知识点浏览 Tab 的 B站封面外链，见 #06，其余全程 0）、ws=0、pageerror=0；破图：/dialog 刷新 0、/library 刷新 0、其余页面 0（仅资源中心·按知识点浏览 Tab 10，与 #06 同源外部依赖）；console error 16 条（10 条 ERR_INTERNET_DISCONNECTED 封面 + MathLive CMaps 字体目录告警 + 堆栈文本），无白屏、无 JS 崩溃。"
+  }
+ ]
+}

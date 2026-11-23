@@ -1,0 +1,1 @@
+{"code":0,"message":"ok","data":{"strategy":"direct_practice","reason":"前置均已达标，可以直接针对本节点开练。","action_label":"开始针对练习","route":"/practice?kp=MATH-001","minutes":15}}

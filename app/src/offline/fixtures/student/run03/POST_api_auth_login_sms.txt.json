@@ -1,0 +1,1 @@
+{"code":0,"message":"ok","data":{"access_token":"REDACTED_JWT","expires_in":900,"onboarding_required":false,"user":{"id":"692008ca-fd7b-476c-aa59-a338a5dc48a4","nickname":"小林","active_role":"student","roles":[{"role":"student","status":"approved","verified":true}]},"identity_status":"authenticated"},"requestId":"57a78228-f099-46dd-9be3-cf933dbb18e8"}

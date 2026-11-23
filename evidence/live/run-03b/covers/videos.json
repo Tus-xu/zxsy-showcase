@@ -1,0 +1,33 @@
+{
+ "url": "http://127.0.0.1:5176/api/student/videos?topic=featured&page_size=12",
+ "status": 200,
+ "ct": "application/json",
+ "file": "covers/bodies/videos_topic_featured_page_size12.json",
+ "bytes": 8761,
+ "items": 12,
+ "topics": 9,
+ "item0_keys": [
+  "author",
+  "author_avatar",
+  "bvid",
+  "cover",
+  "danmaku",
+  "desc",
+  "duration",
+  "duration_sec",
+  "play",
+  "pubdate",
+  "title",
+  "url"
+ ],
+ "cover_field": "cover",
+ "topic": {
+  "key": "featured",
+  "label": "精选推荐",
+  "icon": "⭐",
+  "desc": "一数系统课精选，从零打基础",
+  "keyword": "一数 高中数学"
+ },
+ "source": "fallback",
+ "live": false
+}

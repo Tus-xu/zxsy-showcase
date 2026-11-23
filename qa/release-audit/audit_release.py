@@ -1,17 +1,31 @@
 # -*- coding: utf-8 -*-
-"""发行包断网审计：逐页访问 + 样板一全流程，统计 http(s)/ws 请求、页面错误、破图。"""
+"""发行包断网审计：逐页访问 + 样板一全流程，统计 http(s)/ws 请求、页面错误、破图。
+
+用法（候选包可显式指定，避免把上轮发行包当成新版本）：
+    python qa/release-audit/audit_release.py --root <候选工作树> \
+        --entry <候选 HTML 绝对路径> --out <独立输出目录>
+"""
+import argparse
 import json
 import os
 import re
 
 from playwright.sync_api import sync_playwright
 
-ROOT = r'D:\zxsy-math-arena-showcase'
-REL = os.path.join(ROOT, 'release', '开始演示.html')
-ENTRY = 'file:///' + REL.replace('\\', '/')
+_ap = argparse.ArgumentParser()
+_ap.add_argument('--root', default=os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+_ap.add_argument('--entry', default=None)
+_ap.add_argument('--out', default=None)
+_args, _ = _ap.parse_known_args()
+
+ROOT = _args.root
+REL = _args.entry or os.path.join(ROOT, 'release', '开始演示.html')
+ENTRY = 'file:///' + os.path.abspath(REL).replace('\\', '/')
 PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
-OUT = os.path.join(ROOT, 'qa', 'release-audit')
+OUT = _args.out or os.path.join(ROOT, 'qa', 'release-audit')
+SHOTS = os.path.join(OUT, 'shots')
 os.makedirs(OUT, exist_ok=True)
+os.makedirs(SHOTS, exist_ok=True)
 
 ROUTES = {
     'student': ['/dialog', '/practice', '/errors', '/library', '/resources', '/classroom', '/me'],

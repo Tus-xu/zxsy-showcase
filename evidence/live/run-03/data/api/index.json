@@ -1,0 +1,2816 @@
+{
+ "POST /api/auth/challenges/sms": {
+  "url": "http://127.0.0.1:5176/api/auth/challenges/sms",
+  "status": 200,
+  "ct": "application/json",
+  "file": "POST_api_auth_challenges_sms.txt",
+  "bytes": 218,
+  "page": "login",
+  "trigger": "登录：获取验证码 / 安全登录",
+  "reqBody": "{\"phone\":\"13800001001\",\"purpose\":\"login\"}",
+  "seenIn": [
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 429
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 429
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 429
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 500
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 500
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 500
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   }
+  ]
+ },
+ "POST /api/auth/login/sms": {
+  "url": "http://127.0.0.1:5176/api/auth/login/sms",
+  "status": 200,
+  "ct": "application/json",
+  "file": "POST_api_auth_login_sms.txt",
+  "bytes": 681,
+  "page": "login",
+  "trigger": "登录：获取验证码 / 安全登录",
+  "reqBody": "{\"remember\":false,\"preferred_role\":\"student\",\"phone\":\"13800001001\",\"challenge_id\":\"d145a8b4-0503-41c0-bd65-eb4d3bd48665\",\"code\":\"032811\"}",
+  "seenIn": [
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   },
+   {
+    "page": "login",
+    "trigger": "登录：获取验证码 / 安全登录",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/agent/conversations?limit=30": {
+  "url": "http://127.0.0.1:5176/api/agent/conversations?limit=30",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_agent_conversations_limit_30.txt",
+  "bytes": 10295,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/notifications?limit=30": {
+  "url": "http://127.0.0.1:5176/api/notifications?limit=30",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_notifications_limit_30.txt",
+  "bytes": 45,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "点击「🧭 按知识点浏览」Tab",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「⭐ 精选推荐」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「📈 函数与导数」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「🌊 三角函数」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「🔢 数列」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "资源中心 → 搜索框输入「数列求和」并回车（keyword 检索）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "资源中心 → 点击「↻ 刷新」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 关闭自动弹出的详情浮窗（✕ 关闭）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 点击列表第一条错题（重新打开详情浮窗：详情 + AI 诊断 + 正解）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按错因」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按错因」下点击维度值「概念不清」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按知识点」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按知识点」下点击维度值「导数的运算法则与复合求导」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按时间」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按时间」下点击维度值「近 30 天」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「稳定区」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「衰减中」",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务 → 切换任务 Tab「全部」",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「掌握地图」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「掌握地图」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「体验反馈」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「个人设置」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 搜索框输入「导数」（防抖后触发）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 点击第一张题卡（打开题目详情抽屉）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "切回「我的资料」Tab（可能重新拉资料列表）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型下拉选「填空题」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置「全部题型」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/notifications/unread-count": {
+  "url": "http://127.0.0.1:5176/api/notifications/unread-count",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_notifications_unread-count.txt",
+  "bytes": 44,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "点击「🧭 按知识点浏览」Tab",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「⭐ 精选推荐」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「📈 函数与导数」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「🌊 三角函数」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「🔢 数列」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "资源中心 → 搜索框输入「数列求和」并回车（keyword 检索）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "资源中心 → 点击「↻ 刷新」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 关闭自动弹出的详情浮窗（✕ 关闭）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 点击列表第一条错题（重新打开详情浮窗：详情 + AI 诊断 + 正解）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按错因」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按错因」下点击维度值「概念不清」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按知识点」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按知识点」下点击维度值「导数的运算法则与复合求导」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按时间」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按时间」下点击维度值「近 30 天」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「稳定区」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「衰减中」",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务 → 切换任务 Tab「全部」",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「掌握地图」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「掌握地图」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「体验反馈」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「个人设置」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 搜索框输入「导数」（防抖后触发）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 点击第一张题卡（打开题目详情抽屉）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "切回「我的资料」Tab（可能重新拉资料列表）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型下拉选「填空题」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置「全部题型」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/tasks?limit=30": {
+  "url": "http://127.0.0.1:5176/api/tasks?limit=30",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_tasks_limit_30.txt",
+  "bytes": 45,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "点击「🧭 按知识点浏览」Tab",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「⭐ 精选推荐」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「📈 函数与导数」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「🌊 三角函数」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「🔢 数列」",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "资源中心 → 搜索框输入「数列求和」并回车（keyword 检索）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "资源中心 → 点击「↻ 刷新」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 关闭自动弹出的详情浮窗（✕ 关闭）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 点击列表第一条错题（重新打开详情浮窗：详情 + AI 诊断 + 正解）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按错因」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按错因」下点击维度值「概念不清」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按知识点」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按知识点」下点击维度值「导数的运算法则与复合求导」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按时间」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按时间」下点击维度值「近 30 天」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「稳定区」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「衰减中」",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务 → 切换任务 Tab「全部」",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「掌握地图」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「掌握地图」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「体验反馈」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「个人设置」",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 搜索框输入「导数」（防抖后触发）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 点击第一张题卡（打开题目详情抽屉）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "切回「我的资料」Tab（可能重新拉资料列表）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型下拉选「填空题」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置「全部题型」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/auth/me": {
+  "url": "http://127.0.0.1:5176/api/auth/me",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_auth_me.txt",
+  "bytes": 452,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「个人设置」",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/growth/panel": {
+  "url": "http://127.0.0.1:5176/api/student/growth/panel",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_growth_panel.txt",
+  "bytes": 675,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/assignments?status=todo&size=1": {
+  "url": "http://127.0.0.1:5176/api/student/assignments?status=todo&size=1",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_assignments_status_todo_size_1.txt",
+  "bytes": 369,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/agent/features": {
+  "url": "http://127.0.0.1:5176/api/agent/features",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_agent_features.txt",
+  "bytes": 3132,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/mastery/summary": {
+  "url": "http://127.0.0.1:5176/api/student/mastery/summary",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_mastery_summary.txt",
+  "bytes": 1291,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/error-records/due-queue": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/due-queue",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_due-queue.txt",
+  "bytes": 8780,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/error-records/review-plan": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/review-plan",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_review-plan.txt",
+  "bytes": 2636,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/report/weak-points": {
+  "url": "http://127.0.0.1:5176/api/student/report/weak-points",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_report_weak-points.txt",
+  "bytes": 1480,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/classroom-coursewares": {
+  "url": "http://127.0.0.1:5176/api/student/classroom-coursewares",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_classroom-coursewares.txt",
+  "bytes": 564,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/error-records?limit=1": {
+  "url": "http://127.0.0.1:5176/api/student/error-records?limit=1",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_limit_1.txt",
+  "bytes": 8251,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/growth/overview": {
+  "url": "http://127.0.0.1:5176/api/student/growth/overview",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_growth_overview.txt",
+  "bytes": 375,
+  "page": "dialog",
+  "trigger": "登录后落地 /dialog 首屏自动请求",
+  "seenIn": [
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "resources",
+    "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "我的 → 切换 Tab「个人设置」",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "dialog",
+    "trigger": "登录后落地 /dialog 首屏自动请求",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "POST /api/auth/token/refresh": {
+  "url": "http://127.0.0.1:5176/api/auth/token/refresh",
+  "status": 200,
+  "ct": "application/json",
+  "file": "POST_api_auth_token_refresh.txt",
+  "bytes": 481,
+  "page": "resources",
+  "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+  "seenIn": [
+   {
+    "page": "errors",
+    "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   },
+   {
+    "page": "me",
+    "trigger": "进入 /me（默认「学情报告」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/videos?page_size=1": {
+  "url": "http://127.0.0.1:5176/api/student/videos?page_size=1",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_page_size_1.txt",
+  "bytes": 8760,
+  "page": "resources",
+  "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）"
+ },
+ "POST /api/student/videos/recommend": {
+  "url": "http://127.0.0.1:5176/api/student/videos/recommend",
+  "status": 200,
+  "ct": "application/json",
+  "file": "POST_api_student_videos_recommend.txt",
+  "bytes": 8893,
+  "page": "resources",
+  "trigger": "进入 /resources（默认「为你推荐」模式：装填分类 + POST 推荐流）",
+  "reqBody": "{\"max_results\":8}"
+ },
+ "GET /api/student/videos?topic=featured&page_size=12": {
+  "url": "http://127.0.0.1:5176/api/student/videos?topic=featured&page_size=12",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_topic_featured_page_size_12.txt",
+  "bytes": 8761,
+  "page": "resources",
+  "trigger": "点击「🧭 按知识点浏览」Tab",
+  "seenIn": [
+   {
+    "page": "resources",
+    "trigger": "按知识点浏览 → 点击分类 chip「⭐ 精选推荐」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/videos?topic=function&page_size=12": {
+  "url": "http://127.0.0.1:5176/api/student/videos?topic=function&page_size=12",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_topic_function_page_size_12.txt",
+  "bytes": 8894,
+  "page": "resources",
+  "trigger": "按知识点浏览 → 点击分类 chip「📈 函数与导数」"
+ },
+ "GET /api/student/videos?topic=trig&page_size=12": {
+  "url": "http://127.0.0.1:5176/api/student/videos?topic=trig&page_size=12",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_topic_trig_page_size_12.txt",
+  "bytes": 7855,
+  "page": "resources",
+  "trigger": "按知识点浏览 → 点击分类 chip「🌊 三角函数」"
+ },
+ "GET /api/student/videos?topic=sequence&page_size=12": {
+  "url": "http://127.0.0.1:5176/api/student/videos?topic=sequence&page_size=12",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_topic_sequence_page_size_12.txt",
+  "bytes": 7814,
+  "page": "resources",
+  "trigger": "按知识点浏览 → 点击分类 chip「🔢 数列」"
+ },
+ "GET /api/student/videos?keyword=%E6%95%B0%E5%88%97%E6%B1%82%E5%92%8C&page_size=12": {
+  "url": "http://127.0.0.1:5176/api/student/videos?keyword=%E6%95%B0%E5%88%97%E6%B1%82%E5%92%8C&page_size=12",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_keyword_E6_95_B0_E5_88_97_E6_B1_82_E5_92_8C_page_size_12.txt",
+  "bytes": 7721,
+  "page": "resources",
+  "trigger": "资源中心 → 搜索框输入「数列求和」并回车（keyword 检索）"
+ },
+ "GET /api/student/videos?topic=custom&page_size=12": {
+  "url": "http://127.0.0.1:5176/api/student/videos?topic=custom&page_size=12",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_videos_topic_custom_page_size_12.txt",
+  "bytes": 8761,
+  "page": "resources",
+  "trigger": "资源中心 → 点击「↻ 刷新」"
+ },
+ "GET /api/student/error-records/memory-heatmap": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/memory-heatmap",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_memory-heatmap.txt",
+  "bytes": 2786,
+  "page": "errors",
+  "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50.txt",
+  "bytes": 8835,
+  "page": "errors",
+  "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）",
+  "seenIn": [
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「全部」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按错因」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按知识点」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按时间」",
+    "status": 200
+   },
+   {
+    "page": "errors",
+    "trigger": "错题页 → 切换筛选 Tab「按遗忘风险」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/error-records/46e56349-c46e-4305-a002-348d9b1c288c/detail": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/46e56349-c46e-4305-a002-348d9b1c288c/detail",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_46e56349-c46e-4305-a002-348d9b1c288c_detail.txt",
+  "bytes": 729,
+  "page": "errors",
+  "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）"
+ },
+ "GET /api/butler/error-detail/46e56349-c46e-4305-a002-348d9b1c288c": {
+  "url": "http://127.0.0.1:5176/api/butler/error-detail/46e56349-c46e-4305-a002-348d9b1c288c",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_butler_error-detail_46e56349-c46e-4305-a002-348d9b1c288c.txt",
+  "bytes": 998,
+  "page": "errors",
+  "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）"
+ },
+ "GET /api/butler/error-diagnosis/46e56349-c46e-4305-a002-348d9b1c288c": {
+  "url": "http://127.0.0.1:5176/api/butler/error-diagnosis/46e56349-c46e-4305-a002-348d9b1c288c",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_butler_error-diagnosis_46e56349-c46e-4305-a002-348d9b1c288c.txt",
+  "bytes": 361,
+  "page": "errors",
+  "trigger": "进入 /errors（热力图 + 到期队列 + 筛选列表；自动弹出首题详情浮窗）"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&error_type=concept": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&error_type=concept",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_error_type_concept.txt",
+  "bytes": 1624,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按错因」下点击维度值「概念不清」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&error_type=calculation": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&error_type=calculation",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_error_type_calculation.txt",
+  "bytes": 2279,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按错因」下点击维度值「计算失误」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&kp_code=JH-02": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&kp_code=JH-02",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_kp_code_JH-02.txt",
+  "bytes": 792,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按知识点」下点击维度值「圆锥曲线」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&kp_code=DR-02": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&kp_code=DR-02",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_kp_code_DR-02.txt",
+  "bytes": 1499,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按知识点」下点击维度值「导数的运算法则与复合求导」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&date_from=2026-11-15": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&date_from=2026-11-15",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_date_from_2026-11-15.txt",
+  "bytes": 792,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按时间」下点击维度值「近 7 天」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&date_from=2026-10-23": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&date_from=2026-10-23",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_date_from_2026-10-23.txt",
+  "bytes": 6356,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按时间」下点击维度值「近 30 天」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&stability=stable": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&stability=stable",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_stability_stable.txt",
+  "bytes": 819,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「稳定区」"
+ },
+ "GET /api/student/error-records/filter?page=1&size=50&stability=decaying": {
+  "url": "http://127.0.0.1:5176/api/student/error-records/filter?page=1&size=50&stability=decaying",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_error-records_filter_page_1_size_50_stability_decaying.txt",
+  "bytes": 1806,
+  "page": "errors",
+  "trigger": "错题页 → Tab「按遗忘风险」下点击维度值「衰减中」"
+ },
+ "GET /api/classes/mine": {
+  "url": "http://127.0.0.1:5176/api/classes/mine",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classes_mine.txt",
+  "bytes": 347,
+  "page": "classroom",
+  "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+  "seenIn": [
+   {
+    "page": "classroom",
+    "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）",
+    "status": 200
+   },
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/assignments?status=all&page=1&size=50": {
+  "url": "http://127.0.0.1:5176/api/student/assignments?status=all&page=1&size=50",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_assignments_status_all_page_1_size_50.txt",
+  "bytes": 717,
+  "page": "classroom",
+  "trigger": "进入 /classroom（默认「课堂任务」Tab：作业列表 + 老师课件 + 我的班级）",
+  "seenIn": [
+   {
+    "page": "classroom",
+    "trigger": "返回 /classroom → 课堂任务 →「已完成」Tab → 点击「↻ 查看作答」（进入 /tasks/<assignment_id>）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/hot-errors?days=30&limit=5": {
+  "url": "http://127.0.0.1:5176/api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/hot-errors?days=30&limit=5",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classes_039bcfc5-eb65-41a0-8840-ae3e361544b2_hot-errors_days_30_limit_5.txt",
+  "bytes": 643,
+  "page": "classroom",
+  "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）"
+ },
+ "GET /api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/members": {
+  "url": "http://127.0.0.1:5176/api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/members",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classes_039bcfc5-eb65-41a0-8840-ae3e361544b2_members.txt",
+  "bytes": 1568,
+  "page": "classroom",
+  "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）"
+ },
+ "GET /api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/feed": {
+  "url": "http://127.0.0.1:5176/api/classes/039bcfc5-eb65-41a0-8840-ae3e361544b2/feed",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classes_039bcfc5-eb65-41a0-8840-ae3e361544b2_feed.txt",
+  "bytes": 55,
+  "page": "classroom",
+  "trigger": "点击「🏫 我的班级」Tab（/classes/mine → 成员/动态/热门错题）"
+ },
+ "GET /api/classroom/sessions?limit=5": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions?limit=5",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classroom_sessions_limit_5.txt",
+  "bytes": 765,
+  "page": "classroom",
+  "trigger": "点击「🎬 双师课堂」Tab（老师课堂课件列表 + 最近课堂 /classroom/sessions）",
+  "seenIn": [
+   {
+    "page": "classroom-play",
+    "trigger": "进入 /classroom?tab=dual（老师课堂卡片）",
+    "status": 200
+   }
+  ]
+ },
+ "POST /api/student/classroom-coursewares/6baf153d-f2e7-440e-a703-cc08a8ae06e4/open": {
+  "url": "http://127.0.0.1:5176/api/student/classroom-coursewares/6baf153d-f2e7-440e-a703-cc08a8ae06e4/open",
+  "status": 200,
+  "ct": "application/json",
+  "file": "POST_api_student_classroom-coursewares_6baf153d-f2e7-440e-a703-cc08a8ae06e4_open.txt",
+  "bytes": 187,
+  "page": "classroom",
+  "trigger": "双师课堂 → 点击老师课件卡《函数的单调性：从图像到导数》（POST open 建课堂会话 → 跳 /dual/<sid>）",
+  "seenIn": [
+   {
+    "page": "classroom-play",
+    "trigger": "双师课堂 → 点击《函数的单调性：从图像到导数》卡片（POST open → 播放页）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classroom_sessions_5304e914-edb1-47d2-b0db-7cbb804bcd86.txt",
+  "bytes": 31559,
+  "page": "classroom",
+  "trigger": "双师课堂 → 点击老师课件卡《函数的单调性：从图像到导数》（POST open 建课堂会话 → 跳 /dual/<sid>）",
+  "seenIn": [
+   {
+    "page": "classroom-play",
+    "trigger": "双师课堂 → 点击《函数的单调性：从图像到导数》卡片（POST open → 播放页）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/classroom/sessions?limit=50": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions?limit=50",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_classroom_sessions_limit_50.txt",
+  "bytes": 765,
+  "page": "classroom",
+  "trigger": "双师课堂 → 点击老师课件卡《函数的单调性：从图像到导数》（POST open 建课堂会话 → 跳 /dual/<sid>）",
+  "seenIn": [
+   {
+    "page": "classroom-play",
+    "trigger": "双师课堂 → 点击《函数的单调性：从图像到导数》卡片（POST open → 播放页）",
+    "status": 200
+   }
+  ]
+ },
+ "PATCH /api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86/progress": {
+  "url": "http://127.0.0.1:5176/api/classroom/sessions/5304e914-edb1-47d2-b0db-7cbb804bcd86/progress",
+  "status": 200,
+  "ct": "application/json",
+  "file": "PATCH_api_classroom_sessions_5304e914-edb1-47d2-b0db-7cbb804bcd86_progress.txt",
+  "bytes": 156,
+  "page": "classroom",
+  "trigger": "播放页 → 点击「下一页」（翻到第 2 页，触发 slide_index 进度上报）",
+  "reqBody": "{\"slide_index\":4}",
+  "seenIn": [
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 点击「上一页」回到第一页",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 点击「上一页」回到第一页",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 点击「上一页」回到第一页",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 点击「上一页」回到第一页",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 第 1 页；点击「下一页」翻页（slide_index 进度上报）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 第 2 页；点击「下一页」翻页（slide_index 进度上报）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 第 3 页；点击「下一页」翻页（slide_index 进度上报）",
+    "status": 200
+   },
+   {
+    "page": "classroom-play",
+    "trigger": "播放页 → 第 4 页；点击「下一页」翻页（slide_index 进度上报）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/assignments/a9107e51-d407-4299-8791-0d1b22cb3ca6": {
+  "url": "http://127.0.0.1:5176/api/student/assignments/a9107e51-d407-4299-8791-0d1b22cb3ca6",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_assignments_a9107e51-d407-4299-8791-0d1b22cb3ca6.txt",
+  "bytes": 1621,
+  "page": "classroom",
+  "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）"
+ },
+ "GET /api/student/assignments/a9107e51-d407-4299-8791-0d1b22cb3ca6/result": {
+  "url": "http://127.0.0.1:5176/api/student/assignments/a9107e51-d407-4299-8791-0d1b22cb3ca6/result",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_assignments_a9107e51-d407-4299-8791-0d1b22cb3ca6_result.txt",
+  "bytes": 1169,
+  "page": "classroom",
+  "trigger": "课堂任务（已完成）→ 点击「↻ 查看作答」（/tasks/:id 作业作答页：详情 + 结果反馈）"
+ },
+ "GET /api/butler/weekly-report": {
+  "url": "http://127.0.0.1:5176/api/butler/weekly-report",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_butler_weekly-report.txt",
+  "bytes": 850,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/report/highlights": {
+  "url": "http://127.0.0.1:5176/api/student/report/highlights",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_report_highlights.txt",
+  "bytes": 277,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/mastery/today-actions": {
+  "url": "http://127.0.0.1:5176/api/student/mastery/today-actions",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_mastery_today-actions.txt",
+  "bytes": 1492,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/mastery/trend?days=30": {
+  "url": "http://127.0.0.1:5176/api/student/mastery/trend?days=30",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_mastery_trend_days_30.txt",
+  "bytes": 281,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/report/mastery-trend-forecast?days=14": {
+  "url": "http://127.0.0.1:5176/api/student/report/mastery-trend-forecast?days=14",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_report_mastery-trend-forecast_days_14.txt",
+  "bytes": 850,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/report/error-distribution": {
+  "url": "http://127.0.0.1:5176/api/student/report/error-distribution",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_report_error-distribution.txt",
+  "bytes": 866,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/report/honesty": {
+  "url": "http://127.0.0.1:5176/api/student/report/honesty",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_report_honesty.txt",
+  "bytes": 306,
+  "page": "me",
+  "trigger": "进入 /me（默认「学情报告」Tab）",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 回到「学情报告」Tab（补齐报告各分块请求）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/knowledge-graph/tree": {
+  "url": "http://127.0.0.1:5176/api/student/knowledge-graph/tree",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_knowledge-graph_tree.txt",
+  "bytes": 56576,
+  "page": "me",
+  "trigger": "我的 → 切换 Tab「掌握地图」",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/knowledge-graph/pie": {
+  "url": "http://127.0.0.1:5176/api/student/knowledge-graph/pie",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_knowledge-graph_pie.txt",
+  "bytes": 281,
+  "page": "me",
+  "trigger": "我的 → 切换 Tab「掌握地图」",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/knowledge-graph/nodes/MATH-001/recommend": {
+  "url": "http://127.0.0.1:5176/api/student/knowledge-graph/nodes/MATH-001/recommend",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_knowledge-graph_nodes_MATH-001_recommend.txt",
+  "bytes": 213,
+  "page": "me",
+  "trigger": "我的 → 切换 Tab「掌握地图」",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/knowledge-graph/nodes/MATH-001/deps": {
+  "url": "http://127.0.0.1:5176/api/student/knowledge-graph/nodes/MATH-001/deps",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_knowledge-graph_nodes_MATH-001_deps.txt",
+  "bytes": 88,
+  "page": "me",
+  "trigger": "我的 → 切换 Tab「掌握地图」",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/student/knowledge-graph/nodes/MATH-001/errors": {
+  "url": "http://127.0.0.1:5176/api/student/knowledge-graph/nodes/MATH-001/errors",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_student_knowledge-graph_nodes_MATH-001_errors.txt",
+  "bytes": 76,
+  "page": "me",
+  "trigger": "我的 → 切换 Tab「掌握地图」",
+  "seenIn": [
+   {
+    "page": "me",
+    "trigger": "我的 → 掌握地图：点击一个知识点节点（deps/recommend/errors）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/api/trial/metrics": {
+  "url": "http://127.0.0.1:5176/api/api/trial/metrics",
+  "status": 404,
+  "ct": "application/json",
+  "file": "GET_api_api_trial_metrics.txt",
+  "bytes": 22,
+  "page": "me",
+  "trigger": "我的 → 切换 Tab「体验反馈」"
+ },
+ "GET /api/v1/kb/documents?kb_name=default&limit=200": {
+  "url": "http://127.0.0.1:5176/api/v1/kb/documents?kb_name=default&limit=200",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_kb_documents_kb_name_default_limit_200.txt",
+  "bytes": 1830,
+  "page": "library",
+  "trigger": "进入 /library（默认「我的资料」Tab）",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=1": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=1",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_1.txt",
+  "bytes": 321,
+  "page": "library",
+  "trigger": "进入 /library（默认「我的资料」Tab）",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library（默认「我的资料」Tab）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=30&offset=0": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0.txt",
+  "bytes": 6729,
+  "page": "library",
+  "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "点击 Tab「我的题库」→ 首次加载题库",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 难度重置为「全部难度」",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 清空搜索关键字",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "进入 /library?tab=questions（补采 q_type=blank/solution、difficulty=medium）",
+    "status": 200
+   },
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置「全部题型」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q_type=choice": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q_type=choice",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_type_choice.txt",
+  "bytes": 2001,
+  "page": "library",
+  "trigger": "我的题库 → 题型下拉选「选择题」",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型下拉选「选择题」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q_type=choice&difficulty=easy": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q_type=choice&difficulty=easy",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_type_choice_difficulty_easy.txt",
+  "bytes": 1385,
+  "page": "library",
+  "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型=选择题 && 难度 下拉选「基础」",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q_type=choice&difficulty=hard": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q_type=choice&difficulty=hard",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_type_choice_difficulty_hard.txt",
+  "bytes": 361,
+  "page": "library",
+  "trigger": "我的题库 → 难度 下拉选「压轴」（题型仍=选择题）",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "我的题库 → 难度 下拉选「压轴」（题型仍=选择题）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=30&offset=0&difficulty=hard": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&difficulty=hard",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_difficulty_hard.txt",
+  "bytes": 634,
+  "page": "library",
+  "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+  "seenIn": [
+   {
+    "page": "library",
+    "trigger": "我的题库 → 题型重置为「全部题型」（难度仍=压轴）",
+    "status": 200
+   }
+  ]
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q=%E5%87%BD%E6%95%B0": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q=%E5%87%BD%E6%95%B0",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_E5_87_BD_E6_95_B0.txt",
+  "bytes": 4078,
+  "page": "library",
+  "trigger": "我的题库 → 搜索框输入「函数」（防抖后触发）"
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q=%E5%AF%BC%E6%95%B0": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q=%E5%AF%BC%E6%95%B0",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_E5_AF_BC_E6_95_B0.txt",
+  "bytes": 1775,
+  "page": "library",
+  "trigger": "我的题库 → 搜索框输入「导数」（防抖后触发）"
+ },
+ "GET /api/v1/questions/2d2021e7-3739-4a69-992a-50d60ae97ad7": {
+  "url": "http://127.0.0.1:5176/api/v1/questions/2d2021e7-3739-4a69-992a-50d60ae97ad7",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_2d2021e7-3739-4a69-992a-50d60ae97ad7.txt",
+  "bytes": 341,
+  "page": "library",
+  "trigger": "我的题库 → 点击第一张题卡（打开题目详情抽屉）"
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q_type=blank": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q_type=blank",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_type_blank.txt",
+  "bytes": 2985,
+  "page": "library",
+  "trigger": "我的题库 → 题型下拉选「填空题」"
+ },
+ "GET /api/v1/questions?limit=30&offset=0&q_type=solution": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&q_type=solution",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_q_type_solution.txt",
+  "bytes": 1865,
+  "page": "library",
+  "trigger": "我的题库 → 题型下拉选「解答题」"
+ },
+ "GET /api/v1/questions?limit=30&offset=0&difficulty=medium": {
+  "url": "http://127.0.0.1:5176/api/v1/questions?limit=30&offset=0&difficulty=medium",
+  "status": 200,
+  "ct": "application/json",
+  "file": "GET_api_v1_questions_limit_30_offset_0_difficulty_medium.txt",
+  "bytes": 2479,
+  "page": "library",
+  "trigger": "我的题库 → 难度下拉选「进阶」(medium)"
+ }
+}

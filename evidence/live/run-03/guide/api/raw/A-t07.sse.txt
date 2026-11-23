@@ -1,0 +1,17 @@
+: open
+
+event: meta
+data: {"conversation_id": "e3cbe343-41f8-43a5-a7e9-ca9abd2be841", "msg_id": "1233d5fc-7c85-4ee7-92ce-5d9b35044d11", "skill": "socratic_solver", "confidence": 0.99, "provider": "spark"}
+
+event: token
+data: {"text": "你卡在这一步，多半是「任意角与三角函数定义」还没打牢。先花几分钟补上它，马上回来。"}
+
+event: card
+data: {"card_type": "socratic_interaction", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "step_no": 0, "interaction_id": "ix_bc66b1e7e42d", "form": "binary", "move": "probe", "stage": null, "prompt_lead": "已知角α的终边经过点P(3, -4)，则sinα的值为？", "spec": {"question": "已知角α的终边经过点P(3, -4)，则sinα的值为？", "options": [{"id": "o1", "label": "-4/5"}, {"id": "o2", "label": "4/5", "maps_to": {"misconception": "calculation"}}, {"id": "o3", "label": "-3/5", "maps_to": {"misconception": "formula"}}]}, "allow_text_fallback": true, "allow_skip": true, "skip_label": "跳过探测，直接讲", "interaction_reason": "T6→probe[binary]", "form_source": "router", "routing_reason": "T6→probe[binary]"}
+
+event: card
+data: {"card_type": "socratic_detour", "session_id": "62799452-3a0c-45b0-b7bb-b53e39ac9757", "detour_id": "4112de758b47", "kp_code": "TG-01", "kp_name": "任意角与三角函数定义", "worked_example": "", "check_question": "已知角 $\\alpha$ 的终边经过点 $P(-3,4)$，求 $\\sin\\alpha$、$\\cos\\alpha$、$\\tan\\alpha$ 的值。", "origin_step": 2, "reason": "前置缺口（掌握度 0.0）", "check_form": "cloze", "check_spec": {"body": "已知角 $\\alpha$ 的终边经过点 $P(-3,4)$，求 $\\sin\\alpha$、$\\cos\\alpha$、$\\tan\\alpha$ 的值。\n你的答案：$□_1$", "blanks": [{"id": "b1", "answer_kind": "expr"}], "palette_by_blank": {"b1": ["$\\sin\\alpha=\\frac{4}{5}$，$\\cos\\alpha=-\\frac{3}{5}$，$\\tan\\alpha=-\\frac{4}{3}$", "$\\sin\\alpha=\\frac{4}{5}$，$\\cos\\alpha=\\frac{3}{5}$，$\\tan\\alpha=\\frac{4}{3}$", "-$\\sin\\alpha=\\frac{4}{5}$，$\\cos\\alpha=-\\frac{3}{5}$，$\\tan\\alpha=-\\frac{4}{3}$"]}}, "stage": "probing", "probe": {"question": "已知角α的终边经过点P(3, -4)，则sinα的值为？", "form": "binary", "interaction_id": "ix_bc66b1e7e42d"}, "citations": [], "degraded": {"zh": "未找到教材原文，本讲解由 AI 生成，仅供参考", "why": "kb_no_hit"}}
+
+event: done
+data: {"usage": {"tokens_in": 5, "tokens_out": 16}, "latency_ms": 3782, "message_id": "fdd8d3b3-cafc-42f9-a09f-074946ffecf3", "meta": {"skill": "socratic_solver", "tutor_action": "interact", "verdict": "wrong", "misconception": "calculation", "interaction_form": "expr_input", "interaction_reason": "T18→expr_input[rt_material_failed]", "p_before": 1.0, "p_after": 1.0, "fragile": false, "routing_reason": "rt_gap_detour", "route_detour_attempted": true, "detour_started": "4112de758b47", "current_step": 2, "hint_level": 1, "status": "active", "leak_blocked": 0, "socratic": {"phase": "detour", "scaffold_level": 1, "verdict": "wrong", "misconception": "calculation", "error_move": null, "kp_code": "JH-02", "detour_active": true, "round_used": 2, "leak_blocked": 0, "repetition_blocked": 0, "template_blocked": 0, "form": "binary", "form_reason": "T6→probe[binary]", "move": "probe_cause", "tier": 0, "stage": ""}}}
+
