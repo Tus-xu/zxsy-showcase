@@ -96,6 +96,14 @@
             @more="(...args) => $emit('quizMore', ...args)"
             @chain-action="$emit('quizChainAction', $event, c)"
           />
+          <!-- 离线教学示例的导学阶段卡：与 socratic_step_choice 同一交互契约
+               （点选即可读标签作为作答发送），历史里的旧卡由 live 置为回看态 -->
+          <ShowcaseStageCard
+            v-else-if="cardType(c) === 'showcase_stage'"
+            :card="c"
+            :used="!live"
+            @choose="(t) => onChoiceClick(ci, t, c)"
+          />
           <div v-else-if="cardType(c) === 'socratic_hint'" class="soc-tag">
             💡 提示 · {{ hintLabel(c) }}
           </div>
@@ -108,7 +116,9 @@
           <div v-else-if="cardType(c) === 'socratic_progress' && hasProgressData(c)" class="soc-progress">
             <div class="sp-top">
               <span class="sp-step">第 {{ c.current_step }}/{{ c.steps_count }} 步</span>
-              <span v-if="phaseZh(c.phase)" class="sp-chip sp-phase">{{ phaseZh(c.phase) }}</span>
+              <!-- 离线教学示例：四主阶段名（读题/选方法/分步推导/订正），比后端 phase 更好懂 -->
+              <span v-if="c.stage_label" class="sp-chip sp-phase">{{ c.stage_label }}</span>
+              <span v-else-if="phaseZh(c.phase)" class="sp-chip sp-phase">{{ phaseZh(c.phase) }}</span>
               <span v-if="c.kp_name" class="sp-chip sp-kp">{{ c.kp_name }}</span>
             </div>
             <div v-if="c.fast_path || c.oversplit" class="sp-note">
@@ -383,6 +393,7 @@ import SocraticDetourCard from './SocraticDetourCard.vue'
 import SocraticInteractionCard from './SocraticInteractionCard.vue'
 import SocraticConfirmCard from './SocraticConfirmCard.vue'
 import SocraticConceptCard from './SocraticConceptCard.vue'
+import ShowcaseStageCard from './ShowcaseStageCard.vue'
 import AttachmentThumb from './AttachmentThumb.vue'
 import SourceCard from './SourceCard.vue'
 import VideoCardsCard from './VideoCardsCard.vue'
@@ -399,6 +410,8 @@ import { copyText } from '@/utils/markdown'
 
 const props = defineProps({
   msg: { type: Object, required: true },
+  /** 是否是该会话最后一条 AI 消息：只有它可交互，历史旧卡只回看（不向当前步骤注入事件） */
+  live: { type: Boolean, default: true },
 })
 // P1-5：选项统一在 AI 消息卡片下方渲染（主题色、KaTeX）
 const clarifyOpts = computed(() => (props.msg?.clarify?.options || []))
@@ -709,6 +722,7 @@ const STAGE_ZH = {
   butler_query: '查询学情数据',
   butler_execute: '执行数据查询',
   butler_degraded: '降级提示',
+  offline: '离线示例',
 }
 function stageName(stage) {
   return STAGE_ZH[stage] || stage

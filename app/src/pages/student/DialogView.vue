@@ -5,7 +5,12 @@
       <div class="dialog-header">
         <div style="min-width:0;">
           <div class="ttl" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ activeTitle }}</div>
-          <div style="font-size:11.5px;color:var(--ink3);margin-top:2px;">学习对话 · 基于当前上下文与学情回应</div>
+          <div style="font-size:11.5px;color:var(--ink3);margin-top:2px;">
+            <template v-if="isShowcaseConv">
+              <span class="offline-demo-chip">离线示例</span>本地示例数据，可现场作答
+            </template>
+            <template v-else>学习对话 · 基于当前上下文与学情回应</template>
+          </div>
         </div>
         <!-- sgv2（DESIGN §8.1）：步徽标升级——第 N/M 步 · 阶段 · 提示档 · 知识点 chips -->
         <div class="dialog-badges">
@@ -28,6 +33,7 @@
           <MessageBubble
             v-for="m in chat.messages.value"
             :key="m.key"
+            :live="m.key === lastAiKey"
             :msg="m"
             @clarify="sendText"
             @socratic-choice="onSocraticChoice"
@@ -132,6 +138,7 @@ import HomeLearningPanel from '@/components/student/HomeLearningPanel.vue'
 import UiIcon from '@/components/common/UiIcon.vue'
 import { useFileUpload } from '@/components/chat/useFileUpload'
 import { useChat } from '@/composables/useChat'
+import { isShowcaseId } from '@/offline/showcase/catalog'
 import { useLearningSnapshot } from '@/composables/useLearningSnapshot'
 import { studentApi } from '@/api'
 import { useConfirm } from '@/composables/useConfirm'
@@ -244,6 +251,18 @@ const activeTitle = computed(
   () => conv.items.find((c) => c.id === conv.activeId)?.title || '新对话'
 )
 
+/** 离线教学示例会话：标题旁只出现一次「离线示例」标识（方案 §1） */
+const isShowcaseConv = computed(() => isShowcaseId(conv.activeId))
+
+/** 只有最后一条 AI 消息的卡片可交互；历史旧卡只回看，不向当前步骤注入事件（方案 §6） */
+const lastAiKey = computed(() => {
+  const list = chat.messages.value
+  for (let i = list.length - 1; i >= 0; i--) {
+    if (list[i]?.role === 'assistant') return list[i].key
+  }
+  return ''
+})
+
 /** 顶部步骤徽标：以后端 socratic 进度卡为唯一事实源（此前按消息数估算，会误导进度）。
  * sgv2（DESIGN §8.1）升级：第 N/M 步 · 阶段（诊断中/引导中/补课中/收尾）· 提示档，
  * 知识点 chips 由 stepBadgeKp 单独渲染；旧 progress 卡缺 phase/scaffold 字段时逐项隐藏。 */
@@ -256,7 +275,9 @@ const stepBadge = computed(() => {
       const t = c?.card_type || c?.type || ''
       if (t === 'socratic_progress' && (c.steps_count || c.current_step)) {
         const parts = [`第 ${c.current_step} 步 / 共 ${c.steps_count} 步`]
-        if (PHASE_ZH[c.phase]) parts.push(PHASE_ZH[c.phase])
+        // 离线教学示例：四主阶段名（读题/选方法/分步推导/订正）比后端 phase 更好懂
+        if (c.stage_label) parts.push(c.stage_label)
+        else if (PHASE_ZH[c.phase]) parts.push(PHASE_ZH[c.phase])
         const scaffold =
           (c.scaffold_level ?? null) !== null
             ? SCAFFOLD_LEVEL_ZH[Number(c.scaffold_level)]
@@ -828,6 +849,11 @@ watch(
 </script>
 
 <style scoped>
+.offline-demo-chip {
+  display: inline-block; margin-right: 6px; padding: 0 7px; border-radius: 999px;
+  font-size: 10.5px; font-weight: 700; line-height: 17px; vertical-align: 1px;
+  color: var(--purple); background: var(--purple-soft); border: 1px solid var(--purple-border);
+}
 .dialog-page { height: calc(100vh - 52px); }
 /* sgv2：顶部步徽标 + 知识点 chip（.step 基础样式在 v4.css 全局） */
 .dialog-badges { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
