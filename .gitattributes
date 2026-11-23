@@ -3,6 +3,17 @@
 app/index.html text eol=lf
 app/vite.config.offline.mjs text eol=lf
 app/src/** text eol=lf
+# 例外：src 下的位图/字体是二进制，必须逐字节保留（上面那条会把它们当文本做换行转换）
+app/src/**/*.png -text
+app/src/**/*.jpg -text
+app/src/**/*.jpeg -text
+app/src/**/*.webp -text
+app/src/**/*.gif -text
+app/src/**/*.ico -text
+app/src/**/*.woff -text
+app/src/**/*.woff2 -text
+app/src/**/*.ttf -text
+app/src/**/*.pdf -text
 .gitattributes text eol=lf
 # 生成的单文件发行包必须逐字节保留（CRLF 转换会让验收 SHA 失效）
 release/*.html -text
