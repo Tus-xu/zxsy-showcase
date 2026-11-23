@@ -4,3 +4,5 @@ app/index.html text eol=lf
 app/vite.config.offline.mjs text eol=lf
 app/src/** text eol=lf
 .gitattributes text eol=lf
+# 生成的单文件发行包必须逐字节保留（CRLF 转换会让验收 SHA 失效）
+release/*.html -text
