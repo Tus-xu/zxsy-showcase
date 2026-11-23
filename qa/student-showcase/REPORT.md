@@ -88,3 +88,16 @@
 - 刷新后对话只还原文本与顺序，交互卡面板不重建、无附件缩略图（未通过项.md §C）。
 - 冷启动 2 条 MathLive 字体告警（渲染正常）。
 - 现役数据在快照后继续演进（错题 24→26、课件 80%→100%、综合分 73→74）；已按 run-03b 重新基线化，候选包与当前现役一致。
+
+## 9. 分支与工作树状态（合并后）
+
+| 项 | 状态 |
+|---|---|
+| 当前分支 | `main` @ `17f53b4`（合并后为最终提交），与 `origin/main` 同步 |
+| 已合并 | `rework/live-fidelity`（PR #1 → `cf94725`）、`codex/student-showcase-data-visual`（`fef124f` → merge `9eecb18`） |
+| 工作树 | 仅保留 `D:/zxsy-math-arena-showcase`；开发工作树 `-student` 已移除并删除 |
+| 本地分支 | 仅 `main`（已合并分支已删除） |
+| 远程分支 | 仅 `main`；已合并分支已删除（GitHub 保留 `refs/pull/1/head`） |
+| 临时引用/交接物 | `refs/backup/pre-reauthor`、`rework-live-fidelity.bundle` 已删除 |
+| 发行包 | `release/开始演示.html` 20,993,756 B，SHA-256 `D34F4A18…A443300`；`.gitattributes` 已标记 `release/*.html -text`，再次 checkout 哈希不变 |
+| 主仓冒烟 | 断网：题库 `已显示 24 / 24`、错题 `01 / 26`、**0 http 请求 / 0 pageerror** |
