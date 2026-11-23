@@ -1,0 +1,181 @@
+{
+ "entry": "file:///D:/zxsy-math-arena-showcase-wt/student-chat-showcase/release/开始演示.html",
+ "sha256": "23f1021571f5a4acb7a16126d37ed5cc15a526c2dbaf9bd595ce6a0ab445ce24",
+ "bytes": 21216278,
+ "routes": {
+  "student/dialog": {
+   "http": 0,
+   "textLen": 1291,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 ＋ 新对话",
+   "leakedShowcase": true
+  },
+  "student/practice": {
+   "http": 0,
+   "textLen": 427,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 今日训练 ",
+   "leakedShowcase": false
+  },
+  "student/errors": {
+   "http": 0,
+   "textLen": 3203,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 26 全部",
+   "leakedShowcase": false
+  },
+  "student/library": {
+   "http": 0,
+   "textLen": 574,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 📚 知识",
+   "leakedShowcase": false
+  },
+  "student/resources": {
+   "http": 0,
+   "textLen": 1178,
+   "broken": 0,
+   "imgs": 11,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 📺 资源",
+   "leakedShowcase": false
+  },
+  "student/classroom": {
+   "http": 0,
+   "textLen": 488,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 🎓 课堂",
+   "leakedShowcase": false
+  },
+  "student/me": {
+   "http": 0,
+   "textLen": 1249,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 👤 我的",
+   "leakedShowcase": false
+  },
+  "student__errors": [],
+  "teacher/teacher-v3/prep": {
+   "http": 0,
+   "textLen": 461,
+   "broken": 0,
+   "imgs": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 备课中心 多轮对话 · 教材学情 · 教案课件一体生",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/classes": {
+   "http": 0,
+   "textLen": 540,
+   "broken": 0,
+   "imgs": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 班级管理 建班 · 邀请码 · 成员确认 AI 助教",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/bank": {
+   "http": 0,
+   "textLen": 488,
+   "broken": 0,
+   "imgs": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 题库 分类树 · 专题夹 · 拍照/自编入库 AI ",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/assign": {
+   "http": 0,
+   "textLen": 702,
+   "broken": 0,
+   "imgs": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 作业与批改 四步发布 · 学前/课后 · 批改终审 ",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/insights": {
+   "http": 0,
+   "textLen": 605,
+   "broken": 0,
+   "imgs": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 学情洞察 热力图 · 错因 · 诊断 AI 助教已就",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/resources": {
+   "http": 0,
+   "textLen": 891,
+   "broken": 0,
+   "imgs": 12,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 资源中心 资源 · 数学识别 · 构造配方库 AI ",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/grading": {
+   "http": 0,
+   "textLen": 690,
+   "broken": 0,
+   "imgs": 0,
+   "head": "∫ 教师工作台 智学数研 · AI 备课教学 每日教学 备课中心 课堂 资源与测评 题库与组卷 作业与批改 学情洞察 资源中心 批改工作台 题聚焦 · 匿名队列 · 原图终审 AI",
+   "leakedShowcase": false
+  },
+  "teacher/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299": {
+   "http": 0,
+   "textLen": 1179,
+   "broken": 0,
+   "imgs": 0,
+   "head": "我的备课 新的备课会话 会话状态 进行中 已连接 0 项已就绪 · 1 项待确认 还没有确认的教材与班级信息 —— 在下面直接说，我会和你一起澄清。 教师 02:26 椭圆第一课时",
+   "leakedShowcase": false
+  },
+  "teacher__errors": [],
+  "researcher/research-workspace": {
+   "http": 0,
+   "textLen": 707,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 科研端 启动页 工作台 个人中心 科研身份 · 研究者 林 林知远 ⌄ RESEARCH WORKSPACE 阅读、写作与验证， 在同一个项目里发生。 把文献、笔记、",
+   "leakedShowcase": false
+  },
+  "researcher/research-workspace/workspace": {
+   "http": 0,
+   "textLen": 540,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:16 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 该项目目前尚未命名，也还没有确定明确的研究主题。项目",
+   "leakedShowcase": false
+  },
+  "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read": {
+   "http": 0,
+   "textLen": 3615,
+   "broken": 0,
+   "imgs": 2,
+   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:16 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 本项目围绕椭圆型偏微分方程有限元方法的变分形式、Ga",
+   "leakedShowcase": false
+  },
+  "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write": {
+   "http": 0,
+   "textLen": 2808,
+   "broken": 1,
+   "imgs": 2,
+   "head": "π 智学数研 科研端 阅读 写作 历史 林 林知远 未命名项目 学术论文项目 · 进行中 项目 文献 笔记 设置 文件树 论文结构 未命名项目 main.tex 论文结构 尚未解析",
+   "leakedShowcase": false
+  },
+  "researcher/research-workspace/account": {
+   "http": 0,
+   "textLen": 432,
+   "broken": 0,
+   "imgs": 0,
+   "head": "π 智学数研 科研端 启动页 工作台 个人中心 科研身份 · 研究者 林 林知远 ⌄ 林 林知远 科研端 · 研究者 📱 138****1003 🏛 浙江大学数学科学学院 📅",
+   "leakedShowcase": false
+  },
+  "researcher__errors": []
+ },
+ "showcase": {
+  "corrected": true,
+  "http": 0,
+  "errors": [],
+  "broken": 0
+ },
+ "totals": {
+  "http_requests": 0,
+  "page_errors": 0,
+  "routes_checked": 20
+ }
+}

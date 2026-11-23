@@ -1,0 +1,53 @@
+{
+ "viewports": {
+  "1440x900": {
+   "scrollW": 1440,
+   "clientW": 1440,
+   "listScrollW": 1200,
+   "listClientW": 1200,
+   "liveBottom": 775,
+   "inputTop": 813,
+   "marks": [
+    "哪个 x",
+    "局部极小值"
+   ],
+   "noHScrollDoc": true,
+   "noHScrollList": true,
+   "cardAboveInput": true
+  },
+  "1906x1035": {
+   "scrollW": 1906,
+   "clientW": 1906,
+   "listScrollW": 1666,
+   "listClientW": 1666,
+   "liveBottom": 910,
+   "inputTop": 948,
+   "marks": [
+    "哪个 x",
+    "局部极小值"
+   ],
+   "noHScrollDoc": true,
+   "noHScrollList": true,
+   "cardAboveInput": true
+  }
+ },
+ "reducedMotion": {
+  "count": 2,
+  "texts": [
+   "哪个 x",
+   "局部极小值"
+  ],
+  "anims": [
+   "none",
+   "none"
+  ],
+  "visible": true,
+  "allStatic": true
+ },
+ "zoom200": {
+  "w": 701,
+  "h": 246,
+  "btns": 3,
+  "overlap": 0
+ }
+}

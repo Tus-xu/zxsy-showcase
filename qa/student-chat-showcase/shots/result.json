@@ -1,0 +1,158 @@
+{
+ "cases": [
+  {
+   "id": "V01",
+   "ok": true,
+   "note": "S1 标题「拍照解题 · 三次函数极值」；题图 1 张(破图 0)，切换后 1 张(破图 0)；四段齐全=true；lightbox 开=true 关=true",
+   "evidence": {
+    "title": "拍照解题 · 三次函数极值",
+    "hasUserText": true,
+    "hasFour": true,
+    "images": {
+     "n": 1,
+     "broken": 0
+    },
+    "shot": "shots/01-V01-s1.png",
+    "lbOpen": true,
+    "lbClosed": true,
+    "imagesAfterSwitch": {
+     "n": 1,
+     "broken": 0
+    },
+    "textAfterSwitch": true
+   }
+  },
+  {
+   "id": "V02",
+   "ok": true,
+   "note": "S2 真实追问=true 反例=true；S3 帧控件=3 播放文案=true 图注=4 破图=0；x³ 反例=true",
+   "evidence": {
+    "s2": {
+     "turns": 6,
+     "hasFollow": true,
+     "hasCounter": true,
+     "shot": "shots/03-V02-s2.png"
+    },
+    "s3": {
+     "frames": 3,
+     "hasPlay": true,
+     "captions": 4,
+     "images": {
+      "n": 1,
+      "broken": 0
+     },
+     "hasCounter3": true,
+     "shot": "shots/04-V02-s3.png"
+    }
+   }
+  },
+  {
+   "id": "V03",
+   "ok": true,
+   "note": "S4 首答保留=true 引导入口=1；S6 首次加入=true 重复点已置灰=true；错题本命中 1 条",
+   "evidence": {
+    "before": "shots/05-V03-s4-before.png",
+    "entry": 1,
+    "hits": 1
+   }
+  },
+  {
+   "id": "V04",
+   "ok": true,
+   "note": "C1 提问=true 消息数 3；C3 变式卡=4；C4 错因反馈=true；C5 进入 G0=true；A 路径走完=true；C6 已订正=true；小结=true",
+   "evidence": {
+    "beforeSize": 3,
+    "quizCards": 4
+   }
+  },
+  {
+   "id": "V05",
+   "ok": true,
+   "note": "B 路径全通；换路提示=true；刷新后事实保留=true；A 路径续走并订正=true",
+   "evidence": {
+    "switched": true,
+    "keptFacts": true,
+    "fixVisible": true,
+    "done": true
+   }
+  },
+  {
+   "id": "V06",
+   "ok": true,
+   "note": "无关输入留在原步骤=true；历史旧卡可点数=0；选项键盘可达=true",
+   "evidence": {
+    "stayed": true,
+    "oldClickable": 0,
+    "kb": true
+   }
+  }
+ ],
+ "evidence": {
+  "V01": {
+   "title": "拍照解题 · 三次函数极值",
+   "hasUserText": true,
+   "hasFour": true,
+   "images": {
+    "n": 1,
+    "broken": 0
+   },
+   "shot": "shots/01-V01-s1.png",
+   "lbOpen": true,
+   "lbClosed": true,
+   "imagesAfterSwitch": {
+    "n": 1,
+    "broken": 0
+   },
+   "textAfterSwitch": true
+  },
+  "V01net": 0,
+  "V01err": [],
+  "V02": {
+   "s2": {
+    "turns": 6,
+    "hasFollow": true,
+    "hasCounter": true,
+    "shot": "shots/03-V02-s2.png"
+   },
+   "s3": {
+    "frames": 3,
+    "hasPlay": true,
+    "captions": 4,
+    "images": {
+     "n": 1,
+     "broken": 0
+    },
+    "hasCounter3": true,
+    "shot": "shots/04-V02-s3.png"
+   }
+  },
+  "V03": {
+   "keptFirst": true,
+   "entry": 1,
+   "againDisabled": true,
+   "hits": 1,
+   "errText": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 26 全部错题 24 今天该复习 7 记得较牢 📷 拍错题入本 📷 拍错题入本 把做错/不会的题拍下来自动识别题干——入本自动排期复习 ＋ 打开录入 错题详情 · 第 01 题 ⏭ 下一题 ✕ 关闭 全部 按错因 按知识点 按时间 按遗忘风险 详情加载失败：离线演示未收录该数据：GET /api/student/error-records/sc-err-sc-v1/detail 📚 全部 26 道 · 点击展开详情 按入"
+  },
+  "V04": {
+   "beforeSize": 3,
+   "quizCards": 4,
+   "corrected": true,
+   "whyShown": true
+  },
+  "V05": {
+   "switched": true,
+   "keptFacts": true,
+   "fixVisible": true,
+   "done": true
+  },
+  "V06": {
+   "stayed": true,
+   "oldClickable": 0,
+   "kb": true
+  }
+ },
+ "totals": {
+  "pass": 6,
+  "fail": 0
+ }
+}
