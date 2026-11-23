@@ -18,7 +18,13 @@
 
     <!-- 知识定位：题干节选 + 高亮词 -->
     <div v-if="card.snippet" class="ssc-snippet">
-      <span v-for="(m, i) in marks" :key="'m' + i" class="ssc-mark">{{ m }}</span>
+      <span
+        v-for="(m, i) in marks"
+        :key="'m' + i"
+        class="ssc-mark"
+        :class="{ 'ssc-mark-in': animate }"
+        :style="{ '--i': i }"
+      >{{ m }}</span>
       <span class="ssc-snippet-text">{{ card.snippet }}</span>
     </div>
 
@@ -220,7 +226,7 @@
 </template>
 
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import MathFigure from './MathFigure.vue'
 import SocraticCitations from './SocraticCitations.vue'
 
@@ -229,12 +235,34 @@ const props = defineProps({
   card: { type: Object, required: true },
   /** 历史里的旧卡：只回看，不再向当前步骤注入事件 */
   used: { type: Boolean, default: false },
+  /** 卡片稳定键（会话消息 key + 卡序），用于「动效只播一次」的记忆 */
+  cardKey: { type: String, default: '' },
 })
 
 const emit = defineEmits(['choose'])
 
 const figOpen = ref(false)
 const revealOpen = ref(false)
+
+/**
+ * 知识定位的 2 步短动效（方案 §6「首次知识定位」）：
+ * - 只在首次进入该步播一次，刷新或打开历史不抢焦点、不自动重播（sessionStorage 记一次）；
+ * - 用户设置了减弱动效时直接给静态形态（同样的文字与方向，不靠动画表达含义）。
+ */
+const animate = ref(false)
+
+onMounted(() => {
+  if (props.used || !marks.value.length) return
+  const key = `ssc-anim:${props.cardKey || ''}`
+  try {
+    if (!props.cardKey || sessionStorage.getItem(key)) return
+    sessionStorage.setItem(key, '1')
+  } catch {
+    return
+  }
+  const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
+  if (!reduce) animate.value = true
+})
 
 const marks = computed(() => props.card.marks || [])
 
@@ -361,6 +389,17 @@ function send(a) {
 .ssc-method:disabled { cursor: default; opacity: .92; }
 .ssc-method-label { font-size: 13px; font-weight: 700; color: var(--ink); }
 .ssc-method-sub { font-size: 11.5px; color: var(--ink3); line-height: 1.5; }
+
+/* 知识定位的一次性分段高亮（整段约 780ms，末态停住；纯视觉，不影响点击） */
+.ssc-mark-in { animation: ssc-mark-in 340ms ease-out both; animation-delay: calc(var(--i) * 260ms); }
+@keyframes ssc-mark-in {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+  45% { transform: scale(1.08); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.22); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(124, 58, 237, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ssc-mark-in { animation: none; }
+}
 
 /* 候选点 */
 .ssc-cands { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }

@@ -102,6 +102,7 @@
             v-else-if="cardType(c) === 'showcase_stage'"
             :card="c"
             :used="!live"
+            :card-key="`${msg.key}:${ci}`"
             @choose="(t) => onChoiceClick(ci, t, c)"
           />
           <div v-else-if="cardType(c) === 'socratic_hint'" class="soc-tag">

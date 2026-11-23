@@ -1,7 +1,7 @@
 {
  "entry": "file:///D:/zxsy-math-arena-showcase-wt/student-chat-showcase/release/开始演示.html",
- "sha256": "23f1021571f5a4acb7a16126d37ed5cc15a526c2dbaf9bd595ce6a0ab445ce24",
- "bytes": 21216278,
+ "sha256": "6ae6ebd8b1522922995144b7a905e1ef60de5aa18999b40117f2ea2cbc2baec7",
+ "bytes": 21216341,
  "routes": {
   "student/dialog": {
    "http": 0,
@@ -138,7 +138,7 @@
    "textLen": 540,
    "broken": 0,
    "imgs": 0,
-   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:16 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 该项目目前尚未命名，也还没有确定明确的研究主题。项目",
+   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:23 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 该项目目前尚未命名，也还没有确定明确的研究主题。项目",
    "leakedShowcase": false
   },
   "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read": {
@@ -146,7 +146,7 @@
    "textLen": 3615,
    "broken": 0,
    "imgs": 2,
-   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:16 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 本项目围绕椭圆型偏微分方程有限元方法的变分形式、Ga",
+   "head": "π 智学数研 科研端 阅读 写作 未命名项目 已同步 今天 03:23 历史 林 林知远 未命名项目 暂无描述 AI 项目概览 本项目围绕椭圆型偏微分方程有限元方法的变分形式、Ga",
    "leakedShowcase": false
   },
   "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write": {
