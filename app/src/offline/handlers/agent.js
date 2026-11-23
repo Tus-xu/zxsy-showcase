@@ -12,6 +12,9 @@
  */
 import { caseOfFile } from './files'
 import { patch, store } from '../state'
+import { flowAttachment, FLOW_IMAGE } from '../showcase/flowAssets'
+import { SHOWCASE_CONVS, SHOWCASE_BY_ID, convItem, isShowcaseId } from '../showcase/catalog'
+import { ensureSession, runTurn, toHistoryItems, turnCount } from '../showcase/session'
 
 const RAW_FLOWS = import.meta.glob('../fixtures/student/flow-*.json', { eager: true, query: '?raw', import: 'default' })
 
@@ -86,10 +89,21 @@ export function pickChatTurn(body) {
 
 export function noticeEvents(message) {
   return [
-    { event: 'status', data: { stage: 'offline', text: '离线演示' } },
+    { event: 'status', data: { stage: 'offline', text: '离线示例' } },
     { event: 'token', data: { text: message } },
     { event: 'done', data: {} },
   ]
+}
+
+/**
+ * POST /api/agent/chat：教学示例会话走本地状态机（事件驱动分支，非采证回放）。
+ * 返回 null 表示「不是示例会话」，交回采证回放链路。
+ */
+export function showcaseChatTurn(body) {
+  const convId = body?.conversation_id || body?.conversationId || null
+  if (!isShowcaseId(convId)) return null
+  const out = runTurn(convId, body)
+  return out.events
 }
 
 /* ─────────── 会话列表与消息（刷新后恢复用） ─────────── */
@@ -109,30 +123,49 @@ function convMeta(flow) {
   return meta || {}
 }
 
-/** GET /api/agent/conversations —— 采证列表 + 离线演示新建的会话 */
+/** GET /api/agent/conversations —— 采证列表 + 教学示例 + 离线演示新建的会话 */
 export function listConversations(basePayload) {
   let payload = null
   try { payload = JSON.parse(basePayload) } catch { payload = null }
   const items = Array.isArray(payload?.data?.items) ? payload.data.items.slice() : []
+
+  // 教学示例排在最前（置顶），原有采证项一条不改，只 append
+  const showcase = SHOWCASE_CONVS
+    .filter((c) => !items.some((x) => (x.id || x.conversation_id) === c.id))
+    .map((c) => {
+      const count = (() => {
+        try { return turnCount(c.id) } catch { return c.seeded }
+      })()
+      return { ...convItem(c), message_count: count }
+    })
+
   const chats = store.chat || {}
   for (const [convId, cur] of Object.entries(chats)) {
     if (items.some((x) => (x.id || x.conversation_id) === convId)) continue
     const flow = FLOWS[cur.case]
     const meta = convMeta(flow)
+    const img = FLOW_IMAGE[cur.case]
+    // 采证里图片上传的首轮没有文字输入（真实发送文案是「请分析我上传的文件」），
+    // 直接用题图名做标题，才能在侧栏区分三个不同案例。
+    const title = img ? `${img.name} · 拍照解题` : '上传题目 · 待命名'
     items.unshift({
       id: convId,
-      title: '请分析我上传的文件',
+      title,
       created_at: new Date().toISOString(),
       updated_at: new Date().toISOString(),
       message_count: cur.turn * 2,
       skill: meta.skill || 'chat',
     })
   }
-  return { code: 0, message: 'ok', data: { items, hasMore: false } }
+  return { code: 0, message: 'ok', data: { items: [...showcase, ...items], hasMore: false } }
 }
 
-/** GET /api/agent/conversations/{id}/messages —— 用采证 SSE 还原该会话的消息 */
+/** GET /api/agent/conversations/{id}/messages —— 教学示例优先，其次采证 SSE 还原 */
 export function conversationMessages(convId) {
+  if (isShowcaseId(convId)) {
+    ensureSession(convId)
+    return { code: 0, message: 'ok', data: { items: toHistoryItems(convId), hasMore: false } }
+  }
   const cur = (store.chat || {})[convId]
   if (!cur) {
     // 离线新建的空会话：现役此时返回空列表，UI 显示空态
@@ -164,9 +197,9 @@ export function conversationMessages(convId) {
         blocks: [{ type: 'markdown', content: turn.input || '请分析我上传的文件' }],
         msg_id: `m-${i}`,
       },
-      // 刷新后的历史里不带附件记录：离线没有对象存储，现役组件会提示「原图已丢失（存储缺失）」，
-      // 那是一条会被误读为"文件真的丢了"的现役文案，因此只还原文字部分（见未通过项.md）。
-      attachments: [],
+      // 原题图在本地有逐字节一致的副本，附件快照带 data URI，
+      // AttachmentThumb 优先读 localUrl → 刷新后仍显示题图，且不会误报「存储缺失」。
+      attachments: flowAttachment(cur.case, fileId),
       thinking: null,
     })
     items.push({

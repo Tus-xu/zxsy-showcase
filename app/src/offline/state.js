@@ -5,8 +5,13 @@
  * - published：教师发布快照（学生课堂/作业可见性以它为准）
  * - uploads：学生上传的题图（按 SHA-256 绑定，保留文件名与采证结果）
  * - conversations：学生会话与消息（本地追加）
+ * - showcase：教学示例会话的进度（主阶段 / 解法路径 / 已证事实 / 轮次）
+ * - quizLog：题目作答记录（首答与订正，用于小结的真实计数）
+ * - errorBook：示例错题本（并进现役「错题本」页读取的同一个响应）
  *
  * 纪律：这里只存「现役采证过的业务对象形状」，不自造字段。
+ *   showcase / quizLog / errorBook 是本轮教学示例专用的本地分支，
+ *   只在 `src/offline/showcase/` 内读写，不进入任何现役业务对象。
  */
 const KEY = 'ma_offline_demo_v1'
 
@@ -16,6 +21,9 @@ const EMPTY = {
   uploads: [],
   conversations: [],
   grading: [],
+  showcase: {},
+  quizLog: [],
+  errorBook: [],
 }
 
 function read() {

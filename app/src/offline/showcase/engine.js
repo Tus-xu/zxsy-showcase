@@ -350,6 +350,14 @@ export function matchOption(options, raw) {
   return alias.length === 1 ? alias[0] : null
 }
 
+/** 取卡片组里最后一个带 options 的卡（结论卡也可能在前，不能写死下标） */
+function optionsOf(cards) {
+  for (let i = (cards || []).length - 1; i >= 0; i--) {
+    if (Array.isArray(cards[i]?.options) && cards[i].options.length) return cards[i].options
+  }
+  return []
+}
+
 /** 明确表达的术语追问（只建立支线，不按误解分流） */
 function isLimitAsk(raw) {
   return has(norm(raw), '极限', '无限靠近', '趋近', '怎么定义')
@@ -532,7 +540,7 @@ node('a1_candidates', {
     const t = norm(a.text)
     const cards = get('a1_candidates').build().cards
     if (has(t, '换一种方法', '比较附近', '作差')) return switchPath(s, 'B')
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     const wroteZeros = has(t, '-1') && has(t, '2') && (has(t, 'x') || has(t, '零点', '候选'))
     if (picked?.id === 'right' || (!picked && wroteZeros)) {
       const next = { ...addFact(s, FACT.candidates), stage: 'derive' }
@@ -572,7 +580,7 @@ node('a2_diagnose', {
     const t = norm(a.text)
     const cards = get('a2_diagnose').build(s).cards
     if (has(t, '换一种方法', '比较附近', '作差')) return switchPath(s, 'B')
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'slope') {
       return { next: 'a3_signs', session: s, reply: { text: T.a2Right, ...get('a3_signs').build(s) } }
     }
@@ -647,7 +655,7 @@ node('a3_signs', {
     if (isLimitAsk(a.text)) return startLimit(s, 'a3_signs')
     const t = norm(a.text)
     const cards = get('a3_signs').build(s).cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'pos_neg') {
       return {
         next: 'a3_classify',
@@ -678,7 +686,7 @@ node('a3_classify', {
   }),
   accept(s, a) {
     const cards = get('a3_classify').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'max') {
       const next = addFact(s, FACT.maxAtMinus1)
       return { next: 'a3_classify2', session: next, reply: { text: T.a3c1Right, ...get('a3_classify2').build(next) } }
@@ -705,14 +713,10 @@ node('a3_classify2', {
   }),
   accept(s, a) {
     const cards = get('a3_classify2').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'min') {
       const next = { ...addFact(s, FACT.minAtTwo), stage: 'derive' }
-      return {
-        next: 'a4_correct',
-        session: next,
-        reply: { text: T.a3c2Right, cards: [progress('derive'), cardConclusion()] },
-      }
+      return { next: 'a4_correct', session: next, reply: { text: T.a3c2Right, ...get('a4_correct').build(next) } }
     }
     if (picked?.id === 'max') return retry(s, T.a3c2Wrong, cards)
     return retry(s, T.unknown, cards)
@@ -724,6 +728,7 @@ node('a4_correct', {
     text: T.a4Ask,
     cards: [
       progress('derive'),
+      cardConclusion(),
       cardDerive({
         title: '选出局部极小的横坐标',
         candidates: ['−1 局部极大', '2 局部极小'],
@@ -737,7 +742,7 @@ node('a4_correct', {
   }),
   accept(s, a) {
     const cards = get('a4_correct').build(s).cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'm2') {
       const next = { ...addFact(s, FACT.answerC), stage: 'fix' }
       return s.firstAnswer === 'A'
@@ -766,7 +771,7 @@ node('a4_why', {
   }),
   accept(s, a) {
     const cards = get('a4_why').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     const t = norm(a.text)
     const freeOk =
       t.includes('左') && t.includes('右') && (t.includes('升') || t.includes('增')) && (t.includes('降') || t.includes('减'))
@@ -800,7 +805,7 @@ node('b1_standard', {
   accept(s, a) {
     if (isLimitAsk(a.text)) return startLimit(s, 'b1_standard')
     const cards = get('b1_standard').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'min') {
       const next = addFact(s, FACT.candidates)
       return { next: 'b2_minus1', session: next, reply: { text: T.b1Right, ...get('b2_minus1').build(next) } }
@@ -829,7 +834,7 @@ node('b2_minus1', {
   }),
   accept(s, a) {
     const cards = get('b2_minus1').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'neg') {
       const next = addFact(s, FACT.maxAtMinus1)
       return { next: 'b3_two', session: next, reply: { text: T.b2Right, ...get('b3_two').build(next) } }
@@ -858,14 +863,10 @@ node('b3_two', {
   }),
   accept(s, a) {
     const cards = get('b3_two').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'pos') {
       const next = { ...addFact(s, FACT.minAtTwo), stage: 'derive' }
-      return {
-        next: 'b4_correct',
-        session: next,
-        reply: { text: T.b3Right, cards: [progress('derive'), cardConclusion()] },
-      }
+      return { next: 'b4_correct', session: next, reply: { text: T.b3Right, ...get('b4_correct').build(next) } }
     }
     if (picked?.id === 'neg') return retry(s, T.b3Wrong, cards)
     return retry(s, T.unknown, cards)
@@ -877,6 +878,7 @@ node('b4_correct', {
     text: T.b4Ask,
     cards: [
       progress('derive'),
+      cardConclusion(),
       cardDerive({
         title: '选出局部极小的横坐标',
         candidates: ['−1 局部极大', '2 局部极小'],
@@ -893,7 +895,7 @@ node('b4_correct', {
     const t = norm(a.text)
     if (has(t, '另一种方法', '换一种方法')) return switchPath(s, s.path === 'B' ? 'A' : 'B')
     const cards = get('b4_correct').build(s).cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'm2') {
       const next = { ...addFact(s, FACT.answerC), stage: 'fix' }
       return { next: 'fix_return', session: next, reply: { text: T.b4Right, ...get('fix_return').build(next) } }
@@ -1034,7 +1036,7 @@ node('c1_invite', {
         session: { ...s, stage: 'fix' },
         reply: {
           text: '三道题按难度排好了。第一题换系数，第二题改变走势，第三题容易误判。先从第一题开始。',
-          cards: [progress('fix'), quizChain(), cardTally()],
+          cards: [progress('fix'), quizChain(), cardEntry(), cardTally()],
         },
       }
     }
@@ -1053,6 +1055,9 @@ function tallyPlaceholder() {
 node('c_quiz', {
   build: () => ({ text: '', cards: [tallyPlaceholder()] }),
   accept(s, a) {
+    if (has(norm(a.text), '引导式解题', '走一遍')) {
+      return { next: 'g0_locate', session: { ...s, stage: 'read' }, reply: null }
+    }
     if (has(norm(a.text), '小结')) {
       const tally = s.quizTally || { total: 3, answered: 0, firstCorrect: 0, finalCorrect: 0, corrected: 0 }
       const lines = []
@@ -1115,7 +1120,7 @@ node('limit_check', {
   accept(s, a) {
     if (has(norm(a.text), '回到原题', '回原题', '回去')) return backToPaused(s, s.limitReturn, T.limitBack)
     const cards = get('limit_check').build().cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'four') {
       return backToPaused({ ...s, limitDone: true }, s.limitReturn, `${T.limitCheckRight}我们回到刚才停下的地方。`)
     }
@@ -1176,7 +1181,7 @@ node('d2_check', {
       return { next: 'a3_signs', session: next, reply: { ...get("a3_signs").build(next), text: T.resume } }
     }
     const cards = get('d2_check').build(s).cards
-    const picked = matchOption(cards[1].options, a.text)
+    const picked = matchOption(optionsOf(cards), a.text)
     if (picked?.id === 'up_dec') {
       const next = { ...s, lesson: { ...(s.lesson || {}), check: 'passed' }, stage: 'derive' }
       return {
@@ -1222,6 +1227,12 @@ export function summaryOf(s) {
   if (s?.switched) lines.push('中途换过一次方法，已经确认的结论都留着。')
   if (s?.limitDone) lines.push('你顺手看了极限怎样定义导数。')
   if (s?.corrected) lines.push('最后回到题卡改选了 C，首答 A 仍然保留。')
+  const t = s?.quizTally
+  if (t && t.answered) {
+    lines.push(`这三题已经作答 ${t.answered}/${t.total} 题。`)
+    lines.push(`首答正确 ${t.firstCorrect}/${t.total}，订正后 ${t.finalCorrect}/${t.total}。`)
+    if (t.corrected) lines.push('其中至少 1 题是看过引导之后改对的。')
+  }
   return { corrected: !!s?.corrected, lines: lines.length ? lines : ['这一轮还没有留下可回顾的步骤。'] }
 }
 

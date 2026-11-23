@@ -36,89 +36,94 @@ function esc(s) {
 /**
  * 拼一张练习册风格的题面（不是函数图，所以不走 plotSvg）。
  * 左侧题号方块 + 眉题/标题 + 正文 + 选项 + 底部「自编」标记。
+ *
+ * 版面按宽 440 排版：聊天气泡里 <img> 实际只有约 370px 宽，
+ * 440 的图按 370 显示约 0.84 倍缩放，正文还能有 ~13px，字才看得清。
+ * 所以这里所有字号都是「按 440 宽」的相对值，不要再按桌面宽度放大。
  */
 function sheetSvg({ index, kicker, title, lines, hint, options, footnote }) {
-  const W = 760
-  const H = options ? 330 : 300
+  const W = 440
+  const H = options ? 300 : 240
+  const PAD = 20
   const body = []
 
   body.push(
-    `<rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="14" fill="${SHEET.paper}" stroke="${SHEET.border}"/>`
+    `<rect x="0.5" y="0.5" width="${W - 1}" height="${H - 1}" rx="12" fill="${SHEET.paper}" stroke="${SHEET.border}"/>`
   )
 
-  // 左侧题号小方块
-  body.push(`<rect x="28" y="30" width="38" height="38" rx="9" fill="${SHEET.main}"/>`)
+  // 左侧题号小方块（30×30）
+  body.push(`<rect x="${PAD}" y="22" width="30" height="30" rx="8" fill="${SHEET.main}"/>`)
   body.push(
-    `<text x="47" y="56" text-anchor="middle" font-size="${String(index).length > 1 ? 14 : 18}" font-weight="700" fill="#ffffff">${esc(index)}</text>`
+    `<text x="${PAD + 15}" y="43" text-anchor="middle" font-size="${String(index).length > 1 ? 11.5 : 15}" font-weight="700" fill="#ffffff">${esc(index)}</text>`
   )
 
   // 眉题 + 标题 + 分隔线
   body.push(
-    `<text x="78" y="44" font-size="12" fill="${SHEET.muted}" letter-spacing="1.4">${esc(kicker)}</text>`
+    `<text x="60" y="35" font-size="10" fill="${SHEET.muted}" letter-spacing="1">${esc(kicker)}</text>`
   )
   body.push(
-    `<text x="78" y="67" font-size="15" font-weight="700" fill="${SHEET.ink}">${esc(title)}</text>`
+    `<text x="60" y="54" font-size="13" font-weight="700" fill="${SHEET.ink}">${esc(title)}</text>`
   )
   body.push(
-    `<line x1="28" y1="86" x2="${W - 28}" y2="86" stroke="${SHEET.rule}" stroke-width="1"/>`
+    `<line x1="${PAD}" y1="68" x2="${W - PAD}" y2="68" stroke="${SHEET.rule}" stroke-width="1"/>`
   )
 
   // 右上角离线标记
+  body.push(`<rect x="${W - 82}" y="24" width="62" height="18" rx="9" fill="#eef1f5"/>`)
   body.push(
-    `<rect x="${W - 106}" y="33" width="78" height="22" rx="11" fill="#eef1f5"/>`
-  )
-  body.push(
-    `<text x="${W - 67}" y="48" text-anchor="middle" font-size="11" fill="#6b7280">离线示例</text>`
+    `<text x="${W - 51}" y="36.5" text-anchor="middle" font-size="9.5" fill="#6b7280">离线示例</text>`
   )
 
-  // 正文（19px，行距 36）；表达式里的上标由 tspan 完成
+  // 正文（16px，行距 26 ≈ 1.6 倍）；表达式里的上标由 tspan 完成
   lines.forEach((line, i) => {
     body.push(
-      `<text x="30" y="${126 + i * 36}" font-size="19" fill="${SHEET.ink}">${line}</text>`
+      `<text x="${PAD}" y="${100 + i * 26}" font-size="16" fill="${SHEET.ink}">${line}</text>`
     )
   })
 
   if (hint) {
     body.push(
-      `<text x="30" y="${options ? 196 : 208}" font-size="13" fill="${SHEET.muted}">${esc(hint)}</text>`
+      `<text x="${PAD}" y="158" font-size="11" fill="${SHEET.muted}">${esc(hint)}</text>`
     )
   }
 
-  // 四个选项胶囊
+  // 四个选项：440 宽一行放不下四个，改 2×2 网格（每格 195×34）
   if (options) {
-    const oy = 214
+    const cellW = 195
+    const cellH = 34
+    const gapX = W - PAD * 2 - cellW * 2
     options.forEach((opt, i) => {
-      const ox = 30 + i * 176
+      const ox = PAD + (i % 2) * (cellW + gapX)
+      const oy = 178 + Math.floor(i / 2) * (cellH + 8)
       body.push(
-        `<rect x="${ox}" y="${oy}" width="160" height="44" rx="9" fill="#ffffff" stroke="${SHEET.chipBorder}"/>`
+        `<rect x="${ox}" y="${oy}" width="${cellW}" height="${cellH}" rx="8" fill="#ffffff" stroke="${SHEET.chipBorder}"/>`
+      )
+      body.push(`<circle cx="${ox + 20}" cy="${oy + 17}" r="10" fill="${SHEET.chip}"/>`)
+      body.push(
+        `<text x="${ox + 20}" y="${oy + 21}" text-anchor="middle" font-size="12" font-weight="700" fill="${SHEET.main}">${esc(opt.key)}</text>`
       )
       body.push(
-        `<circle cx="${ox + 24}" cy="${oy + 22}" r="12" fill="${SHEET.chip}"/>`
-      )
-      body.push(
-        `<text x="${ox + 24}" y="${oy + 27}" text-anchor="middle" font-size="13" font-weight="700" fill="${SHEET.main}">${esc(opt.key)}</text>`
-      )
-      body.push(
-        `<text x="${ox + 46}" y="${oy + 28}" font-size="17" fill="${SHEET.ink}">${esc(opt.text)}</text>`
+        `<text x="${ox + 36}" y="${oy + 22}" font-size="13" fill="${SHEET.ink}">${esc(opt.text)}</text>`
       )
     })
   }
 
   // 底部：明确标「自编」，避免与现役题库混淆
   body.push(
-    `<text x="30" y="${H - 18}" font-size="12" fill="${SHEET.muted}">${esc(footnote)}</text>`
+    `<text x="${PAD}" y="${H - 16}" font-size="9.5" fill="${SHEET.muted}">${esc(footnote)}</text>`
   )
   body.push(
-    `<text x="${W - 30}" y="${H - 18}" text-anchor="end" font-size="12" fill="${SHEET.muted}">离线演示 · 无外网请求</text>`
+    `<text x="${W - PAD}" y="${H - 16}" text-anchor="end" font-size="9.5" fill="${SHEET.muted}">离线演示 · 无外网请求</text>`
   )
 
   return `<svg xmlns="${SVG_NS}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" font-family="${FONT}"><title>${esc(title)}</title>${body.join('')}</svg>`
 }
 
+// 上标：dy 抬升后必须用等量正 dy 复位，否则后续正文会一路漂移
 const F_EXPR =
-  '<tspan font-style="italic">f(x)</tspan> = x<tspan dy="-6" font-size="13">3</tspan><tspan dy="6"> − 3x</tspan>'
+  '<tspan font-style="italic">f(x)</tspan> = x<tspan dy="-5" font-size="11">3</tspan><tspan dy="5"> − 3x</tspan>'
 const G_EXPR =
-  '<tspan font-style="italic">g(x)</tspan> = 2x<tspan dy="-6" font-size="13">3</tspan><tspan dy="6"> − 3x</tspan><tspan dy="-6" font-size="13">2</tspan><tspan dy="6"> − 12x + 1</tspan>'
+  '<tspan font-style="italic">g(x)</tspan> = 2x<tspan dy="-5" font-size="11">3</tspan><tspan dy="5"> − 3x</tspan><tspan dy="-5" font-size="11">2</tspan><tspan dy="5"> − 12x + 1</tspan>'
 
 const problemSvg = sheetSvg({
   index: '1',
@@ -133,7 +138,7 @@ const variantSvg = sheetSvg({
   index: 'V1',
   kicker: '函数与导数 · 随堂变式',
   title: '变式 V1 · 三次函数的极值点',
-  lines: [`已知 ${G_EXPR}。`, '则 g(x) 的极小值点为（　）'],
+  lines: [`已知 ${G_EXPR}。`, '则 g(x) 取得局部极小值的 x 是（　）'],
   hint: '（先求 g′(x)，再判断导数符号的变化。）',
   options: [
     { key: 'A', text: '−1' },

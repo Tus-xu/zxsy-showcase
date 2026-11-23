@@ -17,17 +17,17 @@ export const SHOWCASE_CONVS = [
     id: 'sc-combo',
     key: 'combo',
     title: '导数学习 · 从提问到改错',
-    pinned: true,
-    minutesAgo: 12,
-    // 主持人首选：C1 提问 + AI 回答已发生，后续按动作长出
-    seeded: 2,
+    pinned: false,
+    minutesAgo: 6,
+    // 主持人首选：C1 提问 + AI 回答 + C3 练习邀请已发生，后续按动作长出
+    seeded: 3,
   },
   {
     id: 'sc-s1',
     key: 's1',
     title: '拍照解题 · 三次函数极值',
-    pinned: true,
-    minutesAgo: 40,
+    pinned: false,
+    minutesAgo: 10,
     seeded: 2,
   },
   {

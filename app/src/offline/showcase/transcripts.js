@@ -10,6 +10,11 @@
 import { PROBLEM_IMAGE, VARIANT_V1_IMAGE, FIG_S3_FRAMES } from './assets'
 import { cite } from './knowledge'
 import { V1, quizChain } from './bank'
+import { getNode } from './engine'
+
+// 起始节点开场卡的唯一来源是 engine，预置轮次直接取它，避免两处文案漂移
+/** 起始节点的开场轮次（含 role，可直接放进 SEEDS 数组） */
+const openTurn = (id) => ({ role: 'ai', ...getNode(id).build({}) })
 
 export { V1, V2, V3 } from './bank'
 
@@ -166,6 +171,8 @@ const S5 = [
       },
     ],
   },
+  // G0：进入就显示真实可操作的导学卡（文案与引擎同一个来源）
+  openTurn('g0_locate'),
 ]
 
 /* ───────────────── S6 · 错题复盘 · 把极大看成极小 ───────────────── */
@@ -231,6 +238,8 @@ const COMBO = [
       },
     ],
   },
+  // C3：练习邀请（点「可以，出三题」后由引擎下发三题变式卡）
+  openTurn('c1_invite'),
 ]
 
 export const SEEDS = { s1: S1, s2: S2, s3: S3, s4: S4, s5: S5, s6: S6, combo: COMBO }

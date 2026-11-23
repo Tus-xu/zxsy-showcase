@@ -10,7 +10,16 @@ import { getAccessToken, setAccessToken, setAuthScope } from '../api/authSession
 import { findFixture, IMAGE_MAP } from './fixtures'
 import { getSession, patch, setSession, store } from './state'
 import { handleFileRoute, handleUpload } from './handlers/files'
-import { noticeEvents, pickChatTurn, conversationMessages, listConversations, OFFLINE_NOTICE } from './handlers/agent'
+import {
+  noticeEvents,
+  pickChatTurn,
+  conversationMessages,
+  listConversations,
+  showcaseChatTurn,
+  OFFLINE_NOTICE,
+} from './handlers/agent'
+import { logQuizAnswer } from './showcase/session'
+import { isErrorRecordsPath, mergeIntoErrorRecords } from './showcase/errorbook'
 
 const DEMO_CODE = '246810'
 const OFFLINE_TOKEN = 'offline-demo-token'
@@ -229,8 +238,10 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
   const fileById = handleFileRoute(method, path)
   if (fileById) return jsonResponse(fileById)
 
-  // 对话 SSE：按附件 → 案例 → 第 N 轮采证原文回放
+  // 对话 SSE：教学示例会话走本地状态机；其余按附件 → 案例 → 第 N 轮采证原文回放
   if ((accept || '').includes('text/event-stream') && path.split('?')[0] === '/api/agent/chat') {
+    const showcase = showcaseChatTurn(body)
+    if (showcase?.length) return sseResponse(showcase, { delayMs: 8, signal })
     const picked = pickChatTurn(body)
     if (picked?.events?.length) {
       return sseResponse(picked.events, { delayMs: 8, signal })
@@ -239,6 +250,14 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
       return sseResponse(noticeEvents('离线演示：现役系统本题已采证的对话轮次到此为止，后续轮次未采证。'), { delayMs: 8, signal })
     }
     return sseResponse(noticeEvents(OFFLINE_NOTICE), { delayMs: 8, signal })
+  }
+
+  // 学生作答上报：记一条本地记录（驱动小结的真实计数与引导首答），响应沿用现役形状
+  if (method === 'POST' && path.split('?')[0] === '/api/student/learning-events') {
+    try { logQuizAnswer(body) } catch { /* 记录失败不影响作答反馈 */ }
+    const fx = findFixture(currentRole(), method, path)
+    if (fx) return jsonResponse(fx.text, fx.status)
+    return jsonResponse(envelope({ ok: true, recorded: true }))
   }
 
   const role = currentRole()
@@ -283,7 +302,14 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
   // 先按本角色，再按其它角色（跨端页面：学生课堂读取教师发布的同一对象）
   for (const r of [role, ...['teacher', 'student', 'researcher'].filter((x) => x !== role)]) {
     const fx = findFixture(r, method, path)
-    if (fx) return jsonResponse(fx.binary ? binaryPayload(fx) : fx.text, fx.status)
+    if (fx) {
+      const text = fx.binary ? binaryPayload(fx) : fx.text
+      // 示例错题本并进现役「错题本」页读取的同一个响应（同 record_id 不重复）
+      if (method === 'GET' && typeof text === 'string' && isErrorRecordsPath(path)) {
+        return jsonResponse(mergeIntoErrorRecords(text), fx.status)
+      }
+      return jsonResponse(text, fx.status)
+    }
   }
   return notRecorded(path, method)
 }
