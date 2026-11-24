@@ -17,3 +17,6 @@ app/src/**/*.pdf -text
 .gitattributes text eol=lf
 # 生成的单文件发行包必须逐字节保留（CRLF 转换会让验收 SHA 失效）
 release/*.html -text
+
+# V3 原型的单文件产物必须逐字节保留（换行转换会让验收 SHA 失效）
+v3-prototype/*.html -text
