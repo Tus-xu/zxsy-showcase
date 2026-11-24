@@ -1,0 +1,1873 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智学数研 · 学生端 V3 原型</title>
+<style>
+/* ==========================================================================
+   智学数研 · 学生端 V3 原型 · 设计系统
+   依据：学生端_V3_产品视觉评审与竞品调研 §5.1 三形态布局 + §8 保留/重构决策
+   原则：AI 内容是第一视觉主体；流程状态退到背景；数学排版优先；无大面积渐变
+   ========================================================================== */
+
+:root {
+  /* 底色与表面：安静的近白，只保留极轻的暖紫倾向 */
+  --bg: #fafafc;
+  --surface: #ffffff;
+  --surface-2: #f6f5fb;
+  --surface-3: #efedf8;
+
+  /* 文字层级：四级足够，避免权重接近导致阅读困难 */
+  --ink: #1b1a29;
+  --ink-2: #46445c;
+  --ink-3: #75738c;
+  --ink-4: #a4a2b8;
+
+  --line: #e8e6f1;
+  --line-2: #f1eff8;
+
+  /* 品牌紫：保留但只用在小面积强调 */
+  --brand: #5a49d1;
+  --brand-2: #7b6be6;
+  --brand-soft: #f1eefd;
+  --brand-line: #ddd6fa;
+
+  /* 状态色：只用于学习证据，不做装饰 */
+  --ok: #147a56;
+  --ok-soft: #eaf6f1;
+  --ok-line: #bfe6d6;
+  --warn: #b9711a;
+  --warn-soft: #fdf3e5;
+  --warn-line: #f0d9b6;
+  --err: #bd3f3a;
+  --err-soft: #fbeceb;
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --font-sans: system-ui, -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* 数学字体：优先系统数学字体，保证离线也有真正的数学字形 */
+  --font-math: "Cambria Math", "Latin Modern Math", "STIX Two Math", Cambria, "Times New Roman", Georgia, serif;
+
+  --read: 720px;      /* 阅读列宽 */
+  --side: 244px;      /* 侧栏 */
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.72;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+/* ───────────────────────────── 外壳 ───────────────────────────── */
+
+.app {
+  display: grid;
+  grid-template-columns: var(--side) minmax(0, 1fr);
+  height: 100%;
+}
+
+/* 侧栏：比主区略深一档，形成结构而非靠边框分层 */
+.side {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  background: #f7f6fb;
+  border-right: 1px solid var(--line);
+}
+
+.side-top { padding: 18px 16px 10px; }
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 4px 18px;
+}
+
+.brand-mark {
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  display: grid;
+  place-items: center;
+  background: var(--brand);
+  color: #fff;
+  font-family: var(--font-math);
+  font-size: 16px;
+  font-style: italic;
+  line-height: 1;
+  padding-bottom: 1px;
+}
+
+.brand-text { font-size: 14.5px; font-weight: 600; letter-spacing: .2px; }
+.brand-sub { font-size: 11.5px; color: var(--ink-3); margin-left: auto; }
+
+.btn-new {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 9px 12px;
+  border-radius: var(--radius);
+  border: 1px solid var(--brand-line);
+  background: var(--brand-soft);
+  color: var(--brand);
+  font-size: 13.5px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background .15s, border-color .15s;
+}
+.btn-new:hover { background: #e8e3fc; }
+.btn-new svg { flex: 0 0 auto; }
+
+.side-nav { padding: 6px 10px; display: grid; gap: 2px; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  border: 0;
+  background: none;
+  color: var(--ink-2);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background .13s, color .13s;
+}
+.nav-item:hover:not(:disabled) { background: #efedf7; }
+.nav-item.active { background: #e9e5fa; color: var(--brand); font-weight: 600; }
+.nav-item:disabled { color: var(--ink-4); cursor: default; }
+.nav-item .nav-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--ink-4); margin-left: auto;
+}
+.nav-item .soon { font-size: 10.5px; color: var(--ink-4); margin-left: 6px; padding: 0 5px; border: 1px solid var(--line); border-radius: 4px; }
+
+.side-recent { flex: 1 1 auto; min-height: 0; overflow-y: auto; padding: 10px 10px 16px; }
+.side-cap {
+  font-size: 11.5px;
+  color: var(--ink-4);
+  padding: 6px 10px;
+  letter-spacing: .4px;
+}
+.recent {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  background: none;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  color: var(--ink-2);
+  cursor: pointer;
+  line-height: 1.45;
+}
+.recent:hover { background: #efedf7; }
+.recent.warm { color: var(--ink); font-weight: 600; }
+
+.side-foot {
+  padding: 12px 16px 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11px;
+  color: var(--ink-4);
+  line-height: 1.6;
+}
+
+/* ───────────────────────────── 主区 ───────────────────────────── */
+
+.main { min-width: 0; min-height: 0; display: flex; flex-direction: column; }
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 24px;
+  height: 56px;
+  flex: 0 0 auto;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 255, 255, .72);
+}
+
+.topbar h1 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.topbar-right { margin-left: auto; display: flex; align-items: center; gap: 14px; }
+.tb-meta { font-size: 12.5px; color: var(--ink-3); }
+.avatar {
+  width: 28px; height: 28px; border-radius: 50%;
+  background: var(--brand-soft); color: var(--brand);
+  display: grid; place-items: center;
+  font-size: 12px; font-weight: 700;
+  border: 1px solid var(--brand-line);
+}
+
+.viewport {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.viewport-inner { max-width: calc(var(--read) + 96px); margin: 0 auto; padding: 30px 48px 10px; }
+
+/* ───────────────────────────── 对话（形态 A） ───────────────────────────── */
+
+.thread { display: flex; flex-direction: column; gap: 26px; padding-bottom: 8px; }
+
+/* 学生：唯一保留气泡的角色，安静、无渐变、无头像 */
+.me-row { display: flex; justify-content: flex-end; }
+.me {
+  max-width: 78%;
+  padding: 10px 15px;
+  border-radius: 14px 14px 5px 14px;
+  background: var(--brand-soft);
+  color: #2c2853;
+  font-size: 14.5px;
+  line-height: 1.66;
+}
+.me .me-attach {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 12px;
+  color: var(--brand);
+  opacity: .85;
+}
+
+/* AI：文档式，不是气泡 */
+.doc { max-width: 100%; }
+.doc-who {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+.doc-who .pi {
+  font-family: var(--font-math);
+  font-style: italic;
+  color: var(--brand);
+  font-size: 14px;
+  line-height: 1;
+}
+.doc h2 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--brand);
+  margin: 0 0 8px;
+  letter-spacing: .1px;
+}
+.doc h3 {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--ink);
+  margin: 20px 0 6px;
+}
+.doc p { margin: 0 0 12px; color: var(--ink-2); }
+.doc p:last-child { margin-bottom: 0; }
+.doc strong { color: var(--ink); font-weight: 600; }
+.doc .muted { color: var(--ink-3); font-size: 13.5px; }
+
+/* 数学：正文内联用斜体变量 + 真减号；独立公式用 MathML 居中偏左 */
+.m {
+  font-family: var(--font-math);
+  font-size: 1.04em;
+  font-style: normal;
+  white-space: nowrap;
+}
+.m i { font-style: italic; }
+
+.math-block {
+  margin: 14px 0 16px;
+  padding: 2px 0 2px 16px;
+  border-left: 2px solid var(--brand-line);
+  font-family: var(--font-math);
+  font-size: 16.5px;
+  line-height: 2.05;
+  color: var(--ink);
+}
+
+/* 题干：独立的数学内容块，不再塞进气泡 */
+.problem {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 18px 20px;
+  margin: 4px 0 18px;
+}
+.problem-head {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.problem-tag {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--brand);
+  background: var(--brand-soft);
+  border-radius: 5px;
+  padding: 1px 7px;
+}
+.problem-src { font-size: 12px; color: var(--ink-4); margin-left: auto; }
+.problem-img {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-sm);
+}
+.problem-text { font-size: 15px; color: var(--ink-2); margin: 0; }
+.problem-text .m { font-size: 1.02em; }
+
+/* 识别结果可纠正：小字 + 一处可点修正 */
+.ocr-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed var(--line);
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+.link-btn {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--brand);
+  font-size: inherit;
+  cursor: pointer;
+  border-bottom: 1px solid var(--brand-line);
+}
+.link-btn:hover { border-color: var(--brand); }
+
+/* 图组：内联在内容里，带图注 */
+.figrow { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 16px 0 6px; }
+.figrow.one { grid-template-columns: 1fr; }
+.figcard {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+.figcard svg { display: block; width: 100%; height: auto; }
+.figcap {
+  padding: 8px 12px 10px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  text-align: center;
+}
+.figcap .m { font-size: 1.02em; color: var(--ink-2); }
+
+/* 窄栏里的原题引用 */
+.problem-compact {
+  margin: 10px 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 10px 12px;
+  font-size: 12.5px;
+  color: var(--ink-2);
+}
+.problem-compact summary {
+  cursor: pointer;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  line-height: 1.6;
+  list-style: none;
+}
+.problem-compact summary::-webkit-details-marker { display: none; }
+.problem-compact summary::after { content: '　展开'; color: var(--brand); }
+.problem-compact[open] summary::after { content: '　收起'; }
+.problem-compact .problem { border: 0; padding: 0; margin: 0; }
+
+/* 轻量交互：符号判断用「槽位」，不是选择题 */
+.probe {
+  margin: 16px 0 4px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 16px 18px;
+}
+.probe-cap { font-size: 13px; color: var(--ink-3); margin-bottom: 12px; }
+.slots { display: flex; gap: 22px; flex-wrap: wrap; }
+.slot { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+.slot-label { color: var(--ink-2); }
+.sign-pick { display: inline-flex; border: 1px solid var(--line); border-radius: 8px; overflow: hidden; }
+.sign-pick button {
+  width: 38px;
+  padding: 5px 0;
+  border: 0;
+  background: var(--surface);
+  font-family: var(--font-math);
+  font-size: 16px;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.sign-pick button + button { border-left: 1px solid var(--line); }
+.sign-pick button:hover:not(:disabled) { background: var(--surface-2); }
+.sign-pick button.on { background: var(--brand); color: #fff; }
+.sign-pick button:disabled { cursor: default; }
+
+.probe-foot { display: flex; align-items: center; gap: 12px; margin-top: 16px; }
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 8px 16px;
+  border-radius: 9px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background .13s, border-color .13s, color .13s;
+}
+.btn:hover:not(:disabled) { background: var(--surface-2); }
+.btn:disabled { color: var(--ink-4); cursor: default; }
+.btn.primary {
+  background: var(--brand);
+  border-color: var(--brand);
+  color: #fff;
+  font-weight: 600;
+}
+.btn.primary:hover:not(:disabled) { background: #4f3fc4; }
+.btn.ghost { border-color: transparent; color: var(--brand); }
+.btn.ghost:hover:not(:disabled) { background: var(--brand-soft); }
+.btn.danger { color: var(--err); border-color: #f0cfcd; }
+
+.btn:focus-visible, .sign-pick button:focus-visible, .nav-item:focus-visible,
+.link-btn:focus-visible, .recent:focus-visible, textarea:focus-visible, input:focus-visible {
+  outline: 2px solid var(--brand-2);
+  outline-offset: 2px;
+}
+
+/* 反馈：就地出现，不重绘整段 */
+.verdict {
+  display: flex;
+  gap: 9px;
+  margin-top: 14px;
+  padding: 11px 13px;
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  line-height: 1.62;
+  background: var(--surface-2);
+  color: var(--ink-2);
+}
+.verdict.good { background: var(--ok-soft); color: #125f45; }
+.verdict.miss { background: var(--warn-soft); color: #8a5512; }
+.verdict .tag {
+  flex: 0 0 auto;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+/* 输入区：与阅读列同宽，贴在同一视觉轴上 */
+.composer {
+  flex: 0 0 auto;
+  padding: 14px 48px 20px;
+  background: linear-gradient(to bottom, rgba(250, 250, 252, 0), var(--bg) 22px);
+}
+.composer-inner { max-width: var(--read); margin: 0 auto; }
+.composer-box {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+  padding: 10px 12px;
+  transition: border-color .15s;
+}
+.composer-box:focus-within { border-color: var(--brand-line); }
+.composer-box textarea {
+  flex: 1 1 auto;
+  border: 0;
+  resize: none;
+  outline: none;
+  background: none;
+  font-size: 14.5px;
+  line-height: 1.6;
+  max-height: 140px;
+  padding: 3px 0;
+}
+.composer-box textarea::placeholder { color: var(--ink-4); }
+.composer-send {
+  flex: 0 0 auto;
+  width: 32px;
+  height: 32px;
+  border-radius: 9px;
+  border: 0;
+  background: var(--brand);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+.composer-send:disabled { background: var(--surface-3); color: var(--ink-4); cursor: default; }
+.composer-hint { font-size: 11.5px; color: var(--ink-4); margin-top: 8px; text-align: center; }
+
+/* ───────────────────────────── 形态 B：数学工作台 ───────────────────────────── */
+
+.workbench {
+  display: grid;
+  grid-template-columns: minmax(320px, 380px) minmax(0, 1fr);
+  gap: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.wb-chat {
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.wb-chat-body { flex: 1 1 auto; overflow-y: auto; padding: 22px 22px 8px; }
+.wb-chat .thread { gap: 20px; }
+.wb-chat .me { max-width: 88%; font-size: 14px; }
+.wb-chat .doc h2 { font-size: 15.5px; }
+.wb-chat .doc p { font-size: 14px; }
+.wb-chat .math-block { font-size: 15px; line-height: 1.95; padding-left: 12px; }
+.wb-chat .problem { padding: 12px; }
+
+.live-read {
+  margin: 18px 0 4px;
+  padding: 2px 0 2px 14px;
+  border-left: 2px solid var(--brand-line);
+}
+.live-row { display: flex; align-items: baseline; gap: 10px; font-size: 13.5px; }
+.live-row .k { color: var(--ink-3); }
+.live-row .v {
+  margin-left: auto;
+  font-family: var(--font-math);
+  font-size: 16px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}
+.live-row .v.pos { color: var(--ok); }
+.live-row .v.neg { color: var(--err); }
+
+.wb-canvas {
+  min-width: 0;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 22px 26px 26px;
+}
+.canvas-head { display: flex; align-items: baseline; gap: 12px; margin-bottom: 4px; }
+.canvas-head h2 { font-size: 15.5px; font-weight: 600; margin: 0; }
+.canvas-fn { font-family: var(--font-math); font-size: 15px; color: var(--ink-2); }
+
+.plot-wrap {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  margin-top: 12px;
+}
+.plot-wrap svg { display: block; width: 100%; height: auto; touch-action: none; cursor: crosshair; }
+
+.canvas-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.slider-wrap { display: flex; align-items: center; gap: 12px; flex: 1 1 260px; }
+.slider-wrap label { font-size: 13px; color: var(--ink-3); white-space: nowrap; }
+input[type="range"] {
+  flex: 1 1 auto;
+  accent-color: var(--brand);
+  height: 20px;
+}
+.metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 16px; }
+.metric {
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.metric .k { font-size: 11.5px; color: var(--ink-3); }
+.metric .v {
+  display: block;
+  font-family: var(--font-math);
+  font-size: 20px;
+  font-variant-numeric: tabular-nums;
+  margin-top: 2px;
+}
+.metric .v.pos { color: var(--ok); }
+.metric .v.neg { color: var(--err); }
+.metric .v.zero { color: var(--brand); }
+.metric .v.state { font-family: var(--font-sans); font-size: 16px; color: var(--ink); display: flex; align-items: center; gap: 7px; }
+.metric .v.state::before {
+  content: '';
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--ink-4);
+}
+.metric .v.state.pos::before { background: var(--ok); }
+.metric .v.state.neg::before { background: var(--warn); }
+.metric .v.state.zero::before { background: var(--brand); }
+
+.legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12.5px; color: var(--ink-3); margin-top: 12px; }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend i { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+
+/* ───────────────────────────── 形态 C：专注解题 ───────────────────────────── */
+
+.practice-bar {
+  height: 3px;
+  background: var(--line-2);
+  position: relative;
+}
+.practice-bar span {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--brand);
+  transition: width .3s ease;
+}
+
+.practice { display: grid; grid-template-columns: minmax(0, 1fr) 320px; min-height: 0; }
+.practice-main { padding: 26px 30px 30px; border-right: 1px solid var(--line); min-width: 0; display: flex; flex-direction: column; }
+.practice-side { padding: 26px 22px; background: #fbfaff; min-width: 0; }
+
+.practice-cap {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  margin-bottom: 8px;
+}
+.practice-no { color: var(--brand); font-weight: 600; }
+.practice-main h2 { font-size: 19px; font-weight: 600; margin: 0 0 12px; }
+.practice-q { font-size: 15px; color: var(--ink-2); margin: 0 0 4px; }
+.practice-q.expr { font-size: 18px; color: var(--ink); margin-bottom: 8px; }
+
+.draft {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 220px;
+}
+.draft-cap {
+  padding: 9px 14px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line-2);
+  background: #fcfcfe;
+}
+.draft textarea {
+  display: block;
+  width: 100%;
+  flex: 1 1 auto;
+  border: 0;
+  outline: none;
+  resize: vertical;
+  padding: 14px 16px;
+  font-family: var(--font-math);
+  font-size: 16px;
+  line-height: 2;
+  color: var(--ink);
+  background: none;
+}
+.draft textarea::placeholder { color: var(--ink-4); font-family: var(--font-sans); font-size: 13.5px; }
+.draft-foot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-top: 1px solid var(--line-2);
+  background: #fcfcfe;
+  font-size: 12px;
+  color: var(--ink-4);
+}
+
+.coach {
+  border: 1px solid var(--brand-line);
+  background: var(--brand-soft);
+  border-radius: var(--radius);
+  padding: 14px 15px;
+}
+.coach-who { display: flex; align-items: center; gap: 7px; font-size: 13px; font-weight: 600; color: var(--brand); margin-bottom: 7px; }
+.coach p { margin: 0; font-size: 13.5px; line-height: 1.68; color: #332f57; }
+
+.goals { margin-top: 22px; }
+.goals h3 { font-size: 13px; font-weight: 600; margin: 0 0 10px; color: var(--ink); }
+.goal {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 6px 0;
+  font-size: 13.5px;
+  color: var(--ink-3);
+  line-height: 1.55;
+}
+.goal .mark {
+  flex: 0 0 auto;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  border: 1.5px solid var(--line);
+  margin-top: 3px;
+  display: grid; place-items: center;
+  font-size: 10px;
+  color: transparent;
+}
+.goal.done { color: var(--ok); }
+.goal.done .mark { border-color: var(--ok-line); background: var(--ok-soft); color: var(--ok); }
+.goal.fail { color: var(--warn); }
+.goal.fail .mark { border-color: var(--warn-line); background: var(--warn-soft); color: var(--warn); }
+
+.practice-actions { display: flex; align-items: center; gap: 10px; margin-top: 16px; }
+
+/* ───────────────────────────── 学习总结 ───────────────────────────── */
+
+.summary { max-width: 780px; margin: 0 auto; padding: 34px 0 40px; }
+.summary h1 { font-size: 22px; font-weight: 600; margin: 0 0 4px; }
+.summary .sub { font-size: 12.5px; color: var(--ink-4); margin: 0 0 26px; }
+
+.stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.stat {
+  padding: 16px 18px 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.stat .k { font-size: 13px; color: var(--ink-3); }
+.stat .v {
+  display: block;
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--brand);
+  font-variant-numeric: tabular-nums;
+  margin-top: 6px;
+  line-height: 1.1;
+}
+
+.evidence { margin-top: 34px; }
+.evidence h2 { font-size: 16px; font-weight: 600; margin: 0 0 16px; }
+.ev { margin-bottom: 16px; }
+.ev-top { display: flex; align-items: baseline; gap: 10px; margin-bottom: 7px; }
+.ev-name { font-size: 14px; color: var(--ink); }
+.ev-state { margin-left: auto; font-size: 12.5px; }
+.ev-state.ok { color: var(--ok); }
+.ev-state.warn { color: var(--warn); }
+.ev-track { height: 5px; border-radius: 3px; background: var(--line-2); overflow: hidden; }
+.ev-fill { height: 100%; border-radius: 3px; background: var(--ok); transition: width .5s ease; }
+.ev-fill.warn { background: var(--warn); }
+
+.cognition { margin-top: 34px; }
+.cognition h2 { font-size: 16px; font-weight: 600; margin: 0 0 14px; }
+.cog-row { display: flex; gap: 9px; font-size: 14px; line-height: 1.68; margin-bottom: 10px; }
+.cog-row .sym { flex: 0 0 auto; font-weight: 700; }
+.cog-row.bad { color: var(--err); }
+.cog-row.good { color: var(--ok); }
+.cog-row .txt-bad { color: var(--ink-2); }
+.cog-row .txt-good { color: var(--ink-2); }
+.next-step {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.next-step b { color: var(--ink); font-weight: 600; }
+
+/* 错题本 */
+.errlist { max-width: 780px; margin: 0 auto; padding: 30px 0 40px; }
+.errlist h1 { font-size: 20px; font-weight: 600; margin: 0 0 4px; }
+.errlist .sub { font-size: 12.5px; color: var(--ink-4); margin: 0 0 22px; }
+.err-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.err-head { display: flex; align-items: baseline; gap: 10px; margin-bottom: 8px; }
+.err-kp { font-size: 12px; color: var(--brand); background: var(--brand-soft); border-radius: 5px; padding: 1px 7px; }
+.err-when { font-size: 12px; color: var(--ink-4); margin-left: auto; }
+.err-why { font-size: 13.5px; color: var(--ink-2); margin: 0 0 10px; }
+.err-fix { font-size: 13.5px; color: var(--ink-2); margin: 0; }
+.err-fix b { color: var(--ok); font-weight: 600; }
+
+/* 空态 / 未展开 */
+.placeholder {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  padding: 40px;
+  color: var(--ink-4);
+  font-size: 14px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+/* 减少动效：所有过渡关闭，内容仍完整 */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* 窄屏：单列，图形占满，不裁切 */
+@media (max-width: 1080px) {
+  .app { grid-template-columns: 1fr; }
+  .side { display: none; }
+  .workbench { grid-template-columns: 1fr; }
+  .wb-chat { border-right: 0; border-bottom: 1px solid var(--line); }
+  .practice { grid-template-columns: 1fr; }
+  .practice-main { border-right: 0; border-bottom: 1px solid var(--line); }
+  .viewport-inner { padding: 22px 20px 8px; }
+  .composer { padding: 12px 20px 16px; }
+  .figrow { grid-template-columns: 1fr; }
+  .stats { grid-template-columns: 1fr; }
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-top">
+      <div class="brand">
+        <div class="brand-mark">π</div>
+        <div>
+          <div class="brand-text">智学数研</div>
+        </div>
+        <div class="brand-sub">学生端</div>
+      </div>
+      <button class="btn-new" data-act="new">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <path d="M6.5 1.5v10M1.5 6.5h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        新建学习
+      </button>
+    </div>
+
+    <nav class="side-nav" aria-label="主导航">
+      <button class="nav-item active" data-view="chat">学习空间</button>
+      <button class="nav-item" data-view="errors">错题本</button>
+      <button class="nav-item" data-view="summary">学习总结</button>
+      <button class="nav-item" disabled title="本原型未展开">知识图谱<span class="soon">未展开</span></button>
+      <button class="nav-item" disabled title="本原型未展开">课堂任务<span class="soon">未展开</span></button>
+    </nav>
+
+    <div class="side-recent">
+      <div class="side-cap">最近</div>
+      <button class="recent warm" data-view="chat">导数与函数极值</button>
+      <button class="recent" data-view="workbench">函数与切线</button>
+      <button class="recent" disabled>空间向量 · 夹角</button>
+      <button class="recent" disabled>三角恒等变换</button>
+    </div>
+
+    <div class="side-foot">AI 生成内容仅供参考<br>本地演示原型 · 不连接大模型</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <h1 id="tb-title">导数与函数极值</h1>
+      <div class="topbar-right">
+        <span class="tb-meta" id="tb-meta">今天 · 第 1 次学习</span>
+        <div class="avatar" title="林同学">林</div>
+      </div>
+    </div>
+    <div class="viewport" id="viewport"></div>
+  </div>
+</div>
+<script>
+/**
+ * 提示由「跨越变号」触发，而不是要求精确落在 f′(x)=0 上：
+ * 拖动时上一刻斜率为正、这一刻为负，说明学生真的划过了变号点。
+ */
+function maybeNote(prevK, nextK) {
+  const c = S.canvas;
+  if (c.fn === 'ext' && !c.notedSign && prevK > 0 && nextK < 0) {
+    c.notedSign = true;
+    S.pendingScroll = true;
+    pushAI([
+      { t: 'p', html: `就是这里：斜率从正变到负，切线在变平的那一瞬间翻了方向 —— 所以 ${M('x = −1')} 是<strong>局部极大</strong>。` },
+      { t: 'p', html: `那「切线水平」本身就够了吗？切到 ${M('f(x) = x³')} 看看。` },
+      { t: 'actions', items: [{ id: 'fn-cube', label: '切换到 f(x) = x³', kind: 'primary' }] },
+    ]);
+    refreshThread();
+    return;
+  }
+  if (c.fn === 'cube' && !c.notedCube && Math.abs(nextK) < 0.35 && Math.abs(nextK) < Math.abs(prevK)) {
+    c.notedCube = true;
+    S.pendingScroll = true;
+    pushAI([
+      { t: 'p', html: `这里切线也水平，但两侧斜率都为正，曲线一直在上升 —— <strong>它不是极值点</strong>。所以「切线水平只是候选，变号才是判据」。` },
+      { t: 'actions', items: [{ id: 'to-practice', label: '自己解一道', kind: 'primary' }] },
+    ]);
+    refreshThread();
+  }
+}
+
+/* ==========================================================================
+   智学数研 · 学生端 V3 原型 · 交互
+   说明：本原型不连接大模型。教学对话是按「一个真实错因」编排的确定性脚本，
+        图形与数值全部本地实时计算；学生的操作真的会改变 AI 的下一句话。
+   ========================================================================== */
+'use strict';
+
+/* ─────────────────────────── 工具 ─────────────────────────── */
+
+const $ = (s, r = document) => r.querySelector(s);
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
+/** 数学排版：变量用衬线斜体，运算符用真减号 */
+const mi = (s) => `<i>${s}</i>`;
+const M = (s) => `<span class="m">${s}</span>`;
+
+/* ─────────────────────────── 函数与绘图 ─────────────────────────── */
+
+const FN = {
+  ext: {
+    key: 'ext',
+    label: 'f(x) = x³ − 3x',
+    f: (x) => x ** 3 - 3 * x,
+    fp: (x) => 3 * x * x - 3,
+    ys: 17,          // 每单位 y 的像素
+    yStep: 2,
+    marks: [{ x: -1, kind: 'max' }, { x: 1, kind: 'min' }],
+  },
+  cube: {
+    key: 'cube',
+    label: 'f(x) = x³',
+    f: (x) => x ** 3,
+    fp: (x) => 3 * x * x,
+    ys: 9,
+    yStep: 4,
+    marks: [{ x: 0, kind: 'flat' }],
+  },
+};
+
+const PLOT = { w: 720, h: 420, cx: 360, cy: 210, xs: 118, pad: 26 };
+
+const px = (x) => PLOT.cx + PLOT.xs * x;
+const py = (y, cfg) => PLOT.cy - cfg.ys * y;
+
+function fmt(v, d = 2) {
+  const r = Math.round(v * 10 ** d) / 10 ** d;
+  if (Object.is(r, -0) || r === 0) return '0';
+  return String(r).replace('-', '−');
+}
+
+/** 曲线图的内部标记（更新时只替换这里，不重建 svg 元素） */
+function plotInner(cfgKey, x, opt = {}) {
+  const cfg = FN[cfgKey];
+  const showTangent = opt.showTangent !== false;
+  const y = cfg.f(x);
+  const k = cfg.fp(x);
+  const yMax = Math.floor((PLOT.h / 2 - PLOT.pad) / cfg.ys);
+  const xMinV = -2.6;
+  const xMaxV = 2.6;
+  const out = [];
+
+  out.push(`<defs><clipPath id="clip-${cfg.key}"><rect x="${PLOT.pad}" y="${PLOT.pad}" width="${PLOT.w - PLOT.pad * 2}" height="${PLOT.h - PLOT.pad * 2}"/></clipPath></defs>`);
+
+  // 网格
+  for (let gx = -3; gx <= 3; gx++) {
+    const X = px(gx);
+    if (X < PLOT.pad || X > PLOT.w - PLOT.pad) continue;
+    out.push(`<line x1="${X}" y1="${PLOT.pad}" x2="${X}" y2="${PLOT.h - PLOT.pad}" stroke="#eeecf6" stroke-width="1"/>`);
+    if (gx !== 0) out.push(`<text x="${X}" y="${PLOT.cy + 16}" text-anchor="middle" font-size="11.5" fill="#a4a2b8">${gx}</text>`);
+  }
+  for (let gy = -yMax; gy <= yMax; gy += cfg.yStep) {
+    const Y = py(gy, cfg);
+    if (Y < PLOT.pad || Y > PLOT.h - PLOT.pad) continue;
+    out.push(`<line x1="${PLOT.pad}" y1="${Y}" x2="${PLOT.w - PLOT.pad}" y2="${Y}" stroke="#f4f2fb" stroke-width="1"/>`);
+    if (gy !== 0) out.push(`<text x="${PLOT.cx - 9}" y="${Y + 4}" text-anchor="end" font-size="11.5" fill="#a4a2b8">${gy}</text>`);
+  }
+
+  // 坐标轴
+  out.push(`<line x1="${PLOT.pad}" y1="${PLOT.cy}" x2="${PLOT.w - PLOT.pad}" y2="${PLOT.cy}" stroke="#c9c6d8" stroke-width="1.2"/>`);
+  out.push(`<line x1="${PLOT.cx}" y1="${PLOT.pad}" x2="${PLOT.cx}" y2="${PLOT.h - PLOT.pad}" stroke="#c9c6d8" stroke-width="1.2"/>`);
+  out.push(`<text x="${PLOT.w - PLOT.pad - 4}" y="${PLOT.cy - 9}" font-size="12" fill="#a4a2b8">x</text>`);
+  out.push(`<text x="${PLOT.cx + 9}" y="${PLOT.pad + 12}" font-size="12" fill="#a4a2b8">y</text>`);
+
+  // 曲线（400 段折线，遇到非有限值断开）
+  out.push(`<g clip-path="url(#clip-${cfg.key})">`);
+  let d = '';
+  let pen = false;
+  for (let i = 0; i <= 400; i++) {
+    const u = xMinV + (i * (xMaxV - xMinV)) / 400;
+    const v = cfg.f(u);
+    if (!Number.isFinite(v)) { pen = false; continue; }
+    const X = px(u);
+    const Y = py(v, cfg);
+    d += (pen ? 'L' : 'M') + X.toFixed(1) + ' ' + Y.toFixed(1) + ' ';
+    pen = true;
+  }
+  out.push(`<path d="${d}" fill="none" stroke="#5a49d1" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/>`);
+
+  // 候选点（静态标注）
+  for (const mk of cfg.marks) {
+    const Y = py(cfg.f(mk.x), cfg);
+    if (Y < PLOT.pad || Y > PLOT.h - PLOT.pad) continue;
+    out.push(`<circle cx="${px(mk.x)}" cy="${Y}" r="4.5" fill="#fff" stroke="#8f86e0" stroke-width="2"/>`);
+  }
+
+  // 切线
+  if (showTangent) {
+    const x1 = xMinV;
+    const x2 = xMaxV;
+    out.push(`<line x1="${px(x1)}" y1="${py(y + k * (x1 - x), cfg)}" x2="${px(x2)}" y2="${py(y + k * (x2 - x), cfg)}" stroke="#c9843a" stroke-width="2.2" opacity="0.9"/>`);
+  }
+
+  // 切点竖线与切点
+  out.push(`<line x1="${px(x)}" y1="${py(y, cfg)}" x2="${px(x)}" y2="${PLOT.cy}" stroke="#b9b4cc" stroke-width="1.2" stroke-dasharray="4 4"/>`);
+  out.push(`<circle cx="${px(x)}" cy="${py(y, cfg)}" r="7" fill="#c9843a" stroke="#fff" stroke-width="2.4"/>`);
+  out.push('</g>');
+
+  return out.join('');
+}
+
+/** 曲线图外壳 */
+function plotSVG(cfgKey, x, opt = {}) {
+  const cfg = FN[cfgKey];
+  return `<svg viewBox="0 0 ${PLOT.w} ${PLOT.h}" role="img" aria-label="函数曲线与切线，当前切点 x = ${fmt(x)}" data-plot="${cfg.key}">${plotInner(cfgKey, x, opt)}</svg>`;
+}
+
+/** 对话里用的小图：对比「有变号 / 无变号」 */
+function miniSVG(kind) {
+  const cfg = FN.ext;
+  const w = 320;
+  const h = 176;
+  const cx = w / 2;
+  const cy = h / 2;
+  const xs = 44;
+  const ys = kind === 'cube' ? 5.5 : 10;
+  const c = kind === 'cube' ? FN.cube : FN.ext;
+  const X = (u) => cx + xs * u;
+  const Y = (v) => cy - ys * v;
+  const parts = [];
+  parts.push(`<line x1="14" y1="${cy}" x2="${w - 14}" y2="${cy}" stroke="#d9d6e6" stroke-width="1"/>`);
+  parts.push(`<line x1="${cx}" y1="14" x2="${cx}" y2="${h - 14}" stroke="#d9d6e6" stroke-width="1"/>`);
+  for (let gx = -3; gx <= 3; gx++) parts.push(`<line x1="${X(gx)}" y1="14" x2="${X(gx)}" y2="${h - 14}" stroke="#f4f2fb" stroke-width="1"/>`);
+  let d = '';
+  for (let i = 0; i <= 160; i++) {
+    const u = -2.9 + (i * 5.8) / 160;
+    d += (i ? 'L' : 'M') + X(u).toFixed(1) + ' ' + Y(c.f(u)).toFixed(1) + ' ';
+  }
+  parts.push(`<path d="${d}" fill="none" stroke="#5a49d1" stroke-width="2.6" stroke-linecap="round"/>`);
+  // 切点位置：有极值取 -1，无变号取 0
+  const tx = kind === 'cube' ? 0 : -1;
+  parts.push(`<line x1="${X(-2.9)}" y1="${Y(c.f(tx))}" x2="${X(2.9)}" y2="${Y(c.f(tx))}" stroke="#c9843a" stroke-width="1.8" opacity=".9"/>`);
+  parts.push(`<circle cx="${X(tx)}" cy="${Y(c.f(tx))}" r="4.5" fill="#c9843a" stroke="#fff" stroke-width="2"/>`);
+  return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="${kind === 'cube' ? 'x³ 在原点切线水平但无变号' : 'x³−3x 在 −1 处切线水平且变号'}">${parts.join('')}</svg>`;
+}
+
+/* ─────────────────────────── 状态 ─────────────────────────── */
+
+const S = {
+  view: 'chat',
+  thread: [],
+  probe: { left: null, right: null, sent: false, ok: false, tries: 0 },
+  canvas: { fn: 'ext', x: -1, sawZero: false, switched: false, notedSign: false, notedCube: false },
+  practice: { draft: '', hint: 0, submitted: false, goals: [false, false, false], reasons: ['', '', ''] },
+  summary: null,
+  chatStage: 'opening', // opening → probed → canvas → practice → done
+};
+
+const ME = 'me';
+
+function pushMe(text, attach) {
+  S.thread.push({ who: ME, text, attach });
+}
+
+function pushAI(blocks) {
+  S.thread.push({ who: 'ai', blocks });
+}
+
+/* ─────────────────────────── 对话脚本 ─────────────────────────── */
+
+const PROBLEM_BLOCK = () => `
+  <div class="problem">
+    <div class="problem-head">
+      <span class="problem-tag">原题</span>
+      <span class="problem-src">来自你的拍照 · 已识别</span>
+    </div>
+    ${problemSheetSVG()}
+    <p class="problem-text" style="margin-top:14px">
+      选项　A. −1　　B. 1　　C. 2　　D. −2
+    </p>
+    <div class="ocr-note">
+      <span>识别有误？</span>
+      <button class="link-btn" data-act="fix-ocr">手动修正题干</button>
+    </div>
+  </div>`;
+
+/** 题图：本地排版的题面。按显示宽度 1:1 设计，保证放大后仍清晰 */
+function problemSheetSVG() {
+  return `<svg class="problem-img" viewBox="0 0 720 300" role="img" aria-label="题图：已知 g(x)=2x³−3x²−12x+1，求局部极小值">
+    <rect x="0.5" y="0.5" width="719" height="299" rx="12" fill="#fcfcfe" stroke="#eeecf6"/>
+    <rect x="30" y="26" width="34" height="34" rx="9" fill="#5a49d1"/>
+    <text x="47" y="48" text-anchor="middle" font-size="16" font-weight="700" fill="#fff" font-family="system-ui">1</text>
+    <text x="78" y="38" font-size="11" fill="#a4a2b8" letter-spacing="1.3">函数与导数 · 极值判断</text>
+    <text x="78" y="58" font-size="14" font-weight="600" fill="#1b1a29">三次函数极值 · 练习</text>
+    <text x="690" y="46" text-anchor="end" font-size="11" fill="#a4a2b8">自编题面</text>
+    <line x1="30" y1="82" x2="690" y2="82" stroke="#eeecf6"/>
+
+    <text x="30" y="122" font-size="17" fill="#1b1a29" font-family="Cambria Math, Cambria, 'Times New Roman', serif">已知 g(x) = 2x³ − 3x² − 12x + 1。</text>
+    <text x="30" y="156" font-size="17" fill="#1b1a29" font-family="Cambria Math, Cambria, 'Times New Roman', serif">则 g(x) 取得局部极小值的 x 是（　　）</text>
+    <text x="30" y="194" font-size="13" fill="#75738c">（先求 g′(x)，再判断导数在候选点附近是否变号。）</text>
+
+    <text x="30" y="272" font-size="10.5" fill="#a4a2b8">自编题图 · 本地演示素材</text>
+    <text x="690" y="272" text-anchor="end" font-size="10.5" fill="#a4a2b8">离线原型 · 无外网请求</text>
+  </svg>`;
+}
+
+function startOpening() {
+  S.thread = [];
+  pushMe(
+    '老师布置的题，我拍下来了。我算了一下选 A：x = −1 让导数等于零，所以这里应该是极小值吧？',
+    '题图 · 三次函数极值.png',
+  );
+  pushAI([
+    { t: 'h2', html: '你找到了候选点，卡在极值类型的判断' },
+    { t: 'problem' },
+    { t: 'p', html: `你算出的 ${M('x = −1')} 确实让导数为零，这一步没问题。但<strong>导数等于零只说明这一点的切线是水平的</strong>；它是极大、极小还是都不是，要看曲线经过这个点时先升后降，还是先降后升。` },
+    { t: 'math', html: `g(x) = 2x³ − 3x² − 12x + 1<br>g′(x) = 6(x + 1)(x − 2)` },
+    { t: 'p', html: `把导数写成两个因子相乘，符号就看得见了。试着判断：${M('x = −1')} 的<strong>左侧</strong>和<strong>右侧</strong>，导数分别是正还是负？` },
+    { t: 'probe' },
+  ]);
+  S.chatStage = 'opening';
+  S.pendingScroll = false;
+}
+
+function onProbeSubmit() {
+  const { left, right } = S.probe;
+  if (left === null || right === null) return;
+  S.probe.sent = true;
+  const ok = left === '+' && right === '-';
+  S.probe.ok = ok;
+  if (!ok) {
+    S.probe.tries += 1;
+    return; // 保留原卡片，就地给反馈（不重绘整段）
+  }
+  S.chatStage = 'probed';
+  S.pendingScroll = true;
+  pushAI([
+    { t: 'p', html: `对。左侧为正、右侧为负，说明曲线在这里先上升后下降 —— 这是<strong>局部极大</strong>，和你选的 A 正好相反。` },
+    { t: 'p', html: `那 ${M('x = 2')} 呢？它在符号表上是「左负右正」。光看符号还是有点抽象，我们把切线放到曲线上拖着看。` },
+    { t: 'figs', which: 'contrast' },
+    { t: 'actions', items: [{ id: 'open-canvas', label: '打开数学画布', kind: 'primary' }] },
+  ]);
+}
+
+function probeVerdictHTML() {
+  const { left, right, sent, ok, tries } = S.probe;
+  if (!sent) return '';
+  if (ok) {
+    return `<div class="verdict good"><span class="tag">✓</span><div>左侧为正、右侧为负 —— 这一段的走向已经判断对了。往下看。</div></div>`;
+  }
+  const hint =
+    tries >= 2
+      ? `还是不行的话，直接代一个数：${M('g′(−2) = 6(−1)(−4) = 24 > 0')}，${M('g′(0) = 6(1)(−2) = −12 < 0')}。`
+      : `先别猜类型。把 ${M('x = −2')} 和 ${M('x = 0')} 分别代进 ${M('6(x + 1)(x − 2)')}，看两个因子各自的正负。`;
+  return `<div class="verdict miss"><span class="tag">↺</span><div>再试一次：左边和右边要分开判断，符号只看两个因子的乘积。${hint}</div></div>`;
+}
+
+function renderProbe() {
+  const { left, right, sent, ok } = S.probe;
+  const btn = (side, sign) => {
+    const on = S.probe[side] === sign ? ' on' : '';
+    const dis = sent && ok ? ' disabled' : '';
+    return `<button class="sign${on}"${dis} data-act="sign" data-side="${side}" data-sign="${sign}" aria-pressed="${S.probe[side] === sign}">${sign === '+' ? '+' : '−'}</button>`;
+  };
+  return `<div class="probe">
+    <div class="probe-cap">导数在 ${M('x = −1')} 两侧的符号</div>
+    <div class="slots">
+      <div class="slot">
+        <span class="slot-label">左侧</span>
+        <span class="sign-pick">${btn('left', '+')}${btn('left', '-')}</span>
+      </div>
+      <div class="slot">
+        <span class="slot-label">右侧</span>
+        <span class="sign-pick">${btn('right', '+')}${btn('right', '-')}</span>
+      </div>
+    </div>
+    <div class="probe-foot">
+      <button class="btn ${sent && ok ? '' : 'primary'}" data-act="probe-submit"${sent && ok ? ' disabled' : ''}>${sent && ok ? '✓ 已判断' : '提交判断'}</button>
+      <span style="font-size:12.5px;color:var(--ink-4)">用符号表回答，不用打字</span>
+    </div>
+    ${probeVerdictHTML()}
+  </div>`;
+}
+
+const FIGS_CONTRAST = () => `
+  <div class="figrow">
+    <figure class="figcard" style="margin:0">
+      ${miniSVG('cube')}
+      <figcaption class="figcap">${M('f(x) = x³')}：切线水平，但两侧同号 —— <strong>无极值</strong></figcaption>
+    </figure>
+    <figure class="figcard" style="margin:0">
+      ${miniSVG('ext')}
+      <figcaption class="figcap">${M('f(x) = x³ − 3x')}：切线水平，且两侧变号 —— <strong>有极值</strong></figcaption>
+    </figure>
+  </div>`;
+
+/* ─────────────────────────── 画布（形态 B） ─────────────────────────── */
+
+function canvasComment() {
+  const { fn, x } = S.canvas;
+  const cfg = FN[fn];
+  const k = cfg.fp(x);
+  if (Math.abs(k) < 0.16) {
+    if (fn === 'cube') return '斜率刚好到 0，切线水平。但往左往右看，斜率都是正的 —— 曲线一直上升，所以这里不是极值点。';
+    return `斜率刚好到 0。往左一点是正的，往右一点是负的 —— 这一瞬间就是变号，所以 ${M('x = −1')} 是局部极大。`;
+  }
+  if (fn === 'cube') return '不管切点在哪，斜率都不会是负的。这条曲线始终上升，只在原点短暂变平。';
+  if (x < -1) return '斜率是正的，曲线正在上升。继续往右拖，注意斜率的符号什么时候换。';
+  if (x < 1) return '斜率变负了，曲线开始下降。这里就是刚才符号表里「中间一段为负」的部分。';
+  return '过了 1 之后斜率又变正，曲线重新上升。两个候选点，两种变号方向。';
+}
+
+function renderWorkbench() {
+  const c = S.canvas;
+  const cfg = FN[c.fn];
+  const y = cfg.f(c.x);
+  const k = cfg.fp(c.x);
+  const state =
+    Math.abs(k) < 0.16
+      ? c.fn === 'cube'
+        ? '平稳拐点'
+        : c.x < 0
+          ? '局部极大'
+          : '局部极小'
+      : k > 0
+        ? '递增'
+        : '递减';
+  const cls = Math.abs(k) < 0.16 ? 'zero' : k > 0 ? 'pos' : 'neg';
+
+  const threadHTML = renderThread({ compact: true });
+
+  return `<div class="workbench">
+    <div class="wb-chat">
+      <div class="wb-chat-body" id="wb-scroll">${threadHTML}</div>
+      <div class="composer" style="padding:12px 20px 16px">
+        <div class="composer-inner">
+          <div class="composer-box">
+            <textarea id="wb-input" rows="1" placeholder="输入你的思考…" aria-label="输入你的思考"></textarea>
+            <button class="composer-send" data-act="wb-send" aria-label="发送">
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 11.5V2.5M3 6.5 7 2.5l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="wb-canvas">
+      <div class="canvas-head">
+        <h2>交互画布</h2>
+        <span class="canvas-fn">${M(cfg.label)}</span>
+        <div style="margin-left:auto;display:flex;gap:8px">
+          <button class="btn" data-act="fn-toggle">切换 ${c.fn === 'ext' ? 'f(x) = x³' : 'f(x) = x³ − 3x'}</button>
+          <button class="btn ghost" data-act="back-chat">回到对话</button>
+        </div>
+      </div>
+      <div class="plot-wrap" id="plot-wrap">${plotSVG(c.fn, c.x)}</div>
+      <div class="canvas-controls">
+        <div class="slider-wrap">
+          <label for="xr">移动切点 x</label>
+          <input id="xr" type="range" min="-2.4" max="2.4" step="0.02" value="${c.x}" aria-label="切点横坐标">
+          <span class="m" style="min-width:76px;text-align:right">x = ${fmt(c.x)}</span>
+        </div>
+      </div>
+      <div class="metrics">
+        <div class="metric"><span class="k">函数值 f(x)</span><span class="v">${fmt(y)}</span></div>
+        <div class="metric"><span class="k">导数 f′(x)</span><span class="v ${cls}">${fmt(k)}</span></div>
+        <div class="metric"><span class="k">局部状态</span><span class="v state ${cls}">${state}</span></div>
+      </div>
+      <div class="legend">
+        <span><i style="background:#5a49d1"></i>函数曲线</span>
+        <span><i style="background:#c9843a"></i>切点与切线</span>
+        <span style="color:var(--ink-4)">可拖动切点，或用滑块 / 方向键</span>
+      </div>
+      <div class="live-read" style="margin-top:18px">
+        <div class="live-row"><span class="k">AI 正在看</span></div>
+        <p style="margin:0;font-size:13.5px;line-height:1.7;color:var(--ink-2)">${canvasComment()}</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+function updateCanvasLive() {
+  const wrap = $('#plot-wrap');
+  if (!wrap) return;
+  const svgEl = wrap.querySelector('svg');
+  if (svgEl) {
+    // 保留 svg 元素：拖动中的指针捕获与监听都挂在它身上
+    svgEl.innerHTML = plotInner(S.canvas.fn, S.canvas.x);
+    svgEl.setAttribute('aria-label', `函数曲线与切线，当前切点 x = ${fmt(S.canvas.x)}`);
+  } else {
+    wrap.innerHTML = plotSVG(S.canvas.fn, S.canvas.x);
+  }
+  const c = S.canvas;
+  const cfg = FN[c.fn];
+  const y = cfg.f(c.x);
+  const k = cfg.fp(c.x);
+  const state =
+    Math.abs(k) < 0.16
+      ? c.fn === 'cube'
+        ? '平稳拐点'
+        : c.x < 0
+          ? '局部极大'
+          : '局部极小'
+      : k > 0
+        ? '递增'
+        : '递减';
+  const cls = Math.abs(k) < 0.16 ? 'zero' : k > 0 ? 'pos' : 'neg';
+  const vs = document.querySelectorAll('.metric .v');
+  if (vs.length >= 3) {
+    vs[0].textContent = fmt(y);
+    vs[1].textContent = fmt(k);
+    vs[1].className = 'v ' + cls;
+    vs[2].textContent = state;
+    vs[2].className = 'v state ' + cls;
+  }
+  const xlab = document.querySelector('.slider-wrap .m');
+  if (xlab) xlab.textContent = 'x = ' + fmt(c.x);
+  const live = document.querySelector('.live-read p');
+  if (live) live.textContent = canvasComment();
+
+}
+
+/** 切点真的划过变号位置时才说话；然后引导学生看一个反例 */
+
+/* ─────────────────────────── 专注解题（形态 C） ─────────────────────────── */
+
+const PRACTICE_Q = {
+  no: '迁移练习 01',
+  title: '判断函数的局部极大值',
+  expr: 'h(x) = −x³ + 3x² + 9x − 1',
+  ask: '求函数取得局部极大值时的 x，并说明理由。',
+  answer: '3',
+};
+
+const HINTS = [
+  '先求导。三次函数的导数是一次二次式，把二次式因式分解，候选点就出来了。',
+  'h′(x) = −3x² + 6x + 9。提取 −3 之后，括号里是 x² − 2x − 3，它可以分解成两个一次因式。',
+  'h′(x) = −3(x + 1)(x − 3)。首项系数是负的，所以三个区间的符号是「−、+、−」；左正右负对应极大。',
+];
+
+/** 容错判定：不追求解析任意写法，只在读不到时如实说明 */
+function checkGoals(text) {
+  const t = text
+    .replace(/[−–—－]/g, '-')
+    .replace(/\s+/g, '')
+    .replace(/[，。；、]/g, ',');
+  const hasDeriv =
+    /-3x(\^?2|\²)(\+6x\+9)?/.test(t) ||
+    /-3\(x\+1\)\(x-3\)/.test(t) ||
+    /-3\(x-3\)\(x\+1\)/.test(t) ||
+    /\(x\+1\)\(x-3\)/.test(t) ||
+    /\(x-3\)\(x\+1\)/.test(t);
+  const hasSign =
+    /左.*正.*右.*负|先正后负|\+,-|左\+右-|-,-\+,-/.test(t) ||
+    (/[+\-]{1},[+\-]{1},[+\-]{1}/.test(t) && /-,\+,-/.test(t));
+  const hasAnswer = /x=3|x＝3|极大.*3|3.*极大/.test(t);
+  return [
+    { ok: hasDeriv, why: hasDeriv ? '导数形式可用于本题' : '没有读到可用于本题的导数式' },
+    { ok: hasSign, why: hasSign ? '符号表写出了每段的正负' : '没有读到各段导数的符号' },
+    { ok: hasAnswer, why: hasAnswer ? '结论指向 x = 3 且判为极大' : '没有读到「x = 3 且为极大」的结论' },
+  ];
+}
+
+function renderPractice() {
+  const p = S.practice;
+  const done = p.goals.filter(Boolean).length;
+  const goals = [
+    { label: '正确计算导数', st: p.submitted ? (p.goals[0] ? 'done' : 'fail') : '' },
+    { label: '判断导数符号', st: p.submitted ? (p.goals[1] ? 'done' : 'fail') : '' },
+    { label: '区分极值类型', st: p.submitted ? (p.goals[2] ? 'done' : 'fail') : '' },
+  ];
+  const goalHTML = goals
+    .map(
+      (g) =>
+        `<div class="goal ${g.st}"><span class="mark">${g.st === 'done' ? '✓' : g.st === 'fail' ? '!' : ''}</span><span>${g.label}</span></div>`,
+    )
+    .join('');
+
+  const coach =
+    !p.submitted && p.hint === 0
+      ? '你先自己算。求导、分解、看符号，三步都在草稿里写出来，我再根据你写的判断。'
+      : !p.submitted
+        ? HINTS[Math.min(p.hint - 1, HINTS.length - 1)]
+        : done === 3
+          ? '三项都过了。你已经能独立完成「求导 → 符号 → 极值类型」这条链。'
+          : `三项里过了 ${done} 项。${
+              !p.goals[0]
+                ? '先把导数写出来：h′(x) = −3x² + 6x + 9。'
+                : !p.goals[1]
+                  ? '导数对了，接着把三个区间的符号写出来。'
+                  : '符号也对了，最后把「哪一段是极大」说清楚。'
+            }`;
+
+  return `<div style="display:flex;flex-direction:column;min-height:0;flex:1">
+    <div class="practice-bar"><span style="width:${p.submitted ? 100 : 34}%"></span></div>
+    <div class="practice" style="flex:1;min-height:0">
+      <div class="practice-main" style="overflow-y:auto">
+        <div class="practice-cap"><span class="practice-no">${PRACTICE_Q.no}</span><span>导数与极值 · 针对性训练</span><span style="margin-left:auto">1 / 3</span></div>
+        <h2>${PRACTICE_Q.title}</h2>
+        <p class="practice-q expr"><span class="m">${PRACTICE_Q.expr}</span></p>
+        <p class="practice-q">${PRACTICE_Q.ask}</p>
+        <div class="draft">
+          <div class="draft-cap">解题草稿 · 写推导过程，不用只写答案</div>
+          <textarea id="draft" placeholder="例如：h′(x) = …，令 h′(x) = 0 得 …，各区间符号 …" aria-label="解题草稿">${esc(p.draft)}</textarea>
+          <div class="draft-foot">
+            <span>${p.draft.trim().length} 字</span>
+            <span style="margin-left:auto">提交后按「求导 / 符号 / 类型」三项分别核对</span>
+          </div>
+        </div>
+        <div class="practice-actions">
+          <button class="btn primary" data-act="submit-work">${p.submitted ? '重新核对' : '提交解题过程'}</button>
+          <button class="btn" data-act="hint">给我一点提示</button>
+          ${p.submitted ? '<button class="btn ghost" data-act="to-summary">看这次的学习总结</button>' : ''}
+        </div>
+      </div>
+      <div class="practice-side">
+        <div class="coach">
+          <div class="coach-who"><span class="pi" style="font-family:var(--font-math);font-style:italic">π</span> AI 导师</div>
+          <p>${coach}</p>
+        </div>
+        <div class="goals">
+          <h3>本次练习目标</h3>
+          ${goalHTML}
+        </div>
+      </div>
+    </div>
+  </div>`;
+}
+
+function onSubmitWork() {
+  const ta = $('#draft');
+  S.practice.draft = ta ? ta.value : S.practice.draft;
+  const res = checkGoals(S.practice.draft);
+  S.practice.goals = res.map((r) => r.ok);
+  S.practice.reasons = res.map((r) => r.why);
+  S.practice.submitted = true;
+  render();
+}
+
+/* ─────────────────────────── 学习总结 ─────────────────────────── */
+
+function buildSummary() {
+  const passed = S.practice.goals.filter(Boolean).length;
+  const independent = passed === 3 ? 1 : 0;
+  return {
+    stats: { done: 1, miscon: 1, independent },
+    evidence: [
+      { name: '导数计算', state: S.practice.goals[0] ? 'ok' : 'warn', label: S.practice.goals[0] ? '已展示能力' : '待补', pct: S.practice.goals[0] ? 100 : 58 },
+      { name: '求解驻点', state: 'ok', label: '已展示能力', pct: 100 },
+      { name: '导数符号与单调性', state: S.practice.goals[1] ? 'ok' : 'warn', label: S.practice.goals[1] ? '独立练习通过' : '待巩固', pct: S.practice.goals[1] ? 92 : 64 },
+      { name: '极值的判定', state: S.practice.goals[2] ? 'ok' : 'warn', label: S.practice.goals[2] ? '独立练习通过' : '已纠正，待巩固', pct: S.practice.goals[2] ? 90 : 62 },
+    ],
+    misconception: '把「导数等于零」当成极小值的充分条件。',
+    correction: '驻点只是候选，要再看候选点附近导数符号（或函数值）是否变号：左正右负是局部极大，左负右正是局部极小。',
+    next: S.practice.goals[2]
+      ? '独立练习含水平拐点的函数（如 (x−1)³+2），确认能否区分「切线水平」与「有极值」。'
+      : '先把 −3(x+1)(x−3) 的符号表写完整，再回到这道题说清哪一段是极大。',
+  };
+}
+
+function renderSummary() {
+  if (!S.summary) S.summary = buildSummary();
+  const s = S.summary;
+  return `<div style="flex:1;overflow-y:auto">
+    <div class="summary">
+      <h1>本次学习总结</h1>
+      <p class="sub">依据本次会话中真实发生的操作生成；不是校准后的掌握概率。</p>
+      <div class="stats">
+        <div class="stat"><span class="k">完成练习</span><span class="v">${s.stats.done}</span></div>
+        <div class="stat"><span class="k">发现认知误区</span><span class="v">${s.stats.miscon}</span></div>
+        <div class="stat"><span class="k">独立解题通过</span><span class="v">${s.stats.independent}</span></div>
+      </div>
+      <div class="evidence">
+        <h2>知识点学习证据</h2>
+        ${s.evidence
+          .map(
+            (e) => `<div class="ev">
+          <div class="ev-top">
+            <span class="ev-name">${e.name}</span>
+            <span class="ev-state ${e.state}">${e.label}</span>
+          </div>
+          <div class="ev-track"><div class="ev-fill ${e.state === 'warn' ? 'warn' : ''}" style="width:${e.pct}%"></div></div>
+        </div>`,
+          )
+          .join('')}
+      </div>
+      <div class="cognition">
+        <h2>本次纠正的错误认知</h2>
+        <div class="cog-row bad"><span class="sym">✗</span><span class="txt-bad">${s.misconception}</span></div>
+        <div class="cog-row good"><span class="sym">✓</span><span class="txt-good">${s.correction}</span></div>
+        <div class="next-step"><b>下一步</b>　${s.next}</div>
+      </div>
+      <div style="margin-top:28px;display:flex;gap:10px">
+        <button class="btn primary" data-act="back-chat">回到对话</button>
+        <button class="btn" data-view="errors">看错题本</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────── 错题本 ─────────────────────────── */
+
+function renderErrors() {
+  const has = S.practice.submitted || S.chatStage !== 'opening';
+  return `<div style="flex:1;overflow-y:auto">
+    <div class="errlist">
+      <h1>错题本</h1>
+      <p class="sub">按错因归类，不是题目堆叠。</p>
+      ${
+        has
+          ? `<div class="err-item">
+        <div class="err-head">
+          <span class="err-kp">导数 · 极值判定</span>
+          <span style="font-size:13px;color:var(--ink)">三次函数局部极小值</span>
+          <span class="err-when">今天</span>
+        </div>
+        <p class="err-why"><strong>当时怎么想的：</strong>把「导数等于零」当成极小值的充分条件，选了 x = −1。</p>
+        <p class="err-fix"><b>纠正依据：</b>驻点只是候选。左正右负是局部极大，左负右正是局部极小 —— 这道题里 2 才是极小。</p>
+      </div>`
+          : `<div class="err-item"><p class="err-why">这次还没有产生错题记录。完成一次练习后会出现在这里。</p></div>`
+      }
+      <div class="err-item" style="background:#fbfaff">
+        <p class="err-why" style="margin:0"><strong>说明：</strong>本原型只演示一条教学路径，错题本里的记录来自本次会话真实发生的操作，不预置其他学生的数据。</p>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────── 渲染 ─────────────────────────── */
+
+/** 窄栏（工作台左列）里的原题：一行引用 + 可展开，不重复占满屏 */
+const COMPACT_PROBLEM = () => `
+  <details class="problem-compact">
+    <summary><span class="problem-tag">原题</span> ${M('g(x) = 2x³ − 3x² − 12x + 1')}　问局部极小值的 x</summary>
+    <div style="margin-top:10px">${PROBLEM_BLOCK()}</div>
+  </details>`;
+
+function blockHTML(b, opt = {}) {
+  switch (b.t) {
+    case 'problem':
+      return opt.compact ? COMPACT_PROBLEM() : PROBLEM_BLOCK();
+    case 'h2':
+      return `<h2>${b.html}</h2>`;
+    case 'h3':
+      return `<h3>${b.html}</h3>`;
+    case 'p':
+      return `<p>${b.html}</p>`;
+    case 'math':
+      return `<div class="math-block">${b.html}</div>`;
+    case 'raw':
+      return b.html;
+    case 'probe':
+      return renderProbe();
+    case 'figs':
+      return FIGS_CONTRAST();
+    case 'verdict':
+      return `<div class="verdict ${b.kind}"><span class="tag">${b.kind === 'good' ? '✓' : '↺'}</span><div>${b.html}</div></div>`;
+    case 'actions':
+      return `<div class="probe-foot" style="margin-top:18px">${b.items
+        .map((it) => `<button class="btn ${it.kind || ''}" data-act="${it.id}">${it.label}</button>`)
+        .join('')}</div>`;
+    default:
+      return '';
+  }
+}
+
+function renderThread(opt = {}) {
+  let prevWasAI = false;
+  return `<div class="thread">
+    ${S.thread
+      .map((item) => {
+        if (item.who === ME) {
+          prevWasAI = false;
+          return `<div class="me-row"><div class="me">${
+            item.attach ? `<span class="me-attach">📎 ${esc(item.attach)}</span>` : ''
+          }${esc(item.text)}</div></div>`;
+        }
+        // 连续几条 AI 内容是同一个导师声音，只在第一段署名，避免每段都挂标签
+        const who = prevWasAI ? '' : '<div class="doc-who"><span class="pi">π</span><span>AI 导师</span></div>';
+        prevWasAI = true;
+        return `<div class="doc">
+          ${who}
+          ${item.blocks.map((b) => blockHTML(b, opt)).join('')}
+        </div>`;
+      })
+      .join('')}
+  </div>`;
+}
+
+function renderChat() {
+  return `<div style="flex:1;overflow-y:auto" id="chat-scroll">
+      <div class="viewport-inner">${renderThread()}</div>
+    </div>
+    <div class="composer">
+      <div class="composer-inner">
+        <div class="composer-box">
+          <textarea id="chat-input" rows="1" placeholder="继续提问，或写出你的推导…" aria-label="输入消息"></textarea>
+          <button class="composer-send" data-act="chat-send" aria-label="发送">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 11.5V2.5M3 6.5 7 2.5l4 4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+        <div class="composer-hint">Enter 发送 · Shift + Enter 换行 · 本原型按一条预设教学路径推进</div>
+      </div>
+    </div>`;
+}
+
+function render() {
+  const vp = $('#viewport');
+  const prevScroller = $('#chat-scroll') || $('#wb-scroll');
+  const prevTop = prevScroller ? prevScroller.scrollTop : 0;
+  document.querySelectorAll('.nav-item[data-view]').forEach((n) => {
+    n.classList.toggle('active', n.dataset.view === S.view);
+  });
+  const meta = $('#tb-meta');
+  if (S.view === 'practice') meta.textContent = '针对性训练 · 第 1 题';
+  else if (S.view === 'summary') meta.textContent = '本次学习结果';
+  else if (S.view === 'errors') meta.textContent = '按错因归类';
+  else if (S.view === 'workbench') meta.textContent = '共享当前题目与切点';
+  else meta.textContent = '今天 · 第 1 次学习';
+
+  if (S.view === 'chat') vp.innerHTML = renderChat();
+  else if (S.view === 'workbench') vp.innerHTML = renderWorkbench();
+  else if (S.view === 'practice') vp.innerHTML = renderPractice();
+  else if (S.view === 'summary') vp.innerHTML = renderSummary();
+  else vp.innerHTML = renderErrors();
+
+  // 滚动策略：追加内容滚到底；其它重绘保留学生当前阅读位置
+  const sc = $('#chat-scroll') || $('#wb-scroll');
+  if (sc && prevScroller === sc) sc.prevTop = prevTop;
+  else if (sc) sc.prevTop = 0;
+  if (sc) {
+    const toBottom = !!S.pendingScroll;
+    S.pendingScroll = false;
+    requestAnimationFrame(() => {
+      sc.scrollTop = toBottom ? sc.scrollHeight : Math.min(sc.prevTop || 0, sc.scrollHeight);
+    });
+  }
+  bindCanvas();
+}
+
+/* ─────────────────────────── 事件 ─────────────────────────── */
+
+function showView(v) {
+  if (v === 'summary' && !S.summary) S.summary = buildSummary();
+  S.view = v;
+  render();
+}
+
+function bindCanvas() {
+  const svg = document.querySelector('#plot-wrap svg');
+  const slider = $('#xr');
+  if (slider) {
+    slider.addEventListener('input', () => {
+      const prevK = FN[S.canvas.fn].fp(S.canvas.x);
+      S.canvas.x = Number(slider.value);
+      updateCanvasLive();
+      maybeNote(prevK, FN[S.canvas.fn].fp(S.canvas.x));
+    });
+  }
+  if (!svg) return;
+  let dragging = false;
+  const toX = (ev) => {
+    const r = svg.getBoundingClientRect();
+    const scale = PLOT.w / r.width;
+    const localX = (ev.clientX - r.left) * scale;
+    return (localX - PLOT.cx) / PLOT.xs;
+  };
+  const apply = (x) => {
+    const prevK = FN[S.canvas.fn].fp(S.canvas.x);
+    S.canvas.x = Math.max(-2.4, Math.min(2.4, Math.round(x * 50) / 50));
+    const sl = $('#xr');
+    if (sl) sl.value = String(S.canvas.x);
+    updateCanvasLive();
+    maybeNote(prevK, FN[S.canvas.fn].fp(S.canvas.x));
+  };
+  svg.addEventListener('pointerdown', (ev) => {
+    dragging = true;
+    svg.setPointerCapture?.(ev.pointerId);
+    apply(toX(ev));
+  });
+  svg.addEventListener('pointermove', (ev) => {
+    if (dragging) apply(toX(ev));
+  });
+  svg.addEventListener('pointerup', () => {
+    dragging = false;
+  });
+  svg.addEventListener('pointercancel', () => (dragging = false));
+}
+
+/** 只刷新对话线程：画布元素与拖动状态都保留 */
+function refreshThread() {
+  const box = $('#wb-scroll') || $('#chat-scroll');
+  if (!box) return render();
+  const holder = box.querySelector('.thread') ? box : box;
+  holder.innerHTML = renderThread();
+  requestAnimationFrame(() => {
+    box.scrollTop = box.scrollHeight;
+  });
+}
+
+/** 自由输入的关键词路由：命中就给对应教学回应，读不到就如实说明 */
+function replyTo(text) {
+  S.pendingScroll = true;
+  const t = text.replace(/\s+/g, '');
+  if (/为什么|不一定|变号|切线水平/.test(t)) {
+    pushAI([
+      { t: 'p', html: `因为「切线水平」只是一个<strong>必要条件</strong>。${M('f(x) = x³')} 在原点切线也水平，但两侧导数都为正，曲线一直上升，那里不是极值点。要看的是<strong>两侧符号有没有变</strong>。` },
+    ]);
+    return;
+  }
+  if (/极大|极小|哪个|答案|选什么/.test(t)) {
+    pushAI([
+      { t: 'p', html: `这道题里 ${M('x = −1')} 是局部<strong>极大</strong>，${M('x = 2')} 才是局部<strong>极小</strong>。先别记结论 —— 你能说出 ${M('x = 2')} 两侧的导数符号吗？` },
+    ]);
+    return;
+  }
+  if (/看不懂|不会|难|懵/.test(t)) {
+    pushAI([
+      { t: 'p', html: `那我们把步骤拆细一点：先只做一件事 —— 把 ${M('g′(x) = 6(x+1)(x−2)')} 里两个因子分别在什么时候为零写出来。` },
+    ]);
+    return;
+  }
+  pushAI([
+    { t: 'p', html: `这句我先记下了。不过这条原型只演示一条教学路径，我不假装理解任意提问 —— 你可以试着问「为什么切线水平不一定有极值」，或者直接把推导写出来，我按你写的判断。` },
+  ]);
+}
+
+document.addEventListener('click', (ev) => {
+  const el = ev.target.closest('[data-act],[data-view]');
+  if (!el) return;
+
+  if (el.dataset.view) {
+    showView(el.dataset.view);
+    return;
+  }
+
+  const act = el.dataset.act;
+  if (act === 'new') {
+    S.view = 'chat';
+    S.probe = { left: null, right: null, sent: false, ok: false, tries: 0 };
+    S.canvas = { fn: 'ext', x: -1, sawZero: false, switched: false, notedSign: false, notedCube: false };
+    S.practice = { draft: '', hint: 0, submitted: false, goals: [false, false, false], reasons: ['', '', ''] };
+    S.summary = null;
+    startOpening();
+    render();
+  } else if (act === 'sign') {
+    S.probe[el.dataset.side] = el.dataset.sign;
+    render();
+  } else if (act === 'probe-submit') {
+    onProbeSubmit();
+    render();
+  } else if (act === 'open-canvas') {
+    S.view = 'workbench';
+    S.canvas.x = -1.9;
+    render();
+  } else if (act === 'back-chat') {
+    showView('chat');
+  } else if (act === 'fn-cube') {
+    S.canvas.fn = 'cube';
+    S.canvas.x = 1.6;
+    S.canvas.switched = true;
+    render();
+    maybeNote(FN.cube.fp(1.6), FN.cube.fp(1.6));
+  } else if (act === 'fn-toggle') {
+    S.canvas.fn = S.canvas.fn === 'ext' ? 'cube' : 'ext';
+    S.canvas.x = S.canvas.fn === 'cube' ? 0 : -1;
+    if (S.canvas.fn === 'cube') S.canvas.switched = true;
+    render();
+  } else if (act === 'to-practice') {
+    showView('practice');
+  } else if (act === 'hint') {
+    S.practice.hint = Math.min(S.practice.hint + 1, HINTS.length);
+    render();
+  } else if (act === 'submit-work') {
+    onSubmitWork();
+  } else if (act === 'to-summary') {
+    S.summary = buildSummary();
+    showView('summary');
+  } else if (act === 'fix-ocr') {
+    pushAI([
+      { t: 'p', html: `好，题干以你确认的为准。这类识别偏差在拍照题里很常见 —— 你可以直接把正确式子打给我，我按你写的重新看。` },
+    ]);
+    render();
+  } else if (act === 'chat-send') {
+    const ta = $('#chat-input');
+    const text = ta ? ta.value.trim() : '';
+    if (!text) return;
+    pushMe(text);
+    replyTo(text);
+    render();
+  } else if (act === 'wb-send') {
+    const ta = $('#wb-input');
+    const text = ta ? ta.value.trim() : '';
+    if (!text) return;
+    pushMe(text);
+    replyTo(text);
+    render();
+  }
+});
+
+// 草稿输入实时保存
+document.addEventListener('input', (ev) => {
+  if (ev.target.id === 'draft') {
+    S.practice.draft = ev.target.value;
+    const foot = ev.target.parentElement.querySelector('.draft-foot span');
+    if (foot) foot.textContent = `${ev.target.value.trim().length} 字`;
+  }
+});
+
+// Enter 发送
+document.addEventListener('keydown', (ev) => {
+  if (ev.key !== 'Enter' || ev.shiftKey) return;
+  if (ev.target.id === 'chat-input' || ev.target.id === 'wb-input') {
+    ev.preventDefault();
+    const btn = ev.target.parentElement.querySelector('.composer-send');
+    if (btn) btn.click();
+  }
+});
+
+/* ─────────────────────────── 启动 ─────────────────────────── */
+
+startOpening();
+render();
+
+</script>
+</body>
+</html>

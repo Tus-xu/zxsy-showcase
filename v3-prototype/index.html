@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>智学数研 · 学生端 V3 原型</title>
+<link rel="stylesheet" href="src/app.css">
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="side-top">
+      <div class="brand">
+        <div class="brand-mark">π</div>
+        <div>
+          <div class="brand-text">智学数研</div>
+        </div>
+        <div class="brand-sub">学生端</div>
+      </div>
+      <button class="btn-new" data-act="new">
+        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" aria-hidden="true">
+          <path d="M6.5 1.5v10M1.5 6.5h10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        </svg>
+        新建学习
+      </button>
+    </div>
+
+    <nav class="side-nav" aria-label="主导航">
+      <button class="nav-item active" data-view="chat">学习空间</button>
+      <button class="nav-item" data-view="errors">错题本</button>
+      <button class="nav-item" data-view="summary">学习总结</button>
+      <button class="nav-item" disabled title="本原型未展开">知识图谱<span class="soon">未展开</span></button>
+      <button class="nav-item" disabled title="本原型未展开">课堂任务<span class="soon">未展开</span></button>
+    </nav>
+
+    <div class="side-recent">
+      <div class="side-cap">最近</div>
+      <button class="recent warm" data-view="chat">导数与函数极值</button>
+      <button class="recent" data-view="workbench">函数与切线</button>
+      <button class="recent" disabled>空间向量 · 夹角</button>
+      <button class="recent" disabled>三角恒等变换</button>
+    </div>
+
+    <div class="side-foot">AI 生成内容仅供参考<br>本地演示原型 · 不连接大模型</div>
+  </aside>
+
+  <div class="main">
+    <div class="topbar">
+      <h1 id="tb-title">导数与函数极值</h1>
+      <div class="topbar-right">
+        <span class="tb-meta" id="tb-meta">今天 · 第 1 次学习</span>
+        <div class="avatar" title="林同学">林</div>
+      </div>
+    </div>
+    <div class="viewport" id="viewport"></div>
+  </div>
+</div>
+<script src="src/app.js"></script>
+</body>
+</html>

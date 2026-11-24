@@ -1,0 +1,93 @@
+{
+ "steps": [
+  {
+   "name": "01-chat-opening",
+   "note": "开场：错因诊断 + 独立题块 + 符号槽位",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "02-probe-miss",
+   "note": "答错：保留原卡片，就地给提示",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "03-probe-ok",
+   "note": "答对：对照图 + 打开画布",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "04-workbench",
+   "note": "形态 B：画布 + 实时读数 + AI 读状态",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "05-workbench-signflip",
+   "note": "切点划过变号位置：AI 主动指出",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "06-workbench-cube",
+   "note": "反例 f(x)=x³：切点在 1.6，斜率为正",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "06b-workbench-flat",
+   "note": "反例切到原点附近：切线水平但两侧同号，AI 主动点破",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "07-practice",
+   "note": "形态 C：草稿 + 按需提示 + 练习目标",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "08-practice-partial",
+   "note": "只写了导数：只勾一项，其余标为待补",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "09-practice-pass",
+   "note": "完整推导：三项都过",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "10-summary",
+   "note": "学习总结：真实统计 + 证据条 + 错因",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  },
+  {
+   "name": "11-errors",
+   "note": "错题本：按错因归类",
+   "scrollW": 1440,
+   "clientW": 1440,
+   "overflow": false
+  }
+ ],
+ "net": [],
+ "errs": [],
+ "cons": [],
+ "w": 1440,
+ "h": 900
+}
