@@ -118,14 +118,17 @@ for (const vp of VIEWPORTS) {
     viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, offline: true, reducedMotion: 'reduce',
   })
   const page = await open(ctx, 'sc-s5')
+  // 知识定位卡（题型三选）已按评审删除，改为检查导学卡整体：减弱动效下内容完整、无动画
   const info = await page.evaluate(() => {
-    const marks = Array.from(document.querySelectorAll('.ssc-mark'))
-    const anims = marks.map((m) => getComputedStyle(m).animationName)
+    const cards = Array.from(document.querySelectorAll('.ssc'))
+    const btns = Array.from(document.querySelectorAll('.ssc button'))
+    const anims = cards.map((c) => getComputedStyle(c).animationName)
     return {
-      count: marks.length,
-      texts: marks.map((m) => m.textContent.trim()),
+      count: cards.length,
+      texts: cards.map((c) => (c.querySelector('.ssc-title')?.textContent || '').trim()).filter(Boolean),
       anims,
-      visible: marks.every((m) => m.getBoundingClientRect().width > 0),
+      visible: cards.every((c) => c.getBoundingClientRect().height > 0) && btns.length > 0,
+      btnCount: btns.length,
     }
   })
   await page.screenshot({ path: path.join(OUT, 'reduced-motion.png') })
@@ -138,7 +141,7 @@ fs.writeFileSync(path.join(OUT, 'visual.json'), JSON.stringify(result, null, 1))
 const ok =
   Object.values(result.viewports).every((v) => v.noHScrollDoc && v.noHScrollList && v.cardAboveInput) &&
   result.zoom200.overlap === 0 &&
-  result.reducedMotion.allStatic && result.reducedMotion.visible && result.reducedMotion.count >= 2
+  result.reducedMotion.allStatic && result.reducedMotion.visible && result.reducedMotion.count >= 1
 console.log(ok ? 'VISUAL CLEAN' : 'VISUAL BLOCKED')
 await browser.close()
 process.exit(ok ? 0 : 1)

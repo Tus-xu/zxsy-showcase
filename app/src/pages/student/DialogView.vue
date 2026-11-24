@@ -274,10 +274,10 @@ const stepBadge = computed(() => {
       const c = cards[j]
       const t = c?.card_type || c?.type || ''
       if (t === 'socratic_progress' && (c.steps_count || c.current_step)) {
+        // 离线教学示例：只报当前阶段名，不报「第 N/M 步」（评审：系统状态退到背景）
+        if (c.stage_label) return c.stage_label
         const parts = [`第 ${c.current_step} 步 / 共 ${c.steps_count} 步`]
-        // 离线教学示例：四主阶段名（读题/选方法/分步推导/订正）比后端 phase 更好懂
-        if (c.stage_label) parts.push(c.stage_label)
-        else if (PHASE_ZH[c.phase]) parts.push(PHASE_ZH[c.phase])
+        if (PHASE_ZH[c.phase]) parts.push(PHASE_ZH[c.phase])
         const scaffold =
           (c.scaffold_level ?? null) !== null
             ? SCAFFOLD_LEVEL_ZH[Number(c.scaffold_level)]
@@ -849,6 +849,19 @@ watch(
 </script>
 
 <style scoped>
+/* ═══ 排版：对话改为文档式阅读列（评审 §1.2）═══
+   外壳（顶栏/侧栏/配色/学生气泡）保持现役不动，只约束阅读宽度并把 AI 气泡降为文档。 */
+.dialog-page .dialog-messages > .msg-row {
+  width: 100%; max-width: 860px; margin-left: auto; margin-right: auto;
+}
+.dialog-page .dialog-messages > .msg-row :deep(.ai-col) { max-width: none; flex: 1 1 auto; }
+.dialog-page .dialog-messages > .msg-row :deep(.ai-bubble) {
+  background: transparent; border: 0; padding: 0; border-radius: 0; box-shadow: none;
+}
+.dialog-page .dialog-messages > .msg-row :deep(.user-col) { max-width: 74%; }
+.dialog-page :deep(.chat-input) { max-width: 860px; margin: 0 auto; }
+.dialog-page :deep(.sugg) { max-width: 860px; margin-left: auto; margin-right: auto; }
+
 .offline-demo-chip {
   display: inline-block; margin-right: 6px; padding: 0 7px; border-radius: 999px;
   font-size: 10.5px; font-weight: 700; line-height: 17px; vertical-align: 1px;

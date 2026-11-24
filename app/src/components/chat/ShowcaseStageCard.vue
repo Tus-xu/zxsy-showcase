@@ -11,7 +11,6 @@
   -->
   <div class="ssc" :class="[`ssc-${card.variant}`, { used }]" :data-showcase-card="card.variant">
     <div class="ssc-head">
-      <span v-if="card.stage" class="ssc-stage">{{ card.stage }}</span>
       <span class="ssc-title">{{ card.title || '导学' }}</span>
       <span v-if="card.pauseAt" class="ssc-pause">原题暂停在 · {{ card.pauseAt }}</span>
     </div>
@@ -47,21 +46,6 @@
         </tr>
       </tbody>
     </table>
-
-    <!-- 方法双卡：每张卡一个副句，点卡片即选这一路 -->
-    <div v-if="card.methods?.length" class="ssc-methods">
-      <button
-        v-for="m in card.methods"
-        :key="m.id"
-        type="button"
-        class="ssc-method"
-        :disabled="!interactive"
-        @click.stop="send({ id: m.id, label: m.label })"
-      >
-        <span class="ssc-method-label">{{ m.label }}</span>
-        <span class="ssc-method-sub">{{ m.sub }}</span>
-      </button>
-    </div>
 
     <!-- 方法双卡：每张卡一个副句，点卡片即选这一路 -->
     <div v-if="card.methods?.length" class="ssc-methods">
@@ -221,7 +205,6 @@
     <!-- 教材溯源出处（自编讲义，可展开可收起） -->
     <SocraticCitations :citations="card.citations || []" />
 
-    <div v-if="used" class="ssc-used">已作答 · 这一张留着回看</div>
   </div>
 </template>
 
@@ -308,18 +291,10 @@ function send(a) {
 </script>
 
 <style scoped>
-.ssc {
-  margin-top: 10px; padding: 12px 14px; border-radius: var(--radius-md);
-  border: 1px solid var(--purple-border); background: rgba(245, 243, 255, 0.5);
-}
-.ssc.used { background: rgba(248, 250, 252, 0.7); border-color: var(--border); }
+.ssc { margin-top: 16px; padding: 0; border: 0; background: transparent; }
 
 .ssc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-.ssc-stage {
-  font-size: 11px; font-weight: 700; color: #fff; background: var(--purple);
-  border-radius: 999px; padding: 1px 8px; letter-spacing: .3px;
-}
-.ssc-title { font-size: 13px; font-weight: 700; color: var(--ink); }
+.ssc-title { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: .1px; }
 .ssc-pause {
   font-size: 11px; color: var(--warn-deep); background: var(--warn-bg);
   border: 1px solid var(--warn-border); border-radius: 999px; padding: 1px 8px;
@@ -365,7 +340,6 @@ function send(a) {
 .ssc-sign { font-weight: 700; color: var(--purple); text-align: center; }
 
 /* 方法双卡 */
-.ssc-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
 .ssc-method {
   display: flex; flex-direction: column; gap: 3px; text-align: left; cursor: pointer;
   padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border-strong);
@@ -484,7 +458,7 @@ function send(a) {
 .ssc-reason-text { font-size: 12.5px; color: var(--ink2); margin: 0; line-height: 1.6; }
 
 /* 选项 */
-.ssc-options { display: grid; gap: 7px; margin-bottom: 10px; }
+.ssc-options { display: grid; gap: 7px; margin-bottom: 10px; max-width: 560px; }
 .ssc-opt {
   display: flex; align-items: center; gap: 9px; width: 100%; text-align: left;
   padding: 9px 12px; border-radius: var(--radius); cursor: pointer;
@@ -549,7 +523,6 @@ function send(a) {
   .ssc-clues td { border: 0; padding: 0 10px; }
   .ssc-clue-left { white-space: normal; }
   .ssc-pairs { grid-template-columns: 1fr; }
-  .ssc-methods { grid-template-columns: 1fr; }
   .ssc-methods { grid-template-columns: 1fr; }
 }
 </style>

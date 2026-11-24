@@ -28,7 +28,7 @@ const firstA = () => newNodeState('s5', { firstAnswer: 'A' })
 
 describe('主讲路径 A（首答 A → 订正 C）', () => {
   it('走完四主阶段并订正成功', () => {
-    let { state } = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号'])
+    let { state } = run(firstA(), ['题目看懂了', '看导数变号'])
     expect(state.node).toBe('a1_candidates')
     expect(state.stage).toBe('derive')
     expect(state.path).toBe('A')
@@ -83,7 +83,7 @@ describe('主讲路径 A（首答 A → 订正 C）', () => {
   })
 
   it('未作答进入时不做「订正」措辞，直接收在「回到这题」', () => {
-    let { state } = run(newNodeState('s5'), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2', 'x=0 处的切线斜率为负', '左正右负', '局部极大', '局部极小', 'x=2'])
+    let { state } = run(newNodeState('s5'), ['题目看懂了', '看导数变号', '−1 和 2', 'x=0 处的切线斜率为负', '左正右负', '局部极大', '局部极小', 'x=2'])
     expect(state.node).toBe('fix_return')
     const card = getNode('fix_return').build(state).cards[1]
     expect(card.actions[0].label).toBe('回到这题')
@@ -92,7 +92,7 @@ describe('主讲路径 A（首答 A → 订正 C）', () => {
 
 describe('明确误解触发前置小课', () => {
   it('把导数符号读成图像位置 → 小课 → 检验通过 → 回到同一步', () => {
-    let { state } = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2'])
+    let { state } = run(firstA(), ['题目看懂了', '看导数变号', '−1 和 2'])
     const out = step(state, { text: 'g′(0)<0，所以图像在 x 轴下方' })
     expect(out.state.node).toBe('d1_lesson')
     expect(out.state.lesson.check).toBe('pending')
@@ -122,7 +122,7 @@ describe('明确误解触发前置小课', () => {
   })
 
   it('「负」单独出现只建立澄清问题，不触发补课', () => {
-    const s = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2']).state
+    const s = run(firstA(), ['题目看懂了', '看导数变号', '−1 和 2']).state
     const out = step(s, { text: '负' })
     expect(out.state.node).toBe('a2_clarify')
     expect(out.state.lesson).toBeNull()
@@ -130,7 +130,7 @@ describe('明确误解触发前置小课', () => {
   })
 
   it('澄清为切线斜率后正常继续；澄清为函数值才进小课', () => {
-    const s = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2', '应该是负的吧']).state
+    const s = run(firstA(), ['题目看懂了', '看导数变号', '−1 和 2', '应该是负的吧']).state
     expect(s.node).toBe('a2_clarify')
     const ok = step(s, { text: '导数 g′(0)' })
     expect(ok.state.node).toBe('a3_signs')
@@ -141,7 +141,7 @@ describe('明确误解触发前置小课', () => {
   })
 
   it('小课里可先回原题，状态记为检验未完成', () => {
-    const s = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2', 'g′(0)<0，所以图像在 x 轴下方']).state
+    const s = run(firstA(), ['题目看懂了', '看导数变号', '−1 和 2', 'g′(0)<0，所以图像在 x 轴下方']).state
     const out = step(s, { text: '先回原题' })
     expect(out.state.node).toBe('a3_signs')
     expect(out.state.lesson.check).toBe('skipped')
@@ -152,7 +152,7 @@ describe('明确误解触发前置小课', () => {
 
 describe('B 路径（比较附近函数值）与换路', () => {
   it('走完 B 路径并能订正', () => {
-    let { state } = run(firstA(), ['判断局部极值', '题目看懂了', '比较附近的函数值'])
+    let { state } = run(firstA(), ['题目看懂了', '比较附近的函数值'])
     expect(state.node).toBe('b1_standard')
     expect(state.path).toBe('B')
 
@@ -173,7 +173,7 @@ describe('B 路径（比较附近函数值）与换路', () => {
   })
 
   it('B → 看一眼 A 时保留已证事实且标记换过路', () => {
-    let { state } = run(firstA(), ['判断局部极值', '题目看懂了', '比较附近的函数值', '更小，局部极小', '负', '正'])
+    let { state } = run(firstA(), ['题目看懂了', '比较附近的函数值', '更小，局部极小', '负', '正'])
     const before = [...state.facts]
     const out = step(state, { text: '看看另一种方法' })
     expect(out.state.path).toBe('A')
@@ -183,7 +183,7 @@ describe('B 路径（比较附近函数值）与换路', () => {
   })
 
   it('A 路径中途也能切到 B，换路后回看旧结论仍在', () => {
-    const s = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2']).state
+    const s = run(firstA(), ['题目看懂了', '看导数变号', '−1 和 2']).state
     expect(s.node).toBe('a2_diagnose')
     // 卡上给「换一种方法」次动作，学生自主选择
     const out = step(s, { text: '换一种方法' })
@@ -200,31 +200,31 @@ describe('无关输入与边界', () => {
   it('无关文本留在原步骤，不推进', () => {
     const s = firstA()
     const out = step(s, { text: '今天天气不错' })
-    expect(out.state.node).toBe('g0_locate')
+    expect(out.state.node).toBe('r_read')
     expect(out.reply.text).toBe(T.unknown)
   })
 
-  it('读题阶段说「导数」只得到纠正，不判错也不推进', () => {
+  it('读题阶段说「导数」不判错，也不推进', () => {
     const out = step(firstA(), { text: '我觉得要用导数' })
-    expect(out.state.node).toBe('g0_locate')
-    expect(out.reply.text).toBe(T.locateDeriv)
+    expect(out.state.node).toBe('r_read')
+    expect(out.reply.text).toBe(T.unknown)
   })
 
   it('选方法后可输入等价导数式得到候选点', () => {
-    const s = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号']).state
+    const s = run(firstA(), ['题目看懂了', '看导数变号']).state
     const out = step(s, { text: 'g′(x)=6(x+1)(x−2)，x=−1 或 x=2' })
     expect(out.state.node).toBe('a2_diagnose')
     expect(out.state.facts).toContain(FACT.candidates)
   })
 
   it('节点状态机不会被未知节点 id 卡死', () => {
-    const out = step({ ...firstA(), node: 'no_such_node' }, { text: '判断局部极值' })
-    expect(out.state.node).toBe('r_read')
+    const out = step({ ...firstA(), node: 'no_such_node' }, { text: '题目看懂了' })
+    expect(out.state.node).toBe('m_method')
   })
 
   it('重复提交同一动作不会跨节点串状态', () => {
-    const a = step(firstA(), { text: '判断局部极值' })
-    const b = step(firstA(), { text: '判断局部极值' })
+    const a = step(firstA(), { text: '题目看懂了' })
+    const b = step(firstA(), { text: '题目看懂了' })
     expect(a.state.node).toBe(b.state.node)
     expect(a.reply.text).toBe(b.reply.text)
   })
@@ -232,7 +232,7 @@ describe('无关输入与边界', () => {
 
 describe('极限支线', () => {
   it('从读题主动问极限，看完回到读题', () => {
-    const s = run(firstA(), ['判断局部极值']).state
+    const s = newNodeState('s5', { firstAnswer: 'A' })
     expect(s.node).toBe('r_read')
     const out = step(s, { text: '我不懂极限是什么' })
     expect(out.state.node).toBe('limit_intro')
@@ -250,7 +250,7 @@ describe('极限支线', () => {
   })
 
   it('从推导问极限，先继续原题回到同一节点', () => {
-    const s = run(firstA(), ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2']).state
+    const s = run(firstA(), ['题目看懂了', '看导数变号', '−1 和 2']).state
     const out = step(s, { text: '极限到底是啥' })
     expect(out.state.node).toBe('limit_intro')
     expect(out.state.limitReturn).toBe('a2_diagnose')

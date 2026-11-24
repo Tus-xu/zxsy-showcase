@@ -31,13 +31,8 @@ const KP = '导数与函数单调性'
 /* ───────────────── 文案（逐句对齐方案；改文案请同步 engine.test.js） ───────────────── */
 
 export const T = {
-  locateAsk:
-    '我们先圈一下题眼。题里问的不是函数等于几，而是「在哪个 x 取得局部极小值」。你觉得这题主要在判断什么？',
-  locateRight: '对，这题要找的是曲线在哪个位置出现一个局部低点。',
-  locateZero: '求零点要解 g(x)=0。这题需要看 g(x) 跟附近的值怎么比。',
-  locateRange: '这题没有给定区间，问的是「在哪个 x」——要交的是横坐标，不是最小值。',
-  locateDeriv: '导数可以用来做这题。题目具体让我们判断的是局部极值。',
-  readLead: '题面给了函数式、要判断的东西和最后要交的量。先看这三行分别对应什么。',
+  diagnose:
+    '你找到的 $-1$ 确实让导数为零，这一步是对的。不过导数等于零只说明这一点的切线是水平的；它是极大、极小还是都不是，要看曲线经过这个点时先升后降，还是先降后升。',
   localAnswer:
     '只和足够靠近它的点比较，像站在一个小山谷的谷底。局部极小一定是整个定义域的最低值吗？',
   localNo: '嗯。局部只看附近，全局才要跟所有点比。',
@@ -45,16 +40,16 @@ export const T = {
   methodAsk: '现在知道要找什么了。你想先从哪一种方法试？',
   methodHelp: '这题是多项式，导数容易分解，可以先试变号法。你也可以直接试另一路，两种方法都解释得通。',
 
-  a1Ask: '先找导数可能变号的位置。g′(x)=6(x+1)(x−2)。这两个因子分别在什么位置等于零？',
+  a1Ask: '先找导数可能变号的位置。$g\'(x)=6(x+1)(x-2)$。这两个因子分别在什么位置等于零？',
   a1Right: '对。−1 和 2 就是导数可能变号的两个位置，先记下来。',
-  a1Wrong: '把两个因子分别令零：(x+1)=0 得 x=−1，(x−2)=0 得 x=2。',
+  a1Wrong: '把两个因子分别令零：$x+1=0$ 得 $x=-1$，$x-2=0$ 得 $x=2$。',
   a1Hint: '两个因子相乘等于零，只要其中一个因子为零。分别令它们等于零就行。',
 
   a2AskPick:
-    '先看你选的 −1。它左边可以取 −2，右边、另一个候选点之前可以取 0。先看 g′(0)=−12。这告诉我们什么？',
+    '先看你选的 $-1$。它左边可以取 $-2$，右边、另一个候选点之前可以取 $0$。先看 $g\'(0)=-12$。这告诉我们什么？',
   a2AskCheck:
-    '先检查候选点 −1。它左边可以取 −2，右边、另一个候选点之前可以取 0。先看 g′(0)=−12。这告诉我们什么？',
-  a2Right: '对。检查整个 (−1,2) 区间的因子符号后，我们就能判断这段曲线的升降。',
+    '先检查候选点 $-1$。它左边可以取 $-2$，右边、另一个候选点之前可以取 $0$。先看 $g\'(0)=-12$。这告诉我们什么？',
+  a2Right: '对。检查整个 $(-1,\\,2)$ 区间的因子符号后，我们就能判断这段曲线的升降。',
   a2Misread:
     '你正确读出了 g′(0) 是负数。它说的是切线的斜率。图像在轴的哪一侧，要看 g(0) 的正负。我们先用一个小例子分清这两件事，再回来。',
   a2Clarify: '你说的负，是函数值 g(0) 为负，还是导数 g′(0) 为负？',
@@ -72,22 +67,22 @@ export const T = {
 
   resume: '回到 g。刚才已经找到候选点 −1 和 2。先看 −1 两侧，分别判断 g′(−2) 和 g′(0) 的符号。',
 
-  a3Ask: '−1 左右两侧的导数符号分别是什么？',
+  a3Ask: '$-1$ 左右两侧的导数符号分别是什么？',
   a3Right:
-    '对。g′(−2)=24 是正，g′(0)=−12 是负，所以 −1 左边增、右边减。每个区间内两个因子的符号都不变，所以三段依次是 +、−、+；g′(3)=24 也对得上。',
+    '对。$g\'(-2)=24$ 是正，$g\'(0)=-12$ 是负，所以 $-1$ 左边增、右边减。每个区间内两个因子的符号都不变，所以三段依次是 $+$、$-$、$+$；$g\'(3)=24$ 也对得上。',
   a3Wrong:
-    '分别代入两个因子：(−2+1)=−1、(−2−2)=−4，两个都为负，乘积为正；0 处是 1 和 −2，乘积为负。',
+    '分别代入两个因子：$-2+1=-1$、$-2-2=-4$，两个都为负，乘积为正；$0$ 处是 $1$ 和 $-2$，乘积为负。',
   a3Hint: '只看符号：−2 时两个因子都负，负乘负得正；0 时一正一负，得负。',
 
-  a3c1Ask: '−1 左边正、右边负，函数先增后减，它是哪一类？',
-  a3c1Right: '对，这里是局部极大。到了 2 呢？左负右正对应什么？',
+  a3c1Ask: '$-1$ 左边正、右边负，函数先增后减，它是哪一类？',
+  a3c1Right: '对，这里是局部极大。到了 $2$ 呢？左负右正对应什么？',
   a3c1Wrong: '先增后减，曲线在这一点从上升转到下降，最高点就在这儿——所以是局部极大。',
   a3c2Ask: '到了 2 呢？左负右正对应什么？',
   a3c2Right: '对。到这里两个候选都分清了。',
   a3c2Wrong: '左负右正：左边还在下降，过了这一点开始上升，所以它是这一段的低点——局部极小。',
 
   a4Ask: '现在两个候选都能区分了。请选出取得局部极小值的横坐标。',
-  a4Right: '对。g(2)=−19，比附近的 g(−1)=8 小。你原来那一步只让导数等于零，没有看它两侧的符号变化。',
+  a4Right: '对。$g(2)=-19$，比附近的 $g(-1)=8$ 小。你原来那一步只让导数等于零，没有看它两侧的符号变化。',
   a4Wrong: 'g(−1)=8 是局部极大。回到刚才两句：哪一边是左负右正？',
 
   whyAsk: '现在用一句话说明：为什么 −1 这里不能选它。',
@@ -102,16 +97,16 @@ export const T = {
   fixWrongOther: '先算 g′(x)=6(x+1)(x−2)，两处候选是 −1 和 2；再看哪一处左负右正。',
 
   b1Ask:
-    '我们检查两个候选附近的函数值。若 g(x)−g(a)>0 对 a 附近所有 x≠a 都成立，那么 g(a) 比这些值大还是小？',
+    '我们检查两个候选附近的函数值。若 $g(x)-g(a)>0$ 对 $a$ 附近所有 $x\\neq a$ 都成立，那么 $g(a)$ 比这些值大还是小？',
   b1Right: '对，差值恒正说明 g(a) 更小，是局部极小；反过来差值恒负就是局部极大。',
   b1Wrong: '式子是 g(x)−g(a)。它大于零，说明 g(x) 更大，也就是 g(a) 更小。',
   b2Ask:
-    '把函数值作差并整理，有 g(x)−g(−1)=(x+1)²(2x−7)。当 x 靠近 −1 且不等于它，平方因子为正。2x−7 在 −1 附近是正还是负？',
+    '把函数值作差并整理，有 $g(x)-g(-1)=(x+1)^2(2x-7)$。当 $x$ 靠近 $-1$ 且不等于它，平方因子为正。$2x-7$ 在 $-1$ 附近是正还是负？',
   b2Right:
     '对，取 x=−1 得 −9，所以在这个邻域里 2x−7 为负。平方因子为正、它取负，差值就为负——附近的值都比 g(−1) 小，所以 −1 是局部极大。',
   b2Wrong: '代 x=−1 看看：2×(−1)−7=−9。在 −1 附近它一直是负的。',
   b2Hint: '平方因子 (x+1)² 一定非负。所以差值的符号由 2x−7 决定。',
-  b3Ask: '在 2 附近，g(x)−g(2)=(x−2)²(2x+5)。若 1<x<3 且 x≠2，它是什么符号？',
+  b3Ask: '在 $2$ 附近，$g(x)-g(2)=(x-2)^2(2x+5)$。若 $1<x<3$ 且 $x\\neq 2$，它是什么符号？',
   b3Right:
     '对。平方因子为正，2x+5 在这个区间最小是 7，也是正的，所以差值恒正——附近的值都比 g(2) 大，2 是局部极小。',
   b3Wrong: '代 x=2：2×2+5=9，是正数；而 1<x<3 时 2x+5 最小也有 7，所以恒正。',
@@ -144,23 +139,6 @@ function progress(stage) {
     steps_count: 4,
     stage_label: STAGE[stage] || '',
     kp_name: KP,
-  }
-}
-
-function cardLocate() {
-  return {
-    type: 'showcase_stage',
-    variant: 'locate',
-    stage: STAGE.read,
-    title: '先圈出题眼',
-    snippet: 'g(x)=2x³−3x²−12x+1，问「在哪个 x 取得极小值」',
-    marks: ['哪个 x', '局部极小值'],
-    ask: '这题主要在判断什么？',
-    options: [
-      { id: 'zero', label: '求函数的零点' },
-      { id: 'extremum', label: '判断局部极值' },
-      { id: 'range', label: '求给定区间的最小值' },
-    ],
   }
 }
 
@@ -426,31 +404,8 @@ function get(id) {
 
 /* ===== 读题 ===== */
 
-node('g0_locate', {
-  build: () => ({ text: T.locateAsk, cards: [progress('read'), cardLocate()] }),
-  accept(s, a) {
-    if (isLimitAsk(a.text)) return startLimit(s, 'g0_locate')
-    const t = norm(a.text)
-    const picked = matchOption(cardLocate().options, a.text)
-    if (picked?.id === 'extremum') {
-      return {
-        next: 'r_read',
-        session: { ...s, stage: 'read' },
-        reply: {
-          text: T.locateRight,
-          cards: [progress('read'), cardRead({ relation: true })],
-        },
-      }
-    }
-    if (picked?.id === 'zero') return retry(s, T.locateZero, [progress('read'), cardLocate()])
-    if (picked?.id === 'range') return retry(s, T.locateRange, [progress('read'), cardLocate()])
-    if (has(t, '导数', '求导')) return retry(s, T.locateDeriv, [progress('read'), cardLocate()])
-    return retry(s, T.unknown, [progress('read'), cardLocate()])
-  },
-})
-
 node('r_read', {
-  build: () => ({ text: T.readLead, cards: [progress('read'), cardRead({ relation: true })] }),
+  build: () => ({ text: T.diagnose, cards: [progress('read'), cardRead({ relation: true })] }),
   accept(s, a) {
     if (isLimitAsk(a.text)) return startLimit(s, 'r_read')
     const t = norm(a.text)
@@ -963,7 +918,7 @@ node('s4_entry', {
   }),
   accept(s, a) {
     if (has(norm(a.text), '引导式解题', '走一遍')) {
-      return { next: 'g0_locate', session: { ...s, stage: 'read' }, reply: null }
+      return { next: 'r_read', session: { ...s, stage: 'read' }, reply: null }
     }
     return retry(s, T.noop, get('s4_entry').build().cards)
   },
@@ -1056,7 +1011,7 @@ node('c_quiz', {
   build: () => ({ text: '', cards: [tallyPlaceholder()] }),
   accept(s, a) {
     if (has(norm(a.text), '引导式解题', '走一遍')) {
-      return { next: 'g0_locate', session: { ...s, stage: 'read' }, reply: null }
+      return { next: 'r_read', session: { ...s, stage: 'read' }, reply: null }
     }
     if (has(norm(a.text), '小结')) {
       const tally = s.quizTally || { total: 3, answered: 0, firstCorrect: 0, finalCorrect: 0, corrected: 0 }
@@ -1241,7 +1196,7 @@ export function summaryOf(s) {
 export function newNodeState(convKey, overrides = {}) {
   return {
     convKey,
-    node: 'g0_locate',
+    node: 'r_read',
     stage: 'read',
     path: null,
     facts: [],
@@ -1278,7 +1233,7 @@ export function opening(s) {
  * @returns {{state:object, reply:{text:string, cards:any[]}|null}}
  */
 export function step(s, action) {
-  const cur = s.node && NODES[s.node] ? s.node : 'g0_locate'
+  const cur = s.node && NODES[s.node] ? s.node : 'r_read'
   const def = NODES[cur]
   const a = { text: String(action?.text ?? ''), tutorAction: action?.tutorAction || '' }
   const base = { ...s, node: cur }

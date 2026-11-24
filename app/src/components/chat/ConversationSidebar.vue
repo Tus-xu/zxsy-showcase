@@ -56,7 +56,7 @@
                 <div class="cs-item-title" @dblclick.stop="startRename(c)">
                   <UiIcon v-if="c.pinned" name="pin" :size="11" class="cs-title-pin" />{{ c.title || '新对话' }}
                 </div>
-                <div class="cs-item-time">{{ fmtTime(c.updatedAt || c.createdAt) }}</div>
+                <div class="cs-item-time">{{ fmtTime(when(c)) }}</div>
               </template>
             </div>
 
@@ -118,16 +118,21 @@ function clearQuery() {
 }
 
 /* ===== 分组：置顶组优先，其余按时间分组；各组内 updatedAt desc ===== */
+/** 会话时间：接口是 snake_case，历史组件读 camelCase，两种都兼容 */
+function when(c) {
+  return c?.updatedAt || c?.createdAt || c?.updated_at || c?.created_at || ''
+}
+
 const groups = computed(() => {
   const sorted = [...props.conversations].sort((a, b) => {
     if (!!a.pinned !== !!b.pinned) return a.pinned ? -1 : 1
-    return String(b.updatedAt || '').localeCompare(String(a.updatedAt || ''))
+    return String(when(b)).localeCompare(String(when(a)))
   })
   const pinned = sorted.filter((c) => c.pinned)
   const rest = sorted.filter((c) => !c.pinned)
   const buckets = CONV_GROUPS.map((g) => ({ ...g, items: [] }))
   for (const c of rest) {
-    const key = convGroupKey(c.updatedAt || c.createdAt)
+    const key = convGroupKey(when(c))
     buckets.find((g) => g.key === key)?.items.push(c)
   }
   return [{ key: 'pinned', label: '置顶', items: pinned }, ...buckets]

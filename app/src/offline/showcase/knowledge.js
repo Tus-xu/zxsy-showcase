@@ -72,3 +72,23 @@ export function cite(...keys) {
       quote: s.quote,
     }))
 }
+
+/**
+ * 消息级引用（渲染走 SourceCard，字段是 n / title / snippet / source）。
+ * 卡内引用（SocraticCitations）用的是 doc_title / chunk_id / quote，两套不能混用——
+ * 混用会让现役组件渲染出「未知来源」，评审已把这列为可信度问题。
+ *
+ * 来源一律标注「自编讲义（本项目编写）」，不伪造出版社、页码或检索排名。
+ */
+export function refs(...keys) {
+  return keys
+    .map((k) => LECTURE[k])
+    .filter(Boolean)
+    .map((s, i) => ({
+      n: i + 1,
+      kind: '自编讲义',
+      title: `${LECTURE_TITLE} ${s.section} ${s.title}`,
+      snippet: s.quote,
+      source: '自编讲义（本项目编写，非教材原文）',
+    }))
+}

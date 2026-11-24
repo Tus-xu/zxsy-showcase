@@ -132,7 +132,7 @@ for (const role of Object.keys(ROUTES)) {
     }, label)
     await page.waitForTimeout(1400)
   }
-  for (const step of ['判断局部极值', '题目看懂了', '看导数变号', '−1 和 2', 'x=0 处的切线斜率为负',
+  for (const step of ['题目看懂了', '看导数变号', '−1 和 2', 'x=0 处的切线斜率为负',
     '左正右负', '局部极大', '局部极小', 'x=2', '它左侧在上升，右侧在下降', '返回题卡订正', '2']) {
     await tap(step)
   }

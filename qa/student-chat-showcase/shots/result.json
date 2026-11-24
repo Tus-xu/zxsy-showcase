@@ -28,7 +28,7 @@
    "note": "S2 真实追问=true 反例=true；S3 帧控件=3 播放文案=true 图注=4 破图=0；x³ 反例=true",
    "evidence": {
     "s2": {
-     "turns": 6,
+     "turns": 9,
      "hasFollow": true,
      "hasCounter": true,
      "shot": "shots/03-V02-s2.png"
@@ -59,7 +59,7 @@
   {
    "id": "V04",
    "ok": true,
-   "note": "C1 提问=true 消息数 3；C3 变式卡=4；C4 错因反馈=true；C5 进入 G0=true；A 路径走完=true；C6 已订正=true；小结=true",
+   "note": "C1 提问=true 消息数 3；C3 变式卡=4；C4 错因反馈=true；C5 进入读题=true；A 路径走完=true；C6 已订正=true；小结=true",
    "evidence": {
     "beforeSize": 3,
     "quizCards": 4
@@ -109,7 +109,7 @@
   "V01err": [],
   "V02": {
    "s2": {
-    "turns": 6,
+    "turns": 9,
     "hasFollow": true,
     "hasCounter": true,
     "shot": "shots/03-V02-s2.png"

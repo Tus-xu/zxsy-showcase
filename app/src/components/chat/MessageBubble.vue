@@ -2,10 +2,11 @@
   <!-- 用户右气泡 -->
   <div v-if="msg.role === 'user'" class="msg-row user">
     <div class="user-col">
+      <!-- 附件放在气泡外：题图是数学内容块，不是聊天文字的一部分 -->
+      <div v-if="msg.attachments?.length" class="ub-atts outside">
+        <AttachmentThumb v-for="a in msg.attachments" :key="a.file_id || a.name" :attachment="a" />
+      </div>
       <div class="bubble user-bubble">
-        <div v-if="msg.attachments?.length" class="ub-atts">
-          <AttachmentThumb v-for="a in msg.attachments" :key="a.file_id || a.name" :attachment="a" />
-        </div>
         <!-- 题目白卡：讲解/变式消息把题干独立成白色题目区（LaTeX 正常渲染） -->
         <div v-if="msg.question?.text" class="ub-question">
           <MarkdownView :text="msg.question.text" :zoomable="false" />
@@ -114,7 +115,10 @@
             🧭 引导式解题{{ c.steps_count ? ` · 共 ${c.steps_count} 步` : ' · 先读题理解' }}{{ c.difficulty ? ` · 难度「${difficultyName(c.difficulty)}」` : '' }}
           </div>
           <!-- sgv2 进度卡（DESIGN §6.2：由不渲染改为渲染为紧凑进度条；旧历史消息缺字段时隐藏） -->
-          <div v-else-if="cardType(c) === 'socratic_progress' && hasProgressData(c)" class="soc-progress">
+          <div
+            v-else-if="cardType(c) === 'socratic_progress' && hasProgressData(c) && !hasShowcaseCard"
+            class="soc-progress"
+          >
             <div class="sp-top">
               <span class="sp-step">第 {{ c.current_step }}/{{ c.steps_count }} 步</span>
               <!-- 离线教学示例：四主阶段名（读题/选方法/分步推导/订正），比后端 phase 更好懂 -->
@@ -305,8 +309,8 @@
           <span v-if="msg.status === 'error'" class="tag red">{{ msg.errorText || '出错了' }}</span>
         </div>
 
-        <!-- AI 生成标识（显式标识 + 机器可读标识）：每一条 AI 回答框末尾恒显示 -->
-        <AiGeneratedMark :provider="aiSkillLabel" :content-id="String(msg.msgId || msg.key || '')" />
+        <!-- AI 生成标识：只在该会话最后一条 AI 回复末尾显示一次（评审：每条都挂是噪声） -->
+        <AiGeneratedMark v-if="live" :provider="aiSkillLabel" :content-id="String(msg.msgId || msg.key || '')" />
       </div>
 
       <!-- AI 消息操作条（M2 §4.2：复制｜重新生成｜版本导航｜👍👎｜时间戳+模型徽标） -->
@@ -522,6 +526,11 @@ const badgeText = computed(() => {
   if (b === 'web_supplement') return '🌐 联网补充'
   return b
 })
+
+/** 该消息是否含离线教学示例的导学卡：是则阶段只由顶部徽标表达，卡内不再重复进度条 */
+const hasShowcaseCard = computed(() =>
+  (props.msg.cards || []).some((c) => (c?.type || c?.card_type) === 'showcase_stage'),
+)
 
 function cardType(c) {
   return c?.type || c?.card_type || ''
@@ -760,6 +769,13 @@ function stageName(stage) {
 .ub-q-body { flex: 1; min-width: 0; }
 .user-bubble > :deep(.md-body) code { background: rgba(255, 255, 255, 0.18); color: #fff; }
 .ub-atts { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-2); }
+/* 气泡外的题图：白底细边框，不再被紫色底衬 */
+.ub-atts.outside { justify-content: flex-end; margin-bottom: 10px; }
+.ub-atts.outside :deep(.att-img) {
+  border: 1px solid var(--border); background: #fff; border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.ub-atts.outside :deep(.att-thumb) { max-width: 100%; }
 /* 内联编辑 */
 .ub-edit-ta {
   width: 100%; min-width: 320px; border: none; outline: none; resize: vertical;
