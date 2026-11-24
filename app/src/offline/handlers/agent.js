@@ -18,6 +18,44 @@ import { ensureSession, runTurn, toHistoryItems, turnCount } from '../showcase/s
 
 const RAW_FLOWS = import.meta.glob('../fixtures/student/flow-*.json', { eager: true, query: '?raw', import: 'default' })
 
+/**
+ * 历史会话标题重建：现役采证里 30 条会话有 24 条是占位标题
+ * （12×「分析用户上传的文件」、9×「新对话」、3×「分析用户上传的文件内容」），
+ * 侧栏因此无法区分。这里用**每条会话真实的首次用户消息**重建展示标题，
+ * 原始 fixture 一个字都不改；0 条消息的会话不进列表（它没有任何可点进去的内容）。
+ */
+const RAW_CONVS = import.meta.glob('../fixtures/student/run03/conv-*.json', { eager: true, query: '?raw', import: 'default' })
+
+const CONV_META = (() => {
+  const out = {}
+  for (const [p, text] of Object.entries(RAW_CONVS)) {
+    const m = /conv-([0-9a-f]+)\.json$/.exec(p)
+    if (!m) continue
+    let items = []
+    try { items = JSON.parse(text)?.data?.items || [] } catch { continue }
+    if (!items.length) { out[m[1]] = { empty: true, title: '' }; continue }
+    // 采证 /messages 是「最新在前」，倒着找第一条用户消息
+    let firstUser = null
+    for (let i = items.length - 1; i >= 0; i--) {
+      if (items[i]?.role === 'user') { firstUser = items[i]; break }
+    }
+    const blocks = firstUser?.envelope?.blocks || []
+    const txt = blocks
+      .filter((b) => b?.type === 'markdown')
+      .map((b) => String(b.content || ''))
+      .join('')
+      .trim()
+    const atts = firstUser?.attachments || []
+    let title = ''
+    if (txt && !txt.includes('请分析我上传的文件')) title = txt.replace(/\s+/g, ' ').slice(0, 18)
+    else if (atts.length) title = `题目图片 · ${atts[0]?.name || ''}`.trim()
+    out[m[1]] = { empty: false, title }
+  }
+  return out
+})()
+
+const PLACEHOLDER_TITLES = new Set(['分析用户上传的文件', '分析用户上传的文件内容', '新对话'])
+
 export const OFFLINE_NOTICE = '离线演示：本步骤只回放现役系统已采证的对话分支，未采证的输入不会生成新回答。'
 
 export const FLOWS = (() => {
@@ -127,7 +165,19 @@ function convMeta(flow) {
 export function listConversations(basePayload) {
   let payload = null
   try { payload = JSON.parse(basePayload) } catch { payload = null }
-  const items = Array.isArray(payload?.data?.items) ? payload.data.items.slice() : []
+  const raw = Array.isArray(payload?.data?.items) ? payload.data.items : []
+  // 标题重建 + 空会话过滤（只影响展示，不动采证数据）
+  const items = []
+  for (const it of raw) {
+    const key = String(it?.id || '').slice(0, 8)
+    const meta = CONV_META[key]
+    if (meta?.empty) continue
+    if (meta) {
+      const t = String(it?.title || '').trim()
+      if (!t || PLACEHOLDER_TITLES.has(t)) it.title = meta.title || '上传的题目图片'
+    }
+    items.push(it)
+  }
 
   // 教学示例排在最前（置顶），原有采证项一条不改，只 append
   const showcase = SHOWCASE_CONVS

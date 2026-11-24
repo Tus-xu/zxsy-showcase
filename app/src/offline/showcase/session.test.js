@@ -62,8 +62,9 @@ describe('预置轮次与题图', () => {
     const [a] = aiItems('sc-s1')
     const text = a.envelope.blocks.find((b) => b.type === 'markdown').content
     expect(text).toContain('找候选点')
-    expect(text).toContain('f(−1)=2')
-    expect(text).toContain('f(1)=−2')
+    // 公式改为 KaTeX 行内排版（$...$），断言跟着看 LaTeX 源
+    expect(text).toContain('f(-1)=2')
+    expect(text).toContain('f(1)=-2')
   })
 
   it('S5 首答 A 与可回看的题面都在（不假装是本次作答）', () => {
@@ -74,7 +75,7 @@ describe('预置轮次与题图', () => {
     const retry = cards.find((c) => c.variant === 'retry')
     expect(retry.readonly).toBe(true)
     expect(retry.chosen).toBe('A')
-    expect(cards.some((c) => c.variant === 'locate')).toBe(true)
+    expect(cards.some((c) => c.variant === 'read')).toBe(true)
   })
 
   it('S3 图形卡是三帧且带图注', () => {
@@ -105,7 +106,7 @@ describe('推进一轮并刷新恢复', () => {
 
   it('提交一次只追加一轮，重复取历史不重复追加', () => {
     const before = toHistoryItems('sc-s5').length
-    runTurn('sc-s5', { message: '判断局部极值' })
+    runTurn('sc-s5', { message: '题目看懂了' })
     const after = toHistoryItems('sc-s5').length
     expect(after).toBe(before + 2) // 用户一轮 + AI 一轮
     // 再取两次不变（幂等）
@@ -114,18 +115,18 @@ describe('推进一轮并刷新恢复', () => {
   })
 
   it('刷新后从同一小问继续，不重复追加承接气泡', () => {
-    runTurn('sc-s5', { message: '判断局部极值' })
+    runTurn('sc-s5', { message: '题目看懂了' })
     const s1 = ensureSession('sc-s5')
-    expect(s1.node).toBe('r_read')
     const n1 = s1.turns.length
-    // 模拟刷新：重新 ensure 取到同一份状态
+    // 模拟刷新：重新 ensure 取到同一份状态，节点与轮次数都不变
     const s2 = ensureSession('sc-s5')
-    expect(s2.node).toBe('r_read')
+    expect(s2.node).toBe(s1.node)
+    expect(s2.node).toBe('m_method')
     expect(s2.turns.length).toBe(n1)
   })
 
   it('事件流带 meta/token/card/done，且卡片里的图已解析成 dataUri', () => {
-    const out = runTurn('sc-s5', { message: '判断局部极值' })
+    const out = runTurn('sc-s5', { message: '题目看懂了' })
     const names = out.events.map((e) => e.event)
     expect(names[0]).toBe('meta')
     expect(names).toContain('token')
@@ -218,7 +219,7 @@ describe('历史已用态推断不误伤示例卡片', () => {
   beforeEach(reset)
 
   it('markHistoryUsedChoices 对示例会话可安全执行', () => {
-    runTurn('sc-s5', { message: '判断局部极值' })
+    runTurn('sc-s5', { message: '题目看懂了' })
     const msgs = itemsOf('sc-s5').slice().reverse().map(fromHistory)
     expect(() => markHistoryUsedChoices(msgs)).not.toThrow()
   })

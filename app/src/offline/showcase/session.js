@@ -49,7 +49,7 @@ function createSession(convId) {
   const meta = META[key] || {}
   const s = newNodeState(key, {
     convId,
-    node: meta.start || 'g0_locate',
+    node: meta.start || 'r_read',
     firstAnswer: meta.firstAnswer || null,
     fixLabel: meta.fixLabel || '',
   })
@@ -163,7 +163,7 @@ export function runTurn(convId, body) {
   const withTally = {
     ...prev,
     quizTally: quizTally(prev),
-    firstAnswer: prev.node === 'g0_locate' ? realFirstAnswer(prev) : prev.firstAnswer,
+    firstAnswer: prev.node === 'r_read' ? realFirstAnswer(prev) : prev.firstAnswer,
   }
   const out = step(withTally, { text, tutorAction: body?.context?.tutor_action || '' })
   const reply = out.reply || { text: '', cards: [] }

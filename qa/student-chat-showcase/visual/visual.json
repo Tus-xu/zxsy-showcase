@@ -5,12 +5,9 @@
    "clientW": 1440,
    "listScrollW": 1200,
    "listClientW": 1200,
-   "liveBottom": 775,
+   "liveBottom": 776,
    "inputTop": 813,
-   "marks": [
-    "哪个 x",
-    "局部极小值"
-   ],
+   "marks": [],
    "noHScrollDoc": true,
    "noHScrollList": true,
    "cardAboveInput": true
@@ -20,12 +17,9 @@
    "clientW": 1906,
    "listScrollW": 1666,
    "listClientW": 1666,
-   "liveBottom": 910,
+   "liveBottom": 911,
    "inputTop": 948,
-   "marks": [
-    "哪个 x",
-    "局部极小值"
-   ],
+   "marks": [],
    "noHScrollDoc": true,
    "noHScrollList": true,
    "cardAboveInput": true
@@ -34,20 +28,21 @@
  "reducedMotion": {
   "count": 2,
   "texts": [
-   "哪个 x",
-   "局部极小值"
+   "题面与你的首答",
+   "题目看懂了"
   ],
   "anims": [
    "none",
    "none"
   ],
   "visible": true,
+  "btnCount": 6,
   "allStatic": true
  },
  "zoom200": {
-  "w": 701,
-  "h": 246,
-  "btns": 3,
+  "w": 820,
+  "h": 260,
+  "btns": 2,
   "overlap": 0
  }
 }

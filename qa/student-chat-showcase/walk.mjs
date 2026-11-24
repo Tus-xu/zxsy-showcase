@@ -168,7 +168,7 @@ async function title(page) {
   const s2 = {
     turns: (t2.match(/切线/g) || []).length,
     hasFollow: t2.includes('为什么原点不是极值点'),
-    hasCounter: t2.includes('3x²') && t2.includes('x=−1'),
+    hasCounter: t2.includes('穿过原点之后还是往上走') && t2.includes('不是极值点'),
     shot: await shot(page, 'V02-s2'),
   }
   await goto(page, 'sc-s3')
@@ -263,8 +263,7 @@ async function title(page) {
   const c5 = await bodyText(page)
   await shot(page, 'V04-c5-guide')
   // 走完 A 路径
-  await tap(page, '判断局部极值')
-  await tap(page, '题目看懂了')
+    await tap(page, '题目看懂了')
   await tap(page, '看导数变号')
   await shot(page, 'V04-c5-a1')
   await tap(page, '−1 和 2')
@@ -285,8 +284,8 @@ async function title(page) {
   const summaryShown = c6.includes('这一轮实际发生了什么')
   Object.assign(RESULT.evidence, {})
   record('V04', c1.includes('怎么用它判断函数在哪儿上升') && c3.includes('三道题按难度排好') && quizCards > 0
-    && c4.includes('候选点') && c5.includes('我们先圈一下题眼') && whyShown && corrected && summaryShown,
-    `C1 提问=${c1.includes('判断函数在哪儿上升')} 消息数 ${beforeSize}；C3 变式卡=${quizCards}；C4 错因反馈=${c4.includes('候选点')}；C5 进入 G0=${c5.includes('圈一下题眼')}；A 路径走完=${whyShown}；C6 已订正=${corrected}；小结=${summaryShown}`,
+    && c4.includes('候选点') && c5.includes('题目看懂了') && whyShown && corrected && summaryShown,
+    `C1 提问=${c1.includes('判断函数在哪儿上升')} 消息数 ${beforeSize}；C3 变式卡=${quizCards}；C4 错因反馈=${c4.includes('候选点')}；C5 进入读题=${c5.includes('题目看懂了')}；A 路径走完=${whyShown}；C6 已订正=${corrected}；小结=${summaryShown}`,
     { evidence: { beforeSize, quizCards } })
   RESULT.evidence.V04 = { beforeSize, quizCards, corrected, whyShown }
   await ctx.close()
@@ -296,8 +295,7 @@ async function title(page) {
 {
   const { ctx, page } = await newPage()
   await goto(page, 'sc-s5')
-  await tap(page, '判断局部极值')
-  await tap(page, '题目看懂了')
+    await tap(page, '题目看懂了')
   await tap(page, '比较附近的函数值')
   await shot(page, 'V05-b1')
   await tap(page, '更小，局部极小')
@@ -354,7 +352,7 @@ async function title(page) {
   })
   // 键盘可达
   const kb = await page.evaluate(() => {
-    const b = document.querySelector('.ssc-opt:not([disabled])')
+    const b = document.querySelector('.ssc button:not([disabled])')
     return !!b && b.tabIndex >= 0
   })
   record('V06', stayed && oldClickable === 0 && kb,
