@@ -1,0 +1,22 @@
+{
+  "changelogDismissed": "确认，开始使用！",
+  "sidebarExpanded": true,
+  "menuText": "跳转到主要内容\nOpen WebUI\n新对话\nCtrl+Shift+O\n搜索\nCtrl+K\n笔记\n工作空间\n分组\n对话\nUser\nUser，今天过得怎么样？\n\n\n\n\nqwen3-4b-local\n建议\n克服拖延\n给我一些建议\n解释期权交易\n如果我熟悉股票的买卖\n告诉我一个冷知识。\n关于罗马帝国\n给我看一段代码片段。\n网站吸顶栏的\n给我一些灵感\n如何处理我孩子的画作\n帮我学习\n高考词汇\n新对话\nOpen WebUI\n全部\nqwen3-4b-local\n设为默认",
+  "menuItems": [
+    "搜索\nCtrl+K",
+    "分组",
+    "对话",
+    "User",
+    "qwen3-4b-local",
+    "克服拖延\n给我一些建议",
+    "解释期权交易\n如果我熟悉股票的买卖",
+    "告诉我一个冷知识。\n关于罗马帝国",
+    "给我看一段代码片段。\n网站吸顶栏的",
+    "给我一些灵感\n如何处理我孩子的画作",
+    "帮我学习\n高考词汇",
+    "新对话",
+    "全部",
+    "qwen3-4b-local",
+    "设为默认"
+  ]
+}

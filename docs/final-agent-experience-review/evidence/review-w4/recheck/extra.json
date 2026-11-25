@@ -1,0 +1,46 @@
+{
+  "extra": {
+    "s1Open": {
+      "tableInnerWidth": 308,
+      "tableTop": 904,
+      "displayTop": 655,
+      "msgTop": 124,
+      "msgBottom": 688,
+      "tableBelowViewportBy": 216,
+      "scrollH": 1385,
+      "clientH": 564,
+      "scrollTopAfter": 781
+    },
+    "s1Minus1": {
+      "cardVisible": true,
+      "cardTop": 447,
+      "cardBottom": 661,
+      "title": "−1 附近的符号",
+      "note": "左正右负：先升后降，所以是局部极大。",
+      "cardText": "−1 附近的符号 区间 导数符号 函数 x=−2 + 上升 x=−1 0 峰顶 x=0 − 下降 左正右负：先升后降，所以是局部极大。"
+    },
+    "variantV3": {
+      "visible": true,
+      "top": 427,
+      "bottom": 654,
+      "opts": [
+        "A A. 此处有局部极大值",
+        "B B. 此处切线水平，且有局部极小值",
+        "C C. 此处切线竖直",
+        "D D. 此处切线水平，且无局部极值"
+      ],
+      "htmlKeys": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "htmlBodies": [
+        "A. 此处有局部极大值",
+        "B. 此处切线水平，且有局部极小值",
+        "C. 此处切线竖直",
+        "D. 此处切线水平，且无局部极值"
+      ]
+    }
+  }
+}

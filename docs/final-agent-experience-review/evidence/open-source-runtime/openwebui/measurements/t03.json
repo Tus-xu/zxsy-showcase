@@ -1,0 +1,21 @@
+{
+  "task": "T03",
+  "prompt": "请阅读这张图片中的数学题，并给出解答。",
+  "fileInputs": 2,
+  "setFile": true,
+  "attachedText": "\n\n\nqwen3-4b-local",
+  "idle": true,
+  "state": {
+    "generating": false,
+    "lastLen": 94,
+    "scrollTop": 0,
+    "scrollHeight": 761,
+    "clientHeight": 761,
+    "url": "http://127.0.0.1:18080/c/85f48c57-1370-4e41-af39-5bb678144855"
+  },
+  "answer": "image input is not supported - hint: if this is unexpected, you may need to provide the mmproj",
+  "errors": [
+    "",
+    "image input is not supported - hint: if this is unexpected, you may need to provide the mmproj"
+  ]
+}

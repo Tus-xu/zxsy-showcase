@@ -1,0 +1,487 @@
+{
+  "steps": [],
+  "title": "JSXGraph share",
+  "exampleLinks": [
+    {
+      "text": "3D Cubes and Projections (assessment)",
+      "href": "https://jsxgraph.org/share/example/cube-and-projection"
+    },
+    {
+      "text": "3D Curve (assessment)",
+      "href": "https://jsxgraph.org/share/example/3d-curve-assessment"
+    },
+    {
+      "text": "3D Mirror, Mirror on the Wall ... (assessment)",
+      "href": "https://jsxgraph.org/share/example/3d-mirror-mirror-on-the-wall"
+    },
+    {
+      "text": "3D Rubik's Cube",
+      "href": "https://jsxgraph.org/share/example/3d-rubiks-cube"
+    },
+    {
+      "text": "3D cube transformations",
+      "href": "https://jsxgraph.org/share/example/3d-cube-transformations"
+    },
+    {
+      "text": "3D curve",
+      "href": "https://jsxgraph.org/share/example/3d-curve"
+    },
+    {
+      "text": "3D function graph (assessment)",
+      "href": "https://jsxgraph.org/share/example/3d-function-graph-assessment"
+    },
+    {
+      "text": "3D function graph plotter",
+      "href": "https://jsxgraph.org/share/example/3d-function-graph"
+    },
+    {
+      "text": "3D function graph with gradient plane",
+      "href": "https://jsxgraph.org/share/example/3d-function-graph-with-gradient-plane"
+    },
+    {
+      "text": "3D function graph with tangent plane II",
+      "href": "https://jsxgraph.org/share/example/3d-function-graph-with-tangent-plane-ii"
+    },
+    {
+      "text": "3D net of cube",
+      "href": "https://jsxgraph.org/share/example/3d-net-of-cube"
+    },
+    {
+      "text": "3D parametric surface with type 'colorarray'",
+      "href": "https://jsxgraph.org/share/example/3d-parametric-surface-with-colorarray"
+    },
+    {
+      "text": "3D parametric surface with type 'colormap'",
+      "href": "https://jsxgraph.org/share/example/3d-parametric-surface-with-type-colormap"
+    },
+    {
+      "text": "3D parametric surface with type 'shader'",
+      "href": "https://jsxgraph.org/share/example/3d-parametric-surface-with-type-shader"
+    },
+    {
+      "text": "3D parametric surface: Klein bottle",
+      "href": "https://jsxgraph.org/share/example/3d-parametric-surface-klein-bottle"
+    },
+    {
+      "text": "3D point",
+      "href": "https://jsxgraph.org/share/example/3d-point"
+    },
+    {
+      "text": "3D polyhedron - The Septopert - from STL file",
+      "href": "https://jsxgraph.org/share/example/3d-polyhedron-the-septopert-from-stl-file"
+    },
+    {
+      "text": "3D ruled surface: Möbius strip",
+      "href": "https://jsxgraph.org/share/example/3d-ruled-surface-m-bius-strip"
+    },
+    {
+      "text": "3D ruled surface: hyperboloid",
+      "href": "https://jsxgraph.org/share/example/3d-ruled-surface-hyperboloid"
+    },
+    {
+      "text": "3D subdivided icosahedron",
+      "href": "https://jsxgraph.org/share/example/3d-subdivided-icosahedron"
+    },
+    {
+      "text": "3D subdivided icosahedron - canvas",
+      "href": "https://jsxgraph.org/share/example/iterated-icosahedron"
+    },
+    {
+      "text": "3D vector field",
+      "href": "https://jsxgraph.org/share/example/3d-vector-field"
+    },
+    {
+      "text": "A 5-circle incidence theorem",
+      "href": "https://jsxgraph.org/share/example/a-5-circle-incidence-theorem"
+    },
+    {
+      "text": "Add generic DOM events to JSXGraph elements",
+      "href": "https://jsxgraph.org/share/example/add-generic-dom-events-to-jsxgraph-elements"
+    },
+    {
+      "text": "Add points on click",
+      "href": "https://jsxgraph.org/share/example/add-points-on-click"
+    },
+    {
+      "text": "Adding JSXGraph events",
+      "href": "https://jsxgraph.org/share/example/adding-jsxgraph-events"
+    },
+    {
+      "text": "Affine ratio",
+      "href": "https://jsxgraph.org/share/example/affine-ratio"
+    },
+    {
+      "text": "Aligning texts",
+      "href": "https://jsxgraph.org/share/example/aligning-texts"
+    },
+    {
+      "text": "All real roots of a polynomial",
+      "href": "https://jsxgraph.org/share/example/all-real-roots-of-a-polynomial"
+    },
+    {
+      "text": "Angles",
+      "href": "https://jsxgraph.org/share/example/angles"
+    },
+    {
+      "text": "Animation of colliding points (infinite)",
+      "href": "https://jsxgraph.org/share/example/animation-of-colliding-points-infinite"
+    },
+    {
+      "text": "Animation of lines",
+      "href": "https://jsxgraph.org/share/example/animation-of-lines"
+    },
+    {
+      "text": "Animation using CSS transitions",
+      "href": "https://jsxgraph.org/share/example/animation-using-css-transitions"
+    },
+    {
+      "text": "Animation with requestAnimationFrame",
+      "href": "https://jsxgraph.org/share/example/animation-with-requestanimationframe"
+    },
+    {
+      "text": "Animation with setInterval",
+      "href": "https://jsxgraph.org/share/example/animation-with-setinterval"
+    },
+    {
+      "text": "Animation: infinite with setInterval",
+      "href": "https://jsxgraph.org/share/example/animation-infinite-with-setinterval"
+    },
+    {
+      "text": "Animation: moveTo() and visit()",
+      "href": "https://jsxgraph.org/share/example/animation-moveto-and-visit"
+    },
+    {
+      "text": "Antiderivative",
+      "href": "https://jsxgraph.org/share/example/antiderivative"
+    },
+    {
+      "text": "Apollonian circle packing",
+      "href": "https://jsxgraph.org/share/example/apollonian-circle-packing"
+    },
+    {
+      "text": "Approximate circular arc by a Bézier curve",
+      "href": "https://jsxgraph.org/share/example/approximate-circular-arc-by-a-b-zier-curve"
+    },
+    {
+      "text": "Approximate length of curve",
+      "href": "https://jsxgraph.org/share/example/approximate-length-of-curve"
+    },
+    {
+      "text": "Approximate π (Pi) with Monte-Carlo method",
+      "href": "https://jsxgraph.org/share/example/approximate-pi-pi-with-monte-carlo-method"
+    },
+    {
+      "text": "Approximation of e",
+      "href": "https://jsxgraph.org/share/example/approximation-of-e"
+    },
+    {
+      "text": "Approximation of the circle area",
+      "href": "https://jsxgraph.org/share/example/approximation-of-the-circle-area"
+    },
+    {
+      "text": "Archimedean spiral",
+      "href": "https://jsxgraph.org/share/example/archimedean-spiral"
+    },
+    {
+      "text": "Archimedian circle approximation",
+      "href": "https://jsxgraph.org/share/example/archimedian-circle-approximation"
+    },
+    {
+      "text": "Area of a Triangle (assessment)",
+      "href": "https://jsxgraph.org/share/example/area-of-a-triangle"
+    },
+    {
+      "text": "Arrows for technical drawings",
+      "href": "https://jsxgraph.org/share/example/arrows-for-technical-drawings"
+    },
+    {
+      "text": "Autocatalytic process",
+      "href": "https://jsxgraph.org/share/example/autocatalytic-process"
+    },
+    {
+      "text": "Axes configuration",
+      "href": "https://jsxgraph.org/share/example/axes-configuration"
+    },
+    {
+      "text": "Axis labels",
+      "href": "https://jsxgraph.org/share/example/axis-labels"
+    },
+    {
+      "text": "Axis logarithmic scale",
+      "href": "https://jsxgraph.org/share/example/axis-logarithmic-scale"
+    },
+    {
+      "text": "B-splines",
+      "href": "https://jsxgraph.org/share/example/b-splines"
+    },
+    {
+      "text": "Barycenter",
+      "href": "https://jsxgraph.org/share/example/barycenter"
+    },
+    {
+      "text": "Bearing (bidirectional communication)",
+      "href": "https://jsxgraph.org/share/example/bearing-bidirectional-communication"
+    },
+    {
+      "text": "Bezier curves",
+      "href": "https://jsxgraph.org/share/example/bezier-curves"
+    },
+    {
+      "text": "Bezier curves by scaffolding",
+      "href": "https://jsxgraph.org/share/example/bezier-curves-by-scaffolding"
+    },
+    {
+      "text": "Binomial distribution",
+      "href": "https://jsxgraph.org/share/example/binomial-distribution"
+    },
+    {
+      "text": "Board attribute cssStyle",
+      "href": "https://jsxgraph.org/share/example/board-attribute-cssstyle"
+    },
+    {
+      "text": "Bounding box",
+      "href": "https://jsxgraph.org/share/example/bounding-box"
+    },
+    {
+      "text": "Boxplot",
+      "href": "https://jsxgraph.org/share/example/boxplot"
+    },
+    {
+      "text": "Browser test: display agent and renderer type",
+      "href": "https://jsxgraph.org/share/example/browser-test-display-agent-and-renderer-type"
+    },
+    {
+      "text": "Cannon ball simulation",
+      "href": "https://jsxgraph.org/share/example/cannon-ball-simulation"
+    },
+    {
+      "text": "Cardinal splines",
+      "href": "https://jsxgraph.org/share/example/cardinal-splines"
+    },
+    {
+      "text": "Catmull-Rom splines",
+      "href": "https://jsxgraph.org/share/example/catmull-rom-splines"
+    },
+    {
+      "text": "Centroid of triangle",
+      "href": "https://jsxgraph.org/share/example/centroid-of-triangle"
+    },
+    {
+      "text": "Ceva's theorem",
+      "href": "https://jsxgraph.org/share/example/cevas-theorem"
+    },
+    {
+      "text": "Chart styles",
+      "href": "https://jsxgraph.org/share/example/chart-styles"
+    },
+    {
+      "text": "Charts (assessment)",
+      "href": "https://jsxgraph.org/share/example/chart-assessment"
+    },
+    {
+      "text": "Charts of dynamic data",
+      "href": "https://jsxgraph.org/share/example/bar-chart-of-dynamic-data"
+    },
+    {
+      "text": "Chemical molecules",
+      "href": "https://jsxgraph.org/share/example/chemical-molecules"
+    },
+    {
+      "text": "Circle inversion",
+      "href": "https://jsxgraph.org/share/example/circle-inversion"
+    },
+    {
+      "text": "Circle with ticks",
+      "href": "https://jsxgraph.org/share/example/circle-with-ticks"
+    },
+    {
+      "text": "Circles",
+      "href": "https://jsxgraph.org/share/example/circles"
+    },
+    {
+      "text": "Circumcircles of subtriangles",
+      "href": "https://jsxgraph.org/share/example/circumcircles-of-subtriangles"
+    },
+    {
+      "text": "Click on element",
+      "href": "https://jsxgraph.org/share/example/click-on-element"
+    },
+    {
+      "text": "Colorful points",
+      "href": "https://jsxgraph.org/share/example/colorful-points"
+    },
+    {
+      "text": "Complex maps",
+      "href": "https://jsxgraph.org/share/example/complex-maps"
+    },
+    {
+      "text": "Complex numbers arithmetics",
+      "href": "https://jsxgraph.org/share/example/complex-numbers-arithmetics"
+    },
+    {
+      "text": "Complex roots of polynomial with real coefficients",
+      "href": "https://jsxgraph.org/share/example/complex-root-of-polynomial-with-real-coefficients"
+    },
+    {
+      "text": "Complex roots of polynomial with real coefficients (dynamic)",
+      "href": "https://jsxgraph.org/share/example/complex-root-of-polynomial-with-real-coefficients-dynamic"
+    },
+    {
+      "text": "Conic section: ellipse",
+      "href": "https://jsxgraph.org/share/example/conic-section-ellipse"
+    },
+    {
+      "text": "Conic section: generic through 5 points",
+      "href": "https://jsxgraph.org/share/example/conic-section-generic-through-5-points"
+    },
+    {
+      "text": "Conic section: hyperbola",
+      "href": "https://jsxgraph.org/share/example/conic-section-hyperbola"
+    },
+    {
+      "text": "Conic section: parabola",
+      "href": "https://jsxgraph.org/share/example/conic-section-parabola"
+    },
+    {
+      "text": "Conic sections in polar form",
+      "href": "https://jsxgraph.org/share/example/conic-sections-in-polar-form"
+    },
+    {
+      "text": "Continuity",
+      "href": "https://jsxgraph.org/share/example/continuity"
+    },
+    {
+      "text": "Continuous function: non-uniform continuous example",
+      "href": "https://jsxgraph.org/share/example/continuous-function-non-uniform-continuous-example"
+    },
+    {
+      "text": "Continuous function: ε-δ criterium",
+      "href": "https://jsxgraph.org/share/example/continuous-function-epsilon-delta-criterium"
+    },
+    {
+      "text": "Convergence of sequence",
+      "href": "https://jsxgraph.org/share/example/convergence-of-sequence"
+    },
+    {
+      "text": "Convergence of series",
+      "href": "https://jsxgraph.org/share/example/convergence-of-series"
+    },
+    {
+      "text": "Convex hull of points",
+      "href": "https://jsxgraph.org/share/example/convex-hull-of-points"
+    },
+    {
+      "text": "Cosine",
+      "href": "https://jsxgraph.org/share/example/cosine"
+    },
+    {
+      "text": "Cubic spline interpolation",
+      "href": "https://jsxgraph.org/share/example/cubic-spline-interpolation"
+    },
+    {
+      "text": "Curly brackets",
+      "href": "https://jsxgraph.org/share/example/curly-brackets"
+    },
+    {
+      "text": "Curve interpolation: Neville's algorithm",
+      "href": "https://jsxgraph.org/share/example/curve-interpolation-nevilles-algorithm"
+    },
+    {
+      "text": "Cycloid",
+      "href": "https://jsxgraph.org/share/example/cycloid"
+    },
+    {
+      "text": "Desargues's theorem",
+      "href": "https://jsxgraph.org/share/example/desarguess-theorem"
+    },
+    {
+      "text": "Devil's curve",
+      "href": "https://jsxgraph.org/share/example/devils-curve"
+    },
+    {
+      "text": "Differentiability",
+      "href": "https://jsxgraph.org/share/example/differentiability"
+    },
+    {
+      "text": "Differential equations",
+      "href": "https://jsxgraph.org/share/example/differential-equations"
+    },
+    {
+      "text": "Discontinuous derivative",
+      "href": "https://jsxgraph.org/share/example/discontinuous-derivative"
+    },
+    {
+      "text": "Draggable exponential function",
+      "href": "https://jsxgraph.org/share/example/draggable-exponential-function"
+    },
+    {
+      "text": "Dragon curve",
+      "href": "https://jsxgraph.org/share/example/dragon-curve"
+    },
+    {
+      "text": "Dual lattice",
+      "href": "https://jsxgraph.org/share/example/dual-lattice"
+    },
+    {
+      "text": "Elements as Checkboxes – Angles (assessment)",
+      "href": "https://jsxgraph.org/share/example/elements-as-checkboxes-angles"
+    },
+    {
+      "text": "Elements as Checkboxes – Functions (assessment)",
+      "href": "https://jsxgraph.org/share/example/elements-as-checkboxes-functions"
+    },
+    {
+      "text": "Elements as Checkboxes – Triangles (assessment)",
+      "href": "https://jsxgraph.org/share/example/elements-as-checkboxes"
+    },
+    {
+      "text": "Elements as Radio Buttons – Triangles (assessment)",
+      "href": "https://jsxgraph.org/share/example/elements-as-radio-buttons-triangles"
+    },
+    {
+      "text": "Ellipse: pin and string method",
+      "href": "https://jsxgraph.org/share/example/ellipse-pin-and-string-method"
+    },
+    {
+      "text": "Elliptic curves",
+      "href": "https://jsxgraph.org/share/example/elliptic-curves-1"
+    },
+    {
+      "text": "Elliptic curves (with two function graphs)",
+      "href": "https://jsxgraph.org/share/example/elliptic-curves"
+    },
+    {
+      "text": "Elliptic curves: group law",
+      "href": "https://jsxgraph.org/share/example/elliptic-curves-group-law"
+    },
+    {
+      "text": "Emulate color blindness",
+      "href": "https://jsxgraph.org/share/example/emulate-color-blindness"
+    },
+    {
+      "text": "Epicycloid: circles rotating on circles",
+      "href": "https://jsxgraph.org/share/example/epicycloid-circles-rotating-on-circles"
+    },
+    {
+      "text": "Epicycloid: circles rotating on circles in opposite directio",
+      "href": "https://jsxgraph.org/share/example/epicycloid-circles-rotating-on-circles-in-opposite-direction"
+    },
+    {
+      "text": "Epicycloid: export SVG",
+      "href": "https://jsxgraph.org/share/example/epicycloid-export-svg"
+    },
+    {
+      "text": "Epidemiology: SEIR model",
+      "href": "https://jsxgraph.org/share/example/epidemiology-seir-model"
+    },
+    {
+      "text": "Epidemiology: SIR model",
+      "href": "https://jsxgraph.org/share/example/epidemiology-sir-model"
+    },
+    {
+      "text": "Euler line",
+      "href": "https://jsxgraph.org/share/example/euler-line"
+    }
+  ],
+  "bodyStart": "Home\nRandom example\nSearch\nApplications\nAssessment\nCalculus\nCharts and data\nCurves\nGeometry\nTechnical\njsxgraph.org\nJSXGraph share\n\nWelcome to the JSXGraph Examples Database!\n\nJSXGraph is a browser based JavaScript library for interactive geometry, function plotting, graphs and data visualization. More information about JSXGraph you can find on our homepage https://jsxgraph.org. This site currently uses version 1.14.3 of JSXGraph.\n\nThis database contains 262 examples of how to use JSXGraph. You can easily view them, think about their code and share them using the icon  in the top right corner of an example page. Below you will find a list of all examples. These are categorized in 58 tags, so you can also find all examples on a topic via the menu on the left.\n\nList of all JSXGraph examples in this database\nA-Z\nZ-A\nNewest\nOldest\n3D\n3D Cubes and Projections (assessment)\n3D Curve (assessment)\n3D Mirror, Mirror on the Wall ... (assessment)\n3D Rubik's Cube\n3D cube transformations\n3D curve\n3D function graph (assessment)\n3D function graph plotter\n3D function graph with gradient plane\n3D function graph with tangent plane II\n3D net of cube\n3D parametric surface with type 'colorarray'\n3D parametric surface with type 'colormap'\n3D parametric surface with type 'shader'\n3D parametric surface: Klein bottle\n3D point\n3D polyhedron - The Septopert - from STL file\n3D ruled surface: Möbius strip\n3D ruled surface: hyperboloid\n3D subdivided icosahedron\n3D subdivided icosahedron - canvas\n3D vector f"
+}

@@ -1,0 +1,668 @@
+{
+  "entry": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+  "viewport": {
+    "w": 1440,
+    "h": 900,
+    "dpr": 1
+  },
+  "offline": true,
+  "startedAt": "2026-11-25T13:25:45.840Z",
+  "scenarios": {
+    "free": {
+      "steps": [
+        {
+          "q": "导数等于零为什么不一定有极值？",
+          "replyLen": 217,
+          "reply": "导数为零只说明这一点的切线是水平的，它不保证是极值。\n\n看 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n<\n0\nx<0 和 \n𝑥\n>\n0\nx>0 时导数都为正，曲线一直在上升，原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，两侧同号就不是极值。\n\n看 x³ 的反例\n带我做一道题\nAI 生成\n· 仅供参考，请核实",
+          "cards": {
+            "options": [
+              "看 x³ 的反例",
+              "带我做一道题"
+            ],
+            "buttons": [],
+            "quizCards": 0,
+            "figures": 0,
+            "tables": 0,
+            "lines": [],
+            "mark": ""
+          },
+          "title": "导数等于零为什么不一定有极值？"
+        },
+        {
+          "q": "那 x³ 呢？",
+          "replyLen": 147,
+          "reply": "离线体验目前覆盖「导数与极值」这条主线。你可以：\n\n问「导数为零为什么不一定有极值」或「怎么判断极大还是极小」\n上传题1/题2/题3的题图，让我完整讲一道题\n打开左侧的「引导式解题 · 为什么不是极小值」走一遍\n\n超出这条主线的提问，我会如实告诉你没覆盖到。\n\nAI 生成\n· 仅供参考，请核实",
+          "cards": {
+            "options": [],
+            "buttons": [],
+            "quizCards": 0,
+            "figures": 0,
+            "tables": 0,
+            "lines": [],
+            "mark": ""
+          },
+          "mentionsX3": false,
+          "boundary": true
+        },
+        {
+          "q": "今天天气不错",
+          "replyLen": 147,
+          "reply": "离线体验目前覆盖「导数与极值」这条主线。你可以：\n\n问「导数为零为什么不一定有极值」或「怎么判断极大还是极小」\n上传题1/题2/题3的题图，让我完整讲一道题\n打开左侧的「引导式解题 · 为什么不是极小值」走一遍\n\n超出这条主线的提问，我会如实告诉你没覆盖到。\n\nAI 生成\n· 仅供参考，请核实",
+          "boundary": true,
+          "sameAsPrev": true
+        },
+        {
+          "q": "帮我写作文",
+          "replyLen": 147,
+          "reply": "离线体验目前覆盖「导数与极值」这条主线。你可以：\n\n问「导数为零为什么不一定有极值」或「怎么判断极大还是极小」\n上传题1/题2/题3的题图，让我完整讲一道题\n打开左侧的「引导式解题 · 为什么不是极小值」走一遍\n\n超出这条主线的提问，我会如实告诉你没覆盖到。\n\nAI 生成\n· 仅供参考，请核实",
+          "boundary": true,
+          "sameAsPrev": true
+        }
+      ],
+      "empty": {
+        "title": "新对话",
+        "messages": 0,
+        "placeholder": "写下你的问题，也可以粘贴题目截图"
+      },
+      "sidebar": [
+        "错题本录入 · 极值点判断",
+        "可视化讲解 · 导数与极值",
+        "举一反三 · 三次函数变式链",
+        "引导式解题 · 三次函数极值",
+        "导数的几何意义怎么理解",
+        "导数等于零为什么不一定有极值？",
+        "导数学习 · 从提问到改错",
+        "拍照解题 · 三次函数极值",
+        "引导式解题 · 为什么不是极小值",
+        "知识问答 · 导数的几何意义",
+        "看图讲解 · 导数与极值",
+        "举一反三 · 三次函数变式",
+        "错题复盘 · 把极大看成极小",
+        "题目图片 · 题1.png",
+        "离心率 e = c/a，而双曲线里",
+        "题目图片 · 题1.png",
+        "请求分析上传的文件",
+        "题目图片 · 题2.png",
+        "题目图片 · 题1.png",
+        "题目图片 · 题2.png",
+        "题目图片 · 题2.png",
+        "题目图片 · 题1.png",
+        "分析用户上传的文件",
+        "分析用户上传的文件内容",
+        "分析用户上传的文件",
+        "分析用户上传的文件",
+        "分析用户上传的文件",
+        "分析用户上传的文件"
+      ],
+      "userMessages": [
+        "导数等于零为什么不一定有极值？",
+        "那 x³ 呢？",
+        "今天天气不错",
+        "帮我写作文"
+      ],
+      "aiMessages": [
+        200,
+        129,
+        129,
+        147
+      ],
+      "console": [
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        }
+      ],
+      "pageerrors": []
+    },
+    "s5_unsure": {
+      "steps": [],
+      "diagnosis": {
+        "replyLen": 336,
+        "reply": "你这句话里，有一半是对的：\n𝑥\n=\n−\n1\nx=−1 确实让 \n𝑔\n′\n(\n𝑥\n)\n=\n0\ng\n′\n(x)=0。问题在下一句——导数为零只说明切线水平，不能直接推出极小。先只看 \n−\n1\n−1 的左边：取 \n𝑥\n=\n−\n2\nx=−2，\n𝑔\n′\n(\n−\n2\n)\n=\n6\n(\n−\n2\n+\n1\n)\n(\n−\n2\n−\n2\n)\n=\n24\n>\n0\ng\n′\n(−2)=6(−2+1)(−2−2)=24>0。所以 \n−\n1\n−1 左侧的导数是正还是负？\n\n先看 −1 两侧\n当前依据\n\n𝑔\n′\n(\n𝑥\n)\n=\n6\n(\n𝑥\n+\n1\n)\n(\n𝑥\n−\n2\n)\ng\n′\n(x)=6(x+1)(x−2)\n\n你原来的作答：−1 让导数为零，所以是极小。\n\n左正右负\n左负右正\n我不确定",
+        "cards": {
+          "options": [
+            "左正右负",
+            "左负右正",
+            "我不确定"
+          ],
+          "buttons": [],
+          "quizCards": 0,
+          "figures": 0,
+          "tables": 0,
+          "lines": [],
+          "mark": ""
+        },
+        "scroll": {
+          "top": 86,
+          "height": 725,
+          "client": 639,
+          "atBottom": true,
+          "backBtn": null
+        }
+      },
+      "unsureBranch": {
+        "replyLen": 240,
+        "reply": "给你一个中间步骤：把 \n−\n2\n−2 代进 \n𝑔\n′\n(\n𝑥\n)\n=\n6\n(\n𝑥\n+\n1\n)\n(\n𝑥\n−\n2\n)\ng\n′\n(x)=6(x+1)(x−2)，两个因子是 \n−\n1\n−1 和 \n−\n4\n−4，乘起来是 \n+\n24\n+24，所以左侧为正。右边把 \n0\n0 代进去：\n1\n×\n(\n−\n2\n)\n=\n−\n2\n1×(−2)=−2，乘 \n6\n6 是 \n−\n12\n−12。左正右负，所以 \n−\n1\n−1 是极大。\n\n回到题卡\n\n原题在上方，首答的作答记录保留。\n\n返回题卡订正",
+        "cards": {
+          "options": [],
+          "buttons": [
+            "返回题卡订正"
+          ],
+          "quizCards": 0,
+          "figures": 0,
+          "tables": 0,
+          "lines": [],
+          "mark": ""
+        },
+        "userLast": "我不确定"
+      },
+      "retryCard": {
+        "replyLen": 95,
+        "reply": "题目重新放在这里了。这一次先写出候选点，再看两边符号，最后才选。\n\n重选一次\n题目\n\ng(x)=2x³−3x²−12x+1 在哪个 x 取得局部极小值？\n\nA\n−1\nB\n1\nC\n2\nD\n−2",
+        "cards": {
+          "options": [
+            "A\n−1",
+            "B\n1",
+            "C\n2",
+            "D\n−2"
+          ],
+          "buttons": [],
+          "quizCards": 0,
+          "figures": 0,
+          "tables": 0,
+          "lines": [],
+          "mark": ""
+        }
+      },
+      "summary": {
+        "replyLen": 143,
+        "reply": "订正了。首答 A 还在上面，记录里会保留。你原来只做到“让导数为零”，差的一步是“看两侧符号”。\n\n这一轮实际发生了什么\n我们一起看了 −1 两侧：左正右负，所以它是局部极大。\n下次判断极值：先找候选点，再看左侧符号，再看右侧符号。\n最后回到题卡改选了 C，首答 A 仍然保留。\n已订正",
+        "cards": {
+          "options": [],
+          "buttons": [],
+          "quizCards": 0,
+          "figures": 0,
+          "tables": 0,
+          "lines": [
+            "我们一起看了 −1 两侧：左正右负，所以它是局部极大。",
+            "下次判断极值：先找候选点，再看左侧符号，再看右侧符号。",
+            "最后回到题卡改选了 C，首答 A 仍然保留。"
+          ],
+          "mark": ""
+        },
+        "userMessages": [
+          "我选 A。x=−1 能让导数等于零，所以我觉得这里是极小值。",
+          "我不确定",
+          "返回题卡订正",
+          "2"
+        ]
+      },
+      "console": [
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        }
+      ],
+      "pageerrors": []
+    },
+    "s5_negpos": {
+      "replyLen": 202,
+      "reply": "先代进去算：\n𝑔\n′\n(\n−\n2\n)\n=\n6\n⋅\n(\n−\n1\n)\n⋅\n(\n−\n4\n)\n=\n24\ng\n′\n(−2)=6⋅(−1)⋅(−4)=24，是正数。左侧为正，说明函数在上升；右边取 \n𝑥\n=\n0\nx=0，\n𝑔\n′\n(\n0\n)\n=\n−\n12\ng\n′\n(0)=−12，是负的。左正右负，先升后降，\n−\n1\n−1 是局部极大，不是极小。\n\n回到题卡\n\n原题在上方，首答的作答记录保留。\n\n返回题卡订正",
+      "cards": {
+        "options": [],
+        "buttons": [
+          "返回题卡订正"
+        ],
+        "quizCards": 0,
+        "figures": 0,
+        "tables": 0,
+        "lines": [],
+        "mark": ""
+      },
+      "userLast": "左负右正",
+      "mentionsChoice": false,
+      "mentionsUnsurePhrase": false
+    },
+    "s1": {
+      "steps": [
+        {
+          "q": "为什么 x=1 是极小？",
+          "replyLen": 196,
+          "reply": "你问「为什么 \n𝑥\n=\n1\nx=1 是极小」——看它左右两边：左边 \n𝑓\n′\n<\n0\nf\n′\n<0，函数在下降；右边 \n𝑓\n′\n>\n0\nf\n′\n>0，函数在上升。先降后升，谷底就是极小，\n𝑓\n(\n1\n)\n=\n−\n2\nf(1)=−2。\n\nf(x) 的符号表\n区间\t导数符号\t函数\n(−∞,−1)\t+\t递增\n(−1,1)\t−\t递减\n(1,∞)\t+\t递增\n\nx=1 是「−」变「+」的位置。",
+          "cards": {
+            "options": [],
+            "buttons": [],
+            "quizCards": 0,
+            "figures": 0,
+            "tables": 1,
+            "lines": [],
+            "mark": ""
+          },
+          "scrollAfter": {
+            "top": 0,
+            "height": 1580,
+            "client": 604,
+            "atBottom": false,
+            "backBtn": "查看新回复"
+          }
+        },
+        {
+          "q": "那 −1 呢？",
+          "replyLen": 194,
+          "reply": "因为 \n−\n1\n−1 左边（比如 \n−\n2\n−2）\n𝑓\n′\n>\n0\nf\n′\n>0，函数在上升；右边（比如 \n0\n0）\n𝑓\n′\n<\n0\nf\n′\n<0，函数在下降。先升后降，山顶就是极大，\n𝑓\n(\n−\n1\n)\n=\n2\nf(−1)=2。\n\nf(x) 的符号表\n区间\t导数符号\t函数\n(−∞,−1)\t+\t递增\n(−1,1)\t−\t递减\n(1,∞)\t+\t递增\n\nx=1 是「−」变「+」的位置。",
+          "cards": {
+            "options": [],
+            "buttons": [],
+            "quizCards": 0,
+            "figures": 0,
+            "tables": 1,
+            "lines": [],
+            "mark": ""
+          },
+          "scroll": {
+            "top": 1430,
+            "height": 2034,
+            "client": 604,
+            "atBottom": true,
+            "backBtn": null
+          }
+        },
+        {
+          "q": "来点变式",
+          "replyLen": 301,
+          "reply": "你怕考试时把极大极小搞反，那就换一道同类型的三次函数：\n𝑔\n(\n𝑥\n)\n=\n2\n𝑥\n3\n−\n3\n𝑥\n2\n−\n12\n𝑥\n+\n1\ng(x)=2x\n3\n−3x\n2\n−12x+1。判断顺序不变——先找候选点，再看两侧符号。第一题：它在哪个 \n𝑥\nx 取得局部极小值？\n\n🔄 举一反三 · 变式链 · 3 题\nAI 生成\n对话内直接作答\n✦ 变式 1/3\n\n换系数：同一题型，只把系数改掉\n\n基础\n\ng(x)=2x³−3x²−12x+1 在哪个 x 取得局部极小值？\n\nA\n\nA. −1\n\nB\n\nB. 1\n\nC\n\nC. 2\n\nD\n\nD. −2\n\n答案与解析\n原题\n→\n变式1\n→\n变式2\n→\n变式3",
+          "cards": {
+            "options": [],
+            "buttons": [],
+            "quizCards": 1,
+            "figures": 0,
+            "tables": 0,
+            "lines": [],
+            "mark": ""
+          },
+          "scroll": {
+            "top": 1976,
+            "height": 2580,
+            "client": 604,
+            "atBottom": true,
+            "backBtn": null
+          }
+        }
+      ],
+      "open": {
+        "title": "拍照解题 · 三次函数极值",
+        "scroll": {
+          "top": 0,
+          "height": 1126,
+          "client": 604,
+          "atBottom": false,
+          "backBtn": "回到最新"
+        },
+        "atts": 1,
+        "messages": 2
+      },
+      "newMsgWhileUp": {
+        "before": {
+          "top": 0,
+          "height": 1126,
+          "client": 604,
+          "atBottom": false,
+          "backBtn": "回到最新"
+        },
+        "after900ms": {
+          "top": 0,
+          "height": 1592,
+          "client": 604,
+          "atBottom": false,
+          "backBtn": "查看新回复"
+        },
+        "pulledBack": false,
+        "duringLen": 196,
+        "backBtn": "查看新回复"
+      },
+      "afterBackBottom": {
+        "top": 976,
+        "height": 1580,
+        "client": 604,
+        "atBottom": true,
+        "backBtn": null
+      },
+      "refresh": {
+        "before": {
+          "messages": 8,
+          "title": "拍照解题 · 三次函数极值",
+          "atts": 1
+        },
+        "after": {
+          "messages": 8,
+          "title": "拍照解题 · 三次函数极值",
+          "atts": 1,
+          "attsLoaded": 1,
+          "sendDisabled": true,
+          "stopCount": 0,
+          "scroll": {
+            "top": 1976,
+            "height": 2580,
+            "client": 604,
+            "atBottom": true,
+            "backBtn": null
+          },
+          "lastAiLen": 301
+        }
+      },
+      "switch": {
+        "s2": {
+          "title": "知识问答 · 导数的几何意义",
+          "messages": 4
+        },
+        "s1back": {
+          "title": "拍照解题 · 三次函数极值",
+          "messages": 8
+        }
+      },
+      "console": [
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        },
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        }
+      ],
+      "pageerrors": []
+    },
+    "stop": {
+      "before": {
+        "scroll": {
+          "top": 0,
+          "height": 604,
+          "client": 604,
+          "atBottom": true,
+          "backBtn": null
+        },
+        "partialLen": 157,
+        "stopVisible": 1
+      },
+      "after": {
+        "tag": [
+          "已停止回复"
+        ],
+        "textLen": 207,
+        "textTail": "原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，两侧同号就不是极值。\n\n已停止回复\nAI 生成\n· 仅供参考，请核实",
+        "sendVisible": 1,
+        "stopVisible": 0,
+        "title": "新对话",
+        "sidebarTitles": [
+          "错题本录入 · 极值点判断",
+          "可视化讲解 · 导数与极值",
+          "举一反三 · 三次函数变式链",
+          "引导式解题 · 三次函数极值",
+          "导数的几何意义怎么理解",
+          "新对话",
+          "导数学习 · 从提问到改错",
+          "拍照解题 · 三次函数极值",
+          "引导式解题 · 为什么不是极小值",
+          "知识问答 · 导数的几何意义",
+          "看图讲解 · 导数与极值",
+          "举一反三 · 三次函数变式",
+          "错题复盘 · 把极大看成极小",
+          "题目图片 · 题1.png",
+          "离心率 e = c/a，而双曲线里",
+          "题目图片 · 题1.png",
+          "请求分析上传的文件",
+          "题目图片 · 题2.png",
+          "题目图片 · 题1.png",
+          "题目图片 · 题2.png",
+          "题目图片 · 题2.png",
+          "题目图片 · 题1.png",
+          "分析用户上传的文件",
+          "分析用户上传的文件内容",
+          "分析用户上传的文件",
+          "分析用户上传的文件",
+          "分析用户上传的文件",
+          "分析用户上传的文件"
+        ]
+      },
+      "afterReload": {
+        "textLen": 217,
+        "textTail": "”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，两侧同号就不是极值。\n\n看 x³ 的反例\n带我做一道题\nAI 生成\n· 仅供参考，请核实",
+        "title": "导数等于零为什么不一定有极值？",
+        "sidebarTitles": [
+          "错题本录入 · 极值点判断",
+          "可视化讲解 · 导数与极值",
+          "举一反三 · 三次函数变式链",
+          "引导式解题 · 三次函数极值",
+          "导数的几何意义怎么理解",
+          "导数等于零为什么不一定有极值？",
+          "导数学习 · 从提问到改错",
+          "拍照解题 · 三次函数极值",
+          "引导式解题 · 为什么不是极小值",
+          "知识问答 · 导数的几何意义",
+          "看图讲解 · 导数与极值",
+          "举一反三 · 三次函数变式",
+          "错题复盘 · 把极大看成极小",
+          "题目图片 · 题1.png",
+          "离心率 e = c/a，而双曲线里",
+          "题目图片 · 题1.png",
+          "请求分析上传的文件",
+          "题目图片 · 题2.png",
+          "题目图片 · 题1.png",
+          "题目图片 · 题2.png",
+          "题目图片 · 题2.png",
+          "题目图片 · 题1.png",
+          "分析用户上传的文件",
+          "分析用户上传的文件内容",
+          "分析用户上传的文件",
+          "分析用户上传的文件",
+          "分析用户上传的文件",
+          "分析用户上传的文件"
+        ],
+        "messages": 2
+      },
+      "empty": {
+        "messages": 0,
+        "sendDisabled": true,
+        "textareaEmpty": "",
+        "messagesAfterClick": 0,
+        "stopAfterClick": 0
+      },
+      "console": [
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        },
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        }
+      ],
+      "pageerrors": []
+    },
+    "rapid": {
+      "clicksDispatched": 3,
+      "userMessages": [
+        "我选 A。x=−1 能让导数等于零，所以我觉得这里是极小值。",
+        "我不确定"
+      ],
+      "unsureUserCount": 1,
+      "totalMessages": 4,
+      "lastAi": "给你一个中间步骤：把 \n−\n2\n−2 代进 \n𝑔\n′\n(\n𝑥\n)\n=\n6\n(\n𝑥\n+\n1\n)\n(\n𝑥\n−\n2\n)\ng\n′\n(x)=6(x+1)(x−2)，两个因子是 \n−\n1\n−1 和 \n−\n4\n−4，乘起来是 \n+\n24\n+24，所以左侧为正。右边把 \n0\n0 代进去：\n1\n×\n(\n−\n2\n)\n=\n−\n2\n1",
+      "cards": {
+        "options": [],
+        "buttons": [
+          "返回题卡订正"
+        ],
+        "quizCards": 0,
+        "figures": 0,
+        "tables": 0,
+        "lines": [],
+        "mark": ""
+      },
+      "console": [
+        {
+          "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 404
+        },
+        {
+          "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+          "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+          "line": 11954,
+          "col": 421
+        }
+      ],
+      "pageerrors": []
+    }
+  },
+  "console": [],
+  "pageerrors": [],
+  "externalRequests": [],
+  "shotErrors": [],
+  "finishedAt": "2026-11-25T13:27:09.006Z",
+  "consoleSummary": {
+    "free": [
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      }
+    ],
+    "s5": [
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      }
+    ],
+    "s1": [
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      },
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      }
+    ],
+    "stop": [
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      },
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      }
+    ],
+    "rapid": [
+      {
+        "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 404
+      },
+      {
+        "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\").",
+        "url": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+        "line": 11954,
+        "col": 421
+      }
+    ]
+  }
+}

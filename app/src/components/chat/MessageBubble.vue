@@ -1,12 +1,18 @@
-<template>
+﻿<template>
+  <!-- 界面动作（如「返回题卡订正」）：居中提示，不是学生气泡 -->
+  <div v-if="msg.role === 'user' && msg.system" class="msg-row system">
+    <span class="sys-chip">{{ msg.text }}</span>
+  </div>
+
   <!-- 用户右气泡 -->
-  <div v-if="msg.role === 'user'" class="msg-row user">
+  <div v-else-if="msg.role === 'user'" class="msg-row user" :class="{ 'student-turn': studentDialog }">
     <div class="user-col">
       <!-- 附件放在气泡外：题图是数学内容块，不是聊天文字的一部分 -->
       <div v-if="msg.attachments?.length" class="ub-atts outside">
         <AttachmentThumb v-for="a in msg.attachments" :key="a.file_id || a.name" :attachment="a" />
       </div>
       <div class="bubble user-bubble">
+        <div v-if="msg.sample" class="sample-tag">示例记录</div>
         <!-- 题目白卡：讲解/变式消息把题干独立成白色题目区（LaTeX 正常渲染） -->
         <div v-if="msg.question?.text" class="ub-question">
           <MarkdownView :text="msg.question.text" :zoomable="false" />
@@ -32,7 +38,7 @@
         <button class="act" title="复制" @click="onCopy">
           <UiIcon :name="copied ? 'check' : 'copy'" :size="14" />
         </button>
-        <button class="act" title="编辑并重新发送" @click="startEdit">
+        <button v-if="!offlineOrigin" class="act" title="编辑并重新发送" @click="startEdit">
           <UiIcon name="edit" :size="14" />
         </button>
         <span v-if="msg.createdAt" class="act-time">{{ fmtHm(msg.createdAt) }}</span>
@@ -41,11 +47,18 @@
   </div>
 
   <!-- AI 左气泡 -->
-  <div v-else class="msg-row ai">
-    <div class="ai-avatar">π</div>
+  <div v-else class="msg-row ai" :class="{ 'student-turn': studentDialog }">
+    <div class="ai-avatar" aria-hidden="true">π</div>
     <div class="ai-col">
+      <div v-if="studentDialog" class="ai-turn-heading">
+        <span>{{ isOfflineNotice ? '体验提示' : '智学助教' }}</span>
+      </div>
+      <div v-if="studentDialog && msg.status === 'streaming' && !msg.text" class="reply-loading" role="status">
+        <span class="spinner"></span>
+        {{ offlineOrigin ? '正在载入讲解…' : '正在回复…' }}
+      </div>
       <!-- 过程提示（status 事件，可折叠） -->
-      <details v-if="msg.statuses.length" class="status-bar" :open="msg.status === 'streaming'">
+      <details v-if="!offlineOrigin && msg.statuses.length" class="status-bar" :open="msg.status === 'streaming'">
         <summary>
           <span v-if="msg.status === 'streaming'" class="spinner"></span>
           {{ msg.statuses[msg.statuses.length - 1].text || '处理中…' }}
@@ -60,7 +73,7 @@
 
       <div class="bubble ai-bubble glass-card">
         <!-- 正文 markdown：增量流式渲染（AI 先提问/讲解，用户再看下方选项） -->
-        <IncrementalMarkdown v-if="msg.text" :text="msg.text" :streaming="msg.status === 'streaming'" />
+        <IncrementalMarkdown v-if="visibleText" :text="visibleText" :streaming="msg.status === 'streaming'" />
         <!-- P1-9：选项在正文之后（先让 AI 把问题讲清楚，用户再选择） -->
         <div v-if="msg.clarify" class="clarify-box">
           <div v-if="msg.clarify.question" class="clarify-q">
@@ -163,6 +176,7 @@
             v-else-if="cardType(c) === 'socratic_interaction'"
             :card="c"
             :used="isInteractionUsed(ci)"
+            :offline="!!offlineOrigin"
             @submit="(p) => onInteractionSubmit(ci, c, p)"
             @text="(t) => $emit('socraticChoice', { text: t, sessionId: ixSessionId(c), stepNo: ixStepNo(c) })"
             @skip="(label) => $emit('socraticChoice', { text: label, sessionId: ixSessionId(c), stepNo: ixStepNo(c), action: 'skip' })"
@@ -181,15 +195,17 @@
           </div>
           <!-- sgv3（CHAIN-DESIGN §7.3）换挡宣告卡：掌握度升降显式宣告（wow W5），
                四档支持强度人设化（陪拆/搭手架/递工具/当裁判）——学生看见自己赢得的自主权 -->
-          <div
-            v-else-if="cardType(c) === 'socratic_tier_shift'"
-            class="soc-tier-shift" :class="c.direction === 'down' ? 'down' : 'up'"
-            :data-soc-tier-shift="String(c.direction || '')"
-          >
-            <span class="ts-badge">{{ c.direction === 'down' ? '🧗 换挡' : '🚀 换挡' }}</span>
-            <span class="ts-move">{{ tierZh(c.from) }} → {{ tierZh(c.to) }}</span>
-            <span v-if="c.text" class="ts-text">{{ c.text }}</span>
-          </div>
+          <template v-else-if="cardType(c) === 'socratic_tier_shift'">
+            <div
+              v-if="!offlineOrigin"
+              class="soc-tier-shift" :class="c.direction === 'down' ? 'down' : 'up'"
+              :data-soc-tier-shift="String(c.direction || '')"
+            >
+              <span class="ts-badge">{{ c.direction === 'down' ? '🧗 换挡' : '🚀 换挡' }}</span>
+              <span class="ts-move">{{ tierZh(c.from) }} → {{ tierZh(c.to) }}</span>
+              <span v-if="c.text" class="ts-text">{{ c.text }}</span>
+            </div>
+          </template>
           <SocraticDetourCard
             v-else-if="cardType(c) === 'socratic_detour'"
             :card="c"
@@ -294,6 +310,7 @@
             v-for="c in msg.citations"
             :key="c.n"
             :c="c"
+            :student-dialog="studentDialog"
             :open="expandedCite === c.n"
             @toggle="expandedCite = expandedCite === c.n ? 0 : c.n"
           />
@@ -304,13 +321,17 @@
 
         <!-- 底部徽标行（tokens/耗时已挪入操作条 meta 的 title tooltip，不再常驻） -->
         <div v-if="hasFoot" class="msg-foot">
-          <span v-if="msg.badge" class="tag cyan">{{ badgeText }}</span>
-          <span v-if="msg.interrupted || msg.status === 'aborted'" class="tag orange">已中断</span>
+          <span v-if="msg.badge && !offlineOrigin" class="tag cyan">{{ badgeText }}</span>
+          <span v-if="msg.interrupted || msg.status === 'aborted'" class="tag orange">已停止回复</span>
           <span v-if="msg.status === 'error'" class="tag red">{{ msg.errorText || '出错了' }}</span>
         </div>
 
         <!-- AI 生成标识：只在该会话最后一条 AI 回复末尾显示一次（评审：每条都挂是噪声） -->
-        <AiGeneratedMark v-if="live" :provider="aiSkillLabel" :content-id="String(msg.msgId || msg.key || '')" />
+        <AiGeneratedMark
+          v-if="live && !offlineOrigin && !isOfflineNotice"
+          :provider="offlineOrigin ? '' : aiSkillLabel"
+          :content-id="offlineOrigin ? '' : String(msg.msgId || msg.key || '')"
+        />
       </div>
 
       <!-- AI 消息操作条（M2 §4.2：复制｜重新生成｜版本导航｜👍👎｜时间戳+模型徽标） -->
@@ -318,7 +339,7 @@
         <button class="act" :title="copied ? '已复制' : '复制'" @click="onCopy">
           <UiIcon :name="copied ? 'check' : 'copy'" :size="14" />
         </button>
-        <button class="act" title="重新生成" @click="$emit('regenerate', msg)">
+        <button v-if="!offlineOrigin" class="act" title="重新生成" @click="$emit('regenerate', msg)">
           <UiIcon name="refresh" :size="14" />
         </button>
 
@@ -353,14 +374,14 @@
         </button>
 
         <!-- hover 显现：时间戳 + 模型徽标（tokens/耗时挪进 title tooltip） -->
-        <span class="act-meta" :title="metaTooltip">
-          {{ fmtHm(msg.createdAt) }}<template v-if="msg.skill"> · {{ skillTitle }}</template>
+        <span class="act-meta" :title="studentDialog ? '' : metaTooltip">
+          {{ fmtHm(msg.createdAt) }}<template v-if="msg.skill && !studentDialog"> · {{ skillTitle }}</template>
         </span>
 
         <!-- 引导技能专属操作（会话已结束则隐藏，防止结束后动作掉状态机）；
              sgv2（DESIGN §8.1/§3.5 触发器 3）：「我没思路」低评判固定求助入口——
              发文本 attempt 不改协议，后端按显式求助强信号直接触发 gap 门控 -->
-        <template v-if="msg.skill === 'socratic_solver' && !tutorDone">
+        <template v-if="msg.skill === 'socratic_solver' && !tutorDone && (!studentDialog || live)">
           <button class="act hint" title="这里的求助不计入任何评价" @click="$emit('tutorAction', 'stuck')">我没思路</button>
           <button class="act hint" @click="$emit('tutorAction', 'hint')">来点提示</button>
           <button class="act hint" @click="$emit('tutorAction', 'answer')">直接看答案</button>
@@ -415,6 +436,8 @@ import { copyText } from '@/utils/markdown'
 
 const props = defineProps({
   msg: { type: Object, required: true },
+  studentDialog: { type: Boolean, default: false },
+  offlineOrigin: { type: String, default: '' },
   /** 是否是该会话最后一条 AI 消息：只有它可交互，历史旧卡只回看（不向当前步骤注入事件） */
   live: { type: Boolean, default: true },
 })
@@ -427,6 +450,15 @@ const emit = defineEmits([
 ])
 
 const expandedCite = ref(0)
+const isOfflineNotice = computed(() =>
+  !!props.offlineOrigin && props.msg.statuses.some((status) => status.stage === 'offline'),
+)
+const visibleText = computed(() => {
+  const text = props.msg.text || ''
+  return props.offlineOrigin === 'recorded' && props.msg.role !== 'user'
+    ? text.replace(/（支持强度[^）]*(?:）|$)/g, '')
+    : text
+})
 
 // 搜索降级文案（阶段 6B）：优先透传 message，否则按 error_code 映射
 const DEGRADED_ZH = {
@@ -441,7 +473,7 @@ const degradedText = computed(() => {
 /* ===== 复制 ===== */
 const copied = ref(false)
 async function onCopy() {
-  const ok = await copyText(props.msg.text || '')
+  const ok = await copyText(visibleText.value)
   if (ok) {
     copied.value = true
     setTimeout(() => { copied.value = false }, 1200)
@@ -517,7 +549,7 @@ const metaTooltip = computed(() => {
 })
 
 const hasFoot = computed(
-  () => props.msg.badge || props.msg.interrupted
+  () => (!props.offlineOrigin && props.msg.badge) || props.msg.interrupted
     || props.msg.status === 'aborted' || props.msg.status === 'error'
 )
 
@@ -741,6 +773,15 @@ function stageName(stage) {
 
 <style scoped>
 .msg-row { display: flex; margin-bottom: var(--space-4); }
+.msg-row.system { justify-content: center; margin: 6px 0 10px; }
+.sample-tag {
+  display: inline-block; font-size: 10.5px; color: var(--ink3); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0 6px; margin-bottom: 5px;
+}
+.sys-chip {
+  font-size: 12px; color: var(--ink2); background: var(--bg2);
+  border: 1px solid var(--line); border-radius: 999px; padding: 2px 10px;
+}
 .msg-row.user { justify-content: flex-end; }
 .user-col { display: flex; flex-direction: column; align-items: flex-end; max-width: 78%; }
 .bubble { max-width: 100%; padding: var(--space-3) var(--space-4); font-size: var(--text-sm); }
@@ -999,5 +1040,69 @@ function stageName(stage) {
 /* 触屏无 hover：操作条常显（降低透明度代替完全隐藏） */
 @media (hover: none) {
   .msg-actions { opacity: 0.75; }
+}
+
+.student-turn {
+  width: 100%; margin-bottom: 15px;
+}
+.student-turn:last-child { margin-bottom: 8px; }
+.student-turn .user-col { max-width: min(77%, 645px); min-width: 0; }
+.student-turn .user-bubble {
+  padding: 10px 15px; border: 1px solid var(--brand-faint); border-radius: var(--radius-lg) var(--radius-lg) 5px var(--radius-lg);
+  background: var(--brand-soft); color: var(--ink); box-shadow: none;
+}
+.student-turn .user-bubble > :deep(.md-body) { color: var(--ink); font-size: 14px; line-height: 1.75; }
+.student-turn .user-bubble > :deep(.md-body > p) { margin: 0; }
+.student-turn .user-bubble > :deep(.md-body :not(pre) > code) { color: var(--brand-deep); background: var(--card); }
+.student-turn .ub-edit-ta { min-width: 0; min-height: 68px; background: var(--card); color: var(--ink); }
+.student-turn .ub-edit-cancel { color: var(--ink2); border-color: var(--border-strong); }
+.student-turn .ub-question { margin-bottom: 6px; }
+.student-turn .ai-avatar {
+  width: 32px; height: 32px; margin-right: 12px; border-radius: 10px;
+  background: var(--brand); color: var(--card); font-size: 19px;
+}
+.student-turn .ai-col { flex: 1; max-width: none; min-width: 0; }
+.ai-turn-heading {
+  display: flex; align-items: center; min-height: 28px; margin-bottom: 6px;
+  font-size: 13px; font-weight: 700; color: var(--ink);
+}
+.reply-loading { display: flex; align-items: center; gap: 7px; color: var(--ink2); font-size: 13px; }
+.student-turn .ai-bubble {
+  padding: 14px 16px; border: 1px solid var(--border);
+  border-radius: 16px; background: var(--card);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, .04);
+  backdrop-filter: none;
+}
+.student-turn .ai-bubble > :deep(.md-body) { font-size: 15px; line-height: 1.8; }
+.student-turn .ai-bubble > :deep(.md-body p),
+.student-turn .ai-bubble > :deep(.md-body li),
+.student-turn .ai-bubble > :deep(.md-body blockquote) { max-width: 720px; }
+.student-turn .ai-bubble > :deep(.md-body p) { margin: 0 0 .68em; }
+.student-turn .ai-bubble > :deep(.md-body h3) { font-size: 16px; margin-block: 18px 6px; }
+.student-turn .ai-bubble > :deep(.md-body .katex-display) {
+  padding: 10px 12px; margin-block: 10px 14px;
+  border-radius: var(--radius-sm); background: var(--bg);
+}
+.student-turn .ai-bubble > :deep(.md-body table) {
+  display: block; width: fit-content; max-width: 100%; overflow-x: auto;
+}
+.student-turn .citations { align-items: flex-start; gap: 6px; margin-top: 11px; }
+.student-turn .msg-actions { flex-wrap: wrap; margin-top: 3px; }
+.student-turn .act { color: var(--ma-text-muted, var(--ink2)); }
+.student-turn .act.hint, .student-turn .act.on { color: var(--brand-deep); }
+.student-turn .act:hover:not(:disabled) { background: var(--brand-soft); }
+.student-turn .act-time, .student-turn .act-meta { color: var(--ma-text-muted, var(--ink2)); }
+.student-turn.ai:last-child .msg-actions { opacity: .7; }
+.student-turn.ai:last-child:hover .msg-actions { opacity: 1; }
+.student-turn .msg-actions:focus-within { opacity: 1; }
+@media (max-width: 720px) {
+  .student-turn { margin-bottom: 12px; }
+  .student-turn .user-col { max-width: 90%; }
+  .student-turn .ai-avatar { margin-right: 8px; }
+  .student-turn .ai-bubble > :deep(.md-body) { font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .student-turn .msg-actions { transition: none; }
+  .student-turn .reply-loading .spinner { animation: none; }
 }
 </style>

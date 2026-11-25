@@ -1,0 +1,72 @@
+{
+  "steps": [],
+  "title": "JSXGraph",
+  "links": [
+    {
+      "text": "Examples Database",
+      "href": "https://jsxgraph.org/share"
+    },
+    {
+      "text": "Example Wiki",
+      "href": "https://jsxgraph.org/wiki"
+    },
+    {
+      "text": "Assessment",
+      "href": "https://jsxgraph.org/home/examples/assessment/"
+    },
+    {
+      "text": "Geography",
+      "href": "https://jsxgraph.org/home/examples/geography/"
+    },
+    {
+      "text": "Examples",
+      "href": "https://jsxgraph.org/home/examples/share"
+    },
+    {
+      "text": "New Geography Extension: \n                        ",
+      "href": "https://jsxgraph.org/extensions/geo/demo/"
+    },
+    {
+      "text": "Examples\n                        \n                ",
+      "href": "https://jsxgraph.org/share"
+    },
+    {
+      "text": "Apollonian circle packing",
+      "href": "https://jsxgraph.org/share/example/apollonian-circle-packing"
+    },
+    {
+      "text": "Surface plot",
+      "href": "https://jsxgraph.org/share/example/surface-plot"
+    },
+    {
+      "text": "Euler line",
+      "href": "https://jsxgraph.org/share/example/euler-line"
+    },
+    {
+      "text": "Continuity",
+      "href": "https://jsxgraph.org/share/example/continuity"
+    },
+    {
+      "text": "Iterated Icosahedron",
+      "href": "https://jsxgraph.org/share/example/iterated-icosahedron"
+    },
+    {
+      "text": "Implicit plot – Elliptic curves",
+      "href": "https://jsxgraph.org/share/example/elliptic-curves-group-law"
+    },
+    {
+      "text": "Mirror, Mirror on the Wall ...",
+      "href": "https://jsxgraph.org/share/example/3d-mirror-mirror-on-the-wall"
+    },
+    {
+      "text": "Vectorfield",
+      "href": "https://jsxgraph.org/share/example/3d-vector-field"
+    }
+  ],
+  "canvasCount": 0,
+  "svgCount": 2,
+  "jxg": {
+    "version": "1.14.3"
+  },
+  "bodyStart": " \nv1.14.3\nGitHub\n Menu\nNew Geography Extension: Mercator vs. Equal Earth.  \nEvents\nConferences\nForum\nDiscussion\nAPI Reference\nDocumentation\nExamples\nDatabase\nNews\nAnnouncements\nGetting Started\nStep Into JSXGraph\njsFiddle\nLive Coding\nApollonian circle packing\nPowerful JavaScript Library\n\nBring your ideas to life with powerful, interactive visualizations — right in any browser, no plugins required. Whether you want your users to explore geometry, function plots, or data visualizations, JSXGraph helps you transform abstract concepts into clear, dynamic graphics they can manipulate and understand.\n\n \nSurface plot\nInteractive Math Visualization\n\nDesigned for teaching, learning, and assessment alike, JSXGraph gives your users the tools to not just see mathematics — but to experience it, explore it, and truly grasp it.\n\n \nEuler line\nFeatures\nEuclidean and projective geometry\n2D and 3D support\nCurve and surface plotting\nVector fields\nImplicit curves\nDifferential equations\nCharts and statistics\nAnimations\n \nContinuity\nE-Assessment\n\nIntegrated into digital assessment systems, JSXGraph enables the creation of intelligent, responsive tasks that adapt to student input in real time. Whether in c"
+}

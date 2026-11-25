@@ -1,0 +1,219 @@
+{
+  "steps": [],
+  "url": "https://www.mathos.ai/",
+  "title": "AI Math Solver, Calculator & Tutor | Mathos AI",
+  "body": "Home\nTutor\nVideo\nAdaptive\nLog in\nGet started\n\nMath, \ninteractive\n.\n\nMathos AI is your personal AI math solver, making quality, personalized education accessible to the next billion learners.\n\nTurn \nthe chain rule into a 60-secon\n\nAsk Mathos\nSCROLL TO EXPLORE\nBACKED BY\nFEATURED IN\nOne prompt becomes a lesson.\nAsk\nSolution\nVideo\nFlashcards\nQuiz\n\nYour question, in any form\n\nMaximize area\nPlay\n\nA far\n\nSolve for x\nHAVE A TRY\nFerris wheel\nA rider's height on a Ferris wheel follows h(t) = 25 - 20\\cos(\\pi t/15). When are they above 35 m?\nInscribed circle\nFind the radius of the circle inscribed in a 3–4–5 right triangle.\n\nStudy Tools\n\nHAVE A TRY\n4:12\n\nYOUTUBE\n\nTurn any solution into a quiz, flashcard deck, or animated video.\n\nMATH SOLVER\n\nA(x)=40x−2x² · x=10\n\nHave a try\n\nINTERACTIVE GAMES\n\nSolve a problem and unlock a game for every concept behind it.\n\nAdaptive Learning\n\nMost adaptive tools make a missed topic easier and serve it again. Mathos studies the pattern behind the miss, repairs the missing prerequisite, and returns the learner to the frontier.\n\nThree Pillars\nMATH SOLVER\nSolve anything. Truly anything.\n\nMathos breaks any problem to its core and re-explains until it clicks. Ask for a single nudge or the full worked solution — your call.\n\nExplore the solver\nMathos · Math Solver\nSolved in 1.8s\nFind the area between \n𝑦\n=\n𝑥\n2\ny=x\n2\n and \n𝑦\n=\n2\n𝑥\n+\n3\ny=2x+3.\n\nArea Between Two Curves\n\n𝐴\n=\n∫\n𝑎\n𝑏\n(\n𝑓\n(\n𝑥\n)\n−\n𝑔\n(\n𝑥\n)\n)\n \n𝑑\n𝑥\nA=∫\na\nb\n\t​\n\n(f(x)−g(x))dx\n1\nIntersect\n𝑥\n2\n=\n2\n𝑥\n+\n3\n⇒\n𝑥\n=\n−\n1\n,\n \n3\nx\n2\n=2x+3⇒x=−1,3\n2\nIntegrate\n∫\n−\n1\n3\n ⁣\n(\n2\n𝑥\n+\n3\n−\n𝑥\n2\n)\n \n𝑑\n𝑥\n∫\n−1\n3\n\t​\n\n(2x+3−x\n2\n)dx\n3\nEvaluate\n[\n \n𝑥\n2\n+\n3\n𝑥\n−\n𝑥\n3\n3\n \n]\n−\n1\n3\n[x\n2\n+3x−\n3\nx\n3\n\t​\n\n]\n−1\n3\n\t​\n\nArea = \n32\n3\n≈\n10.67\n3\n32\n\t​\n\n≈10.67\nVIDEO GENERATION\nEvery video, everywhere, all at once.\n\nUltrafast video generation — first frame in 5–10 seconds, the fastest anywhere. And every artifact stays fully editable.\n\nExplore video generation\nMATHOS · VIDEO\nWALL\nW\nL\n2W + L = 300 m\nproblem figure · attached\n\nVerifyingthemath\nWritingthescript\nGenerate video\n↑\nW\nW\nL\nWALL\nThe wall is one side — free. Fence covers the other three.\n𝐿\n+\n2\n𝑊\n=\n300\nL+2W=300\nLean on the wall, so the fence only covers three sides: L + 2W = 300.\n0:06 / 0:37\nAI TUTOR\nThe last tutor you'll ever need.\n\nIt watches you work and catches the mistake at the exact step you make it — coaching, correcting, and building your confidence in real time. Not a chatbot you query. A tutor that's with you.\n\nExplore the tutor\nMathos · AI Tutor\nFo",
+  "inputs": [],
+  "buttons": [
+    {
+      "text": "",
+      "aria": "Open navigation menu"
+    },
+    {
+      "text": "",
+      "aria": "Turn the chain rule into a 60-second video."
+    },
+    {
+      "text": "Ask Mathos",
+      "aria": null
+    },
+    {
+      "text": "Ask",
+      "aria": null
+    },
+    {
+      "text": "Solution",
+      "aria": null
+    },
+    {
+      "text": "Video",
+      "aria": null
+    },
+    {
+      "text": "Flashcards",
+      "aria": null
+    },
+    {
+      "text": "Quiz",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Previous"
+    },
+    {
+      "text": "",
+      "aria": "Next"
+    },
+    {
+      "text": "Play",
+      "aria": null
+    },
+    {
+      "text": "Solve for x",
+      "aria": null
+    },
+    {
+      "text": "Ferris wheelA rider's height on a Ferris",
+      "aria": null
+    },
+    {
+      "text": "Inscribed circleFind the radius of the c",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Pause video"
+    },
+    {
+      "text": "",
+      "aria": "Mute sound"
+    },
+    {
+      "text": "",
+      "aria": "Enter Fullscreen"
+    },
+    {
+      "text": "",
+      "aria": "Mathos AI Tutor whiteboard walkthrough"
+    },
+    {
+      "text": "",
+      "aria": "Unmute"
+    },
+    {
+      "text": "",
+      "aria": "Expand video"
+    },
+    {
+      "text": "",
+      "aria": "Play Aiden — Snapping a problem and getting the full solution"
+    },
+    {
+      "text": "",
+      "aria": "Unmute"
+    },
+    {
+      "text": "",
+      "aria": "Expand video"
+    },
+    {
+      "text": "",
+      "aria": "Play Alex Rivera — Why it beats ChatGPT for math"
+    },
+    {
+      "text": "",
+      "aria": "Unmute"
+    },
+    {
+      "text": "",
+      "aria": "Expand video"
+    },
+    {
+      "text": "",
+      "aria": "Play Noah — Solving a whole PDF worksheet"
+    },
+    {
+      "text": "",
+      "aria": "Unmute"
+    },
+    {
+      "text": "",
+      "aria": "Expand video"
+    },
+    {
+      "text": "What is the best AI math solver?",
+      "aria": null
+    },
+    {
+      "text": "What can the Mathos AI math calculator d",
+      "aria": null
+    },
+    {
+      "text": "What math problems can Mathos AI solve?",
+      "aria": null
+    },
+    {
+      "text": "Can Mathos AI help with photo math and P",
+      "aria": null
+    },
+    {
+      "text": "How accurate is the Mathos AI math solve",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Download the Mathos app"
+    },
+    {
+      "text": "",
+      "aria": "Download the Mathos app"
+    }
+  ],
+  "links": [
+    {
+      "text": "Tutor",
+      "href": "/feature/ai-tutor"
+    },
+    {
+      "text": "Get started",
+      "href": "/app/ask"
+    },
+    {
+      "text": "Explore the solver",
+      "href": "/feature/math-solver"
+    },
+    {
+      "text": "Explore the tutor",
+      "href": "/feature/ai-tutor"
+    },
+    {
+      "text": "4.9App StoreDownload",
+      "href": "https://apps.apple.com/us/app/mathtube-all-in-one-calculator/id6755861373"
+    },
+    {
+      "text": "4.8Google PlayDownload",
+      "href": "https://play.google.com/store/apps/details?id=com.mathgptpro.mclient"
+    },
+    {
+      "text": "Start free",
+      "href": "/app/ask"
+    },
+    {
+      "text": "Ask",
+      "href": "/app/ask"
+    },
+    {
+      "text": "Graph Calculator",
+      "href": "/app/graph-calculator"
+    },
+    {
+      "text": "Quiz Me",
+      "href": "/app/quiz"
+    },
+    {
+      "text": "PDF Homework Helper",
+      "href": "/app/pdf-helper"
+    },
+    {
+      "text": "AI Whiteboard",
+      "href": "/app/whiteboard"
+    },
+    {
+      "text": "Calculator",
+      "href": "/app/calculator"
+    },
+    {
+      "text": "Math Tutor",
+      "href": "/app/tutor"
+    },
+    {
+      "text": "Math Solver",
+      "href": "/feature/math-solver"
+    },
+    {
+      "text": "AI Tutor",
+      "href": "/feature/ai-tutor"
+    }
+  ]
+}

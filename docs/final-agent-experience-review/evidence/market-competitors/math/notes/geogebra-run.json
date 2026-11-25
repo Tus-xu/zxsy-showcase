@@ -1,0 +1,12 @@
+{
+  "url": "https://www.geogebra.org/calculator",
+  "startedAt": "2026-11-25T11:54:57.445Z",
+  "steps": [
+    "2026-11-25T11:55:11.339Z shot 01 empty"
+  ],
+  "inputs": [],
+  "textareas": 1,
+  "bodyTextStart": "Calculator Suite\nGraphing\nAssign\nSign in\nAlgebra\nTools\nTable\nSpreadsheet\n123f(x)ABC#&¬\n𝑥\n𝑦\n𝜋\n𝑒\n7\n8\n9\n×\n÷\n4\n5\n6\n+\n−\n<\n>\n1\n2\n3\n=\nans\n,\n(\n)\n0\n.",
+  "error": "locator.click: Timeout 10000ms exceeded.\nCall log:\n  \u001b[2m- waiting for locator('input').first()\u001b[22m\n\n    at D:\\zxsy-math-arena-showcase\\.work\\agent-exp\\scripts\\r6\\run-geogebra.cjs:32:17",
+  "endedAt": "2026-11-25T11:55:21.448Z"
+}

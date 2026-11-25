@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 学生「上传题图 → 对话引导」回放（样板一）。
  *
  * 数据来源：run-02 在现役学生入口真实上传三张原图后采集的
@@ -15,6 +15,7 @@ import { patch, store } from '../state'
 import { flowAttachment, FLOW_IMAGE } from '../showcase/flowAssets'
 import { SHOWCASE_CONVS, SHOWCASE_BY_ID, convItem, isShowcaseId } from '../showcase/catalog'
 import { ensureSession, runTurn, toHistoryItems, turnCount } from '../showcase/session'
+import { freeHistoryItems, listFreeConversations } from '../showcase/free'
 
 const RAW_FLOWS = import.meta.glob('../fixtures/student/flow-*.json', { eager: true, query: '?raw', import: 'default' })
 
@@ -56,7 +57,7 @@ const CONV_META = (() => {
 
 const PLACEHOLDER_TITLES = new Set(['分析用户上传的文件', '分析用户上传的文件内容', '新对话'])
 
-export const OFFLINE_NOTICE = '离线演示：本步骤只回放现役系统已采证的对话分支，未采证的输入不会生成新回答。'
+export const OFFLINE_NOTICE = '这次提问没有预设讲解。可以从左侧打开「导数学习 · 从提问到改错」，或上传随包提供的题图。'
 
 export const FLOWS = (() => {
   const out = {}
@@ -89,7 +90,33 @@ export function parseSse(raw) {
   return events
 }
 
-/** 找出本轮要回放的 SSE：首轮按附件 file_id 定位案例，其后按 conversation_id 游标推进。 */
+function normalizeInput(text) {
+  return String(text ?? '').normalize('NFC').replace(/\s+/g, ' ').trim()
+}
+
+function recordedMessage(turn) {
+  try {
+    const request = typeof turn.req === 'string' ? JSON.parse(turn.req) : turn.req
+    return normalizeInput(request?.message)
+  } catch {
+    return ''
+  }
+}
+
+function matchesRecordedTurn(turn, text, startsWithImage) {
+  const actual = normalizeInput(text)
+  const input = normalizeInput(turn.input)
+  const recorded = recordedMessage(turn)
+  if (startsWithImage && !input && (!actual || actual === '请分析我上传的文件')) return true
+  if (!actual) return false
+  if (recorded && actual === recorded) return true
+  if (input && !input.startsWith('（点击 ') && actual === input) return true
+  // 采录的公式输入可通过原卡片提交，也可在对话框键入同一表达式。
+  const expression = /^\[式子\]\s*(.+)$/.exec(recorded || input)?.[1]
+  return !!expression && actual === expression
+}
+
+/** 题图定位首轮，后续在当前轮次匹配采录时的输入。 */
 export function pickChatTurn(body) {
   const attachments = body?.attachments || body?.files || []
   const first = attachments?.[0] || {}
@@ -99,7 +126,8 @@ export function pickChatTurn(body) {
 
   let caseName = null
   let turnIdx = 0
-  if (fileId && caseOfFile(fileId)) {
+  const startsWithImage = !!(fileId && caseOfFile(fileId))
+  if (startsWithImage) {
     caseName = caseOfFile(fileId)
   } else if (convId && (store.chat || {})[convId]) {
     const cur = store.chat[convId]
@@ -114,6 +142,9 @@ export function pickChatTurn(body) {
     return { case: caseName, events: null, exhausted: true, text }
   }
   const turn = turns[turnIdx]
+  if (!matchesRecordedTurn(turn, text, startsWithImage && turnIdx === 0)) {
+    return { case: caseName, events: null, notice: true, turnIdx, text }
+  }
   const events = parseSse(turn.sse)
   const meta = events.find((e) => e.event === 'meta')?.data || {}
   const nextConv = meta.conversation_id || convId
@@ -127,7 +158,7 @@ export function pickChatTurn(body) {
 
 export function noticeEvents(message) {
   return [
-    { event: 'status', data: { stage: 'offline', text: '离线示例' } },
+    { event: 'status', data: { stage: 'offline', text: '体验提示' } },
     { event: 'token', data: { text: message } },
     { event: 'done', data: {} },
   ]
@@ -153,6 +184,28 @@ function sseText(raw) {
     else if (e.event === 'message') out += e.data?.text || ''
   }
   return out
+}
+
+/** 采证会话里的附件只有文件名；按题1/2/3 补本地快照，避免「原图已丢失」 */
+export function withLocalImages(items) {
+  const byName = (name) => {
+    const t = String(name || '')
+    if (/题1|ti1/i.test(t)) return FLOW_IMAGE.A
+    if (/题2|ti2/i.test(t)) return FLOW_IMAGE.B
+    if (/题3|ti3/i.test(t)) return FLOW_IMAGE.C
+    return null
+  }
+  return items.map((it) => {
+    if (!Array.isArray(it.attachments) || !it.attachments.length) return it
+    return {
+      ...it,
+      attachments: it.attachments.map((a) => {
+        if (a?.localUrl) return a
+        const img = byName(a?.name || a?.filename || '')
+        return img ? { ...a, mime: a.mime || img.mime, localUrl: img.url } : a
+      }),
+    }
+  })
 }
 
 function convMeta(flow) {
@@ -207,7 +260,9 @@ export function listConversations(basePayload) {
       skill: meta.skill || 'chat',
     })
   }
-  return { code: 0, message: 'ok', data: { items: [...showcase, ...items], hasMore: false } }
+  // 新对话里学生真实问过的会话（自由问答）排在最前：它们是最新的学习记录
+  const free = listFreeConversations()
+  return { code: 0, message: 'ok', data: { items: [...free, ...showcase, ...items], hasMore: false } }
 }
 
 /** GET /api/agent/conversations/{id}/messages —— 教学示例优先，其次采证 SSE 还原 */
@@ -216,8 +271,11 @@ export function conversationMessages(convId) {
     ensureSession(convId)
     return { code: 0, message: 'ok', data: { items: toHistoryItems(convId), hasMore: false } }
   }
+  // 自由问答轮次（最新在前）；若之后又上传题图进入采证流程，两段按时间拼接
+  const freeItems = freeHistoryItems(convId)
   const cur = (store.chat || {})[convId]
   if (!cur) {
+    if (freeItems.length) return { code: 0, message: 'ok', data: { items: freeItems, hasMore: false } }
     // 离线新建的空会话：现役此时返回空列表，UI 显示空态
     if (String(convId).startsWith('offline-')) return { code: 0, message: 'ok', data: { items: [], hasMore: false } }
     return null
@@ -267,7 +325,16 @@ export function conversationMessages(convId) {
       thinking: null,
     })
   })
+  // 采证附件只有文件名：补真实题图的本地快照（不伪造内容，只是把随包原图接上）
+  const withImgs = withLocalImages(items)
+  items.length = 0
+  items.push(...withImgs)
   // 现役 /messages 返回「最新在前」；界面渲染时再按时间排。顺序必须与现役一致。
   items.reverse()
+  if (freeItems.length) {
+    // freeItems 最新在前；翻成最早在前后接在采证轮次之前（自由问答发生在上传之前）
+    const merged = [...freeItems].reverse().concat([...items].reverse())
+    return { code: 0, message: 'ok', data: { items: merged.reverse(), hasMore: false } }
+  }
   return { code: 0, message: 'ok', data: { items, hasMore: false } }
 }

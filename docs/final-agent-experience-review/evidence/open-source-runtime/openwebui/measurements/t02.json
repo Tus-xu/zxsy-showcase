@@ -1,0 +1,144 @@
+{
+  "task": "T02",
+  "prompt": "求函数 f(x)=x³-3x²+2 的单调区间和极值，并解释判断依据。请分步骤完整解答。",
+  "frames": [],
+  "states": [
+    {
+      "i": 0,
+      "t": 958,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 1,
+      "t": 1478,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 2,
+      "t": 2011,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 3,
+      "t": 2545,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 4,
+      "t": 3057,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 5,
+      "t": 3574,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 6,
+      "t": 4088,
+      "generating": true,
+      "lastLen": 6,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 7,
+      "t": 4599,
+      "generating": true,
+      "lastLen": 13,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 8,
+      "t": 5125,
+      "generating": true,
+      "lastLen": 19,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 9,
+      "t": 5647,
+      "generating": true,
+      "lastLen": 28,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 10,
+      "t": 6173,
+      "generating": true,
+      "lastLen": 35,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "i": 11,
+      "t": 6701,
+      "generating": true,
+      "lastLen": 43,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    }
+  ],
+  "idle": true,
+  "finalStates": {
+    "generating": false,
+    "lastLen": 1105,
+    "scrollTop": 1724,
+    "scrollHeight": 2485,
+    "clientHeight": 761,
+    "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+  },
+  "answerText": "在数学中，求一个函数的单调区间和极值是微积分中的基本问题，其核心是通过导数分析函数的增减性与极值点。下面我将分步骤完整解答函数 f(x)=x\n3\n−3x\n2\n+2 的单调区间和极值，并解释判断依据。\n\n步骤 1：求导数\n\n函数的单调性由其一阶导数决定。\n\n给定函数：\n\nf(x)=x\n3\n−3x\n2\n+2\n\n求导：\n\nf\n′\n(x)=\ndx\nd\n\t​\n\n(x\n3\n−3x\n2\n+2)=3x\n2\n−6x\n步骤 2：求导数为零的点（临界点）\n\n令 f\n′\n(x)=0，解方程：\n\n3x\n2\n−6x=0\n3x(x−2)=0\n\n解得：\n\nx=0或x=2\n\n这些是可能的极值点。\n\n步骤 3：分析导数符号变化（判断单调性）\n\n我们将数轴分为三个区间，由临界点 x=0 和 x=2 划分：\n\n区间 (−∞,0)\n选取测试点，如 x=−1：\nf\n′\n(−1)=3(−1)\n2\n−6(−1)=3+6=9>0\n导数为正，函数 单调递增。\n\n区间 (0,2)\n选取测试点，如 x=1：\nf\n′\n(1)=3(1)\n2\n−6(1)=3−6=−3<0\n导数为负，函数 单调递减。\n\n区间 (2,∞)\n选取测试点，如 x=3：\nf\n′\n(3)=3(3)\n2\n−6(3)=27−18=9>0\n导数为正，函数 单调递增。\n\n步骤 4：判断极值类型\n\n在 x=0：\n函数从递增变为递减，因此是 局部极大值（极大点）。\n\n在 x=2：\n函数从递减变为递增，因此是 局部极小值（极小点）。\n\n步骤 5：计算极值点函数值\n\n当 x=0 时：\n\nf(0)=0\n3\n−3(0)\n2\n+2=2\n\n极大值为 f(0)=2\n\n当 x=2 时：\n\nf(2)=2\n3\n−3(2)\n2\n+2=8−12+2=−2\n\n极小值为 f(2)=−2\n\n最终结论\n单调区间：\n单调递增区间：(−∞,0) 和 (2,∞)\n单调递减区间：(0,2)\n极值：\n局部极大值：在 x=0 处，值为 2\n局部极小值：在 x=2 处，值为 −2\n判断依据说明\n\n单调性判断依据：\n一阶导数 f\n′\n(x) 的符号决定了函数的增减性：\n\nf\n′\n(x)>0：函数递增\nf\n′\n(x)<0：函数递减\n\n极值点判断依据：\n当导数由正变负，函数在该点达到局部最大值；当导数由负变正，函数在该点达到局部最小值。\n这是通过导数符号变化判断的，称为“第一导数判别法”。\n\n✅ 结论总结：\n\n内容\n\t\n结果\n\n\n单调递增区间\n\t\n(−∞,0)、(2,∞)\n\n\n单调递减区间\n\t\n(0,2)\n\n\n极大值\n\t\nf(0)=2\n\n\n极小值\n\t\nf(2)=−2\n\n此解答严格基于微积分基本原理，无需额外工具或外部信息。",
+  "rendered": {
+    "katex": 41,
+    "code": 0,
+    "tables": 1,
+    "lists": 15,
+    "headings": 7
+  }
+}

@@ -1,0 +1,76 @@
+{
+  "browser": "158.0.8127.88",
+  "checks": [
+    "空会话、原有背景、知识库引用、离线说明、建议收起和中文输入",
+    "跳过建议后保留继续练习入口",
+    "数学排版、来源键盘展开、回到最新、图形帧和反例",
+    "题图加载、看原图和关闭",
+    "超出范围不推进、刷新保留输入、键盘继续导学",
+    "宽视口、720×450 窄视口和减弱动效"
+  ],
+  "layout": {
+    "home-1440": {
+      "box": 860,
+      "editor": 50,
+      "column": 0,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 735,
+      "boxTop": 781,
+      "overflow": 0
+    },
+    "qa-1440": {
+      "box": 860,
+      "editor": 50,
+      "column": 860,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 728,
+      "boxTop": 774,
+      "overflow": 0
+    },
+    "guide-1440": {
+      "box": 860,
+      "editor": 50,
+      "column": 860,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 763,
+      "boxTop": 774,
+      "overflow": 0
+    },
+    "guide-1906": {
+      "box": 860,
+      "editor": 50,
+      "column": 860,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 898,
+      "boxTop": 909,
+      "overflow": 0
+    },
+    "guide-720": {
+      "box": 475,
+      "editor": 50,
+      "column": 475,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 318,
+      "boxTop": 329,
+      "overflow": 0
+    }
+  },
+  "network": [],
+  "pageErrors": [],
+  "consoleErrors": [
+    "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11940:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B",
+    "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showc",
+    "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11940:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B",
+    "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showc",
+    "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11940:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B",
+    "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showc",
+    "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11940:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B",
+    "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showc"
+  ],
+  "newConsoleErrors": []
+}

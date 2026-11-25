@@ -1,0 +1,387 @@
+{
+  "meta": {
+    "entry": "D:/zxsy-math-arena-showcase/release/开始演示.html",
+    "viewport": "1440x900",
+    "deviceScaleFactor": 1,
+    "offline": true
+  },
+  "steps": {
+    "home": {
+      "header": "新对话",
+      "title": "新对话"
+    },
+    "s5Open": {
+      "header": "π\n引导式解题 · 为什么不是极小值\n离线体验",
+      "userMsgs": [
+        "我选 A。x=−1 能让导数等于零，所以我觉得这里是极小值。\n\n21:28"
+      ],
+      "aiMsgs": [
+        "π\n智学助教\n\n你这句话里，有一半是对的：\n𝑥\n=\n−\n1\nx=−1 确实让 \n𝑔\n′\n(\n𝑥\n)\n=\n0\ng\n′\n(x)=0。问题在下一句——导数为零只说明切线水平，不能直接推出极小。先只看 \n−\n1\n−1 的左边：取 \n𝑥\n=\n−\n2\nx=−2，\n𝑔\n′\n(\n−\n2\n)\n=\n6\n(\n−\n2\n+\n1\n)\n(\n−\n2\n−\n2\n)\n=\n24\n>\n0\ng\n′\n(−2)=6(−2+1)(−2−2)=24>0。所以 \n−\n1\n−1 左侧的导数是正还是负？\n\n先看 −1 两侧\n当前依据\n\n𝑔\n′\n(\n𝑥\n)\n=\n6\n(\n𝑥\n+\n1\n)\n(\n𝑥\n−\n2\n)\ng\n′\n(x)=6(x+1)(x−2)\n\n你原来的作答：−1 让导数为零，所以是极小。\n\n左正右负\n左负右正\n我不确定\n21:29"
+      ],
+      "hasSampleLabel": false,
+      "options": [
+        "左正右负",
+        "左负右正",
+        "我不确定"
+      ],
+      "backBtn": null
+    },
+    "s5AfterOption": {
+      "lastUser": "左正右负\n\n21:30",
+      "lastAi": "π\n智学助教\n\n对，左侧为正，函数在上升。右边取 \n𝑥\n=\n0\nx=0，\n𝑔\n′\n(\n0\n)\n=\n−\n12\n<\n0\ng\n′\n(0)=−12<0——右侧在下降。左正右负，先升后降，所以 \n−\n1\n−1 是局部极大，不是极小。A 不成立；极小在另一处：\n2\n2 的两侧是左负右正，\n𝑔\n(\n2\n)\n=\n−\n19\ng(2)=−19。\n\n回到题卡\n\n原题在上方，首答的作答记录保留。\n\n返回题卡订正\n21:30"
+    },
+    "s5AfterReturn": {
+      "missing": true
+    },
+    "s2": {
+      "header": "知识问答 · 导数的几何意义",
+      "dialogMessages": {
+        "x": 240,
+        "y": 124,
+        "w": 1200,
+        "h": 604
+      },
+      "msgRowAi": {
+        "x": 410,
+        "y": 683.7,
+        "w": 860,
+        "h": 164
+      },
+      "aiCol": {
+        "x": 454,
+        "y": 683.7,
+        "w": 816,
+        "h": 164
+      },
+      "bubble": {
+        "x": 454,
+        "y": 717.7,
+        "w": 816,
+        "h": 101
+      },
+      "bubbleStyle": {
+        "borderTopWidth": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "boxShadow": "none",
+        "borderRadius": "0px"
+      },
+      "bodyStyle": {
+        "fontSize": "15px",
+        "lineHeight": "27px",
+        "maxWidth": "none",
+        "color": "rgb(15, 23, 42)"
+      },
+      "paragraph": {
+        "x": 454,
+        "y": 717.7,
+        "w": 816,
+        "h": 54
+      },
+      "paragraphTextLen": 100,
+      "figure": null,
+      "figureCssMaxWidth": null,
+      "figureCount": 0,
+      "componentCount": 1,
+      "inputCard": {
+        "x": 410,
+        "y": 774,
+        "w": 860,
+        "h": 111
+      },
+      "textarea": {
+        "x": 423,
+        "y": 787,
+        "w": 834,
+        "h": 50
+      },
+      "backBtn": {
+        "x": 793,
+        "y": 685,
+        "w": 94,
+        "h": 34
+      },
+      "sidebar": null,
+      "actionBars": [
+        {
+          "x": 454,
+          "y": 821.7,
+          "w": 816,
+          "h": 26
+        }
+      ],
+      "sourceCards": [
+        {
+          "text": "1\n自编讲义 · 导数与函数单调性 §3 水平切线",
+          "box": {
+            "x": 454,
+            "y": 782.7,
+            "w": 284,
+            "h": 36
+          }
+        }
+      ],
+      "sourcesBefore": [
+        "1\n自编讲义 · 导数与函数单调性 §1 切线斜率",
+        "2\n自编讲义 · 导数与函数单调性 §3 水平切线",
+        "1\n自编讲义 · 导数与函数单调性 §3 水平切线"
+      ],
+      "sourceAfterClick": {
+        "text": "1\n自编讲义 · 导数与函数单调性 §1 切线斜率\n割线的斜率是函数的平均变化率。让割线的一端沿曲线趋近另一端，若斜率趋于有限值，该极限就是该点的导数。\n来源：自编讲义（本项目编写，非教材原文）",
+        "htmlLen": 853,
+        "expanded": "src-card open student-source"
+      }
+    },
+    "s1": {
+      "header": "拍照解题 · 三次函数极值",
+      "dialogMessages": {
+        "x": 240,
+        "y": 124,
+        "w": 1200,
+        "h": 604
+      },
+      "msgRowAi": {
+        "x": 410,
+        "y": 492.5,
+        "w": 860,
+        "h": 737.9
+      },
+      "aiCol": {
+        "x": 454,
+        "y": 492.5,
+        "w": 816,
+        "h": 737.9
+      },
+      "bubble": {
+        "x": 454,
+        "y": 526.5,
+        "w": 816,
+        "h": 674.9
+      },
+      "bubbleStyle": {
+        "borderTopWidth": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "boxShadow": "none",
+        "borderRadius": "0px"
+      },
+      "bodyStyle": {
+        "fontSize": "15px",
+        "lineHeight": "27px",
+        "maxWidth": "none",
+        "color": "rgb(15, 23, 42)"
+      },
+      "paragraph": {
+        "x": 454,
+        "y": 526.5,
+        "w": 816,
+        "h": 54
+      },
+      "paragraphTextLen": 56,
+      "figure": {
+        "x": 542,
+        "y": 830.6,
+        "w": 640,
+        "h": 370.8
+      },
+      "figureCssMaxWidth": "min(100%, 640px)",
+      "figureCount": 1,
+      "componentCount": 1,
+      "inputCard": {
+        "x": 410,
+        "y": 774,
+        "w": 860,
+        "h": 111
+      },
+      "textarea": {
+        "x": 423,
+        "y": 787,
+        "w": 834,
+        "h": 50
+      },
+      "backBtn": {
+        "x": 793,
+        "y": 685,
+        "w": 94,
+        "h": 34
+      },
+      "sidebar": null,
+      "actionBars": [
+        {
+          "x": 454,
+          "y": 1204.4,
+          "w": 816,
+          "h": 26
+        }
+      ],
+      "sourceCards": []
+    },
+    "s1Bottom": {
+      "header": "拍照解题 · 三次函数极值",
+      "dialogMessages": {
+        "x": 240,
+        "y": 124,
+        "w": 1200,
+        "h": 604
+      },
+      "msgRowAi": {
+        "x": 410,
+        "y": -29.5,
+        "w": 860,
+        "h": 737.9
+      },
+      "aiCol": {
+        "x": 454,
+        "y": -29.5,
+        "w": 816,
+        "h": 737.9
+      },
+      "bubble": {
+        "x": 454,
+        "y": 4.5,
+        "w": 816,
+        "h": 674.9
+      },
+      "bubbleStyle": {
+        "borderTopWidth": "0px",
+        "backgroundColor": "rgba(0, 0, 0, 0)",
+        "padding": "0px",
+        "boxShadow": "none",
+        "borderRadius": "0px"
+      },
+      "bodyStyle": {
+        "fontSize": "15px",
+        "lineHeight": "27px",
+        "maxWidth": "none",
+        "color": "rgb(15, 23, 42)"
+      },
+      "paragraph": {
+        "x": 454,
+        "y": 4.5,
+        "w": 816,
+        "h": 54
+      },
+      "paragraphTextLen": 56,
+      "figure": {
+        "x": 542,
+        "y": 308.6,
+        "w": 640,
+        "h": 370.8
+      },
+      "figureCssMaxWidth": "min(100%, 640px)",
+      "figureCount": 1,
+      "componentCount": 1,
+      "inputCard": {
+        "x": 410,
+        "y": 774,
+        "w": 860,
+        "h": 111
+      },
+      "textarea": {
+        "x": 423,
+        "y": 787,
+        "w": 834,
+        "h": 50
+      },
+      "backBtn": null,
+      "sidebar": null,
+      "actionBars": [
+        {
+          "x": 454,
+          "y": 682.4,
+          "w": 816,
+          "h": 26
+        }
+      ],
+      "sourceCards": []
+    },
+    "variant": {
+      "cardCount": 1,
+      "quizCardBox": {
+        "x": 454,
+        "y": 311.6875,
+        "width": 816,
+        "height": 314.65625,
+        "top": 311.6875,
+        "right": 1270,
+        "bottom": 626.34375,
+        "left": 454
+      },
+      "options": [
+        {
+          "text": "A\n\nA. \n𝑥\n=\n−\n1\nx=−1",
+          "w": 374,
+          "h": 34.9,
+          "radius": "8px",
+          "border": "1px",
+          "bg": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "B\n\nB. \n𝑥\n=\n1\nx=1",
+          "w": 374,
+          "h": 34.9,
+          "radius": "8px",
+          "border": "1px",
+          "bg": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "C\n\nC. \n𝑥\n=\n2\nx=2",
+          "w": 374,
+          "h": 34.9,
+          "radius": "8px",
+          "border": "1px",
+          "bg": "rgb(255, 255, 255)"
+        },
+        {
+          "text": "D\n\nD. \n𝑥\n=\n−\n2\nx=−2",
+          "w": 374,
+          "h": 34.9,
+          "radius": "8px",
+          "border": "1px",
+          "bg": "rgb(255, 255, 255)"
+        }
+      ],
+      "optionRowCount": 4,
+      "labels": [
+        "A",
+        "B",
+        "C",
+        "D"
+      ],
+      "aiGeneratedInside": false,
+      "headerText": "🔄 举一反三 · 变式链 · 3 题\nAI 生成\n对话内直接作答\n✦ 变式 1/3\n\n换函数系数，保持导数变号结构\n\n基础\n\n已知函数 \n𝑓\n(\n𝑥\n)\n=\n2\n𝑥\n3\n−\n3\n𝑥\n2\n−\n12\n𝑥\n+\n1\nf(x)=2x\n3\n−3x\n2\n−12x+1，则 \n𝑓\n(\n𝑥\n)\nf(x) 的极小值点为（ ）\n\nA\n\nA. \n𝑥\n=\n−\n1\nx=−1\n\nB\n\nB. \n𝑥\n=\n1\nx=1\n\nC\n\nC. \n𝑥\n=\n2\nx=2\n\nD\n\nD. \n𝑥\n=\n−\n2\nx=−2\n\n答案与解析\n原题\n→\n变式1\n→\n变式2\n→\n变式3",
+      "cards": [
+        {
+          "x": 454,
+          "y": 311.6875,
+          "width": 816,
+          "height": 314.65625,
+          "top": 311.6875,
+          "right": 1270,
+          "bottom": 626.34375,
+          "left": 454
+        }
+      ]
+    },
+    "boundary1": {
+      "lastUser": "今天天气不错\n\n21:30",
+      "lastAi": "π\n智学助教\n\n离线体验目前覆盖「导数与极值」这条主线。你可以：\n\n问「导数为零为什么不一定有极值」或「怎么判断极大还是极小」\n上传题1/题2/题3的题图，让我完整讲一道题\n打开左侧的「引导式解题 · 为什么不是极小值」走一遍\n\n超出这条主线的提问，我会如实告诉你没覆盖到。\n\nAI 生成\n· 仅供参考，请核实\n21:30"
+    },
+    "boundary2": {
+      "lastUser": "帮我写作文\n\n21:30",
+      "lastAi": "π\n智学助教\n\n离线体验目前覆盖「导数与极值」这条主线。你可以：\n\n问「导数为零为什么不一定有极值」或「怎么判断极大还是极小」\n上传题1/题2/题3的题图，让我完整讲一道题\n打开左侧的「引导式解题 · 为什么不是极小值」走一遍\n\n超出这条主线的提问，我会如实告诉你没覆盖到。\n\nAI 生成\n· 仅供参考，请核实\n21:30",
+      "identical": true
+    }
+  },
+  "network": {
+    "total": 1,
+    "nonFile": [],
+    "sample": [
+      "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html"
+    ]
+  },
+  "errors": [
+    "console: [    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11954:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702]",
+    "console: Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11955:702\")."
+  ]
+}

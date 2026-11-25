@@ -1,0 +1,12 @@
+{
+  "url": "https://claude.com/product/overview",
+  "finalUrl": "https://claude.com/product/overview",
+  "title": "Claude | The AI assistant for work",
+  "status": 200,
+  "shots": [
+    "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\claude-official\\page-overview_viewport.png",
+    "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\claude-official\\page-overview_full.png"
+  ],
+  "notes": [],
+  "textSample": "Skip to main content Latest news Introducing Claude Duet A new app and proactive way to work with Claude, now in research preview. Join the waitlist Product Developers Enterprise Resources Pricing Login Contact sales Try Claude Product Explore here Campaign readout Call prep Audience intelligence QBR deck Earnings comps CRM hygiene Month-end close JD check Budget reforecast Survey readout Legal research drafting Merit analysis Deposition prep Action tracking Contract redline Metrics dashboard Asset creation QBR deck Campaign readout Call prep Audience intelligence Earnings comps JD check Month-end close Survey readout Budget reforecast Merit analysis Action tracking Contract redline Metrics dashboard Deposition prep Feedback digest Give Claude more Hand Claude a task, not just a question. Tackle routines, tangled ideas, and big projects. Try Claude Download for Windows Windows (arm64) Put Claude to work Change the way you work See what Claude can do See all capabilities Get it done Access tools Make it yours Stay in control Work where you want Don’t start over Quick answers or long tasks Parallel tasks Frontier intelligence Scheduled tasks Voice Finished, editable work Artifacts In"
+}

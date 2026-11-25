@@ -1,0 +1,16 @@
+{
+  "which": "v5",
+  "browser": "158.0.8127.88",
+  "viewports": {
+    "1440": {
+      "shots": 20,
+      "ok": true
+    },
+    "1920": {
+      "shots": 20,
+      "ok": true
+    }
+  },
+  "checks": [],
+  "errors": []
+}

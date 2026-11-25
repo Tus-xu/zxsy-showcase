@@ -68,12 +68,6 @@ function sheetSvg({ index, kicker, title, lines, hint, options, footnote }) {
     `<line x1="${PAD}" y1="68" x2="${W - PAD}" y2="68" stroke="${SHEET.rule}" stroke-width="1"/>`
   )
 
-  // 右上角离线标记
-  body.push(`<rect x="${W - 82}" y="24" width="62" height="18" rx="9" fill="#eef1f5"/>`)
-  body.push(
-    `<text x="${W - 51}" y="36.5" text-anchor="middle" font-size="9.5" fill="#6b7280">离线示例</text>`
-  )
-
   // 正文（16px，行距 26 ≈ 1.6 倍）；表达式里的上标由 tspan 完成
   lines.forEach((line, i) => {
     body.push(
@@ -112,9 +106,6 @@ function sheetSvg({ index, kicker, title, lines, hint, options, footnote }) {
   body.push(
     `<text x="${PAD}" y="${H - 16}" font-size="9.5" fill="${SHEET.muted}">${esc(footnote)}</text>`
   )
-  body.push(
-    `<text x="${W - PAD}" y="${H - 16}" text-anchor="end" font-size="9.5" fill="${SHEET.muted}">离线演示 · 无外网请求</text>`
-  )
 
   return `<svg xmlns="${SVG_NS}" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" role="img" font-family="${FONT}"><title>${esc(title)}</title>${body.join('')}</svg>`
 }
@@ -131,7 +122,7 @@ const problemSvg = sheetSvg({
   title: '三次函数极值 · 自编题图',
   lines: [`已知 ${F_EXPR}。`, '求函数的单调区间及极值，并说明判断依据。'],
   hint: '（先求 f′(x)，再判断导数在各区间上的符号。）',
-  footnote: '自编题图 · 离线教学示例',
+  footnote: '智学数研 · 自编练习',
 })
 
 const variantSvg = sheetSvg({
@@ -146,7 +137,7 @@ const variantSvg = sheetSvg({
     { key: 'C', text: '2' },
     { key: 'D', text: '−2' },
   ],
-  footnote: '自编题图 · 离线教学示例',
+  footnote: '智学数研 · 自编练习',
 })
 
 /** S1 / S5 / 组合会话共用的题图（自编、本地排版）。 */

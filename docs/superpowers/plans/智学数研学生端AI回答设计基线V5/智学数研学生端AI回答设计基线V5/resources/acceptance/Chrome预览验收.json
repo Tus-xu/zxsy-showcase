@@ -1,0 +1,52 @@
+{
+  "browser": "158.0.8127.88",
+  "entry": "V5设计预览.html",
+  "pages": {
+    "1440×900": {
+      "reading": 860,
+      "input": 860,
+      "leftDifference": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "border": "1px"
+    },
+    "1906×1035": {
+      "reading": 860,
+      "input": 860,
+      "leftDifference": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "border": "1px"
+    },
+    "720×450": {
+      "reading": 422,
+      "input": 422,
+      "leftDifference": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "border": "1px"
+    },
+    "390×844": {
+      "reading": 346,
+      "input": 346,
+      "leftDifference": 0,
+      "overlap": 0,
+      "overflow": 0,
+      "border": "1px"
+    }
+  },
+  "checks": [
+    "V5-02 拍照、题图放大、两种附件边界、暂停和刷新续播",
+    "V5-01 知识问答、来源展开、实际输入和 h=0 切线",
+    "V5-03/04/07 A/B/D 分流、高度误解、切换解法、真实订正保存、刷新去重、界面点击零伪用户消息",
+    "V5-05 图形联动、键盘、坐标和斜率校核、反例与刷新",
+    "V5-06 三道变式逐题作答，统计由事件计算",
+    "V5-08 条件概率与椭圆的真实输入分支",
+    "V5-09 首次实际上传使用中性开场，刷新恢复已呈现段落",
+    "V5-10 首答正确后改错再订正，以及本地存储失败的诚实回退",
+    "V5-11 四个视口、输入与阅读列、1px 回复边界、减弱动效"
+  ],
+  "network": [],
+  "errors": [],
+  "consoleErrors": []
+}

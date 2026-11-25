@@ -1,0 +1,212 @@
+{
+  "createBtns": 1,
+  "urlAfterCreate": "http://127.0.0.1:18080/workspace/knowledge/43960d72-57b4-44fa-9df0-0510b428ad3b",
+  "pageText": "跳转到主要内容\nOpen WebUI\n新对话\nCtrl+Shift+O\n搜索\nCtrl+K\n笔记\n工作空间\n分组\n对话\n今天\nMathematical Formulas\n4 分钟前\n3分钟前\nMathematical Formulas\n5 分钟前\n4分钟前\nCritical Points\n6 分钟前\n6分钟前\nFunction Monotonic Intervals\n8 分钟前\n8分钟前\nMath Problem Solution\n11 分钟前\n11分钟前\nFunction Monotonicity\n13 分钟前\n12分钟前\n导数为零的极值条件\n16 分钟前\n15分钟前\nConnection Success\n18 分钟前\n17分钟前\n加载中……\nUser\n新对话\n知识库\n模型\n0\n知识库\n1\n提示词\n0\n技能\n0\n工具\n0\n返回\n访问\n43960d72-57b4-44fa-9df0-0510b428ad3b\nAll files\n\nNo files\n\nSelect a file to preview\n知识库创建成功\nOpen WebUI",
+  "buttons": [
+    {
+      "t": "",
+      "a": "展开侧边栏",
+      "id": "sidebar-open-button"
+    },
+    {
+      "t": "",
+      "a": "搜索",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "用户菜单",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "Notifications",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "展开侧边栏",
+      "id": ""
+    },
+    {
+      "t": "搜索\nCtrl+K",
+      "a": "搜索",
+      "id": "sidebar-search-button"
+    },
+    {
+      "t": "分组",
+      "a": null,
+      "id": "sidebar-folders-button"
+    },
+    {
+      "t": "",
+      "a": "创建分组",
+      "id": ""
+    },
+    {
+      "t": "对话",
+      "a": null,
+      "id": "sidebar-chats-button"
+    },
+    {
+      "t": "",
+      "a": "更多",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-65778f84-d0c9-4843-bf00-18099696bddb"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-1cf22984-966b-4a92-b98c-95943a5a6a1b"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-b48b946b-4bbb-48c7-8b5b-e2d68128c2d2"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-85f48c57-1370-4e41-af39-5bb678144855"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-be3899c9-5188-405a-a02a-549e2f656523"
+    },
+    {
+      "t": "",
+      "a": "对话菜单",
+      "id": "sidebar-chat-menu-1ac66646-65de-408b-956a-2f6bad61c2f0"
+    },
+    {
+      "t": "User",
+      "a": null,
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "新对话",
+      "id": "new-chat-button"
+    },
+    {
+      "t": "",
+      "a": "Tabs",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "取消",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "确认录制",
+      "id": "confirm-recording-button"
+    },
+    {
+      "t": "",
+      "a": "生成消息对",
+      "id": "generate-message-pair-button"
+    },
+    {
+      "t": "",
+      "a": "更多",
+      "id": "input-menu-button"
+    },
+    {
+      "t": "qwen3-4b-local",
+      "a": "已选择：qwen3-4b-local",
+      "id": "model-selector-model-button"
+    },
+    {
+      "t": "",
+      "a": "模型控件",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "语音输入",
+      "id": "voice-input-button"
+    },
+    {
+      "t": "",
+      "a": "语音模式",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "Split screen",
+      "id": ""
+    },
+    {
+      "t": "新对话",
+      "a": "新对话",
+      "id": "chat-panel-main-chat"
+    },
+    {
+      "t": "知识库",
+      "a": null,
+      "id": "chat-panel-page%3Ab4be6ce6-3d96-4f85-85b3-419afb80e249"
+    },
+    {
+      "t": "",
+      "a": "关闭 知识库",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "New tab",
+      "id": ""
+    },
+    {
+      "t": "返回",
+      "a": null,
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "更多选项",
+      "id": ""
+    },
+    {
+      "t": "访问",
+      "a": null,
+      "id": ""
+    },
+    {
+      "t": "43960d72-57b4-44fa-9df0-0510b428ad3b",
+      "a": null,
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "Filter and sort",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "添加内容",
+      "id": ""
+    },
+    {
+      "t": "",
+      "a": "Close toast",
+      "id": ""
+    }
+  ]
+}

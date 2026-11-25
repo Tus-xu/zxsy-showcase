@@ -1,0 +1,555 @@
+{
+  "entry": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+  "startedAt": "2026-11-25T14:00:16.477Z",
+  "viewport": {
+    "w": 1440,
+    "h": 900,
+    "dpr": 1
+  },
+  "offline": true,
+  "scenarios": {
+    "free": {
+      "q1": {
+        "streamed": true,
+        "len": 200,
+        "text": "导数为零只说明这一点的切线是水平的，它不保证是极值。\n\n看 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n<\n0\nx<0 和 \n𝑥\n>\n0\nx>0 时导数都为正，曲线一直在上升，原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，两侧同号就不是极值。\n\n看 x³ 的反例\n带我做一道题"
+      },
+      "followup": {
+        "streamed": true,
+        "len": 262,
+        "text": "𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n 在原点：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，切线水平；但 \n𝑥\n<\n0\nx<0 和 \n𝑥\n>\n0\nx>0 时 \n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\n>\n0\nf\n′\n(x)=3x\n2\n>0，两侧都在上升，所以原点不是极值点。\n\n和 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\n−\n3\n𝑥\nf(x)=x\n3\n−3x 在 \n𝑥\n=\n−\n1\nx=−1 对比：那里左侧导数为正、右侧为负，先升后降，才是局部极大。关键在变号，不在“等于零”。\n\n再讲讲判断方法",
+        "hasOrigin": true,
+        "hasTangent": true,
+        "hasX3": true,
+        "boundary": false,
+        "cards": 1
+      },
+      "weather": {
+        "len": 59,
+        "text": "这个和数学学习无关，我就不展开了。离线体验目前覆盖「导数与极值」这条主线：你可以问概念，也可以上传题图让我完整讲一道。",
+        "boundary": true
+      },
+      "essay": {
+        "len": 58,
+        "text": "我不代写作文或作业。数学这边，我可以陪你从卡住的那一步开始想——你可以上传题图，或问「导数为零为什么不一定有极值」。",
+        "boundary": false,
+        "refuse": true,
+        "mentionsEssay": true,
+        "sameAsWeather": false
+      },
+      "weatherEssayDifferent": true
+    },
+    "s1": {
+      "open": {
+        "katexDisplay": 1,
+        "displayVisible": true,
+        "tables": 1,
+        "tableVisible": false,
+        "sscTriples": 0,
+        "messages": 2,
+        "scrollTop": 0,
+        "scrollH": 1385,
+        "clientH": 564,
+        "bodyTextHead": "示例记录\n\n我能求导，但不会判断单调区间。帮我把两个极值和判断理由都写出来。\n\n21:58\nπ\n智学助教\n\n你说「能求导，但不会判断单调区间」——卡住的不是求导，是把「导数的正负」翻译成「函数的升降」。就按这道题走一遍。\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\n−\n3\n𝑥\nf(x)=x\n3\n−3x，定义域是全体实数。求导：\n\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\n−\n3\n=\n3\n(\n𝑥\n+\n1\n)\n(\n𝑥\n−\n1\n)\nf\n′\n(x",
+        "tablesText": [
+          "区间\t\n(\n−\n∞\n,\n−\n1\n)\n(−∞,−1)\t\n(\n−\n1\n,\n1\n)\n(−1,1)\t\n(\n1\n,\n∞\n)\n(1,∞)\n\n𝑓\n′\n(\n𝑥\n)\nf\n′\n(x)\t\n+\n+\t\n−\n−\t\n+\n+\n\n𝑓\n(\n𝑥\n)\nf(x)\t递增\t递减\t递增"
+        ]
+      },
+      "minus1": {
+        "len": 188,
+        "text": "因为 \n−\n1\n−1 左边（比如 \n−\n2\n−2）\n𝑓\n′\n>\n0\nf\n′\n>0，函数在上升；右边（比如 \n0\n0）\n𝑓\n′\n<\n0\nf\n′\n<0，函数在下降。先升后降，山顶就是极大，\n𝑓\n(\n−\n1\n)\n=\n2\nf(−1)=2。\n\n−1 附近的符号\n区间\t导数符号\t函数\nx=−2\t+\t上升\nx=−1\t0\t峰顶\nx=0\t−\t下降\n\n左正右负：先升后降，所以是局部极大。",
+        "cardTitle": "−1 附近的符号",
+        "cardNote": "左正右负：先升后降，所以是局部极大。",
+        "tableRows": [
+          "区间 导数符号 函数",
+          "x=−2 + 上升",
+          "x=−1 0 峰顶",
+          "x=0 − 下降"
+        ],
+        "cardCount": 1,
+        "hasX1InCard": false,
+        "streamed": true,
+        "replyHasMinus1": true,
+        "replySaysMax": true
+      }
+    },
+    "s5": {
+      "header": {
+        "sub": "示例会话 · 预设讲解，可现场作答",
+        "badges": "离线体验",
+        "stageBadgeCount": 0,
+        "stageWordsInHeader": false
+      },
+      "sample": {
+        "tags": [
+          "示例记录"
+        ],
+        "userRowsWithTag": 1,
+        "firstUserText": "示例记录\n\n我选 A。x=−1 能让导数等于零，所以我觉得这里是极小值。"
+      },
+      "stageWordsInPage": {
+        "hasRead": false,
+        "hasMethod": false,
+        "dialogStageEls": 0
+      },
+      "retryButtonCount": 1,
+      "retry": {
+        "before": {
+          "userRows": 2,
+          "sys": 0
+        },
+        "after": {
+          "userRows": 2,
+          "sys": 1
+        },
+        "newUserBubble": 0,
+        "newSysChip": 1,
+        "sysTexts": [
+          "返回题卡订正"
+        ],
+        "sysMetrics": {
+          "count": 1,
+          "lastText": "返回题卡订正",
+          "chipBox": {
+            "x": 793,
+            "y": 450,
+            "w": 94,
+            "h": 25,
+            "cx": 840
+          },
+          "rowBox": {
+            "x": 410,
+            "y": 450,
+            "w": 860,
+            "h": 25,
+            "cx": 840
+          },
+          "msgBox": {
+            "x": 240,
+            "y": 124,
+            "w": 1200,
+            "cx": 840
+          },
+          "chipRowClass": "msg-row system"
+        },
+        "userTexts": [
+          "示例记录\n\n我选 A。x=−1 能让导数等于零，所以我觉得这里是极小值。",
+          "我不确定"
+        ]
+      }
+    },
+    "variant": {
+      "open": {
+        "cardCount": 1,
+        "optCount": 4,
+        "optTexts": [
+          "A\n\n−1",
+          "B\n\n1",
+          "C\n\n2",
+          "D\n\n−2"
+        ],
+        "keyTexts": [
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "bodyTexts": [
+          "−1",
+          "1",
+          "2",
+          "−2"
+        ],
+        "title": "🔄 举一反三 · 变式链 · 3 题",
+        "aiGenInCard": false,
+        "aigcMarksInCard": 0,
+        "styles": {
+          "card": {
+            "borderTopWidth": "1px",
+            "borderTopColor": "rgb(226, 232, 240)",
+            "background": "rgb(255, 255, 255)",
+            "borderRadius": "12px"
+          },
+          "variant": {
+            "borderTopWidth": "1px",
+            "borderLeftWidth": "0px",
+            "borderRightWidth": "0px",
+            "background": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "boxShadow": "none",
+            "padding": "10px 0px"
+          },
+          "stem": {
+            "borderTopWidth": "0px",
+            "background": "rgba(0, 0, 0, 0)",
+            "boxShadow": "none",
+            "padding": "0px"
+          },
+          "option": {
+            "h": 36,
+            "borderRadius": "10px",
+            "borderWidth": "1px"
+          }
+        }
+      },
+      "v2": {
+        "optTexts": [
+          "A\n\n−1",
+          "B\n\n1",
+          "C\n\n2\n\n✓ 你的答案",
+          "D\n\n−2",
+          "A\n\n−1",
+          "B\n\n3",
+          "C\n\n0",
+          "D\n\n1"
+        ]
+      },
+      "v3": {
+        "optTexts": [
+          "A\n\n−1",
+          "B\n\n1",
+          "C\n\n2\n\n✓ 你的答案",
+          "D\n\n−2",
+          "A\n\n−1",
+          "B\n\n3\n\n✓ 你的答案",
+          "C\n\n0",
+          "D\n\n1",
+          "A\n\nA. 此处有局部极大值",
+          "B\n\nB. 此处切线水平，且有局部极小值",
+          "C\n\nC. 此处切线竖直",
+          "D\n\nD. 此处切线水平，且无局部极值"
+        ],
+        "keyTexts": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "A",
+          "B",
+          "C",
+          "D",
+          "A",
+          "B",
+          "C",
+          "D"
+        ],
+        "bodyTexts": [
+          "−1",
+          "1",
+          "2",
+          "−2",
+          "−1",
+          "3",
+          "0",
+          "1",
+          "A. 此处有局部极大值",
+          "B. 此处切线水平，且有局部极小值",
+          "C. 此处切线竖直",
+          "D. 此处切线水平，且无局部极值"
+        ]
+      },
+      "dupLetter": true
+    },
+    "dock": {
+      "before": {
+        "viewport": {
+          "w": 1440,
+          "h": 900
+        },
+        "messages": {
+          "x": 240,
+          "y": 124,
+          "w": 1200,
+          "h": 564,
+          "top": 124,
+          "bottom": 688,
+          "left": 240,
+          "right": 1440,
+          "cx": 840,
+          "cy": 406
+        },
+        "dock": {
+          "x": 240,
+          "y": 688,
+          "w": 1200,
+          "h": 212,
+          "top": 688,
+          "bottom": 900,
+          "left": 240,
+          "right": 1440,
+          "cx": 840,
+          "cy": 794
+        },
+        "dockInner": {
+          "x": 410,
+          "y": 699,
+          "w": 860,
+          "h": 186,
+          "top": 699,
+          "bottom": 885,
+          "left": 410,
+          "right": 1270,
+          "cx": 840,
+          "cy": 792
+        },
+        "back": {
+          "x": 746,
+          "y": 699,
+          "w": 94,
+          "h": 34,
+          "top": 699,
+          "bottom": 733,
+          "left": 746,
+          "right": 840,
+          "cx": 793,
+          "cy": 716
+        },
+        "lastFigure": {
+          "x": 454,
+          "y": 1077,
+          "w": 640,
+          "h": 371,
+          "top": 1077,
+          "bottom": 1448,
+          "left": 454,
+          "right": 1094,
+          "cx": 774,
+          "cy": 1262
+        },
+        "backInsideDock": true,
+        "backText": "回到最新"
+      },
+      "during": {
+        "viewport": {
+          "w": 1440,
+          "h": 900
+        },
+        "messages": {
+          "x": 240,
+          "y": 124,
+          "w": 1200,
+          "h": 564,
+          "top": 124,
+          "bottom": 688,
+          "left": 240,
+          "right": 1440,
+          "cx": 840,
+          "cy": 406
+        },
+        "dock": {
+          "x": 240,
+          "y": 688,
+          "w": 1200,
+          "h": 212,
+          "top": 688,
+          "bottom": 900,
+          "left": 240,
+          "right": 1440,
+          "cx": 840,
+          "cy": 794
+        },
+        "dockInner": {
+          "x": 410,
+          "y": 699,
+          "w": 860,
+          "h": 186,
+          "top": 699,
+          "bottom": 885,
+          "left": 410,
+          "right": 1270,
+          "cx": 840,
+          "cy": 792
+        },
+        "back": {
+          "x": 734,
+          "y": 699,
+          "w": 106,
+          "h": 34,
+          "top": 699,
+          "bottom": 733,
+          "left": 734,
+          "right": 840,
+          "cx": 787,
+          "cy": 716
+        },
+        "lastFigure": {
+          "x": 454,
+          "y": 1077,
+          "w": 640,
+          "h": 371,
+          "top": 1077,
+          "bottom": 1448,
+          "left": 454,
+          "right": 1094,
+          "cx": 774,
+          "cy": 1262
+        },
+        "backInsideDock": true,
+        "backText": "查看新回复",
+        "scrollTop": 0
+      },
+      "after": {
+        "viewport": {
+          "w": 1440,
+          "h": 900
+        },
+        "messages": {
+          "x": 240,
+          "y": 124,
+          "w": 1200,
+          "h": 564,
+          "top": 124,
+          "bottom": 688,
+          "left": 240,
+          "right": 1440,
+          "cx": 840,
+          "cy": 406
+        },
+        "dock": {
+          "x": 240,
+          "y": 688,
+          "w": 1200,
+          "h": 212,
+          "top": 688,
+          "bottom": 900,
+          "left": 240,
+          "right": 1440,
+          "cx": 840,
+          "cy": 794
+        },
+        "dockInner": {
+          "x": 410,
+          "y": 699,
+          "w": 860,
+          "h": 186,
+          "top": 699,
+          "bottom": 885,
+          "left": 410,
+          "right": 1270,
+          "cx": 840,
+          "cy": 792
+        },
+        "back": {
+          "x": 734,
+          "y": 699,
+          "w": 106,
+          "h": 34,
+          "top": 699,
+          "bottom": 733,
+          "left": 734,
+          "right": 840,
+          "cx": 787,
+          "cy": 716
+        },
+        "lastFigure": {
+          "x": 454,
+          "y": 1077,
+          "w": 640,
+          "h": 371,
+          "top": 1077,
+          "bottom": 1448,
+          "left": 454,
+          "right": 1094,
+          "cx": 774,
+          "cy": 1262
+        },
+        "backInsideDock": true,
+        "backText": "查看新回复",
+        "scrollTop": 0
+      }
+    },
+    "stop": {
+      "beforeStop": {
+        "len": 139,
+        "stopVisible": 1,
+        "text": "导数为零只说明这一点的切线是水平的，它不保证是极值。\n\n看 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n<\n0\nx<0 和 \n𝑥\n>\n0\nx>0 时导数都为正，曲"
+      },
+      "afterStop": {
+        "len": 180,
+        "text": "导数为零只说明这一点的切线是水平的，它不保证是极值。\n\n看 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n<\n0\nx<0 和 \n𝑥\n>\n0\nx>0 时导数都为正，曲线一直在上升，原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，\n\n已停止回复",
+        "tail": "线一直在上升，原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，\n\n已停止回复",
+        "tags": [
+          "已停止回复"
+        ],
+        "notices": [],
+        "stopGone": true,
+        "sendVisible": 1
+      },
+      "afterReload": {
+        "len": 180,
+        "text": "导数为零只说明这一点的切线是水平的，它不保证是极值。\n\n看 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n<\n0\nx<0 和 \n𝑥\n>\n0\nx>0 时导数都为正，曲线一直在上升，原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，\n\n已停止回复",
+        "tail": "\n𝑥\n>\n0\nx>0 时导数都为正，曲线一直在上升，原点只是一个“停顿点”。\n\n判断极值要看驻点两侧的导数符号：左正右负是极大，左负右正是极小，\n\n已停止回复",
+        "hasStoppedLabel": true,
+        "tags": [],
+        "notices": [
+          "已停止回复"
+        ],
+        "title": "导数等于零为什么不一定有极值？",
+        "messages": 2
+      },
+      "truncatedPersisted": true
+    }
+  },
+  "consoleErrors": [
+    {
+      "tag": "free",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "free",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    },
+    {
+      "tag": "s1",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "s1",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    },
+    {
+      "tag": "s5",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "s5",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    },
+    {
+      "tag": "variant",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "variant",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    },
+    {
+      "tag": "dock",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "dock",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    },
+    {
+      "tag": "stop",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "stop",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    },
+    {
+      "tag": "stop",
+      "text": "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11957:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702]"
+    },
+    {
+      "tag": "stop",
+      "text": "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:11958:702\")."
+    }
+  ],
+  "pageErrors": [],
+  "externalRequests": [],
+  "shotErrors": [],
+  "finishedAt": "2026-11-25T14:01:12.804Z"
+}

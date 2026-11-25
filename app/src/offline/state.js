@@ -22,6 +22,7 @@ const EMPTY = {
   conversations: [],
   grading: [],
   showcase: {},
+  free: {},
   quizLog: [],
   errorBook: [],
 }

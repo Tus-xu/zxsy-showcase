@@ -1,0 +1,77 @@
+{
+  "results": [
+    {
+      "name": "khanmigo",
+      "tried": [
+        {
+          "url": "https://www.khanmigo.ai/",
+          "status": 200,
+          "finalUrl": "https://www.khanmigo.ai/"
+        }
+      ],
+      "title": "Meet Khanmigo: Khan Academy's AI-powered teaching assistant & tutor",
+      "body": "Learners\nParents\nWriting Coach\nNew\nDistricts\nGet Khanmigo\nKhanmigo is your always-available\n writing coach.\n\nFor teachers\n\nKnock something off your to-do list in minutes\n\nSign up for free\n\nFor districts\n\nExpert-led AI adoption for your schools\n\nLearn more\n\nFor writing\n\nAI-enhanced writing practice and instruction tool\n\nSign up for free\n“Forget ChatGPT. These are the best AI-powered apps.”\nKhanmigo receives an overall 4-star rating making it a top-rated AI-for-education tool.\n“One teacher said she noticed students posing more questions to Khanmigo than they might typically ask.”\nOn-demand AI-powered support for education.\nFor teachers\nExperience the best AI for teachers.\n\nBuilt for educators by educators, with your needs in mind. Khanmigo simplifies your workflow while keeping your work and your student data private and secure.\n\nSign up for free\nLearn more\nFor learners\nBuild your brain power.\n\nKhanmigo challenges you to think critically and solve problems without giving you direct answers. Learn new skills anytime, whether it's algebra, SQL, or essay writing.\n\nGet Khanmigo\nLearn more\nFor parents\nTurn homework into high fives.\n\nType in a homework question and get instant help. Like a",
+      "shot": "khanmigo-01-official.png",
+      "ok": true
+    },
+    {
+      "name": "brilliant",
+      "tried": [
+        {
+          "url": "https://brilliant.org/koji/",
+          "status": 200,
+          "finalUrl": "https://brilliant.org/"
+        }
+      ],
+      "title": "Brilliant | Your Personal Tutor for Math and Coding",
+      "body": "Biggest. Sale. Ever. Save 30% during our Black Friday sale.\n\nSign in\nYour personal tutor for\nmath and coding\n\nStart from scratch, work through homework, and prepare for tests\nwith Koji – your visual, interactive tutor.\n\nI’m a learner\nI’m a parent or teacher\nkidSAFE COPPA certified\nFully accredited by ACS WASC\n100,000+ five-star app reviews\nMeet Koji, your personal tutor\nMath\nCoding\nA visual, interactive tutor, not a cheating machine\n\nLearn with Koji on a shared interactive canvas. He asks guiding questions, sketches on your screen, and helps you work through each step. He gets you to the answer without giving it to you.\n\nStart at the right level, with a plan that adapts\n\nKoji checks what you know and where you need help. He builds a learning plan around your current level. As you learn, regular assessments adjust the plan to cover gaps and keep you moving forward.\n\nSee how mastery assessments work →\nGet help on demand\n\nUpload your homework, say what’s on the test, or just ask about a concept. Koji reviews everything, works with you on any mistakes or weak spots, and gets you ready.\n\nTrack your progress and know what to practice next\n\nSee what you’ve mastered and what still needs wo",
+      "shot": "brilliant-01-official.png",
+      "ok": true
+    },
+    {
+      "name": "mathgpt",
+      "tried": [
+        {
+          "url": "https://mathgptpro.com/",
+          "status": 200,
+          "finalUrl": "https://www.mathos.ai/zh-CN"
+        }
+      ],
+      "title": "AI 数学解题器、计算器与导师 | Mathos AI",
+      "body": "首页\n辅导\n视频\n自适应\n登录\n开始使用\n\n数学, \n个性化\n交互式\n.\n\nMathos AI 是你的个人 AI 数学求解器，让下一个十亿学习者都能获得优质、个性化的教育。\n\n把 \n链式法则 做成一段 60 秒的 \n\n问 Mathos\n向下滚动，继续探索\n投资方\n媒体报道\n一个提示，变成一堂课。\n提问\n解答\n视频\n学习卡\n测验\n\n任意形式的问题\n\n导数\n播放\n\n用 导数 测试我，并跟踪我的 进度。\n\n求出 x 的解\n立即体验\n优化问题\n我被这道 优化问题 难住了——请 辅导 我一步步做下去。\n数学解题器\n逐步求解 ∫ x² dx，然后把每一步都 讲清楚。\n\n学习工具\n\n立即体验\n4:12\n\nYOUTUBE\n\n将任何解题方案转化为测试题、抽认卡或动画视频。\n\n数学解题器\n\nA(x)=40x−2x² · x=10\n\n立即体验\n\n互动游戏\n\n解决一个问题，即可解锁针对该知识点的专属游戏。\n\n自适应学习\n\n大多数自适应工具只是把学过但没掌握的内容再讲一遍，让它更容易些。Mathos 会研究错误背后的模式，修补缺失的先修知识，并把学习者带回前沿。\n\n三大支柱\n解题器\n什么题都能解。真的什么都能。\n\nMathos 会把任何题目拆到最核心的部分，并反复讲解，直到你真正看懂。你可以只要一个提示，也可以要完整解题过程——由你决定。\n\n试试解题器\nMathos · 数学解题器\n查看实时演示\n多种提问方式 \n𝑦\n=\n𝑥\n2\ny=x\n2\n \n𝑦\n=\n2\n𝑥\n+\n3\ny=2x+3.\n\n图像自动帮你画\n\n𝐴\n=\n∫\n𝑎\n𝑏\n(\n𝑓\n(\n𝑥\n)\n−\n𝑔\n(\n𝑥\n)\n)\n \n𝑑\n𝑥\nA=∫\na\nb\n\t​\n\n(f(x)−g(x))dx\n1\n每一步都展示\n𝑥\n2\n=\n2\n𝑥\n+\n3\n⇒\n𝑥\n=\n−\n1\n,\n \n3\nx\n2\n=2x+3⇒x=−1,3\n2\n给你一个提示，或整条路径\n∫\n−\n1\n3\n ⁣\n(\n2\n𝑥\n+\n3\n−\n𝑥\n2\n)\n \n𝑑\n𝑥\n∫\n−1\n3\n\t​\n\n(2x+3−x\n2\n)dx\n3\n图像自动帮你画\n[\n \n𝑥\n2\n+\n3\n𝑥\n−\n𝑥\n3\n3\n \n]\n−\n1\n3\n[x\n2\n+3x−\n3\nx\n3\n\t​\n\n]\n−1\n3\n\t​\n\n每一步都展示 \n32\n3\n≈\n10.67\n3\n32\n\t​\n\n≈10.67\n视频\n数学视频， 自动生成。\n\n任意输入一个主题。Mathos 大约一分钟内就会写好脚本、配音并制作完整讲解，然后按你的要求修改任何内容。\n\n免费创建视频\nMATHOS · 视频\n墙\nW\nL\n2W + L = 300 m\n题目图形 · 已附\n\n验证数学\n撰写脚本\n生成视频\n↑\nW\nW\nL\n墙\n墙作为一边——不需要围栏。围栏用于另外三边。\n𝐿\n+\n2\n𝑊\n=\n300\nL+2W=300\n靠着墙，这样围栏只需要覆盖三边：L + 2W = 300",
+      "shot": "mathgpt-01-official.png",
+      "ok": true
+    },
+    {
+      "name": "photomath",
+      "tried": [
+        {
+          "url": "https://photomath.com/",
+          "status": 200,
+          "finalUrl": "https://photomath.com/"
+        }
+      ],
+      "title": "Photomath - The Ultimate Math Help App | Math Explained",
+      "body": "Skip to main content\nGet app\nNeed math help?\nMeet Photomath.\nDon’t stress—not everyone gets math on their first try. Our step-by-step explanations help you break down problems so you can learn as you go.\nScan\nHaving trouble? Just scan the problem with our app—even word problems. You can also use the smart calculator to input a problem.\nSolve\nA solution will pop up for your exact problem. There might even be multiple methods to choose from.\nLearn\nPhotomath is designed for learning. Check out each step to make sure you understand the solution. We’re here to help.\nGet personal math help.\nAnytime. Anywhere.\n\nYou may feel like the only one who’s confused, but you’re not alone. Every single month Photomath helps millions of learners understand their math.\n\nGet app\nMath, explained.\nFor elementary through college.\n\nELEMENTARY MATH\n\nALGEBRA\n\nGEOMETRY\n\nTRIGONOMETRY\n\nSTATISTICS\n\nCALCULUS\n\nBuild your math mind\nMath from all angles: Photomath for different learning styles\nRead article\nStudy Tips to Find Your Focus and Ace Your Next Math Test\nRead article\nOvercoming Math Anxiety: How to Conquer Fear & Build Confidence\nRead article\nHow Photomath Helps with More than Just Homework\nRead article\nSee",
+      "shot": "photomath-01-official.png",
+      "ok": true
+    },
+    {
+      "name": "xiaoyuan",
+      "tried": [
+        {
+          "url": "https://www.xiaoyuanai.com/",
+          "error": "Error: page.goto: net::ERR_CONNECTION_CLOSED at https://www.xiaoyuanai.com/\nCall log:\n  \u001b[2m- navigating to \"https://www.xiaoyuanai.com/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        },
+        {
+          "url": "https://xiaoyuanai.com/",
+          "error": "Error: page.goto: net::ERR_CONNECTION_CLOSED at https://xiaoyuanai.com/\nCall log:\n  \u001b[2m- navigating to \"https://xiaoyuanai.com/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+        },
+        {
+          "url": "https://www.yuanfudao.com/",
+          "error": "Error: page.goto: Navigation to \"https://www.yuanfudao.com/\" is interrupted by another navigation to \"chrome-error://chromewebdata/\"\nCall log:\n  \u001b[2m- navigating to \"https://www.yuanfudao.com/\", waiti"
+        }
+      ]
+    }
+  ]
+}

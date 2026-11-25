@@ -1,0 +1,388 @@
+{
+  "product": "gemini",
+  "url": "https://gemini.google.com/app",
+  "startedAt": "2026-11-25T12:12:16.189Z",
+  "headed": true,
+  "steps": [
+    {
+      "turn": "T01",
+      "prompt": "导数等于零为什么不一定有极值？请举一个反例，用中文回答。",
+      "startedAt": "2026-11-25T12:12:27.821Z",
+      "inputValueAfterFill": "导数等于零为什么不一定有极值？请举一个反例，用中文回答。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\01_typed_T01.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\02_sent_T01.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\02_streaming_T01.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "对话",
+          "任务"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 448,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 215
+      },
+      "waitGrew": 205,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\03_reply_T01.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\03_reply_T01-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "对话",
+          "任务"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 448,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 204
+      },
+      "replyText": "",
+      "bodyTail": "Gemini\n发起新对话\n图片\n登录即可保存活动记录\n设置\n登录\n下载应用\n嗨，我是 Gemini。需要我为你做些什么？\n登录即可关联到 Google 应用、制作图片等等\n登录\n\n\n\n\n自动\n对话\n任务\n\n须遵守《Google 条款》\n在新窗口中打开\n和《Google 隐私权政策》\n在新窗口中打开\n。Gemini 是一款 AI 工具，其回答未必正确无误。\n\n关于 Gemini\n订阅\n企业版\n下载应用\n登录",
+      "endedAt": "2026-11-25T12:12:37.361Z"
+    },
+    {
+      "turn": "T04",
+      "prompt": "我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。",
+      "startedAt": "2026-11-25T12:12:37.361Z",
+      "inputValueAfterFill": "我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\11_typed_T04.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\12_sent_T04.png",
+      "replyStarted": false,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\12_streaming_T04.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "对话",
+          "任务"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 448,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 176
+      },
+      "waitGrew": 0,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\13_reply_T04.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\13_reply_T04-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "对话",
+          "任务"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 448,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 176
+      },
+      "replyText": "",
+      "bodyTail": "Gemini\n发起新对话\n图片\n登录即可保存活动记录\n设置\n登录\n下载应用\n嗨，我是 Gemini。需要我为你做些什么？\n\n\n\n\n自动\n对话\n任务\n\n须遵守《Google 条款》\n在新窗口中打开\n和《Google 隐私权政策》\n在新窗口中打开\n。Gemini 是一款 AI 工具，其回答未必正确无误。\n\n关于 Gemini\n订阅\n企业版\n下载应用\n登录",
+      "endedAt": "2026-11-25T12:13:02.191Z"
+    },
+    {
+      "turn": "T05",
+      "prompt": "我记得导数为0就一定是极值吧？你是不是讲错了。",
+      "startedAt": "2026-11-25T12:13:02.192Z",
+      "inputValueAfterFill": "我记得导数为0就一定是极值吧？你是不是讲错了。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\21_typed_T05.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\22_sent_T05.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\22_streaming_T05.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "对话",
+          "任务"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 448,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 187
+      },
+      "waitGrew": 188,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\23_reply_T05.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\23_reply_T05-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "对话",
+          "任务"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 448,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 176
+      },
+      "replyText": "",
+      "bodyTail": "Gemini\n发起新对话\n图片\n登录即可保存活动记录\n设置\n登录\n下载应用\n嗨，我是 Gemini。需要我为你做些什么？\n\n\n\n\n自动\n对话\n任务\n\n须遵守《Google 条款》\n在新窗口中打开\n和《Google 隐私权政策》\n在新窗口中打开\n。Gemini 是一款 AI 工具，其回答未必正确无误。\n\n关于 Gemini\n订阅\n企业版\n下载应用\n登录",
+      "endedAt": "2026-11-25T12:14:11.070Z"
+    },
+    {
+      "turn": "T08",
+      "prompt": "用一句话总结刚才的结论。",
+      "startedAt": "2026-11-25T12:14:11.070Z",
+      "inputValueAfterFill": "用一句话总结刚才的结论。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\31_typed_T08.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\32_sent_T08.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\32_streaming_T08.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "发送",
+          "对话",
+          "任务",
+          "以后再说"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 406,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 229
+      },
+      "waitGrew": 230,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\33_reply_T08.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\gemini\\33_reply_T08-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 1,
+        "buttons": [
+          "关闭边栏",
+          "设置",
+          "登录",
+          "下载应用",
+          "滚动至底部",
+          "上传和工具",
+          "打开模式选择器，当前模式为“自动”",
+          "语音输入 (^⇧D)",
+          "发送",
+          "对话",
+          "任务",
+          "以后再说"
+        ],
+        "asides": [],
+        "msgCount": 8,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "ql-editor textarea new-input-ui rich-query-formatting-enabled input-url-linkific",
+          "rect": {
+            "x": 590,
+            "y": 438,
+            "w": 406,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 229
+      },
+      "replyText": "",
+      "bodyTail": "Gemini\n发起新对话\n图片\n登录即可保存活动记录\n设置\n登录\n下载应用\n嗨，我是 Gemini。需要我为你做些什么？\n\n用一句话总结刚才的结论。\n\n自动\n对话\n任务\n\n须遵守《Google 条款》\n在新窗口中打开\n和《Google 隐私权政策》\n在新窗口中打开\n。Gemini 是一款 AI 工具，其回答未必正确无误。\n\n关于 Gemini\n订阅\n企业版\n下载应用\n登录\n登录即可解锁更多功能\n\n包括上传文件、生成图片、保存对话记录等。\n\n以后再说\n登录",
+      "endedAt": "2026-11-25T12:14:19.047Z"
+    }
+  ],
+  "status": "ok",
+  "notes": [],
+  "homeMetrics": {
+    "katex": 0,
+    "mjax": 0,
+    "mathml": 0,
+    "code": 0,
+    "tables": 0,
+    "lists": 0,
+    "imgs": 1,
+    "buttons": [
+      "关闭边栏",
+      "设置",
+      "登录",
+      "下载应用",
+      "滚动至底部",
+      "上传和工具",
+      "打开模式选择器，当前模式为“自动”",
+      "语音输入 (^⇧D)",
+      "对话",
+      "任务",
+      "将待办事项交给 Gemini 从预订行程到规划用餐，让 Gemini 帮你逐一完"
+    ],
+    "asides": [],
+    "msgCount": 8,
+    "inputInfo": {
+      "tag": "DIV",
+      "cls": "ql-editor ql-blank textarea new-input-ui rich-query-formatting-enabled input-url",
+      "rect": {
+        "x": 590,
+        "y": 438,
+        "w": 448,
+        "h": 24
+      }
+    },
+    "bodyTextLen": 223
+  },
+  "homeTextSample": "Gemini 发起新对话 图片 登录即可保存活动记录 设置 登录 下载应用 嗨，我是 Gemini。需要我为你做些什么？ 自动 对话 任务 将待办事项交给 Gemini 从预订行程到规划用餐，让 Gemini 帮你逐一完成待办事项。 须遵守《Google 条款》 在新窗口中打开 和《Google 隐私权政策》 在新窗口中打开 。Gemini 是一款 AI 工具，其回答未必正确无误。 关于 Gemini 订阅 企业版 下载应用 登录",
+  "loginHintOnHome": true,
+  "inputSelector": "div.ql-editor[contenteditable=\"true\"]"
+}

@@ -1,13 +1,9 @@
 <template>
-  <aside class="lp" aria-label="学情脉搏">
-    <div class="lp-glow" aria-hidden="true"></div>
+  <aside class="lp" aria-label="学习进度">
     <header class="lp-head">
       <div class="lp-title-wrap">
-        <span class="lp-live" aria-hidden="true"></span>
-        <span class="lp-title">学情脉搏</span>
-        <span class="lp-algo" title="BKT 估算知识掌握概率，FSRS 计算记忆保持率与复习时间">
-          BKT <i>·</i> FSRS
-        </span>
+        <span class="lp-title">学习进度</span>
+        <span class="lp-demo">演示数据</span>
       </div>
       <button type="button" class="lp-refresh" :disabled="pulse.loading" title="刷新学情" @click="$emit('refresh')">
         ↻
@@ -35,7 +31,7 @@
           </div>
         </div>
         <div class="lp-copy">
-          <div class="lp-kicker">BKT 掌握 · {{ pulse.masteredCount }}/{{ pulse.totalKpCount || '--' }} 考点</div>
+          <div class="lp-kicker">已掌握 {{ pulse.masteredCount }}/{{ pulse.totalKpCount || '--' }} 个考点</div>
           <div class="lp-now">
             <template v-if="pulse.dueCount > 0">今天有 <b>{{ pulse.dueCount }}</b> 道题到复习期</template>
             <template v-else-if="pulse.topWeak">下一步先补「{{ pulse.topWeak.kp_name }}」</template>
@@ -43,11 +39,11 @@
           </div>
           <div class="lp-reason">
             <template v-if="pulse.topDue">
-              FSRS 预计「{{ pulse.topDue.kp_name || '到期错题' }}」保持率
-              <b>{{ duePct(pulse.topDue.retrievability) }}</b>，越晚越容易忘
+              「{{ pulse.topDue.kp_name || '到期错题' }}」预计保持率
+              <b>{{ duePct(pulse.topDue.retrievability) }}</b>
             </template>
             <template v-else-if="deltaText">{{ deltaText }}</template>
-            <template v-else>完成练习后，这里会实时更新掌握概率</template>
+            <template v-else>完成练习后可以在这里查看掌握情况</template>
           </div>
           <button type="button" class="lp-cta" @click="onPrimary">
             {{ pulse.dueCount > 0 ? '开始复习' : '开始今日练习' }}
@@ -65,7 +61,7 @@
       <section v-if="pulse.weakest.length" class="lp-section">
         <div class="lp-section-head">
           <span>薄弱点</span>
-          <span class="lp-section-note">BKT 掌握概率</span>
+          <span class="lp-section-note">掌握度</span>
         </div>
         <button
           v-for="w in pulse.weakest.slice(0, 2)" :key="w.kp_code || w.kp_name"
@@ -81,8 +77,8 @@
 
       <section v-if="pulse.topDue" class="lp-section lp-section--due">
         <div class="lp-section-head">
-          <span>FSRS 复习队列</span>
-          <span class="lp-section-note">保持率实时计算</span>
+          <span>待复习</span>
+          <span class="lp-section-note">预计保持率</span>
         </div>
         <button type="button" class="lp-due" @click="$emit('review', pulse.topDue.source)">
           <span class="lp-due-r" :class="riskClass(pulse.topDue.retrievability)">
@@ -94,14 +90,13 @@
       </section>
 
       <footer class="lp-foot">
-        <span>先做最该做的事，再做想做的事</span>
         <button type="button" @click="router.push('/me?tab=report')">完整学情 →</button>
       </footer>
     </template>
 
     <div v-else class="lp-empty">
       <div class="lp-empty-title">还没有足够的学情数据</div>
-      <p>做几道题、收录一道错题后，这里会显示 BKT 掌握概率与 FSRS 复习队列。</p>
+      <p>完成练习后可以在这里查看掌握情况和待复习的题目。</p>
       <button type="button" class="lp-cta" @click="router.push('/practice')">开始一次诊断练习 <span>→</span></button>
     </div>
   </aside>
@@ -174,40 +169,17 @@ function onPrimary() {
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 16px 16px 12px;
+  padding: 18px 16px 14px;
   border: 1px solid var(--line);
   border-radius: var(--radius-xl);
-  background:
-    linear-gradient(180deg, rgba(238, 242, 255, .72), rgba(255, 255, 255, .96) 42%),
-    var(--card);
+  background: var(--bg);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   text-align: left;
 }
-.lp-glow {
-  position: absolute;
-  right: -48px;
-  top: -60px;
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(79, 70, 229, .14), transparent 68%);
-  pointer-events: none;
-}
 .lp-head { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 12px; }
 .lp-title-wrap { display: flex; align-items: center; gap: 7px; min-width: 0; }
-.lp-live {
-  width: 7px; height: 7px; border-radius: 50%; flex: none;
-  background: var(--ok); box-shadow: 0 0 0 3px var(--ok-bg);
-}
 .lp-title { font-size: 14px; font-weight: 800; letter-spacing: .02em; color: var(--ink); }
-.lp-algo {
-  font-size: 9.5px; font-weight: 800; letter-spacing: .04em;
-  padding: 2px 7px; border-radius: 999px;
-  color: var(--brand-deep); background: var(--brand-soft); border: 1px solid var(--primary-border);
-  white-space: nowrap;
-}
-.lp-algo i { font-style: normal; opacity: .55; margin: 0 1px; }
 .lp-refresh {
   width: 26px; height: 26px; border-radius: 8px; border: 1px solid var(--line);
   background: rgba(255,255,255,.7); color: var(--ink3); cursor: pointer; font-size: 14px;
@@ -232,15 +204,14 @@ function onPrimary() {
 .lp-kicker { font-size: 10.5px; font-weight: 700; color: var(--brand-deep); letter-spacing: .02em; }
 .lp-now { margin-top: 3px; font-size: 14.5px; font-weight: 800; line-height: 1.35; color: var(--ink); }
 .lp-now b { color: var(--brand-deep); font-family: var(--font-num); }
-.lp-reason { margin-top: 3px; font-size: 11px; line-height: 1.5; color: var(--ink3); }
+.lp-reason { margin-top: 3px; font-size: 11px; line-height: 1.5; color: var(--ink2); }
 .lp-reason b { color: var(--warn-deep); font-family: var(--font-num); }
 .lp-cta {
   margin-top: 9px; height: 32px; padding: 0 16px; border: 0; border-radius: 999px;
-  background: var(--gradient-brand); color: #fff; font: inherit; font-size: 12.5px; font-weight: 800;
-  cursor: pointer; box-shadow: 0 6px 16px -8px rgba(79, 70, 229, .5);
-  transition: transform .18s ease, filter .18s ease;
+  background: var(--brand); color: var(--card); font: inherit; font-size: 12.5px; font-weight: 700;
+  cursor: pointer;
 }
-.lp-cta:hover { transform: translateY(-1px); filter: brightness(1.04); }
+.lp-cta:hover { background: var(--brand-deep); }
 .lp-cta span { margin-left: 3px; }
 
 .lp-stats {
@@ -289,11 +260,8 @@ function onPrimary() {
 }
 .lp-due-go { flex: none; font-size: 10.5px; font-weight: 800; color: var(--brand-deep); }
 
-.lp-foot {
-  display: flex; align-items: center; justify-content: space-between; gap: 8px;
-  margin-top: 10px; font-size: 9.5px; color: var(--ink3);
-}
-.lp-foot button { border: 0; background: none; padding: 0; font: inherit; font-size: 10px; font-weight: 800; color: var(--brand-deep); cursor: pointer; }
+.lp-foot { display: flex; justify-content: flex-end; margin-top: 10px; }
+.lp-foot button { border: 0; background: none; padding: 2px 0; font: inherit; font-size: 12px; font-weight: 600; color: var(--brand-deep); cursor: pointer; }
 
 .lp-skeleton { display: flex; align-items: center; gap: 14px; padding: 10px 0 16px; }
 .sk-ring { width: 78px; height: 78px; border-radius: 50%; background: var(--skeleton-bg); animation: lp-pulse 1.4s ease-in-out infinite; }
@@ -313,5 +281,9 @@ function onPrimary() {
   .lp-ring { width: 66px; height: 66px; }
   .lp-ring-copy b { line-height: 66px; font-size: 21px; }
   .lp-now { font-size: 13.5px; }
+}
+.lp-demo {
+  font-size: 10.5px; color: var(--ink3); border: 1px solid var(--line);
+  border-radius: 999px; padding: 0 6px; margin-left: 6px;
 }
 </style>

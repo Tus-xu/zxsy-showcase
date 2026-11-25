@@ -7,28 +7,28 @@
  *   - 示例由不同会话独立重播，正式采录状态不受影响（只写本地 store）。
  */
 import { patch, store } from '../state'
-import { V1 } from './bank'
+import { HYP } from './bank'
 
-const KEY = 'sc-v1'
+const KEY = 'sc-hyp1'
 
 export function showbookAdder({ convId } = {}) {
   const exist = (store.errorBook || []).find((e) => e.key === KEY)
   const rec = {
     key: KEY,
     record_id: `sc-err-${KEY}`,
-    question_preview: `${V1.question_text}（A −1，B 1，C 2，D −2）`,
+    question_preview: `${HYP.question_text}（A √2，B 2，C √7，D 2√2）`,
     error_type: 'logic',
-    kp_code: V1.kp_code,
-    kp_name: V1.kp_name,
+    kp_code: HYP.kp_code,
+    kp_name: HYP.kp_name,
     created_at: exist?.created_at || new Date().toISOString(),
     review_count: 0,
     retrievability: 0.5,
     fsrs_level: 'new',
     stability: 'critical',
     // 示例自带的复盘信息（现役字段之外，页面不依赖）
-    first_choice: 'A',
-    fixed_choice: 'C',
-    reason: '把局部极大当成了局部极小：只看导数等于零，没看两侧符号。',
+    first_choice: 'C',
+    fixed_choice: 'D',
+    reason: '把两条轴的比当成了离心率：√7 = b/a，而 e = c/a。',
     from_conversation: convId || '',
   }
   patch((st) => {

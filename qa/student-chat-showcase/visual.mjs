@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 视觉复核：两档桌面视口 + 200% 放大 + 减弱动效（方案 §8 / V08）。
  *
  * 检查项：
@@ -31,7 +31,7 @@ const VIEWPORTS = [
   { name: '1906x1035', width: 1906, height: 1035 },
 ]
 
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ channel: process.env.SHOWCASE_BROWSER || 'chrome', headless: true })
 const result = { viewports: {}, reducedMotion: {}, zoom200: {} }
 
 async function open(ctx, conv) {

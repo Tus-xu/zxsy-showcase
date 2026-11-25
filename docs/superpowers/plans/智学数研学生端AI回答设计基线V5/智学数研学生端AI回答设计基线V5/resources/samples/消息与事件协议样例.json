@@ -1,0 +1,371 @@
+{
+  "schemaVersion": "5.0-proposal",
+  "purpose": "正式实现的建议协议。events 按导学会话的顺序列出，图形事件属于独立会话。V5 浏览器参考独立读取教学样本 JSON。",
+  "scenario": {
+    "id": "guide",
+    "runId": "sample-run-g",
+    "problemId": "g",
+    "startNode": "guide-open",
+    "packVersion": "5.0",
+    "answerKey": "C",
+    "initialTurnId": "g-t1"
+  },
+  "historyExamples": [
+    {
+      "messageId": "seed-1",
+      "origin": "authored_seed",
+      "role": "user",
+      "blocks": [
+        {
+          "id": "u1",
+          "type": "text",
+          "text": "我能把导数算出来，但一出现两个零点，我就不知道选哪个。"
+        }
+      ],
+      "turnId": "g-t1"
+    },
+    {
+      "messageId": "reply-1",
+      "origin": "model_pregenerated",
+      "role": "assistant",
+      "basedOn": [
+        "seed-1"
+      ],
+      "blocks": [
+        {
+          "id": "r1-text",
+          "type": "text",
+          "text": "导数为零只把位置圈小了。做一次你的判断，我用你选的那个点来讲。"
+        },
+        {
+          "id": "r1-problem",
+          "type": "problem_ref",
+          "problemId": "g",
+          "variant": "full"
+        },
+        {
+          "id": "r1-choice",
+          "type": "choice",
+          "problemId": "g",
+          "items": [
+            {
+              "key": "A",
+              "label": "−1"
+            },
+            {
+              "key": "B",
+              "label": "1"
+            },
+            {
+              "key": "C",
+              "label": "2"
+            },
+            {
+              "key": "D",
+              "label": "−2"
+            }
+          ]
+        }
+      ],
+      "turnId": "g-t1"
+    },
+    {
+      "messageId": "reply-2",
+      "origin": "model_pregenerated",
+      "role": "assistant",
+      "basedOn": [
+        "act-002"
+      ],
+      "blocks": [
+        {
+          "id": "r2-text",
+          "type": "text",
+          "text": "你选的 −1 的确让导数等于零。看看这个点左右两侧的导数符号。"
+        },
+        {
+          "id": "r2-math",
+          "type": "math",
+          "display": true,
+          "latex": "g'(x)=6(x+1)(x-2)"
+        },
+        {
+          "id": "r2-table",
+          "type": "table",
+          "headers": [
+            "测试点",
+            "导数符号"
+          ],
+          "rows": [
+            [
+              "−1.1",
+              "正"
+            ],
+            [
+              "−0.9",
+              "负"
+            ]
+          ]
+        },
+        {
+          "id": "r2-proof",
+          "type": "citation",
+          "sourceId": "derivative",
+          "section": "§1 候选点与变号",
+          "requiresResolvedExcerpt": true
+        }
+      ],
+      "turnId": "g-t2"
+    },
+    {
+      "messageId": "user-003",
+      "origin": "actual_input",
+      "role": "user",
+      "blocks": [
+        {
+          "id": "u3-text",
+          "type": "text",
+          "text": "我想用函数值比较"
+        }
+      ],
+      "turnId": "g-t3"
+    },
+    {
+      "messageId": "reply-003",
+      "origin": "model_pregenerated",
+      "role": "assistant",
+      "basedOn": [
+        "user-003",
+        "act-002"
+      ],
+      "blocks": [
+        {
+          "id": "r3-text",
+          "type": "text",
+          "text": "取候选点的函数值作基准，比附近点高不高。"
+        },
+        {
+          "id": "r3-proof",
+          "type": "math",
+          "display": true,
+          "latex": "g(x)-g(2)=(x-2)^2(2x+5)"
+        }
+      ],
+      "turnId": "g-t3"
+    }
+  ],
+  "events": [
+    {
+      "eventId": "act-001",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "guide-open",
+      "action": "problem.locate",
+      "expected": {
+        "persistStudyAttempt": false,
+        "appendUserMessage": false,
+        "advanceNode": false
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t1",
+      "targetBlockId": "r1-problem"
+    },
+    {
+      "eventId": "act-002",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "guide-open",
+      "action": "problem.answer",
+      "choice": "A",
+      "expected": {
+        "nextNode": "zero",
+        "firstAnswer": "A",
+        "lastAnswer": "A",
+        "correct": false,
+        "appendUserMessage": false,
+        "nextTurnId": "g-t2",
+        "lastWrong": "A"
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t1"
+    },
+    {
+      "eventId": "act-003",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "zero",
+      "action": "student.submit",
+      "input": {
+        "original": "我想用函数值比较",
+        "canonical": "我想用函数值比较"
+      },
+      "expected": {
+        "nextNode": "need-values",
+        "appendUserMessage": true,
+        "persistStudyAttempt": false,
+        "nextTurnId": "g-t3"
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t2"
+    },
+    {
+      "eventId": "act-004",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "need-values",
+      "action": "method.view",
+      "target": "switch-sign",
+      "expected": {
+        "appendUserMessage": false,
+        "retainFirstAnswer": "A",
+        "persistStudyAttempt": false,
+        "nextNode": "switch-sign",
+        "nextTurnId": "g-t4"
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t3"
+    },
+    {
+      "eventId": "act-004b",
+      "packVersion": "5.0",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "switch-sign",
+      "expectedTurnId": "g-t4",
+      "action": "problem.revisit",
+      "target": "g",
+      "expected": {
+        "nextNode": "repair",
+        "nextTurnId": "g-t5",
+        "appendUserMessage": false,
+        "persistStudyAttempt": false
+      }
+    },
+    {
+      "eventId": "act-005",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "repair",
+      "action": "problem.answer",
+      "choice": "C",
+      "expected": {
+        "nextNode": "repaired",
+        "firstAnswer": "A",
+        "lastAnswer": "C",
+        "correct": true,
+        "correction": "accepted",
+        "nextTurnId": "g-t6",
+        "lastWrong": "A",
+        "appendUserMessage": false
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t5"
+    },
+    {
+      "eventId": "act-006",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "repaired",
+      "action": "notebook.save",
+      "idempotencyKey": "sample-run-g:g",
+      "expected": {
+        "saveVersion": 1,
+        "createdCount": 1,
+        "repeatCreatedCount": 0,
+        "appendUserMessage": false,
+        "persistence": "persistent"
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t6"
+    },
+    {
+      "eventId": "ui-007",
+      "runId": "sample-run-graph",
+      "sceneId": "graph",
+      "expectedNode": "graph-open",
+      "action": "figure.change_parameter",
+      "figureId": "extrema",
+      "value": {
+        "a": -1.4
+      },
+      "result": {
+        "x": -1.4,
+        "y": 1.456,
+        "slope": 2.88
+      },
+      "expected": {
+        "appendUserMessage": false,
+        "advanceNode": false
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "graph-t1"
+    },
+    {
+      "eventId": "act-008",
+      "runId": "sample-run-g",
+      "sceneId": "guide",
+      "problemId": "g",
+      "expectedNode": "repaired",
+      "action": "student.submit",
+      "input": {
+        "original": "顺便讲一下黎曼曲率",
+        "canonical": "顺便讲一下黎曼曲率"
+      },
+      "expected": {
+        "result": "outside_coverage",
+        "advanceNode": false,
+        "appendUserMessage": false,
+        "retainDraft": true
+      },
+      "packVersion": "5.0",
+      "expectedTurnId": "g-t6"
+    }
+  ],
+  "edgeCases": {
+    "staleEvent": {
+      "error": "turn_version_changed",
+      "compares": [
+        "packVersion",
+        "runId",
+        "expectedTurnId",
+        "expectedNode"
+      ],
+      "retainState": true,
+      "createAttempt": false
+    },
+    "malformedCitation": {
+      "sourceId": "missing",
+      "hideCitation": true,
+      "retainAnswerText": true
+    },
+    "unsupportedBlock": {
+      "type": "unavailable_future_widget",
+      "fallback": "展示有出处的正文。无对应正文时显示该内容暂不可用。"
+    },
+    "pausedPlayback": {
+      "status": "paused",
+      "visibleBlocks": 1,
+      "eventAlreadyAccepted": true,
+      "resumeUsesSameMessageId": true
+    },
+    "stats": {
+      "scope": "same run and list of problem ids",
+      "planned": 3,
+      "denominator": "distinct_submitted_problem_ids",
+      "emptyUI": "暂无提交",
+      "recomputeFromEvents": true
+    },
+    "storageUnavailable": {
+      "persistence": "session_only",
+      "successCopy": "本窗口已记录",
+      "recoverableAfterRefresh": false,
+      "preserveCurrentSessionRecord": true
+    }
+  }
+}

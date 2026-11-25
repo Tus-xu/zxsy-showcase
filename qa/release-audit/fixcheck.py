@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """B1/M1 修复复验：教师「重试」应得 409 文案且不崩溃；学生刷新后消息顺序与终态卡保留。"""
 import json
 import os
@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = r'D:\zxsy-math-arena-showcase'
 ENTRY = 'file:///' + os.path.join(ROOT, 'release', '开始演示.html').replace('\\', '/')
-PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
+PLANS = os.path.join(ROOT, 'app', 'src', 'assets', 'showcase')  # ti1.png；不回读原真实项目
 SESSION = 'f5c84551-18a7-454d-b49c-8f115e816299'
 out = {}
 
@@ -24,7 +24,7 @@ def login(page, role, phone):
 
 
 with sync_playwright() as p:
-    b = p.chromium.launch(headless=True)
+    b = p.chromium.launch(headless=True, channel='chrome')
 
     # ── B1：教师重试 ──
     ctx = b.new_context(viewport={'width': 1672, 'height': 941}, device_scale_factor=1, offline=True)
@@ -72,9 +72,9 @@ with sync_playwright() as p:
     try:
         with page.expect_file_chooser(timeout=8000) as fc:
             page.locator('.he-card', has_text='拍一道不会的题').first.click()
-        fc.value.set_files(os.path.join(PLANS, '题1.png'))
+        fc.value.set_files(os.path.join(PLANS, 'ti1.png'))
     except Exception:
-        page.locator('input[type=file]').first.set_input_files(os.path.join(PLANS, '题1.png'))
+        page.locator('input[type=file]').first.set_input_files(os.path.join(PLANS, 'ti1.png'))
     for _ in range(60):
         if page.locator('.att-card.ready').count():
             break

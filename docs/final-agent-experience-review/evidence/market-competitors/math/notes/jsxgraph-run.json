@@ -1,0 +1,14 @@
+{
+  "steps": [
+    "2026-11-25T12:03:49.601Z antiderivative dragged",
+    "2026-11-25T12:03:59.546Z polynomial slider d dragged"
+  ],
+  "boards": {
+    "antiderivativeBefore": "jsxgraph.org 1.14.30.511.522.5−0.5−1−1.5−2−2.52468−2",
+    "antiderivativeAfter": "jsxgraph.org 1.14.30.511.522.5−0.5−1−1.5−2−2.52468−2",
+    "polyBefore": "jsxgraph.org 1.14.32468−2−4−6−82468−2−4−6−8",
+    "polyAfter": "jsxgraph.org 1.14.32468−2−4−6−82468−2−4−6−8"
+  },
+  "url": "https://jsxgraph.org/share/example/all-real-roots-of-a-polynomial",
+  "endedAt": "2026-11-25T12:03:59.546Z"
+}

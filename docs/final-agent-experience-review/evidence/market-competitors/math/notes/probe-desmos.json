@@ -1,0 +1,95 @@
+{
+  "url": "https://www.desmos.com/calculator",
+  "steps": [
+    "loaded"
+  ],
+  "title": "Desmos | Graphing Calculator",
+  "textareas": 31,
+  "contenteditables": 0,
+  "mathquill": 1,
+  "exprItems": 2,
+  "addBtns": 2,
+  "buttons": [
+    {
+      "cls": "dcg-unstyled-button dcg-action-opendrawer dcg-header-btn",
+      "aria": "Open File (ctrl+o)",
+      "text": ""
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-action-save dcg-save-button tooltip-offset dcg-disabled",
+      "aria": null,
+      "text": "Save"
+    },
+    {
+      "cls": "dcg-sign-in dcg-action-login dcg-btn-white-outline",
+      "aria": null,
+      "text": "Log In"
+    },
+    {
+      "cls": "dcg-create-account dcg-btn dcg-btn-blue dcg-action-createaccount",
+      "aria": null,
+      "text": "Sign Up"
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-action-undo dcg-icon-btn dcg-disabled",
+      "aria": "Undo",
+      "text": ""
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-action-redo dcg-icon-btn dcg-disabled",
+      "aria": "Redo",
+      "text": ""
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-icon-btn dcg-action-toggle-edit",
+      "aria": "Edit Expression List",
+      "text": ""
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-resize-list-btn dcg-action-hideexpressions dcg-icon-btn",
+      "aria": "Hide Expression List",
+      "text": ""
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-notice__tile",
+      "aria": null,
+      "text": ""
+    },
+    {
+      "cls": "dcg-notice__link-button dcg-blue-link dcg-unstyled-button",
+      "aria": null,
+      "text": "Log in"
+    },
+    {
+      "cls": "dcg-notice__link-button dcg-blue-link dcg-unstyled-button",
+      "aria": null,
+      "text": "sign up"
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-action-zoomin dcg-pillbox-btn-interior",
+      "aria": "Zoom In",
+      "text": ""
+    },
+    {
+      "cls": "dcg-unstyled-button dcg-action-zoomout dcg-pillbox-btn-interior",
+      "aria": "Zoom Out",
+      "text": ""
+    }
+  ],
+  "firstTextareaAttrs": {
+    "cls": "dcg-focus-visible",
+    "aria": null,
+    "ph": null,
+    "rect": {
+      "x": 54.5,
+      "y": 110.5,
+      "width": 0,
+      "height": 0,
+      "top": 110.5,
+      "right": 54.5,
+      "bottom": 110.5,
+      "left": 54.5
+    }
+  },
+  "cookies": []
+}

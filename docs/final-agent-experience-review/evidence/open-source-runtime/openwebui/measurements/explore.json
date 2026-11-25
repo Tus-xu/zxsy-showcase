@@ -1,0 +1,394 @@
+{
+  "title": "Open WebUI",
+  "url": "http://127.0.0.1:18080/",
+  "bodyText": "跳转到主要内容\nOpen WebUI\n新对话\nCtrl+Shift+O\n搜索\nCtrl+K\n笔记\n工作空间\n分组\n对话\nUser\nUser，今天过得怎么样？\n\n\n\n\n选择模型\n建议\n给我看一段代码片段。\n网站吸顶栏的\n告诉我一个冷知识。\n关于罗马帝国\n给我一些灵感\n如何处理我孩子的画作\n解释期权交易\n如果我熟悉股票的买卖\n帮我学习\n高考词汇\n克服拖延\n给我一些建议\n新对话\n已登录。\nOpen WebUI\n最近更新内容于 Open WebUI\n更新日志\nv0.13.5\nv0.13.5\nNov 25, 2026\nADDED\nFolder workspaces. Run your project’s tests in a terminal and try the app in a browser while your chat stays open beside them. Choose the computer and project directory once for the folder. Even in a shared folder, everyone can return to their own tabs and layout. If you used the standalone Open WebUI Computer (cptr) app, that workflow is now built into Open WebUI. #34804, #34805, #34800, #34803\nProject instructions and skills. Tell the assistant how your project works once in an AGENTS.md or CLAUDE.md file. Every new chat in that project folder reads those instructions. Connect the project machine with Open Terminal 0.18.0 or later and the assistant can also follow reusable project instructions called skills, run checks in your terminal and inspect the result in your browser tab.\nLong chat performance. Sending a message was 34× faster in our 130 MB PostgreSQL test chat. The server accepted it in 0.32 seconds, down from 10.9, because it now saves just the messages that changed. Database writes fell from 533 MB to 2 KB per message. #34689, #34671, #34688, #34672, #34674, #34670, #34646\nAutomatic model selection. Put one router in the chat’s model picker and it can send coding questions to one model and writing requests to another. Admins choose text patterns or describe the kind of question each model should handle. If nothing matches, the router uses the first model on its list or picks one at random. #34900, #34895, #34791, #34796, #34908, #34662, #34956, #34957, #34887, #34786, #34793, #34897, #34898, #34466, #15996\nCitations beside the chat. Hover over a source number for a quick excerpt, or click it to read the evidence beside the answer. You can compare passages from the same document, see how closely they match your question and jump to the cited PDF page when page information is available. #34923, #34836, #34921, #34828, #34831, #34832, #34833, #34913, #34834, #34829, #20829\nSteer a coding agent while it works. If Codex or Claude Code starts editing the wrong file, send a correction in the same chat. The coding agent can act on a text follow-up while the job is running. A follow-up with attachments waits for the next turn so the agent receives the instruction and files together.\nRecurring tasks can continue a conversation. Schedule a morning status report in the same chat or channel thread each day. The automation reads the replies people added since its last run, so today’s report can account for a decision someone posted yesterday afternoon. #33731\nUse a remote computer from chat. Connect a workstation over SSH, the same secure connection you use to log in remotely, and work with its files and command-line tools from chat. This setup requires Open Terminal 0.17.21 or later and su",
+  "ids": [
+    {
+      "id": "sidebar-new-chat-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "sidebar",
+      "tag": "DIV",
+      "text": ""
+    },
+    {
+      "id": "sidebar-open-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "sidebar-webui-name",
+      "tag": "DIV",
+      "text": "Open WebUI"
+    },
+    {
+      "id": "sidebar-notifications",
+      "tag": "SECTION",
+      "text": "  .spinner_ajPY {\n\t\t\t\ttransform-origin: "
+    },
+    {
+      "id": "sidebar-new-chat-button",
+      "tag": "A",
+      "text": "新对话\nCtrl+Shift+O"
+    },
+    {
+      "id": "sidebar-search-button",
+      "tag": "BUTTON",
+      "text": "搜索\nCtrl+K"
+    },
+    {
+      "id": "pinned-menu-items-list",
+      "tag": "DIV",
+      "text": "笔记\n工作空间"
+    },
+    {
+      "id": "sidebar-notes-button",
+      "tag": "A",
+      "text": "笔记"
+    },
+    {
+      "id": "sidebar-workspace-button",
+      "tag": "A",
+      "text": "工作空间"
+    },
+    {
+      "id": "",
+      "tag": "DIV",
+      "text": "分组"
+    },
+    {
+      "id": "sidebar-folders-button",
+      "tag": "BUTTON",
+      "text": "分组"
+    },
+    {
+      "id": "",
+      "tag": "DIV",
+      "text": "对话"
+    },
+    {
+      "id": "sidebar-chats-button",
+      "tag": "BUTTON",
+      "text": "对话"
+    },
+    {
+      "id": "sidebar-chats-content",
+      "tag": "DIV",
+      "text": ""
+    },
+    {
+      "id": "main-content",
+      "tag": "DIV",
+      "text": ""
+    },
+    {
+      "id": "chat-container",
+      "tag": "DIV",
+      "text": "User，今天过得怎么样？\n\n\n\n\n选择模型\n建议\n给我看一段代码片段。\n网站吸"
+    },
+    {
+      "id": "chat-panel-main-chat-view",
+      "tag": "DIV",
+      "text": "User，今天过得怎么样？\n\n\n\n\n选择模型\n建议\n给我看一段代码片段。\n网站吸"
+    },
+    {
+      "id": "new-chat-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "navbar-bg-gradient-to-b",
+      "tag": "DIV",
+      "text": ""
+    },
+    {
+      "id": "chat-pane",
+      "tag": "DIV",
+      "text": "User，今天过得怎么样？\n\n\n\n\n选择模型\n建议\n给我看一段代码片段。\n网站吸"
+    },
+    {
+      "id": "confirm-recording-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "generate-message-pair-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "message-input-container",
+      "tag": "DIV",
+      "text": "\n\n\n选择模型"
+    },
+    {
+      "id": "chat-input-container",
+      "tag": "DIV",
+      "text": "\n"
+    },
+    {
+      "id": "chat-input",
+      "tag": "DIV",
+      "text": "\n"
+    },
+    {
+      "id": "camera-input",
+      "tag": "INPUT",
+      "text": ""
+    },
+    {
+      "id": "input-menu-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "model-selector-model-button",
+      "tag": "BUTTON",
+      "text": "选择模型"
+    },
+    {
+      "id": "voice-input-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "suggestions-heading",
+      "tag": "H3",
+      "text": "建议"
+    },
+    {
+      "id": "controls-container",
+      "tag": "DIV",
+      "text": "新对话"
+    },
+    {
+      "id": "chat-panel-main-chat",
+      "tag": "BUTTON",
+      "text": "新对话"
+    },
+    {
+      "id": "temporary-chat-button",
+      "tag": "BUTTON",
+      "text": ""
+    },
+    {
+      "id": "svelte-announcer",
+      "tag": "DIV",
+      "text": "Open WebUI"
+    }
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "aria": null,
+      "id": "sidebar-new-chat-button",
+      "cls": "hidden"
+    },
+    {
+      "text": "",
+      "aria": "展开侧边栏",
+      "id": "sidebar-open-button",
+      "cls": "flex size-8.5 shrink-0 items-center justify-center transition group cursor-point"
+    },
+    {
+      "text": "",
+      "aria": "搜索",
+      "id": "",
+      "cls": " cursor-pointer flex size-8 items-center justify-center transition group"
+    },
+    {
+      "text": "",
+      "aria": "用户菜单",
+      "id": "",
+      "cls": " cursor-pointer flex size-8.5 items-center justify-center transition group"
+    },
+    {
+      "text": "",
+      "aria": "Notifications",
+      "id": "",
+      "cls": "flex size-[1.875rem] shrink-0 items-center justify-center rounded-lg text-base-6"
+    },
+    {
+      "text": "",
+      "aria": "展开侧边栏",
+      "id": "",
+      "cls": "flex size-[1.875rem] justify-center items-center rounded-lg hover:bg-base-100 da"
+    },
+    {
+      "text": "搜索\nCtrl+K",
+      "aria": "搜索",
+      "id": "sidebar-search-button",
+      "cls": "group grow flex items-center space-x-2 rounded-xl px-2 py-1.5 hover:bg-base-100 "
+    },
+    {
+      "text": "分组",
+      "aria": null,
+      "id": "sidebar-folders-button",
+      "cls": "group flex flex-1 h-full items-center gap-1 text-left text-xs text-base-400 hove"
+    },
+    {
+      "text": "",
+      "aria": "创建分组",
+      "id": "",
+      "cls": "flex items-center justify-center w-7 h-7 rounded-lg text-base-300 hover:text-bas"
+    },
+    {
+      "text": "对话",
+      "aria": null,
+      "id": "sidebar-chats-button",
+      "cls": "group flex flex-1 h-full items-center gap-1 text-left text-xs text-base-400 hove"
+    },
+    {
+      "text": "",
+      "aria": "更多",
+      "id": "",
+      "cls": "flex items-center justify-center w-7 h-7 rounded-lg text-base-300 hover:text-bas"
+    },
+    {
+      "text": "User",
+      "aria": null,
+      "id": "",
+      "cls": " flex items-center rounded-xl py-1.5 px-1.5 w-full hover:bg-base-100 dark:hover:"
+    },
+    {
+      "text": "",
+      "aria": "新对话",
+      "id": "new-chat-button",
+      "cls": "hidden"
+    },
+    {
+      "text": "",
+      "aria": "Tabs",
+      "id": "",
+      "cls": "flex size-6 cursor-pointer items-center justify-center rounded-lg text-base-500 "
+    },
+    {
+      "text": "",
+      "aria": "取消",
+      "id": "",
+      "cls": "flex size-[1.875rem] shrink-0 items-center justify-center rounded-full text-base"
+    },
+    {
+      "text": "",
+      "aria": "确认录制",
+      "id": "confirm-recording-button",
+      "cls": "shrink-0 rounded-full bg-base-1000 p-[0.3125rem] text-base-0 transition hover:bg"
+    },
+    {
+      "text": "",
+      "aria": "生成消息对",
+      "id": "generate-message-pair-button",
+      "cls": "hidden generate-message-pair-button"
+    },
+    {
+      "text": "",
+      "aria": "更多",
+      "id": "input-menu-button",
+      "cls": "bg-transparent hover:bg-base-100/40 text-base-700 dark:text-base-0 dark:hover:bg"
+    },
+    {
+      "text": "选择模型",
+      "aria": "选择模型",
+      "id": "model-selector-model-button",
+      "cls": "focus-ring relative w-full outline-hidden focus:outline-hidden"
+    },
+    {
+      "text": "",
+      "aria": "模型控件",
+      "id": "",
+      "cls": "mr-2 flex shrink-0 items-center justify-center text-base-500 transition-colors h"
+    },
+    {
+      "text": "",
+      "aria": "语音输入",
+      "id": "voice-input-button",
+      "cls": " text-base-600 dark:text-base-300 hover:text-base-700 dark:hover:text-base-200 t"
+    },
+    {
+      "text": "",
+      "aria": "语音模式",
+      "id": "",
+      "cls": " bg-base-1000 text-base-0 hover:bg-base-900 dark:bg-base-0 dark:text-base-1000 d"
+    },
+    {
+      "text": "给我看一段代码片段。\n网站吸顶栏的",
+      "aria": null,
+      "id": "",
+      "cls": "waterfall flex flex-col flex-1 shrink-0 w-full justify-between\n\t\t\t\t       px-1 p"
+    },
+    {
+      "text": "告诉我一个冷知识。\n关于罗马帝国",
+      "aria": null,
+      "id": "",
+      "cls": "waterfall flex flex-col flex-1 shrink-0 w-full justify-between\n\t\t\t\t       px-1 p"
+    },
+    {
+      "text": "给我一些灵感\n如何处理我孩子的画作",
+      "aria": null,
+      "id": "",
+      "cls": "waterfall flex flex-col flex-1 shrink-0 w-full justify-between\n\t\t\t\t       px-1 p"
+    },
+    {
+      "text": "解释期权交易\n如果我熟悉股票的买卖",
+      "aria": null,
+      "id": "",
+      "cls": "waterfall flex flex-col flex-1 shrink-0 w-full justify-between\n\t\t\t\t       px-1 p"
+    },
+    {
+      "text": "帮我学习\n高考词汇",
+      "aria": null,
+      "id": "",
+      "cls": "waterfall flex flex-col flex-1 shrink-0 w-full justify-between\n\t\t\t\t       px-1 p"
+    },
+    {
+      "text": "克服拖延\n给我一些建议",
+      "aria": null,
+      "id": "",
+      "cls": "waterfall flex flex-col flex-1 shrink-0 w-full justify-between\n\t\t\t\t       px-1 p"
+    },
+    {
+      "text": "",
+      "aria": "Split screen",
+      "id": "",
+      "cls": "absolute right-2 top-1 z-20 flex size-7 items-center justify-center rounded-lg t"
+    },
+    {
+      "text": "新对话",
+      "aria": "新对话",
+      "id": "chat-panel-main-chat",
+      "cls": "flex h-full items-center gap-1.5 min-w-0"
+    },
+    {
+      "text": "",
+      "aria": "New tab",
+      "id": "",
+      "cls": "flex items-center justify-center w-7 h-7 rounded-lg text-base-400 hover:text-bas"
+    },
+    {
+      "text": "",
+      "aria": "临时对话",
+      "id": "temporary-chat-button",
+      "cls": "flex size-6 cursor-pointer items-center justify-center rounded-lg text-base-500 "
+    },
+    {
+      "text": "",
+      "aria": "Close toast",
+      "id": "",
+      "cls": "static! order-last -mr-0.5 size-5! shrink-0 transform-none! rounded-md! border-0"
+    },
+    {
+      "text": "",
+      "aria": "关闭",
+      "id": "",
+      "cls": "flex h-8 shrink-0 items-center justify-center rounded-xl text-base-400 transitio"
+    },
+    {
+      "text": "确认，开始使用！",
+      "aria": null,
+      "id": "",
+      "cls": "font-normal text-base-600 transition hover:text-base-950 dark:text-base-400 dark"
+    }
+  ]
+}

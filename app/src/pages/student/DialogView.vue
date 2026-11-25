@@ -1,28 +1,32 @@
-<template>
+﻿<template>
   <div class="view dialog-page">
-    <!-- 对话主区域：标题栏 + 消息流 + 快捷指令 + 输入框（横向占满主内容宽度） -->
-    <div class="dialog-main v4-chat">
-      <div class="dialog-header">
-        <div style="min-width:0;">
-          <div class="ttl" style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ activeTitle }}</div>
-          <div style="font-size:11.5px;color:var(--ink3);margin-top:2px;">
-            <template v-if="isShowcaseConv">
-              <span class="offline-demo-chip">离线示例</span>本地示例数据，可现场作答
-            </template>
-            <template v-else>学习对话 · 基于当前上下文与学情回应</template>
+    <div
+      class="dialog-main"
+      @dragenter.prevent="onDragOver"
+      @dragover.prevent="onDragOver"
+      @dragleave.prevent="onDragLeave"
+      @drop.prevent="onDrop"
+    >
+      <header class="dialog-header">
+        <div class="dialog-heading">
+          <span class="dialog-heading-icon" aria-hidden="true">π</span>
+          <div class="dialog-heading-text">
+            <h1 class="ttl" :title="activeTitle">{{ activeTitle }}</h1>
+            <p class="dialog-sub">{{ dialogSub }}</p>
           </div>
         </div>
-        <!-- sgv2（DESIGN §8.1）：步徽标升级——第 N/M 步 · 阶段 · 提示档 · 知识点 chips -->
         <div class="dialog-badges">
-          <span class="step">{{ stepBadge }}</span>
-          <span v-if="stepBadgeKp" class="step kp-chip" :title="`本步知识点：${stepBadgeKp}`">{{ stepBadgeKp }}</span>
+          <details v-if="offline" class="dialog-mode" @keydown.esc.stop="$event.currentTarget.open = false">
+            <summary>离线体验</summary>
+            <p>这里提供预设练习和已录制的讲解。可以现场发送、看图和作答，其他提问会提示可用范围。</p>
+          </details>
         </div>
-      </div>
+      </header>
 
-      <div class="dialog-messages" ref="listRef" @scroll="onListScroll">
-        <div v-if="chat.msgLoading.value" class="list-loading"><span class="spinner"></span> 加载历史消息…</div>
+      <div ref="listRef" class="dialog-messages" tabindex="0" aria-label="对话记录" @scroll.passive="onListScroll">
+        <div v-if="chat.msgLoading.value" class="list-loading" role="status"><span class="spinner"></span> 正在打开对话…</div>
 
-        <template v-if="chat.messages.value.length">
+        <div v-else-if="chat.messages.value.length" ref="threadRef" class="dialog-thread">
           <!-- 历史向上分页 -->
           <div v-if="chat.historyHasMore.value" class="history-more">
             <button class="history-btn" :disabled="chat.historyLoading.value" @click="onLoadOlder">
@@ -33,8 +37,10 @@
           <MessageBubble
             v-for="m in chat.messages.value"
             :key="m.key"
-            :live="m.key === lastAiKey"
+            :live="m.key === lastAiKey && !chat.streaming.value"
             :msg="m"
+            student-dialog
+            :offline-origin="offline ? (isShowcaseConv ? 'prepared' : 'recorded') : ''"
             @clarify="sendText"
             @socratic-choice="onSocraticChoice"
             @regenerate="chat.regenerate"
@@ -55,26 +61,27 @@
             @need-problem="onNeedProblem"
           />
 
-        </template>
+        </div>
 
         <div v-else class="empty-state welcome home-welcome">
           <div class="home-grid">
             <section class="home-hero">
-              <div class="hero-greet">{{ heroGreet }}，{{ auth.nickname || '同学' }} 👋</div>
-              <h1 class="hero-title">今天想搞定什么<span class="text-gradient">数学题</span>？</h1>
-              <div class="hero-sub">拍照、贴图、上传资料，AI 不直接给答案，一步步带你自己想出来</div>
+              <p class="hero-greet">{{ heroGreet }}，{{ auth.nickname || '同学' }}</p>
+              <h2 class="hero-title">今天想搞定什么<span>数学题</span>？</h2>
+              <p class="hero-sub">拍照、贴图、上传资料，AI 不直接给答案，一步步带你自己想出来。</p>
               <div class="hero-entries">
-                <div class="he-card c-indigo" @click="heroPhoto">📷<span>拍一道不会的题</span></div>
-                <div class="he-card c-cyan" @click="heroGo('/library')" title="上传教材/笔记/试卷，AI 解析入库">📚<span>上传我的资料</span></div>
-                <div class="he-card c-violet" @click="heroGo('/practice')">✏️<span>开始今日练题</span></div>
-                <div class="he-card c-amber" @click="heroGo('/errors')">🔴<span>复习到期错题</span></div>
+                <button type="button" class="he-card" @click="heroPhoto"><UiIcon name="camera" :size="19" />拍一道不会的题</button>
+                <button type="button" class="he-card" @click="heroGo('/library')"><UiIcon name="book" :size="19" />上传我的资料</button>
+                <button type="button" class="he-card" @click="heroGo('/practice')"><UiIcon name="edit" :size="19" />开始今日练题</button>
+                <button type="button" class="he-card" @click="heroGo('/errors')"><UiIcon name="file" :size="19" />复习到期错题</button>
               </div>
-              <div v-if="recentConvs.length" class="hero-recent">
-                <div class="hr-title">最近学习</div>
-                <div v-for="cv in recentConvs" :key="cv.id" class="hr-item" @click="heroOpenConv(cv.id)">
-                  <span class="hr-dot"></span><span class="hr-name">{{ cv.title || '未命名对话' }}</span><span class="hr-go">继续 →</span>
-                </div>
-              </div>
+              <section v-if="recentConvs.length" class="hero-recent" aria-label="最近学习">
+                <h3 class="hr-title">最近学习</h3>
+                <button v-for="cv in recentConvs" :key="cv.id" type="button" class="hr-item" @click="heroOpenConv(cv.id)">
+                  <span class="hr-name">{{ cv.title || '未命名对话' }}</span>
+                  <UiIcon name="chevron-right" :size="15" />
+                </button>
+              </section>
             </section>
             <HomeLearningPanel
               :pulse="pulse"
@@ -86,39 +93,56 @@
         </div>
       </div>
 
-      <!-- 回到底部悬浮钮 -->
-      <button v-if="showBackBtn" class="back-bottom glass-card" @click="onBackBottom">
-        <UiIcon name="arrow-down" :size="14" />
-        <span v-if="hasNew">有新消息</span>
-      </button>
-
       <!-- 拖拽上传遮罩 -->
       <div v-if="dragOver" class="drop-mask">
         <div class="drop-inner">
           <UiIcon name="paperclip" :size="28" />
           <div>松开鼠标上传附件</div>
-          <div class="drop-sub">pdf / 图片 / office / md / txt，≤20MB，最多 3 个</div>
+          <div class="drop-sub">{{ offline ? '支持随包提供的三张题图' : 'pdf / 图片 / office / md / txt，≤20MB，最多 3 个' }}</div>
         </div>
       </div>
 
-      <SuggestionsGrid class="sugg" :collapsed="suggCollapsed" :personalized="personalizedSuggestions" @pick="onSuggest" />
-      <ChatInput
-        ref="inputRef"
-        :streaming="chat.streaming.value"
-        :tasks="upload.tasks"
-        :rate-limited-until="upload.state.rateLimitedUntil"
-        :kb-docs="selectedKbDocs"
-        v-model:thinking="chat.thinkingOn.value"
-        v-model:webSearch="chat.webSearchOn.value"
-        :web-search-enabled="chat.webSearchOptInEnabled.value"
-        @send="onSend"
-        @stop="chat.stopStreaming"
-        @pick-files="onPickFiles"
-        @remove-attachment="upload.removeTask"
-        @retry-attachment="upload.retry"
-        @toggle-kb-doc="toggleKbDoc"
-        @remove-kb-doc="removeKbDoc"
-      />
+      <footer class="dialog-dock">
+        <div class="dialog-dock-inner">
+          <button v-if="showBackBtn" type="button" class="back-bottom" @click="onBackBottom">
+            <UiIcon name="arrow-down" :size="15" />
+            {{ hasNew ? '查看新回复' : '回到最新' }}
+          </button>
+          <div v-if="relatedConversation" class="dialog-next">
+            <span>接着学</span>
+            <button type="button" @click="heroOpenConv(relatedConversation.id)">
+              {{ relatedConversation.label }} <UiIcon name="chevron-right" :size="13" />
+            </button>
+          </div>
+          <SuggestionsGrid
+            v-else-if="!isShowcaseConv"
+            :key="conv.activeId"
+            :collapsed="offline || chat.messages.value.length > 0"
+            :disabled="chat.streaming.value"
+            :preset-only="offline"
+            :personalized="personalizedSuggestions"
+            @pick="onSuggest"
+          />
+          <ChatInput
+            ref="inputRef"
+            :offline="offline"
+            :streaming="chat.streaming.value"
+            :tasks="upload.tasks"
+            :rate-limited-until="upload.state.rateLimitedUntil"
+            :kb-docs="selectedKbDocs"
+            v-model:thinking="chat.thinkingOn.value"
+            v-model:webSearch="chat.webSearchOn.value"
+            :web-search-enabled="chat.webSearchOptInEnabled.value"
+            @send="onSend"
+            @stop="chat.stopStreaming"
+            @pick-files="onPickFiles"
+            @remove-attachment="upload.removeTask"
+            @retry-attachment="upload.retry"
+            @toggle-kb-doc="toggleKbDoc"
+            @remove-kb-doc="removeKbDoc"
+          />
+        </div>
+      </footer>
     </div>
   </div>
 </template>
@@ -138,23 +162,25 @@ import HomeLearningPanel from '@/components/student/HomeLearningPanel.vue'
 import UiIcon from '@/components/common/UiIcon.vue'
 import { useFileUpload } from '@/components/chat/useFileUpload'
 import { useChat } from '@/composables/useChat'
-import { isShowcaseId } from '@/offline/showcase/catalog'
+import { isShowcaseId, SHOWCASE_BY_ID } from '@/offline/showcase/catalog'
 import { useLearningSnapshot } from '@/composables/useLearningSnapshot'
 import { studentApi } from '@/api'
 import { useConfirm } from '@/composables/useConfirm'
-import { PHASE_ZH, SCAFFOLD_LABEL_ZH, SCAFFOLD_LEVEL_ZH, markChoiceUsed, markInteractionUsed, uuid } from '@/components/chat/messageModel'
+import { markChoiceUsed, markInteractionUsed, uuid } from '@/components/chat/messageModel'
 import { openImmersive } from '@/composables/useImmersive'
 
 const route = useRoute()
 
 const router = useRouter()
 const toast = useToastStore()
+const offline = import.meta.env.VITE_OFFLINE === '1'
 const upload = useFileUpload(toast)
 const skillStore = useSkillStore()
 const conv = useConvStore()
 const { confirm } = useConfirm()
 
 const listRef = ref(null)
+const threadRef = ref(null)
 const inputRef = ref(null)
 
 /* ===== 滚动状态 ===== */
@@ -162,6 +188,9 @@ const showBackBtn = ref(false)
 const hasNew = ref(false)
 const dragOver = ref(false)
 let dragDepth = 0
+let followLatest = true
+let scrollObserver
+let pendingReplaySubmission = null
 
 /* ===== useChat：仅负责消息与 SSE 流控（会话列表由 conv store 统一管理） ===== */
 const chat = useChat({
@@ -213,7 +242,18 @@ const pulse = computed(() => ({
   topDue: snapshot.topDue.value,
   hasData: snapshot.hasData.value,
 }))
-const personalizedSuggestions = computed(() => snapshot.suggestions.value)
+const offlineSuggestions = [
+  { text: '从提问到订正，学一遍导数', conversationId: 'sc-combo' },
+  { text: '在曲线上看导数怎么变', conversationId: 'sc-s3' },
+  { text: '试试三道极值变式题', conversationId: 'sc-s4' },
+]
+const personalizedSuggestions = computed(() => offline
+  ? offlineSuggestions
+  : snapshot.suggestions.value.map((suggestion) => ({
+      ...suggestion,
+      reason: { 'FSRS 到期': '复习时间已到', 'BKT 薄弱点': '需要巩固' }[suggestion.reason] || suggestion.reason,
+    })),
+)
 
 const heroGreet = computed(() => {
   const h = new Date().getHours()
@@ -236,10 +276,6 @@ const recentConvs = computed(() => {
 function heroPhoto() {
   document.querySelector('button[title="拍照识题"]')?.click()
 }
-function heroAttach() {
-  // S15：上传资料走知识库页（入库管理），对话内附件仍走输入框 📎
-  router.push('/kb')
-}
 function heroGo(path) {
   router.push(path)
 }
@@ -251,8 +287,13 @@ const activeTitle = computed(
   () => conv.items.find((c) => c.id === conv.activeId)?.title || '新对话'
 )
 
-/** 离线教学示例会话：标题旁只出现一次「离线示例」标识（方案 §1） */
 const isShowcaseConv = computed(() => isShowcaseId(conv.activeId))
+const relatedConversations = new Map([
+  ['sc-s1', { id: 'sc-s5', label: '一步步求离心率' }],
+  ['sc-s2', { id: 'sc-s3', label: '在曲线上看导数与极值' }],
+  ['sc-s3', { id: 'sc-s4', label: '试试三道变式题' }],
+])
+const relatedConversation = computed(() => relatedConversations.get(conv.activeId))
 
 /** 只有最后一条 AI 消息的卡片可交互；历史旧卡只回看，不向当前步骤注入事件（方案 §6） */
 const lastAiKey = computed(() => {
@@ -262,92 +303,71 @@ const lastAiKey = computed(() => {
   }
   return ''
 })
-
-/** 顶部步骤徽标：以后端 socratic 进度卡为唯一事实源（此前按消息数估算，会误导进度）。
- * sgv2（DESIGN §8.1）升级：第 N/M 步 · 阶段（诊断中/引导中/补课中/收尾）· 提示档，
- * 知识点 chips 由 stepBadgeKp 单独渲染；旧 progress 卡缺 phase/scaffold 字段时逐项隐藏。 */
-const stepBadge = computed(() => {
-  const msgs = chat.messages.value
-  for (let i = msgs.length - 1; i >= 0; i--) {
-    const cards = msgs[i]?.cards || []
-    for (let j = cards.length - 1; j >= 0; j--) {
-      const c = cards[j]
-      const t = c?.card_type || c?.type || ''
-      if (t === 'socratic_progress' && (c.steps_count || c.current_step)) {
-        // 离线教学示例：只报当前阶段名，不报「第 N/M 步」（评审：系统状态退到背景）
-        if (c.stage_label) return c.stage_label
-        const parts = [`第 ${c.current_step} 步 / 共 ${c.steps_count} 步`]
-        if (PHASE_ZH[c.phase]) parts.push(PHASE_ZH[c.phase])
-        const scaffold =
-          (c.scaffold_level ?? null) !== null
-            ? SCAFFOLD_LEVEL_ZH[Number(c.scaffold_level)]
-            : SCAFFOLD_LABEL_ZH[c.scaffold_label]
-        if (scaffold) parts.push(`提示档 ${scaffold}`)
-        return parts.join(' · ')
-      }
-      if (t === 'socratic_complete') return '已完成 ✓'
-      if (t === 'socratic_start' && c.steps_count) {
-        const parts = [`第 1 步 / 共 ${c.steps_count} 步`]
-        if (PHASE_ZH[c.phase]) parts.push(PHASE_ZH[c.phase])
-        return parts.join(' · ')
-      }
-    }
-  }
-  if (chat.streaming.value) return '引导中…'
-  if (!msgs.length) return '新对话'
-  return '对话中'
+/** 页头副标题：区分「示例会话 / 离线自由问答 / 采证录制」，避免把自由问答说成录制讲解 */
+const dialogSub = computed(() => {
+  if (!offline) return '学习对话 · 基于当前上下文与学情回应'
+  if (isShowcaseConv.value) return '示例会话 · 预设讲解，可现场作答'
+  if (String(conv.activeId || '').startsWith('offline-')) return '离线体验 · 自由问答（导数与极值）'
+  return '录制讲解 · 可回看与继续作答'
 })
-
-/** 顶部知识点 chip：与步徽标同源（progress/start 卡的 kp_name，缺省不渲染） */
-const stepBadgeKp = computed(() => {
-  const msgs = chat.messages.value
-  for (let i = msgs.length - 1; i >= 0; i--) {
-    const cards = msgs[i]?.cards || []
-    for (let j = cards.length - 1; j >= 0; j--) {
-      const c = cards[j]
-      const t = c?.card_type || c?.type || ''
-      if ((t === 'socratic_progress' || t === 'socratic_start') && c.kp_name) return c.kp_name
-    }
-  }
-  return ''
-})
-
-/** 建议卡：首轮发送后收起为 slim 条 */
-const suggCollapsed = computed(() => chat.messages.value.length > 0)
 
 /* ===== 滚动管理 ===== */
-function scrollBottom(force = false) {
-  nextTick(() => {
-    const el = listRef.value
-    if (!el) return
-    const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 240
-    if (force || nearBottom) el.scrollTop = el.scrollHeight
+function syncScroll() {
+  const list = listRef.value
+  if (!list) return
+  if (followLatest) list.scrollTop = list.scrollHeight
+  else showBackBtn.value = list.scrollHeight - list.scrollTop - list.clientHeight > 72
+}
+
+function scrollBottom() {
+  followLatest = true
+  showBackBtn.value = false
+  hasNew.value = false
+  void nextTick(syncScroll)
+}
+
+function placeHistory() {
+  if (!relatedConversation.value || chat.messages.value.length > SHOWCASE_BY_ID[conv.activeId].seeded) {
+    scrollBottom()
+    return
+  }
+  followLatest = false
+  hasNew.value = false
+  void nextTick(() => {
+    const list = listRef.value
+    if (!list) return
+    list.scrollTop = 0
+    syncScroll()
   })
 }
 
-function onSseActivity() {
-  nextTick(() => {
-    const el = listRef.value
-    if (!el) return
-    const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 240
-    if (nearBottom) el.scrollTop = el.scrollHeight
-    else if (chat.streaming.value) hasNew.value = true
-  })
+function onSseActivity(event, _data, message) {
+  const pending = pendingReplaySubmission
+  if (pending && pending.clientMsgId === message?.clientMsgId) {
+    if (event === 'meta') pending.markUsed()
+    if (event === 'meta' || event === 'stream_end') pendingReplaySubmission = null
+  }
+  if (!followLatest && event !== 'stream_end' && event !== 'done') hasNew.value = true
+  void nextTick(syncScroll)
 }
 
 watch(chat.streaming, (v) => {
-  if (v) {
-    hasNew.value = false
-    scrollBottom(true)
-  }
+  // 只有学生本来就在底部时才跟随；上翻回看历史时不被强行拉回（followPaused 语义）
+  if (v && followLatest) scrollBottom()
 })
+
+watch(threadRef, (thread, previous) => {
+  if (previous) scrollObserver?.unobserve(previous)
+  if (thread) scrollObserver?.observe(thread)
+}, { flush: 'post' })
 
 function onListScroll() {
   const el = listRef.value
-  if (!el) return
+  if (!el || !chat.messages.value.length || chat.msgLoading.value) return
   const dist = el.scrollHeight - el.scrollTop - el.clientHeight
-  showBackBtn.value = dist > 240
-  if (dist <= 240) hasNew.value = false
+  followLatest = dist <= 72
+  showBackBtn.value = !followLatest
+  if (followLatest) hasNew.value = false
   if (el.scrollTop < 80 && chat.historyHasMore.value && !chat.historyLoading.value && !chat.msgLoading.value) {
     onLoadOlder()
   }
@@ -364,8 +384,8 @@ async function onLoadOlder() {
 }
 
 function onBackBottom() {
-  hasNew.value = false
-  scrollBottom(true)
+  scrollBottom()
+  listRef.value?.focus({ preventScroll: true })
 }
 
 /* ===== 拖拽上传 ===== */
@@ -426,6 +446,19 @@ function sendText(text) {
   chat.doSend(text, {})
 }
 
+function markAfterReplayMatch(mark, msgKey, cardIndex) {
+  if (!Number.isInteger(cardIndex)) return undefined
+  const markUsed = () => mark(chat.messages.value, msgKey, cardIndex)
+  if (!offline || isShowcaseConv.value) {
+    markUsed()
+    return undefined
+  }
+  // 录制讲解只有匹配到已有答复才发出 meta。范围提示不会把原作答卡锁住。
+  const clientMsgId = uuid()
+  pendingReplaySubmission = { clientMsgId, markUsed }
+  return clientMsgId
+}
+
 /** 引导选项卡：带上原会话/步骤，避免把选项当成一道新题。
  * sgv2（DESIGN §8.2）：透传 cardIndex 供已用态——在真实发送（流式守卫通过）时置位
  * msg.usedChoices[cardIndex]（模型层契约 markChoiceUsed，与 DualView 同源），
@@ -434,10 +467,12 @@ function sendText(text) {
 function onSocraticChoice(payload) {
   const text = typeof payload === 'string' ? payload : payload?.text
   if (!text || chat.streaming.value) return
-  if (payload && typeof payload === 'object' && Number.isInteger(payload.cardIndex)) {
-    markChoiceUsed(chat.messages.value, payload.msgKey, payload.cardIndex)
-  }
+  const clientMsgId = markAfterReplayMatch(markChoiceUsed, payload?.msgKey, payload?.cardIndex)
+  // 导航类动作（返回题卡/回到原题）不是学生发言：渲染为居中提示，避免「自问自答」气泡
+  const isUiAction = /^(返回题卡订正|回到这题|返回原题|回到原题|回到题卡|订正)$/.test(String(text).trim())
   chat.doSend(text, {
+    system: isUiAction,
+    clientMsgId,
     // 卡片「跳过」是阶段推进动作，不是作答：独立 skip 动作避免在 solve 未就绪时
     // 被当成步作答（真实会话：点「我读完了，直接开始」→「这道题已经走完了」）。
     tutorAction: payload?.action === 'skip' ? 'skip' : 'attempt',
@@ -451,6 +486,10 @@ function onSuggest(s) {
   const text = typeof s === 'string' ? s : s?.text
   const key = typeof s === 'object' ? s?.skill || '' : ''
   if (!text || chat.streaming.value) return
+  if (offline && s?.conversationId) {
+    heroOpenConv(s.conversationId)
+    return
+  }
   // 学情推荐里的“复习到期错题”直接走 FSRS 复习链路，而不是把标题当提问发出去
   if (typeof s === 'object' && s?.action === 'review' && s?.item) {
     void startReview(s.item)
@@ -470,8 +509,9 @@ function onSuggest(s) {
  */
 function onInteractionSubmit(payload) {
   if (!payload?.summary || chat.streaming.value) return
-  markInteractionUsed(chat.messages.value, payload.msgKey, payload.cardIndex)
+  const clientMsgId = markAfterReplayMatch(markInteractionUsed, payload.msgKey, payload.cardIndex)
   chat.doSend(payload.summary, {
+    clientMsgId,
     tutorAction: 'interact',
     tutorSessionId: payload.sessionId || '',
     tutorStepNo: payload.stepNo || null,
@@ -749,6 +789,10 @@ function onPickFiles({ files, isPhoto }) {
 
 /* ===== 生命周期 ===== */
 onMounted(async () => {
+  if (typeof ResizeObserver === 'function') {
+    scrollObserver = new ResizeObserver(syncScroll)
+    if (listRef.value) scrollObserver.observe(listRef.value)
+  }
   await conv.load()
   // 首页学情脉搏：与对话历史并行加载，失败只隐藏对应区块
   void snapshot.load()
@@ -757,8 +801,10 @@ onMounted(async () => {
   const initId = String(route.params.id || '')
   if (initId) {
     await chat.openConversation(initId)
-    conv.select(initId)
-    scrollBottom(true)
+    if (route.params.id === initId) {
+      conv.select(initId)
+      placeHistory()
+    }
   }
 
   const safeDecode = (s) => {
@@ -822,6 +868,7 @@ onMounted(async () => {
 })
 
 onBeforeUnmount(() => {
+  scrollObserver?.disconnect()
   chat.dispose()
   upload.stopAll()
 })
@@ -836,12 +883,15 @@ watch(
       if (chat.streaming.value) await chat.stopStreaming()
       if (nid) {
         await chat.openConversation(nid)
-        conv.select(nid)
-        scrollBottom(true)
+        if (route.params.id === nid) {
+          conv.select(nid)
+          placeHistory()
+        }
       } else {
         chat.activeConvId.value = ''
         chat.messages.value = []
         conv.select('')
+        scrollBottom()
       }
     }
   }
@@ -849,112 +899,154 @@ watch(
 </script>
 
 <style scoped>
-/* ═══ 排版：对话改为文档式阅读列（评审 §1.2）═══
-   外壳（顶栏/侧栏/配色/学生气泡）保持现役不动，只约束阅读宽度并把 AI 气泡降为文档。 */
-.dialog-page .dialog-messages > .msg-row {
-  width: 100%; max-width: 860px; margin-left: auto; margin-right: auto;
+.dialog-page {
+  --dialog-column: 860px;
+  --dialog-gutter: clamp(16px, 3.1vw, 40px);
+  height: calc(100vh - var(--topbar-h));
+  height: calc(100dvh - var(--topbar-h));
+  padding: 0;
 }
-.dialog-page .dialog-messages > .msg-row :deep(.ai-col) { max-width: none; flex: 1 1 auto; }
-.dialog-page .dialog-messages > .msg-row :deep(.ai-bubble) {
-  background: transparent; border: 0; padding: 0; border-radius: 0; box-shadow: none;
+.dialog-main {
+  position: relative; width: 100%; height: 100%; min-width: 0;
+  background: transparent; border: 0; border-radius: 0;
 }
-.dialog-page .dialog-messages > .msg-row :deep(.user-col) { max-width: 74%; }
-.dialog-page :deep(.chat-input) { max-width: 860px; margin: 0 auto; }
-.dialog-page :deep(.sugg) { max-width: 860px; margin-left: auto; margin-right: auto; }
+.dialog-header {
+  flex: none; min-height: 64px;
+  padding: 10px var(--dialog-gutter);
+}
+.dialog-heading { display: flex; align-items: center; gap: 11px; min-width: 0; }
+.dialog-heading-icon {
+  display: grid; place-items: center; flex: none;
+  width: 32px; height: 32px; border-radius: 10px;
+  background: var(--brand-soft); color: var(--brand-deep);
+  font: 700 19px/1 var(--font-serif);
+}
+.dialog-heading .ttl {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 17px; font-weight: 700; line-height: 1.45; color: var(--ink);
+}
+.dialog-badges { display: flex; align-items: center; justify-content: flex-end; gap: 8px; flex: none; }
+.dialog-stage, .dialog-mode summary {
+  display: flex; align-items: center; gap: 5px; min-height: 30px; padding: 2px 10px;
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--bg); color: var(--ink2); font-size: 12px; font-weight: 600;
+}
+.dialog-stage { background: var(--brand-soft); border-color: var(--brand-faint); color: var(--brand-deep); }
+.dialog-stage[data-complete="true"] { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-deep); }
+.dialog-heading-text { min-width: 0; }
+.dialog-sub { margin: 1px 0 0; font-size: 12px; color: var(--ink3); line-height: 1.4; }
+.dialog-mode { position: relative; z-index: 10; }
+.dialog-mode summary { list-style: none; cursor: pointer; }
+.dialog-mode summary::-webkit-details-marker { display: none; }
+.dialog-mode summary::after {
+  content: ''; width: 5px; height: 5px; margin: -2px 2px 0 3px;
+  border: solid currentColor; border-width: 0 1.5px 1.5px 0; transform: rotate(45deg);
+}
+.dialog-mode[open] summary { color: var(--brand-deep); border-color: var(--primary-border); }
+.dialog-mode p {
+  position: absolute; inset-inline-end: 0; top: calc(100% + 8px);
+  width: min(280px, 66vw); margin: 0; padding: 12px 14px;
+  border: 1px solid var(--line); border-radius: var(--radius-md);
+  background: var(--card); box-shadow: var(--shadow-md);
+  color: var(--ink2); font-size: 13px; line-height: 1.7;
+}
+.dialog-messages {
+  display: block; flex: 1 1 0; min-height: 0; min-width: 0;
+  padding: 26px var(--dialog-gutter) 12px;
+  overscroll-behavior-y: contain; scrollbar-width: thin;
+}
+.dialog-thread { width: 100%; max-width: var(--dialog-column); margin-inline: auto; padding-bottom: 12px; }
+.dialog-thread :deep(.mf-img) { margin-inline: auto; }
+.dialog-thread :deep(.mf-debug) { display: none; }
+.dialog-thread :deep(.mf-dot) {
+  position: relative; display: grid; place-items: center;
+  width: 22px; height: 28px; background: none; transform: none;
+}
+.dialog-thread :deep(.mf-dot::before) {
+  content: ''; width: 8px; height: 8px; background: var(--border-strong); border-radius: var(--radius-full);
+}
+.dialog-thread :deep(.mf-dot.on::before) { background: var(--brand); }
+.list-loading { display: flex; align-items: center; justify-content: center; gap: 8px; padding: 40px 0; color: var(--ink2); }
+.history-more { display: flex; justify-content: center; margin-bottom: 18px; }
+.dialog-dock {
+  position: relative; flex: none; padding: 10px var(--dialog-gutter) 15px;
+  border-top: 1px solid var(--line2);
+}
+.dialog-dock-inner { width: 100%; max-width: var(--dialog-column); min-width: 0; margin-inline: auto; }
+.dialog-next { display: flex; align-items: center; gap: 9px; padding-bottom: 7px; font-size: 12px; color: var(--ink2); }
+.dialog-next button, .back-bottom {
+  display: inline-flex; align-items: center; justify-content: center; gap: 5px;
+  border: 1px solid var(--line); border-radius: var(--radius-full); background: var(--card);
+  color: var(--brand-deep); font: inherit; font-weight: 600; cursor: pointer;
+}
+.dialog-next button { min-height: 28px; padding: 2px 9px; }
+.dialog-next button:hover, .back-bottom:hover { background: var(--brand-soft); border-color: var(--primary-border); }
+.back-bottom {
+  position: static; display: flex; margin: 0 auto 6px;
+  transform: translateX(-50%); z-index: 5; min-height: 34px; padding: 1px 12px;
+  box-shadow: var(--shadow-sm); font-size: 12px; white-space: nowrap;
+}
 
-.offline-demo-chip {
-  display: inline-block; margin-right: 6px; padding: 0 7px; border-radius: 999px;
-  font-size: 10.5px; font-weight: 700; line-height: 17px; vertical-align: 1px;
-  color: var(--purple); background: var(--purple-soft); border: 1px solid var(--purple-border);
-}
-.dialog-page { height: calc(100vh - 52px); }
-/* sgv2：顶部步徽标 + 知识点 chip（.step 基础样式在 v4.css 全局） */
-.dialog-badges { display: flex; align-items: center; gap: 6px; flex-shrink: 0; }
-.dialog-badges .kp-chip {
-  background: #f5f3ff; color: #6d28d9; max-width: 180px;
-  overflow: hidden; text-overflow: ellipsis; font-weight: 600;
-}
-.dialog-page { padding: 0; }
-.dialog-page .dialog-main {
-  height: 100%; max-width: none; margin: 0; background: transparent;
-  border: none; box-shadow: none; border-radius: 0;
-}
-.dialog-messages { padding: 20px 36px 8px; }
-.dialog-messages { padding: 18px 28px; }
-.list-loading { display: flex; align-items: center; gap: 8px; color: var(--ink3); padding: 40px 0; justify-content: center; font-size: 13px; }
-.history-more { display: flex; justify-content: center; margin-bottom: 8px; }
-.welcome { padding-top: 60px; }
-.welcome-sub { font-size: 12px; color: var(--ink3); margin-top: 8px; }
-
-/* 首页：左侧对话入口 + 右侧学情脉搏（不抢对话主职责，只回答“下一步做什么”） */
-.home-welcome { max-width: 1180px; margin: 0 auto; padding: 26px 6px 18px; text-align: left; }
-.home-grid { display: grid; grid-template-columns: minmax(0, 1fr) 348px; gap: 28px; align-items: start; }
-.home-hero { min-width: 0; padding: 10px 4px 0; }
+.home-welcome { width: 100%; max-width: 1020px; margin: 0 auto; padding: clamp(12px, 3.5vh, 40px) 0 20px; text-align: left; }
+.home-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(290px, 330px); gap: 32px; align-items: start; }
+.home-hero { min-width: 0; padding-top: 10px; }
 
 .drop-mask {
   position: absolute; inset: 0; z-index: 30; pointer-events: none;
-  background: rgba(245, 158, 11, 0.08); backdrop-filter: blur(1px);
+  background: color-mix(in srgb, var(--brand-soft) 84%, transparent);
   display: flex; align-items: center; justify-content: center;
-  border: 2px dashed var(--warn-border); border-radius: 16px; margin: 8px;
+  border: 2px dashed var(--primary-border); border-radius: 16px; margin: 8px;
 }
 .drop-inner { display: flex; flex-direction: column; align-items: center; gap: 8px; color: var(--brand-deep); font-size: 14px; font-weight: 500; }
-.drop-sub { font-size: 12px; color: var(--ink3); font-weight: 400; }
-.sugg { padding: 0 20px 8px; }
-
-/* AI 思考中（v4 动效） */
-.v4-thinking { display: flex; gap: 6px; align-items: center; padding: 8px 12px; background: var(--bg2); border-radius: 99px; font-size: 11.5px; color: var(--ink2); font-weight: 600; align-self: flex-start; }
-.v4-thinking .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--brand); animation: pulse 1.4s infinite; }
-.v4-thinking .dot:nth-child(2) { animation-delay: .2s; }
-.v4-thinking .dot:nth-child(3) { animation-delay: .4s; }
-/* ===== S1 首页 hero（V2 文档设计） ===== */
-.hero-greet { font-size: 15px; color: var(--ink2); margin-bottom: 10px; }
-.hero-title { font-size: 34px; font-weight: 800; letter-spacing: .5px; margin: 0 0 12px; }
-.hero-sub { max-width: 560px; font-size: 15px; color: var(--ink3); margin-bottom: 24px; line-height: 1.7; }
-.hero-entries { display: flex; gap: 12px; flex-wrap: wrap; justify-content: flex-start; margin-bottom: 26px; }
+.drop-sub { font-size: 12px; color: var(--ink2); font-weight: 400; }
+.hero-greet { font-size: 15px; color: var(--ink2); margin-bottom: 9px; }
+.hero-title { color: var(--ink); font-size: clamp(25px, 3.2vw, 38px); font-weight: 800; line-height: 1.3; margin: 0 0 10px; }
+.hero-title span { color: var(--brand-deep); }
+.hero-sub { max-width: 560px; font-size: 15px; color: var(--ink2); margin-bottom: 24px; line-height: 1.7; }
+.hero-entries { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-bottom: 26px; }
 .he-card {
-  display: flex; flex-direction: column; align-items: center; gap: 8px;
-  width: 150px; padding: 18px 12px 14px; border-radius: var(--radius-xl, 22px);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
+  min-height: 78px; padding: 10px 8px; border-radius: var(--radius-md);
   background: var(--card); border: 1px solid var(--line); cursor: pointer;
-  transition: all .2s ease; font-size: 13.5px; font-weight: 600; color: var(--ink);
+  font: inherit; font-size: 13px; font-weight: 600; color: var(--ink2);
 }
-.he-card span { color: var(--ink2); font-weight: 500; font-size: 13.5px; }
-.he-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-glow-brand); border-color: var(--primary-border); }
-.he-card.c-indigo { background: linear-gradient(180deg, #eef2ff 0%, #ffffff 100%); }
-.he-card.c-cyan { background: linear-gradient(180deg, #ecfeff 0%, #ffffff 100%); }
-.he-card.c-violet { background: linear-gradient(180deg, #f5f3ff 0%, #ffffff 100%); }
-.he-card.c-amber { background: linear-gradient(180deg, #fffbeb 0%, #ffffff 100%); }
-.hero-recent { width: 100%; max-width: 460px; text-align: left; }
-.hr-title { font-size: 12.5px; color: var(--ink3); font-weight: 600; margin: 0 0 8px 4px; }
+.he-card :deep(.ui-icon), .hr-item :deep(.ui-icon) { color: var(--brand-deep); }
+.he-card:hover, .hr-item:hover { border-color: var(--primary-border); background: var(--brand-soft); }
+.hero-recent { width: 100%; max-width: 520px; text-align: left; }
+.hr-title { font-size: 13px; color: var(--ink2); font-weight: 700; margin-bottom: 6px; }
 .hr-item {
-  display: flex; align-items: center; gap: 10px; padding: 11px 14px; margin-bottom: 8px;
-  background: var(--card); border: 1px solid var(--line); border-radius: 14px; cursor: pointer;
-  transition: all .18s ease; font-size: 13.5px;
+  display: flex; align-items: center; gap: 10px; width: 100%; padding: 9px 12px; margin-bottom: 6px;
+  background: var(--bg); border: 1px solid var(--line2); border-radius: var(--radius-sm);
+  cursor: pointer; font: inherit; font-size: 13px; text-align: left;
 }
-.hr-item:hover { border-color: var(--primary-border); box-shadow: var(--shadow-sm); }
-.hr-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gradient-brand); flex: 0 0 auto; }
 .hr-name { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--ink); }
-.hr-go { color: var(--primary); font-size: 12.5px; font-weight: 600; flex: 0 0 auto; }
 
-/* sgv4 nudge_resume：聚焦未答交互卡的短暂高亮（子组件内部元素需 :deep 穿透） */
-.dialog-messages :deep(.si-focus-flash) {
-  animation: sgv4-focus-flash 1.6s ease;
-}
+.dialog-page :is(button, summary):focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.dialog-messages:focus-visible { outline: 2px solid var(--primary-border); outline-offset: -2px; }
+.dialog-messages :deep(.si-focus-flash) { animation: sgv4-focus-flash 1.6s ease; }
 @keyframes sgv4-focus-flash {
   0%, 100% { box-shadow: none; }
-  25%, 65% { box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.4); }
+  25%, 65% { box-shadow: 0 0 0 4px var(--brand-faint); }
 }
 
 @media (max-width: 1100px) {
-  .home-welcome { max-width: 760px; }
-  .home-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
-  .home-hero { padding-top: 0; }
+  .home-welcome { max-width: var(--dialog-column); }
+  .home-grid { gap: 18px; }
+  .hero-entries { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 900px) {
+  .home-grid { grid-template-columns: minmax(0, 1fr); }
 }
 @media (max-width: 720px) {
-  .home-welcome { padding: 16px 4px 12px; }
-  .hero-title { font-size: 27px; }
-  .hero-sub { font-size: 14px; margin-bottom: 18px; }
-  .hero-entries { gap: 9px; margin-bottom: 18px; }
-  .he-card { width: calc(50% - 5px); padding: 14px 8px 12px; }
-  .he-card span { font-size: 12.5px; }
+  .dialog-header { gap: 5px; min-height: 54px; }
+  .dialog-heading .ttl { font-size: 14px; }
+  .dialog-heading-icon { display: none; }
+  .dialog-stage, .dialog-mode summary { min-height: 27px; padding-inline: 6px; font-size: 11px; }
+  .dialog-badges { gap: 4px; }
+  .dialog-messages { padding-top: 18px; }
+  .dialog-dock { padding-bottom: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dialog-page, .dialog-messages :deep(.si-focus-flash) { animation: none; }
 }
 </style>

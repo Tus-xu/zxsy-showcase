@@ -1,0 +1,158 @@
+{
+  "attachmentScope": "本次明示15张 + 同目录同批拍照续图2张重建17张证据序列。另留同批拍照开场。原会话接口未返回附件文件名。",
+  "release": {
+    "path": "D:\\zxsy-math-arena-showcase\\release\\开始演示.html",
+    "sha256": "82b780575062db338a24e722465f5de186e4128c2fe52ca4d7218c1775c6001b",
+    "bytes": 21233148
+  },
+  "plan": {
+    "file": "实施计划-原件.md",
+    "sha256": "22ec8af293baf7f7899a0afdc012b334e92c91b19361d44d592aec59c4c850e5"
+  },
+  "images": [
+    {
+      "id": "V4-01",
+      "file": "01-145108.png",
+      "sha256": "55732762f15dba081cc43b7a36a16e46c72fd7912c7e581975435be69b204482",
+      "width": 1911,
+      "height": 1036,
+      "provenance": "同机拍照续图"
+    },
+    {
+      "id": "V4-02",
+      "file": "02-145120.png",
+      "sha256": "5cdfd8ea1d99559fdf676a5774b451f8b6afc5da51ffc2a6837b042d158e370e",
+      "width": 1913,
+      "height": 1032,
+      "provenance": "同机拍照续图"
+    },
+    {
+      "id": "V4-03",
+      "file": "03-145135.png",
+      "sha256": "afe46223ca9e0b6f14386fc877e2d751298625398be18e71cd37b6ea0679d29b",
+      "width": 1912,
+      "height": 1033,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-04",
+      "file": "04-145142.png",
+      "sha256": "44b9c6ea6b04edb505dbc955c25ce66edda8b859442951accde6bc4d6f6d5f16",
+      "width": 1910,
+      "height": 1035,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-05",
+      "file": "05-145149.png",
+      "sha256": "dd9aedc8da1fc8f044e8126aca8a81a20c35dea3feaea7ea67e2ef6474a76aee",
+      "width": 1912,
+      "height": 1035,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-06",
+      "file": "06-145207.png",
+      "sha256": "1e0c167f325e23890dcc921090ff8c44eba319b54853c565474fde980c6b327f",
+      "width": 1912,
+      "height": 1036,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-07",
+      "file": "07-145213.png",
+      "sha256": "870eb9d054f91f7e5165bdc09e0f5ab40120ba4335e29e01f72f02637a712dfc",
+      "width": 1902,
+      "height": 1028,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-08",
+      "file": "08-145218.png",
+      "sha256": "e9d1a2afd5b1c929a638111c585b755de4c59124656d9830bff9a5eda5719c4a",
+      "width": 1908,
+      "height": 1035,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-09",
+      "file": "09-145227.png",
+      "sha256": "16682627dd93f7889c547189e437c7608c5d3b9559ae37958241fef0b0aa766d",
+      "width": 1912,
+      "height": 1037,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-10",
+      "file": "10-145233.png",
+      "sha256": "e2a4313ca759873e95c8aa201ee653ffbaba1f9bda2cd9563f39f436ee8e7922",
+      "width": 1912,
+      "height": 1035,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-11",
+      "file": "11-145301.png",
+      "sha256": "4e831fd128c46810e704a3d7c1c386f091a92fce98728e97b8af790121af5333",
+      "width": 1917,
+      "height": 1031,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-12",
+      "file": "12-145308.png",
+      "sha256": "9ba13d2d805d63965b5a8ca39258f088a98aec05ff415ec7020285dc88512ec8",
+      "width": 1911,
+      "height": 1032,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-13",
+      "file": "13-145322.png",
+      "sha256": "7c97793e87b49390c58964ae5ea428f2f248d9549e63a5897f1bb0c4f55b63ea",
+      "width": 1907,
+      "height": 1032,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-14",
+      "file": "14-145330.png",
+      "sha256": "9c484a422bff14f90e44c7b090f696ff240070807f83dc67b9c309a57c5495bd",
+      "width": 1911,
+      "height": 1035,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-15",
+      "file": "15-145334.png",
+      "sha256": "4bb5fee61eb0cc97980dbc14ff1abd699afde3958cd5d9de95a486388324b202",
+      "width": 1906,
+      "height": 1027,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-16",
+      "file": "16-145348.png",
+      "sha256": "9bea027d50b7b66d18b51175cf382880ce68a451940a7467b0363c0809fdc6ee",
+      "width": 1907,
+      "height": 1032,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-17",
+      "file": "17-145356.png",
+      "sha256": "4a458ce52471bad485b993acc1918d7612c15f538ff8877cee14f33f576d7d16",
+      "width": 1911,
+      "height": 1028,
+      "provenance": "本次消息附件"
+    },
+    {
+      "id": "V4-photo-context",
+      "file": "photo-context-145102.png",
+      "sha256": "7437d2763fbc00c7b1ed018ffbec8b9e9bb803c6a6a987e3d31d527c97812410",
+      "width": 1913,
+      "height": 1036,
+      "provenance": "同机题图开场补证"
+    }
+  ]
+}

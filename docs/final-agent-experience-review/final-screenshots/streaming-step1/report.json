@@ -1,0 +1,64 @@
+{
+  "entry": "D:\\zxsy-math-arena-showcase\\app\\dist-offline\\index.html",
+  "errors": [],
+  "consoleErrors": [
+    "[    at _f (file:///D:/zxsy-math-arena-showcase/app/dist-offline/index.html:11942:8572),     at file:///D:/zxsy-math-arena-showcase/app/dist-offline/index.html:11943:702]",
+    "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-arena-showcase/app/dist-offline/index.htm"
+  ],
+  "samples": [
+    {
+      "at": 80,
+      "len": 14,
+      "streaming": false
+    },
+    {
+      "at": 250,
+      "len": 14,
+      "streaming": false
+    },
+    {
+      "at": 500,
+      "len": 18,
+      "streaming": true
+    },
+    {
+      "at": 900,
+      "len": 94,
+      "streaming": true
+    },
+    {
+      "at": 1400,
+      "len": 100,
+      "streaming": false
+    },
+    {
+      "at": 2200,
+      "len": 100,
+      "streaming": false
+    },
+    {
+      "at": 3200,
+      "len": 100,
+      "streaming": false
+    }
+  ],
+  "tokensSeen": 0,
+  "title": "引导式解题 · 为什么不是极小值",
+  "aiCount": 2,
+  "lastAiText": "π\n智学助教\n\n你找到的 \n−\n1\n−1 确实让导数为零，这一步是对的。不过导数等于零只说明这一点的切线是水平的；它是极大、极小还是都不是，要看曲线经过这个点时先升后降，还是先降后升。\n\n先读清这道题\n函数的变化 → 单调性与极值\n局部极小\n只和足够靠近它的点比较\n题干线索\t这一步在确认什么\n\n\n𝑔\n(\n𝑥\n)\n=\n2\n𝑥\n3\n−\n3\n𝑥\n2\n−\n12\n𝑥\n+\n1\ng(x)=2x\n3\n−3x\n2\n−12x+1\n\n\t已知函数式，可以求导或作差\n\n\n「局部极小值」\n\n\t比较这个位置附近的高低\n\n\n「在哪个 x」\n\n\t最后要交的是横坐标\n题目看懂了\n「局部」是什么意思？\n20:22",
+  "buttonTexts": [
+    "小\n小林",
+    "«",
+    "＋ 新对话",
+    "A\n−1\n你的首答",
+    "B\n1",
+    "C\n2",
+    "D\n−2",
+    "题目看懂了",
+    "「局部」是什么意思？",
+    "发送",
+    "✦"
+  ],
+  "buttonFound": 1,
+  "finalLen": 100
+}

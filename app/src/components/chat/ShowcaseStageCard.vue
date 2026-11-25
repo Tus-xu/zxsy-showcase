@@ -10,9 +10,8 @@
     因此父层不需要新的发送通道。历史里的旧卡通过 `used` 变成静态回看，不再向当前步骤注入事件。
   -->
   <div class="ssc" :class="[`ssc-${card.variant}`, { used }]" :data-showcase-card="card.variant">
-    <div class="ssc-head">
-      <span class="ssc-title">{{ card.title || '导学' }}</span>
-      <span v-if="card.pauseAt" class="ssc-pause">原题暂停在 · {{ card.pauseAt }}</span>
+    <div v-if="card.title" class="ssc-head">
+      <h3 class="ssc-title">{{ card.title }}</h3>
     </div>
 
     <!-- 知识定位：题干节选 + 高亮词 -->
@@ -34,18 +33,13 @@
       <span v-if="card.relation.note" class="ssc-rel-note">{{ card.relation.note }}</span>
     </div>
 
-    <!-- 读题：题干线索 ↔ 解题任务 -->
-    <table v-if="card.clues?.length" class="ssc-clues">
-      <thead>
-        <tr><th>题干线索</th><th>这一步在确认什么</th></tr>
-      </thead>
-      <tbody>
-        <tr v-for="(r, i) in card.clues" :key="'c' + i">
-          <td class="ssc-clue-left">{{ r.left }}</td>
-          <td class="ssc-clue-right">{{ r.right }}</td>
-        </tr>
-      </tbody>
-    </table>
+    <!-- 读题：题干线索 ↔ 这一步确认什么（轻列表，不做表单表格） -->
+    <ul v-if="card.clues?.length" class="ssc-clues">
+      <li v-for="(r, i) in card.clues" :key="'c' + i">
+        <span class="ssc-clue-left"><MarkdownView :text="r.left" :zoomable="false" /></span>
+        <span class="ssc-clue-right">{{ r.right }}</span>
+      </li>
+    </ul>
 
     <!-- 方法双卡：每张卡一个副句，点卡片即选这一路 -->
     <div v-if="card.methods?.length" class="ssc-methods">
@@ -53,7 +47,7 @@
         v-for="m in card.methods"
         :key="m.id"
         type="button"
-        class="ssc-method"
+        class="ssc-method-card"
         :disabled="!interactive"
         @click.stop="send({ id: m.id, label: m.label })"
       >
@@ -69,7 +63,10 @@
     </div>
 
     <!-- 当前依据 / 题干式子 -->
-    <div v-if="card.basis" class="ssc-basis"><span class="ssc-basis-tag">当前依据</span>{{ card.basis }}</div>
+    <div v-if="card.basis" class="ssc-basis">
+      <span class="ssc-basis-tag">当前依据</span>
+      <MarkdownView :text="card.basis.replace(/^当前依据 · /, '')" :zoomable="false" />
+    </div>
 
     <!-- 关系图（小课） -->
     <div v-if="card.relations?.length" class="ssc-rels">
@@ -112,7 +109,7 @@
 
     <!-- 题目正文（重选一次 / 错题本） -->
     <div v-if="card.question" class="ssc-question">
-      <span class="ssc-q">题目</span>{{ card.question }}
+      <span class="ssc-q">题目</span><MarkdownView :text="card.question" :zoomable="false" />
     </div>
 
     <!-- 说明句 -->
@@ -185,10 +182,11 @@
         type="button"
         class="ssc-btn"
         :class="{ primary: a.primary, ghost: !a.primary }"
-        :disabled="!interactive"
+        :disabled="!interactive && !isPreviewAction(a)"
+        :aria-expanded="previewExpanded(a)"
         @click.stop="send(a)"
       >
-        {{ a.label }}
+        {{ a.id === 'toggle_fig' && figOpen ? '收起图' : a.id === 'same_sign' && revealOpen ? '收起反例' : a.label }}
       </button>
       <button
         v-for="h in hintList"
@@ -209,9 +207,10 @@
 </template>
 
 <script setup>
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import MathFigure from './MathFigure.vue'
 import SocraticCitations from './SocraticCitations.vue'
+import MarkdownView from '@/components/MarkdownView.vue'
 
 const props = defineProps({
   /** showcase_stage 卡：variant / stage / title / …；字段见 offline/showcase/engine.js 的卡片构造 */
@@ -233,9 +232,10 @@ const revealOpen = ref(false)
  * - 用户设置了减弱动效时直接给静态形态（同样的文字与方向，不靠动画表达含义）。
  */
 const animate = ref(false)
+const marks = computed(() => props.card.marks || [])
 
-onMounted(() => {
-  if (props.used || !marks.value.length) return
+watch(() => props.used, (used) => {
+  if (used || !marks.value.length) return
   const key = `ssc-anim:${props.cardKey || ''}`
   try {
     if (!props.cardKey || sessionStorage.getItem(key)) return
@@ -245,9 +245,7 @@ onMounted(() => {
   }
   const reduce = typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches
   if (!reduce) animate.value = true
-})
-
-const marks = computed(() => props.card.marks || [])
+}, { immediate: true })
 
 /** 选项兼容两种写法：{id,label} 与现役题库的 'A. −1' 纯文本 */
 const optionList = computed(() =>
@@ -272,29 +270,38 @@ function isLetter(o) {
 
 function pick(o) {
   if (!interactive.value) return
-  emit('choose', o.label)
+  // say：给学生气泡一句自然口语（如「选 C（2）」）；判分仍用 label/aliases
+  emit('choose', o.say || o.label)
+}
+
+function isPreviewAction(a) {
+  return a.id === 'toggle_fig' || a.id === 'same_sign'
+}
+
+function previewExpanded(a) {
+  if (a.id === 'toggle_fig') return figOpen.value
+  if (a.id === 'same_sign') return revealOpen.value
+  return undefined
 }
 
 function send(a) {
-  if (!interactive.value) return
-  // 卡内就地展开的两类动作：不发送消息，只改变本卡显示
   if (a.id === 'toggle_fig') {
-    figOpen.value = true
+    figOpen.value = !figOpen.value
     return
   }
   if (a.id === 'same_sign') {
-    revealOpen.value = true
+    revealOpen.value = !revealOpen.value
     return
   }
-  emit('choose', a.label)
+  if (interactive.value) emit('choose', a.say || a.label)
 }
 </script>
 
 <style scoped>
-.ssc { margin-top: 16px; padding: 0; border: 0; background: transparent; }
+.ssc { margin-top: 12px; padding: 0; }
 
-.ssc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
-.ssc-title { font-size: 15px; font-weight: 700; color: var(--ink); letter-spacing: .1px; }
+.ssc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+.ssc-title { margin: 0; font-size: 14px; font-weight: 600; color: var(--ink2); }
 .ssc-pause {
   font-size: 11px; color: var(--warn-deep); background: var(--warn-bg);
   border: 1px solid var(--warn-border); border-radius: 999px; padding: 1px 8px;
@@ -309,7 +316,7 @@ function send(a) {
 .ssc-snippet-text { font-size: 12.5px; color: var(--ink2); }
 .ssc-mark {
   font-size: 11.5px; font-weight: 700; color: var(--purple);
-  background: var(--purple-soft); border: 1px solid var(--purple-border);
+  background: var(--brand-soft); border: 1px solid var(--brand-faint);
   border-radius: 6px; padding: 1px 6px;
 }
 .ssc-relation {
@@ -319,50 +326,45 @@ function send(a) {
 }
 .ssc-rel-chain { font-size: 12.5px; font-weight: 600; color: var(--ink2); }
 .ssc-rel-focus {
-  font-size: 12px; font-weight: 700; color: #fff; background: var(--purple);
+  font-size: 12px; font-weight: 700; color: var(--brand-deep); background: var(--card);
   border-radius: 6px; padding: 1px 8px;
 }
-.ssc-rel-note { font-size: 11.5px; color: var(--ink3); }
+.ssc-rel-note { font-size: 12px; color: var(--ink2); }
 
 /* 读题连线表 */
+ul.ssc-clues { list-style: none; margin: 0 0 8px; padding: 0; display: grid; gap: 5px; }
+ul.ssc-clues li { display: grid; grid-template-columns: minmax(0, 52%) 1fr; gap: 10px; align-items: baseline; font-size: 13px; line-height: 1.6; }
+ul.ssc-clues .ssc-clue-left { width: auto; font-weight: 600; }
+ul.ssc-clues .ssc-clue-right { color: var(--ink2); }
+
 .ssc-clues, .ssc-triples {
-  width: 100%; border-collapse: collapse; margin-bottom: 8px;
-  font-size: 12.5px; background: #fff; border-radius: var(--radius); overflow: hidden;
+  width: 100%; border-collapse: collapse; margin-bottom: 11px;
+  font-size: 13.5px; background: var(--card); border-radius: var(--radius); overflow: hidden;
 }
 .ssc-clues th, .ssc-triples th {
-  text-align: left; font-weight: 600; font-size: 11.5px; color: var(--ink3);
-  padding: 6px 10px; background: var(--line2); border-bottom: 1px solid var(--border);
+  text-align: left; font-weight: 600; font-size: 12px; color: var(--ink2);
+  padding: 8px 10px; background: var(--bg); border-bottom: 1px solid var(--border);
 }
-.ssc-clues td, .ssc-triples td { padding: 7px 10px; border-bottom: 1px solid var(--line2); vertical-align: top; }
+.ssc-clues td, .ssc-triples td { padding: 8px 10px; border-bottom: 1px solid var(--line2); vertical-align: top; }
 .ssc-clues tr:last-child td, .ssc-triples tr:last-child td { border-bottom: 0; }
-.ssc-clue-left { color: var(--ink); font-weight: 600; white-space: nowrap; }
+.ssc-clue-left { color: var(--ink); font-weight: 600; width: 45%; overflow-wrap: anywhere; }
+.ssc-clue-left :deep(.md-body), .ssc-basis :deep(.md-body), .ssc-question :deep(.md-body) { font-size: inherit; }
+.ssc :deep(.md-body p) { margin: 0; }
 .ssc-clue-right { color: var(--ink2); }
 .ssc-sign { font-weight: 700; color: var(--purple); text-align: center; }
 
 /* 方法双卡 */
-.ssc-method {
-  display: flex; flex-direction: column; gap: 3px; text-align: left; cursor: pointer;
-  padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border-strong);
-  background: #fff; transition: border-color .14s, background .14s;
+.ssc-methods { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-bottom: 10px; }
+.ssc-method-card {
+  display: flex; flex-direction: column; gap: 4px; text-align: left; cursor: pointer;
+  padding: 10px 12px; border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg); transition: border-color .14s, background .14s;
 }
-.ssc-method:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-soft); }
-.ssc-method:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
-.ssc-method:disabled { cursor: default; opacity: .92; }
-.ssc-method-label { font-size: 13px; font-weight: 700; color: var(--ink); }
-.ssc-method-sub { font-size: 11.5px; color: var(--ink3); line-height: 1.5; }
-
-/* 方法双卡 */
-.ssc-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
-.ssc-method {
-  display: flex; flex-direction: column; gap: 3px; text-align: left; cursor: pointer;
-  padding: 10px 12px; border-radius: var(--radius); border: 1px solid var(--border-strong);
-  background: #fff; transition: border-color .14s, background .14s;
-}
-.ssc-method:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-soft); }
-.ssc-method:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
-.ssc-method:disabled { cursor: default; opacity: .92; }
-.ssc-method-label { font-size: 13px; font-weight: 700; color: var(--ink); }
-.ssc-method-sub { font-size: 11.5px; color: var(--ink3); line-height: 1.5; }
+.ssc-method-card:hover:not(:disabled) { border-color: var(--brand); background: var(--brand-soft); }
+.ssc-method-card:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+.ssc-method-card:disabled { cursor: default; background: var(--bg); }
+.ssc-method-label { font-size: 13.5px; font-weight: 700; color: var(--ink); }
+.ssc-method-sub { font-size: 12.5px; color: var(--ink2); line-height: 1.55; }
 
 /* 知识定位的一次性分段高亮（整段约 780ms，末态停住；纯视觉，不影响点击） */
 .ssc-mark-in { animation: ssc-mark-in 340ms ease-out both; animation-delay: calc(var(--i) * 260ms); }
@@ -384,11 +386,11 @@ function send(a) {
 }
 
 .ssc-basis {
-  font-size: 12.5px; color: var(--ink2); padding: 7px 10px; margin-bottom: 8px;
-  background: #fff; border: 1px solid var(--border); border-left: 3px solid var(--purple);
-  border-radius: var(--radius);
+  display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+  font-size: 14px; color: var(--ink2); padding: 8px 11px; margin-bottom: 9px;
+  background: var(--bg); border-radius: var(--radius-sm);
 }
-.ssc-basis-tag { font-size: 11px; font-weight: 700; color: var(--purple); margin-right: 8px; }
+.ssc-basis-tag { font-size: 12px; font-weight: 700; color: var(--brand-deep); }
 
 /* 关系图（小课） */
 .ssc-rels { display: grid; gap: 6px; margin-bottom: 8px; }
@@ -426,11 +428,11 @@ function send(a) {
 
 /* 题目 */
 .ssc-question {
-  font-size: 13px; line-height: 1.65; color: var(--ink); padding: 9px 11px; margin-bottom: 8px;
-  background: #fff; border: 1px solid var(--border-strong); border-radius: var(--radius);
+  font-size: 14px; line-height: 1.7; color: var(--ink); padding: 10px 12px; margin-bottom: 9px;
+  background: var(--bg); border: 1px solid var(--border); border-radius: var(--radius-sm);
 }
-.ssc-q { font-size: 11px; font-weight: 700; color: var(--ink3); margin-right: 8px; }
-.ssc-note { font-size: 12.5px; color: var(--ink2); margin: 0 0 8px; line-height: 1.6; }
+.ssc-q { display: block; font-size: 12px; font-weight: 700; color: var(--ink2); margin-bottom: 3px; }
+.ssc-note { font-size: 14px; color: var(--ink2); margin: 0 0 9px; line-height: 1.65; }
 
 /* 图 */
 .ssc-figure { margin: 0 0 8px; }
@@ -457,28 +459,27 @@ function send(a) {
 .ssc-chip.good { color: var(--ok-deep); background: var(--ok-bg); border: 1px solid var(--ok-border); }
 .ssc-reason-text { font-size: 12.5px; color: var(--ink2); margin: 0; line-height: 1.6; }
 
-/* 选项 */
-.ssc-options { display: grid; gap: 7px; margin-bottom: 10px; max-width: 560px; }
+/* 选项：轻量建议回复（不是表单单选） */
+.ssc-options { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; max-width: 640px; }
 .ssc-opt {
-  display: flex; align-items: center; gap: 9px; width: 100%; text-align: left;
-  padding: 9px 12px; border-radius: var(--radius); cursor: pointer;
-  border: 1px solid var(--border-strong); background: #fff; color: var(--ink);
-  font-size: 13px; line-height: 1.5; transition: border-color .14s, background .14s, transform .14s;
+  display: inline-flex; align-items: center; gap: 6px; width: auto; text-align: left;
+  min-height: 32px; padding: 4px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border-strong); background: var(--card); color: var(--ink);
+  font-size: 13px; line-height: 1.5; transition: border-color .14s, background .14s;
 }
 .ssc-opt:hover:not(:disabled) { border-color: var(--purple); background: var(--purple-soft); }
-.ssc-opt:active:not(:disabled) { transform: scale(.995); }
 .ssc-opt:disabled { cursor: default; }
 .ssc-opt:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
 .ssc-opt-key {
-  flex: 0 0 auto; width: 20px; height: 20px; border-radius: 6px;
-  display: grid; place-items: center; font-size: 11.5px; font-weight: 700;
+  flex: 0 0 auto; width: 18px; height: 18px; border-radius: 999px;
+  display: grid; place-items: center; font-size: 11px; font-weight: 700;
   color: var(--ink2); background: var(--line2); border: 1px solid var(--border);
 }
-.ssc-opt-label { flex: 1 1 auto; }
+.ssc-opt-label { flex: 0 1 auto; }
 .ssc-opt.picked { border-color: var(--purple); background: var(--purple-soft); }
 .ssc-opt.picked .ssc-opt-key { color: #fff; background: var(--purple); border-color: var(--purple); }
 .ssc-opt-mark { font-size: 11px; font-weight: 600; color: var(--purple); }
-.ssc-options.static .ssc-opt { opacity: .92; }
+.ssc-options.static .ssc-opt:not(.picked) { border-color: var(--line); background: var(--bg); color: var(--ink2); }
 
 /* 反例 / 小结 */
 .ssc-reveal-text {
@@ -486,7 +487,7 @@ function send(a) {
   padding: 9px 11px; background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
 }
 .ssc-lines { margin: 0 0 8px; padding-left: 18px; }
-.ssc-lines li { font-size: 12.5px; line-height: 1.75; color: var(--ink2); }
+.ssc-lines li { font-size: 14px; line-height: 1.75; color: var(--ink2); }
 .ssc-done-mark {
   display: inline-block; font-size: 11.5px; font-weight: 700; margin-bottom: 8px;
   padding: 2px 10px; border-radius: 999px;
@@ -495,17 +496,16 @@ function send(a) {
 .ssc-done-mark.on { color: var(--ok-deep); background: var(--ok-bg); border-color: var(--ok-border); }
 
 /* 动作区 */
-.ssc-actions { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.ssc-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .ssc-btn {
-  padding: 8px 18px; border-radius: var(--radius-md); font-size: 13px; font-weight: 700;
-  cursor: pointer; transition: filter .15s, background .15s;
-  border: 1px solid var(--purple); color: #fff;
-  background: linear-gradient(135deg, #7c3aed 0%, #6366f1 100%);
+  min-height: 32px; padding: 4px 13px; border-radius: 999px; font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: background .15s;
+  border: 1px solid var(--brand); color: var(--card); background: var(--brand);
 }
-.ssc-btn.primary:hover:not(:disabled) { filter: brightness(1.06); }
-.ssc-btn.ghost { color: var(--ink2); background: #fff; border-color: var(--border-strong); }
+.ssc-btn.primary:hover:not(:disabled) { background: var(--brand-deep); }
+.ssc-btn.ghost { color: var(--ink2); background: var(--card); border-color: var(--border-strong); }
 .ssc-btn.ghost:hover:not(:disabled) { background: var(--bg2); }
-.ssc-btn:disabled { opacity: .5; cursor: default; }
+.ssc-btn:disabled { color: var(--ink2); background: var(--bg); border-color: var(--line); cursor: default; }
 .ssc-btn:focus-visible { outline: 2px solid var(--purple); outline-offset: 2px; }
 .ssc-link {
   padding: 6px 2px; font-size: 12.5px; color: var(--ink3); background: none;
@@ -514,15 +514,16 @@ function send(a) {
 .ssc-link:hover:not(:disabled) { color: var(--purple); border-color: var(--purple); }
 .ssc-link:disabled { opacity: .5; cursor: default; }
 
-.ssc-used { margin-top: 8px; font-size: 11.5px; color: var(--ink3); }
-
 /* 窄屏：连线表按行堆叠并保留文字配对 */
 @media (max-width: 720px) {
   .ssc-clues thead { display: none; }
   .ssc-clues tr { display: grid; gap: 2px; padding: 6px 0; }
   .ssc-clues td { border: 0; padding: 0 10px; }
-  .ssc-clue-left { white-space: normal; }
+  .ssc-clue-left { width: auto; }
   .ssc-pairs { grid-template-columns: 1fr; }
   .ssc-methods { grid-template-columns: 1fr; }
+}
+@media (max-width: 510px) {
+  .ssc-retry .ssc-options.static { grid-template-columns: 1fr; }
 }
 </style>

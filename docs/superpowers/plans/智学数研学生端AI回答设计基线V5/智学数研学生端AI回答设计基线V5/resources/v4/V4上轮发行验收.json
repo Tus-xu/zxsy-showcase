@@ -1,0 +1,201 @@
+{
+  "entrySha256": "82b780575062db338a24e722465f5de186e4128c2fe52ca4d7218c1775c6001b",
+  "baselineSha256": "540b06a5cf628836153a96f661b4979253de9cba0b32d8bf2617ae6765eb2fda",
+  "entryBytes": 21233148,
+  "browser": "158.0.8127.88",
+  "layoutPixels": {
+    "home-1440": {
+      "box": 860,
+      "editor": 50,
+      "column": 0,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 732,
+      "boxTop": 778,
+      "overflow": 0
+    },
+    "qa-1440": {
+      "box": 860,
+      "editor": 50,
+      "column": 860,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 728,
+      "boxTop": 774,
+      "overflow": 0
+    },
+    "guide-1440": {
+      "box": 860,
+      "editor": 50,
+      "column": 860,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 763,
+      "boxTop": 774,
+      "overflow": 0
+    },
+    "guide-1906": {
+      "box": 860,
+      "editor": 50,
+      "column": 860,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 898,
+      "boxTop": 909,
+      "overflow": 0
+    },
+    "guide-720": {
+      "box": 475,
+      "editor": 50,
+      "column": 475,
+      "leftGap": 0,
+      "rightGap": 0,
+      "listBottom": 318,
+      "boxTop": 329,
+      "overflow": 0
+    }
+  },
+  "student": {
+    "checks": [
+      "空会话、原有背景、知识库引用、离线说明、建议收起和中文输入",
+      "跳过建议后保留继续练习入口",
+      "数学排版、来源键盘展开、回到最新、图形帧和反例",
+      "题图加载、看原图和关闭",
+      "超出范围不推进、刷新保留输入、键盘继续导学",
+      "宽视口、720×450 窄视口和减弱动效"
+    ],
+    "networkRequests": 0,
+    "pageErrors": 0,
+    "newConsoleErrors": 0
+  },
+  "offlineReplay": {
+    "browser": "158.0.8127.88",
+    "network": [],
+    "errors": [],
+    "cases": {
+      "A": {
+        "matched": 10,
+        "total": 10,
+        "unmatchedPreserved": true,
+        "photoRestored": true,
+        "endsHonestly": true
+      },
+      "B": {
+        "matched": 8,
+        "total": 8,
+        "unmatchedPreserved": true,
+        "photoRestored": true,
+        "endsHonestly": true
+      },
+      "C": {
+        "matched": 9,
+        "total": 9,
+        "unmatchedPreserved": true,
+        "photoRestored": true,
+        "endsHonestly": true,
+        "rejectedCardCanRetry": true
+      }
+    },
+    "stop": true,
+    "unknownPhotoRejected": true
+  },
+  "preservedWalkthroughCases": [
+    {
+      "id": "V01",
+      "passed": true
+    },
+    {
+      "id": "V02",
+      "passed": true
+    },
+    {
+      "id": "V03",
+      "passed": true
+    },
+    {
+      "id": "V04",
+      "passed": true
+    },
+    {
+      "id": "V05",
+      "passed": true
+    },
+    {
+      "id": "V06",
+      "passed": true
+    }
+  ],
+  "threeRoleAudit": {
+    "http_requests": 0,
+    "page_errors": 0,
+    "routes_checked": 20
+  },
+  "teacherWorkbenchMatchesBaseline": true,
+  "otherRoleRoutes": {
+    "teacher/teacher-v3/prep": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/classes": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/bank": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/assign": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/insights": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/resources": {
+      "broken": 0,
+      "imgs": 12,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/grading": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "teacher/teacher-v3/prep-immersive/f5c84551-18a7-454d-b49c-8f115e816299": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "researcher/research-workspace": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "researcher/research-workspace/workspace": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    },
+    "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/read": {
+      "broken": 0,
+      "imgs": 2,
+      "leakedShowcase": false
+    },
+    "researcher/research-workspace/e49b27e2-b05f-45c3-ac99-dd0792d9ab80/write": {
+      "broken": 1,
+      "imgs": 2,
+      "leakedShowcase": false
+    },
+    "researcher/research-workspace/account": {
+      "broken": 0,
+      "imgs": 0,
+      "leakedShowcase": false
+    }
+  }
+}

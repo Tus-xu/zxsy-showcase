@@ -6,6 +6,7 @@
         v-for="t in tasks"
         :key="t.localId"
         :task="t"
+        :offline="offline"
         @remove="$emit('removeAttachment', t)"
         @retry="$emit('retryAttachment', t)"
       />
@@ -18,42 +19,46 @@
       </span>
     </div>
 
-    <div class="ci-box glass-card">
+    <div class="ci-box">
       <textarea
         ref="taRef"
         v-model="draft"
         class="ci-ta"
-        rows="1"
+        rows="2"
         maxlength="4000"
-        placeholder="输入数学问题，Enter 发送，Shift+Enter 换行；可直接粘贴截图"
-        @keydown.enter.exact.prevent="trySend"
+        aria-label="输入数学问题"
+        placeholder="写下你的问题，也可以粘贴题目截图"
+        @keydown.enter.exact="onEnter"
         @paste="onPaste"
       ></textarea>
 
       <div class="ci-btns">
-        <button class="icon-btn" :disabled="attachDisabled" title="上传附件（pdf/图片/office/md/txt，≤20MB）" @click="fileRef.click()">
+        <button type="button" class="icon-btn" :disabled="attachDisabled" :title="offline ? '添加随包题图' : '上传附件（pdf/图片/office/md/txt，≤20MB）'" @click="fileRef.click()">
           <UiIcon name="paperclip" :size="17" />
         </button>
         <input ref="fileRef" type="file" hidden multiple :accept="acceptExts" @change="onPick($event, false)" />
 
-        <button class="icon-btn" :disabled="attachDisabled" title="拍照识题" @click="photoRef.click()">
+        <button type="button" class="icon-btn" :disabled="attachDisabled" title="拍照识题" @click="photoRef.click()">
           <UiIcon name="camera" :size="17" />
         </button>
         <input ref="photoRef" type="file" hidden accept="image/jpeg,image/png" capture="environment" @change="onPick($event, true)" />
 
         <!-- 知识库引用（ima 式）：勾选本人资料随消息携带，回答基于真实切片并可回溯 -->
-        <button class="icon-btn" :class="{ 'ci-kb-on': kbDocs.length }" :disabled="streaming" title="引用知识库资料" @click="kbOpen = !kbOpen">
+        <button type="button" class="icon-btn" :class="{ 'ci-kb-on': kbDocs.length }" :aria-expanded="kbOpen" :disabled="streaming" title="引用知识库资料" @click="kbOpen = !kbOpen">
           <UiIcon name="book" :size="17" />
         </button>
         <KbPicker :open="kbOpen" :selected="kbDocs" @close="kbOpen = false" @toggle="onKbToggle" />
 
-        <VoiceInputButton :disabled="streaming" @insert="insertText" />
+        <VoiceInputButton v-if="!offline" :disabled="streaming" @insert="insertText" />
 
         <!-- 思考模式开关（M2.2）：开=深度推理+思考面板，关=更快响应 -->
         <button
+          v-if="!offline"
+          type="button"
           class="icon-btn ci-thinking"
           :class="{ 'ci-thinking-on': thinking }"
-          :title="thinking ? '思考模式：开（深度推理，可见思考过程）\n点击关闭，响应更快' : '思考模式：关（快速响应）\n点击开启，可看模型思考过程'"
+          :aria-pressed="thinking"
+          title="思考模式"
           @click="$emit('update:thinking', !thinking)"
         >
           <UiIcon name="brain" :size="17" />
@@ -61,7 +66,7 @@
 
         <!-- 联网搜索开关（阶段 6A 预接线）：仅能力标志开启时渲染；单条请求授权，发送后复位 -->
         <button
-          v-if="webSearchEnabled"
+          v-if="webSearchEnabled && !offline"
           class="icon-btn ci-websearch"
           :class="{ 'ci-websearch-on': webSearch }"
           :title="webSearch ? '联网搜索：开（本次发送生效，发送后自动关闭）' : '联网搜索：关\n点击开启，本次发送将携带联网授权'"
@@ -70,24 +75,24 @@
           <UiIcon name="search" :size="17" />
         </button>
 
-        <div class="flex-1"></div>
         <span v-if="attachLimited" class="ci-cool text-muted text-sm">操作频繁，稍后可传</span>
-        <!-- 字数计数常驻右下角（轻量） -->
-        <span class="ci-count" :class="{ warn: draft.length > 3500 }">{{ draft.length }}/4000</span>
-
-        <button v-if="streaming" class="btn btn-sm ci-stop" title="停止生成" @click="$emit('stop')">
-          <UiIcon name="stop" :size="12" /> 停止
-        </button>
-        <button v-else class="btn btn-primary btn-sm ci-send" :disabled="!canSend" title="发送" @click="trySend">
-          <UiIcon name="send" :size="13" /> 发送
-        </button>
+        <div class="ci-submit">
+          <span v-if="draft" class="ci-count" :class="{ warn: draft.length > 3500 }">{{ draft.length }}/4000</span>
+          <span v-else-if="!streaming" class="ci-tip">Enter 发送 · Shift+Enter 换行</span>
+          <button v-if="streaming" type="button" class="btn btn-sm ci-stop" title="停止回复" @click="$emit('stop')">
+            <UiIcon name="stop" :size="14" /> 停止
+          </button>
+          <button v-else type="button" class="btn btn-primary btn-sm ci-send" :disabled="!canSend" title="发送" @click="trySend">
+            <UiIcon name="send" :size="15" /> 发送
+          </button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, nextTick, ref, watch } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import AttachmentCard from './AttachmentCard.vue'
 import VoiceInputButton from './VoiceInputButton.vue'
 import KbPicker from './KbPicker.vue'
@@ -97,6 +102,7 @@ import { ACCEPT_EXTS } from './useFileUpload'
 const TA_MAX_H = 200 // 输入框自动长高上限（4.6）
 
 const props = defineProps({
+  offline: { type: Boolean, default: false },
   streaming: { type: Boolean, default: false },
   tasks: { type: Array, default: () => [] },
   rateLimitedUntil: { type: Number, default: 0 },
@@ -141,6 +147,7 @@ watch(attachLimited, (v) => {
     }, 1000)
   }
 }, { immediate: true })
+onBeforeUnmount(() => clearInterval(coolTimer))
 
 /* 输入框随内容自动长高（上限 200px，超高内部滚动） */
 watch(draft, () => nextTick(autoGrow))
@@ -149,6 +156,12 @@ function autoGrow() {
   if (!ta) return
   ta.style.height = 'auto'
   ta.style.height = Math.min(ta.scrollHeight, TA_MAX_H) + 'px'
+}
+
+function onEnter(event) {
+  if (event.isComposing || event.keyCode === 229) return
+  event.preventDefault()
+  trySend()
 }
 
 function trySend() {
@@ -190,35 +203,51 @@ function insertText(t) {
   taRef.value?.focus()
 }
 
-defineExpose({ insertText })
+function focus() {
+  taRef.value?.focus()
+}
+
+defineExpose({ insertText, focus })
 </script>
 
 <style scoped>
 /* z-index 压过 AI 管家悬浮球（.fb-root fixed z-1300）——真机实测悬浮球
    遮住发送按钮，点击发送被球截胡；输入条整体抬到其上 */
-.chat-input { padding: 0 16px 12px; position: relative; z-index: 1301; }
-.ci-attach-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
-.ci-box { padding: 10px 12px 8px; }
+.chat-input { width: 100%; min-width: 0; position: relative; z-index: 1301; }
+.ci-attach-row {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
+  max-height: min(126px, 20dvh); overflow: auto;
+}
+.ci-box {
+  padding: 12px 12px 9px;
+  border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+  background: var(--card); box-shadow: var(--shadow-sm);
+}
+.ci-box:focus-within { border-color: var(--brand-mist); box-shadow: 0 0 0 3px var(--brand-soft), var(--shadow-sm); }
 .ci-ta {
   width: 100%; border: none; outline: none; resize: none; background: transparent;
-  font-family: var(--font); font-size: 14px; line-height: 1.6; color: var(--text-primary);
-  max-height: 200px; min-height: 24px; display: block;
+  font: inherit; font-size: 15px; line-height: 1.6; color: var(--text-primary); padding: 1px 4px;
+  max-height: min(200px, 26dvh); min-height: 48px; display: block;
 }
-.ci-ta::placeholder { color: var(--text-muted); }
-.ci-btns { display: flex; align-items: center; gap: 4px; margin-top: 4px; }
+.ci-ta::placeholder { color: var(--ma-text-muted, var(--ink2)); }
+.ci-btns { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin-top: 2px; }
+.ci-submit { display: flex; align-items: center; gap: 9px; margin-inline-start: auto; }
 .icon-btn {
-  width: 34px; height: 34px; border-radius: var(--radius-md); border: 1px solid transparent;
-  background: none; cursor: pointer; transition: all 0.15s; color: var(--text-secondary);
+  width: 36px; height: 36px; border-radius: var(--radius-sm); border: 1px solid transparent;
+  background: none; cursor: pointer; color: var(--text-secondary);
   display: inline-flex; align-items: center; justify-content: center;
 }
-.icon-btn:hover:not(:disabled) { background: rgba(138, 90, 86, 0.1); color: var(--primary); }
+.icon-btn:hover:not(:disabled) { background: var(--brand-soft); color: var(--brand-deep); }
 .icon-btn:disabled { opacity: 0.4; cursor: not-allowed; }
-.ci-stop { color: var(--accent-red); border-color: rgba(239, 68, 68, 0.4); gap: 4px; }
-.ci-stop:hover { background: #fef2f2 !important; color: var(--accent-red) !important; }
-.ci-send { gap: 4px; }
+.ci-stop, .ci-send { gap: 6px; min-height: 36px; padding-inline: 12px; border-radius: var(--radius-sm); }
+.ci-stop { color: var(--err-deep); border-color: var(--err-border); }
+.ci-stop:hover { background: var(--err-bg); color: var(--err-deep); }
+.ci-send { background: var(--brand); background-image: none; }
+.ci-send:hover:not(:disabled) { background: var(--brand-deep); }
+.ci-send:disabled { background: var(--bg2); border-color: var(--line); color: var(--ink2); opacity: .8; box-shadow: none; }
 .ci-cool { margin-right: 4px; }
-.ci-count { font-size: 11px; color: var(--text-muted); margin-right: 4px; user-select: none; }
-.ci-count.warn { color: var(--warning); }
+.ci-count, .ci-tip { font-size: 11px; color: var(--ink2); user-select: none; }
+.ci-count.warn { color: var(--warn-deep); }
 .ci-thinking { opacity: 0.45; }
 .ci-thinking-on {
   opacity: 1; color: var(--primary);
@@ -247,4 +276,7 @@ defineExpose({ insertText })
   color: inherit; font-size: 14px; line-height: 1; border-radius: 6px;
 }
 .ci-kb-chip__x:hover { background: rgba(79, 70, 229, 0.12); }
+@media (max-width: 780px) {
+  .ci-tip { display: none; }
+}
 </style>

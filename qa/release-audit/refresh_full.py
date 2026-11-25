@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """M1 复验（完整版）：跑完 A 题 9 轮 → 刷新 → 校验消息顺序/轮数/终态卡。"""
 import json
 import os
@@ -9,7 +9,7 @@ from playwright.sync_api import sync_playwright
 ROOT = r'D:\zxsy-math-arena-showcase'
 ENTRY = 'file:///' + os.path.join(ROOT, 'release', '开始演示.html').replace('\\', '/')
 FIX = os.path.join(ROOT, 'app', 'src', 'offline', 'fixtures', 'student')
-PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
+PLANS = os.path.join(ROOT, 'app', 'src', 'assets', 'showcase')  # ti1.png；不回读原真实项目
 OUT = os.path.join(ROOT, 'qa', 'release-audit')
 
 flow = json.load(open(os.path.join(FIX, 'flow-A.json'), encoding='utf-8'))
@@ -21,7 +21,7 @@ def log(msg):
 
 
 with sync_playwright() as p:
-    b = p.chromium.launch(headless=True)
+    b = p.chromium.launch(headless=True, channel='chrome')
     ctx = b.new_context(viewport={'width': 1672, 'height': 941}, device_scale_factor=1, offline=True)
     page = ctx.new_page()
     errs = []
@@ -40,9 +40,9 @@ with sync_playwright() as p:
     try:
         with page.expect_file_chooser(timeout=8000) as fc:
             page.locator('.he-card', has_text='拍一道不会的题').first.click()
-        fc.value.set_files(os.path.join(PLANS, '题1.png'))
+        fc.value.set_files(os.path.join(PLANS, 'ti1.png'))
     except Exception:
-        page.locator('input[type=file]').first.set_input_files(os.path.join(PLANS, '题1.png'))
+        page.locator('input[type=file]').first.set_input_files(os.path.join(PLANS, 'ti1.png'))
     for _ in range(60):
         if page.locator('.att-card.ready').count():
             break

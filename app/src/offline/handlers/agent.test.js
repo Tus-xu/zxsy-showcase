@@ -10,8 +10,8 @@
  * AttachmentThumb 优先读 localUrl，因此不触发任何网络请求也不误报。
  */
 import { describe, it, expect, beforeEach } from 'vitest'
-import { conversationMessages, listConversations } from './agent'
-import { patch } from '../state'
+import { conversationMessages, FLOWS, listConversations, pickChatTurn } from './agent'
+import { patch, store } from '../state'
 import { fromHistory } from '../../components/chat/messageModel'
 import { FLOW_IMAGE } from '../showcase/flowAssets'
 
@@ -20,6 +20,27 @@ function seedChat(convId, caseName, turn) {
     s.chat = { ...(s.chat || {}), [convId]: { case: caseName, turn, lastInput: '测试' } }
   })
 }
+
+describe('离线采录对话的输入边界', () => {
+  beforeEach(() => patch((s) => { s.chat = {} }))
+
+  it('无关提问保留当前轮次，随后仍能播放既有答复', () => {
+    seedChat('conv-a', 'A', 1)
+    const notCovered = pickChatTurn({ conversation_id: 'conv-a', message: '黎曼曲率张量怎么计算？' })
+    expect(notCovered.events).toBeNull()
+    expect(store.chat['conv-a'].turn).toBe(1)
+    expect(pickChatTurn({ conversation_id: 'conv-a', message: FLOWS.A.turns[1].input }).events).toBeTruthy()
+  })
+
+  it('录制的点击操作可继续播放，其它正文留在原轮次', () => {
+    seedChat('conv-c', 'C', 2)
+    expect(pickChatTurn({ conversation_id: 'conv-c', message: '我想跳到下一章' }).events).toBeNull()
+    expect(store.chat['conv-c'].turn).toBe(2)
+    expect(pickChatTurn({
+      conversation_id: 'conv-c', message: '我读完了，直接开始', context: { tutor_action: 'skip' },
+    }).events).toBeTruthy()
+  })
+})
 
 describe('历史用户消息的附件', () => {
   beforeEach(() => {

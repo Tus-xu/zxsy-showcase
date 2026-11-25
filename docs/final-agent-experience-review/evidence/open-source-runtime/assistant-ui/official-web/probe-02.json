@@ -1,0 +1,95 @@
+{
+  "examples": {
+    "url": "https://www.assistant-ui.com/examples",
+    "links": [
+      {
+        "t": "Examples",
+        "href": "/examples"
+      },
+      {
+        "t": "01\nModal\n\nFloating button that opens an AI assistant chat box.",
+        "href": "/examples/modal"
+      },
+      {
+        "t": "02\nForm Filling Co-Pilot\n\nAssistantSidebar copilot which fills forms for the use",
+        "href": "/examples/form-demo"
+      },
+      {
+        "t": "03\nChatGPT Clone\n\nCustomized colors and styles for a ChatGPT look and feel.",
+        "href": "/examples/chatgpt"
+      },
+      {
+        "t": "04\nClaude Clone\n\nCustomized colors and styles for a Claude look and feel.",
+        "href": "/examples/claude"
+      },
+      {
+        "t": "05\nGemini Clone\n\nCustomized colors and styles for a Gemini look and feel.",
+        "href": "/examples/gemini"
+      },
+      {
+        "t": "06\nGrok Clone\n\nCustomized colors and styles for a Grok look and feel.",
+        "href": "/examples/grok"
+      },
+      {
+        "t": "07\nPerplexity Clone\n\nCustomized colors and styles for a Perplexity look and feel",
+        "href": "/examples/perplexity"
+      },
+      {
+        "t": "08\nAI SDK\n\nChat persistence with AI SDK.",
+        "href": "/examples/ai-sdk"
+      },
+      {
+        "t": "09\nMem0 - ChatGPT with memory\n\nA personalized AI chat app powered by Mem0 that r",
+        "href": "/examples/mem0"
+      },
+      {
+        "t": "10\nLangGraph Stockbroker\n\nA stockbroker showing human in the loop with LangGraph",
+        "href": "/examples/stockbroker"
+      },
+      {
+        "t": "11\nArtifacts\n\nOpen Source Claude Artifacts. You can ask the bot to generate webs",
+        "href": "/examples/artifacts"
+      },
+      {
+        "t": "12\nExpo (React Native)\n\nNative iOS & Android chat app with drawer navigation and",
+        "href": "/examples/expo"
+      },
+      {
+        "t": "13\nGenerative UI\n\nThe model answers each question in Markdown, with the app's co",
+        "href": "/examples/generative-ui"
+      },
+      {
+        "t": "14\nArticle Assistant\n\nAssistantModal that answers questions about the page you'r",
+        "href": "/examples/article-assistant"
+      },
+      {
+        "t": "15\nInteractables\n\nTask board and sticky notes with AI-driven state updates and l",
+        "href": "https://github.com/assistant-ui/assistant-ui/tree/main/examples/with-interactables"
+      },
+      {
+        "t": "Examples",
+        "href": "/examples"
+      }
+    ],
+    "bodyExcerpt": "Skip to content\nFor AI agents: a documentation index is available at llms.txt. Use .md for canonical markdown pages; .mdx is kept as a backwards-compatible alias on supported URL paths.\nassistant-ui\nComponents\nDocs\nProducts\nResources\nPricing\nSearch\n⌘\nK\nAsk AI\n⌘\nI\nCloud\nChat UIs you can clone.\n\nProduction patterns for copilots, clones, artifacts, and generative UI. Open any example for a preview and the source behind it.\n\nOfficial\n15\n01\nModal\n\nFloating button that opens an AI assistant chat box.\n\n02\nForm Filling Co-Pilot\n\nAssistantSidebar copilot which fills forms for the user.\n\n03\nChatGPT Clone\n\nCustomized colors and styles for a ChatGPT look and feel.\n\n04\nClaude Clone\n\nCustomized colors and styles for a Claude look and feel.\n\n05\nGemini Clone\n\nCustomized colors and styles for a Gemini look"
+  },
+  "playground": {
+    "url": "https://www.assistant-ui.com/playground",
+    "title": "Playground · assistant-ui",
+    "inputs": [
+      {
+        "tag": "TEXTAREA",
+        "ph": "Describe what you want to build with assistant-ui..."
+      }
+    ],
+    "bodyExcerpt": "Skip to content\nFor AI agents: a documentation index is available at llms.txt. Use .md for canonical markdown pages; .mdx is kept as a backwards-compatible alias on supported URL paths.\n/\nPlayground\nAI Builder\nUI Builder\nHistory\nWhat do you want to build?\nNew app\nTemplates\nLearn\nCloud\nNot sure what to build?\nLearn to create your first AI app\nTemplates\nBrowse All\nBase Assistant UI\nBase Assistant UI\nA complete chat application built from assistant-ui primitives: thread management, attachments, mentions, slash commands, model picker, and voice input.\nChatGPT Style Assistant\nChatGPT Style Assistant\nCustomized colors, typography, tools menu, composer, and message layout that recreate the ChatGPT interface on top of assistant-ui primitives.\nClaude Style Assistant\nClaude Style Assistant\nA Claude-inspired assistant surface with serif typography, warm visual styling, file controls, message action"
+  },
+  "genuiImages": [
+    {
+      "src": "https://www.assistant-ui.com/_next/image?url=%2Fscreenshot%2Fexamples%2Fgenerative-ui.png&w=1920&q=75",
+      "alt": "Generative UI Example",
+      "w": 1440,
+      "h": 1098
+    }
+  ]
+}

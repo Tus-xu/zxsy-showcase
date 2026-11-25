@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 发行包审计（V07 回归 + V08 断网），本轮用 Node Playwright 实现。
  *
  * 为什么不用 qa/release-audit/audit_release.py：本机没有 Python Playwright
@@ -47,7 +47,7 @@ const ROUTES = {
 const PHONE = { student: '13800001001', teacher: '13800001002', researcher: '13800001003' }
 
 const report = { entry: ENTRY, sha256: sha256(REL), bytes: fs.statSync(REL).size, routes: {}, showcase: {}, totals: {} }
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ channel: process.env.SHOWCASE_BROWSER || 'chrome', headless: true })
 
 async function login(page, role) {
   await page.selectOption('#preferred-role', role)

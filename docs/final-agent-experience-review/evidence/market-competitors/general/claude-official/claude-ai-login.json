@@ -1,0 +1,12 @@
+{
+  "url": "https://claude.ai/login",
+  "finalUrl": "https://claude.ai/login",
+  "title": "请稍候…",
+  "status": 403,
+  "shots": [
+    "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\claude-official\\claude-ai-login_viewport.png",
+    "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\claude-official\\claude-ai-login_full.png"
+  ],
+  "notes": [],
+  "textSample": "claude.ai 正在进行安全验证 本网站使用安全服务防护恶意自动程序。在验证您不是自动程序期间，将显示此页面。 Ray ID: a60097fa1f848a10 由 Cloudflare 提供的性能和安全服务 隐私"
+}

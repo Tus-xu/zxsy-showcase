@@ -1,0 +1,54 @@
+{
+  "candidates": [
+    {
+      "url": "https://jsxgraph.org/wiki/index.php/Derivative",
+      "status": 404,
+      "title": "Derivative - JSXGraph Wiki",
+      "svg": 0,
+      "canvas": 0,
+      "text": "Anonymous\nJSXGraph Wiki\nSearch\nDerivative\nNamespaces\nPageDiscussion\n\nThere is currently no text in this page. You can search for this page title in other pages, or search the related logs, but you do not have permission to create this page.\n\nNavigation\nMain page\nCommunity portal\nCurrent events\nRecent changes\nRandom page\nHelp\nExamples\nWiki tools\nSpecial pages\nMore\nWhat links here\nPrintable version\nPage information\nPage logs\nPrivacy policyAbout JSXGraph WikiDisclaimers",
+      "inputs": 4,
+      "shot": "jsxgraph-cand-1.png"
+    },
+    {
+      "url": "https://jsxgraph.org/share/example/derivative",
+      "status": 200,
+      "title": "JSXGraph share",
+      "svg": 0,
+      "canvas": 0,
+      "text": "Home\nRandom example\nSearch\nApplications\nAssessment\nCalculus\nCharts and data\nCurves\nGeometry\nTechnical\njsxgraph.org",
+      "inputs": 0,
+      "shot": "jsxgraph-cand-2.png"
+    },
+    {
+      "url": "https://jsxgraph.org/share/example/antiderivative",
+      "status": 200,
+      "title": "Antiderivative | JSXGraph share",
+      "svg": 1,
+      "canvas": 0,
+      "text": "Home\nRandom example\nSearch\nApplications\nAssessment\nCalculus\nCharts and data\nCurves\nGeometry\nTechnical\njsxgraph.org\nAntiderivative\nBasic calculus\nCalculus\n\nDragging the black point shows that the antiderivative of the parabola looks like a polynomial of degree 3.\n\njsxgraph.org 1.14.3\n0.5\n1\n1.5\n2\n2.5\n−0.5\n−1\n−1.5\n−2\n−2.5\n2\n4\n6\n8\n−2\n⊗–o+←↓↑→\ndrag me\nB\nD\n∫ = 0.0000\nF\n// Define the id of your board in BOARDID\n\n \n\nconst board = JXG.JSXGraph.initBoard(BOARDID, {\n\n    boundingbox: [-3, 10, 3, -3],\n\n    axis: true,\n\n    showClearTraces: true\n\n});\n\n \n\nvar p = [];\n\np.push(board.create('point', [-2, Math.random() * 5 + 5], {\n\n    name: '',\n\n    size: 2\n\n}));\n\np.push(board.create('point', [0, 2], {\n\n    ",
+      "inputs": 0,
+      "shot": "jsxgraph-cand-3.png"
+    },
+    {
+      "url": "https://jsxgraph.org/share/example/all-real-roots-of-a-polynomial",
+      "status": 200,
+      "title": "All real roots of a polynomial | JSXGraph share",
+      "svg": 1,
+      "canvas": 0,
+      "text": "Home\nRandom example\nSearch\nApplications\nAssessment\nCalculus\nCharts and data\nCurves\nGeometry\nTechnical\njsxgraph.org\nAll real roots of a polynomial\nBasic calculus\nCalculus\nFunction plotting\n\nThe method JXG.Math.Numerics.polzeros computes all (complex) roots of a polynomial with real coefficients. We can use this method to filter out the real roots of that polynomial. Here is an example for the quartic polynomial\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n4\n+\n𝑎\n𝑥\n3\n+\n𝑏\n𝑥\n2\n+\n𝑐\n𝑥\n+\n𝑑\nThe values of \n𝑎\n, \n𝑏\n, \n𝑐\n, and \n𝑑\n can be adjusted with the sliders.\n\nHave also a look at the examples\nComplex roots of polynomial with real coefficients\nComplex roots of polynomial with real coefficients (dynamic)\njsxgraph.org 1",
+      "inputs": 0,
+      "shot": "jsxgraph-cand-4.png"
+    },
+    {
+      "url": "https://jsxgraph.org/share/example/cubic-spline-interpolation",
+      "status": 200,
+      "title": "Cubic spline interpolation | JSXGraph share",
+      "svg": 1,
+      "canvas": 0,
+      "text": "Home\nRandom example\nSearch\nApplications\nAssessment\nCalculus\nCharts and data\nCurves\nGeometry\nTechnical\njsxgraph.org\nCubic spline interpolation\nSplines\n\nA cubic spline function graph through given points is constructed. Points can be added by clicking on \"Add point\".\n\nHave also a look at the examples\nB-splines\nCatmull-Rom splines\nWeb references\nWikipedia article on spline interpolation\njsxgraph.org 1.14.3\n1\n2\n3\n4\n5\n6\n−1\n−2\n−3\n−4\n2\n4\n6\n8\n−2\n−4\n–o+←↓↑→\nA\nB\nC\nD\n<input type=\"button\" value=\"Add point\" onClick=\"addPoint()\">\n// Define the id of your board in BOARDID\n\n \n\nconst board = JXG.JSXGraph.initBoard(BOARDID, {boundingbox: [-5, 10, 7, -5], axis:true});\n\n \n\n// Create 4 initial points\n\nvar p = []",
+      "inputs": 1,
+      "shot": "jsxgraph-cand-5.png"
+    }
+  ]
+}

@@ -6,14 +6,14 @@
     <div class="att-main">
       <div class="att-name" :title="task.filename">{{ task.filename }}</div>
       <div class="att-status">
-        <template v-if="task.status === 'hashing'"><span class="spinner"></span> 计算摘要…</template>
+        <template v-if="task.status === 'hashing'"><span class="spinner"></span> {{ offline ? '正在读取…' : '计算摘要…' }}</template>
         <template v-else-if="task.status === 'uploading'">上传中 {{ task.progress }}%</template>
         <template v-else-if="task.status === 'uploaded'">待解析…</template>
         <template v-else-if="task.status === 'parsing'">
-          <span class="spinner"></span> 解析中<span v-if="task.engine">（{{ task.engine }}）</span>
+          <span class="spinner"></span> {{ offline ? '准备题图…' : '解析中' }}<span v-if="task.engine && !offline">（{{ task.engine }}）</span>
         </template>
         <template v-else-if="task.status === 'parsed'">
-          ✅ 已就绪<span v-if="task.engine" class="att-engine">{{ task.engine }}</span>
+          ✅ 已就绪<span v-if="task.engine && !offline" class="att-engine">{{ task.engine }}</span>
         </template>
         <template v-else-if="task.status === 'failed'">
           <span class="att-err" :title="task.error">❌ {{ task.error || '失败' }}</span>
@@ -34,6 +34,7 @@ import { openLightbox } from '@/utils/lightbox'
 
 const props = defineProps({
   task: { type: Object, required: true },
+  offline: { type: Boolean, default: false },
 })
 defineEmits(['remove', 'retry'])
 

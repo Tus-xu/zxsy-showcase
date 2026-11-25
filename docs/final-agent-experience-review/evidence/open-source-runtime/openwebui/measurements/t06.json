@@ -1,0 +1,110 @@
+{
+  "task": "T06",
+  "frames": [],
+  "states": [
+    {
+      "i": 0,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 1,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 2,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 3,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 4,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 5,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 6,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 7,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 8,
+      "generating": true,
+      "lastLen": 0,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    },
+    {
+      "i": 9,
+      "generating": true,
+      "lastLen": 21,
+      "scrollTop": 0,
+      "scrollHeight": 761,
+      "clientHeight": 761,
+      "url": "http://127.0.0.1:18080/c/56ba4a6e-7c54-42e0-8164-d2592cdf62e3"
+    }
+  ],
+  "console": [],
+  "q": "请在一段回答里同时包含以下内容，用 Markdown 输出：\n1) 一句含 LaTeX 行内公式的话（二次函数顶点公式）；\n2) 一个独立 LaTeX 公式块；\n3) 一个三行两列的 Markdown 表格（函数 y=x^2 的性质）；\n4) 一个 mermaid 流程图代码块（判断极值的步骤）；\n5) 一个 HTML 小卡片代码块（<div style=\"border:1px solid #888;padding:8px\">结论卡片</div>）。\n不要解释，直接输出。",
+  "idle": true,
+  "answer": "markdown\n折叠\n保存\n复制\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18\n⌄\n⌄\n⌄\n在二次函数 $ y = ax^2 + bx + c $ 中，顶点的横坐标由公式 $ x = -\\frac{b}{2a} $ 给出。\n\n\n$$\n\\text{顶点坐标} = \\left( -\\frac{b}{2a},\\ f\\left(-\\frac{b}{2a}\\right) \\right)\n$$\n\n\n| 性质         | 描述                     |\n|--------------|--------------------------|\n| 定义域       | $ (-\\infty, \\infty) $  |\n| 值域         | $ [k, \\infty) $（当 $ a > 0 $） |\n\n\n```mermaid\ngraph TD\n    A[计算导数 y'=2x] --> B{导数是否为零?}\n    B -->|是| C[求二阶导数 y''=2]\n    C -->|y''>0| D[函数在该点有极小值]\n    C -->|y''<0| E[函数在该点有极大值]\n    B -->|否| F[函数无极值]\n<div style=\"border:1px solid #888;padding:8px\"> 结论卡片 </div> ```",
+  "rendered": {
+    "katex": 0,
+    "displayMath": 0,
+    "tables": 0,
+    "svg": 1,
+    "iframes": 0,
+    "pre": 0,
+    "codeLangs": [],
+    "htmlPreviewBtn": false
+  }
+}

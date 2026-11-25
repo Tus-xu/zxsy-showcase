@@ -1,0 +1,34 @@
+{
+  "steps": [
+    {
+      "name": "free",
+      "followHasX3": false,
+      "followHead": "π\n智学助教\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n 在原点：\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，切线水平；但 \n𝑥\n<\n0\n",
+      "weather": "π\n智学助教\n\n这个和数学学习无关，我就不展开了。离线体验目前覆盖「导数与极值」这条主线：你可以问概念，也可以上传题图让",
+      "essay": "π\n智学助教\n\n我不代写作文或作业。数学这边，我可以陪你从卡住的那一步开始想——你可以上传题图，或问「导数为零为什么不一"
+    },
+    {
+      "name": "s5",
+      "namesChoice": true,
+      "sysBefore": 0,
+      "sysAfter": 1,
+      "userRowsBefore": 2,
+      "userRowsAfter": 2,
+      "summaryHasFirst": true,
+      "summaryHead": "π\n智学助教\n\n订正了。首答 A 还在上面，记录里会保留。你原来只做到“让导数为零”，差的一步是“看两侧符号”。\n\n这一轮实际发生了什么\n你的首答是 A（x=−1），理由是「−1 让导数为零」。\n我们一起看了 −1 两侧：左正右负，所以它是"
+    },
+    {
+      "name": "s1",
+      "noteMax": true,
+      "note": "f(x) 的符号表\n区间\t导数符号\t函数\n(−∞,−1)\t+\t递增\n(−1,1)\t−\t递减\n(1,∞)\t+\t递增\n\nx=−1 是「+」变「−」的位置。"
+    },
+    {
+      "name": "stop",
+      "beforeLen": 195,
+      "afterLen": 195,
+      "truncated": true,
+      "notice": "已停止回复"
+    }
+  ],
+  "errors": []
+}

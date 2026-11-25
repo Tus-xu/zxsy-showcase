@@ -40,10 +40,10 @@
     </header>
 
     <!-- ===== 左侧边栏（可折叠：折叠后仅图标 + hover 提示；标题已在顶部栏） ===== -->
-    <aside class="sidebar">
+    <aside class="sidebar" :class="{ 'sidebar--dialog': isDialogRoute && !collapsed }">
       <!-- 第一行：学习闭环 标题 + 折叠按钮（齐平，整体上移） -->
       <div class="sb-nav-head">
-        <h4>学习闭环</h4>
+        <h4>{{ isDialogRoute ? '学习导航' : '学习闭环' }}</h4>
         <button class="collapse-btn" :title="collapsed ? '展开侧边栏' : '收起侧边栏'" @click="toggleCollapsed">
           {{ collapsed ? '»' : '«' }}
         </button>
@@ -333,6 +333,20 @@ async function onRemoveConv(id) {
 .sb-convs :deep(.cs-item:hover) { background: var(--bg2); }
 .sb-convs :deep(.cs-item.active:hover) { background: var(--brand-soft); }
 .sb-convs :deep(.cs-item-time) { color: var(--ink3); }
+
+/* 对话历史有自己的滚动容器，定位一条会话时保留上方的导航和搜索。 */
+@media (min-height: 600px) {
+  .sidebar--dialog { display: flex; flex-direction: column; overflow: hidden; }
+  .sidebar--dialog > :is(.sb-nav-head, .nav-item) { flex: none; }
+  .sidebar--dialog .nav-item { padding-block: 8px; }
+  .sidebar--dialog .sb-convs {
+    display: flex; flex: 1; flex-direction: column; min-height: 0;
+    margin-top: 10px; padding-top: 10px;
+  }
+  .sidebar--dialog .sb-new, .sidebar--dialog :deep(.cs-search) { flex: none; }
+  .sidebar--dialog :deep(.conv-sidebar) { flex: 1; min-height: 0; }
+  .sidebar--dialog :deep(.cs-list) { flex: 1; min-height: 0; max-height: none; scrollbar-width: thin; }
+}
 
 /* PHASE 6 氛围光斑层 */
 .ambient { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 示例会话冒烟探针：打开每条示例会话，dump 可见文本 / 卡片 / 图片状态 / 网络请求。
  *
  * 用法（在 app 目录下执行，复用 app/node_modules 的 Playwright）：
@@ -40,7 +40,7 @@ const PROBE = `(() => {
   };
 })()`
 
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ channel: process.env.SHOWCASE_BROWSER || 'chrome', headless: true })
 const ctx = await browser.newContext({ viewport: { width: 1440, height: 900 }, deviceScaleFactor: 1, offline: true })
 const page = await ctx.newPage()
 const reqs = []

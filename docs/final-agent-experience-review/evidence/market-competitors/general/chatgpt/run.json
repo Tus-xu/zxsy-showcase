@@ -1,0 +1,538 @@
+{
+  "product": "chatgpt",
+  "url": "https://chatgpt.com/",
+  "startedAt": "2026-11-25T12:07:49.720Z",
+  "headed": true,
+  "steps": [
+    {
+      "turn": "T01",
+      "prompt": "导数等于零为什么不一定有极值？请举一个反例，用中文回答。",
+      "startedAt": "2026-11-25T12:07:57.630Z",
+      "inputValueAfterFill": "导数等于零为什么不一定有极值？请举一个反例，用中文回答。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\01_typed_T01.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\02_sent_T01.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\02_streaming_T01.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 4,
+        "imgs": 1,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "发送消息"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 838,
+            "w": 622,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 447
+      },
+      "waitGrew": 752,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\03_reply_T01.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\03_reply_T01-full.png",
+      "metrics": {
+        "katex": 15,
+        "mjax": 0,
+        "mathml": 12,
+        "code": 0,
+        "tables": 0,
+        "lists": 4,
+        "imgs": 1,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "发送消息"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 838,
+            "w": 622,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 751
+      },
+      "replyText": "",
+      "bodyTail": "登录\n免费注册\n\n导数等于零为什么不一定有极值？请举一个反例，用中文回答。\n\n因为导数等于零，只能说明函数在该点的切线斜率为零，并不能保证函数在该点附近先增后减或先减后增。\n\n反例：函数 \n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n\n求导：\n\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\nf\n′\n(x)=3x\n2\n\n当 \n𝑥\n=\n0\nx=0 时：\n\n𝑓\n′\n(\n0\n)\n=\n3\n×\n0\n2\n=\n0\nf\n′\n(0)=3×0\n2\n=0\n\n但是，观察函数在 \n𝑥\n=\n0\nx=0 两侧的变化：\n\n当 \n𝑥\n<\n0\nx<0 时，\n𝑓\n(\n𝑥\n)\n<\n0\nf(x)<0；\n\n当 \n𝑥\n>\n0\nx>0 时，\n𝑓\n(\n𝑥\n)\n>\n0\nf(x)>0。\n\n函数在 \n𝑥\n=\n0\nx=0 左右两侧始终是单调递增的，并没有发生从递增到递减，或者从递减到递增的变化。\n\n \n\n因此，\n𝑥\n=\n0\nx=0 不是极大值点，也不是极小值点，而是一个拐点。\n\n总结：导数等于零为什么不一定有极值？\n\n导数等于零：说明该点切线水平。\n\n有极大值：要求函数在该点附近先增后减。\n\n有极小值：要求函数在该点附近先减后增。\n\n记住：导数等于零是可导函数取得极值的必要条件之一，但不是充分条件。\n\n考试中最经典的反例就是：\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\n,\n𝑓\n′\n(\n0\n)\n=\n0\n,\n但\n𝑥\n=\n0\n不是极值点\nf(x)=x\n3\n,f\n′\n(0)=0,但x=0不是极值点\n\t​\n\n\nChatGPT 是 AI，可能会犯错。\n\n新聊天\n图像\n插件\n查看套餐和定价\n帮助\n深度研究\n设置\n获取为你量身定制的回复\n\n登录以获取基于已保存聊天的回答，并可创建图像和上传文件。\n\n登录\n与 ChatGPT 聊天",
+      "endedAt": "2026-11-25T12:08:14.683Z"
+    },
+    {
+      "turn": "T04",
+      "prompt": "我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。",
+      "startedAt": "2026-11-25T12:08:14.683Z",
+      "inputValueAfterFill": "我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\11_typed_T04.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\12_sent_T04.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\12_streaming_T04.png",
+      "streamingMetrics": {
+        "katex": 19,
+        "mjax": 0,
+        "mathml": 14,
+        "code": 0,
+        "tables": 0,
+        "lists": 4,
+        "imgs": 1,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "停止生成"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 828,
+            "w": 622,
+            "h": 40
+          }
+        },
+        "bodyTextLen": 946
+      },
+      "waitGrew": 1845,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\13_reply_T04.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\13_reply_T04-full.png",
+      "metrics": {
+        "katex": 33,
+        "mjax": 0,
+        "mathml": 26,
+        "code": 0,
+        "tables": 2,
+        "lists": 7,
+        "imgs": 2,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "Open Cubics and quartics - Student Acade",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "发送消息"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 828,
+            "w": 622,
+            "h": 40
+          }
+        },
+        "bodyTextLen": 1844
+      },
+      "replyText": "",
+      "bodyTail": "x=0 左右两侧始终是单调递增的，并没有发生从递增到递减，或者从递减到递增的变化。\n\n \n\n因此，\n𝑥\n=\n0\nx=0 不是极大值点，也不是极小值点，而是一个拐点。\n\n总结：导数等于零为什么不一定有极值？\n\n导数等于零：说明该点切线水平。\n\n有极大值：要求函数在该点附近先增后减。\n\n有极小值：要求函数在该点附近先减后增。\n\n记住：导数等于零是可导函数取得极值的必要条件之一，但不是充分条件。\n\n考试中最经典的反例就是：\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\n,\n𝑓\n′\n(\n0\n)\n=\n0\n,\n但\n𝑥\n=\n0\n不是极值点\nf(x)=x\n3\n,f\n′\n(0)=0,但x=0不是极值点\n\t​\n\n\n我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。\n\n没关系，我们一步一步来看。关键是要理解：极值看的是这个点附近函数值的变化，而不是只看这一点的导数。\n\n我们还是用刚才的例子：\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n第一步：先证明导数等于零\n\n对函数求导：\n\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\nf\n′\n(x)=3x\n2\n\n把 \n𝑥\n=\n0\nx=0 代进去：\n\n𝑓\n′\n(\n0\n)\n=\n3\n×\n0\n2\n=\n0\nf\n′\n(0)=3×0\n2\n=0\n\n所以，在 \n𝑥\n=\n0\nx=0 这个位置，导数确实等于零。\n\n第二步：看看什么叫极大值和极小值\n\n极大值：一个点附近，它的函数值比周围的函数值都大。\n\n极小值：一个点附近，它的函数值比周围的函数值都小。\n\n也就是说，我们要看看 \n𝑥\n=\n0\nx=0 的函数值是不是附近最大的，或者最小的。\n\n第三步：把几个数代进去比较\n\n因为：\n\n𝑓\n(\n0\n)\n=\n0\n3\n=\n0\nf(0)=0\n3\n=0\n\n我们再看它左右两边：\n\nx\n\n\t\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n\n\n\n\n-2\n\n\t\n\n-8\n\n\n\n\n-1\n\n\t\n\n-1\n\n\n\n\n0\n\n\t\n\n0\n\n\n\n\n1\n\n\t\n\n1\n\n\n\n\n2\n\n\t\n\n8\n\n你看：\n\n在 0 的左边，函数值从 -8、-1 逐渐增加到 0。\n\n在 0 的右边，函数值从 0 继续增加到 1、8。\n\n也就是说：\n\n函数在 0 的左边一直在增加，到了 0 的右边还是继续增加。\n\n它没有出现：\n\n先增加，再减少（极大值）。\n\n先减少，再增加（极小值）。\n\n所以，虽然 \n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n=\n0\nx=0 并不是极值点。\n\n第四步：用图像理解\n \n\n观察图像，你会发现：\n\n曲线经过原点时，切线是水平的（所以导数为零），但是曲线并没有掉头，而是继续向右上方走。\n\n这就是为什么它不是极值点。\n\n最后记住一个重要结论\n\n情况\n\n\t\n\n导数变化\n\n\t\n\n是否有极值\n\n\n\n\n先正后负\n\n\t\n\n+\n→\n−\n+→−\n\n\t\n\n有极大值\n\n\n\n\n先负后正\n\n\t\n\n−\n→\n+\n−→+\n\n\t\n\n有极小值\n\n\n\n\n正到正\n\n\t\n\n+\n→\n+\n+→+\n\n\t\n\n没有极值\n\n\n\n\n负到负\n\n\t\n\n−\n→\n−\n−→−\n\n\t\n\n没有极值\n\n最重要的一句话：导数等于零，只说明切线是水平的，不代表函数会掉头。\n\n你可以把它想象成爬山：走到一个平坦的位置，不一定就是山顶，也可能只是坡度暂时变成了零，但你还会继续往上走。\n\nChatGPT 是 AI，可能会犯错。\n\n新聊天\n图像\n插件\n查看套餐和定价\n帮助\n深度研究\n设置\n获取为你量身定制的回复\n\n登录以获取基于已保存聊天的回答，并可创建图像和上传文件。\n\n登录\n与 ChatGPT 聊天\n回答完成",
+      "endedAt": "2026-11-25T12:08:33.032Z"
+    },
+    {
+      "turn": "T05",
+      "prompt": "我记得导数为0就一定是极值吧？你是不是讲错了。",
+      "startedAt": "2026-11-25T12:08:33.032Z",
+      "inputValueAfterFill": "我记得导数为0就一定是极值吧？你是不是讲错了。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\21_typed_T05.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\22_sent_T05.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\22_streaming_T05.png",
+      "streamingMetrics": {
+        "katex": 39,
+        "mjax": 0,
+        "mathml": 29,
+        "code": 0,
+        "tables": 2,
+        "lists": 7,
+        "imgs": 2,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "Open Cubics and quartics - Student Acade",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "停止生成"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 838,
+            "w": 622,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 2089
+      },
+      "waitGrew": 2427,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\23_reply_T05.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\23_reply_T05-full.png",
+      "metrics": {
+        "katex": 43,
+        "mjax": 0,
+        "mathml": 31,
+        "code": 0,
+        "tables": 2,
+        "lists": 8,
+        "imgs": 2,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "Open Cubics and quartics - Student Acade",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "发送消息"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 838,
+            "w": 622,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 2426
+      },
+      "replyText": "",
+      "bodyTail": "二步：看看什么叫极大值和极小值\n\n极大值：一个点附近，它的函数值比周围的函数值都大。\n\n极小值：一个点附近，它的函数值比周围的函数值都小。\n\n也就是说，我们要看看 \n𝑥\n=\n0\nx=0 的函数值是不是附近最大的，或者最小的。\n\n第三步：把几个数代进去比较\n\n因为：\n\n𝑓\n(\n0\n)\n=\n0\n3\n=\n0\nf(0)=0\n3\n=0\n\n我们再看它左右两边：\n\nx\n\n\t\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n\n\n\n\n-2\n\n\t\n\n-8\n\n\n\n\n-1\n\n\t\n\n-1\n\n\n\n\n0\n\n\t\n\n0\n\n\n\n\n1\n\n\t\n\n1\n\n\n\n\n2\n\n\t\n\n8\n\n你看：\n\n在 0 的左边，函数值从 -8、-1 逐渐增加到 0。\n\n在 0 的右边，函数值从 0 继续增加到 1、8。\n\n也就是说：\n\n函数在 0 的左边一直在增加，到了 0 的右边还是继续增加。\n\n它没有出现：\n\n先增加，再减少（极大值）。\n\n先减少，再增加（极小值）。\n\n所以，虽然 \n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n=\n0\nx=0 并不是极值点。\n\n第四步：用图像理解\n \n\n观察图像，你会发现：\n\n曲线经过原点时，切线是水平的（所以导数为零），但是曲线并没有掉头，而是继续向右上方走。\n\n这就是为什么它不是极值点。\n\n最后记住一个重要结论\n\n情况\n\n\t\n\n导数变化\n\n\t\n\n是否有极值\n\n\n\n\n先正后负\n\n\t\n\n+\n→\n−\n+→−\n\n\t\n\n有极大值\n\n\n\n\n先负后正\n\n\t\n\n−\n→\n+\n−→+\n\n\t\n\n有极小值\n\n\n\n\n正到正\n\n\t\n\n+\n→\n+\n+→+\n\n\t\n\n没有极值\n\n\n\n\n负到负\n\n\t\n\n−\n→\n−\n−→−\n\n\t\n\n没有极值\n\n最重要的一句话：导数等于零，只说明切线是水平的，不代表函数会掉头。\n\n你可以把它想象成爬山：走到一个平坦的位置，不一定就是山顶，也可能只是坡度暂时变成了零，但你还会继续往上走。\n\n我记得导数为0就一定是极值吧？你是不是讲错了。\n\n你记得的知识点有一部分是对的，但少了一个重要的前提。其实，这里涉及高等数学中一个很重要的概念：极值的必要条件。\n\n我们区分一下：\n\n1. 导数为零不一定有极值\n\n例如：\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n\n求导：\n\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\nf\n′\n(x)=3x\n2\n\n所以：\n\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0\n\n但是，函数在 0 的左边递增，右边也递增，没有从上升变成下降，也没有从下降变成上升。\n\n因此，0 不是极值点。\n\n2. 那么，什么情况下导数一定为零？\n\n对于一个函数，如果它在某点可导，并且在该点取得极大值或极小值（局部极值），那么该点的导数一定为零。\n\n也就是：\n\n有极值\n⇒\n𝑓\n′\n(\n𝑥\n)\n=\n0\n有极值⇒f\n′\n(x)=0\n\t​\n\n\n但反过来不成立：\n\n𝑓\n′\n(\n𝑥\n)\n=\n0\n⇏\n有极值\nf\n′\n(x)=0\n\n⇒有极值\n\t​\n\n3. 用一句话记住\n\n必要条件：可导函数在某点取得极值，那么该点导数为零。\n\n不是充分条件：导数为零，不代表一定有极值。\n\n你可以记住这个考试常用结论：\n\n导数为零是可导函数取得极值的必要条件，而不是充分条件。\n\n所以，你原来记忆的知识点并没有完全错，只是把必要条件误记成了充分条件。\n\nChatGPT 是 AI，可能会犯错。\n\n新聊天\n图像\n插件\n查看套餐和定价\n帮助\n深度研究\n设置\n获取为你量身定制的回复\n\n登录以获取基于已保存聊天的回答，并可创建图像和上传文件。\n\n登录\n与 ChatGPT 聊天\n发送消息",
+      "endedAt": "2026-11-25T12:08:42.885Z"
+    },
+    {
+      "turn": "T08",
+      "prompt": "用一句话总结刚才的结论。",
+      "startedAt": "2026-11-25T12:08:42.885Z",
+      "inputValueAfterFill": "用一句话总结刚才的结论。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\31_typed_T08.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\32_sent_T08.png",
+      "replyStarted": true,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\32_streaming_T08.png",
+      "streamingMetrics": {
+        "katex": 43,
+        "mjax": 0,
+        "mathml": 31,
+        "code": 0,
+        "tables": 2,
+        "lists": 8,
+        "imgs": 2,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "Open Cubics and quartics - Student Acade",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "发送消息"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 838,
+            "w": 622,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 2489
+      },
+      "waitGrew": 2490,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\33_reply_T08.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\chatgpt\\33_reply_T08-full.png",
+      "metrics": {
+        "katex": 43,
+        "mjax": 0,
+        "mathml": 31,
+        "code": 0,
+        "tables": 2,
+        "lists": 8,
+        "imgs": 2,
+        "buttons": [
+          "登录",
+          "免费注册",
+          "复制",
+          "Open Przeczytaj - Warunek konieczny istn",
+          "复制回复",
+          "分享",
+          "Open Cubics and quartics - Student Acade",
+          "深度研究",
+          "关闭边栏",
+          "添加文件等",
+          "开始听写",
+          "发送消息"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "NAV",
+            "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+            "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+          },
+          {
+            "tag": "ASIDE",
+            "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+            "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "TEXTAREA",
+          "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x1q0u",
+          "rect": {
+            "x": 521,
+            "y": 838,
+            "w": 622,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 2489
+      },
+      "replyText": "",
+      "bodyTail": "函数值都小。\n\n也就是说，我们要看看 \n𝑥\n=\n0\nx=0 的函数值是不是附近最大的，或者最小的。\n\n第三步：把几个数代进去比较\n\n因为：\n\n𝑓\n(\n0\n)\n=\n0\n3\n=\n0\nf(0)=0\n3\n=0\n\n我们再看它左右两边：\n\nx\n\n\t\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n\n\n\n\n-2\n\n\t\n\n-8\n\n\n\n\n-1\n\n\t\n\n-1\n\n\n\n\n0\n\n\t\n\n0\n\n\n\n\n1\n\n\t\n\n1\n\n\n\n\n2\n\n\t\n\n8\n\n你看：\n\n在 0 的左边，函数值从 -8、-1 逐渐增加到 0。\n\n在 0 的右边，函数值从 0 继续增加到 1、8。\n\n也就是说：\n\n函数在 0 的左边一直在增加，到了 0 的右边还是继续增加。\n\n它没有出现：\n\n先增加，再减少（极大值）。\n\n先减少，再增加（极小值）。\n\n所以，虽然 \n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0，但 \n𝑥\n=\n0\nx=0 并不是极值点。\n\n第四步：用图像理解\n \n\n观察图像，你会发现：\n\n曲线经过原点时，切线是水平的（所以导数为零），但是曲线并没有掉头，而是继续向右上方走。\n\n这就是为什么它不是极值点。\n\n最后记住一个重要结论\n\n情况\n\n\t\n\n导数变化\n\n\t\n\n是否有极值\n\n\n\n\n先正后负\n\n\t\n\n+\n→\n−\n+→−\n\n\t\n\n有极大值\n\n\n\n\n先负后正\n\n\t\n\n−\n→\n+\n−→+\n\n\t\n\n有极小值\n\n\n\n\n正到正\n\n\t\n\n+\n→\n+\n+→+\n\n\t\n\n没有极值\n\n\n\n\n负到负\n\n\t\n\n−\n→\n−\n−→−\n\n\t\n\n没有极值\n\n最重要的一句话：导数等于零，只说明切线是水平的，不代表函数会掉头。\n\n你可以把它想象成爬山：走到一个平坦的位置，不一定就是山顶，也可能只是坡度暂时变成了零，但你还会继续往上走。\n\n我记得导数为0就一定是极值吧？你是不是讲错了。\n\n你记得的知识点有一部分是对的，但少了一个重要的前提。其实，这里涉及高等数学中一个很重要的概念：极值的必要条件。\n\n我们区分一下：\n\n1. 导数为零不一定有极值\n\n例如：\n\n𝑓\n(\n𝑥\n)\n=\n𝑥\n3\nf(x)=x\n3\n\n求导：\n\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\nf\n′\n(x)=3x\n2\n\n所以：\n\n𝑓\n′\n(\n0\n)\n=\n0\nf\n′\n(0)=0\n\n但是，函数在 0 的左边递增，右边也递增，没有从上升变成下降，也没有从下降变成上升。\n\n因此，0 不是极值点。\n\n2. 那么，什么情况下导数一定为零？\n\n对于一个函数，如果它在某点可导，并且在该点取得极大值或极小值（局部极值），那么该点的导数一定为零。\n\n也就是：\n\n有极值\n⇒\n𝑓\n′\n(\n𝑥\n)\n=\n0\n有极值⇒f\n′\n(x)=0\n\t​\n\n\n但反过来不成立：\n\n𝑓\n′\n(\n𝑥\n)\n=\n0\n⇏\n有极值\nf\n′\n(x)=0\n\n⇒有极值\n\t​\n\n3. 用一句话记住\n\n必要条件：可导函数在某点取得极值，那么该点导数为零。\n\n不是充分条件：导数为零，不代表一定有极值。\n\n你可以记住这个考试常用结论：\n\n导数为零是可导函数取得极值的必要条件，而不是充分条件。\n\n所以，你原来记忆的知识点并没有完全错，只是把必要条件误记成了充分条件。\n\n用一句话总结刚才的结论。\n\n可导函数在某点取得极值，则该点导数一定为零；但导数为零，不一定有极值（导数为零是极值的必要非充分条件）。\n\nChatGPT 是 AI，可能会犯错。\n\n新聊天\n图像\n插件\n查看套餐和定价\n帮助\n深度研究\n设置\n获取为你量身定制的回复\n\n登录以获取基于已保存聊天的回答，并可创建图像和上传文件。\n\n登录\n与 ChatGPT 聊天",
+      "endedAt": "2026-11-25T12:09:02.149Z"
+    }
+  ],
+  "status": "ok",
+  "notes": [],
+  "homeMetrics": {
+    "katex": 0,
+    "mjax": 0,
+    "mathml": 0,
+    "code": 0,
+    "tables": 0,
+    "lists": 2,
+    "imgs": 0,
+    "buttons": [
+      "登录",
+      "免费注册",
+      "深度研究",
+      "关闭边栏",
+      "我可以问些什么？",
+      "添加文件等",
+      "开始听写",
+      "发送消息"
+    ],
+    "asides": [
+      {
+        "tag": "NAV",
+        "cls": "x1s85apg x11fcb50 xixxii4 xdk1ze1 x1nfukui xkkz1cx x1ey2m1c x1o0tod x9f619 x1mkdm3x x1qhwocg x742i91",
+        "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+      },
+      {
+        "tag": "NAV",
+        "cls": "xfqjyog x1it3fuk xvmahel xlh3980 xrvj5dj x7yjavj x1vhsvu6",
+        "text": "新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置"
+      },
+      {
+        "tag": "ASIDE",
+        "cls": "xbj1t70 xe61fp5 x1a2a7pz xixxii4 xdk1ze1 x1jeq31z x1nfukui xkkz1cx x1ey2m1c x1ickgok x19oprkc x176v0",
+        "text": "获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录"
+      }
+    ],
+    "msgCount": 0,
+    "inputInfo": {
+      "tag": "TEXTAREA",
+      "cls": "x-default-marker xh85r0y x19q1bhk x7xwk5j xjbqb8w xnvt7iq xu82sp8 x1heor9g x5f5z",
+      "rect": {
+        "x": 523,
+        "y": 434,
+        "w": 618,
+        "h": 24
+      }
+    },
+    "bodyTextLen": 179
+  },
+  "homeTextSample": "登录 免费注册 新聊天 图像 插件 查看套餐和定价 帮助 深度研究 设置 获取为你量身定制的回复 登录以获取基于已保存聊天的回答，并可创建图像和上传文件。 登录 我们先从哪里开始呢？ 我可以问些什么？ 与 ChatGPT 聊天 ChatGPT 是 AI。使用即表示你同意我们的条款和隐私政策。聊天内容可能会被审核，并用于改进我们的 AI 模型。了解更多",
+  "loginHintOnHome": true,
+  "inputSelector": "textarea"
+}

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 离线回放层：在「服务边界」用 run-02 采证到的真实响应替代后端。
  *
  * 原则（本轮返工铁律）：
@@ -14,11 +14,14 @@ import {
   noticeEvents,
   pickChatTurn,
   conversationMessages,
+  withLocalImages,
   listConversations,
   showcaseChatTurn,
   OFFLINE_NOTICE,
 } from './handlers/agent'
 import { logQuizAnswer } from './showcase/session'
+import { freeChatTurn } from './showcase/free'
+import { markAborted } from './showcase/abort'
 import { isErrorRecordsPath, mergeIntoErrorRecords } from './showcase/errorbook'
 
 const DEMO_CODE = '246810'
@@ -91,8 +94,11 @@ function envelope(data, message = 'ok') {
 }
 
 function notRecorded(path, method) {
+  const message = currentRole() === 'student'
+    ? '离线体验暂未提供这项内容。'
+    : `离线演示未收录该数据：${method} ${path}`
   return jsonResponse(
-    { code: 40401, message: `离线演示未收录该数据：${method} ${path}`, data: null },
+    { code: 40401, message, data: null },
     404,
   )
 }
@@ -116,7 +122,8 @@ function sseResponse(script, { delayMs = 24, signal } = {}) {
         const ev = script[i++]
         const chunk = `event: ${ev.event}\ndata: ${JSON.stringify(ev.data)}\n\n`
         controller.enqueue(encoder.encode(chunk))
-        timer = setTimeout(push, delayMs)
+        // 事件可携带局部节奏（delay 不进入 SSE data，仅用于本地回放）
+        timer = setTimeout(push, typeof ev.delay === 'number' ? ev.delay : delayMs)
       }
       timer = setTimeout(push, delayMs)
     },
@@ -228,7 +235,12 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
 
   // 上传链路（现役契约：uploadInit → 预签名 PUT → parse → detail/content）
   if (method === 'POST' && path.split('?')[0] === '/api/files/upload') {
-    const r = handleUpload(body)
+    const student = currentRole() === 'student'
+    const r = handleUpload(body, { matchContents: student })
+    if (!r.ok && student) {
+      const message = '离线体验暂未收录这份附件。可以从随包素材中选择题1.png、题2.png或题3.png。'
+      return jsonResponse({ ...r.payload, message }, 404)
+    }
     return jsonResponse(r.payload, r.ok ? 200 : 404)
   }
   // 预签名直传：现役 uploadInit 可能返回站内相对 upload_url，PUT 到位即视为「字节已收到」
@@ -242,14 +254,18 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
   if ((accept || '').includes('text/event-stream') && path.split('?')[0] === '/api/agent/chat') {
     const showcase = showcaseChatTurn(body)
     if (showcase?.length) return sseResponse(showcase, { delayMs: 8, signal })
+    // 新对话里的自由提问：按意图短答 / 追问出口 / 能力边界（带附件的交给采证回放）
+    const free = freeChatTurn(body)
+    if (free?.length) return sseResponse(free, { delayMs: 8, signal })
     const picked = pickChatTurn(body)
     if (picked?.events?.length) {
       return sseResponse(picked.events, { delayMs: 8, signal })
     }
     if (picked?.exhausted) {
-      return sseResponse(noticeEvents('离线演示：现役系统本题已采证的对话轮次到此为止，后续轮次未采证。'), { delayMs: 8, signal })
+      return sseResponse(noticeEvents('这道题的录制讲解到这里结束。可以回看前面的步骤，或从左侧选另一段练习。'), { delayMs: 8, signal })
     }
-    return sseResponse(noticeEvents(OFFLINE_NOTICE), { delayMs: 8, signal })
+    const notice = picked?.case ? '这次输入没有对应的录制讲解。当前步骤仍在，可以按题目提示继续。' : OFFLINE_NOTICE
+    return sseResponse(noticeEvents(notice), { delayMs: 8, signal })
   }
 
   // 学生作答上报：记一条本地记录（驱动小结的真实计数与引导首答），响应沿用现役形状
@@ -283,7 +299,11 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
     try { title = body?.title || '' } catch { /* ignore */ }
     return jsonResponse({ code: 0, message: 'ok', data: { id, title: title || '新对话' } })
   }
-  if (method === 'POST' && (p1 === '/api/agent/chat/stop' || p1 === '/api/agent/feedback')) {
+  if (method === 'POST' && p1 === '/api/agent/chat/stop') {
+    try { markAborted(body) } catch { /* 截断失败不影响停止本身 */ }
+    return jsonResponse({ code: 0, message: 'ok', data: { ok: true } })
+  }
+  if (method === 'POST' && p1 === '/api/agent/feedback') {
     return jsonResponse({ code: 0, message: 'ok', data: { ok: true } })
   }
 
@@ -304,6 +324,16 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
     const fx = findFixture(r, method, path)
     if (fx) {
       const text = fx.binary ? binaryPayload(fx) : fx.text
+      // 采证会话附件只有文件名：补随包真实题图的 localUrl，避免「原图已丢失」
+      if (method == 'GET' && msgM && typeof text == 'string') {
+        try {
+          const d = JSON.parse(text)
+          if (Array.isArray(d && d.data && d.data.items)) {
+            d.data.items = withLocalImages(d.data.items)
+            return jsonResponse(d, fx.status)
+          }
+        } catch { /* 非 JSON 时按原样返回 */ }
+      }
       // 示例错题本并进现役「错题本」页读取的同一个响应（同 record_id 不重复）
       if (method === 'GET' && typeof text === 'string' && isErrorRecordsPath(path)) {
         return jsonResponse(mergeIntoErrorRecords(text), fx.status)

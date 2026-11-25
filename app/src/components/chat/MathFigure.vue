@@ -6,7 +6,7 @@
   <div class="math-figure">
     <div v-if="questionFigure || figure.caption || figure.step_no" class="mf-head">
       <span v-if="questionFigure" class="mf-badge mf-badge--question">题目配图</span>
-      <span v-else-if="figure.step_no" class="mf-badge">步骤 {{ figure.step_no }}</span>
+      <span v-else-if="figure.step_no && frames.length > 1" class="mf-badge">步骤 {{ figure.step_no }}</span>
       <span v-if="!questionFigure && figure.caption" class="mf-caption">{{ figure.caption }}</span>
       <button
         v-if="interactiveAvailable && !showInteractive"
@@ -179,7 +179,8 @@ onBeforeUnmount(clearAuto)
 
 <style scoped>
 .math-figure {
-  margin-top: 10px;
+  margin: 10px 0 0;
+  max-width: min(100%, 640px);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   background: var(--bg-white);
@@ -213,9 +214,10 @@ onBeforeUnmount(clearAuto)
 }
 .mf-img {
   display: block;
-  max-width: 100%;
+  max-width: min(100%, 560px);
   width: auto;
   height: auto;
+  margin: 0 auto;
   border-radius: var(--radius-sm);
   background: #fff;
 }

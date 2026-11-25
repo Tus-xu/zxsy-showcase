@@ -36,8 +36,8 @@ export const agentApi = {
   feedback: (msgId, value, reason = '') =>
     api.post('/agent/feedback', { message_id: msgId, target_msg_id: msgId, value, reason }),
   // M2 新增端点（旧后端 404，调用方降级）
-  stopChat: (conversation_id, client_msg_id = '') =>
-    api.post('/agent/chat/stop', { conversation_id, ...(client_msg_id ? { client_msg_id } : {}) }),
+  stopChat: (conversation_id, client_msg_id = '', extra = {}) =>
+    api.post('/agent/chat/stop', { conversation_id, ...(client_msg_id ? { client_msg_id } : {}), ...extra }),
   activateMessage: (messageId) => api.post(`/agent/messages/${messageId}/activate`),
   memories: () => api.get('/agent/memories'),
   deleteMemory: (id) => api.del(`/agent/memories/${id}`),

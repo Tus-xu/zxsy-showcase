@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 引导式解题状态机（离线、可重放、纯函数）。
  *
  * 依据 `docs/superpowers/plans/2026-11-24-guided-solving-full-journey.md`：
@@ -16,7 +16,7 @@
 const STAGE = { read: '读题', method: '选方法', derive: '分步推导', fix: '订正', done: '已完成' }
 const STAGE_NO = { read: 1, method: 2, derive: 3, fix: 4, done: 4 }
 
-import { quizChain } from './bank'
+import { HYP, V1, quizChain } from './bank'
 
 /** 公共已证事实：两条路径数学意义相同，可以互相继承 */
 export const FACT = {
@@ -92,8 +92,24 @@ export const T = {
 
   fixAsk: '导学和原题是同一道题。回到题卡重选一次，原来的答案会留着。',
   fixRetryLead: '题目重新放在这里了。这一次先写出候选点，再看两边符号，最后才选。',
-  fixDone: '已订正。首答 A 与改答 C 都留在上面，随时能回看。',
-  fixWrongA: '还是把它当成极大了。−1 两侧是左正右负，那里是高点。再看 2。',
+  fixDone: '已订正。最终选择是 C，可以回看刚才的判断过程。',
+
+  /* S5：从学生真实首答起答（双曲线离心率） */
+  s5Diagnose:
+    '先别急着定选项。你读出的 $\\sqrt7$ 是哪两条线的比？离心率定义里的分子又是哪个量？把「实轴长、虚轴长」先写成 $2a$、$2b$，再写出它们的关系式给我看看。',
+  s5Right:
+    '对，$\\sqrt7$ 是 $\\frac{b}{a}$，而离心率是 $\\frac{c}{a}$。再用 $c^2=a^2+b^2$：$e=\\sqrt{1+(b/a)^2}=\\sqrt8=2\\sqrt2$。',
+  s5Wrong:
+    '你读出的 $\\sqrt7$ 是虚轴长与实轴长的比，也就是 $\\frac{b}{a}$；离心率用的是 $\\frac{c}{a}$，分子是半焦距 $c$，不是 $b$。',
+  s5Unsure:
+    '实轴长 $2a$、虚轴长 $2b$，题目说 $2b=\\sqrt7\\cdot2a$，所以 $\\frac{b}{a}=\\sqrt7$；离心率是 $\\frac{c}{a}$，分子是半焦距 $c$。',
+  s5Done:
+    '订正了。首答 C 还在上面，记录里会保留。你原来把「两条轴的比」当成了离心率，差的一步是：$e=\\frac{c}{a}$，先用 $c^2=a^2+b^2$ 换算。',
+  s1WhySqrt:
+    '你问「为什么是 $2\\sqrt2$」——$e^2=8$，而离心率 $e=\\frac{c}{a}>0$，所以取正根 $e=2\\sqrt2$。',
+  s1Axes:
+    '实轴长是 $2a$，虚轴长是 $2b$；题目说的是整条轴的比例：$2b=\\sqrt7\\cdot2a$，约掉 $2$ 得 $\\frac{b}{a}=\\sqrt7$。',
+  fixWrongA: '−1 两侧是左正右负，所以它是局部极大。再看 2 两侧的符号。',
   fixWrongOther: '先算 g′(x)=6(x+1)(x−2)，两处候选是 −1 和 2；再看哪一处左负右正。',
 
   b1Ask:
@@ -108,8 +124,8 @@ export const T = {
   b2Hint: '平方因子 (x+1)² 一定非负。所以差值的符号由 2x−7 决定。',
   b3Ask: '在 $2$ 附近，$g(x)-g(2)=(x-2)^2(2x+5)$。若 $1<x<3$ 且 $x\\neq 2$，它是什么符号？',
   b3Right:
-    '对。平方因子为正，2x+5 在这个区间最小是 7，也是正的，所以差值恒正——附近的值都比 g(2) 大，2 是局部极小。',
-  b3Wrong: '代 x=2：2×2+5=9，是正数；而 1<x<3 时 2x+5 最小也有 7，所以恒正。',
+    '对。平方因子为正，2x+5 在这个区间大于 7，所以差值恒正。附近的值都比 g(2) 大，2 是局部极小。',
+  b3Wrong: '代 x=2：2×2+5=9。整个区间 1<x<3 上，2x+5 都大于 7，所以恒正。',
   b4Ask: '两种候选的邻域表现已经分清了。请选出取得局部极小值的横坐标。',
   b4Right: '对，是 2，对应点 (2,−19)。两种方法指向同一个结论。',
   b4Wrong: 'x=−1 那里差值恒负，是局部极大。再看一看：哪一个让差值恒正？',
@@ -126,8 +142,9 @@ export const T = {
   limitBack: '回到刚才停下的地方。',
   limitSkip: '好，先用已经给出的导数公式继续。',
 
-  unknown: '这条练习里你可以先选一个步骤，我会照这个思路继续。',
-  noop: '这一步可以选上面的一个动作，我照这个思路继续。',
+  unknown:
+    '这次提问超出了当前示例的范围——它只覆盖这道三次函数题：找候选点、看两侧符号、判断极值。你可以点上面卡片里的步骤继续，或换一种说法再问。',
+  noop: '这个输入没有对应的练习动作。可以点上面卡片里的选项继续，或直接说你想看哪一步。',
 }
 
 /* ───────────────── 卡片构造 ───────────────── */
@@ -147,18 +164,18 @@ function cardRead({ relation = false } = {}) {
     type: 'showcase_stage',
     variant: 'read',
     stage: STAGE.read,
-    title: '题目看懂了',
+    title: '先读清这道题',
     relation: relation
       ? { chain: '函数的变化 → 单调性与极值', focus: '局部极小', note: '只和足够靠近它的点比较' }
       : null,
     clues: [
-      { left: 'g(x)=2x³−3x²−12x+1', right: '已知函数式，可以求导或作差' },
+      { left: '$g(x)=2x^3-3x^2-12x+1$', right: '已知函数式，可以求导或作差' },
       { left: '「局部极小值」', right: '比较这个位置附近的高低' },
       { left: '「在哪个 x」', right: '最后要交的是横坐标' },
     ],
     actions: [
-      { id: 'read_ok', label: '题目看懂了', primary: true },
-      { id: 'read_local', label: '「局部」是什么意思？' },
+      { id: 'read_ok', label: '题目看懂了', aliases: ['看懂了', '我看懂了', '明白了', '懂了', '继续'], primary: true },
+      { id: 'read_local', label: '「局部」是什么意思？', aliases: ['什么叫局部', '什么是局部极小值', '局部'] },
     ],
   }
 }
@@ -185,8 +202,8 @@ function cardMethod() {
     stage: STAGE.method,
     title: '你想先从哪一种方法试？',
     methods: [
-      { id: 'A', label: '看导数变号', sub: '先找候选点，再看左右是增还是减' },
-      { id: 'B', label: '比较附近的函数值', sub: '固定一个点，比较附近函数值的高低' },
+      { id: 'A', label: '看导数变号', sub: '先找候选点，再看左右是增还是减', aliases: ['用导数', '变号', '导数变号', '求导'] },
+      { id: 'B', label: '比较附近的函数值', sub: '固定一个点，比较附近函数值的高低', aliases: ['比较函数值', '比较附近函数值', '作差', '差值法'] },
     ],
     hint: { id: 'help', label: '帮我选' },
   }
@@ -261,10 +278,10 @@ function cardRetry() {
     title: '重选一次',
     question: 'g(x)=2x³−3x²−12x+1 在哪个 x 取得局部极小值？',
     options: [
-      { id: 'A', label: '−1' },
-      { id: 'B', label: '1' },
-      { id: 'C', label: '2' },
-      { id: 'D', label: '−2' },
+      { id: 'A', label: '−1', say: '选 A（−1）', aliases: ['选a（−1）', '选a-1', '选a'] },
+      { id: 'B', label: '1', say: '选 B（1）', aliases: ['选b（1）', '选b1', '选b'] },
+      { id: 'C', label: '2', say: '选 C（2）', aliases: ['选c（2）', '选c2', '选c'] },
+      { id: 'D', label: '−2', say: '选 D（−2）', aliases: ['选d（−2）', '选d-2', '选d'] },
     ],
   }
 }
@@ -338,13 +355,16 @@ function optionsOf(cards) {
 
 /** 明确表达的术语追问（只建立支线，不按误解分流） */
 function isLimitAsk(raw) {
-  return has(norm(raw), '极限', '无限靠近', '趋近', '怎么定义')
+  return has(norm(raw), '极限', '无限靠近', '趋近', '导数怎么定义')
 }
 
 /* ───────────────── 转移辅助 ───────────────── */
 
 function retry(s, text, cards) {
-  return { next: s.node, session: s, reply: { text, cards } }
+  // 超范围输入不再重发整张卡（同一张读题卡反复出现是「脚本感」最直观的来源）；
+  // 当前步骤的卡片仍在对话上方，学生可以继续点。
+  const isUnknown = text === T.unknown || text === T.noop
+  return { next: s.node, session: s, reply: { text, cards: isUnknown ? [] : cards } }
 }
 
 function addFact(s, f) {
@@ -408,12 +428,11 @@ node('r_read', {
   build: () => ({ text: T.diagnose, cards: [progress('read'), cardRead({ relation: true })] }),
   accept(s, a) {
     if (isLimitAsk(a.text)) return startLimit(s, 'r_read')
-    const t = norm(a.text)
     const picked = matchOption(cardRead().actions, a.text)
-    if (picked?.id === 'read_ok' || has(t, '看懂了', '明白了', '懂了', '继续')) {
+    if (picked?.id === 'read_ok') {
       return { next: 'm_method', session: { ...s, stage: 'method' }, reply: null }
     }
-    if (picked?.id === 'read_local' || has(t, '局部是什么意思', '什么叫局部', '局部')) {
+    if (picked?.id === 'read_local') {
       return {
         next: 'r_read_local',
         session: { ...s, stage: 'read' },
@@ -455,17 +474,16 @@ node('m_method', {
   build: () => ({ text: T.methodAsk, cards: [progress('method'), cardMethod()] }),
   accept(s, a) {
     if (isLimitAsk(a.text)) return startLimit(s, 'm_method')
-    const t = norm(a.text)
     const cm = cardMethod()
     const picked = matchOption([...cm.methods, cm.hint], a.text)
-    if (picked?.id === 'A' || has(t, '变号', '求导', '导数')) {
+    if (picked?.id === 'A') {
       return { next: 'a1_candidates', session: { ...s, path: 'A', stage: 'derive' }, reply: null }
     }
-    if (picked?.id === 'B' || has(t, '比较', '函数值', '作差')) {
+    if (picked?.id === 'B') {
       return { next: 'b1_standard', session: { ...s, path: 'B', stage: 'derive' }, reply: null }
     }
     if (picked?.id === 'help') return retry(s, T.methodHelp, [progress('method'), cardMethod()])
-    return retry(s, '这两种方法都能做这题。选一个先试，另一条随时可以再看。', [
+    return retry(s, '这次输入没有对应的讲解。可以先选一种方法，另一条随时可以再看。', [
       progress('method'),
       cardMethod(),
     ])
@@ -515,9 +533,9 @@ node('a2_diagnose', {
       cards: [
         progress('derive'),
         cardDerive({
-          title: '从解释里看卡点',
+          title: '这里的负号说明什么？',
           candidates: firstA ? ['−1（你选的）', '2'] : ['−1', '2'],
-          basis: 'g′(0) = 6(0+1)(0−2) = −12',
+          basis: '$g^{\\prime}(0) = 6(0+1)(0-2) = -12$',
           note: firstA ? '你原来的作答：−1 能让导数等于零。' : '这一步先只看导数本身。',
           options: [
             { id: 'slope', label: 'x=0 处的切线斜率为负' },
@@ -860,11 +878,131 @@ node('b4_correct', {
   },
 })
 
+/* ===== S1：完整解答之后的追问（为什么 x=1 是极小 / 那 −1 呢 / 变式） ===== */
+
+function cardSignTable(focus = 'min') {
+  // 追问哪个点，就给哪个点附近的符号——两次追问不重复贴同一张整表
+  if (focus === 'max') {
+    return cardDerive({
+      title: '−1 附近的符号',
+      note: 'x=−1 是「+」变「−」的位置；先升后降，所以是局部极大。',
+      triples: [
+        { seg: 'x=−2', sign: '+', move: '上升' },
+        { seg: 'x=−1', sign: '0', move: '峰顶' },
+        { seg: 'x=0', sign: '−', move: '下降' },
+      ],
+    })
+  }
+  return cardDerive({
+    title: 'f(x) 的符号表',
+    note: 'x=1 是「−」变「+」的位置。',
+    triples: [
+      { seg: '(−∞,−1)', sign: '+', move: '递增' },
+      { seg: '(−1,1)', sign: '−', move: '递减' },
+      { seg: '(1,∞)', sign: '+', move: '递增' },
+    ],
+  })
+}
+
+node('s1_follow', {
+  build: () => ({ text: '', cards: [] }),
+  accept(s, a) {
+    const t = norm(a.text)
+    if (has(t, '2√2', '2根号2', '根号8', '为什么是')) {
+      return { next: 's1_follow', session: s, reply: { text: T.s1WhySqrt, cards: [] } }
+    }
+    if (has(t, '实轴', '虚轴', '2a', '2b')) {
+      return { next: 's1_follow', session: s, reply: { text: T.s1Axes, cards: [] } }
+    }
+    if (has(t, '图', '题图', '看题')) {
+      return {
+        next: 's1_follow',
+        session: s,
+        reply: { text: '题图就在上面：条件是「虚轴长是实轴长的 √7 倍」。先把两条轴写成 $2a$、$2b$，再化简。', cards: [] },
+      }
+    }
+    if (has(t, '变式', '练', '出题', '再来一道')) {
+      return {
+        next: 's1_follow',
+        session: s,
+        reply: { text: '这道题随包只有讲解，暂时没有同类型变式；左侧「举一反三」是三次函数的变式，可以换一道练。', cards: [] },
+      }
+    }
+    return retry(s, T.unknown, [])
+  },
+})
+
+/* ===== S5：从学生真实首答起答（双曲线离心率） ===== */
+
+const S5_SIGNS = [
+  { id: 'axes', label: '√7 是 b/a，离心率是 c/a', aliases: ['b/a', '虚轴比实轴', 'b比a', '比值是b比a'] },
+  { id: 'wrong', label: '√7 就是离心率', aliases: ['比值就是离心率', '√7是离心率'] },
+  { id: 'unsure', label: '我不确定', aliases: ['不会', '不知道', '不懂', '不确定', '没思路'] },
+]
+
+function cardS5Signs() {
+  return cardDerive({
+    title: '先分清两个比',
+    basis: '$e=\\frac{c}{a}$，且 $c^2=a^2+b^2$',
+    note: '你的首答：C（√7）。',
+    options: S5_SIGNS,
+  })
+}
+
+function cardRetryHyperbola() {
+  return {
+    type: 'showcase_stage',
+    variant: 'retry',
+    stage: STAGE.fix,
+    title: '重选一次',
+    question: '若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（ ）',
+    options: [
+      { id: 'A', label: '√2', say: '选 A（√2）', aliases: ['选a（√2）', '选a'] },
+      { id: 'B', label: '2', say: '选 B（2）', aliases: ['选b（2）', '选b2', '选b'] },
+      { id: 'C', label: '√7', say: '选 C（√7）', aliases: ['选c（√7）', '选c'] },
+      { id: 'D', label: '2√2', say: '选 D（2√2）', aliases: ['选d（2√2）', '选d2√2', '选d'] },
+    ],
+  }
+}
+
+node('s5_signs', {
+  build: () => ({ text: T.s5Diagnose, cards: [cardS5Signs()] }),
+  accept(s, a) {
+    const picked = matchOption(S5_SIGNS, a.text)
+    if (!picked) return retry(s, T.unknown, [])
+    if (picked.id === 'axes') {
+      const next = { ...s, s5SignsCorrect: true, s5SignsChecked: true, stage: 'fix' }
+      return { next: 's5_fix', session: next, reply: { text: T.s5Right, cards: [cardRetryHyperbola()] } }
+    }
+    const next = { ...s, s5SignsCorrect: false, s5SignsChecked: true, stage: 'fix' }
+    return {
+      next: 's5_fix',
+      session: next,
+      reply: { text: picked.id === 'wrong' ? T.s5Wrong : T.s5Unsure, cards: [cardRetryHyperbola()] },
+    }
+  },
+})
+
+node('s5_fix', {
+  build: () => ({ text: '回到题卡，改选一次。', cards: [cardRetryHyperbola()] }),
+  accept(s, a) {
+    const picked = matchOption(cardRetryHyperbola().options, a.text)
+    if (picked?.id === 'D') {
+      const fixed = { ...s, corrected: true, stage: 'done' }
+      return { next: 'done', session: fixed, reply: { text: T.s5Done, cards: [cardSummary(summaryOf(fixed))] } }
+    }
+    if (picked) {
+      return retry(s, `选 ${picked.id} 还不对：离心率是 $e=\\frac{c}{a}$，先用 $2b=\\sqrt7\\cdot2a$ 得到 $\\frac{b}{a}=\\sqrt7$，再算 $e=\\sqrt{1+7}=2\\sqrt2$。`, [cardRetryHyperbola()])
+    }
+    return retry(s, T.noop, [cardRetryHyperbola()])
+  },
+})
+
 /* ===== 订正 ===== */
 
 node('fix_return', {
   build: (s) => ({
-    text: T.fixAsk,
+    text: s?.firstAnswer ? T.fixAsk : '回到题卡，确认你现在的选择。',
     cards: [progress('fix'), cardFix(s?.fixLabel || (s?.firstAnswer ? '返回题卡订正' : '回到这题'))],
   }),
   accept(s, a) {
@@ -888,7 +1026,7 @@ node('fix_retry', {
       return {
         next: 'done',
         session: fixed,
-        reply: { text: T.fixDone, cards: [progress('done'), cardSummary(summaryOf(fixed))] },
+        reply: { text: s.s5Reason ? T.s5Done : T.fixDone, cards: [progress('done'), cardSummary(summaryOf(fixed))] },
       }
     }
     if (picked) {
@@ -924,10 +1062,32 @@ node('s4_entry', {
   },
 })
 
+node('done', {
+  build: (s) => ({ text: T.fixDone, cards: [progress('done'), cardSummary(summaryOf(s))] }),
+  accept(s) {
+    return retry(s, '这道题已经完成。这次提问没有预设讲解，可以回看订正过程，或从左侧选另一段练习。', [progress('done')])
+  },
+})
+
 node('s6_entry', {
-  build: () => ({ text: '', cards: [] }),
+  build: () => ({
+    text: '',
+    cards: [{
+      type: 'showcase_stage',
+      variant: 'errorbook',
+      stage: STAGE.fix,
+      title: '记进错题本',
+      question: HYP.question_text,
+      options: HYP.options,
+      first: 'C',
+      fixed: 'D',
+      reason: '把两条轴的比当成了离心率：√7 = b/a，而 e = c/a。',
+      actions: [{ id: 'add_error', label: '加入错题本', aliases: ['记下来', '把这道题加入错题本'], primary: true }],
+    }],
+  }),
   accept(s, a) {
-    if (has(norm(a.text), '加入错题本', '记下来')) {
+    const card = get('s6_entry').build().cards[0]
+    if (matchOption(card.actions, a.text)?.id === 'add_error') {
       const next = { ...s, errorSaved: true, stage: 'done' }
       return {
         next: 's6_done',
@@ -940,7 +1100,7 @@ node('s6_entry', {
         },
       }
     }
-    return retry(s, '点「加入错题本」就会把这道题和这条错因记下来。', get('s6_entry').build().cards)
+    return retry(s, '点「加入错题本」可以把这道题和错因一起记下来。', [card])
   },
 })
 
@@ -950,7 +1110,7 @@ node('s6_done', {
     if (has(norm(a.text), '加入错题本', '再记一次')) {
       return retry({ ...s, alreadySaved: true }, '这一条已经在错题本里了，同一个示例不会重复计数。', [progress('done')])
     }
-    return retry(s, T.noop, [progress('done')])
+    return retry(s, '这道题已经记下了。这次提问没有预设讲解，可以从错题本回看。', [progress('done')])
   },
 })
 
@@ -964,8 +1124,8 @@ function cardInvite() {
     title: '做三题巩固',
     note: '一题一题作答，提交后我告诉你哪一步值得重看。',
     actions: [
-      { id: 'accept_practice', label: '可以，出三题', primary: true },
-      { id: 'decline_practice', label: '先不练' },
+      { id: 'accept_practice', label: '可以，出三题', aliases: ['出三题', '来三题', '我想练一练', '可以', '好'], primary: true },
+      { id: 'decline_practice', label: '先不练', aliases: ['不练', '不用', '暂时不练'] },
     ],
   }
 }
@@ -984,8 +1144,8 @@ function cardTally() {
 node('c1_invite', {
   build: () => ({ text: INVITE, cards: [progress('method'), cardInvite()] }),
   accept(s, a) {
-    const t = norm(a.text)
-    if (has(t, '出三题', '可以', '好', '练')) {
+    const picked = matchOption(cardInvite().actions, a.text)
+    if (picked?.id === 'accept_practice') {
       return {
         next: 'c_quiz',
         session: { ...s, stage: 'fix' },
@@ -995,20 +1155,15 @@ node('c1_invite', {
         },
       }
     }
-    if (has(t, '先不练', '不用', '不练')) {
+    if (picked?.id === 'decline_practice') {
       return retry(s, '好，想练的时候再说一声，这两段讲解都留在上面。', [progress('method'), cardInvite()])
     }
     return retry(s, T.noop, [progress('method'), cardInvite()])
   },
 })
 
-/** C3 的变式卡与小结入口同一条消息下发；变式卡由 session 层按题库注入 */
-function tallyPlaceholder() {
-  return cardTally()
-}
-
 node('c_quiz', {
-  build: () => ({ text: '', cards: [tallyPlaceholder()] }),
+  build: () => ({ text: '', cards: [cardEntry(), cardTally()] }),
   accept(s, a) {
     if (has(norm(a.text), '引导式解题', '走一遍')) {
       return { next: 'r_read', session: { ...s, stage: 'read' }, reply: null }
@@ -1019,9 +1174,9 @@ node('c_quiz', {
       if (!tally.answered) {
         lines.push('还没有记录到作答。三道题都在上面，选一个选项就会记下来。')
       } else {
-        lines.push(`已经作答 ${tally.answered}/{tally.total} 题。`)
-        lines.push(`首答正确 ${tally.firstCorrect}/${tally.total}，订正后 ${tally.finalCorrect}/${tally.total}。`)
-        if (tally.corrected) lines.push(`其中 ${tally.corrected} 题是看过引导后改对的。`)
+        lines.push(`这一组共 3 道，你已经作答 ${tally.answered} 道。`)
+        lines.push(`其中首答正确 ${tally.firstCorrect} 道，订正后正确 ${tally.finalCorrect} 道。`)
+        if (tally.corrected) lines.push(`其中 ${tally.corrected} 道是看过引导后改对的。`)
       }
       return {
         next: 'c_quiz',
@@ -1029,7 +1184,7 @@ node('c_quiz', {
         reply: { text: lines.join('\n\n'), cards: [progress('fix'), cardSummary(summaryOf(s))] },
       }
     }
-    return retry(s, '做完一题就点选项，交完可以让我「看这次的小结」。', [progress('fix'), tallyPlaceholder()])
+    return retry(s, '这次提问没有预设讲解。可以继续做题，也可以选择解题引导或小结。', [progress('fix'), ...get('c_quiz').build().cards])
   },
 })
 
@@ -1181,12 +1336,30 @@ export function summaryOf(s) {
   if (s?.path === 'B' && facts.includes(FACT.minAtTwo)) lines.push('2 附近的函数值都更大，所以它是局部极小。')
   if (s?.switched) lines.push('中途换过一次方法，已经确认的结论都留着。')
   if (s?.limitDone) lines.push('你顺手看了极限怎样定义导数。')
-  if (s?.corrected) lines.push('最后回到题卡改选了 C，首答 A 仍然保留。')
+  if (s?.s5SignsChecked) {
+    if (s.firstAnswer) lines.push(`你的首答是 ${s.firstAnswer}（√7），理由是「比值就是 √7」。`)
+    lines.push(s.s5SignsCorrect
+      ? '你把「两条轴的比」和「离心率」分开了：√7 = b/a，而 e = c/a。'
+      : '我们一起分清了：√7 = b/a，而 e = c/a。')
+    lines.push('下次求离心率：先写两条轴的关系，再用 e = √(1+(b/a)²)。')
+  }
+  if (s?.corrected) {
+    if (s.s5Reason === 'ratio') {
+      lines.push(s.firstAnswer && s.firstAnswer !== 'D'
+        ? `最后回到题卡改选了 D（2√2），首答 ${s.firstAnswer} 仍然保留。`
+        : '最后回到题卡确认了选项 D。')
+    } else {
+      lines.push(s.firstAnswer && s.firstAnswer !== 'C'
+        ? `最后回到题卡改选了 C，首答 ${s.firstAnswer} 仍然保留。`
+        : '最后回到题卡确认了选项 C。')
+    }
+  }
   const t = s?.quizTally
   if (t && t.answered) {
-    lines.push(`这三题已经作答 ${t.answered}/${t.total} 题。`)
-    lines.push(`首答正确 ${t.firstCorrect}/${t.total}，订正后 ${t.finalCorrect}/${t.total}。`)
-    if (t.corrected) lines.push('其中至少 1 题是看过引导之后改对的。')
+    // 分母用「实际作答数」，不用题库总数：避免出现「已订正」与「订正后 0/3」同屏的矛盾
+    lines.push(`这一组三道变式里，你已经作答 ${t.answered} 道。`)
+    lines.push(`其中首答正确 ${t.firstCorrect} 道，订正后正确 ${t.finalCorrect} 道。`)
+    if (t.corrected) lines.push('其中至少 1 道是看过引导之后改对的。')
   }
   return { corrected: !!s?.corrected, lines: lines.length ? lines : ['这一轮还没有留下可回顾的步骤。'] }
 }

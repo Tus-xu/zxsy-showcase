@@ -4,7 +4,7 @@
 构成：
   release/开始演示.html      现役前端 fork 的单文件离线构建（file:// 双击即用）
   release/素材/题1..3.png    三张原题图（与现役上传采证同源、逐字节一致）
-  release/主持人手册.md      按本轮实测复刻的演示脚本（只含已采证路径）
+  release/主持人手册.md      录制讲解、学生预设练习与三端操作说明
   release/现役离线对照表.md  逐项对照（现役证据 → 离线状态）
   release/未通过项.md        现役阻塞/未采证项，如实登记
   release/README-启动说明.txt
@@ -21,7 +21,9 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP = os.path.join(ROOT, 'app')
 RELEASE = os.path.join(ROOT, 'release')
-PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
+# 题图只从演示仓库内取（app/src/assets/showcase/ti1..3.png 与采证原图逐字节一致）。
+# 禁止回读原真实项目 D:\zxsy-math-arena（原项目保护规则）。
+ASSET_DIR = os.path.join(APP, 'src', 'assets', 'showcase')
 
 ENTRY_SRC = os.path.join(APP, 'dist-offline', 'index.html')
 
@@ -72,11 +74,10 @@ def assemble():
                 os.remove(fp)
     os.makedirs(mat, exist_ok=True)
     for i in (1, 2, 3):
-        src = os.path.join(PLANS, f'题{i}.png')
-        if os.path.exists(src):
-            shutil.copyfile(src, os.path.join(mat, f'题{i}.png'))
-        else:
-            print(f'  ⚠ 缺少原题图 {src}')
+        src = os.path.join(ASSET_DIR, f'ti{i}.png')
+        if not os.path.exists(src):
+            raise SystemExit(f'缺少随包题图 {src}（应与 release 素材逐字节一致；不得回读原真实项目）')
+        shutil.copyfile(src, os.path.join(mat, f'题{i}.png'))
 
     # 素材清单（只登记随包的三张题图；哈希匹配仅内部使用，界面不显示）
     manifest = ['# 素材 SHA-256 清单', '', '| 文件 | 字节 | SHA-256 |', '|---|---|---|']
@@ -114,8 +115,9 @@ def write_readme(entry_hash, entry_size):
 
 本包特性
   - 单文件 HTML，全资源内联，file:// 直接运行
-  - 0 网络请求（离线回放层在服务边界用现役采证响应替代后端）
-  - 页面/组件/图标/样式/编辑器/渲染器全部来自现役前端，未重画
+  - 断网可用，沿用智学数研的三端入口
+  - 学生对话提供预设练习、三张原题图、录制讲解，以及新对话里「导数与极值」主线的自由问答
+    （离线预设内容 + 本地真实计算；范围有限，页首「离线体验」可查看）
 
 版本
   构建时间：{__import__('datetime').datetime.now().strftime('%Y-%m-%d %H:%M:%S')}

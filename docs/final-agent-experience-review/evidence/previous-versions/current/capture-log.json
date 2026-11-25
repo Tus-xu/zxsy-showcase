@@ -1,0 +1,16 @@
+{
+  "which": "current",
+  "browser": "158.0.8127.88",
+  "viewports": {
+    "1440": {
+      "shots": 21,
+      "ok": true
+    },
+    "1920": {
+      "shots": 21,
+      "ok": true
+    }
+  },
+  "checks": [],
+  "errors": []
+}

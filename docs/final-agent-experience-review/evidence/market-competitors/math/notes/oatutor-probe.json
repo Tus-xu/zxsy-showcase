@@ -1,0 +1,139 @@
+{
+  "url": "https://cahlr.github.io/OATutor/",
+  "steps": [],
+  "title": "OATutor",
+  "bodyText": "Not logged in\nWelcome to OATutor!\nPlease select a course\nData 8 Discussion Worksheets\nCombined Data100 Worksheets\nSJSU 1019S\nSJSU Calculus 1 (Quiz Collection)\nSJSU 1018\nMission College: Introductory Statistics\nMatematik 4\nPre-Calculus Essentials (UC Berkeley Math 1B)\nOpenStax: College Physics\nOpenStax: Calculus Volume 1\nOpenStax: Pre-Calculus\nOpenStax: Elementary Algebra\nOpenStax: Intermediate Algebra\nOpenStax: College Algebra\nOpenStax: Introductory Stats\nOpenStax: University Physics\nMath Basics for Physics\nChemistry 1A Summer Content\nSolid Foundations: Algebra\nSolid Foundations: Trigonometry\nSolid Foundations: Calculus Part 1\nAnthropology: Reading Review\nCalculus Volume 2\nReset Progress",
+  "buttons": [
+    {
+      "text": "",
+      "aria": "about",
+      "cls": "MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeSmall"
+    },
+    {
+      "text": "",
+      "aria": "View Course 0",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 1",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 2",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 3",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 4",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 5",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 6",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 7",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 8",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 9",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 10",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 11",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 12",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 13",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 14",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 15",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 16",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 17",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 18",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 19",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 20",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 21",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "",
+      "aria": "View Course 22",
+      "cls": "MuiButtonBase-root MuiIconButton-root"
+    },
+    {
+      "text": "Reset Progress",
+      "aria": null,
+      "cls": "MuiButtonBase-root MuiButton-root MuiButton-contained jss45 MuiButton-containedP"
+    }
+  ],
+  "links": [],
+  "inputs": 0,
+  "localStorage": [
+    "platformLanguage",
+    "oatutor-user_id"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "task": "T09b",
+  "steps": {
+    "regenCount": 0,
+    "retryCount": 0,
+    "regenStarted": false,
+    "afterRegenLen": 293,
+    "copyCount": 0,
+    "editCount": 1,
+    "editValue": "请详细讲解三次函数的极值判定方法，并给出三个不同的例子，每个例子写出完整求导、求根、列表判断和结论。",
+    "scrollStart": {
+      "st": 1900,
+      "sh": 2661,
+      "ch": 761
+    },
+    "scrollWhileGenerating": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "pulledBack": false,
+    "otherCount": 1,
+    "switchedUrl": "http://127.0.0.1:18080/c/be3899c9-5188-405a-a02a-549e2f656523",
+    "reloadUrl": "http://127.0.0.1:18080/c/be3899c9-5188-405a-a02a-549e2f656523",
+    "reloadMsgs": 1,
+    "reloadText": "数值变化情况：\n\n如果函数值变大，是极大值；\n如果函数值变小，是极小值；\n如果函数值穿过该点，没有“最高或最低”，就不是极值。\n\n✅ 反例：f(x)=x\n3\n，在 x=0 处导数为 0，但没有极值。\n\n这就是为什么导数为 0 不一定有极值！"
+  }
+}

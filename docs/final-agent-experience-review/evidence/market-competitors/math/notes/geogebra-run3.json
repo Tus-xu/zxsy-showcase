@@ -1,0 +1,32 @@
+{
+  "url": "https://www.geogebra.org/calculator",
+  "startedAt": "2026-11-25T11:59:28.029Z",
+  "steps": [
+    "2026-11-25T11:59:45.442Z f graphed via applet API",
+    "2026-11-25T11:59:48.076Z Extremum(f)",
+    "2026-11-25T11:59:50.683Z Tangent(0,f)",
+    "2026-11-25T11:59:53.353Z h(x)=f'(x)",
+    "2026-11-25T11:59:57.485Z hid keyboard, clean view"
+  ],
+  "values": {
+    "names": [
+      "f",
+      "A_{1}",
+      "A_{2}",
+      "g",
+      "h"
+    ],
+    "f": "f(x) = x³ - 3x",
+    "A_{1}": "A_{1} = (-1, 2)",
+    "A_{2}": "A_{2} = (1, -2)",
+    "g": "g: y = -3x",
+    "h": "h(x) = 3x² - 3",
+    "f_at_1": "t2 = -2",
+    "fp_at_1": "t3 = 0"
+  },
+  "deriv": {
+    "ok": true,
+    "def": "h(x) = 3x² - 3"
+  },
+  "endedAt": "2026-11-25T11:59:57.485Z"
+}

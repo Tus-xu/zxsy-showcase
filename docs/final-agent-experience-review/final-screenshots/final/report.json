@@ -1,0 +1,37 @@
+{
+  "viewports": [
+    {
+      "w": 1440,
+      "h": 900,
+      "shots": [
+        "01-home.png",
+        "02-free-streaming.png",
+        "03-free-answer.png",
+        "04-s1-top.png",
+        "05-s1-figure.png",
+        "06-s1-follow.png",
+        "07-s2.png",
+        "08-s5-diagnosis.png",
+        "09-s5-branch.png"
+      ],
+      "errors": []
+    },
+    {
+      "w": 1920,
+      "h": 1080,
+      "shots": [
+        "01-home.png",
+        "02-free-streaming.png",
+        "03-free-answer.png",
+        "04-s1-top.png",
+        "05-s1-figure.png",
+        "06-s1-follow.png",
+        "07-s2.png",
+        "08-s5-diagnosis.png",
+        "09-s5-branch.png"
+      ],
+      "errors": []
+    }
+  ],
+  "errors": []
+}

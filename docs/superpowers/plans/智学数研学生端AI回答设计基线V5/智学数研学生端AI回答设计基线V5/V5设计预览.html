@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>智学数研学生端 · V5 设计预览</title>
+  <link rel="stylesheet" href="resources/vendor/katex/katex.min.css">
+  <link rel="stylesheet" href="resources/prototype/preview.css">
+  <script defer src="resources/vendor/katex/katex.min.js"></script>
+  <script defer src="resources/prototype/data.js"></script>
+  <script defer src="resources/prototype/charts.js"></script>
+  <script defer src="resources/prototype/preview.js"></script>
+</head>
+<body>
+  <div class="ambient" aria-hidden="true">
+    <span class="ambient-indigo"></span>
+    <span class="ambient-cyan"></span>
+    <span class="ambient-violet"></span>
+  </div>
+
+  <div class="layout">
+    <header class="topbar">
+      <div class="topbar-brand">
+        <button id="sidebar-toggle" class="icon-button sidebar-toggle" type="button" aria-label="示例和学习导航" aria-controls="sidebar" aria-expanded="false">
+          <span class="menu-icon" aria-hidden="true"></span>
+        </button>
+        <span class="brand-mark" aria-hidden="true">π</span>
+        <span class="brand-name">智学数研</span>
+        <span class="brand-role">学生端</span>
+      </div>
+      <span class="preview-label">V5 设计参考</span>
+    </header>
+
+    <aside id="sidebar" class="sidebar" aria-label="学生端侧栏">
+      <h2 class="sidebar-heading" id="learning-nav-heading">学习导航</h2>
+      <nav class="product-nav" aria-labelledby="learning-nav-heading">
+        <button type="button" class="nav-item" data-product-nav="home" aria-current="page"><span class="nav-icon" aria-hidden="true">🏠</span>首页</button>
+        <button type="button" class="nav-item" data-product-nav="practice"><span class="nav-icon" aria-hidden="true">✏️</span>练题</button>
+        <button type="button" class="nav-item" data-product-nav="error"><span class="nav-icon" aria-hidden="true">📕</span>错题</button>
+        <button type="button" class="nav-item" disabled><span class="nav-icon" aria-hidden="true">📚</span>知识库<span class="nav-unavailable">未开放</span></button>
+        <button type="button" class="nav-item" disabled><span class="nav-icon" aria-hidden="true">📺</span>资源中心<span class="nav-unavailable">未开放</span></button>
+        <button type="button" class="nav-item" disabled><span class="nav-icon" aria-hidden="true">🎓</span>课堂<span class="nav-unavailable">未开放</span></button>
+        <button type="button" class="nav-item" disabled><span class="nav-icon" aria-hidden="true">👤</span>我的<span class="nav-unavailable">未开放</span></button>
+      </nav>
+      <div class="sidebar-sessions">
+        <h2 class="sidebar-heading" id="scenes-heading">示例会话</h2>
+        <nav id="scenes" aria-labelledby="scenes-heading"></nav>
+      </div>
+    </aside>
+
+    <main class="workspace" aria-labelledby="scene-title">
+      <header class="scene-toolbar">
+        <div class="scene-heading">
+          <h1 id="scene-title">学生端 AI 回答</h1>
+          <p id="scene-subtitle" hidden></p>
+        </div>
+        <div class="toolbar-actions">
+          <details class="offline-details">
+            <summary>离线体验</summary>
+            <div class="offline-description">
+              <p>在侧栏切换示例会话，可以作答、追问和操作图形。输入框支持示例中提供的提问，选中的图片留在本机。</p>
+            </div>
+          </details>
+          <button id="restart" class="secondary-button" type="button">重置会话</button>
+        </div>
+      </header>
+
+      <section id="scroll" class="scroll-area" tabindex="0" aria-label="对话内容">
+        <div id="thread" class="thread">
+          <noscript><p class="empty">请开启浏览器的 JavaScript 来体验示例会话。</p></noscript>
+        </div>
+      </section>
+
+      <footer class="composer-area">
+        <div class="composer-inner">
+          <button id="jump" class="secondary-button jump-button" type="button" hidden><span aria-hidden="true">↓</span> 回到最新</button>
+          <p id="notice" class="composer-notice" aria-live="polite" hidden></p>
+          <form id="composer" class="composer">
+            <div id="draft-attachment" class="draft-attachment" hidden></div>
+            <textarea id="draft" rows="2" aria-label="输入你的问题" placeholder="写下你的问题，或添加题图"></textarea>
+            <div class="composer-actions">
+              <button id="attach" class="icon-button attach-button" type="button" aria-label="添加题图" title="添加题图">
+                <span class="clip-icon" aria-hidden="true"></span>
+              </button>
+              <input id="file" type="file" accept="image/*" hidden>
+              <span class="composer-keyboard">Enter 发送 · Shift+Enter 换行</span>
+              <button id="send" class="send-button" type="submit" disabled><span aria-hidden="true">↑</span> 发送</button>
+            </div>
+          </form>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <dialog id="source-dialog" aria-label="讲义来源"></dialog>
+  <dialog id="photo-dialog" aria-label="题图预览"></dialog>
+</body>
+</html>

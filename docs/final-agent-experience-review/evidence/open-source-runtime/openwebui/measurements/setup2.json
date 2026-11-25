@@ -1,0 +1,15 @@
+{
+  "modelClicked": true,
+  "selectorText": "qwen3-4b-local",
+  "idle": true,
+  "state": {
+    "generating": false,
+    "lastLen": 5,
+    "scrollTop": 0,
+    "scrollHeight": 761,
+    "clientHeight": 761,
+    "url": "http://127.0.0.1:18080/c/1ac66646-65de-408b-956a-2f6bad61c2f0"
+  },
+  "answer": "连接成功。",
+  "sidebarText": "Open WebUI\n新对话\nCtrl+Shift+O\n搜索\nCtrl+K\n笔记\n工作空间\n分组\n对话\n今天\nConnection Success\n几秒前\nUser"
+}

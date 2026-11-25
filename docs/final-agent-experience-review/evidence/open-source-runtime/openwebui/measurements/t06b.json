@@ -1,0 +1,19 @@
+{
+  "task": "T06b",
+  "q": "请直接输出以下 5 部分，不要用代码围栏包裹整段回答：\n1. 一行普通文字，包含行内公式 $x=-\\frac{b}{2a}$；\n2. 一个独立公式块 $$y=ax^2+bx+c$$；\n3. 一个 3 行 2 列的 Markdown 表格；\n4. 一个用 ```mermaid 包裹的流程图（3 个节点）；\n5. 一句普通结语。",
+  "idle": true,
+  "answer": "一行普通文字，包含行内公式 x=−\n2a\nb\n\t​\n\n；\n一个独立公式块\ny=ax\n2\n+bx+c\n；\n一个 3 行 2 列的 Markdown 表格：\n项目\n\t\n值\n\n\n长度\n\t\n10 米\n\n\n宽度\n\t\n5 米\n\n\n面积\n\t\n50 平方米\n一个用 ```mermaid 包裹的流程图（3 个节点）：\n开始\n处理数据\n输出结果\n结束\n一句普通结语。",
+  "rendered": {
+    "katex": 2,
+    "displayMath": 1,
+    "tables": 1,
+    "pre": 0,
+    "svgCount": 6,
+    "svgHints": [
+      " size-3.5",
+      " size-3.5",
+      "flowchart-v2"
+    ],
+    "mermaidNodes": 22
+  }
+}

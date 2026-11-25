@@ -17,12 +17,12 @@
     <div class="si-head">
       <span v-if="stageZh" class="si-stage">{{ stageZh }}</span>
       <span class="si-lead">{{ leadText }}</span>
-      <span v-if="formZh" class="si-form" :title="formBadgeTitle">{{ formZh }}</span>
+      <span v-if="formZh" class="si-form" :title="offline ? undefined : formBadgeTitle">{{ formZh }}</span>
     </div>
 
     <!-- sgv4：L1 高亮线索随卡下发（阶梯 L1 不改形式，§5.5） -->
     <div v-if="hintText" class="si-hint" data-soc-ix-hint="">
-      <span class="si-hint-level">{{ hintLevelZh }}</span>{{ hintText }}
+      <span class="si-hint-level">{{ offline ? '提示' : hintLevelZh }}</span>{{ hintText }}
     </div>
     <!-- sgv4：last_resort 理由标签（R1：打字例外必须显式说明为什么） -->
     <div v-if="lastResort" class="si-lastresort" data-soc-ix-last-resort="">
@@ -118,6 +118,7 @@ const props = defineProps({
   card: { type: Object, required: true },
   /** 已用态（msg.usedInteractions[ci]，MessageBubble 传入；本地提交后视图置位） */
   used: { type: Boolean, default: false },
+  offline: { type: Boolean, default: false },
 })
 // submit：{summary, payload, spentMs, editCount}（视图组 tutor_interaction 上下文，interact 协议）
 // text：打字回退/free_text 主通道文本；skip：跳过标签文本（两者都走既有 attempt 链路兜底）

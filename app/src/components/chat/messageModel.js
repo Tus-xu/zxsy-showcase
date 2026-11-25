@@ -27,7 +27,7 @@ export function stripActionJson(text) {
 
 export { uuid } from '../../utils/uuid.js'
 
-export function newUserMsg({ text, clientMsgId, attachments = [], skillKeys = [], rawText = '', question = null }) {
+export function newUserMsg({ text, clientMsgId, attachments = [], skillKeys = [], rawText = '', question = null, system = false }) {
   return {
     key: `u_${clientMsgId}`,
     role: 'user',
@@ -40,6 +40,7 @@ export function newUserMsg({ text, clientMsgId, attachments = [], skillKeys = []
     createdAt: new Date().toISOString(),
     versions: null,
     question, // {text, options?} 题目白卡（讲解/变式消息把题干单独成白卡展示）
+    system: !!system, // 界面动作（如「返回题卡订正」）：渲染为居中提示，不是学生发言气泡
   }
 }
 
@@ -233,6 +234,8 @@ export function fromHistory(item) {
     skillKeys: [],
     action: null, // v1.4：envelope.blocks 的 action 块还原（见下方循环）
     degraded: null, // 阶段 6B：搜索降级提示（envelope.blocks 的 degraded 块还原）
+    system: !!item.system,
+    sample: !!item.sample,
   }
   for (const b of blocks) {
     if (!b || typeof b !== 'object') continue

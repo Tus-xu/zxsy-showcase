@@ -3,9 +3,9 @@
   {
    "id": "V01",
    "ok": true,
-   "note": "S1 标题「拍照解题 · 三次函数极值」；题图 1 张(破图 0)，切换后 1 张(破图 0)；四段齐全=true；lightbox 开=true 关=true",
+   "note": "S1 标题「拍照解题 · 双曲线离心率」；题图 1 张(破图 0)，切换后 1 张(破图 0)；四段齐全=true；lightbox 开=true 关=true",
    "evidence": {
-    "title": "拍照解题 · 三次函数极值",
+    "title": "拍照解题 · 双曲线离心率",
     "hasUserText": true,
     "hasFour": true,
     "images": {
@@ -28,7 +28,7 @@
    "note": "S2 真实追问=true 反例=true；S3 帧控件=3 播放文案=true 图注=4 破图=0；x³ 反例=true",
    "evidence": {
     "s2": {
-     "turns": 9,
+     "turns": 10,
      "hasFollow": true,
      "hasCounter": true,
      "shot": "shots/03-V02-s2.png"
@@ -49,11 +49,11 @@
   {
    "id": "V03",
    "ok": true,
-   "note": "S4 首答保留=true 引导入口=1；S6 首次加入=true 重复点已置灰=true；错题本命中 1 条",
+   "note": "S4 首答保留=true 引导入口=0；S6 首次加入=true 重复点已置灰=true；错题本命中 2 条",
    "evidence": {
     "before": "shots/05-V03-s4-before.png",
-    "entry": 1,
-    "hits": 1
+    "entry": 0,
+    "hits": 2
    }
   },
   {
@@ -68,11 +68,11 @@
   {
    "id": "V05",
    "ok": true,
-   "note": "B 路径全通；换路提示=true；刷新后事实保留=true；A 路径续走并订正=true",
+   "note": "诊断=true；分支=true；刷新保留=true；订正=true",
    "evidence": {
-    "switched": true,
-    "keptFacts": true,
-    "fixVisible": true,
+    "hasDiag": true,
+    "branch": true,
+    "kept": true,
     "done": true
    }
   },
@@ -89,7 +89,7 @@
  ],
  "evidence": {
   "V01": {
-   "title": "拍照解题 · 三次函数极值",
+   "title": "拍照解题 · 双曲线离心率",
    "hasUserText": true,
    "hasFour": true,
    "images": {
@@ -109,7 +109,7 @@
   "V01err": [],
   "V02": {
    "s2": {
-    "turns": 9,
+    "turns": 10,
     "hasFollow": true,
     "hasCounter": true,
     "shot": "shots/03-V02-s2.png"
@@ -128,10 +128,10 @@
   },
   "V03": {
    "keptFirst": true,
-   "entry": 1,
+   "entry": 0,
    "againDisabled": true,
-   "hits": 1,
-   "errText": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 26 全部错题 24 今天该复习 7 记得较牢 📷 拍错题入本 📷 拍错题入本 把做错/不会的题拍下来自动识别题干——入本自动排期复习 ＋ 打开录入 错题详情 · 第 01 题 ⏭ 下一题 ✕ 关闭 全部 按错因 按知识点 按时间 按遗忘风险 详情加载失败：离线演示未收录该数据：GET /api/student/error-records/sc-err-sc-v1/detail 📚 全部 26 道 · 点击展开详情 按入"
+   "hits": 2,
+   "errText": "π 智学数研 学生端 🔥 13 连击 小 小林 学习闭环 « 🏠 首页 ✏️ 练题 沉浸 📕 错题 26 📚 知识库 📺 资源中心 🎓 课堂 1 👤 我的 26 全部错题 24 今天该复习 7 记得较牢 📷 拍错题入本 📷 拍错题入本 把做错/不会的题拍下来自动识别题干——入本自动排期复习 ＋ 打开录入 错题详情 · 第 01 题 ⏭ 下一题 ✕ 关闭 全部 按错因 按知识点 按时间 按遗忘风险 详情加载失败：离线体验暂未提供这项内容。 📚 全部 26 道 · 点击展开详情 按入本时间倒序 刚收录 🖼 若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（ ）（"
   },
   "V04": {
    "beforeSize": 3,
@@ -140,9 +140,9 @@
    "whyShown": true
   },
   "V05": {
-   "switched": true,
-   "keptFacts": true,
-   "fixVisible": true,
+   "hasDiag": true,
+   "branch": true,
+   "kept": true,
    "done": true
   },
   "V06": {

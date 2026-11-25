@@ -1,4 +1,4 @@
-<template>
+﻿<template>
   <!-- F2 出题卡：card.type==='quiz_set'（契约见 M2 前端指南 §5.7）
        闭环迭代13：对话内直接作答——点选项即时判分 + 自动解析 + 答错收录错题 + 讲解入口
        （选择题在对话内完成闭环；填空/解答题保留「进入作答页」沉浸式判分）
@@ -8,7 +8,6 @@
   <div class="quiz-card" :class="{ 'quiz-chain': isChain }">
     <div class="qc-head">
       <span class="qc-title">{{ isChain ? `🔄 举一反三 · 变式链 · ${items.length} 题` : `📝 智能出题 · ${items.length} 题` }}</span>
-      <span class="tag gray">AI 生成</span>
       <span v-if="inlineJudge" class="qc-badge">对话内直接作答</span>
     </div>
 
@@ -41,7 +40,7 @@
               @click="onPick(idx, oi)"
             >
               <span class="qc-opt-key">{{ LETTERS[oi] }}</span>
-              <span class="qc-opt-body"><MarkdownView :text="texInline(opt)" /></span>
+              <span class="qc-opt-body"><MarkdownView :text="texInline(optText(opt, oi))" /></span>
               <span v-if="result[idx]?.chosen === oi" class="qc-opt-note">
                 {{ result[idx].correct ? '✓ 你的答案' : '✗ 你的答案' }}
               </span>
@@ -54,13 +53,13 @@
             <span class="qc-judge-txt">
               {{ result[idx].correct
                 ? '✅ 回答正确！'
-                : `⚠ 差一点！正确答案是 ${it.answer}——已收录错题本，会提醒你复习` }}
+                : `⚠ 差一点！正确答案是 ${it.answer}。本次作答已记录` }}
             </span>
             <button class="qc-explain-btn" @click="emitExplain(it, idx)">
               {{ result[idx].correct ? '💬 再讲一遍思路' : '💬 看讲解' }}
             </button>
             <span class="qc-delta" :class="result[idx].correct ? 'up' : 'down'">
-              {{ result[idx].correct ? '+1 掌握' : '-1 需复习' }}
+              {{ result[idx].correct ? '已记录' : '需复习' }}
             </span>
           </div>
 
@@ -99,7 +98,7 @@
           🎉 {{ items.length }} 道变式全链路走通！这一类题你已经真正掌握了。
         </template>
         <template v-else>
-          💪 变式链完成：{{ items.length }} 对 {{ correctCount }}。错的 {{ wrongCount }} 道已自动收录错题本，会提醒你复习一遍。
+          💪 变式链完成：{{ items.length }} 对 {{ correctCount }}。错的 {{ wrongCount }} 道已记录本次作答，可加入错题本。
         </template>
       </div>
 
@@ -139,7 +138,7 @@
             @click="onPick(idx, oi)"
           >
             <span class="qc-opt-key">{{ LETTERS[oi] }}</span>
-            <span class="qc-opt-body"><MarkdownView :text="texInline(opt)" /></span>
+            <span class="qc-opt-body"><MarkdownView :text="texInline(optText(opt, oi))" /></span>
             <span v-if="inlineJudge && result[idx]?.chosen === oi" class="qc-opt-note">
               {{ result[idx].correct ? '✓ 正确' : '✗ 你的答案' }}
             </span>
@@ -191,14 +190,14 @@
             :class="lfResult[idx].verdict === 'correct' ? 'ok' : 'no'"
           >
             <span class="qc-judge-txt">
-              <template v-if="lfResult[idx].verdict === 'correct'">✅ 回答正确！已计入学情</template>
+              <template v-if="lfResult[idx].verdict === 'correct'">✅ 回答正确！本次作答已记录</template>
               <!-- solution 契约：AI 初批留痕 verdict=pending_review + score/comment（待教师复核），
                    score 为 null 才是真降级（ocr_pending/llm_unavailable） -->
               <template v-else-if="lfResult[idx].verdict === 'pending_review' && lfResult[idx].score != null">
                 🤖 AI 初批完成{{ lfResult[idx].score > 0 ? '' : '，存在错误——已收录错题本' }}（教师可复核）
               </template>
               <template v-else-if="lfResult[idx].verdict === 'pending_review'">⏳ 已提交，AI 初批暂不可用，转人工待批（不影响判分记录）</template>
-              <template v-else>✗ 有错误——已自动收录错题本，会提醒你复习</template>
+              <template v-else>✗ 有错误——本次作答已记录，可加入错题本</template>
               <span v-if="lfResult[idx].comment" class="qc-lf-comment">{{ lfResult[idx].comment }}</span>
             </span>
             <span v-if="lfResult[idx].score != null" class="qc-delta" :class="lfResult[idx].verdict === 'correct' ? 'up' : 'down'">
@@ -216,8 +215,8 @@
         <div v-if="inlineJudge && result[idx]" class="qc-judge" :class="result[idx].correct ? 'ok' : 'no'">
           <span class="qc-judge-txt">
             {{ result[idx].correct
-              ? '✅ 答对了！掌握 +1，已计入学情'
-              : '✗ 差一点！已自动收录错题本，明晚提醒复习' }}
+              ? '✅ 答对了！本次作答已记录'
+              : '✗ 差一点！本次作答已记录，可加入错题本' }}
           </span>
           <button v-if="!result[idx].correct" class="qc-explain-btn" @click="emitExplain(it, idx)">
             💬 讲解这道错题 · 举一反三
@@ -285,6 +284,12 @@ const tex = (v) => wrapBareLatex(stripSourceMark(v ?? ''))
 // kp 英文代码 → 中文（geometry→立体几何），无映射则不显示
 const kpZh = (it) => (it.kp_name || KP_ZH[String(it.kp_code || '')] || '')
 const texInline = (v) => wrapBareLatex(v ?? '', { inline: true })
+/** 选项数据可能自带「A. 」前缀（采证/旧题卡），渲染时去掉，避免 key chip 与文本重复字母 */
+function optText(opt, oi) {
+  const s = String(opt ?? '')
+  const re = new RegExp('^\\s*' + LETTERS[oi] + '\\s*[.、．:：]\\s*')
+  return s.replace(re, '')
+}
 
 const QTYPE_ZH = { choice: '选择', blank: '填空', solution: '解答' }
 const LETTERS = ['A', 'B', 'C', 'D', 'E', 'F']
@@ -448,9 +453,9 @@ function trailMark(ti) {
 
 <style scoped>
 .quiz-card {
-  margin-top: var(--space-2); border: 1px solid var(--primary-border);
-  border-radius: var(--radius-md); padding: var(--space-3) var(--space-4);
-  background: var(--bg-white);
+  margin-top: 10px; border: 1px solid var(--border);
+  border-radius: 12px; padding: 12px 14px;
+  background: var(--card);
 }
 .qc-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .qc-title { font-weight: 700; font-size: 13px; color: var(--primary); }
@@ -467,9 +472,9 @@ function trailMark(ti) {
 .qc-figure { margin: 6px 0 8px; }
 .qc-figure :deep(.math-figure) { margin-top: 0; padding: 8px 10px; }
 .qc-stem-box {
-  background: #fff; border: 1px solid var(--border);
-  border-radius: 10px; padding: 12px 14px; margin: 4px 0 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,.05); font-size: 14px; line-height: 1.7;
+  background: transparent; border: 0;
+  border-radius: 0; padding: 0; margin: 4px 0 8px;
+  box-shadow: none; font-size: 14px; line-height: 1.7;
 }
 .qc-stem-box :deep(.md-body p) { margin: 0 0 4px; }
 .qc-stem-box:empty { display: none; }
@@ -481,7 +486,7 @@ function trailMark(ti) {
 @media (max-width: 560px) { .qc-options.grid { grid-template-columns: 1fr; } }
 .qc-opt {
   display: flex; align-items: center; gap: 8px;
-  padding: 6px 12px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  min-height: 36px; padding: 5px 12px; border: 1px solid var(--border); border-radius: 10px;
   font-size: 13px; cursor: pointer; transition: all 0.15s; background: var(--bg-white);
 }
 .qc-opt:hover { border-color: var(--primary-light); background: #EEF1FF; }
@@ -550,11 +555,11 @@ function trailMark(ti) {
 .qc-lf-comment { display: block; margin-top: 4px; font-size: 12px; opacity: 0.9; }
 
 /* ===== v1.5 变式链模式 ===== */
-.quiz-chain { border-color: #D9D2F7; background: linear-gradient(180deg, #FBFAFF 0%, var(--bg-white) 100%); }
+.quiz-chain { border-color: var(--border); background: var(--card); }
 .qc-chain-no { font-size: 12px; font-weight: 700; color: #7C5CF0; }
 .qc-variant {
-  border: 1px solid var(--border); border-radius: var(--radius-md);
-  padding: 10px 12px; margin-top: 8px; background: var(--bg-white);
+  border: 0; border-top: 1px solid var(--line2); border-radius: 0;
+  padding: 10px 0; margin-top: 8px; background: transparent;
 }
 .qc-transition {
   margin-top: 10px; font-size: 12.5px; color: var(--text-secondary);

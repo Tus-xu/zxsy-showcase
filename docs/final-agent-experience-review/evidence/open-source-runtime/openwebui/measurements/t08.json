@@ -1,0 +1,15 @@
+{
+  "task": "T08",
+  "longLen": 1105,
+  "idle": true,
+  "shortLen": 87,
+  "shortText": "函数 f(x)=x\n3\n−3x\n2\n+2 在 (−∞,0) 和 (2,∞) 上单调递增，在 (0,2) 上单调递减，局部极大值为 f(0)=2，局部极小值为 f(2)=−2。",
+  "state": {
+    "generating": false,
+    "lastLen": 87,
+    "scrollTop": 1952,
+    "scrollHeight": 2713,
+    "clientHeight": 761,
+    "url": "http://127.0.0.1:18080/c/5a0c632a-3e30-4c06-9e7d-712a0ebadfef"
+  }
+}

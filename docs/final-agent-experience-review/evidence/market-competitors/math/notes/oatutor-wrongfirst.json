@@ -1,0 +1,58 @@
+{
+  "steps": [
+    "selected wrong option index 0",
+    "opened Hint 1 after wrong"
+  ],
+  "masteryStart": "11%",
+  "inputs": [
+    {
+      "type": "radio",
+      "rect": {
+        "x": 393,
+        "y": 497,
+        "width": 42,
+        "height": 42,
+        "top": 497,
+        "right": 435,
+        "bottom": 539,
+        "left": 393
+      }
+    },
+    {
+      "type": "radio",
+      "rect": {
+        "x": 393,
+        "y": 541,
+        "width": 42,
+        "height": 42,
+        "top": 541,
+        "right": 435,
+        "bottom": 583,
+        "left": 393
+      }
+    },
+    {
+      "type": "radio",
+      "rect": {
+        "x": 393,
+        "y": 585,
+        "width": 42,
+        "height": 42,
+        "top": 585,
+        "right": 435,
+        "bottom": 627,
+        "left": 393
+      }
+    }
+  ],
+  "labels": [
+    "2,2,3,7",
+    "2,2,2,2,3",
+    "3,3,2,2"
+  ],
+  "wrongIndex": 0,
+  "masteryAfterWrong": "11%",
+  "bodyAfterWrong": "SJSU Calculus 1 (Quiz Collection)\n0%\nOther\nLesson Quiz 1\nLesson Quiz 2\nLesson Quiz 3\nLesson Quiz 4\nLesson Quiz 5\nLesson Quiz 6\nLesson Quiz 7\nLesson Quiz 8\nLesson Quiz 9\nLesson Quiz 10\nLesson Quiz 12\nLesson Quiz 13\nLesson Quiz 14\nLesson Quiz 15\nLesson Quiz 16\nLesson Quiz 17\nLesson Quiz 18\nLesson Quiz 19\nLesson Quiz 20\nLesson Quiz 21\nLesson Quiz 22\nLesson Quiz 23\nLesson Quiz 26\nLesson Quiz 27\nLesson Quiz 28\nLesson Quiz 29-38\nLesson Quiz 39\nLesson Quiz 40\nLesson Quiz 41\nSJSU Calculus 1 (Quiz Collection)\nReport a problem\nNot logged in\nLesson Mastery: 11%\nFind Factors, Prime Factorizations, and Least Common Multiples\nList the factors in increasing order, with commas without spaces dividing them. An example of the input format is: \"2,2,4,5\" without the quotes.\nPlease factor \n4\n8\n48.\n2,2,3,7\n2,2,2,2,3\n3,3,2,2\nSubmit\nNext Problem\n\nHints\n\nPre-written hints to help you with the problem.\n\nUsing hints will not increase mastery credit\n\"Find Factors, Prime Factorizations, and Least Common Multiples\" is a derivative of \"OpenStax: Intermediate Algebra\", used under CC BY 4.0\n\nAI Tutor\n\nAsk me any question about this problem or topic.\n\nWon't affect your mastery score\nIncorrect Answer!",
+  "bodyAfterHint": "SJSU Calculus 1 (Quiz Collection)\n0%\nOther\nLesson Quiz 1\nLesson Quiz 2\nLesson Quiz 3\nLesson Quiz 4\nLesson Quiz 5\nLesson Quiz 6\nLesson Quiz 7\nLesson Quiz 8\nLesson Quiz 9\nLesson Quiz 10\nLesson Quiz 12\nLesson Quiz 13\nLesson Quiz 14\nLesson Quiz 15\nLesson Quiz 16\nLesson Quiz 17\nLesson Quiz 18\nLesson Quiz 19\nLesson Quiz 20\nLesson Quiz 21\nLesson Quiz 22\nLesson Quiz 23\nLesson Quiz 26\nLesson Quiz 27\nLesson Quiz 28\nLesson Quiz 29-38\nLesson Quiz 39\nLesson Quiz 40\nLesson Quiz 41\nSJSU Calculus 1 (Quiz Collection)\nReport a problem\nNot logged in\nLesson Mastery: 11%\nFind Factors, Prime Factorizations, and Least Common Multiples\nList the factors in increasing order, with commas without spaces dividing them. An example of the input format is: \"2,2,4,5\" without the quotes.\nPlease factor \n4\n8\n48.\n2,2,3,7\n2,2,2,2,3\n3,3,2,2\nSubmit\nNext Problem\n\nHints\n\nHint 1\n\nFirst, we need to find two factors whose product is the given number, which is \n2\n×\n2\n4\n2×24.\n\n\nHint 2\n\nHint 3\n\nHint 4\n\nHint 5\n\nHint 6\n\nHint 7\n\nHint 8\n\n\"Find Factors, Prime Factorizations, and Least Common Multiples\" is a derivative of \"OpenStax: Intermediate Algebra\", used under CC BY 4.0\n\nAI Tutor\n\nAsk me any question about this problem or topic.\n\nWon't affect your mastery score",
+  "url": "https://cahlr.github.io/OATutor/#/lessons/0j8vtVD3-KRAG-4WdRrNAlH3"
+}

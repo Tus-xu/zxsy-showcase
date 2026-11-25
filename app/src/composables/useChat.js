@@ -341,12 +341,13 @@ export function useChat({
     skillKeys = [],
     skills = null,
     question = null,
+    system = false,
   } = {}) {
     if (streaming.value) return
     const cmid = clientMsgId || uuid()
     if (!replaceKey) {
       // rawText = 真实发送文本（displayText 仅展示；修 regenerate displayText bug 的关键）
-      messages.value.push(newUserMsg({ text: displayText || text, clientMsgId: cmid, attachments, skillKeys, rawText: text, question: question || null }))
+      messages.value.push(newUserMsg({ text: displayText || text, clientMsgId: cmid, attachments, skillKeys, rawText: text, question: question || null, system }))
     }
     const aiMsg = newAssistantMsg(cmid)
     if (replaceKey) {
@@ -423,10 +424,15 @@ export function useChat({
   async function stopStreaming() {
     const cur = currentStream
     if (!cur) return
+    // 把学生实际看到的内容带给离线层：刷新后不补全未看到的文本/卡片
+    const ai = [...messages.value].reverse().find((m) => m.role === 'assistant' && m.status === 'streaming')
+    const extra = ai
+      ? { partial_text: ai.text || '', cards_seen: Array.isArray(ai.cards) ? ai.cards.length : 0 }
+      : {}
     cur.abort()
     currentStream = null
     if (cur.convId) {
-      try { await agentApi.stopChat(cur.convId, cur.cmid) } catch { /* 旧后端 404 静默，本地 abort 已生效 */ }
+      try { await agentApi.stopChat(cur.convId, cur.cmid, extra) } catch { /* 旧后端 404 静默，本地 abort 已生效 */ }
     }
   }
 

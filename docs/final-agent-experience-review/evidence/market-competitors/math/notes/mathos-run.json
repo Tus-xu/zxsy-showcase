@@ -1,0 +1,159 @@
+{
+  "steps": [
+    "typed question + Enter"
+  ],
+  "url": "https://www.mathos.ai/app/ask",
+  "title": "AI Math Solver, Calculator & Tutor | Mathos AI",
+  "body": "Math Solver\n\nAI Tutor\n\nPDF Homework Helper\n\nStudy Tools\n\nNo Questions Yet\n\nAsk Your First Question\n\nSay Hello to Mathtube\n\nOur app for iOS\n\nLog in here!\n\nSupports:\n\n3 Days Free Trial\n\nDownload Mathos and solve anywhere!\n\n﻿\n\nType text, or paste / drag an image here. (Type \\ or $ to insert formula)\n\nShift + Enter to add a new line\n\nSend\n\nAsk Questions\n\nCreate Flashcards\n\nCreate Quiz\n\nVideo Generation\n\nSolve with image\n\nGenerate video\n\nCreate a video about trigonometric transformations\n\nMathos AI - Your Personal AI Math Solver\n\nBringing Joy and Confidence to Math Learning\n\nExplore the future of personalized education\nEvery math tool you need\n\nMath Solver, AI Tutor, PDF Homework Helper, Interactive Games, and Study Tools — every part of Mathos AI, built around the way you actually learn.\n\nMath Solver\n\nSnap, speak, or type any problem. Math Solver breaks it down step by step — and keeps going until you get it.\n\nASK IN ANY WAY\nSnap a page\nSpeak it out\nPaste or type\nLaTeX ready\nPROBLEM\n2x² + 5x − 3 = 0\n1\nFactor the trinomial\n(2x − 1)(x + 3) = 0\n2\nSet each factor to 0\n2x − 1 = 0 or x + 3 = 0\n3\nSolve for x\nx = 1/2 or x = −3\nHave a try\nAI Tutor\n\nWrite on the whiteboard and AI Tutor watches in real time — coaching, correcting, and adapting to how you learn.\n\nA = w(50 − 2w)\nwmax = 50 / −4\nMathos is listening\nHave a try\nPDF Homework Helper\n\nDrop in a worksheet PDF — every page is solved in parallel, so all answers land in seconds.\n\nWORKSHEET · PG 3\nPDF\n1. Solve 3x + 7 = 22\n2. Factor x² − 9\n3. ∫ 2x dx\n4. sin²θ + cos²θ = ?\n5. d/dx (e^x · x)\nHave a try\nInteractive Games\n\nSolve a problem and unlock a game for every concept behind it.\n\nLEVEL 4 · SLOPE\nClimb the curve\nScore\n240 pts\nHave a try\nStudy Tools\n\nTurn any solution into a quiz, flashcard deck, or animated video.\n\nQuiz\n10 questions on today's topic\nFlashcard\nDrill trig identities\nVideo\nWatch an AI-generated explainer\nHave a try\nBuilt for math. Trusted by millions\n\nMathos AI helps 5 million+ students solve problems, understand every step, and learn faster.\n\nBacked by\n\n·\n\nFeatured in\n\n5M+\n\nStudents\n\n100M+\n\nProblems solved\n\n150+\n\nCountries\n\n100%\n\nInteractive\n\n4.9\non App Store\nDownload\n4.7\non Google Play\nDownload\nLoved by millions of students\n\nReviews from students, parents, and teachers who use Mathos AI every day.\n\nAiden\n\nApr 18, 2026\n\nAva\nRating is 5 out of 5\nYou can graph, practice for exams, and a lot more, and you get plenty of free uses of Pro mode that are actually accurate.\n\nMar 22, 2026\n\nLisa Martinez\nRating is ",
+  "inputs": [
+    {
+      "tag": "DIV",
+      "cls": "",
+      "rect": {
+        "x": 471.5,
+        "y": 306.59375,
+        "width": 776,
+        "height": 100,
+        "top": 306.59375,
+        "right": 1247.5,
+        "bottom": 406.59375,
+        "left": 471.5
+      }
+    },
+    {
+      "tag": "INPUT",
+      "type": "file",
+      "ph": "",
+      "cls": "",
+      "rect": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "left": 0
+      }
+    },
+    {
+      "tag": "INPUT",
+      "type": "checkbox",
+      "ph": "",
+      "cls": "PrivateSwitchBase-input MuiSwitch-input mui-j8yymo",
+      "rect": {
+        "x": 1102.765625,
+        "y": 434.78125,
+        "width": 96,
+        "height": 32,
+        "top": 434.78125,
+        "right": 1198.765625,
+        "bottom": 466.78125,
+        "left": 1102.765625
+      }
+    }
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": null
+    },
+    {
+      "text": "Log in here!",
+      "aria": null
+    },
+    {
+      "text": "3 Days Free Trial",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Image"
+    },
+    {
+      "text": "",
+      "aria": "Formula"
+    },
+    {
+      "text": "",
+      "aria": "Voice Input"
+    },
+    {
+      "text": "Send",
+      "aria": null
+    },
+    {
+      "text": "Ask Questions",
+      "aria": null
+    },
+    {
+      "text": "Create Flashcards",
+      "aria": null
+    },
+    {
+      "text": "Create Quiz",
+      "aria": null
+    },
+    {
+      "text": "Video Generation",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": "Scroll down"
+    },
+    {
+      "text": "",
+      "aria": "Play intro video"
+    },
+    {
+      "text": "Explore the future of personalized educa",
+      "aria": "Play intro video"
+    },
+    {
+      "text": "Study ToolsTurn any solution into a quiz",
+      "aria": null
+    },
+    {
+      "text": "What is the best AI math solver?",
+      "aria": null
+    },
+    {
+      "text": "What can the Mathos AI math calculator d",
+      "aria": null
+    },
+    {
+      "text": "What math problems can Mathos AI solve?",
+      "aria": null
+    },
+    {
+      "text": "Can Mathos AI help with photo math and P",
+      "aria": null
+    },
+    {
+      "text": "How accurate is the Mathos AI math solve",
+      "aria": null
+    },
+    {
+      "text": "Try Mathos AI",
+      "aria": null
+    },
+    {
+      "text": "",
+      "aria": null
+    }
+  ],
+  "bodyAfter": "Math Solver\n\nAI Tutor\n\nPDF Homework Helper\n\nStudy Tools\n\nToday\n\nDerivative and Local Extrema of f(x)=x³−3x\n\nSay Hello to Mathtube\n\nOur app for iOS\n\nLog in here!\n\nSupports:\n\n3 Days Free Trial\n\nU\nFind the derivative of f(x)=x^3-3x and its local extrema.\nUsing the power rule,\n\n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\n−\n3\n=\n3\n(\n𝑥\n−\n1\n)\n(\n𝑥\n+\n1\n)\n.\nf\n′\n(x)=3x\n2\n−3=3(x−1)(x+1).\nThe critical points satisfy \n𝑓\n′\n(\n𝑥\n)\n=\n0\nf\n′\n(x)=0, so \n𝑥\n=\n−\n1\nx=−1 or \n𝑥\n=\n1\nx=1.\nTo classify them, use \n𝑓\n′\n′\n(\n𝑥\n)\n=\n6\n𝑥\nf\n′′\n(x)=6x:\nAt \n𝑥\n=\n−\n1\nx=−1, \n𝑓\n′\n′\n(\n−\n1\n)\n=\n−\n6\n<\n0\nf\n′′\n(−1)=−6<0, so there is a local maximum with \n𝑓\n(\n−\n1\n)\n=\n2\nf(−1)=2.\nAt \n𝑥\n=\n1\nx=1, \n𝑓\n′\n′\n(\n1\n)\n=\n6\n>\n0\nf\n′′\n(1)=6>0, so there is a local minimum with \n𝑓\n(\n1\n)\n=\n−\n2\nf(1)=−2.\nAnswer: The derivative is \n𝑓\n′\n(\n𝑥\n)\n=\n3\n𝑥\n2\n−\n3\nf\n′\n(x)=3x\n2\n−3\n\t​\n\n; the local maximum is \n(\n−\n1\n,\n2\n)\n(−1,2)\n\t​\n\n, and the local minimum is \n(\n1\n,\n−\n2\n)\n(1,−2)\n\t​\n\n.\nI’ll plot the function to show these two turning points.\n1\n2\n3\n4\nDifferentiated f(x)=x^3-3x using the power rule to obtain f'(x)=3x^2-3. Solved for critical points and used f''(x)=6x to identify a local maximum at (-1,2) and local minimum at (1,-2), illustrated on a graph.\nWant to learn more about this concept?\n\nCreate Flashcards\n\nCreate Quiz\n\nVideo Generation\n\nGenerate Graph\n\nSimilar Questions\n\nRelated Videos\n\nInteractive Games\nNEW\n\nZoom In\n\n1\n﻿\n\nType your question here...\nSend"
+}

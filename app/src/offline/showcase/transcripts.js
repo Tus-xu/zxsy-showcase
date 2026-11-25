@@ -7,9 +7,10 @@
  *   - 题图是本地自编排版的 SVG（原采证里没有这道题的原图，见方案 §3「若缺少该题原图」）；
  *   - 出错提示、引导卡、答案判定都交给引擎，文案不写死在这里。
  */
-import { PROBLEM_IMAGE, VARIANT_V1_IMAGE, FIG_S3_FRAMES } from './assets'
+import { FIG_S3_FRAMES } from './assets'
+import { FLOW_IMAGE } from './flowAssets'
 import { refs } from './knowledge'
-import { V1, quizChain } from './bank'
+import { hyperbolaChain, quizChain } from './bank'
 import { getNode } from './engine'
 
 // 起始节点开场卡的唯一来源是 engine，预置轮次直接取它，避免两处文案漂移
@@ -32,8 +33,10 @@ function img(asset, fileId) {
   ]
 }
 
-const PROBLEM_ATT = (id = 'sc-problem-f1') => img(PROBLEM_IMAGE, id)
-const V1_ATT = (id = 'sc-v1-f1') => img(VARIANT_V1_IMAGE, id)
+// 题图使用随包的真实采证原图（题1.png），不再使用自编 SVG 题图
+const REAL_T1 = { name: '题1.png', mime: 'image/png', dataUri: FLOW_IMAGE.A.url }
+const PROBLEM_ATT = (id = 'sc-problem-f1') => img(REAL_T1, id)
+const V1_ATT = (id = 'sc-v1-f1') => img(REAL_T1, id)
 
 /** 「引导式解题」入口卡：始终可用（方案 §4：不必为进入引导而故意答错） */
 function guideEntry() {
@@ -52,31 +55,21 @@ function guideEntry() {
 const S1 = [
   {
     role: 'user',
-    text: '老师布置了一道关于三次函数的题，我把题目拍下来了。我能求导，但不明白怎么从导数的结果判断单调区间。能把两个极值和判断理由都写出来吗？',
+    text: '我能求出实轴和虚轴的关系，但不知道怎么用它求离心率。能把推导过程写出来吗？',
     attachments: PROBLEM_ATT('sc-s1-f1'),
   },
   {
     role: 'ai',
     text: [
-      '**找候选点**。先求导，$f\'(x)=3x^2-3=3(x+1)(x-1)$。解 $f\'(x)=0$ 得 $x=-1,\\,1$。这两个点先记为候选。',
-      '**看左右符号**。在 $(-\\infty,-1)$、$(-1,1)$、$(1,\\infty)$ 分别取 $-2$、$0$、$2$，导数分别为 $9$、$-3$、$9$，所以函数在这三段上依次递增、递减、递增。',
-      '**判极值并代回原式**。在 $-1$ 处导数由正变负，取得局部极大值 $f(-1)=2$；在 $1$ 处由负变正，取得局部极小值 $f(1)=-2$。极值点的横坐标和极值本身分开写。',
-      '**回扣你的问题**。对于这道多项式题，用导数零点划分区间，再观察每段的导数符号。零点本身只能找到候选。',
+      '你说「能求出实轴和虚轴的关系，但不知道怎么用它求离心率」——卡住的不是化简，是把「两条轴的比例」翻译成「离心率」。就按这道题走一遍。',
+      '题目给的是 $2b=\\sqrt{7}\\cdot2a$，约掉 $2$ 得 $\\frac{b}{a}=\\sqrt{7}$。',
+      '双曲线里 $c^2=a^2+b^2$。两边同除以 $a^2$：',
+      '$$e^2=\\frac{c^2}{a^2}=1+\\left(\\frac{b}{a}\\right)^2=1+7=8$$',
+      '所以 $e=2\\sqrt{2}$（$e>0$），选 D。',
+      '| 量 | 表达式 | 本题 |\n|---|---|---|\n| 实轴长 | $2a$ | — |\n| 虚轴长 | $2b$ | $\\sqrt7\\cdot2a$ |\n| 关系 | $c^2=a^2+b^2$ | $c^2=8a^2$ |\n| 离心率 | $e=\\frac{c}{a}$ | $2\\sqrt2$ |',
+      '回扣你的问题：求离心率不用分别求出 $a,b,c$，拿到 $\\frac{b}{a}$ 后用 $e=\\sqrt{1+(b/a)^2}$ 一步算出来。',
     ].join('\n\n'),
-    cards: [
-      {
-        type: 'showcase_stage',
-        variant: 'explain',
-        stage: '分步推导',
-        title: '看图解释',
-        note: '整条曲线、两处候选点和两个水平切线。',
-        figure: {
-          caption: 'f(x)=x³−3x：在 (−1,2) 取局部极大，在 (1,−2) 取局部极小',
-          frames: FIG_S3_FRAMES.map((f) => ({ data_uri: f.dataUri, label: f.label })),
-        },
-        actions: [{ id: 'toggle_fig', label: '展开图', primary: true }],
-      },
-    ],
+    citations: [],
   },
 ]
 
@@ -85,11 +78,16 @@ const S1 = [
 const S2 = [
   {
     role: 'user',
-    text: '课上说导数是切线的斜率，我知道怎么求导，但看图的时候分不清切线和割线。导数为零是不是就代表函数在这里转弯？',
+    text: '导数为零是不是就代表函数在这里转弯？还有，切线和割线我一直分不清。',
   },
   {
     role: 'ai',
-    text: '在曲线上固定 $A=(a,f(a))$，再取 $B=(a+h,f(a+h))$。割线 $AB$ 的斜率是 $\\dfrac{f(a+h)-f(a)}{h}$。让 $B$ 沿曲线靠近 $A$，如果斜率趋于一个有限值，这个值就是导数 $f\'(a)$，也是 $A$ 点的切线斜率。切线可写成 $y=f(a)+f\'(a)(x-a)$。导数为零只告诉我们这一条切线是水平的；判断局部极值，还得看点两侧函数的走势。',
+    text: [
+      '你说分不清切线和割线，先把这两个词分开：割线是曲线上两点连线的斜率；切线是这两点无限靠近时割线的极限。固定 $A(a,f(a))$，再取 $B(a+h,f(a+h))$，割线 $AB$ 的斜率是',
+      '$$\\frac{f(a+h)-f(a)}{h}$$',
+      '让 $h$ 趋近 $0$（$h\\ne0$），如果这个比值趋近一个有限值，它就是 $f\'(a)$，也就是 $A$ 点切线的斜率。',
+      '你问「导数为零是不是就代表函数在这里转弯」——导数为零只说明切线水平，不说明函数在这里转弯。有没有极值，要看这一点左右两侧的导数符号有没有改变。',
+    ].join('\n\n'),
     citations: refs('sec_tangent', 'sec_flat'),
   },
   {
@@ -98,8 +96,8 @@ const S2 = [
   },
   {
     role: 'ai',
-    text: '它的导数是 $3x^2$，在 $0$ 的两侧都为正。曲线在左边往上走，穿过原点之后还是往上走，所以 $0$ 不是极值点。对照 $x^3-3x$ 在 $x=-1$ 处，导数左正右负，曲线才出现从上升到下降的变化。遇到类似题，先圈出 $f\'(x)=0$ 的位置，再给左右两侧标符号。',
-    citations: refs('sec_flat', 'sec_monotone'),
+    text: '你问「$x^3$ 在原点切线也水平，为什么不是极值」——因为两侧导数都是 $3x^2\\ge0$：左边上升，穿过原点后还在上升，没有先升后降或先降后升。符号没变，就不是极值。',
+    citations: refs('sec_flat'),
   },
 ]
 
@@ -133,12 +131,13 @@ const S3 = [
 const S4 = [
   {
     role: 'user',
-    text: '刚才那题我会求导了，但还是容易把极大和极小搞反。能出三道变式，第一题换系数，第二题改变函数走势，最后一道弄个容易误判的？',
+    text: '就这道双曲线题，我想把「轴比、离心率、换轴」三种问法都练一遍。',
+    attachments: PROBLEM_ATT('sc-s4-f1'),
   },
   {
     role: 'ai',
-    text: '可以。每题都先看导数零点，再判断两侧有没有变号。你可以一题一题作答，提交后我告诉你哪一步值得重看。',
-    cards: [quizChain(), guideEntry()],
+    text: '好，三道都围绕这道题，先看第一问：由 $2b=\\sqrt7\\cdot2a$ 化简，$\\frac{b}{a}$ 是多少？',
+    cards: [hyperbolaChain()],
   },
 ]
 
@@ -147,32 +146,10 @@ const S4 = [
 const S5 = [
   {
     role: 'user',
-    text: '我选 A。x=−1 能让导数等于零，所以我觉得这里是极小值。',
+    text: '我选 C，因为比值就是 √7。',
     attachments: V1_ATT('sc-s5-f1'),
   },
-  {
-    role: 'ai',
-    text: '先把题面放在这里。你选了 A，我们先不急着改口，把这道题拆开看一遍。',
-    cards: [
-      {
-        type: 'showcase_stage',
-        variant: 'retry',
-        stage: '读题',
-        title: '题面与你的首答',
-        question: 'g(x)=2x³−3x²−12x+1 在哪个 x 取得局部极小值？',
-        readonly: true,
-        chosen: 'A',
-        options: [
-          { id: 'A', label: '−1' },
-          { id: 'B', label: '1' },
-          { id: 'C', label: '2' },
-          { id: 'D', label: '−2' },
-        ],
-      },
-    ],
-  },
-  // 读题阶段：直接回应学生的错因（不再题型三选），给出题眼关系与确认
-  openTurn('r_read'),
+  openTurn('s5_signs'),
 ]
 
 /* ───────────────── S6 · 错题复盘 · 把极大看成极小 ───────────────── */
@@ -180,25 +157,13 @@ const S5 = [
 const S6 = [
   {
     role: 'user',
-    text: '刚才第一道变式我第一次选了 A，现在知道应该选 C。能把我为什么做错、下次怎么检查记下来吗？',
+    text: '刚才这道双曲线题，我第一遍选了 C（√7），现在知道应该选 D（2√2）。能把我为什么错、下次怎么检查记下来吗？',
+    attachments: PROBLEM_ATT('sc-s6-f1'),
   },
   {
     role: 'ai',
-    text: '你把会让导数等于零的点直接当成极小值点了。看 −1 两侧，导数由正变负，那里是极大；看 2 两侧，导数由负变正，那里才是极小。下次先写候选点，再按「左侧符号 → 右侧符号 → 极值类型」检查一遍。',
-    cards: [
-      {
-        type: 'showcase_stage',
-        variant: 'errorbook',
-        stage: '订正',
-        title: '记进错题本',
-        question: V1.question_text,
-        options: V1.options,
-        first: 'A',
-        fixed: 'C',
-        reason: '把局部极大当成了局部极小：只看导数等于零，没看两侧符号。',
-        actions: [{ id: 'add_error', label: '加入错题本', primary: true }],
-      },
-    ],
+    text: '你把「两条轴的比」当成了离心率。$\\sqrt7=\\frac{b}{a}$，而 $e=\\frac{c}{a}$；再用 $c^2=a^2+b^2$ 得 $e=\\sqrt8=2\\sqrt2$。下次先写两条轴的关系，再套 $e=\\sqrt{1+(b/a)^2}$。',
+    cards: getNode('s6_entry').build().cards,
     citations: refs('sec_monotone'),
   },
 ]
@@ -208,8 +173,7 @@ const S6 = [
 const COMBO = [
   {
     role: 'user',
-    text: '我知道导数可以看切线的斜率，但怎么用它判断函数在哪儿上升、在哪儿有极值？就用图片里这道三次函数题讲讲吧。',
-    attachments: PROBLEM_ATT('sc-combo-f1'),
+    text: '我知道导数可以看切线的斜率，但怎么用它判断函数在哪儿上升、在哪儿有极值？就用一道三次函数题讲讲吧。',
   },
   {
     role: 'ai',
@@ -246,11 +210,11 @@ export const SEEDS = { s1: S1, s2: S2, s3: S3, s4: S4, s5: S5, s6: S6, combo: CO
 
 /** 每条会话的引擎起点与已发生的首答 */
 export const META = {
-  s1: { start: null },
+  s1: { start: 's1_follow' },
   s2: { start: null },
   s3: { start: null },
-  s4: { start: 's4_entry' },
-  s5: { start: 'r_read', firstAnswer: 'A', fixLabel: '返回题卡订正' },
+  s4: { start: null },
+  s5: { start: 's5_signs', firstAnswer: 'C', fixLabel: '返回题卡订正', s5Reason: 'ratio' },
   s6: { start: 's6_entry' },
   combo: { start: 'c1_invite', fixLabel: '回到这题' },
 }

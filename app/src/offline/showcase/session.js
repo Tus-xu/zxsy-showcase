@@ -10,7 +10,7 @@ import { patch, store } from '../state'
 import { showbookAdder } from './errorbook'
 import { SHOWCASE_BY_KEY } from './catalog'
 import { META, SEEDS } from './transcripts'
-import { newNodeState, opening, step } from './engine'
+import { getNode, newNodeState, opening, step } from './engine'
 import { FIG_LESSON_LINE, FIG_LIMIT_SECANT } from './assets'
 import { QUESTIONS, qidOf } from './bank'
 
@@ -21,7 +21,9 @@ const FIGURE_BY_KEY = {
 
 /** 卡片里的 figureKey → 真实图（只在本层解析，组件拿到的直接是 dataUri） */
 function resolveCards(cards) {
-  return (cards || []).map((c) => {
+  // 示例会话不再输出「第 N 步 / 共 M 步」进度卡：内部教学阶段不是学生需要的信息
+  // （采证回放的 socratic_progress 不受影响，仍按现役原样呈现）
+  return (cards || []).filter((c) => c && (c.card_type || c.type) !== 'socratic_progress').map((c) => {
     if (!c || !c.figureKey) return c
     const fig = FIGURE_BY_KEY[c.figureKey]
     if (!fig) return c
@@ -52,6 +54,7 @@ function createSession(convId) {
     node: meta.start || 'r_read',
     firstAnswer: meta.firstAnswer || null,
     fixLabel: meta.fixLabel || '',
+    s5Reason: meta.s5Reason || null,
   })
   s.turns = seedTurns(key)
   return s
@@ -165,13 +168,21 @@ export function runTurn(convId, body) {
     quizTally: quizTally(prev),
     firstAnswer: prev.node === 'r_read' ? realFirstAnswer(prev) : prev.firstAnswer,
   }
-  const out = step(withTally, { text, tutorAction: body?.context?.tutor_action || '' })
+  const canContinue = META[prev.convKey]?.start || (prev.node !== 'r_read' && getNode(prev.node))
+  const out = canContinue
+    ? step(withTally, { text, tutorAction: body?.context?.tutor_action || '' })
+    : {
+        state: prev,
+        reply: { text: '这次提问没有预设讲解。上面的内容可以随时回看，也可以打开「引导式解题 · 双曲线离心率」继续练习。' },
+      }
   const reply = out.reply || { text: '', cards: [] }
 
   const n = prev.turns.length
+  const UI_ACTION = /^(返回题卡订正|回到这题|返回原题|回到原题|回到题卡|订正)$/
   const userTurn = {
     id: `${convId}-u-${n}`,
     role: 'user',
+    system: UI_ACTION.test(text),
     text,
     cards: [],
     figures: [],
@@ -224,24 +235,95 @@ export function openingTurn(convId) {
 
 /* ───────────── 事件与历史 ───────────── */
 
+/**
+ * 把一段回答切成逐段呈现的文本片段。
+ * - 不在行内公式 $...$、块公式 $$...$$、加粗 **...** 与行内代码 `...` 内部断开；
+ * - 优先在标点/换行处断句，其次按长度（max）强制断；
+ * - 拼接结果与原文逐字一致（历史与刷新不依赖片段）。
+ */
+export function splitStreamPieces(text, { min = 6, max = 48 } = {}) {
+  const src = String(text || '')
+  if (!src) return []
+  const out = []
+  let buf = ''
+  let math = 0 // 0 none / 1 inline $...$ / 2 display $$...$$
+  let bold = false
+  let code = false
+  const isPunct = (ch) => ch === '\n' || '，。！？；：、,.!?;:'.includes(ch)
+  for (let i = 0; i < src.length; i++) {
+    const ch = src[i]
+    if (ch === '$') {
+      if (src[i + 1] === '$') {
+        buf += '$$'
+        i++
+        math = math === 2 ? 0 : 2
+        continue
+      }
+      buf += '$'
+      math = math === 1 ? 0 : 1
+      continue
+    }
+    if (ch === '*' && src[i + 1] === '*') {
+      buf += '**'
+      i++
+      bold = !bold
+      continue
+    }
+    if (ch === '`') {
+      buf += ch
+      code = !code
+      continue
+    }
+    buf += ch
+    const safe = math === 0 && !bold && !code
+    if ((safe && isPunct(ch) && buf.length >= min) || buf.length >= max) {
+      out.push(buf)
+      buf = ''
+    }
+  }
+  if (buf) out.push(buf)
+  return out.length ? out : [src]
+}
+
+/** 片段的自然停顿（毫秒）：句末 > 换行/分号 > 逗号 > 普通 */
+function piecePause(piece) {
+  const tail = piece.slice(-1)
+  if ('。！？!?'.includes(tail)) return 120
+  if (tail === '\n') return 90
+  if ('；;'.includes(tail)) return 70
+  if ('，、：,:'.includes(tail)) return 48
+  return 26
+}
+
 export function toEvents(aiTurn, convId) {
-  const evs = [{ event: 'meta', data: { conversation_id: convId, skill: 'socratic' } }]
-  if (aiTurn.text) evs.push({ event: 'token', data: { text: aiTurn.text } })
-  for (const c of aiTurn.cards || []) evs.push({ event: 'card', data: c })
-  for (const f of aiTurn.figures || []) evs.push({ event: 'figure', data: f })
-  if (aiTurn.citations?.length) evs.push({ event: 'citation', data: { items: aiTurn.citations } })
-  evs.push({ event: 'done', data: {} })
+  // meta 先到（会话 id 立即生效），留一段等待态再开始吐字
+  const evs = [{ event: 'meta', data: { conversation_id: convId, skill: 'socratic' }, delay: 420 }]
+  if (aiTurn.text) {
+    for (const piece of splitStreamPieces(aiTurn.text)) {
+      evs.push({ event: 'token', data: { text: piece }, delay: piecePause(piece) })
+    }
+  }
+  for (const c of aiTurn.cards || []) evs.push({ event: 'card', data: c, delay: 160 })
+  for (const f of aiTurn.figures || []) evs.push({ event: 'figure', data: f, delay: 160 })
+  if (aiTurn.citations?.length) evs.push({ event: 'citation', data: { items: aiTurn.citations }, delay: 120 })
+  evs.push({ event: 'done', data: {}, delay: 40 })
   return evs
 }
 
 /** 轮次 → GET /conversations/{id}/messages 的 item（与采证回放同形状） */
 export function toHistoryItems(convId) {
-  const turns = sessionTurns(convId)
+  const session = ensureSession(convId)
+  const turns = session.turns
   const t0 = Date.now() - turns.length * 60_000
   const items = turns.map((t, i) => {
+    // 只更新原始讲解、题图和卡片的呈现，访客发送的轮次始终使用已保存的内容。
+    const seed = t.id === `${session.convKey}-seed-${i}` ? SEEDS[session.convKey]?.[i] : null
+    const text = seed?.text ?? t.text
     const blocks = []
-    if (t.text) blocks.push({ type: 'markdown', content: t.text })
-    for (const c of t.cards || []) blocks.push({ type: 'card', data: c })
+    if (text) blocks.push({ type: 'markdown', content: text })
+    if (t.aborted) blocks.push({ type: 'notice', content: '已停止回复' })
+    const cards = seed ? resolveCards(seed.cards || []) : t.cards || []
+    for (const c of cards) blocks.push({ type: 'card', data: c })
     for (const f of t.figures || []) blocks.push({ type: 'figure', ...f })
     if (t.citations?.length) blocks.push({ type: 'citation', items: t.citations })
     const isAi = t.role === 'ai'
@@ -256,8 +338,10 @@ export function toHistoryItems(convId) {
         blocks,
         ...(isAi ? { meta: { skill: 'socratic', conversation_id: convId, msg_id: `${convId}-m-${i}` } } : {}),
       },
-      attachments: t.attachments || [],
+      attachments: seed?.attachments || t.attachments || [],
       thinking: null,
+      system: !!t.system,
+      sample: /-seed-\d+$/.test(String(t.id || '')),
     }
   })
   // 现役 /messages 返回「最新在前」，界面渲染时再反转

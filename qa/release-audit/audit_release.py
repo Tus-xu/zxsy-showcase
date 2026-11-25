@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+﻿# -*- coding: utf-8 -*-
 """发行包断网审计：逐页访问 + 样板一全流程，统计 http(s)/ws 请求、页面错误、破图。
 
 用法（候选包可显式指定，避免把上轮发行包当成新版本）：
@@ -21,7 +21,7 @@ _args, _ = _ap.parse_known_args()
 ROOT = _args.root
 REL = _args.entry or os.path.join(ROOT, 'release', '开始演示.html')
 ENTRY = 'file:///' + os.path.abspath(REL).replace('\\', '/')
-PLANS = r'D:\zxsy-math-arena\docs\superpowers\plans'
+PLANS = os.path.join(ROOT, 'app', 'src', 'assets', 'showcase')  # ti1.png；不回读原真实项目
 OUT = _args.out or os.path.join(ROOT, 'qa', 'release-audit')
 SHOTS = os.path.join(OUT, 'shots')
 os.makedirs(OUT, exist_ok=True)
@@ -57,7 +57,7 @@ def login_off(page, role):
 
 
 with sync_playwright() as p:
-    b = p.chromium.launch(headless=True)
+    b = p.chromium.launch(headless=True, channel='chrome')
     total_http = 0
     total_err = 0
     for role, routes in ROUTES.items():
@@ -109,9 +109,9 @@ with sync_playwright() as p:
     try:
         with page.expect_file_chooser(timeout=8000) as fc:
             page.locator('.he-card', has_text='拍一道不会的题').first.click()
-        fc.value.set_files(os.path.join(PLANS, '题1.png'))
+        fc.value.set_files(os.path.join(PLANS, 'ti1.png'))
     except Exception:
-        page.locator('input[type=file]').first.set_input_files(os.path.join(PLANS, '题1.png'))
+        page.locator('input[type=file]').first.set_input_files(os.path.join(PLANS, 'ti1.png'))
     for _ in range(60):
         if page.locator('.att-card.ready').count():
             break

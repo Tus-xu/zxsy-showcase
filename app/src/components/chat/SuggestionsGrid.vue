@@ -1,23 +1,23 @@
 <template>
-  <!-- 建议卡：首轮发送后收起为 slim 条（可点击展开），空会话默认展开 -->
-  <div v-if="collapsed && !expanded" class="sugg-slim" @click="expanded = true">
-    <span class="sugg-slim-text">💡 试试这些提问</span>
-    <span class="sugg-slim-arrow">▸</span>
-  </div>
-  <div v-else class="sugg-wrap">
-    <div v-if="collapsed" class="sugg-fold" @click="expanded = false">
-      <span>收起建议</span><span class="sugg-slim-arrow">▾</span>
-    </div>
-    <div class="sugg-grid">
+  <div class="sugg" @keydown.esc="close">
+    <button
+      v-if="collapsed"
+      ref="toggleRef"
+      type="button"
+      class="sugg-toggle"
+      :aria-expanded="expanded"
+      @click="expanded = !expanded"
+    >
+      {{ expanded ? '收起建议' : '提问建议' }}
+      <UiIcon name="chevron-right" :size="13" />
+    </button>
+    <div v-if="!collapsed || expanded" class="sugg-grid" aria-label="提问建议" tabindex="0">
       <button
-        v-for="s in suggestions" :key="s.text" class="sugg-chip"
-        :class="{ 'sugg-chip--rec': !!s.reason }" :title="s.reason || ''"
-        @click="$emit('pick', s)"
+        v-for="s in suggestions" :key="s.text" type="button" class="sugg-chip"
+        :disabled="disabled" :title="s.reason || ''"
+        @click="pick(s)"
       >
         {{ s.text }}
-        <span v-if="s.reason" class="sugg-reason">{{ s.reason }}</span>
-        <span v-else-if="s.rec" class="sugg-rec">个性化</span>
-        <span v-if="s.skill" class="sugg-skill">{{ skillTag(s.skill) }}</span>
       </button>
     </div>
   </div>
@@ -26,11 +26,13 @@
 <script setup>
 import { computed, onMounted, ref, watch } from 'vue'
 import { api } from '@/api/client'
-import { skillByKey } from '@/config/skills'
+import UiIcon from '@/components/common/UiIcon.vue'
 
 const props = defineProps({
   /** 首轮发送后收起（由父级按 messages.length 驱动） */
   collapsed: { type: Boolean, default: false },
+  disabled: { type: Boolean, default: false },
+  presetOnly: { type: Boolean, default: false },
   /**
    * 学情驱动的推荐（父级 HomeLearningPanel 同源数据）。
    * 每项 { text, reason, skill?, action?, ask?, item? }：reason 是可见的“为什么推荐”。
@@ -38,11 +40,22 @@ const props = defineProps({
    */
   personalized: { type: Array, default: null },
 })
-defineEmits(['pick']) // pick({ text, skill, reason, action, ask, item })
+const emit = defineEmits(['pick'])
 
 const expanded = ref(false)
-// 新会话（collapsed 变 false）时重置为展开态
-watch(() => props.collapsed, (v) => { if (!v) expanded.value = false })
+const toggleRef = ref(null)
+watch(() => props.collapsed, () => { expanded.value = false })
+
+function close() {
+  if (!expanded.value) return
+  expanded.value = false
+  toggleRef.value?.focus()
+}
+
+function pick(suggestion) {
+  close()
+  emit('pick', suggestion)
+}
 
 // 兜底：父级未传数据时，仍按真实 weak-points 生成（不伪造学情）
 const fetched = ref([])
@@ -67,7 +80,7 @@ onMounted(async () => {
 })
 const suggestions = computed(() => [
   ...(props.personalized !== null ? props.personalized : fetched.value),
-  ...EVERGREEN,
+  ...(props.presetOnly ? [] : EVERGREEN),
 ])
 
 const EVERGREEN = [
@@ -81,54 +94,25 @@ const EVERGREEN = [
   { text: '帮我梳理本周该复习什么', skill: '' },
 ]
 
-function skillTag(key) {
-  return skillByKey(key).icon
-}
 </script>
 
 <style scoped>
-.sugg-grid { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.sugg { padding-bottom: 7px; }
+.sugg-toggle {
+  display: inline-flex; align-items: center; gap: 5px; min-height: 28px; padding: 2px 5px;
+  background: none; border: 0; color: var(--ink2); font: inherit; font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.sugg-toggle:hover { color: var(--brand-deep); }
+.sugg-toggle[aria-expanded="true"] :deep(.ui-icon) { transform: rotate(90deg); }
+.sugg-grid {
+  display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 3px;
+  max-height: min(86px, 16dvh); overflow: auto; scrollbar-width: thin;
+}
 .sugg-chip {
-  padding: var(--space-2) var(--space-4); border-radius: var(--radius-full); font-size: var(--text-xs); cursor: pointer;
-  border: 1px solid var(--border); background: var(--bg-white); color: var(--text-secondary);
-  transition: all var(--transition-fast); font-family: var(--font);
-  display: inline-flex; align-items: center; gap: var(--space-1);
+  min-height: 31px; padding: 3px 11px; border-radius: var(--radius-full);
+  border: 1px solid var(--border); background: var(--card); color: var(--ink2);
+  font: inherit; font-size: 12px; text-align: left; cursor: pointer;
 }
-.sugg-chip:hover {
-  border-color: var(--border-strong); color: var(--text-primary);
-  background: var(--bg-subtle);
-}
-.sugg-skill {
-  font-size: 10px; padding: 0 var(--space-1); border-radius: var(--radius-full);
-  background: var(--primary-subtle); color: var(--primary);
-}
-.sugg-rec {
-  font-size: 10px; padding: 0 var(--space-1); border-radius: var(--radius-full);
-  background: linear-gradient(135deg, #eef2ff, #ecfeff); color: #4f46e5; font-weight: 700;
-}
-.sugg-chip--rec {
-  border-color: var(--primary-border);
-  background: linear-gradient(135deg, rgba(238, 242, 255, .9), rgba(255, 255, 255, .95));
-  color: var(--ink);
-}
-.sugg-reason {
-  font-size: 9.5px; padding: 1px 7px; border-radius: 999px; font-weight: 800; letter-spacing: .01em;
-  background: var(--brand-soft); color: var(--brand-deep); white-space: nowrap;
-}
-/* slim 收起条 */
-.sugg-slim {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: var(--space-1) var(--space-3); margin: 0 var(--space-4) var(--space-2);
-  border: 1px dashed var(--border); border-radius: var(--radius-full);
-  font-size: var(--text-xs); color: var(--text-muted); cursor: pointer;
-  transition: all var(--transition-fast); user-select: none;
-}
-.sugg-slim:hover { border-color: var(--border-strong); color: var(--text-secondary); background: var(--bg-subtle); }
-.sugg-slim-arrow { font-size: 10px; }
-.sugg-fold {
-  display: flex; align-items: center; justify-content: flex-end; gap: 4px;
-  padding: 0 var(--space-4) var(--space-1);
-  font-size: 11px; color: var(--text-muted); cursor: pointer; user-select: none;
-}
-.sugg-fold:hover { color: var(--text-secondary); }
+.sugg-chip:hover:not(:disabled) { border-color: var(--primary-border); color: var(--brand-deep); background: var(--brand-soft); }
+.sugg-chip:disabled { cursor: default; opacity: .65; }
 </style>

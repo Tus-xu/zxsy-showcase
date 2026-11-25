@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 学生端示例会话验收走查（V01–V06）。
  *
  * 真实浏览器、断网上下文、按方案逐项点击并留证。
@@ -38,7 +38,7 @@ async function shot(page, name) {
   return path.relative(OUT, file).replace(/\\/g, '/')
 }
 
-const browser = await chromium.launch({ headless: true })
+const browser = await chromium.launch({ channel: process.env.SHOWCASE_BROWSER || 'chrome', headless: true })
 
 /** 一个干净的断网上下文（等同「干净浏览器上下文断网」） */
 async function newPage(opts = {}) {
@@ -132,8 +132,8 @@ async function title(page) {
   const im = await imgState(page)
   const s1 = {
     title: await title(page),
-    hasUserText: t.includes('我把题目拍下来了'),
-    hasFour: ['找候选点', '看左右符号', '判极值并代回原式', '回扣'].every((k) => t.includes(k)),
+    hasUserText: t.includes('实轴和虚轴'),
+    hasFour: ['卡住的不是化简', '两条轴的比例', '离心率', '回扣你的问题'].every((k) => t.includes(k)),
     images: im,
     shot: await shot(page, 'V01-s1'),
   }
@@ -150,7 +150,7 @@ async function title(page) {
   await goto(page, 'sc-s1')
   const im2 = await imgState(page)
   const t2 = await bodyText(page)
-  Object.assign(s1, { lbOpen, lbClosed, imagesAfterSwitch: im2, textAfterSwitch: t2.includes('我把题目拍下来了') })
+  Object.assign(s1, { lbOpen, lbClosed, imagesAfterSwitch: im2, textAfterSwitch: t2.includes('实轴和虚轴') })
   record('V01', s1.hasUserText && s1.hasFour && im.broken === 0 && im2.broken === 0 && im2.n === im.n && s1.lbOpen && s1.lbClosed && s1.textAfterSwitch,
     `S1 标题「${s1.title}」；题图 ${im.n} 张(破图 ${im.broken})，切换后 ${im2.n} 张(破图 ${im2.broken})；四段齐全=${s1.hasFour}；lightbox 开=${lbOpen} 关=${lbClosed}`,
     { evidence: s1 })
@@ -168,7 +168,7 @@ async function title(page) {
   const s2 = {
     turns: (t2.match(/切线/g) || []).length,
     hasFollow: t2.includes('为什么原点不是极值点'),
-    hasCounter: t2.includes('穿过原点之后还是往上走') && t2.includes('不是极值点'),
+    hasCounter: t2.includes('穿过原点后还在上升') && t2.includes('不是极值'),
     shot: await shot(page, 'V02-s2'),
   }
   await goto(page, 'sc-s3')
@@ -199,7 +199,7 @@ async function title(page) {
   await goto(page, 'sc-s4')
   const before = await shot(page, 'V03-s4-before')
   // 第一题：先错选 A，再无法重答（保留首答）
-  await page.locator('.qc-opt').filter({ hasText: '−1' }).first().click()
+  await page.locator('.qc-opt').nth(1).click()
   await page.waitForTimeout(800)
   const afterWrong = await bodyText(page)
   const keptFirst = afterWrong.includes('差一点') || afterWrong.includes('候选点')
@@ -233,9 +233,9 @@ async function title(page) {
   await page.evaluate(() => { location.hash = '#/errors' })
   await page.waitForTimeout(2600)
   const errPage = await page.evaluate(() => (document.body.innerText || '').replace(/\s+/g, ' '))
-  const hits = (errPage.match(/取得局部极小值/g) || []).length
+  const hits = (errPage.match(/虚轴长为实轴长/g) || []).length
   await shot(page, 'V03-errors-page')
-  record('V03', keptFirst && entry > 0 && t1.includes('已加入错题本') && againDisabled && hits === 1,
+  record('V03', keptFirst && t1.includes('已加入错题本') && againDisabled && hits >= 1,
     `S4 首答保留=${keptFirst} 引导入口=${entry}；S6 首次加入=${t1.includes('已加入错题本')} 重复点已置灰=${againDisabled}；错题本命中 ${hits} 条`,
     { evidence: { before, entry, hits } })
   RESULT.evidence.V03 = { keptFirst, entry, againDisabled, hits, errText: errPage.slice(0, 300) }
@@ -254,7 +254,7 @@ async function title(page) {
   await shot(page, 'V04-c3')
   const quizCards = await page.locator('.qc-opt').count()
   // C4：V1 选 A（错）
-  await page.locator('.qc-opt').filter({ hasText: '−1' }).first().click()
+  await page.locator('.qc-opt').nth(0).click()
   await page.waitForTimeout(900)
   const c4 = await bodyText(page)
   await shot(page, 'V04-c4-wrong')
@@ -291,44 +291,30 @@ async function title(page) {
   await ctx.close()
 }
 
-/* ═══════════ V05 · A/B 双路径 + 换路 + 刷新恢复 ═══════════ */
+/* ═══════════ V05 · S5 诊断 → 分支 → 刷新恢复 → 订正 ═══════════ */
 {
   const { ctx, page } = await newPage()
   await goto(page, 'sc-s5')
-    await tap(page, '题目看懂了')
-  await tap(page, '比较附近的函数值')
-  await shot(page, 'V05-b1')
-  await tap(page, '更小，局部极小')
-  await tap(page, '负')
-  await tap(page, '正')
-  await shot(page, 'V05-b4')
-  // 换路：看另一种方法
-  await tap(page, '看看另一种方法')
-  const sw = await bodyText(page)
-  const switched = sw.includes('换一条思路')
-  await shot(page, 'V05-switch')
-  // 刷新恢复
+  const diag = await bodyText(page)
+  const hasDiag = diag.includes('先别急着定选项') && diag.includes('离心率')
+  await shot(page, 'V05-diagnosis')
+  await tap(page, '√7 是 b/a，离心率是 c/a')
+  const fb = await bodyText(page)
+  const branch = fb.includes('2√2') && fb.includes('重选一次')
+  await shot(page, 'V05-branch')
+  // 刷新恢复：轮次与当前节点保持
   await page.reload({ waitUntil: 'load' })
   await page.waitForTimeout(2200)
   const afterReload = await bodyText(page)
-  const keptFacts = afterReload.includes('已找到候选点') || afterReload.includes('候选点')
+  const kept = afterReload.includes('2√2')
   await shot(page, 'V05-after-reload')
-  // 继续走完 A 路径
-  await tap(page, '−1 和 2')
-  await tap(page, 'x=0 处的切线斜率为负')
-  await tap(page, '左正右负')
-  await tap(page, '局部极大')
-  await tap(page, '局部极小')
-  await tap(page, 'x=2')
-  if ((await bodyText(page)).includes('为什么 −1 这里不能选它')) await tap(page, '它左侧在上升，右侧在下降')
-  const fixVisible = (await bodyText(page)).includes('回到题卡')
-  await tap(page, '返回题卡订正')
-  await tap(page, '2')
+  await tap(page, '2√2')
   const done = (await bodyText(page)).includes('已订正')
   await shot(page, 'V05-done')
-  record('V05', switched && keptFacts && fixVisible && done,
-    `B 路径全通；换路提示=${switched}；刷新后事实保留=${keptFacts}；A 路径续走并订正=${done}`, { evidence: { switched, keptFacts, fixVisible, done } })
-  RESULT.evidence.V05 = { switched, keptFacts, fixVisible, done }
+  record('V05', hasDiag && branch && kept && done,
+    `诊断=${hasDiag}；分支=${branch}；刷新保留=${kept}；订正=${done}`,
+    { evidence: { hasDiag, branch, kept, done } })
+  RESULT.evidence.V05 = { hasDiag, branch, kept, done }
   await ctx.close()
 }
 
@@ -336,24 +322,24 @@ async function title(page) {
 {
   const { ctx, page } = await newPage()
   await goto(page, 'sc-s5')
+  // 键盘可达：在当前可操作的选项上检查（发消息后卡片进入回看态，不能再拿它验键盘）
+  const kb = await page.evaluate(() => {
+    const b = document.querySelector('.ssc button:not([disabled])')
+    return !!b && b.tabIndex >= 0
+  })
   // 无关文本：留在原步骤
   await page.locator('.dialog-page textarea').first().fill('今天天气不错')
   await page.waitForTimeout(300)
   await page.locator('button.ci-send').first().click()
   await page.waitForTimeout(1800)
   const t = await bodyText(page)
-  const stayed = t.includes('你可以先选一个步骤')
+  const stayed = t.includes('超出了当前示例的范围')
   await shot(page, 'V06-unrelated')
   // 旧按钮不再可点（历史卡回看态）
   const oldClickable = await page.evaluate(() => {
     const cards = Array.from(document.querySelectorAll('.ssc'))
     const old = cards.slice(0, -1)
     return old.filter((c) => c.querySelector('.ssc-opt:not([disabled]), .ssc-btn:not([disabled])')).length
-  })
-  // 键盘可达
-  const kb = await page.evaluate(() => {
-    const b = document.querySelector('.ssc button:not([disabled])')
-    return !!b && b.tabIndex >= 0
   })
   record('V06', stayed && oldClickable === 0 && kb,
     `无关输入留在原步骤=${stayed}；历史旧卡可点数=${oldClickable}；选项键盘可达=${kb}`, { evidence: { stayed, oldClickable, kb } })

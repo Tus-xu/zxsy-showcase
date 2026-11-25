@@ -5,9 +5,8 @@
  * （app/src/offline/fixtures/student/uploads.json）。
  *
  * 匹配依据：
- *   1) 现役前端上传请求体里的 sha256（useFileUpload.js 对压缩后文件算的哈希）——若采证时记录了就精确匹配；
- *   2) 文件名（发行包素材固定为 题1.png/题2.png/题3.png）——兜底，保证演示现场改名也不会错配到别的题；
- *   3) 都不命中 → 明确告知「未采证」，不返回假数据。
+ * 学生端以附件内容确认录制案例，改名后仍可识别同一张题图。
+ * 其他调用方保留原有文件名回退。
  */
 import { patch, store } from '../state'
 
@@ -28,6 +27,7 @@ for (const text of Object.values(RAW)) {
       sha = (JSON.parse(entry.upload_req || '{}').sha256 || '').toLowerCase()
     } catch { /* ignore */ }
     if (sha) BY_SHA[sha] = rec
+    if (entry.raw_sha256) BY_SHA[entry.raw_sha256.toLowerCase()] = rec
     if (entry.image) BY_NAME[String(entry.image).toLowerCase()] = rec
     if (entry.file_id) BY_FILEID[entry.file_id] = rec
   }
@@ -36,18 +36,30 @@ for (const text of Object.values(RAW)) {
 export const UPLOAD_CASES = Object.keys(BY_NAME).length
 export const UPLOAD_FILES = BY_FILEID
 
-function pick(body) {
+function capturedResponse(raw) {
+  try {
+    const response = JSON.parse(raw)
+    const recorded = response?.resp
+    return typeof recorded === 'string' ? JSON.parse(recorded) : recorded ?? response
+  } catch {
+    return null
+  }
+}
+
+function pick(body, matchContents) {
   const sha = String(body?.sha256 || '').toLowerCase()
-  if (sha && BY_SHA[sha]) return BY_SHA[sha]
+  const match = sha && BY_SHA[sha]
+  if (match || matchContents) return match || null
   const name = String(body?.filename || '').toLowerCase()
   if (name && BY_NAME[name]) return BY_NAME[name]
   // 允许「我的资料」等其它用途：按扩展名找不到时就返回未收录
   return null
 }
 
-export function handleUpload(body) {
-  const rec = pick(body)
-  if (!rec) {
+export function handleUpload(body, { matchContents = false } = {}) {
+  const rec = pick(body, matchContents)
+  const payload = capturedResponse(rec?.upload_resp)
+  if (!rec || !payload) {
     return {
       ok: false,
       payload: {
@@ -60,7 +72,7 @@ export function handleUpload(body) {
   patch((s) => {
     s.files = { ...(s.files || {}), [rec.file_id]: rec.case }
   })
-  return { ok: true, payload: JSON.parse(rec.upload_resp) }
+  return { ok: true, payload }
 }
 
 export function handleFileRoute(method, path) {
@@ -70,21 +82,19 @@ export function handleFileRoute(method, path) {
   const sub = m[2] || ''
   const rec = BY_FILEID[fileId]
   if (!rec) return null
-  if (method === 'POST' && sub === '/parse') return JSON.parse(rec.parse_resp || '{"code":0,"message":"ok","data":{"ok":true}}')
+  if (method === 'POST' && sub === '/parse') return capturedResponse(rec.parse_resp) ?? { code: 0, message: 'ok', data: { ok: true } }
   if (method === 'POST' && sub === '/complete') return { code: 0, message: 'ok', data: { ok: true } }
   if (method === 'GET' && sub === '/content') {
-    return rec.content_resp ? JSON.parse(rec.content_resp) : { code: 0, message: 'ok', data: { text: '' } }
+    return capturedResponse(rec.content_resp) ?? { code: 0, message: 'ok', data: { text: '' } }
   }
   if (method === 'GET' && !sub) {
-    if (rec.detail_resp) {
-      try { return JSON.parse(rec.detail_resp) } catch { /* fallthrough */ }
-    }
-    let parsed = {}
-    try { parsed = JSON.parse(rec.upload_resp || '{}') } catch { /* ignore */ }
+    const detail = capturedResponse(rec.detail_resp)
+    if (detail) return detail
+    const upload = capturedResponse(rec.upload_resp)
     return {
       code: 0,
       message: 'ok',
-      data: { file_id: fileId, status: 'parsed', parse_engine: parsed?.data?.parse_engine || 'mimo_vision' },
+      data: { file_id: fileId, status: 'parsed', parse_engine: upload?.data?.parse_engine || 'mimo_vision' },
     }
   }
   return null

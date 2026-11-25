@@ -1,0 +1,30 @@
+{
+  "url": "https://www.desmos.com/calculator",
+  "startedAt": "2026-11-25T11:53:24.867Z",
+  "steps": [
+    "2026-11-25T11:53:34.965Z shot 01 empty",
+    "2026-11-25T11:53:38.353Z typed f(x)=x^3-3x",
+    "2026-11-25T11:53:42.474Z added points (1,-2) (-1,2)",
+    "2026-11-25T11:53:44.679Z created slider a=1",
+    "2026-11-25T11:53:47.598Z typed g(x)=x^3-3x+a",
+    "2026-11-25T11:53:49.520Z moved slider"
+  ],
+  "expressions": [
+    "\"x\" | Expression 1: \"f\" left parenthesis, \"x\" , right parenthesis equals \"x\" cubed minus 3 \"x\" Has graph. To audio trace, press ALT+T. | f | x | =x3−3x | 1",
+    "right parenthesis | Hidden Label: left parenthesis, 1 , negative 2 , right parenthesis Has graph. To audio trace, press ALT+T. | 1,−2 | Label | 2",
+    "right parenthesis | Hidden Label: left parenthesis, negative 1 , 2 , right parenthesis Has graph. To audio trace, press ALT+T. | −1,2 | Label | 3",
+    "1 | Expression 4: \"a\" equals 8.7 | a=8.7 | negative 10 | −10 | 10 | 10 | 4",
+    "\"a\" | Expression 5: \"g\" left parenthesis, \"x\" , right parenthesis equals \"x\" cubed minus 3 \"x\" plus \"a\" Has graph. To audio trace, press ALT+T. | g | x | =x3−3x",
+    "Expression 6: | 6",
+    "7"
+  ],
+  "sliderCount": 1,
+  "sliderBox": {
+    "x": 53,
+    "y": 361.328125,
+    "width": 393,
+    "height": 22
+  },
+  "textSample": "Untitled Graph\nSave\nLog In\nSign Up\n\"x\"\nExpression 1: \"f\" left parenthesis, \"x\" , right parenthesis equals \"x\" cubed minus 3 \"x\" Has graph. To audio trace, press ALT+T.\nf\nx\n=x3−3x\n1\nright parenthesis\nHidden Label: left parenthesis, 1 , negative 2 , right parenthesis Has graph. To audio trace, press ALT+T.\n1,−2\nLabel\n2\nright parenthesis\nHidden Label: left parenthesis, negative 1 , 2 , right parenthesis Has graph. To audio trace, press ALT+T.\n−1,2\nLabel\n3\n1\nExpression 4: \"a\" equals 8.7\na=8.7\nnegative 10\n−10\n10\n10\n4\n\"a\"\nExpression 5: \"g\" left parenthesis, \"x\" , right parenthesis equals \"x\" cubed minus 3 \"x\" plus \"a\" Has graph. To audio trace, press ALT+T.\ng\nx\n=x3−3x+a\n5\nExpression 6:\n6\n7\nLog in or sign up to save your beautiful math!\npowered by\n\"x\"\nx\n\"y\"\ny\n\"a\" squared\na2\n\"a\" Superscript, \"b\" , Baseline\nab\n7\n7\n8\n8\n9\n9\ndivided by\n÷\nfunctions\n(\n(\n)\n)\nless than\n<\ngreater than\n>\n4\n4\n5\n5\n6\n6\ntimes\n×\n| \"a\" |\n|a|\n,\n,\nless than or equal to\n≤\ngreater than or equal to\n≥\n1\n1\n2\n2\n3\n3\nnegative\n−\nA B C\nStart Root, , End Root\npi\nπ\n0\n0\n.\n.\nequals\n=\npositive\n+",
+  "endedAt": "2026-11-25T11:53:49.532Z"
+}

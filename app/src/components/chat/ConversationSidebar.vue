@@ -53,7 +53,7 @@
                 @blur="submitRename(c)"
               />
               <template v-else>
-                <div class="cs-item-title" @dblclick.stop="startRename(c)">
+                <div class="cs-item-title" :title="c.title || '新对话'" @dblclick.stop="startRename(c)">
                   <UiIcon v-if="c.pinned" name="pin" :size="11" class="cs-title-pin" />{{ c.title || '新对话' }}
                 </div>
                 <div class="cs-item-time">{{ fmtTime(when(c)) }}</div>

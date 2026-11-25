@@ -1,0 +1,20 @@
+{
+  "tried": [
+    {
+      "url": "https://xiaoyuanai.cn/",
+      "error": "Error: page.goto: net::ERR_CONNECTION_CLOSED at https://xiaoyuanai.cn/\nCall log:\n  \u001b[2m- navigating to \"https://xiaoyuanai.cn/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "url": "https://ai.yuanfudao.com/",
+      "error": "Error: page.goto: net::ERR_CONNECTION_CLOSED at https://ai.yuanfudao.com/\nCall log:\n  \u001b[2m- navigating to \"https://ai.yuanfudao.com/\", waiting until \"domcontentloaded\"\u001b[22m\n"
+    },
+    {
+      "url": "https://www.xiaoyuansouti.com/",
+      "error": "Error: page.goto: net::ERR_CERT_COMMON_NAME_INVALID at https://www.xiaoyuansouti.com/\nCall log:\n  \u001b[2m- navigating to \"https://www.xiaoyuansouti.com/\", waiting until \"domcontentloa"
+    },
+    {
+      "url": "https://www.yuanfudao.com.cn/",
+      "error": "Error: page.goto: net::ERR_CONNECTION_CLOSED at https://www.yuanfudao.com.cn/\nCall log:\n  \u001b[2m- navigating to \"https://www.yuanfudao.com.cn/\", waiting until \"domcontentloaded\"\u001b[22m"
+    }
+  ]
+}

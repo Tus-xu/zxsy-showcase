@@ -197,6 +197,35 @@ describe('B 路径（比较附近函数值）与换路', () => {
 })
 
 describe('无关输入与边界', () => {
+  it('明确拒绝练习时保留邀请，之后仍能选练习', () => {
+    const state = newNodeState('combo', { stage: 'method', node: 'c1_invite' })
+    const declined = step(state, { text: '先不练' })
+    expect(declined.state.node).toBe('c1_invite')
+    expect(declined.reply.cards.some((card) => card.type === 'quiz_set')).toBe(false)
+    expect(step(declined.state, { text: '可以，出三题' }).state.node).toBe('c_quiz')
+  })
+
+  it('未预设的提问即使含有「继续」也不作为继续确认', () => {
+    const out = step(firstA(), { text: '先别继续，我想问黎曼曲率张量' })
+    expect(out.state.node).toBe('r_read')
+    expect(out.reply.text).toBe(T.unknown)
+  })
+
+  it('已经订正的题留在完成态，不因新提问回到读题', () => {
+    const state = { ...firstA(), node: 'done', stage: 'done', corrected: true }
+    const out = step(state, { text: '题目看懂了' })
+    expect(out.state.node).toBe('done')
+    expect(out.reply.text).toContain('已经完成')
+  })
+
+  it('错题复盘遇到无关文本后仍可加入错题本', () => {
+    const state = newNodeState('s6', { node: 's6_entry' })
+    const out = step(state, { text: '黎曼曲率张量怎么计算？' })
+    expect(out.state.node).toBe('s6_entry')
+    expect(out.reply.cards[0].actions[0].id).toBe('add_error')
+    expect(step(state, { text: '这题我先不要加入错题本' }).state.errorSaved).toBeFalsy()
+  })
+
   it('无关文本留在原步骤，不推进', () => {
     const s = firstA()
     const out = step(s, { text: '今天天气不错' })
@@ -308,7 +337,10 @@ describe('文案与数学校对', () => {
     })
     expect(warm.corrected).toBe(true)
     expect(warm.lines.join('')).toContain('候选点')
-    expect(warm.lines.join('')).toContain('改选了 C')
+    expect(warm.lines.join('')).toContain('确认了选项 C')
+
+    const revised = summaryOf({ ...newNodeState('s5'), corrected: true, firstAnswer: 'A' })
+    expect(revised.lines.join('')).toContain('改选了 C，首答 A 仍然保留')
   })
 
   it('归一化能吃下等价写法', () => {

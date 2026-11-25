@@ -1,0 +1,536 @@
+{
+  "product": "doubao",
+  "url": "https://www.doubao.com/chat/",
+  "startedAt": "2026-11-25T12:08:54.284Z",
+  "headed": true,
+  "steps": [
+    {
+      "turn": "T01",
+      "prompt": "导数等于零为什么不一定有极值？请举一个反例，用中文回答。",
+      "startedAt": "2026-11-25T12:09:01.918Z",
+      "inputValueAfterFill": "导数等于零为什么不一定有极值？请举一个反例，用中文回答。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\01_typed_T01.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\02_sent_T01.png",
+      "replyStarted": false,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\02_streaming_T01.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "小米手机怎么关闭陀螺仪广告？",
+          "黄金现在多少钱一克？",
+          "中国人能飞热梗的起源是什么",
+          "73 兆日元是多少人民币？",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 192
+      },
+      "waitGrew": 0,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\03_reply_T01.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\03_reply_T01-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "小米手机怎么关闭陀螺仪广告？",
+          "黄金现在多少钱一克？",
+          "中国人能飞热梗的起源是什么",
+          "73 兆日元是多少人民币？",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 192
+      },
+      "replyText": "",
+      "bodyTail": "豆包\n新工作任务\nCtrl J\nCtrl\nJ\n新对话\nCtrl Shift K\nCtrl\nShift\nK\n项目\n更多\n关于豆包\n下载电脑版\n登录\n有什么我能帮你的吗？\n对话\n工作\n为你推荐\n小米手机怎么关闭陀螺仪广告？\n黄金现在多少钱一克？\n中国人能飞热梗的起源是什么\n73 兆日元是多少人民币？\n对话\n项目\nPPT 生成\n图像生成\n帮我写作\n视频生成\n录音转写\n更多技能\n快速\n\n\n",
+      "endedAt": "2026-11-25T12:09:27.620Z"
+    },
+    {
+      "turn": "T04",
+      "prompt": "我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。",
+      "startedAt": "2026-11-25T12:09:27.620Z",
+      "inputValueAfterFill": "我刚才没太看懂你举的这个反例，为什么它导数等于0却不是极值？再具体解释一下。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\11_typed_T04.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\12_sent_T04.png",
+      "replyStarted": false,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\12_streaming_T04.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "电脑怎么关闭 macOS 系统开机密码？",
+          "100万缅甸币等于多少人民币？",
+          "黄金当前市场的国际金价是多少？",
+          "《中国人能飞》正版歌词是什么",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 206
+      },
+      "waitGrew": 0,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\13_reply_T04.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\13_reply_T04-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "电脑怎么关闭 macOS 系统开机密码？",
+          "100万缅甸币等于多少人民币？",
+          "黄金当前市场的国际金价是多少？",
+          "《中国人能飞》正版歌词是什么",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 206
+      },
+      "replyText": "",
+      "bodyTail": "豆包\n新工作任务\nCtrl J\nCtrl\nJ\n新对话\nCtrl Shift K\nCtrl\nShift\nK\n项目\n更多\n关于豆包\n下载电脑版\n登录\n有什么我能帮你的吗？\n对话\n工作\n为你推荐\n电脑怎么关闭 macOS 系统开机密码？\n100万缅甸币等于多少人民币？\n黄金当前市场的国际金价是多少？\n《中国人能飞》正版歌词是什么\n对话\n项目\nPPT 生成\n图像生成\n帮我写作\n视频生成\n录音转写\n更多技能\n快速\n\n\n",
+      "endedAt": "2026-11-25T12:09:52.987Z"
+    },
+    {
+      "turn": "T05",
+      "prompt": "我记得导数为0就一定是极值吧？你是不是讲错了。",
+      "startedAt": "2026-11-25T12:09:52.987Z",
+      "inputValueAfterFill": "我记得导数为0就一定是极值吧？你是不是讲错了。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\21_typed_T05.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\22_sent_T05.png",
+      "replyStarted": false,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\22_streaming_T05.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "怎么关闭 Windows10 电脑的键盘打字声音？",
+          "60 公斤黄金合多少人民币？",
+          "“中国人能飞”热梗的出处是什么？",
+          "人的一生有多少天？",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 206
+      },
+      "waitGrew": 0,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\23_reply_T05.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\23_reply_T05-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "怎么关闭 Windows10 电脑的键盘打字声音？",
+          "60 公斤黄金合多少人民币？",
+          "“中国人能飞”热梗的出处是什么？",
+          "人的一生有多少天？",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 206
+      },
+      "replyText": "",
+      "bodyTail": "豆包\n新工作任务\nCtrl J\nCtrl\nJ\n新对话\nCtrl Shift K\nCtrl\nShift\nK\n项目\n更多\n关于豆包\n下载电脑版\n登录\n有什么我能帮你的吗？\n对话\n工作\n为你推荐\n怎么关闭 Windows10 电脑的键盘打字声音？\n60 公斤黄金合多少人民币？\n“中国人能飞”热梗的出处是什么？\n人的一生有多少天？\n对话\n项目\nPPT 生成\n图像生成\n帮我写作\n视频生成\n录音转写\n更多技能\n快速\n\n\n",
+      "endedAt": "2026-11-25T12:10:18.690Z"
+    },
+    {
+      "turn": "T08",
+      "prompt": "用一句话总结刚才的结论。",
+      "startedAt": "2026-11-25T12:10:18.691Z",
+      "inputValueAfterFill": "用一句话总结刚才的结论。",
+      "typedShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\31_typed_T08.png",
+      "sentShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\32_sent_T08.png",
+      "replyStarted": false,
+      "streamingShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\32_streaming_T08.png",
+      "streamingMetrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "OPPO 手机怎么关闭陀螺仪广告？",
+          "今日 COMEX 黄金金价是多少？",
+          "一只鸡走到山东变成了什么？",
+          "《中国人能飞》是哪年爆红的？",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 203
+      },
+      "waitGrew": 0,
+      "doneShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\33_reply_T08.png",
+      "doneFullShot": "D:\\zxsy-math-arena-showcase\\docs\\final-agent-experience-review\\evidence\\market-competitors\\general\\doubao\\33_reply_T08-full.png",
+      "metrics": {
+        "katex": 0,
+        "mjax": 0,
+        "mathml": 0,
+        "code": 0,
+        "tables": 0,
+        "lists": 0,
+        "imgs": 7,
+        "buttons": [
+          "豆包",
+          "新工作任务 Ctrl J Ctrl J",
+          "新对话 Ctrl Shift K Ctrl Shift K",
+          "更多",
+          "收起侧栏",
+          "下载电脑版",
+          "登录",
+          "对话",
+          "工作",
+          "OPPO 手机怎么关闭陀螺仪广告？",
+          "今日 COMEX 黄金金价是多少？",
+          "一只鸡走到山东变成了什么？",
+          "《中国人能飞》是哪年爆红的？",
+          "项目",
+          "PPT 生成",
+          "图像生成",
+          "帮我写作",
+          "视频生成",
+          "录音转写",
+          "更多技能",
+          "快速"
+        ],
+        "asides": [
+          {
+            "tag": "NAV",
+            "cls": "panel-fvxXfj",
+            "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+          }
+        ],
+        "msgCount": 0,
+        "inputInfo": {
+          "tag": "DIV",
+          "cls": "tiptap ProseMirror ProseMirror-focused",
+          "rect": {
+            "x": 380,
+            "y": 800,
+            "w": 960,
+            "h": 24
+          }
+        },
+        "bodyTextLen": 203
+      },
+      "replyText": "",
+      "bodyTail": "豆包\n新工作任务\nCtrl J\nCtrl\nJ\n新对话\nCtrl Shift K\nCtrl\nShift\nK\n项目\n更多\n关于豆包\n下载电脑版\n登录\n有什么我能帮你的吗？\n对话\n工作\n为你推荐\nOPPO 手机怎么关闭陀螺仪广告？\n今日 COMEX 黄金金价是多少？\n一只鸡走到山东变成了什么？\n《中国人能飞》是哪年爆红的？\n对话\n项目\nPPT 生成\n图像生成\n帮我写作\n视频生成\n录音转写\n更多技能\n快速\n\n\n",
+      "endedAt": "2026-11-25T12:10:44.175Z"
+    }
+  ],
+  "status": "ok",
+  "notes": [],
+  "homeMetrics": {
+    "katex": 0,
+    "mjax": 0,
+    "mathml": 0,
+    "code": 0,
+    "tables": 0,
+    "lists": 0,
+    "imgs": 7,
+    "buttons": [
+      "豆包",
+      "新工作任务 Ctrl J Ctrl J",
+      "新对话 Ctrl Shift K Ctrl Shift K",
+      "更多",
+      "收起侧栏",
+      "下载电脑版",
+      "登录",
+      "对话",
+      "工作",
+      "怎么关闭 Windows11 电脑的键盘打字声音？",
+      "当前金价一克价格是多少？",
+      "《中国人能飞》的创作背景是什么",
+      "讲个笑话让我开心一下",
+      "项目",
+      "PPT 生成",
+      "图像生成",
+      "帮我写作",
+      "视频生成",
+      "录音转写",
+      "更多技能",
+      "快速"
+    ],
+    "asides": [
+      {
+        "tag": "NAV",
+        "cls": "panel-fvxXfj",
+        "text": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包"
+      }
+    ],
+    "msgCount": 0,
+    "inputInfo": {
+      "tag": "DIV",
+      "cls": "tiptap ProseMirror",
+      "rect": {
+        "x": 380,
+        "y": 800,
+        "w": 960,
+        "h": 24
+      }
+    },
+    "bodyTextLen": 204
+  },
+  "homeTextSample": "豆包 新工作任务 Ctrl J Ctrl J 新对话 Ctrl Shift K Ctrl Shift K 项目 更多 关于豆包 下载电脑版 登录 有什么我能帮你的吗？ 对话 工作 为你推荐 怎么关闭 Windows11 电脑的键盘打字声音？ 当前金价一克价格是多少？ 《中国人能飞》的创作背景是什么 讲个笑话让我开心一下 对话 项目 PPT 生成 图像生成 帮我写作 视频生成 录音转写 更多技能 快速 ",
+  "loginHintOnHome": true,
+  "inputSelector": "div[contenteditable=\"true\"]"
+}

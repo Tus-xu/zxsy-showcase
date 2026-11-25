@@ -1,0 +1,18 @@
+{
+  "scrolled": {
+    "top": 698,
+    "height": 1550,
+    "client": 852
+  },
+  "after": {
+    "top": 0,
+    "height": 2725,
+    "client": 852,
+    "atBottom": false
+  },
+  "afterClick": {
+    "top": 1873,
+    "atBottom": true
+  },
+  "logs": []
+}

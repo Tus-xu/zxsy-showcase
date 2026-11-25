@@ -1,4 +1,4 @@
-/**
+﻿/**
  * 本轮离线教学示例的会话目录。
  *
  * 纪律（总方案 §1）：
@@ -25,7 +25,7 @@ export const SHOWCASE_CONVS = [
   {
     id: 'sc-s1',
     key: 's1',
-    title: '拍照解题 · 三次函数极值',
+    title: '拍照解题 · 双曲线离心率',
     pinned: false,
     minutesAgo: 10,
     seeded: 2,
@@ -33,7 +33,7 @@ export const SHOWCASE_CONVS = [
   {
     id: 'sc-s5',
     key: 's5',
-    title: '引导式解题 · 为什么不是极小值',
+    title: '引导式解题 · 双曲线离心率',
     pinned: false,
     minutesAgo: 70,
     seeded: 2,
@@ -57,7 +57,7 @@ export const SHOWCASE_CONVS = [
   {
     id: 'sc-s4',
     key: 's4',
-    title: '举一反三 · 三次函数变式',
+    title: '举一反三 · 双曲线离心率',
     pinned: false,
     minutesAgo: 165,
     seeded: 2,
@@ -65,7 +65,7 @@ export const SHOWCASE_CONVS = [
   {
     id: 'sc-s6',
     key: 's6',
-    title: '错题复盘 · 把极大看成极小',
+    title: '错题复盘 · 把轴比看成离心率',
     pinned: false,
     minutesAgo: 200,
     seeded: 2,

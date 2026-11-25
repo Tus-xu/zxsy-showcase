@@ -1,0 +1,206 @@
+{
+  "snap": {
+    "title": "Generative UI Example · assistant-ui",
+    "url": "https://www.assistant-ui.com/examples/generative-ui",
+    "h1": [
+      "Generative UI Example",
+      "Overview",
+      "Patterns Demonstrated",
+      "Key Concepts",
+      "Source"
+    ],
+    "buttons": [
+      "Products",
+      "Resources",
+      "",
+      "Search | ⌘ | K",
+      "Ask AI | ⌘ | I",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "",
+      "Cookie settings",
+      ""
+    ],
+    "links": [
+      {
+        "t": "Skip to content",
+        "href": "#main-content"
+      },
+      {
+        "t": "llms.txt",
+        "href": "/llms.txt"
+      },
+      {
+        "t": "assistant-ui",
+        "href": "/"
+      },
+      {
+        "t": "Components",
+        "href": "/components"
+      },
+      {
+        "t": "Docs",
+        "href": "/docs"
+      },
+      {
+        "t": "Pricing",
+        "href": "/pricing"
+      },
+      {
+        "t": "Cloud",
+        "href": "https://cloud.assistant-ui.com"
+      },
+      {
+        "t": "Components",
+        "href": "/components"
+      },
+      {
+        "t": "Docs",
+        "href": "/docs"
+      },
+      {
+        "t": "Elements",
+        "href": "/elements"
+      },
+      {
+        "t": "Design",
+        "href": "/design"
+      },
+      {
+        "t": "React",
+        "href": "/docs"
+      },
+      {
+        "t": "React Native",
+        "href": "/native"
+      },
+      {
+        "t": "Ink",
+        "href": "/ink"
+      },
+      {
+        "t": "Vue",
+        "href": "/docs/vue"
+      },
+      {
+        "t": "Cloud",
+        "href": "https://cloud.assistant-ui.com"
+      },
+      {
+        "t": "Playground",
+        "href": "/playground"
+      },
+      {
+        "t": "tw-shimmer",
+        "href": "/tw-shimmer"
+      },
+      {
+        "t": "Heat Graph",
+        "href": "/heat-graph"
+      },
+      {
+        "t": "Safe Content Frame",
+        "href": "/safe-content-frame"
+      },
+      {
+        "t": "react-o11y",
+        "href": "/react-o11y"
+      },
+      {
+        "t": "Examples",
+        "href": "/examples"
+      },
+      {
+        "t": "Interactive course",
+        "href": "/learn"
+      },
+      {
+        "t": "Changelog",
+        "href": "/changelog"
+      },
+      {
+        "t": "Showcase",
+        "href": "/showcase"
+      },
+      {
+        "t": "Open source",
+        "href": "/oss"
+      },
+      {
+        "t": "Packages",
+        "href": "/packages"
+      },
+      {
+        "t": "Blog",
+        "href": "/blog"
+      },
+      {
+        "t": "Careers",
+        "href": "/careers"
+      },
+      {
+        "t": "Brand",
+        "href": "/brand"
+      },
+      {
+        "t": "Traction",
+        "href": "/traction"
+      },
+      {
+        "t": "Status",
+        "href": "https://status.assistant-ui.com"
+      },
+      {
+        "t": "Pricing",
+        "href": "/pricing"
+      },
+      {
+        "t": "Cloud",
+        "href": "https://cloud.assistant-ui.com"
+      },
+      {
+        "t": "",
+        "href": "https://github.com/assistant-ui/assistant-ui"
+      },
+      {
+        "t": "",
+        "href": "https://discord.gg/S9dwgCNEFs"
+      },
+      {
+        "t": "Examples",
+        "href": "/examples"
+      },
+      {
+        "t": "source",
+        "href": "https://github.com/assistant-ui/assistant-ui/tree/main/examples/with-generative-ui"
+      },
+      {
+        "t": "Overview",
+        "href": "#overview"
+      },
+      {
+        "t": "generative-frame",
+        "href": "/generative-frame/docs/spec-mode"
+      }
+    ],
+    "textareas": [],
+    "iframes": [],
+    "bodyLen": 9056,
+    "bodyExcerpt": "Skip to content\nFor AI agents: a documentation index is available at llms.txt. Use .md for canonical markdown pages; .mdx is kept as a backwards-compatible alias on supported URL paths.\nassistant-ui\nComponents\nDocs\nProducts\nResources\nPricing\nSearch\n⌘\nK\nAsk AI\n⌘\nI\nCloud\nExamples\nGenerative UI Example\n\nOpen-source React example where the model answers each question in Markdown, with a spec built from the app's components, or with a sandboxed widget, alongside the present tool, Tool UI, and the primitive for backend-emitted `generative-ui` message parts.\n\nsource\n\nfig. 01\nscreenshot\nOverview\n\nThe main route of examples/with-generative-ui answers each question in the format that fits it, using generative-frame with assistant-ui: Markdown for an answer read once, render_spec for structured content built from the app's components, and show_widget for a tool that calculates as the user changes inputs. The model picks the format from the rules useWidgetInstructions adds to the system prompt; Choosing an answer format explains them.\n\nComponents from the kit: toSpecCatalog(styledGenerativeUILibrary) turns the vocabulary, with the registry item's Markdown, Diagram, and Map renderers, into the "
+  },
+  "infos": []
+}

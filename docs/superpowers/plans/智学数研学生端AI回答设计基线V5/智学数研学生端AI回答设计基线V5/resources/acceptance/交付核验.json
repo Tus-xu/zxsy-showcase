@@ -1,0 +1,34 @@
+{
+  "readOnlyRepository": {
+    "head": "27e5c4dcc1120ca485b6a6a4e80eedbeada2a4ec",
+    "workingStatusMatchesStart": true,
+    "releaseHashMatchesStart": true,
+    "planBytesMatchCopy": true
+  },
+  "v4AnalysedImages": {
+    "main": 17,
+    "supplementary": 1,
+    "verifiedHashes": 18
+  },
+  "v5BrowserImages": 13,
+  "resourceLinks": 69,
+  "externalLinkOccurrences": 22,
+  "htmlDependencies": 6,
+  "sampleStructure": {
+    "scenes": 8,
+    "reachableNodes": 56,
+    "stateLocalAliases": 780,
+    "actions": 114,
+    "hash": "6c1da2a8694c5ccb5e38819df081f383ded21abc1808799395fcb169d4fb76e3",
+    "jsonFileSha256": "2d714d0625a8743000e3e315aaa8c523644287c1737b99677fbd8d7d21ee1c71"
+  },
+  "verifiedProtocolEvents": 9,
+  "chromeChecks": 9,
+  "chromeViewports": [
+    "1440×900",
+    "1906×1035",
+    "720×450",
+    "390×844"
+  ],
+  "mathChecks": 32
+}

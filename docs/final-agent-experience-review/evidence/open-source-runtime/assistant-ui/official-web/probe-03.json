@@ -1,0 +1,10 @@
+{
+  "after": {
+    "url": "https://www.assistant-ui.com/playground",
+    "body": "Skip to content\nFor AI agents: a documentation index is available at llms.txt. Use .md for canonical markdown pages; .mdx is kept as a backwards-compatible alias on supported URL paths.\n/\nPlayground\nAI Builder\nUI Builder\nHistory\nTemplates\nNew\n\nBuild a minimal chat thread with a composer and message list\n\nI'll find the right starter for a minimal chat thread with composer + message list.\n\ngetTemplateList\n11 templates\nNew thread\n\nPowered by xulux.ai"
+  },
+  "logs": [
+    "Permissions policy violation: focus-without-user-activation is not allowed in this document.",
+    "Permissions policy violation: focus-without-user-activation is not allowed in this document."
+  ]
+}

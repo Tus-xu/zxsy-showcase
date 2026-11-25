@@ -1,0 +1,22 @@
+{
+  "task": "T07",
+  "hashMenuText": "跳转到主要内容\nOpen WebUI\n新对话\nCtrl+Shift+O\n搜索\nCtrl+K\n笔记\n工作空间\n分组\n对话\n今天\nMathematical Formulas\n6 分钟前\n5分钟前\nMathematical Formulas\n7 分钟前\n6分钟前\nCritical Points\n8 分钟前\n8分钟前\nFunction Monotonic Intervals\n10 分钟前\n10分钟前\nMath Problem Solution\n13 分钟前\n13分钟前\nFunction Monotonicity\n15 分钟前\n14分钟前\n导数为零的极值条件\n18 分钟前\n17分钟前\nConnection Success\n20 分钟前\n19分钟前\n加载中……\nUser\nUser，今天过得怎么样？\n\n#\n\nqwen3-4b-local\n最近\nMathematical Formulas\n5m\nMathematical Formulas\n6m\nCritical Points\n8m\nFunction Monotonic Intervals\n10m\nMath Problem Solution\n13m\n新对话\n已登录。\nOpen WebUI\n知识库\n导数与极值教研资料\n文件\nderivative-extremum.md",
+  "kbVisible": 1,
+  "idle": true,
+  "answer": "根据您提供的资料《导数与极值教研资料》，判断极值的第一充分条件是：\n\n如果函数 f(x) 在点 x\n0\n\t​\n\n 处可导，且 f\n′\n(x\n0\n\t​\n\n)=0，则：\n\n当 f\n′\n(x) 在 x\n0\n\t​\n\n 左侧为正，右侧为负时，x\n0\n\t​\n\n 是函数的极大值点。\n当 f\n′\n(x) 在 x\n0\n\t​\n\n 左侧为负，右侧为正时，x\n0\n\t​\n\n 是函数的极小值点。\n\n当 f\n′′\n(x\n0\n\t​\n\n)=0 时，第一充分条件无法直接判断，因为二阶导数检验失效（无法确定凹凸性）。此时需要使用第二充分条件或第一充分条件来进一步判断。\n\n具体来说，如果 f\n′\n(x) 在 x\n0\n\t​\n\n 附近变号（即函数单调性发生变化），则 x\n0\n\t​\n\n 仍然是极值点，但需要通过分析导函数 f\n′\n(x) 的符号变化来确定是极大值还是极小值。\n\n请注意，资料中未明确说明“如果 f\n′′\n(x\n0\n\t​\n\n)=0 时，如何处理”，但根据标准的数学分析，此时应转而使用导数符号表或函数单调性变化来判断。",
+  "dom": {
+    "citationLike": 0,
+    "sources": 0,
+    "links": [],
+    "html": "<!----><!----><!----> <!----><!----><p dir=\"auto\"><!----><!----><!----><!----><!---->根据您提供的资料《导数与极值教研资料》，判断极值的第一充分条件是：<!----><!----></p><!----><!----><!----><p dir=\"auto\"><!----><!----><!----><!----><!---->如果函数 <!----><!----><!----><!----><span class=\"cursor-pointer\"><!----><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mi>f</mi><mo stretchy=\"false\">(</mo><mi>x</mi><mo stretchy=\"false\">)</mo></mrow><annotation encoding=\"application/x-tex\"> f(x) </annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord mathnormal\" style=\"margin-right:0.1076em;\">f</span><span class=\"mopen\">(</span><span class=\"mord mathnormal\">x</span><span class=\"mclose\">)</span></span></span></span></span><!----><!----><!----> 在点 <!----><!----><!----><!----><span class=\"cursor-pointer\"><!----><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msub><mi>x</mi><mn>0</mn></msub></mrow><annotation encoding=\"application/x-tex\"> x_0 </annotation></semantics></math>"
+  },
+  "userMsg": "跳转到主要内容\nOpen WebUI\n新对话\nCtrl+Shift+O\n搜索\nCtrl+K\n笔记\n工作空间\n分组\n对话\n今天\nExtremum Conditions\n几秒前\nMathematical Formulas\n6 分钟前\n5分钟前\nMathematical Formulas\n7 分钟前\n6分钟前\nCritical Points\n8 分钟前\n8分钟前\nFunction Monotonic Intervals\n10 分钟前\n10分钟前\nMath Problem Solution\n13 分钟前\n13分钟前\nFunction Monotonicity\n15 分钟前\n14分钟前\n导数为零的极值条件\n18 分钟前\n17分钟前\nConnection Success\n20 分钟前\n19分钟前\n加载中……\nUser\nResponse complete\n对话内容\n导数与极值教研资料\n知识库\n\n判断极值的第一充分条件是什么？如果 f''(x0)=0 时该怎么办？只根据提供的资料回答。\n\n11月25日 20:39\nqwen3-4b-local\n\n根据您提供的资料《导数与极值教研资料》，判断极值的第一充分条件是：\n\n如果函数 f(x) 在点 x\n0\n\t​\n\n 处可导，且 f\n′\n(x\n0\n\t​\n\n)=0，则：\n\n当 f\n′\n(x) 在 x\n0\n\t​\n\n 左侧为正，右侧为负时，x\n0\n\t​\n\n 是函数的极大值点。\n当 f\n′\n(x) 在 x\n0\n\t​\n\n 左侧为负，右侧为正时，x\n0\n\t​\n\n 是函数的极小值点。\n\n当 f\n′′\n(x\n0\n\t​\n\n)=0 时，第一充分条件无法直接判断，因为二阶导数检验失效（无法确定凹凸性）。此时需要使用第二充分条件或第一充分条件来进一步判断。\n\n具体来说，如果 f\n′\n(x) 在 x\n0\n\t​\n\n 附近变号（即函数单调性发生变化），则 x\n0\n\t​\n\n 仍然是极值点，但需要通过分析导函数 f\n′\n(x) 的符号变化来确定是极大值还是极小值。\n\n请注意，资料中未明确说明“如果 f\n′′\n(x\n0\n\t​\n\n)=0 时，如何处理”，但根据标准的数学分析，此时应转而使用导数符号表或函数单调性变化来判断。\n\n11月25日 20:40\n追问\n检查导函数符号变化的步骤是否在资料中明确列出\n能否提供一个具体例子来说明 f''(x0)=0 时如何用第一充分条件判断\n有没有标准流程来替代二阶导数检验？\n能否对比第一和第二充分条件在实际应用中的区别？\n资料中是否提到了临界点分类的完整流程？\n\n\n\n\nqwen3-4b-local\nExtremum Conditions\nOpen WebUI",
+  "state": {
+    "generating": false,
+    "lastLen": 448,
+    "scrollTop": 20,
+    "scrollHeight": 781,
+    "clientHeight": 761,
+    "url": "http://127.0.0.1:18080/c/a2325ad8-9183-4538-8445-391b9e539ad8"
+  }
+}

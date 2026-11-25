@@ -1,0 +1,61 @@
+{
+  "product": "copilot",
+  "url": "https://copilot.microsoft.com/",
+  "startedAt": "2026-11-25T12:12:16.852Z",
+  "headed": true,
+  "steps": [],
+  "status": "no-input",
+  "notes": [
+    "No visible input found; likely login wall or unsupported region."
+  ],
+  "homeMetrics": {
+    "katex": 0,
+    "mjax": 0,
+    "mathml": 0,
+    "code": 0,
+    "tables": 0,
+    "lists": 2,
+    "imgs": 6,
+    "buttons": [
+      "接受",
+      "拒绝",
+      "管理 Cookie",
+      "功能",
+      "登录",
+      "Sign In",
+      "购买 Microsoft 365",
+      "工作",
+      "生活",
+      "学校",
+      "转到聊天",
+      "转到搜索",
+      "开始创建",
+      "全部展开",
+      "01/ 一个贯穿工作和生活的 Microsoft Copilot 体验",
+      "02/ 无需下载或重新安装",
+      "03/ 你的对话会随你移动，同时按帐户保持独立",
+      "04/ 多个 Copilot 功能已采用新名称",
+      "05/ Copilot 对话助手可帮助你提问、探索创意并完成任务",
+      "06/ 使用已登录的 Microsoft 帐户即可免费使用 Microsoft ",
+      "07/ 由你掌控数据和 AI 体验",
+      "语言设置: 中文(简体)"
+    ],
+    "asides": [
+      {
+        "tag": "NAV",
+        "cls": "uhf-contextual-nav",
+        "text": "功能 下载 计划和定价"
+      },
+      {
+        "tag": "NAV",
+        "cls": "thin-footer__links",
+        "text": "你的隐私选择 隐私 消费者健康政策 使用条款"
+      }
+    ],
+    "msgCount": 0,
+    "inputInfo": null,
+    "bodyTextLen": 1028
+  },
+  "homeTextSample": "跳转至主内容 我们使用可选的 Cookie，通过社交媒体连接等方式改善你在我们网站上的体验，并且根据你的在线活动投放个性化的广告。 如果你拒绝可选 Cookie，则我们将仅使用为你提供服务所必须的 Cookie。 你可以单击页面底部的“管理 Cookie”更改你的选择。隐私声明 第三方 Cookie 接受拒绝管理 Cookie Copilot 功能 下载 计划和定价 登录 ME 登录 Copilot 通过聊天查找答案、创建内容，并使用了解你工作的 AI 完成任务 登录 购买 Microsoft 365 一个 Copilot，适用于你一天的各项事务 工作 生活 学校 聊天入门 在一次对话中思考项目、汇总信息并推动工作。 转到聊天 查找所需内容 获取有根据的答案，并快速查找完成工作所需的信息、文件和见解。 转到搜索 使用 AI 创建 起草内容、生成图像，并更快地将创意转化为精美的作品。 开始创建 下载桌面版 在专注的桌面体验中，将 Copilot 与你的工作相结合。 适用于 Windows 适用于 Mac 下载移动版 通过专为灵活性设计的移动体验访问你的工作。 你知道吗? 全部展开 01/ 一个贯穿工作和生活的 Microsoft Copilot 体验 在单一体验中跨工作和生活中使用 Microsoft Copilot，可在 Web、桌面和移动设备上使用。无论使用的是 Windows、Mac、Microsoft Edge 还是移动设备，Copilot 体验都会保持连接状态。 02/ 无需下载或重新安装 03/ 你的对话会随你移动，同时按帐户保持独立 04/ 多个 Copilot 功能已采用新名称 05/ Copilot 对话助手可帮助你提问、探索创意并完成任务 06/ 使用已登录的 Microsoft 帐户即可免费使用 Microsoft Copilot 07/ 由你掌控数据和 AI 体验 中文(简体) 你的隐私选择 隐私 消费者健康政策 使用条款 © Microsoft 2026 *Copilot 功能需要符合条件的 Microsoft 365 订阅。可用性因情况而异。了解详细信息。 此网站将运行 Microsoft Clarity 以获取行为见解。使用此网站即表示你同意 Microsoft 收集和使用你的数据以改进产品，例如你与此网站交互的方式。若要了解详细信息，请参阅此处和我们的隐私声明。",
+  "loginHintOnHome": true
+}

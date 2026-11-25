@@ -1,0 +1,32 @@
+{
+  "product": "deepseek",
+  "url": "https://chat.deepseek.com/",
+  "startedAt": "2026-11-25T12:13:14.440Z",
+  "headed": true,
+  "steps": [],
+  "status": "no-input",
+  "notes": [
+    "No visible input found; likely login wall or unsupported region."
+  ],
+  "homeMetrics": {
+    "katex": 0,
+    "mjax": 0,
+    "mathml": 0,
+    "code": 0,
+    "tables": 0,
+    "lists": 0,
+    "imgs": 0,
+    "buttons": [
+      "发送验证码",
+      "登录",
+      "密码登录",
+      "使用 Apple 账号登录"
+    ],
+    "asides": [],
+    "msgCount": 0,
+    "inputInfo": null,
+    "bodyTextLen": 108
+  },
+  "homeTextSample": "+86 发送验证码 注册登录即代表已阅读并同意我们的 用户协议 与 隐私政策，未注册的手机号将自动注册 登录 密码登录 使用 Apple 账号登录 微信扫码登录 浙ICP备2023025841号 · 联系我们",
+  "loginHintOnHome": true
+}
