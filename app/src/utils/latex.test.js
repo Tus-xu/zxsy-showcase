@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { humanizeMath } from './latex'
+import { humanizeMath, latexifyBareRadicals } from './latex'
 
 describe('humanizeMath · 错题预览清洗', () => {
   it('带反斜杠的命令', () => {
@@ -26,5 +26,18 @@ describe('humanizeMath · 错题预览清洗', () => {
     const mixed = humanizeMath('已知 $x^2$ 与 frac{a}{b}')
     expect(mixed).toContain('$x^2$')
     expect(mixed).not.toContain('frac')
+  })
+})
+
+describe('latexifyBareRadicals · 裸根号转 LaTeX', () => {
+  it('把 √7 / √(x+1) / 2√2 转成 KaTeX 根式', () => {
+    expect(latexifyBareRadicals('b/a = √7')).toBe('b/a = $\\sqrt{7}$')
+    expect(latexifyBareRadicals('√(x+1)')).toBe('$\\sqrt{x+1}$')
+    expect(latexifyBareRadicals('2√2')).toBe('2$\\sqrt{2}$')
+  })
+
+  it('已经带 $ 的公式不重复包裹', () => {
+    expect(latexifyBareRadicals('$\\sqrt{7}$')).toBe('$\\sqrt{7}$')
+    expect(latexifyBareRadicals('已知 $\\sqrt{7}$ 和 √7')).toContain('$\\sqrt{7}$ 和 $\\sqrt{7}$')
   })
 })

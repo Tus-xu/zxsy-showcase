@@ -52,6 +52,7 @@ describe('experience runtime · 题1 引导式', () => {
     })
     expect(eventsOf(wrong)).toContain('card')
     expect(cardOf(wrong, 'socratic_error_analysis')?.misconception_zh).toBeTruthy()
+    expect(cardOf(wrong, 'socratic_error_analysis')?.citations?.length).toBeGreaterThan(0)
     expect(eventsOf(wrong)).not.toContain('prefill')
 
     const right = send('b/a=√7', {
@@ -59,7 +60,11 @@ describe('experience runtime · 题1 引导式', () => {
     })
     expect(cardOf(right, 'socratic_progress')?.current_step).toBe(1)
     const pre = (right || []).find((e) => e.event === 'prefill')
-    expect(pre?.data?.text).toContain('接下来怎么把它变成 e')
+    expect(pre?.data?.text).toContain('把 c² 写成 a² 的倍数吗')
+    expect(eventsOf(right)).toContain('citation')
+    expect(cardOf(right, 'socratic_progress')?.current_step).toBe(1)
+    const aiText = (right || []).filter((e) => e.event === 'token').map((e) => e.data?.text || '').join('')
+    expect(aiText).toContain('下一句已经放在输入框里')
     expect(experienceState(EXP).exchange).toBe(1)
   })
 

@@ -10,6 +10,53 @@ import { CLASSROOM_DECKS, PRESET_TOPICS, deckByKey, pickDeckByTopic, sessionOf, 
 const ok = (data) => ({ status: 200, body: { code: 0, message: 'ok', data } })
 const fail = (message, status = 404, code = 40401) => ({ status, body: { code, message, data: null } })
 const GENERATING_MS = 3500
+/** 课堂页「老师课堂」入口使用的真实课件会话（不伪造生成；deck 来自 8996） */
+const TEACHER_SESSION_ID = 'sc-dual-teacher-line'
+const TEACHER_COURSEWARE_ID = 'demo-courseware-line-8996'
+const TEACHER_DECK_SOURCE = '8996e8480303266cfc895a3068b559a26fbdbb34a26e655a4a850d3c3d0b948d'
+
+function teacherSession() {
+  const deck = deckByKey('line-full')
+  const s = sessionOf(deck, TEACHER_SESSION_ID, 'ready')
+  return {
+    ...s,
+    source_type: 'teacher_deck',
+    source_ref: {
+      deck_key: 'line-full',
+      deck_id: TEACHER_DECK_SOURCE,
+      teacher_name: '张老师',
+      class_name: '高一(3)班 · 数学',
+    },
+    deck_meta: { ...(s.deck_meta || {}), title: deck.title, textbook_line: deck.textbookLine, deck_key: 'line-full' },
+  }
+}
+
+function teacherCourseware() {
+  const deck = deckByKey('line-full')
+  const progress = store.classrooms?.progress?.[TEACHER_SESSION_ID] || {}
+  const idx = Number(progress.slide_index)
+  const pageCount = deck.slides.length
+  const pct = Number.isInteger(idx) && idx >= 0 && pageCount
+    ? Math.max(0, Math.min(100, Math.round((idx / pageCount) * 100)))
+    : 0
+  const stat = store.classrooms?.stats?.[TEACHER_SESSION_ID] || {}
+  const answered = Number(stat.answered) || 0
+  return {
+    courseware_id: TEACHER_COURSEWARE_ID,
+    title: deck.title,
+    deck_id: TEACHER_DECK_SOURCE,
+    deck_revision: 1,
+    class_id: 'demo-class-g1-3',
+    class_name: '高一(3)班 · 数学',
+    teacher_name: '张老师',
+    page_count: pageCount,
+    published_at: '2026-11-20T08:00:00.000Z',
+    opened: true,
+    progress_pct: pct,
+    practice_accuracy: answered ? Math.round((Number(stat.correct) || 0) / answered * 100) : null,
+    last_session_id: TEACHER_SESSION_ID,
+  }
+}
 
 function ensureClassrooms() {
   if (!store.classrooms || typeof store.classrooms !== 'object') {
@@ -33,6 +80,14 @@ function parseId(id) {
 }
 
 function sessionById(id) {
+  if (String(id) === TEACHER_SESSION_ID) {
+    const s = teacherSession()
+    s.progress = store.classrooms?.progress?.[id] || s.progress
+    s.notes = store.classrooms?.notes?.[id] || ''
+    s.qa_summary = store.classrooms?.qa?.[id] || {}
+    s.practice_stats = store.classrooms?.stats?.[id] || {}
+    return s
+  }
   const parsed = parseId(id)
   if (!parsed) return null
   const deck = deckByKey(parsed.key)
@@ -109,6 +164,14 @@ export function classroomEvents(id) {
 export function handleClassroom(method, path, body = {}) {
   const st = ensureClassrooms()
   const p = String(path).split('?')[0]
+
+  // 课堂页「老师课堂」：用本仓库真实课件替换旧 fixture 的单调性 5 页 deck
+  if (method === 'GET' && p === '/api/student/classroom-coursewares') {
+    return ok({ items: [teacherCourseware()], total: 1 })
+  }
+  if (method === 'POST' && /^\/api\/student\/classroom-coursewares\/[^/]+\/open$/.test(p)) {
+    return ok({ session_id: TEACHER_SESSION_ID, title: '直线的点斜式方程' })
+  }
 
   if (method === 'POST' && p === '/api/classroom/sessions') {
     const deck = pickDeckByTopic(body.topic)

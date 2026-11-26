@@ -12,6 +12,7 @@ app/src/**/*.gif -text
 app/src/**/*.ico -text
 app/src/**/*.woff -text
 app/src/**/*.woff2 -text
+app/src/**/*.mp3 -text
 app/src/**/*.ttf -text
 app/src/**/*.pdf -text
 .gitattributes text eol=lf

@@ -1,0 +1,50 @@
+{
+ "entry": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+ "shots": [
+  "01-guided-wrong",
+  "02-rewind-level1",
+  "03-rewind-level2",
+  "04-rewind-settled",
+  "05-back-to-question",
+  "06-dual-line-1440",
+  "06b-dual-line-p4-1440",
+  "07-dual-playing-1440",
+  "08-teacher-courseware-1440",
+  "08b-teacher-courseware-p4-1440",
+  "09-classroom-dual-tab",
+  "10-courseware-opened",
+  "11-dual-sequence-1920",
+  "11b-dual-sequence-p3-1920",
+  "12-dual-sequence-playing-1920",
+  "13-rewind-reduced-1440"
+ ],
+ "errors": [],
+ "checks": {
+  "reviewCta": 1,
+  "panelTitle": "e 从来不是 b/a",
+  "level1Figure": 1,
+  "level2Title": "把字母换成 1 和 √7",
+  "settledText": "✓\n把这三句话带回原题\n\ne = c/a；c² = a² + b²；b/a 只是原料。回原题把这两个空再填一次，不要直接套 √7。\n\n先代数字\n再算斜边\n最后回到 e\n回原题再试\n再看一遍这一层",
+  "retryCardVisible": 3,
+  "dualTitle": "直线的点斜式方程",
+  "figureCount": 1,
+  "podiumHeight": 142,
+  "voiceBadge": "🎙 晓晓·神经",
+  "audioSource": "neural",
+  "playing": 1,
+  "currentLine": "看左边这张图，蓝色直线穿过定点 P₁，红色点就是 P₁。",
+  "teacherTitle": "直线的点斜式方程",
+  "teacherBadge": "🎓 老师课件 · 张老师 · 高一(3)班 · 数学",
+  "teacherFigure": 1,
+  "coursewareCard": 1,
+  "coursewareUrl": "/dual/sc-dual-teacher-line",
+  "coursewareTitle": "直线的点斜式方程",
+  "sequenceFigure": 1,
+  "sequenceAudio": "neural",
+  "reducedButtons": [
+   "上一步",
+   "继续",
+   "重播"
+  ]
+ }
+}

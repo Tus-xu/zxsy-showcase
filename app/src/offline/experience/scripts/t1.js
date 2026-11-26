@@ -185,7 +185,7 @@ export default {
                 { id: 'b', label: '$\\frac{b}{a}=7$' },
                 { id: 'c', label: '$\\frac{a}{b}=\\sqrt7$' },
               ],
-            }, { step_no: 1, stage: 'planning', prompt_lead: '先看两轴的比例：把 2 约掉。' }),
+            }, { step_no: 1, stage: 'planning', prompt_lead: '先看题目里的两条轴：$2b=\\sqrt7\\cdot2a$。把两边的 2 约掉，$\\frac{b}{a}$ 会变成什么？先在心里算一遍，再点选项。' }),
           ],
           check: {
             form: 'binary',
@@ -198,15 +198,16 @@ export default {
             correctText: '对，$2b=\\sqrt7\\cdot2a$，约掉 2 得 $\\frac{b}{a}=\\sqrt7$。第 1 步完成。',
             wrongText: '再把 2 约掉看看：$2b$ 和 $\\sqrt7\\cdot2a$ 里的 2 可以先消掉。',
             hintText: '两边同时除以 $2a$，左边就是 $\\frac{b}{a}$。',
+            bridgeText: '下一步先想：双曲线里 $c^2$ 和 $a^2,b^2$ 是什么关系？把 $b^2=7a^2$ 代进去，就能把 $c$ 写成 $a$ 的倍数。下一句已经放在输入框里，先自己猜一下再发送。',
             misconception: 'calculation',
             misconceptionZh: '计算错误',
           },
         },
       },
       {
-        user: { text: 'b/a = √7。接下来怎么把它变成 e？' },
+        user: { text: 'b/a = √7。我记得双曲线里 c² = a²+b²，可以把 b²=7a² 代进去，把 c² 写成 a² 的倍数吗？' },
         ai: {
-          text: '第 2 步搭桥。双曲线里 $c^2=a^2+b^2$；把 $b^2=7a^2$ 代进去，就能把 $c$ 写成 $a$ 的倍数。\n\n把下面两个空补上。',
+          text: '你已经有 $\\frac{b}{a}$ 了。下一步先别急着套 $e$，先把 $c$ 写成 $a$ 的倍数：双曲线里 $c^2=a^2+b^2$；把 $b^2=7a^2$ 代进去，$c^2$ 就只剩 $a^2$ 的倍数了。\n\n下面两个空，先填关系式，再填结果。',
           cards: [
             ix('cloze', {
               body_latex: '双曲线中 $c^2=$ $□_1$；代入 $b^2=7a^2$，得到 $c^2=$ $□_2$。',
@@ -215,7 +216,7 @@ export default {
                 b1: ['$a^2+b^2$', '$a^2-b^2$', '$b^2-a^2$'],
                 b2: ['$8a^2$', '$7a^2$', '$6a^2$'],
               },
-            }, { step_no: 2, stage: 'planning', prompt_lead: '用面板填空，把 c² 写成 a² 的倍数。' }),
+            }, { step_no: 2, stage: 'planning', prompt_lead: '这一步只做一件事：把 $c^2$ 写成 $a^2$ 的倍数。先用双曲线关系 $c^2=a^2+b^2$，再把 $b^2=7a^2$ 代进去；两个空分别填关系式和结果。' }),
           ],
           check: {
             form: 'cloze',
@@ -227,16 +228,23 @@ export default {
             kpName: '双曲线的离心率',
             correctText: '对：$c^2=a^2+b^2=a^2+7a^2=8a^2$。第 2 步完成。',
             wrongText: '先确认用的是双曲线的关系：$c^2=a^2+b^2$，不是减号。',
+            bridgeText: '最后一步只做两件事：把 $c^2=8a^2$ 开方，再除以 $a$。先在心里说一遍 $e$ 的定义，再发送输入框里的下一句。',
             hintText: '$b^2=7a^2$，所以 $a^2+b^2=a^2+7a^2$。',
             misconception: 'formula',
             misconceptionZh: '公式混淆',
+            errorMove: '把 $c^2$ 写成了 $a^2-b^2$，或者把 $c^2$ 直接写成 $7a^2$；先把 $a^2$ 和 $7a^2$ 相加，得到 $8a^2$。',
+            review: {
+              id: 'hyperbola-eccentricity',
+              title: '回到「离心率」补一补',
+              hint: '约 2 分钟 · 先从 e 的定义退到 a、b、c 的关系',
+            },
           },
         },
       },
       {
-        user: { text: 'c²=8a²，所以 e=c/a=2√2。' },
+        user: { text: 'c²=8a²，所以 c=2√2·a，e=c/a=2√2。我想先回扣定义，再选答案。' },
         ai: {
-          text: '最后一步回扣选项。由 $c^2=8a^2$，$e=\\frac{c}{a}=\\sqrt8=2\\sqrt2$。四个选项里应该选哪一个？',
+          text: '最后一步回扣定义。由 $c^2=8a^2$ 得 $c=2\\sqrt2\\,a$，所以 $e=\\frac{c}{a}=2\\sqrt2$。先在心里算一遍，再在四个选项里选。',
           cards: [
             ix('binary', {
               question: '这条双曲线的离心率是？',
@@ -246,7 +254,7 @@ export default {
                 { id: 'c', label: '$\\sqrt7$' },
                 { id: 'd', label: '$2\\sqrt2$' },
               ],
-            }, { step_no: 3, stage: 'reflecting', prompt_lead: '回扣题目：e 等于 c/a，别再把 b/a 当成 e。' }),
+            }, { step_no: 3, stage: 'reflecting', prompt_lead: '最后回扣定义：$e=\\frac{c}{a}$。用 $c^2=8a^2$ 先求 $c$，再除以 $a$；别把 $\\frac{b}{a}$ 的 $\\sqrt7$ 当成 $e$。' }),
           ],
           check: {
             form: 'binary',
@@ -261,6 +269,7 @@ export default {
             hintText: '$c^2=8a^2$，所以 $c=2\\sqrt2\\,a$。',
             misconception: 'concept',
             misconceptionZh: '把轴比当离心率',
+            review: { id: 'hyperbola-eccentricity', title: '回到「离心率」补一补', hint: '约 2 分钟 · 先把 e 与 b/a 的关系接上' },
             correctCards: [complete, trace],
           },
         },

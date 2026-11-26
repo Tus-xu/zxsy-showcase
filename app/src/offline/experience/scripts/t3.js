@@ -162,7 +162,7 @@ export default {
                 { id: 'b', label: '5 个' },
                 { id: 'c', label: '15 个' },
               ],
-            }, { step_no: 1, stage: 'planning', prompt_lead: '每只球一个 0/1 变量。' }),
+            }, { step_no: 1, stage: 'planning', prompt_lead: '先把 X 拆成 5 个 0/1 变量：每只球一个。先想：$I_i$ 取 1 表示什么？' }),
           ],
           check: {
             form: 'binary',
@@ -174,6 +174,7 @@ export default {
             kpName: '离散型随机变量的期望',
             correctText: '对，5 只球对应 5 个指示变量：$X=I_1+\\cdots+I_5$。',
             wrongText: '再数一数：箱子里有几只球，每只球对应一个 0/1 变量。',
+            bridgeText: '下一步先想：每只球对应一个 0/1 变量，5 只球就有几个变量？它们的和表示什么？',
             hintText: '球标号 1–5，一共 5 只。',
             misconception: 'concept',
             misconceptionZh: '指示变量含义不清',
@@ -181,15 +182,15 @@ export default {
         },
       },
       {
-        user: { text: '5 个。接下来算每个 I_i 的概率？' },
+        user: { text: '5 个。接下来算每个 I_i 的概率？我想先算三次都没取到它的概率。' },
         ai: {
-          text: '第 2 步算单个概率。三次都没取到第 $i$ 只球的概率是 $\\left(\\frac{4}{5}\\right)^3$，所以至少出现一次的概率是 $1-\\left(\\frac{4}{5}\\right)^3$。\n\n把式子补完整：$P(I_i=1)=1-\\left(\\frac{□}{5}\\right)^3$。',
+          text: '第 2 步算单个概率。三次都没取到第 $i$ 只球的概率是 $\\left(\\frac{4}{5}\\right)^3$，所以至少出现一次的概率是 $1-\\left(\\frac{4}{5}\\right)^3$。\n\n把式子补完整：$P(I_i=1)=1-(q/5)^3$，其中 $q$ 是“没取到”的可选球数。',
           cards: [
             ix('cloze', {
-              body_latex: '三次都没取到第 $i$ 个球：$P(I_i=1)=1-\\left(\\frac{□_1}{5}\\right)^3$。',
+              body_latex: '三次都没取到第 $i$ 个球：$P(I_i=1)=1-(q/5)^3$。这里的 $q$ 是“没取到”的可选球数，填 $□_1$。',
               blanks: [{ id: 'b1', answer_kind: 'number' }],
               palette_by_blank: { b1: ['4', '5', '3'] },
-            }, { step_no: 2, stage: 'planning', prompt_lead: '用面板填“没取到这个球”的可能数。' }),
+            }, { step_no: 2, stage: 'planning', prompt_lead: '接下来算 $P(I_i=1)$。先算反面：三次都没取到第 $i$ 号球，有几种可能？' }),
           ],
           check: {
             form: 'cloze',
@@ -201,9 +202,11 @@ export default {
             kpName: '离散型随机变量的期望',
             correctText: '对：每次没取到它的概率是 $\\frac45$，三次都避开就是 $\\left(\\frac45\\right)^3=\\frac{64}{125}$，所以 $P(I_i=1)=\\frac{61}{125}$。',
             wrongText: '注意分子：没取到第 $i$ 个球时，可取的是另外几只？',
+            bridgeText: '下一步先算“三次都没取到第 $i$ 号球”的概率；分子是 4 还是 5？想清楚再发送。',
             hintText: '5 只球里，避开 1 只，还剩 4 只。',
             misconception: 'calculation',
             misconceptionZh: '对立事件概率算错',
+            review: { id: 'expected-value-indicator', title: '回到「期望」补一补', hint: '约 2 分钟 · 0/1 变量与期望线性性' },
           },
         },
       },
@@ -213,10 +216,10 @@ export default {
           text: '最后一步求和。$E(X)=5\\times P(I_i=1)=5\\times\\frac{61}{125}$。分子上的数是？',
           cards: [
             ix('cloze', {
-              body_latex: '$E(X)=5\\times\\frac{□_1}{125}=\\frac{61}{25}$。',
+              body_latex: '$E(X)=5\\times(q/125)=61/25$。这里的 $q$ 是每个概率的分子，填 $□_1$。',
               blanks: [{ id: 'b1', answer_kind: 'number' }],
               palette_by_blank: { b1: ['61', '64', '125'] },
-            }, { step_no: 3, stage: 'reflecting', prompt_lead: '把 5×61 算出来。' }),
+            }, { step_no: 3, stage: 'reflecting', prompt_lead: '最后把 5 个相同的概率加起来。先算 $5\\times61$，再除以 125。' }),
           ],
           check: {
             form: 'cloze',

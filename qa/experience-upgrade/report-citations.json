@@ -1,0 +1,24 @@
+{
+ "entry": "file:///D:/zxsy-math-arena-showcase/release/%E5%BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html",
+ "shots": [
+  "01-t1-citations",
+  "02-t3-rewind",
+  "03-t2-rewind"
+ ],
+ "errors": [],
+ "checks": {
+  "t1Refs": 2,
+  "t1Compact": 1,
+  "t1Titles": [
+   "自编讲义 · 圆锥曲线 §2 a、b、c 与离心率",
+   "自编讲义 · 圆锥曲线 §2 a、b、c 与离心率"
+  ],
+  "t3RawLatex": false,
+  "t3ReviewCta": 1,
+  "t3Path": 1,
+  "t3Refs": 2,
+  "t2ReviewCta": 1,
+  "t2Path": 1,
+  "t2Refs": 2
+ }
+}

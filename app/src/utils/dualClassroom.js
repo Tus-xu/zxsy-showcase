@@ -198,14 +198,14 @@ export const DECK_STAGE_HEIGHT = 551
  * 课件舞台等比缩放系数（纯函数，便于单测）。
  *
  * 约束：
- * - 只缩不放：最大 1（980×551 是设计尺寸，放大不会带来更多信息）；
+ * - 最大 1.08：1920 宽屏下允许轻微放大，减少课件两侧的大片空白；1440 仍按高度缩；
  * - 高度已知时取宽/高较小者，保证整页可见、不溢出、不裁切；
  * - 容器尚未测量（0/NaN）时回退 1，由 ResizeObserver 首帧后纠正；
  * - 下限 0.1，避免极端窄容器把舞台压成 0 高度。
  *
  * @param {number} containerWidth  容器可用宽度（px）
  * @param {number} [containerHeight] 容器可用高度（px；未知传 0/省略）
- * @returns {number} 0.1–1 之间、保留 4 位小数的缩放系数
+ * @returns {number} 0.1–1.08 之间、保留 4 位小数的缩放系数
  */
 export function deckStageScale(containerWidth, containerHeight = 0) {
   const w = Number(containerWidth) || 0
@@ -213,7 +213,7 @@ export function deckStageScale(containerWidth, containerHeight = 0) {
   if (w <= 0) return 1
   const byWidth = w / DECK_STAGE_WIDTH
   const byHeight = h > 0 ? h / DECK_STAGE_HEIGHT : Infinity
-  const scale = Math.min(byWidth, byHeight, 1)
+  const scale = Math.min(byWidth, byHeight, 1.08)
   return Math.max(0.1, Math.round(scale * 10000) / 10000)
 }
 

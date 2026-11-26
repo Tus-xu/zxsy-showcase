@@ -27,6 +27,11 @@ export function textToSpeech(raw) {
   t = t.replace(/\$[^$]+\$/g, '公式')
   t = t.replace(/\\\((.+?)\\\)/g, '公式')
   t = t.replace(/\\\[(.+?)\\\]/g, '公式')
+  // Unicode 下标/负号：edge-tts 会把 ₁ 直接吞掉，必须先转成口语
+  t = t.replace(/₀/g, ' 零').replace(/₁/g, ' 一').replace(/₂/g, ' 二').replace(/₃/g, ' 三')
+  t = t.replace(/₄/g, ' 四').replace(/₅/g, ' 五').replace(/₆/g, ' 六').replace(/₇/g, ' 七')
+  t = t.replace(/₈/g, ' 八').replace(/₉/g, ' 九')
+  t = t.replace(/−/g, ' 减 ').replace(/—/g, '，')
   // 常见数学符号
   t = t.replace(/≤/g, '小于等于')
   t = t.replace(/≥/g, '大于等于')

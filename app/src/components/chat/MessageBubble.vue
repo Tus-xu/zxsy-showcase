@@ -146,7 +146,12 @@
             <div class="sp-track"><div class="sp-fill" :class="verdictCls(c.verdict)" :style="{ width: progressPct(c) }"></div></div>
           </div>
           <!-- sgv2 错因分析卡：错在哪 + 原话依据 + 追问（misconception_zh 后端下发） -->
-          <SocraticErrorAnalysisCard v-else-if="cardType(c) === 'socratic_error_analysis'" :card="c" />
+          <SocraticErrorAnalysisCard
+            v-else-if="cardType(c) === 'socratic_error_analysis'"
+            :card="c"
+            :show-review="errorReviewEnabled"
+            @review="(p) => $emit('errorReview', p)"
+          />
           <!-- 引导式解题「每步思路选项」：点选即作为学生回答发送，走既有判答链路；
                V2 单发纪律 + 已用态（点击置灰，历史回显由 markHistoryUsedChoices 还原） -->
           <div
@@ -446,13 +451,14 @@ const props = defineProps({
   offlineOrigin: { type: String, default: '' },
   /** 是否是该会话最后一条 AI 消息：只有它可交互，历史旧卡只回看（不向当前步骤注入事件） */
   live: { type: Boolean, default: true },
+  errorReviewEnabled: { type: Boolean, default: false },
 })
 // P1-5：选项统一在 AI 消息卡片下方渲染（主题色、KaTeX）
 const clarifyOpts = computed(() => (props.msg?.clarify?.options || []))
 const emit = defineEmits([
   'clarify', 'socraticChoice', 'regenerate', 'feedback', 'quizEnter', 'quizExplain', 'quizWrong', 'quizAnswered', 'quizMore', 'quizChainAction', 'tutorAction',
   'answerConfirm', 'thinkMore', 'edit', 'versionSwitch', 'action', 'completeAction',
-  'interactionSubmit', 'needProblem',
+  'interactionSubmit', 'needProblem', 'errorReview',
 ])
 
 const expandedCite = ref(0)

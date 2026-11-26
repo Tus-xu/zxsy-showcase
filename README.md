@@ -1,6 +1,6 @@
 # Mathesis 离线演示（现役复刻版）
 
-本仓库提供可断网运行的智学数研发行包，沿用现役前端 `D:\zxsy-math-arena\frontend` 的三端结构。学生端提供：侧栏「体验分类」（三张真实题图 × 知识问答 / 错题本 / 举一反三 / 引导式解题，共 12 个可反复演示的预填对话）、练题中心三套专项题组、双师课堂三套真实 PPT 语义课件与中文语音讲解，以及新对话里「导数与极值」主线的自由问答（离线预设内容 + 本地真实计算，范围有限）。
+本仓库提供可断网运行的智学数研发行包，沿用现役前端 `D:\zxsy-math-arena\frontend` 的三端结构。学生端提供：侧栏「体验分类」（三张真实题图 × 知识问答 / 错题本 / 举一反三 / 引导式解题，共 12 个可反复演示的预填对话；答错可进入 2 层知识回溯）、练题中心三套专项题组、双师课堂三套真实图 PPT 语义课件与晓晓神经语音，以及新对话里「导数与极值」主线的自由问答（离线预设内容 + 本地真实计算，范围有限）。
 
 ## 交付物
 
@@ -43,7 +43,9 @@ VITE_OFFLINE=1 VITE_PREP_SURFACE=immersive VITE_RESEARCH_SURFACE=immersive \
   pnpm exec vite build --config vite.config.offline.mjs    # → app/dist-offline/index.html（单文件）
 
 cd ..
+node scripts/build-classroom-audio.mjs --check   # 校验 106 个句级神经语音与讲稿一致
 python scripts/package_release.py      # 组装 release/ + 静态检查 + 打印入口 SHA-256
+node qa/experience-upgrade/rewind-dual.mjs       # 知识回溯 + 双师课件/主讲台视觉走查
 python qa/release-audit/audit_release.py   # 断网审计（应 0 请求 / 0 页面错误）
 node qa/student-chat-showcase/recorded-replay.mjs release/开始演示.html qa/student-chat-showcase/recorded-output
 node qa/student-chat-showcase/presentation.mjs release/开始演示.html qa/student-chat-showcase/presentation-output

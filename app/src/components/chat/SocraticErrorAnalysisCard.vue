@@ -30,19 +30,41 @@
         <div class="se-probe-go">👇 你的回答走下方追问交互卡——点选项，不用打字</div>
       </div>
     </div>
+
+    <!-- 体验层：错因不是「再试一次」就能解决的，先给一个可点击的前置知识回溯入口。
+         卡片只负责发起，回溯教学由 KnowledgeRewindPanel 承接（最多 2 层，结束回原题）。 -->
+    <div v-if="review && showReview" class="se-review" data-error-review="">
+      <span class="se-review-ic" aria-hidden="true">🧭</span>
+      <div class="se-review-copy">
+        <b>{{ review.title || `回到「${review.kp || card.kp_name || '前置知识'}」补一补` }}</b>
+        <small>{{ review.hint || '先退到前置知识，再回原题' }}</small>
+      </div>
+      <button type="button" class="se-review-go" @click="$emit('review', { review, card })">
+        开始回溯 <span aria-hidden="true">→</span>
+      </button>
+    </div>
+
+    <SocraticCitations :citations="card.citations || []" />
   </div>
 </template>
 
 <script setup>
 import { computed } from 'vue'
 import MarkdownView from '@/components/MarkdownView.vue'
+import SocraticCitations from './SocraticCitations.vue'
 import { wrapBareLatex } from '@/utils/latex'
 
 const props = defineProps({
   card: { type: Object, required: true },
+  showReview: { type: Boolean, default: true },
 })
+const emit = defineEmits(['review'])
 
 const tex = (v) => wrapBareLatex(String(v ?? ''))
+const review = computed(() => {
+  const r = props.card?.review
+  return r && typeof r === 'object' && r.id ? r : null
+})
 
 // verdict 着色：wrong 红色系 / 其余（partial）琥珀系（judge 契约：wrong|partial 才发卡）
 const verdict = computed(() => String(props.card.verdict || ''))
@@ -102,4 +124,27 @@ const verdictZh = computed(
   margin-top: 5px; font-size: 11.5px; font-weight: 700; color: #6d28d9;
 }
 .is-partial .se-probe-go { color: #b45309; }
+
+/* ===== 知识回溯入口：错因卡上的“换一条路补地基”，不是第二个错误块 ===== */
+.se-review {
+  display: flex; align-items: center; gap: 10px; margin-top: 10px; padding: 9px 10px;
+  border: 1px solid #dbe4ff; border-radius: 10px; background: #fff;
+}
+.se-review-ic {
+  width: 28px; height: 28px; border-radius: 9px; display: grid; place-items: center;
+  background: #eef2ff; color: #4f46e5; font-size: 15px; flex: none;
+}
+.se-review-copy { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+.se-review-copy b { font-size: 12.5px; color: #3730a3; line-height: 1.4; }
+.se-review-copy small { font-size: 10.5px; color: #64748b; line-height: 1.45; }
+.se-review-go {
+  flex: none; border: 1px solid #4f46e5; background: #4f46e5; color: #fff;
+  border-radius: 999px; min-height: 38px; padding: 6px 13px; font: inherit; font-size: 12px; font-weight: 800;
+  cursor: pointer; white-space: nowrap;
+}
+.se-review-go:hover { background: #4338ca; }
+@media (max-width: 640px) {
+  .se-review { align-items: flex-start; flex-wrap: wrap; }
+  .se-review-go { margin-left: 38px; }
+}
 </style>

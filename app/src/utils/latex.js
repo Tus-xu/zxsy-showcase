@@ -86,6 +86,26 @@ function findBalancedClose(s, start) {
  * 混合文本里的裸 LaTeX 降级为可读 Unicode（仅用于列表预览/无 $ 定界符的旧数据）。
  * 不追求排版，只保证学生看不到 \mid、\le、\frac 这类源码。
  */
+/**
+ * 把文本里的 Unicode 根号（√7 / √(x+1)）转成 KaTeX 根式。
+ *
+ * 为什么不能只保留 √：Unicode 根号没有上面的横线，学生看到的是「√7」而不是
+ * 正常的 LaTeX 根式；聊天和卡片统一走 MarkdownView 时需要在渲染前归一。
+ * 已在 $...$ 内的公式不处理，避免二次包裹；代码围栏也不处理。
+ */
+export function latexifyBareRadicals(text) {
+  const s = String(text ?? '')
+  if (!s.includes('√')) return s
+  const parts = s.split(/(```[\s\S]*?```|\$\$[\s\S]*?\$\$|\$[^$]*\$)/g)
+  return parts.map((part) => {
+    if (!part || part.startsWith('```') || part.startsWith('$')) return part
+    return part
+      .replace(/√\s*\(([^()]{1,30})\)/g, (_m, x) => `$\\sqrt{${x}}$`)
+      .replace(/√\s*\{([^{}]{1,30})\}/g, (_m, x) => `$\\sqrt{${x}}$`)
+      .replace(/√\s*([0-9]+|[A-Za-z](?:[0-9]+)?)/g, (_m, x) => `$\\sqrt{${x}}$`)
+  }).join('')
+}
+
 export function humanizeMath(text) {
   let s = String(text ?? '')
   if (!s) return s

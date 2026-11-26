@@ -37,6 +37,11 @@ def sha256(path):
 
 
 def build():
+    print('[0/5] 校验双师课堂神经语音覆盖 …')
+    r0 = subprocess.run(['node', 'scripts/build-classroom-audio.mjs', '--check'],
+                        cwd=ROOT, shell=True)
+    if r0.returncode != 0:
+        raise SystemExit('双师课堂神经语音校验失败：先运行 node scripts/build-classroom-audio.mjs')
     env = dict(os.environ)
     env.update({
         'VITE_OFFLINE': '1',
@@ -118,8 +123,10 @@ def write_readme(entry_hash, entry_size):
   - 断网可用，沿用智学数研的三端入口
   - 学生端侧栏「体验分类」：三张真实题图 × 知识问答 / 错题本 / 举一反三 / 引导式解题，共 12 个
     预填对话；点发送逐轮流式推进，走完可重新体验
+  - 引导式答错可进入 2 层知识回溯（离心率定义 → 具体数字 → 回原题），不发消息、不耗答题次数
   - 练题中心三套专项题组（双曲线 / 导数 / 三角），判分后内联正解与解析
-  - 双师课堂三套真实 PPT 语义课件，预填主题 → 生成 → 播放，中文语音讲解
+  - 双师课堂三套真实图 PPT 语义课件，预填主题 → 生成 → 播放；晓晓神经语音（随包），
+    AI 主讲台按当前句讲解，可看全稿
   - 新对话里「导数与极值」主线的自由问答（离线预设内容 + 本地真实计算；范围有限）
 
 版本

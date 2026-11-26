@@ -2,6 +2,7 @@
   <div class="view dialog-page">
     <div
       class="dialog-main"
+      :inert="rewindOpen"
       @dragenter.prevent="onDragOver"
       @dragover.prevent="onDragOver"
       @dragleave.prevent="onDragLeave"
@@ -41,6 +42,7 @@
             :msg="m"
             student-dialog
             :offline-origin="offline ? (isShowcaseConv || isExperienceConv ? 'prepared' : 'recorded') : ''"
+            :error-review-enabled="m.key === lastAiKey"
             @clarify="sendText"
             @socratic-choice="onSocraticChoice"
             @regenerate="chat.regenerate"
@@ -59,6 +61,7 @@
             @complete-action="onCompleteAction"
             @interaction-submit="onInteractionSubmit"
             @need-problem="onNeedProblem"
+            @error-review="openKnowledgeRewind"
           />
 
         </div>
@@ -150,6 +153,13 @@
         </div>
       </footer>
     </div>
+
+    <KnowledgeRewindPanel
+      v-if="rewindOpen && rewindReview"
+      :review="rewindReview"
+      @close="closeKnowledgeRewind(false)"
+      @finished="closeKnowledgeRewind(true)"
+    />
   </div>
 </template>
 
@@ -164,6 +174,7 @@ import { KP_ZH } from '@/components/student/labels'
 import MessageBubble from '@/components/chat/MessageBubble.vue'
 import ChatInput from '@/components/chat/ChatInput.vue'
 import ExperienceCover from '@/components/chat/ExperienceCover.vue'
+import KnowledgeRewindPanel from '@/components/chat/KnowledgeRewindPanel.vue'
 import SuggestionsGrid from '@/components/chat/SuggestionsGrid.vue'
 import HomeLearningPanel from '@/components/student/HomeLearningPanel.vue'
 import UiIcon from '@/components/common/UiIcon.vue'
@@ -172,6 +183,7 @@ import { useChat } from '@/composables/useChat'
 import { isShowcaseId, SHOWCASE_BY_ID } from '@/offline/showcase/catalog'
 import { isExperienceId, experienceMeta } from '@/offline/experience/catalog'
 import { resetExperience, experiencePrefill } from '@/offline/experience/runtime'
+import { getKnowledgeRewind } from '@/offline/experience/rewind'
 import { useLearningSnapshot } from '@/composables/useLearningSnapshot'
 import { studentApi } from '@/api'
 import { useConfirm } from '@/composables/useConfirm'
@@ -198,6 +210,30 @@ const pendingExperiencePrefill = ref(null)
 const experienceDone = ref(false)
 const experience = computed(() => experienceMeta(conv.activeId))
 const isExperienceConv = computed(() => !!experience.value)
+
+/* ===== 知识回溯（错因卡 → 双层补课 → 回原题） ===== */
+const rewindOpen = ref(false)
+const rewindReview = ref(null)
+function openKnowledgeRewind(payload) {
+  const id = payload?.review?.id || payload?.reviewId || ''
+  const data = getKnowledgeRewind(id)
+  if (!data) return
+  rewindReview.value = data
+  rewindOpen.value = true
+}
+function closeKnowledgeRewind(goRetry = false) {
+  rewindOpen.value = false
+  rewindReview.value = null
+  if (!goRetry) return
+  nextTick(() => {
+    const cards = document.querySelectorAll('.dialog-messages .soc-ix:not(.used)')
+    const target = cards[cards.length - 1]
+    if (!target) return
+    target.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    target.classList.add('si-focus-flash')
+    setTimeout(() => target.classList.remove('si-focus-flash'), 1600)
+  })
+}
 
 function applyExperiencePrefill() {
   const p = pendingExperiencePrefill.value

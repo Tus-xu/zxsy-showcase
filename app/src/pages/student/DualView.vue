@@ -22,11 +22,9 @@
         <button v-if="isTeacherDeck" class="dcx-tbtn" title="查看老师布置的课堂任务" @click="goClassTasks">📋 课堂任务</button>
         <template v-if="view === 'player'">
           <span class="dcx-timer" title="本次进入课堂后的计时，不含历史累计">⏱ 本次 {{ clockLabel }}</span>
-          <button class="dcx-round" :class="{ on: pb.on }" :disabled="!timeline.length" :title="pb.on ? '暂停讲解' : '开始讲解（逐句朗读）'" @click="togglePlay">{{ pb.on ? '⏸' : '▶' }}</button>
-          <button class="dcx-round" title="停止讲解" @click="stopPlayback">⏹</button>
         </template>
         <button class="dcx-tbtn solid" @click="toggleFullscreen">⛶ 全屏课堂</button>
-        <button v-if="view === 'player' && !isTeacherDeck" class="dcx-tbtn" @click="exportCourseware">⤓ 导出课件</button>
+        <button v-if="view === 'player' && !isTeacherDeck && !offline" class="dcx-tbtn" @click="exportCourseware">⤓ 导出课件</button>
         <button v-if="view === 'player' && !isTeacherDeck" class="dcx-tbtn" @click="reportOpen = true">📄 课堂报告</button>
         <button
           v-if="view === 'player' && (originQuestion.text || originQuestion.fileId)"
@@ -36,24 +34,31 @@
           <button class="dcx-round" title="讲解设置" @click="settingsOpen = !settingsOpen">⚙</button>
           <div v-if="settingsOpen" class="dcx-menu" @click.stop>
             <div class="dcx-menu-row">
-              <span>讲课文音色</span>
-              <select v-model="ttsVoice" class="dcx-input">
-                <option value="xiaoxiao">安娜（女·温柔）</option>
-                <option value="xiaoyi">贝拉（女·活泼）</option>
-                <option value="yunxi">本杰明（男·沉稳）</option>
-                <option value="yunyang">亚历克斯（男·播音）</option>
-              </select>
+              <span>主讲语音</span>
+              <b class="dcx-voice-pill">🎙 {{ voiceBadge }}</b>
             </div>
             <div class="dcx-menu-row">
-              <span>朗读声音</span>
+              <span>试听</span>
+              <button type="button" class="dcx-voice-preview" :disabled="!hasNeuralAudio" :title="hasNeuralAudio ? '试听当前页第一句' : '本课没有预生成神经语音'" @click="previewVoice">▶ 当前页第一句</button>
+            </div>
+            <div v-if="!hasNeuralAudio" class="dcx-menu-row">
+              <span>备用朗读</span>
               <select v-model="currentVoiceName" class="dcx-input" @change="onVoiceSelect">
                 <option value="">系统默认</option>
                 <option v-for="v in listChineseVoices(voices)" :key="v.voiceURI" :value="v.name">{{ v.name }}</option>
               </select>
             </div>
-            <div v-if="!listChineseVoices(voices).length" class="dcx-voice-warn">
+            <div v-if="!hasNeuralAudio && !listChineseVoices(voices).length" class="dcx-voice-warn">
               当前浏览器没有中文语音，讲解会静音；请安装中文语音包，或改用 Chrome / Edge。
             </div>
+            <details v-if="hasNeuralAudio" class="dcx-voice-adv">
+              <summary>备用系统语音（神经语音不可用时）</summary>
+              <select v-model="currentVoiceName" class="dcx-input" @change="onVoiceSelect">
+                <option value="">系统默认</option>
+                <option v-for="v in listChineseVoices(voices)" :key="v.voiceURI" :value="v.name">{{ v.name }}</option>
+              </select>
+              <div v-if="!listChineseVoices(voices).length" class="dcx-voice-warn">当前机器没有中文系统语音；本课仍会播放随包神经语音。</div>
+            </details>
             <div class="dcx-menu-row">
               <span>讲解语速</span>
               <select v-model="speakRate" class="dcx-input">
@@ -68,7 +73,7 @@
         <span class="dcx-avatar" title="我"><img :src="studentAvatar" alt="我" style="width: 100%; height: 100%; object-fit: cover; display: block" /></span>
       </div>
     </header>
-    <div v-if="settingsOpen || outlinePop" class="dcx-clickmask" @click="settingsOpen = false; outlinePop = false"></div>
+    <div v-if="settingsOpen || outlinePop || scriptOpen" class="dcx-clickmask" @click="settingsOpen = false; outlinePop = false; scriptOpen = false"></div>
 
     <!-- ===== 原题浮层 ===== -->
     <div v-if="originOpen && (originQuestion.text || originQuestion.imgUrl)" class="dcx-origin">
@@ -370,7 +375,7 @@
               :slide="currentSlide.deck_slide"
               :deck-title="currentSlide.deck_meta?.title || session.deck_meta?.title || session.title"
               :textbook-line="currentSlide.deck_meta?.textbook_line || session.deck_meta?.textbook_line"
-              :asset-urls="currentSlide.asset_urls || {}"
+              :asset-urls="deckAssetUrls"
               :ordinal="curIndex + 1"
             />
             <div v-else class="dcx-slide" :class="{ spotlight: pb.on }">
@@ -456,42 +461,98 @@
             </div>
           </div>
 
-          <!-- 讲稿（逐句，OpenMAIC speech line 语义） -->
-          <div class="dcx-teach">
-            <div class="dcx-tavatar lead"><img :src="teacherAvatar" alt="AI主讲" style="width: 100%; height: 100%; object-fit: cover; display: block" /></div>
-            <div class="dcx-tbubble">
-              <div class="dcx-tbhead">
-                <span class="dcx-tbname">AI 主讲</span>
-                <span v-if="pb.on" class="dcx-tbstate"><i class="dcx-wave"><b v-for="n in 12" :key="n"></b></i>讲解中 · 第 {{ pb.seg + 1 }} / {{ timeline.length }} 句</span>
-                <span v-else-if="!timeline.length" class="dcx-tbstate muted">本页无讲稿</span>
+          <!-- AI 主讲台：当前句是主角，前后句是上下文，全稿按需展开 -->
+          <section
+            class="dcx-teach dcx-podium"
+            :class="{ 'is-playing': pb.on, 'is-paused': !pb.on && !finished && pb.seg > 0, 'is-done': finished }"
+            :data-audio-source="audioSource"
+            aria-label="AI 主讲"
+          >
+            <div class="dcx-podium-id">
+              <span class="dcx-podium-avatar"><img :src="teacherAvatar" alt="AI 主讲" /></span>
+              <b class="dcx-podium-name">AI 主讲</b>
+              <span class="dcx-voice-badge" :class="{ fallback: audioSource === 'browser' }" :title="voiceBadge">🎙 {{ voiceBadgeShort }}</span>
+            </div>
+
+            <div class="dcx-podium-main">
+              <header class="dcx-podium-head">
+                <span class="dcx-podium-state" :class="{ live: pb.on }" role="status">
+                  <i class="dcx-state-dot" aria-hidden="true"></i>
+                  {{ pb.on ? '讲解中' : finished ? '本页讲完' : pb.seg > 0 ? '已暂停' : '待开始' }}
+                </span>
+                <span v-if="timeline.length" class="dcx-podium-count">第 <b>{{ pb.seg + 1 }}</b> / {{ timeline.length }} 句</span>
+                <div v-if="timeline.length" class="dcx-sent-rail" role="group" aria-label="本页讲解进度，可点击跳句">
+                  <button
+                    v-for="(sg, si) in timeline" :key="si"
+                    type="button"
+                    class="dcx-sent-tick"
+                    :class="{ played: si < pb.seg, on: si === pb.seg }"
+                    :aria-current="si === pb.seg ? 'true' : undefined"
+                    :aria-label="`跳到第 ${si + 1} 句：${sg.text}`"
+                    :title="`第 ${si + 1} 句：${sg.text}`"
+                    @click="jumpSeg(si)"
+                  ><i></i></button>
+                </div>
+                <button
+                  v-if="timeline.length" type="button" class="dcx-script-btn"
+                  :aria-expanded="scriptOpen" aria-controls="dcx-script-pop"
+                  @click="scriptOpen = !scriptOpen"
+                >看全稿 <span>{{ timeline.length }}</span></button>
+                <button type="button" class="dcx-podium-tutor" title="把问题预填到 AI 助教输入框" @click="focusAsk">
+                  <img :src="tutorAvatar" alt="" />
+                  <b>问助教</b>
+                </button>
+              </header>
+
+              <template v-if="timeline.length">
+                <div class="dcx-podium-stage" :key="pb.seg" :style="{ '--seg-ms': segMs + 'ms' }">
+                  <span class="dcx-podium-live" aria-hidden="true"><i></i><i></i><i></i></span>
+                  <p class="dcx-podium-now" aria-live="polite"><LatexText :text="timeline[pb.seg]?.text || ''" /></p>
+                  <i class="dcx-podium-speakline" aria-hidden="true"><b></b></i>
+                </div>
+                <footer class="dcx-podium-ctx">
+                  <button v-if="pb.seg > 0" type="button" class="dcx-ctx prev" @click="jumpSeg(pb.seg - 1)">
+                    <span class="dcx-ctx-k">刚才</span>
+                    <em class="dcx-ctx-t"><LatexText :text="timeline[pb.seg - 1].text" /></em>
+                  </button>
+                  <span v-else class="dcx-ctx-empty">本页开头</span>
+                  <i class="dcx-ctx-div" aria-hidden="true"></i>
+                  <button v-if="pb.seg < timeline.length - 1" type="button" class="dcx-ctx next" @click="jumpSeg(pb.seg + 1)">
+                    <span class="dcx-ctx-k">接下来</span>
+                    <em class="dcx-ctx-t"><LatexText :text="timeline[pb.seg + 1].text" /></em>
+                  </button>
+                  <span v-else class="dcx-ctx-empty">本页最后一句</span>
+                </footer>
+              </template>
+              <p v-else class="dcx-podium-empty">本页暂无讲稿，可直接看课件或向 AI 助教提问。</p>
+            </div>
+
+            <div v-if="scriptOpen" id="dcx-script-pop" class="dcx-script-pop" role="dialog" aria-label="本页讲稿">
+              <div class="dcx-script-pop-h">
+                <b>本页讲稿</b><span>{{ timeline.length }} 句 · 点任意一句从那里讲</span>
+                <button type="button" aria-label="关闭讲稿" @click="scriptOpen = false">×</button>
               </div>
-              <div class="dcx-narr-lines">
-                <p
-                  v-for="(sg, si) in timeline" :key="si"
-                  :class="{ on: pb.on && si === pb.seg, played: pb.on && si < pb.seg }"
-                  :title="'点击从这里讲解'"
-                  @click="jumpSeg(si)"
-                ><LatexText :text="sg.text" /></p>
-                <p v-if="!timeline.length" class="dcx-narr-empty">{{ currentSlide.narration || ('本页讲解要点：' + sections.goals.join('；')) }}</p>
+              <div class="dcx-script-list">
+                <button
+                  v-for="(sg, si) in timeline" :key="si" type="button"
+                  class="dcx-script-row" :class="{ on: si === pb.seg, played: si < pb.seg }"
+                  :aria-current="si === pb.seg ? 'true' : undefined"
+                  @click="jumpSeg(si); scriptOpen = false"
+                >
+                  <span class="dcx-script-no">{{ String(si + 1).padStart(2, '0') }}</span>
+                  <span class="dcx-script-tx"><LatexText :text="sg.text" /></span>
+                  <span class="dcx-script-st">{{ si < pb.seg ? '已讲' : si === pb.seg ? (pb.on ? '正在讲' : '当前') : '' }}</span>
+                </button>
               </div>
             </div>
-            <div class="dcx-tutor-mini">
-              <div class="dcx-tavatar ai"><img :src="tutorAvatar" alt="AI助教" style="width: 100%; height: 100%; object-fit: cover; display: block" /></div>
-              <b>AI助教</b>
-              <em>在线 · 待回答</em>
-              <button class="dcx-mini-ask" @click="focusAsk">提问</button>
-            </div>
-          </div>
+          </section>
 
           <!-- 播控条（OpenMAIC playback 控件） -->
           <div class="dcx-controls">
             <button class="dcx-ctl" :disabled="curIndex === 0" title="上一页" @click="go(-1)">⟨</button>
             <button class="dcx-ctl play" :class="{ on: pb.on }" :disabled="!timeline.length" :title="pb.on ? '暂停' : '播放讲解'" @click="togglePlay">{{ pb.on ? '⏸' : '▶' }}</button>
-            <button class="dcx-ctl" :disabled="pb.seg <= 0 && !pb.on" title="上一句" @click="jumpSeg(Math.max(0, (pb.on ? pb.seg : 0) - 1))">⟪</button>
-            <button class="dcx-ctl" :disabled="!timeline.length || pb.seg >= timeline.length - 1" title="下一句" @click="jumpSeg(Math.min(timeline.length - 1, pb.seg + 1))">⟫</button>
             <button class="dcx-ctl" :disabled="curIndex >= pageCount - 1" title="下一页" @click="go(1)">⟩</button>
             <span class="dcx-ctl-sep"></span>
-            <span class="dcx-ctl-page">第 {{ curIndex + 1 }} / {{ pageCount }} 页</span>
             <div class="dcx-bar slim grow"><div class="dcx-fill" :style="{ width: pg + '%' }"></div></div>
             <div class="dcx-foot-l">
               <span class="dcx-foot-q">这页掌握了吗？</span>
@@ -545,7 +606,7 @@
 
       <!-- 右：AI助教答疑 + 分层练习 -->
       <aside ref="rightColEl" class="dcx-right">
-        <div class="dcx-card dcx-tutor">
+        <div class="dcx-card dcx-tutor" :class="{ 'dcx-tutor--empty': !chatAsk.messages.value.length }">
           <div class="dcx-card-title">
             💬 AI助教答疑
             <button class="dcx-ghost" title="重新开始对话" @click="resetTutor">↻</button>
@@ -573,6 +634,7 @@
               v-for="m in chatAsk.messages.value"
               :key="m.key"
               :msg="m"
+              :error-review-enabled="false"
               @quiz-answered="onQAnswer"
               @socratic-choice="onAskSocraticChoice"
               @tutor-action="onAskTutorAction"
@@ -726,6 +788,8 @@ import GraphBlock from '@/components/chat/GraphBlock.vue'
 import DynamicFigureViewer from '@/components/DynamicFigureViewer.vue'
 import DeckSlideStage from '@/components/dual/DeckSlideStage.vue'
 import { PRESET_TOPICS } from '@/offline/showcase/classroomDecks'
+import { figureUrl } from '@/offline/showcase/deckFigures'
+import { classroomAudioUrl, hasClassroomAudio, CLASSROOM_VOICE } from '@/offline/showcase/classroomAudio'
 import { classroomApi, filesApi } from '@/api'
 import { streamClassroomEvents } from '@/api/sse'
 import MarkdownView from '@/components/MarkdownView.vue'
@@ -784,6 +848,19 @@ const isTeacherDeck = computed(
 )
 /** 只要当前页有 deck_slide 就用真实 SlideCanvas 舞台（AI 双师课件与老师课件共用同一渲染器） */
 const hasDeckSlide = computed(() => !!currentSlide.value?.deck_slide)
+/** 本课的真实课件 key（离线课件资产/神经语音按它命中；生成课没有则不伪造） */
+const deckKey = computed(() => String(session.value?.source_ref?.deck_key || ''))
+/** 当前页 deck_slide.assets → 真实 PPT 图/矢量教学图 URL（SlideCanvas 的 figure 通道） */
+const deckAssetUrls = computed(() => {
+  const ids = Array.isArray(currentSlide.value?.deck_slide?.assets) ? currentSlide.value.deck_slide.assets : []
+  const out = {}
+  for (const id of ids) {
+    const u = figureUrl(id) || currentSlide.value?.asset_urls?.[id]
+    if (u) out[id] = u
+  }
+  return out
+})
+const hasNeuralAudio = computed(() => hasClassroomAudio(deckKey.value))
 /* 「课堂 → 老师课堂」列表点开时的老师/班级名交接（sessionStorage，刷新仍可用）。
    来源仅用于顶部 badge；缺失则诚实省略，不猜测。 */
 const teacherDeckHandoff = ref(null)
@@ -1347,7 +1424,11 @@ function markCheck(v) {
   syncProgress({ page_check: { [curIndex.value]: v } })
   if (v === 'again') toast.info('🔁 已标记重听，课后记得回看')
 }
-watch(curIndex, () => { selfCheck.value = '' })
+watch(curIndex, () => {
+  selfCheck.value = ''
+  scriptOpen.value = false
+  finished.value = false
+})
 
 /* ==================== 进度 / 笔记持久化 ==================== */
 let progressTimer = null
@@ -1432,6 +1513,22 @@ function onVoiceSelect() {
   setPreferredVoice(currentVoiceName.value)
   if (pb.on) { pbToken += 1; window.speechSynthesis?.cancel(); cleanupTtsAudio(); startPlayback(pb.seg) }
 }
+function previewVoice() {
+  const url = classroomAudioUrl(deckKey.value, currentSlide.value?.order || 1, 0)
+  if (!url) {
+    toast.info(hasNeuralAudio.value ? '本页没有预生成语音，请从第一句播放' : '本课使用系统语音，可在下方切换备用音色')
+    return
+  }
+  pbToken += 1
+  pb.on = false
+  finished.value = false
+  pb.seg = 0
+  boardRevealed.value = timeline.value[0]?.boardTo ?? -1
+  window.speechSynthesis?.cancel()
+  cleanupTtsAudio()
+  playAudioUrl(url, pbToken)
+  toast.info('试听：晓晓 · 自然女声（第 1 句）')
+}
 
 /* ==================== 播放引擎（OpenMAIC action 时间轴：逐句讲稿 + 聚光灯 + 板书节拍） ==================== */
 const pb = reactive({ on: false, seg: 0 })
@@ -1440,11 +1537,22 @@ const boardRevealed = ref(-1) // -1 = 全部可见（停止态）
 const segAudioCache = new Map() // voice|text → blobURL/null
 const ttsAudio = ref(null)
 const ttsUrl = ref('')
+let audioSettle = null
+const scriptOpen = ref(false)
+const finished = ref(false)
+const audioSource = ref('') // neural | backend | browser | ''
+const voiceBadge = computed(() => {
+  if (audioSource.value === 'browser') return '系统语音 · 备用'
+  if (audioSource.value === 'backend') return '云端语音'
+  return hasNeuralAudio.value ? `${CLASSROOM_VOICE.label} · 神经语音` : '系统语音'
+})
+const voiceBadgeShort = computed(() => voiceBadge.value.replace(' · 神经语音', '·神经').replace(' · 备用', '·备用'))
 
 const timeline = computed(() => attachFocus(
   buildTimeline(currentSlide.value?.narration, sections.value.formulas.length),
   buildFocusKeys(sections.value),
 ))
+const segMs = computed(() => estimateSpeakMs(timeline.value[pb.seg]?.text || '', speakRate.value))
 const currentFocus = computed(() => timeline.value[pb.seg]?.focus || null)
 function isDim(key) {
   return pb.on && !!currentFocus.value && currentFocus.value !== key
@@ -1457,7 +1565,7 @@ const visibleWbSteps = computed(() => {
 
 function togglePlay() {
   if (pb.on) pausePlayback()
-  else startPlayback(pb.seg || 0)
+  else startPlayback(finished.value ? 0 : (pb.seg || 0))
 }
 function pausePlayback() {
   pbToken += 1
@@ -1471,11 +1579,14 @@ function stopPlayback() {
   cleanupTtsAudio()
   pb.on = false
   pb.seg = 0
+  finished.value = false
+  audioSource.value = ''
   boardRevealed.value = -1
 }
 function jumpSeg(i) {
   const k = Math.max(0, Math.min(timeline.value.length - 1, i))
   if (!timeline.value.length) return
+  finished.value = false
   startPlayback(k)
 }
 
@@ -1486,30 +1597,47 @@ async function startPlayback(fromSeg = 0) {
   window.speechSynthesis?.cancel()
   cleanupTtsAudio()
   pb.on = true
+  finished.value = false
+  audioSource.value = ''
   pb.seg = Math.max(0, Math.min(fromSeg, timeline.value.length - 1))
   for (let k = pb.seg; k < timeline.value.length; k++) {
     if (token !== pbToken) return
     pb.seg = k
     boardRevealed.value = timeline.value[k].boardTo
-    const spoken = await speakSegment(textToSpeech(timeline.value[k].text), token)
+    const spoken = await speakSegment(textToSpeech(timeline.value[k].text), token, k)
     if (token !== pbToken) return
     if (!spoken) await new Promise((r) => setTimeout(r, estimateSpeakMs(timeline.value[k].text, speakRate.value)))
     if (token !== pbToken) return
   }
-  // 本页讲完
+  if (token !== pbToken) return
+  // 本页讲完：保留最后一句，界面显示“本页讲完”，下次播放从第一句重来
   boardRevealed.value = -1
   pb.on = false
-  pb.seg = 0
+  finished.value = true
   if (autoRead.value && curIndex.value < pageCount.value - 1) {
+    finished.value = false
     go(1)
     startPlayback(0)
   }
 }
 
-/** 播一句：返回 true=有真实音频/语音结束；false=需静默节拍兜底 */
-async function speakSegment(text, token) {
+/** 播一句：返回 true=有真实音频/语音结束；false=需静默节拍兜底。
+ * 优先随包神经语音（离线、稳定），再后端，最后浏览器 TTS。 */
+async function speakSegment(text, token, segIndex = 0) {
   if (!text) return false
-  // ① 后端神经语音（句级缓存；OpenMAIC speech action 语义）
+  // ① 随包神经语音（句级 mp3；deck/页/句 三维定位）
+  const localUrl = classroomAudioUrl(
+    deckKey.value,
+    currentSlide.value?.order || curIndex.value + 1,
+    segIndex,
+  )
+  if (localUrl) {
+    audioSource.value = 'neural'
+    const played = await playAudioUrl(localUrl, token)
+    if (token !== pbToken) return true
+    if (played) return true
+  }
+  // ② 后端神经语音（在线课堂；离线 404 自动跳过）
   const key = `${ttsVoice.value}|${text}`
   if (!segAudioCache.has(key)) {
     segAudioCache.set(key, await fetchSegmentAudio(text).catch(() => null))
@@ -1517,13 +1645,14 @@ async function speakSegment(text, token) {
   if (token !== pbToken) return true
   const url = segAudioCache.get(key)
   if (url) {
+    audioSource.value = 'backend'
     const played = await playAudioUrl(url, token)
     if (token !== pbToken) return true
     if (played) return true
   }
-  // ② 浏览器 TTS
-  const ok = await browserSpeakAsync(text, token)
-  return ok
+  // ③ 浏览器 TTS（可见降级）
+  audioSource.value = 'browser'
+  return browserSpeakAsync(text, token)
 }
 
 async function fetchSegmentAudio(text) {
@@ -1545,10 +1674,16 @@ function playAudioUrl(url, token) {
     ttsAudio.value = audio
     ttsUrl.value = url
     let settled = false
-    const done = (ok) => { if (!settled) { settled = true; resolve(ok) } }
-    audio.onended = () => { cleanupTtsAudio(); done(true) }
-    audio.onerror = () => { cleanupTtsAudio(); done(false) }
-    audio.play().catch(() => { cleanupTtsAudio(); done(false) })
+    const done = (ok) => {
+      if (settled) return
+      settled = true
+      if (audioSettle === done) audioSettle = null
+      resolve(ok)
+    }
+    audioSettle = done
+    audio.onended = () => { cleanupTtsAudio(true); done(true) }
+    audio.onerror = () => { cleanupTtsAudio(false); done(false) }
+    audio.play().catch(() => { cleanupTtsAudio(false); done(false) })
     if (token !== pbToken) { audio.pause(); done(true) }
   })
 }
@@ -1560,7 +1695,7 @@ function browserSpeakAsync(text, token) {
     const u = new SpeechSynthesisUtterance(text)
     u.lang = 'zh-CN'
     u.rate = speakRate.value
-    u.pitch = 1.08
+    u.pitch = 1.0
     const v = pickChineseVoice(voices.value, preferredVoice.value)
     if (v) u.voice = v
     let settled = false
@@ -1572,9 +1707,17 @@ function browserSpeakAsync(text, token) {
   })
 }
 
-function cleanupTtsAudio() {
+function cleanupTtsAudio(success = true) {
   if (ttsAudio.value) { ttsAudio.value.pause(); ttsAudio.value = null }
-  if (ttsUrl.value) { URL.revokeObjectURL(ttsUrl.value); ttsUrl.value = '' }
+  if (audioSettle) {
+    const settle = audioSettle
+    audioSettle = null
+    settle(success)
+  }
+  if (ttsUrl.value) {
+    if (String(ttsUrl.value).startsWith('blob:')) URL.revokeObjectURL(ttsUrl.value)
+    ttsUrl.value = ''
+  }
 }
 
 /* ==================== 页内 AI 助教 ==================== */
@@ -2144,7 +2287,7 @@ function exportReport() {
 function onKey(e) {
   if (e.key === 'ArrowRight') go(1)
   else if (e.key === 'ArrowLeft') go(-1)
-  else if (e.key === 'Escape') { settingsOpen.value = false; outlinePop.value = false; reportOpen.value = false; reviewOpen.value = false; practiceDrawer.value = false }
+  else if (e.key === 'Escape') { settingsOpen.value = false; outlinePop.value = false; reportOpen.value = false; reviewOpen.value = false; practiceDrawer.value = false; scriptOpen.value = false }
 }
 
 // 路由驱动视图切换。注意必须放在脚本尾部：immediate 首跑在 setup 期同步执行，
@@ -3139,4 +3282,222 @@ button { font-family: inherit; }
   max-height: none;
   overflow: visible;
 }
+/* ===== AI 主讲台（本轮重构：当前句是主角，全稿按需展开） ===== */
+.dcx-teach.dcx-podium {
+  position: relative;
+  display: grid;
+  grid-template-columns: 64px minmax(0, 1fr);
+  gap: 10px;
+  align-items: stretch;
+  padding: 9px 10px;
+  background: linear-gradient(180deg, #ffffff 0%, #fbfcff 100%);
+  border: 1px solid #e5e9f2;
+  border-radius: 14px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, .04);
+  overflow: visible;
+}
+.dcx-podium-id {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 3px; min-width: 0; padding-right: 8px; border-right: 1px solid #eef2f7;
+}
+.dcx-podium-avatar {
+  width: 42px; height: 42px; border-radius: 50%; overflow: hidden; flex: none;
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 2px solid #fff; box-shadow: 0 0 0 3px #eef2ff;
+}
+.dcx-podium-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.dcx-podium-name { font-size: 11.5px; font-weight: 800; color: #1f2937; white-space: nowrap; }
+.dcx-voice-badge {
+  font-size: 9.5px; font-weight: 700; color: #6d28d9; background: #f5f3ff;
+  border: 1px solid #ddd6fe; border-radius: 999px; padding: 1px 6px; white-space: nowrap;
+}
+.dcx-podium-main { min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.dcx-podium-head { display: flex; align-items: center; gap: 7px; min-width: 0; min-height: 20px; }
+.dcx-podium-state {
+  display: inline-flex; align-items: center; gap: 5px; flex: none;
+  font-size: 11px; font-weight: 800; color: #64748b; white-space: nowrap;
+}
+.dcx-state-dot {
+  width: 6px; height: 6px; border-radius: 50%; background: #cbd5e1; flex: none;
+}
+.dcx-podium-state.live { color: #4f46e5; }
+.dcx-podium-state.live .dcx-state-dot { background: #4f46e5; box-shadow: 0 0 0 3px #eef2ff; animation: dcx-podium-pulse 1.6s ease-in-out infinite; }
+@keyframes dcx-podium-pulse { 0%, 100% { opacity: .55; transform: scale(.9); } 50% { opacity: 1; transform: scale(1.15); } }
+.dcx-podium-count { flex: none; font-size: 10.5px; color: #94a3b8; white-space: nowrap; }
+.dcx-podium-count b { color: #4f46e5; font-size: 11.5px; }
+.dcx-sent-rail { display: flex; align-items: center; gap: 3px; flex: 1; min-width: 32px; overflow: hidden; }
+.dcx-sent-tick {
+  width: 14px; height: 18px; padding: 0; border: none; background: transparent;
+  display: grid; place-items: center; cursor: pointer; flex: 0 0 auto;
+}
+.dcx-sent-tick i { display: block; width: 7px; height: 7px; border-radius: 999px; background: #dbe3f2; transition: all .18s ease; }
+.dcx-sent-tick.played i { background: #a5b4fc; }
+.dcx-sent-tick.on i { width: 18px; background: #4f46e5; border-radius: 4px; }
+.dcx-sent-tick:hover i { background: #818cf8; }
+.dcx-script-btn, .dcx-podium-tutor {
+  display: inline-flex; align-items: center; gap: 4px; flex: none;
+  border: 1px solid #e5e9f2; background: #fff; border-radius: 999px;
+  padding: 3px 8px; cursor: pointer; font: inherit; font-size: 10.5px;
+  font-weight: 700; color: #64748b; white-space: nowrap;
+}
+.dcx-script-btn:hover, .dcx-podium-tutor:hover { border-color: #c7d2fe; color: #4f46e5; background: #eef2ff; }
+.dcx-script-btn span {
+  min-width: 16px; height: 16px; padding: 0 4px; border-radius: 999px;
+  display: inline-grid; place-items: center; background: #eef2ff; color: #4f46e5; font-size: 9.5px;
+}
+.dcx-podium-tutor img { width: 16px; height: 16px; border-radius: 50%; object-fit: cover; }
+.dcx-podium-tutor b { font-weight: 800; color: #4f46e5; }
+.dcx-podium-stage {
+  position: relative; flex: 1; min-height: 54px; display: flex; align-items: center; gap: 8px;
+  padding: 7px 11px 9px; border: 1px solid #edf1fa; border-radius: 10px;
+  background: linear-gradient(120deg, #f8faff 0%, #fbfcff 100%); overflow: hidden;
+}
+.dcx-podium-live { display: inline-flex; align-items: flex-end; gap: 2px; height: 18px; flex: none; opacity: 0; }
+.dcx-podium-live i { width: 3px; height: 8px; border-radius: 2px; background: #818cf8; }
+.dcx-podium-live i:nth-child(2) { height: 15px; }
+.dcx-podium-live i:nth-child(3) { height: 11px; }
+.dcx-podium.is-playing .dcx-podium-live { opacity: 1; }
+.dcx-podium.is-playing .dcx-podium-live i { animation: dcx-podium-wave .9s ease-in-out infinite; }
+.dcx-podium.is-playing .dcx-podium-live i:nth-child(2) { animation-delay: .13s; }
+.dcx-podium.is-playing .dcx-podium-live i:nth-child(3) { animation-delay: .26s; }
+@keyframes dcx-podium-wave { 0%, 100% { transform: scaleY(.45); } 50% { transform: scaleY(1.25); } }
+.dcx-podium-now {
+  margin: 0; flex: 1; min-width: 0; font-size: 16.5px; line-height: 1.58; font-weight: 650;
+  color: #111827; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical;
+  overflow: hidden; letter-spacing: .005em;
+}
+.dcx-podium-now :deep(.katex) { font-size: 1.02em; }
+.dcx-podium-speakline {
+  position: absolute; left: 10px; right: 10px; bottom: 3px; height: 2px;
+  background: #e8edf8; border-radius: 999px; overflow: hidden;
+}
+.dcx-podium-speakline b { display: block; height: 100%; width: 0; border-radius: inherit; background: linear-gradient(90deg, #4f46e5, #818cf8); }
+.dcx-podium.is-playing .dcx-podium-speakline b { animation: dcx-podium-progress var(--seg-ms, 4s) linear forwards; }
+.dcx-podium.is-paused .dcx-podium-speakline b, .dcx-podium.is-done .dcx-podium-speakline b { width: 100%; }
+@keyframes dcx-podium-progress { from { width: 0; } to { width: 100%; } }
+.dcx-podium-ctx {
+  display: flex; align-items: center; gap: 7px; min-width: 0; height: 19px;
+  font-size: 10.5px; color: #94a3b8; overflow: hidden;
+}
+.dcx-ctx {
+  min-width: 0; display: flex; align-items: baseline; gap: 5px; border: none; background: transparent;
+  padding: 0; cursor: pointer; font: inherit; text-align: left; color: #64748b;
+}
+.dcx-ctx:hover em { color: #4f46e5; }
+.dcx-ctx-k { flex: none; font-weight: 800; color: #4f46e5; }
+.dcx-ctx-t {
+  font-style: normal; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  max-width: 34ch;
+}
+.dcx-ctx-div { width: 1px; height: 11px; background: #e2e8f0; flex: none; }
+.dcx-ctx-empty { color: #cbd5e1; white-space: nowrap; }
+.dcx-podium-empty { margin: 0; padding: 10px 2px; font-size: 12.5px; color: #6b7280; }
+.dcx-script-pop {
+  position: absolute; left: 74px; right: 10px; bottom: calc(100% + 8px); z-index: 30;
+  max-height: 320px; display: flex; flex-direction: column;
+  background: #fff; border: 1px solid #e5e9f2; border-radius: 12px;
+  box-shadow: 0 18px 40px rgba(15, 23, 42, .18); overflow: hidden;
+}
+.dcx-script-pop-h { display: flex; align-items: baseline; gap: 8px; padding: 10px 12px; border-bottom: 1px solid #eef2f7; }
+.dcx-script-pop-h b { font-size: 12.5px; color: #1f2937; }
+.dcx-script-pop-h span { flex: 1; font-size: 10.5px; color: #94a3b8; }
+.dcx-script-pop-h button { border: none; background: #f1f5f9; color: #64748b; width: 22px; height: 22px; border-radius: 6px; cursor: pointer; }
+.dcx-script-list { overflow-y: auto; padding: 6px; display: flex; flex-direction: column; gap: 2px; }
+.dcx-script-row {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 7px; align-items: baseline;
+  width: 100%; border: none; background: transparent; text-align: left; border-radius: 8px;
+  padding: 7px 8px; cursor: pointer; font: inherit; color: #475569;
+}
+.dcx-script-row:hover { background: #f8faff; }
+.dcx-script-row.on { background: #eef2ff; color: #4f46e5; font-weight: 700; }
+.dcx-script-row.played { color: #94a3b8; }
+.dcx-script-no { font-size: 9.5px; color: #94a3b8; font-variant-numeric: tabular-nums; }
+.dcx-script-tx { font-size: 12px; line-height: 1.5; }
+.dcx-script-st { font-size: 9.5px; color: #94a3b8; white-space: nowrap; }
+.dcx-voice-pill {
+  font-size: 10.5px; font-weight: 800; color: #4f46e5; background: #eef2ff;
+  border: 1px solid #c7d2fe; border-radius: 999px; padding: 3px 8px; white-space: nowrap;
+}
+.dcx-voice-preview {
+  border: 1px solid #c7d2fe; background: #eef2ff; color: #4f46e5; border-radius: 999px;
+  padding: 4px 10px; font: inherit; font-size: 10.5px; font-weight: 800; cursor: pointer;
+}
+.dcx-voice-preview:hover { background: #4f46e5; color: #fff; }
+.dcx-voice-adv { font-size: 10.5px; color: #64748b; }
+.dcx-voice-adv summary { cursor: pointer; font-weight: 700; color: #64748b; }
+.dcx-voice-adv select { width: 100%; margin-top: 7px; }
+
+@media (max-width: 1280px) {
+  .dcx-podium-count { display: none; }
+  .dcx-ctx-t { max-width: 22ch; }
+}
+@media (max-width: 900px) {
+  .dcx-teach.dcx-podium { grid-template-columns: 54px minmax(0, 1fr); }
+  .dcx-podium-avatar { width: 36px; height: 36px; }
+  .dcx-podium-now { font-size: 15px; }
+  .dcx-sent-rail { display: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dcx-podium-state.live .dcx-state-dot,
+  .dcx-podium.is-playing .dcx-podium-live i { animation: none; }
+  .dcx-podium.is-playing .dcx-podium-speakline b { animation: none; width: 100%; }
+  .dcx-sent-tick i { transition: none; }
+}
+
+/* ===== 主讲台 / 白板 / 控件修正（视觉审计后） ===== */
+.dcx-center--teacher-deck .dcx-teach {
+  flex: 0 0 142px; height: 142px; min-height: 142px; max-height: 142px;
+}
+.dcx-center--teacher-deck .dcx-stage-wrap {
+  flex: 1 1 486px; min-height: 340px;
+}
+.dcx-center--teacher-deck .dcx-board {
+  flex: 1 1 132px; min-height: 120px; max-height: 260px;
+}
+.dcx-board { position: relative; }
+.dcx-wb { position: relative; min-height: 0; }
+.dcx-btabs { position: relative; z-index: 12; }
+.dcx-tutor--empty { flex: 0 1 auto; max-height: 42vh; }
+.dcx-tutor--empty .dcx-msgs { min-height: 80px; }
+
+.dcx-podium-stage { height: 68px; min-height: 68px; }
+.dcx-podium-now { font-size: 17px; }
+.dcx-voice-badge {
+  max-width: 60px; overflow: hidden; text-overflow: ellipsis;
+  font-size: 8.5px; padding: 1px 4px;
+}
+.dcx-voice-badge.fallback { color: #92400e; background: #fffbeb; border-color: #fde68a; }
+.dcx-podium-count { color: #64748b; font-size: 11px; }
+.dcx-sent-rail { flex: 0 1 260px; max-width: 260px; }
+.dcx-sent-tick { width: 20px; height: 24px; }
+.dcx-sent-tick i { width: 8px; height: 8px; background: #cbd5e1; }
+.dcx-sent-tick.played i { background: #93a8e8; }
+.dcx-sent-tick.on i { width: 20px; background: #4f46e5; }
+.dcx-ctx { flex: 1; min-width: 0; }
+.dcx-ctx-t { max-width: none; flex: 1; }
+.dcx-podium-ctx { color: #64748b; font-size: 11.5px; }
+.dcx-ctx-empty { color: #64748b; }
+.dcx-script-btn, .dcx-podium-tutor { min-height: 24px; }
+.dcx-ctl { width: 30px; height: 30px; border-radius: 8px; font-size: 13px; }
+.dcx-ctl.play { width: 36px; height: 36px; font-size: 15px; }
+.dcx-chipbtn { min-height: 28px; padding: 4px 10px; }
+.dcx-voice-preview:disabled { opacity: .45; cursor: not-allowed; }
+.dcx-voice-preview:disabled:hover { background: #eef2ff; color: #4f46e5; }
+.dcx-script-pop-h button { width: 30px; height: 30px; border-radius: 8px; font-size: 16px; }
+
+@media (min-width: 1600px) {
+  .dcx-podium-now { font-size: 19px; }
+  .dcx-podium-ctx { font-size: 12px; }
+}
+
+
+/* 双师课件正文在 1440 缩放后仍要可读（只在双师舞台内放大，不改教师端） */
+.dcx-center--teacher-deck :deep(.pc-slide__title) { font-size: 26px; }
+.dcx-center--teacher-deck :deep(.pc-el__card-title) { font-size: 17px; }
+.dcx-center--teacher-deck :deep(.pc-el__card-note) { font-size: 13px; }
+.dcx-center--teacher-deck :deep(.pc-el__bullets li),
+.dcx-center--teacher-deck :deep(.pc-el__list li) { font-size: 14px; line-height: 1.55; }
+.dcx-center--teacher-deck :deep(.pc-el__steps li) { font-size: 14px; line-height: 1.5; }
+.dcx-center--teacher-deck :deep(.pc-slide__note) { font-size: 12.5px; }
+
 </style>

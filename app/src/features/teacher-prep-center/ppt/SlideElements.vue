@@ -740,6 +740,8 @@ const latexHasError = computed(() => {
 /* 知识卡 */
 .pc-el__card {
   flex: 1;
+  align-self: center;
+  max-height: 100%;
   min-width: 0;
   position: relative;
   border: 1px solid var(--pc-line);

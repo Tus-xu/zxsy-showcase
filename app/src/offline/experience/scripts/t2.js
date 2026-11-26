@@ -188,7 +188,7 @@ export default {
                 { id: 'b', label: '$AD$ 与 $A_1D$' },
                 { id: 'c', label: '$AA_1$ 与 $A_1D$' },
               ],
-            }, { step_no: 1, stage: 'planning', prompt_lead: '先找平面内的两条相交直线。' }),
+            }, { step_no: 1, stage: 'planning', prompt_lead: '先看平面 $AA_1D$：要证 $BC\\perp$ 平面，平面里需要几条线？它们必须是什么位置关系？先想清楚再选。' }),
           ],
           check: {
             form: 'binary',
@@ -200,6 +200,7 @@ export default {
             kpName: '线面垂直的判定',
             correctText: '对，$AD$ 与 $AA_1$ 都过点 $A$，是平面 $AA_1D$ 内的相交直线。',
             wrongText: '这三组都相交，但我们要找的是能和 $BC$ 直接证垂直的那一组。',
+            bridgeText: '下一步先在心里过一遍判定定理：线面垂直需要平面内两条相交直线。下一句已经放在输入框里，想好再发送。',
             hintText: '$AD$ 在底面内，$AA_1$ 是侧棱；它们都过点 $A$。',
             misconception: 'concept',
             misconceptionZh: '判定定理条件不清',
@@ -207,7 +208,7 @@ export default {
         },
       },
       {
-        user: { text: '选 AD 与 AA₁。接下来分别证什么？' },
+        user: { text: '选 AD 与 AA₁。接下来分别证什么？我想先找等边三角形和侧棱的依据。' },
         ai: {
           text: '第 2 步分别证垂直。$BC\\perp AD$ 来自等边三角形的中线；$BC\\perp AA_1$ 来自正三棱柱的侧棱垂直底面。这两个结论都成立吗？',
           cards: [
@@ -218,7 +219,7 @@ export default {
                 { id: 'b', label: '只有 $BC\\perp AD$ 成立' },
                 { id: 'c', label: '只有 $BC\\perp AA_1$ 成立' },
               ],
-            }, { step_no: 2, stage: 'planning', prompt_lead: '分别检查两个垂直的根据。' }),
+            }, { step_no: 2, stage: 'planning', prompt_lead: '你选了 $AD$ 和 $AA_1$。接下来分别找依据：等边三角形的中线为什么垂直底边？正三棱柱的侧棱和底面是什么关系？' }),
           ],
           check: {
             form: 'binary',
@@ -230,9 +231,11 @@ export default {
             kpName: '线面垂直的判定',
             correctText: '对：等边三角形中线垂直底边；正三棱柱侧棱垂直底面，$BC$ 在底面内。',
             wrongText: '再想想正三棱柱的定义：侧棱和底面是什么关系？',
+            bridgeText: '下一步把两个垂直的依据各用一句话说出来；下一句已经放在输入框里。',
             hintText: '正三棱柱的侧棱垂直于底面；等边三角形的中线也是高。',
             misconception: 'concept',
             misconceptionZh: '正棱柱性质不清',
+            review: { id: 'line-plane-perpendicular', title: '回到「线面垂直」补一补', hint: '约 2 分钟 · 判定定理与两条相交直线' },
           },
         },
       },
@@ -249,7 +252,7 @@ export default {
                 { id: 'c', label: 'C · $AD\\parallel A_1B_1$' },
                 { id: 'd', label: 'D · $CC_1\\parallel$ 平面 $AA_1D$' },
               ],
-            }, { step_no: 3, stage: 'reflecting', prompt_lead: '回扣判定定理，选出直接推出的那一项。' }),
+            }, { step_no: 3, stage: 'reflecting', prompt_lead: '回扣判定定理：$BC$ 垂直于平面内两条相交直线，能直接推出哪一项？注意题目可能是多选/有瑕疵。' }),
           ],
           check: {
             form: 'binary',

@@ -7,7 +7,7 @@ import { marked } from 'marked'
 import markedKatex from 'marked-katex-extension'
 import DOMPurify from 'dompurify'
 import hljs from 'highlight.js/lib/core'
-import { mergeNestedMath } from '@/utils/latex'
+import { latexifyBareRadicals, mergeNestedMath } from '@/utils/latex'
 // 常用语言子集（控制包体）
 import javascript from 'highlight.js/lib/languages/javascript'
 import typescript from 'highlight.js/lib/languages/typescript'
@@ -137,6 +137,7 @@ export function renderMarkdown(src, { streamingTail = false, imgMode = 'question
     .replace(/\\\./g, '')
   s = renderLatexTabular(s) // LaTeX tabular → Markdown 表格
   s = mergeNestedMath(s) // 题库嵌套 $ 语料先归一化，再进 KaTeX
+  s = latexifyBareRadicals(s) // 裸 √7 → $\sqrt{7}$，保证根号有上横线
   if (streamingTail) {
     // 流式容错：未闭合的 $$ 块按补齐处理，避免半公式报错
     const dollars = (s.match(/\$\$/g) || []).length

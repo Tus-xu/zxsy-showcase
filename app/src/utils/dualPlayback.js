@@ -9,9 +9,15 @@
  */
 
 /** 把讲稿切句：先按句末标点，过长的再按逗号/顿号二次切分。
+ *
+ *  为什么不再按「>12 字就切逗号」：那会把一个完整句子切成
+ *  「除以 x 减 x 一。」这类 8 字碎片，逐句朗读时听起来一顿一顿，
+ *  讲解台也会显示成碎行。现在只在长句超过 MAX_SEG 时才按逗号切，
+ *  且每片至少 MIN_PIECE 字；数学公式内部不切。
+ *
  *  数学感知：$...$ 内部的句读不是句子边界，切中公式会把讲稿腰斩。 */
 export function splitSentences(text) {
-  const raw = String(text || '').trim()
+  const raw = String(text || '').replace(/\r\n?/g, '\n').trim()
   if (!raw) return []
   const out = []
   let buf = ''
@@ -27,25 +33,34 @@ export function splitSentences(text) {
     }
   }
   if (buf.trim()) out.push(buf.trim())
+
+  const MAX_SEG = 82
+  const MIN_PIECE = 24
   const final = []
   for (const s of out) {
-    if (s.length <= 48) {
+    if (s.length <= MAX_SEG) {
       final.push(s)
       continue
     }
-    // 长句按逗号切（同样数学感知），每片尽量 ≥12 字，避免碎成单字节拍
+    // 长句按逗号切（同样数学感知）；每片尽量 ≥ MIN_PIECE 字，尾片太短就并回上一片。
     let b2 = ''
     let m2 = false
+    const pieces = []
     for (let i = 0; i < s.length; i++) {
       const ch = s[i]
       if (ch === '$' && s[i - 1] !== '\\') m2 = !m2
       b2 += ch
-      if (!m2 && b2.trim().length > 12 && /[，,、：:]/.test(ch)) {
-        final.push(b2.trim())
+      if (!m2 && /[，,、：:]/.test(ch) && b2.trim().length >= MIN_PIECE) {
+        pieces.push(b2.trim())
         b2 = ''
       }
     }
-    if (b2.trim()) final.push(b2.trim())
+    if (b2.trim()) pieces.push(b2.trim())
+    if (pieces.length > 1 && pieces[pieces.length - 1].length < MIN_PIECE) {
+      const last = pieces.pop()
+      pieces[pieces.length - 1] = pieces[pieces.length - 1] + last
+    }
+    final.push(...pieces)
   }
   return final.length ? final : [raw]
 }

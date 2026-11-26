@@ -11,6 +11,7 @@ import { splitStreamPieces, piecePause } from '../showcase/session'
 import { getExperience } from './scripts'
 import { EXPERIENCE_BY_ID, EXPERIENCE_PROBLEM_BY_ID } from './catalog'
 import { addExperienceError } from '../showcase/errorbook'
+import { defaultCite, defaultRefs } from './citations'
 
 const states = new Map()
 
@@ -98,6 +99,7 @@ function pushAi(st, expId, ai) {
     text: ai?.text || '',
     cards: Array.isArray(ai?.cards) ? ai.cards : [],
     figures: Array.isArray(ai?.figures) ? ai.figures : [],
+    citations: Array.isArray(ai?.citations) ? ai.citations : [],
     at: st.turns.length,
   })
 }
@@ -180,7 +182,7 @@ function retryCard(card, attempt) {
   if (!card) return null
   const base = JSON.parse(JSON.stringify(card))
   base.interaction_id = `${base.interaction_id || 'ix_exp'}_r${attempt}`
-  base.prompt_lead = base.prompt_lead || '再看一眼提示，重新选一次。'
+  base.prompt_lead = base.prompt_lead || '先别急着提交。用自己的话说一遍：这一步要用的关系是什么？想好再点。'
   base.allow_text_fallback = true
   base.allow_skip = true
   return base
@@ -189,6 +191,7 @@ function retryCard(card, attempt) {
 function buildWrong(st, check, ai) {
   const total = check.total || 3
   const step = check.step || 1
+  const review = check.review && typeof check.review === 'object' ? check.review : null
   const cards = [
     {
       card_type: 'socratic_hint',
@@ -208,6 +211,7 @@ function buildWrong(st, check, ai) {
       evidence_quote: '',
       kp_name: check.kpName || '',
       probe_question: null,
+      ...(review ? { review } : {}),
     },
   ]
   const card = ai?.cards?.[check.cardIndex || 0]
@@ -224,8 +228,9 @@ function buildCorrect(check) {
   const step = check.progress || check.step || total
   const cards = [progressCard(check, step, total, 'correct', { attempts: 0 })]
   if (Array.isArray(check.correctCards)) cards.push(...check.correctCards)
+  const bridge = String(check.bridgeText || '').trim()
   return {
-    text: check.correctText || '对，这一步成立。',
+    text: [check.correctText || '对，这一步成立。', bridge].filter(Boolean).join('\n\n'),
     cards,
   }
 }
@@ -240,6 +245,9 @@ function eventsFor(ai, expId, { prefill = null, complete = false } = {}) {
     evs.push({ event: 'card', data: { ...c, session_id: c.session_id || expId }, delay: 160 })
   }
   for (const f of ai?.figures || []) evs.push({ event: 'figure', data: f, delay: 160 })
+  if (Array.isArray(ai?.citations) && ai.citations.length) {
+    evs.push({ event: 'citation', data: { items: ai.citations }, delay: 120 })
+  }
   if (prefill) {
     evs.push({
       event: 'prefill',
@@ -277,6 +285,7 @@ export function experienceChatTurn(body) {
   const script = getExperience(expId)
   if (!script) return null
   const st = ensure(expId)
+  const problemId = problemOf(expId)?.id || ''
   const text = String(body?.message ?? body?.content ?? '').trim()
 
   if (st.done) {
@@ -290,10 +299,15 @@ export function experienceChatTurn(body) {
     if (!ok && st.attempts < 3) {
       st.hints += 1
       const fb = buildWrong(st, st.pending.check, st.pending.ai)
+      fb.citations = defaultRefs(problemId)
+      fb.cards = fb.cards.map((c) => (c && c.card_type === 'socratic_error_analysis'
+        ? { ...c, citations: defaultCite(problemId) }
+        : c))
       pushAi(st, expId, fb)
       return eventsFor(fb, expId, {})
     }
     const fb = buildCorrect({ ...st.pending.check, correctText: ok ? st.pending.check.correctText : (st.pending.check.revealText || st.pending.check.correctText) })
+    fb.citations = defaultRefs(problemId)
     pushAi(st, expId, fb)
     st.pending = null
     st.exchange += 1
@@ -311,10 +325,11 @@ export function experienceChatTurn(body) {
     return notice('这一轮体验已经走完了。点「重新体验」可以再来一遍。')
   }
   pushUser(st, expId, text, body)
-  const ai = ex.ai || { text: '' }
+  const ai = { ...(ex.ai || { text: '' }) }
+  if (!Array.isArray(ai.citations) || !ai.citations.length) ai.citations = defaultRefs(problemId)
   if (ai.check && Array.isArray(ai.cards)) {
     ai.cards = ai.cards.map((c) => (c && c.card_type === 'socratic_interaction'
-      ? { ...c, steps_count: c.steps_count || ai.check.total || 3 }
+      ? { ...c, steps_count: c.steps_count || ai.check.total || 3, citations: c.citations || defaultCite(problemId) }
       : c))
   }
   pushAi(st, expId, ai)
@@ -341,6 +356,7 @@ export function experienceMessages(expId) {
     if (t.text) blocks.push({ type: 'markdown', content: t.text })
     for (const c of t.cards || []) blocks.push({ type: 'card', data: c })
     for (const f of t.figures || []) blocks.push({ type: 'figure', ...f })
+    if (Array.isArray(t.citations) && t.citations.length) blocks.push({ type: 'citation', items: t.citations })
     const isAi = t.role === 'ai'
     return {
       id: t.id,
