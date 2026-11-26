@@ -84,7 +84,7 @@
           <span class="lp-due-r" :class="riskClass(pulse.topDue.retrievability)">
             {{ duePct(pulse.topDue.retrievability) }}
           </span>
-          <span class="lp-due-text">{{ pulse.topDue.preview }}</span>
+          <span class="lp-due-text"><LatexText :text="humanizeMath(pulse.topDue.preview)" /></span>
           <span class="lp-due-go">复习</span>
         </button>
       </section>
@@ -105,6 +105,8 @@
 <script setup>
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
+import LatexText from '@/components/LatexText.vue'
+import { humanizeMath } from '@/utils/latex'
 
 const props = defineProps({
   pulse: { type: Object, required: true },

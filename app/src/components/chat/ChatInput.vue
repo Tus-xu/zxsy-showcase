@@ -1,6 +1,18 @@
 <template>
   <!-- 输入区：附件/引用行 + 自动长高 textarea + 附件/知识库/拍照/语音/思考开关 + 字数 + 发送/停止 -->
   <div class="chat-input">
+    <!-- 体验播放器预填的题图：待发送状态，随下一条消息一起发出 -->
+    <div v-if="prefillAttachment" class="ci-attach-row">
+      <div class="ci-prefill-chip">
+        <img
+          v-if="prefillAttachment.kind === 'image' && prefillAttachment.localUrl"
+          :src="prefillAttachment.localUrl"
+          :alt="prefillAttachment.name || '题图'"
+        />
+        <span class="ci-prefill-name">{{ prefillAttachment.name || '题图' }}</span>
+        <button type="button" class="ci-prefill-x" title="移除预填题图" @click="$emit('removePrefill')">×</button>
+      </div>
+    </div>
     <div v-if="tasks.length" class="ci-attach-row">
       <AttachmentCard
         v-for="t in tasks"
@@ -104,6 +116,7 @@ const TA_MAX_H = 200 // 输入框自动长高上限（4.6）
 const props = defineProps({
   offline: { type: Boolean, default: false },
   streaming: { type: Boolean, default: false },
+  prefillAttachment: { type: Object, default: null },
   tasks: { type: Array, default: () => [] },
   rateLimitedUntil: { type: Number, default: 0 },
   thinking: { type: Boolean, default: true },
@@ -111,7 +124,7 @@ const props = defineProps({
   webSearchEnabled: { type: Boolean, default: false },
   kbDocs: { type: Array, default: () => [] },
 })
-const emit = defineEmits(['send', 'stop', 'pickFiles', 'removeAttachment', 'retryAttachment', 'update:thinking', 'update:webSearch', 'toggleKbDoc', 'removeKbDoc'])
+const emit = defineEmits(['send', 'stop', 'pickFiles', 'removeAttachment', 'retryAttachment', 'update:thinking', 'update:webSearch', 'toggleKbDoc', 'removeKbDoc', 'removePrefill'])
 
 const draft = ref('')
 const taRef = ref(null)
@@ -207,7 +220,25 @@ function focus() {
   taRef.value?.focus()
 }
 
-defineExpose({ insertText, focus })
+/** 体验播放器：把下一条学生消息预填到输入框，等待用户自己点发送 */
+function setDraft(text) {
+  draft.value = String(text || '')
+  nextTick(() => {
+    autoGrow()
+    taRef.value?.focus()
+  })
+}
+
+function clearDraft() {
+  draft.value = ''
+  nextTick(autoGrow)
+}
+
+function getDraft() {
+  return draft.value
+}
+
+defineExpose({ insertText, focus, setDraft, clearDraft, getDraft })
 </script>
 
 <style scoped>
@@ -218,6 +249,24 @@ defineExpose({ insertText, focus })
   display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 8px;
   max-height: min(126px, 20dvh); overflow: auto;
 }
+.ci-prefill-chip {
+  display: inline-flex; align-items: center; gap: 8px; max-width: 100%;
+  padding: 6px 8px 6px 6px; border: 1px solid var(--brand-border, #c7d2fe);
+  border-radius: 10px; background: var(--brand-soft, #eef2ff);
+}
+.ci-prefill-chip img {
+  width: 40px; height: 40px; object-fit: cover; border-radius: 7px;
+  border: 1px solid rgba(79, 70, 229, .18); background: #fff;
+}
+.ci-prefill-name {
+  max-width: 210px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  font-size: 12px; font-weight: 600; color: var(--brand-deep, #4338ca);
+}
+.ci-prefill-x {
+  border: 0; background: transparent; color: var(--brand-deep, #4338ca);
+  font-size: 15px; line-height: 1; cursor: pointer; padding: 2px 4px; border-radius: 6px;
+}
+.ci-prefill-x:hover { background: rgba(79, 70, 229, .12); }
 .ci-box {
   padding: 12px 12px 9px;
   border: 1px solid var(--border-strong); border-radius: var(--radius-lg);

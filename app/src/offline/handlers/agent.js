@@ -16,6 +16,8 @@ import { flowAttachment, FLOW_IMAGE } from '../showcase/flowAssets'
 import { SHOWCASE_CONVS, SHOWCASE_BY_ID, convItem, isShowcaseId } from '../showcase/catalog'
 import { ensureSession, runTurn, toHistoryItems, turnCount } from '../showcase/session'
 import { freeHistoryItems, listFreeConversations } from '../showcase/free'
+import { isExperienceId } from '../experience/catalog'
+import { experienceChatTurn, experienceMessages } from '../experience/runtime'
 
 const RAW_FLOWS = import.meta.glob('../fixtures/student/flow-*.json', { eager: true, query: '?raw', import: 'default' })
 
@@ -170,6 +172,7 @@ export function noticeEvents(message) {
  */
 export function showcaseChatTurn(body) {
   const convId = body?.conversation_id || body?.conversationId || null
+  if (isExperienceId(convId)) return experienceChatTurn(body)
   if (!isShowcaseId(convId)) return null
   const out = runTurn(convId, body)
   return out.events
@@ -267,6 +270,9 @@ export function listConversations(basePayload) {
 
 /** GET /api/agent/conversations/{id}/messages —— 教学示例优先，其次采证 SSE 还原 */
 export function conversationMessages(convId) {
+  if (isExperienceId(convId)) {
+    return { code: 0, message: 'ok', data: { items: experienceMessages(convId), hasMore: false } }
+  }
   if (isShowcaseId(convId)) {
     ensureSession(convId)
     return { code: 0, message: 'ok', data: { items: toHistoryItems(convId), hasMore: false } }

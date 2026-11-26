@@ -286,7 +286,7 @@ export function splitStreamPieces(text, { min = 6, max = 48 } = {}) {
 }
 
 /** 片段的自然停顿（毫秒）：句末 > 换行/分号 > 逗号 > 普通 */
-function piecePause(piece) {
+export function piecePause(piece) {
   const tail = piece.slice(-1)
   if ('。！？!?'.includes(tail)) return 120
   if (tail === '\n') return 90

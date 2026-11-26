@@ -40,7 +40,7 @@
             :live="m.key === lastAiKey && !chat.streaming.value"
             :msg="m"
             student-dialog
-            :offline-origin="offline ? (isShowcaseConv ? 'prepared' : 'recorded') : ''"
+            :offline-origin="offline ? (isShowcaseConv || isExperienceConv ? 'prepared' : 'recorded') : ''"
             @clarify="sendText"
             @socratic-choice="onSocraticChoice"
             @regenerate="chat.regenerate"
@@ -61,6 +61,10 @@
             @need-problem="onNeedProblem"
           />
 
+        </div>
+
+        <div v-else-if="isExperienceConv" class="empty-state experience-welcome">
+          <ExperienceCover :meta="experience" />
         </div>
 
         <div v-else class="empty-state welcome home-welcome">
@@ -115,7 +119,7 @@
             </button>
           </div>
           <SuggestionsGrid
-            v-else-if="!isShowcaseConv"
+            v-else-if="!isShowcaseConv && !isExperienceConv"
             :key="conv.activeId"
             :collapsed="offline || chat.messages.value.length > 0"
             :disabled="chat.streaming.value"
@@ -127,6 +131,7 @@
             ref="inputRef"
             :offline="offline"
             :streaming="chat.streaming.value"
+            :prefill-attachment="experienceAttachment"
             :tasks="upload.tasks"
             :rate-limited-until="upload.state.rateLimitedUntil"
             :kb-docs="selectedKbDocs"
@@ -140,6 +145,7 @@
             @retry-attachment="upload.retry"
             @toggle-kb-doc="toggleKbDoc"
             @remove-kb-doc="removeKbDoc"
+            @remove-prefill="experienceAttachment = null"
           />
         </div>
       </footer>
@@ -157,12 +163,15 @@ import { SKILL_ID_BY_KEY } from '@/config/skills'
 import { KP_ZH } from '@/components/student/labels'
 import MessageBubble from '@/components/chat/MessageBubble.vue'
 import ChatInput from '@/components/chat/ChatInput.vue'
+import ExperienceCover from '@/components/chat/ExperienceCover.vue'
 import SuggestionsGrid from '@/components/chat/SuggestionsGrid.vue'
 import HomeLearningPanel from '@/components/student/HomeLearningPanel.vue'
 import UiIcon from '@/components/common/UiIcon.vue'
 import { useFileUpload } from '@/components/chat/useFileUpload'
 import { useChat } from '@/composables/useChat'
 import { isShowcaseId, SHOWCASE_BY_ID } from '@/offline/showcase/catalog'
+import { isExperienceId, experienceMeta } from '@/offline/experience/catalog'
+import { resetExperience, experiencePrefill } from '@/offline/experience/runtime'
 import { useLearningSnapshot } from '@/composables/useLearningSnapshot'
 import { studentApi } from '@/api'
 import { useConfirm } from '@/composables/useConfirm'
@@ -182,6 +191,38 @@ const { confirm } = useConfirm()
 const listRef = ref(null)
 const threadRef = ref(null)
 const inputRef = ref(null)
+
+/* ===== 体验播放器（exp-*）：封面 + 预填 + 流式 + 下一条预填 ===== */
+const experienceAttachment = ref(null)
+const pendingExperiencePrefill = ref(null)
+const experienceDone = ref(false)
+const experience = computed(() => experienceMeta(conv.activeId))
+const isExperienceConv = computed(() => !!experience.value)
+
+function applyExperiencePrefill() {
+  const p = pendingExperiencePrefill.value
+  if (!p || !isExperienceConv.value || chat.streaming.value) return
+  pendingExperiencePrefill.value = null
+  inputRef.value?.setDraft(p.text || '')
+  experienceAttachment.value = p.attachment || null
+  nextTick(syncScroll)
+}
+
+async function enterExperience(id) {
+  resetExperience(id)
+  experienceDone.value = false
+  pendingExperiencePrefill.value = null
+  experienceAttachment.value = null
+  if (chat.streaming.value) await chat.stopStreaming()
+  await chat.openConversation(id)
+  conv.select(id)
+  placeHistory()
+  const p = experiencePrefill(id)
+  if (p) {
+    pendingExperiencePrefill.value = { text: p.text, attachment: p.attachment }
+    setTimeout(applyExperiencePrefill, 260)
+  }
+}
 
 /* ===== 滚动状态 ===== */
 const showBackBtn = ref(false)
@@ -284,7 +325,7 @@ function heroOpenConv(id) {
 }
 
 const activeTitle = computed(
-  () => conv.items.find((c) => c.id === conv.activeId)?.title || '新对话'
+  () => experience.value?.title || conv.items.find((c) => c.id === conv.activeId)?.title || '新对话'
 )
 
 const isShowcaseConv = computed(() => isShowcaseId(conv.activeId))
@@ -306,6 +347,7 @@ const lastAiKey = computed(() => {
 /** 页头副标题：区分「示例会话 / 离线自由问答 / 采证录制」，避免把自由问答说成录制讲解 */
 const dialogSub = computed(() => {
   if (!offline) return '学习对话 · 基于当前上下文与学情回应'
+  if (isExperienceConv.value) return `${experience.value?.subtitle || '体验'} · 点发送推进`
   if (isShowcaseConv.value) return '示例会话 · 预设讲解，可现场作答'
   if (String(conv.activeId || '').startsWith('offline-')) return '离线体验 · 自由问答（导数与极值）'
   return '录制讲解 · 可回看与继续作答'
@@ -341,7 +383,15 @@ function placeHistory() {
   })
 }
 
-function onSseActivity(event, _data, message) {
+function onSseActivity(event, data, message) {
+  if (isExperienceConv.value) {
+    if (event === 'prefill') {
+      pendingExperiencePrefill.value = data
+      return
+    }
+    if (event === 'complete') experienceDone.value = true
+    if (event === 'stream_end') setTimeout(applyExperiencePrefill, 360)
+  }
   const pending = pendingReplaySubmission
   if (pending && pending.clientMsgId === message?.clientMsgId) {
     if (event === 'meta') pending.markUsed()
@@ -414,19 +464,22 @@ function onDrop(e) {
 
 /* ===== 发送 ===== */
 function onSend(text) {
-  const atts = upload.parsedAttachments().map((a) => {
+  const baseAtts = upload.parsedAttachments().map((a) => {
     const t = upload.tasks.find((x) => x.fileId === a.file_id)
     return {
       ...a,
       localUrl: t?.file && a.kind === 'image' ? URL.createObjectURL(t.file) : '',
     }
   })
-  const attachmentTexts = atts
+  const prefill = experienceAttachment.value
+  const atts = prefill ? [...baseAtts, prefill] : baseAtts
+  const attachmentTexts = baseAtts
     .map((a) => (upload.tasks || []).find((t) => t.fileId === a.file_id)?.ocrText || '')
     .filter(Boolean)
   const kbIds = selectedKbDocs.value.map((d) => d.id)
   chat.doSend(text, { attachments: atts, attachmentTexts, displayText: text, skillKeys: [...skillStore.activeKeys], kbDocIds: kbIds })
-  if (atts.length) upload.clearSent()
+  if (prefill) experienceAttachment.value = null
+  if (baseAtts.length) upload.clearSent()
   // 引用的知识库资料保持选中（ima 式）：后续追问继续携带，直到学生手动移除
 }
 
@@ -800,10 +853,14 @@ onMounted(async () => {
   chat.loadFeatures()
   const initId = String(route.params.id || '')
   if (initId) {
-    await chat.openConversation(initId)
-    if (route.params.id === initId) {
-      conv.select(initId)
-      placeHistory()
+    if (isExperienceId(initId)) {
+      await enterExperience(initId)
+    } else {
+      await chat.openConversation(initId)
+      if (route.params.id === initId) {
+        conv.select(initId)
+        placeHistory()
+      }
     }
   }
 
@@ -880,8 +937,14 @@ watch(
     if (nid !== chat.activeConvId.value) {
       // 切换会话时清空知识库引用选择（引用属于当前会话上下文）
       selectedKbDocs.value = []
+      if (!isExperienceId(nid)) {
+        experienceAttachment.value = null
+        pendingExperiencePrefill.value = null
+      }
       if (chat.streaming.value) await chat.stopStreaming()
-      if (nid) {
+      if (isExperienceId(nid)) {
+        await enterExperience(nid)
+      } else if (nid) {
         await chat.openConversation(nid)
         if (route.params.id === nid) {
           conv.select(nid)
@@ -894,6 +957,15 @@ watch(
         scrollBottom()
       }
     }
+  }
+)
+
+/** 同一体验再次点击：V4Layout 用 query.r 作为重置信号，不换路由也能回到封面 */
+watch(
+  () => route.query.r,
+  (r) => {
+    const id = String(route.params.id || '')
+    if (r && isExperienceId(id)) enterExperience(id)
   }
 )
 </script>

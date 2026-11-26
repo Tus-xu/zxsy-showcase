@@ -36,7 +36,7 @@
     <div class="card" style="padding:14px 18px;margin-bottom:14px;">
       <div style="display:flex;align-items:center;gap:10px;">
         <strong style="font-size:14px;">📷 拍错题入本</strong>
-        <span style="font-size:12px;color:var(--ink3);">把做错/不会的题拍下来自动识别题干——入本自动排期复习</span>
+        <span style="font-size:12px;color:var(--ink2);">把做错/不会的题拍下来自动识别题干——入本自动排期复习</span>
         <button v-if="!manualOpen" class="secondary" style="margin-left:auto;" @click="manualOpen = true">＋ 打开录入</button>
         <button v-else class="secondary" style="margin-left:auto;" @click="manualOpen = false">收起</button>
       </div>
@@ -57,13 +57,13 @@
         <HomeworkPhotos ref="hpRef" v-model="manual.photos" :max="1" @ocr="onManualOcr" />
         <div v-if="ocrNote" style="font-size:12px;margin-top:6px;" :style="{ color: ocrNote.ok ? 'var(--ok,#16a34a)' : 'var(--err,#dc2626)' }">{{ ocrNote.msg }}</div>
         <div v-if="enhancedUrl" style="display:flex;gap:8px;margin-top:6px;align-items:center;">
-          <span style="font-size:11.5px;color:var(--ink3);">✨ 已生成增强图（更清晰，原图仍保留）：</span>
+          <span style="font-size:11.5px;color:var(--ink2);">✨ 已生成增强图（更清晰，原图仍保留）：</span>
           <img :src="enhancedUrl" alt="增强图" style="height:64px;border-radius:8px;cursor:zoom-in;border:1px solid var(--border,#e2e8f0);" @click="openLightbox(enhancedUrl)" />
         </div>
-        <div v-else-if="enhancing" style="font-size:11.5px;color:var(--ink3);margin-top:6px;">✨ 正在生成增强图…</div>
+        <div v-else-if="enhancing" style="font-size:11.5px;color:var(--ink2);margin-top:6px;">✨ 正在生成增强图…</div>
         <div style="display:flex;gap:10px;margin-top:10px;">
           <button class="primary" :disabled="manualSubmitting" @click="submitManual">📌 入本</button>
-          <span style="font-size:11.5px;color:var(--ink3);align-self:center;">入本后自动排期，到期自动提醒复习</span>
+          <span style="font-size:11.5px;color:var(--ink2);align-self:center;">入本后自动排期，到期自动提醒复习</span>
         </div>
       </template>
     </div>
@@ -75,19 +75,19 @@
     <div class="due-queue">
       <div class="head">
         <h4>📌 今日到期 {{ dueTotal }} 道 · 按"再不做就忘"程度排序</h4>
-        <span style="font-size:11.5px;color:var(--ink3);">FSRS 算法 · 自动排期</span>
+        <span style="font-size:11.5px;color:var(--ink2);">FSRS 算法 · 自动排期</span>
       </div>
-      <div v-if="dueLoading" style="padding:20px;text-align:center;color:var(--ink3);font-size:13px;">到期队列加载中…</div>
-      <div v-else-if="dueError" style="padding:20px;text-align:center;color:var(--ink3);font-size:13px;">{{ dueError }}</div>
+      <div v-if="dueLoading" style="padding:20px;text-align:center;color:var(--ink2);font-size:13px;">到期队列加载中…</div>
+      <div v-else-if="dueError" style="padding:20px;text-align:center;color:var(--ink2);font-size:13px;">{{ dueError }}</div>
       <div v-else-if="!dueItems.length" style="padding:24px;text-align:center;font-size:13px;">
         <div style="font-size:15px;font-weight:700;margin-bottom:4px;">🎉 今日无到期错题</div>
-        <div style="color:var(--ink3);">记忆还很稳，不用刷，去练新题吧！</div>
+        <div style="color:var(--ink2);">记忆还很稳，不用刷，去练新题吧！</div>
       </div>
       <div v-else class="items">
         <div v-for="d in dueItems" :key="d.record_id" class="item" @click="openDetail(d.record_id, d.seq)">
           <div class="num">{{ String(d.seq).padStart(2, '0') }}</div>
           <div class="body">
-            <div class="q"><LatexText :text="d.question_preview" /></div>
+            <div class="q"><LatexText :text="humanizeMath(d.question_preview)" /></div>
             <div class="meta">
               <span>📚 {{ d.kp_name || d.kp_code || '未标注知识点' }}</span>
               <span>📅 入本 {{ fmtMD(d.created_at) }} · 已答错 {{ d.wrong_count }} 次</span>
@@ -118,25 +118,25 @@
 
     <!-- 错题卡（三段式 · Anki 风格） -->
     <div class="error-card">
-      <div v-if="detailLoading" style="padding:32px;text-align:center;color:var(--ink3);font-size:13px;">错题详情加载中…</div>
-      <div v-else-if="detailError" style="padding:32px;text-align:center;color:var(--ink3);font-size:13px;">{{ detailError }}</div>
+      <div v-if="detailLoading" style="padding:32px;text-align:center;color:var(--ink2);font-size:13px;">错题详情加载中…</div>
+      <div v-else-if="detailError" style="padding:32px;text-align:center;color:var(--ink2);font-size:13px;">{{ detailError }}</div>
       <div v-else-if="!detail" style="padding:32px;text-align:center;font-size:13px;">
         <div style="font-size:15px;font-weight:700;margin-bottom:4px;">📒 暂无错题，继续保持</div>
-        <div style="color:var(--ink3);">做错的题会自动收录到这里，并附上 AI 错因分析。</div>
+        <div style="color:var(--ink2);">做错的题会自动收录到这里，并附上 AI 错因分析。</div>
       </div>
       <template v-else>
         <div class="head">
           <div class="lbl">
             <span class="num">{{ String(selectedSeq).padStart(2, '0') }} / {{ totalErrors }}</span>
             <span class="topic">{{ kpZh(detail) }}</span>
-            <span class="days">入本 {{ fmtMD(detail.entered_at) }} · 已答错 {{ detail.wrong_count }} 次 · 复习 {{ detail.review_count }} 次</span>
+            <span class="days">入本 {{ fmtMD(detail.entered_at) }} · 已答错 {{ detail.wrong_count }} 次 · 复习 {{ detail.review_count ?? 0 }} 次</span>
           </div>
         </div>
         <div class="body">
           <!-- 左：题目 + 正解 -->
           <div class="q-side">
             <h5>原题</h5>
-            <MarkdownView class="q-text" :text="detail.question_text" />
+            <MarkdownView class="q-text" :text="humanizeMath(detail.question_text)" />
             <div v-if="(detail.image && detail.image.length) || photoUrl" class="q-fig">
               <DynamicFigureViewer :items="figItems" :label="'题目配图'" :height="300" />
             </div>
@@ -156,14 +156,14 @@
               <DynamicFigureViewer :items="solutionFigItems" :label="'正解示意图'" :height="260" />
             </div>
             <div class="options" :style="reviewing ? { filter: 'blur(6px)', userSelect: 'none' } : {}">
-              <div v-if="detailFullLoading" class="opt right" style="color:var(--ink3);">正解加载中…（首次打开由 AI 生成，之后直接读缓存）</div>
-              <div v-else-if="detailFullError" class="opt right" style="color:var(--ink3);">正解暂不可用（{{ detailFullError }}），稍后重新打开本题可重试。</div>
-              <template v-else>
-                <MarkdownView class="opt right" :text="detailFull.generated_answer || '暂无正解文本'" style="display:block;" />
-                <AiGeneratedMark :content-id="String(selectedRecordId || '')" />
+              <div v-if="detailFullLoading" class="opt right" style="color:var(--ink2);">正解加载中…（首次打开由 AI 生成，之后直接读缓存）</div>
+              <div v-else-if="detailFullError" class="opt right" style="color:var(--ink2);">正解暂不可用（{{ detailFullError }}），稍后重新打开本题可重试。</div>
+              <template v-else-if="detailFull?.generated_answer">
+                <MarkdownView class="opt right" :text="detailFull.generated_answer" style="display:block;" />
               </template>
+              <div v-else class="opt" style="color:var(--ink2);">暂无 AI 正解；可先看左侧原题与错因，再点「引导重解」。</div>
             </div>
-            <div style="font-size:11.5px;color:var(--ink3);display:flex;gap:14px;padding-top:8px;border-top:1px dashed var(--line);">
+            <div style="font-size:11.5px;color:var(--ink2);display:flex;gap:14px;padding-top:8px;border-top:1px dashed var(--line);">
               <span>📅 {{ detail.next_review_at ? '下次复习 ' + fmtMD(detail.next_review_at) : '已毕业，不再排期' }}</span>
               <span v-if="originZh">来源：{{ originZh }}</span>
             </div>
@@ -175,7 +175,7 @@
               <div style="font-weight:700;color:var(--brand-deep);margin-bottom:4px;">我的错因自述</div>
               <div style="white-space:pre-line;line-height:1.7;">{{ detail.note }}</div>
             </div>
-            <div v-if="diagLoading" class="ai-says" style="color:var(--ink3);">AI 正在分析这道题的错因…</div>
+            <div v-if="diagLoading" class="ai-says" style="color:var(--ink2);">AI 正在分析这道题的错因…</div>
             <div v-else-if="diag" class="ai-says">
               <div style="font-weight:700;color:var(--brand-deep);margin-bottom:6px;">「{{ diag.subtype_zh || errorTypeZh(detail.error_type) }}」· AI 诊断</div>
               <div style="white-space:pre-line;line-height:1.7;">{{ diag.diagnosis }}</div>
@@ -234,7 +234,7 @@
             </div>
             <div v-if="!reviewing" style="display:flex;gap:10px;">
               <button class="redo-btn" style="flex:1;" @click="redo">🔄 隐藏答案重做</button>
-              <button class="redo-btn" style="flex:1;background:var(--brand-bg,#fff7e6);border-color:var(--brand,#f59e0b);" @click="redoWithSocratic">🎯 引导重解</button>
+              <button class="redo-btn" style="flex:1;background:var(--brand-bg,#fff7e6);border-color:var(--brand,#f59e0b);color:var(--brand-deep,#4338ca);" @click="redoWithSocratic">🎯 引导重解</button>
             </div>
             <div v-else style="display:flex;gap:10px;">
               <button class="redo-btn" style="flex:1;" :disabled="reviewSubmitting" @click="submitReview('remembered')">✅ 记住了</button>
@@ -252,7 +252,16 @@
     <div class="card" style="padding:0;overflow:hidden;">
       <div style="padding:14px 20px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;">
         <strong style="font-size:14px;">📚 全部 {{ listTotal }} 道 · 点击展开详情</strong>
-        <span style="font-size:12px;color:var(--ink3);">按入本时间倒序</span>
+        <span style="font-size:12px;color:var(--ink2);">按入本时间倒序</span>
+      </div>
+      <!-- 列表态也保留维度筛选：切换后直接刷新列表，不要求先打开详情浮窗 -->
+      <div style="padding:0 20px 10px;display:flex;gap:6px;flex-wrap:wrap;">
+        <button
+          v-for="t in tabs" :key="t"
+          class="tag-pill" :class="activeTab === t ? 'brand' : ''"
+          style="cursor:pointer;"
+          @click="switchTab(t)"
+        >{{ t }}</button>
       </div>
       <!-- 维度取值（选中"按错因/知识点/时间/遗忘风险"后出现） -->
       <div v-if="activeTab !== '全部'" style="padding:10px 20px;border-bottom:1px dashed var(--line);display:flex;gap:8px;flex-wrap:wrap;">
@@ -263,25 +272,26 @@
           style="cursor:pointer;"
           @click="switchSub(opt.value)"
         >{{ opt.label }}</button>
-        <span v-if="!subOptions.length" style="font-size:12px;color:var(--ink3);">暂无可选{{ activeTab.slice(1) }}，先入本一些错题</span>
+        <span v-if="!subOptions.length" style="font-size:12px;color:var(--ink2);">暂无可选{{ activeTab.slice(1) }}，先入本一些错题</span>
       </div>
-      <div v-if="listLoading" style="padding:20px;text-align:center;color:var(--ink3);font-size:13px;">错题列表加载中…</div>
-      <div v-else-if="listError" style="padding:20px;text-align:center;color:var(--ink3);font-size:13px;">{{ listError }}</div>
-      <div v-else-if="!listItems.length" style="padding:24px;text-align:center;font-size:13px;color:var(--ink3);">
+      <div v-if="listLoading" style="padding:20px;text-align:center;color:var(--ink2);font-size:13px;">错题列表加载中…</div>
+      <div v-else-if="listError" style="padding:20px;text-align:center;color:var(--ink2);font-size:13px;">{{ listError }}</div>
+      <div v-else-if="!listItems.length" style="padding:24px;text-align:center;font-size:13px;color:var(--ink2);">
         {{ hasFilter ? '该条件下没有错题' : '暂无错题，继续保持 🎉' }}
       </div>
       <div v-else style="padding:8px 0;">
         <div
           v-for="(o, i) in listItems" :key="o.record_id"
+          class="err-row"
           style="padding:10px 20px;display:flex;align-items:center;gap:14px;border-bottom:1px dashed var(--line);cursor:pointer;"
-          :style="o.fsrs_level === 'lv4' || o.fsrs_level === 'lv3' ? { color: 'var(--ink3)' } : {}"
+          :style="o.fsrs_level === 'lv4' || o.fsrs_level === 'lv3' ? { color: 'var(--ink2)' } : {}"
           @click="openDetail(o.record_id, i + 1)"
         >
           <span class="tag-pill" :class="levelTagCls(o.fsrs_level)" style="flex-shrink:0;">{{ levelZh(o.fsrs_level) }}</span>
           <div class="list-thumb" title="题目图片（点击查看原图与详情）">🖼</div>
-          <LatexText style="flex:1;font-size:13px;font-weight:600;" :style="o.fsrs_level === 'lv4' || o.fsrs_level === 'lv3' ? { fontWeight: 400 } : {}" :text="o.question_preview" />
-          <span style="font-size:11.5px;color:var(--ink3);">{{ o.kp_name || o.kp_code || '未标注' }} · 复习 {{ o.review_count }} 次 · 记得 {{ pct(o.retrievability) }}%</span>
-          <span style="color:var(--ink3);">›</span>
+          <LatexText style="flex:1;font-size:13px;font-weight:600;" :style="o.fsrs_level === 'lv4' || o.fsrs_level === 'lv3' ? { fontWeight: 400 } : {}" :text="humanizeMath(o.question_preview)" />
+          <span style="font-size:11.5px;color:var(--ink2);">{{ o.kp_name || o.kp_code || '未标注' }} · 复习 {{ o.review_count ?? 0 }} 次 · 记得 {{ pct(o.retrievability) }}%</span>
+          <span style="color:var(--ink2);">›</span>
         </div>
       </div>
     </div>
@@ -301,6 +311,7 @@ import { useAuthStore } from '@/stores/auth'
 import { useToastStore } from '@/stores/toast'
 import LatexText from '@/components/LatexText.vue'
 import MarkdownView from '@/components/MarkdownView.vue'
+import { humanizeMath } from '@/utils/latex'
 import AiGeneratedMark from '@/components/chat/AiGeneratedMark.vue'
 import HomeworkPhotos from '@/components/student/HomeworkPhotos.vue'
 import FlashcardReview from '@/components/student/FlashcardReview.vue'
@@ -502,11 +513,8 @@ async function loadDue() {
   dueError.value = ''
   try {
     const data = await api.get('/student/error-records/due-queue')
-    dueItems.value = data?.items || []
+    dueItems.value = (data?.items || []).map((d, i) => ({ ...d, seq: d.seq ?? i + 1 }))
     dueTotal.value = data?.total ?? dueItems.value.length
-    if (dueItems.value.length && !detail.value) {
-      openDetail(dueItems.value[0].record_id, dueItems.value[0].seq)
-    }
   } catch (e) {
     dueError.value = `到期队列加载失败：${e.message || '请稍后重试'}`
   } finally {
@@ -543,9 +551,6 @@ async function loadFilter() {
         if (it.kp_code && !map.has(it.kp_code)) map.set(it.kp_code, it.kp_name || it.kp_code)
       })
       kpOptions.value = [...map.entries()].map(([value, label]) => ({ value, label }))
-      if (!detail.value && !dueItems.value.length && listItems.value.length) {
-        openDetail(listItems.value[0].record_id, 1)
-      }
     }
   } catch (e) {
     listError.value = `错题列表加载失败：${e.message || '请稍后重试'}`
@@ -590,8 +595,23 @@ async function openDetail(recordId, seq = 1) {
     detail.value = await api.get(`/student/error-records/${recordId}/detail`)
   setPageContext({ route: '/errors', title: '错题本', detail: `第 ${String(selectedSeq.value).padStart(2, '0')} 题：${(detail.value?.question_text || detail.value?.text || '').slice(0, 120)}` })
   } catch (e) {
-    detail.value = null
-    detailError.value = `详情加载失败：${e.message || '请稍后重试'}`
+    // 离线只采到列表、没有逐条 detail fixture：用列表行兜底，别把整张详情卡判死
+    const row = [...listItems.value, ...dueItems.value].find((x) => x && (x.record_id === recordId || x.id === recordId))
+    if (row) {
+      detail.value = {
+        ...row,
+        id: row.record_id || recordId,
+        question_text: row.question_text || row.question_preview || '',
+        entered_at: row.entered_at || row.created_at || '',
+        review_count: row.review_count || 0,
+        wrong_count: row.wrong_count || 1,
+        note: row.note || '',
+      }
+      detailError.value = ''
+    } else {
+      detail.value = null
+      detailError.value = `详情加载失败：${e.message || '请稍后重试'}`
+    }
   } finally {
     detailLoading.value = false
   }
@@ -841,7 +861,7 @@ onMounted(() => {
 .entry-btn { display: block; width: 100%; margin-bottom: 10px; padding: 12px 14px; border-radius: 10px; border: none; background: var(--brand); color: #fff; font-size: 14px; cursor: pointer; }
 .entry-btn.plain { background: var(--brand-soft); color: var(--brand-deep); }
 .entry-btn:hover { filter: brightness(1.05); }
-.entry-close { margin-top: 4px; background: none; border: none; color: var(--ink3); cursor: pointer; font-size: 12.5px; }
+.entry-close { margin-top: 4px; background: none; border: none; color: var(--ink2); cursor: pointer; font-size: 12.5px; }
 /* ===== P1-13 浮窗模式：点击列表项后弹出，不再平铺割裂 ===== */
 .errors-left.modal-mode {
   position: fixed; inset: 0; z-index: 90;
@@ -888,11 +908,11 @@ onMounted(() => {
 
 /* ===== AI 答疑（Khanmigo 苏格拉底 chat） ===== */
 .ai-tutor { display: flex; flex-direction: column; gap: 8px; margin-top: 6px; }
-.tutor-tip { color: var(--ink3); font-size: 12.5px; line-height: 1.55; padding: 6px 0; }
+.tutor-tip { color: var(--ink2); font-size: 12.5px; line-height: 1.55; padding: 6px 0; }
 .tutor-msg { display: flex; flex-direction: column; gap: 3px; }
 .tutor-msg.user { align-items: flex-end; }
 .tutor-msg.assistant { align-items: flex-start; }
-.tutor-role { font-size: 10.5px; color: var(--ink3); font-weight: 600; }
+.tutor-role { font-size: 10.5px; color: var(--ink2); font-weight: 600; }
 .tutor-bubble {
   max-width: 100%; padding: 8px 12px; font-size: 12.5px; line-height: 1.6;
   border-radius: 10px; word-break: break-word;
@@ -900,7 +920,7 @@ onMounted(() => {
 }
 .tutor-msg.user .tutor-bubble { background: var(--brand-soft); border-color: var(--warn-border); color: var(--ink); }
 .tutor-msg.assistant .tutor-bubble { background: var(--ok-bg); border-color: var(--ok-border); }
-.tutor-loading { color: var(--ink3); font-style: italic; }
+.tutor-loading { color: var(--ink2); font-style: italic; }
 .tutor-input { display: flex; gap: 6px; margin-top: 4px; }
 .tutor-input input {
   flex: 1; padding: 7px 10px; font-size: 12.5px;

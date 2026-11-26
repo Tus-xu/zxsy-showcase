@@ -12,6 +12,9 @@
       </button>
     </div>
 
+    <!-- 体验分类 rail（由 V4Layout 注入；位于搜索之后、历史列表之前） -->
+    <slot name="after-search" />
+
     <!-- 骨架屏（首次加载） -->
     <div v-if="loading && !conversations.length" class="cs-skel-list">
       <div v-for="i in 6" :key="i" class="cs-skel">
@@ -56,7 +59,7 @@
                 <div class="cs-item-title" :title="c.title || '新对话'" @dblclick.stop="startRename(c)">
                   <UiIcon v-if="c.pinned" name="pin" :size="11" class="cs-title-pin" />{{ c.title || '新对话' }}
                 </div>
-                <div class="cs-item-time">{{ fmtTime(when(c)) }}</div>
+                <div class="cs-item-time">{{ categoryOf(c) }} · {{ fmtTime(when(c)) }}</div>
               </template>
             </div>
 
@@ -96,6 +99,7 @@
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import UiIcon from '@/components/common/UiIcon.vue'
 import { CONV_GROUPS, convGroupKey, fmtTime } from './messageModel'
+import { classifyConversation } from '@/offline/experience/catalog'
 
 const props = defineProps({
   conversations: { type: Array, default: () => [] },
@@ -121,6 +125,11 @@ function clearQuery() {
 /** 会话时间：接口是 snake_case，历史组件读 camelCase，两种都兼容 */
 function when(c) {
   return c?.updatedAt || c?.createdAt || c?.updated_at || c?.created_at || ''
+}
+
+/** 最近对话类型标签：与左侧「体验分类」同一套分类词 */
+function categoryOf(c) {
+  return classifyConversation(c)
 }
 
 const groups = computed(() => {

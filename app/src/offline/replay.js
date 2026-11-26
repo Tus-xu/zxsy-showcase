@@ -23,6 +23,8 @@ import { logQuizAnswer } from './showcase/session'
 import { freeChatTurn } from './showcase/free'
 import { markAborted } from './showcase/abort'
 import { isErrorRecordsPath, mergeIntoErrorRecords } from './showcase/errorbook'
+import { handlePractice } from './handlers/practice'
+import { handleClassroom } from './handlers/classroom'
 
 const DEMO_CODE = '246810'
 const OFFLINE_TOKEN = 'offline-demo-token'
@@ -232,6 +234,15 @@ async function dispatch(method, path, { body, accept, signal } = {}) {
 
   const local = handleLocalState(method, path)
   if (local) return local
+
+  // 练题中心：动态 quiz_id / 提交 / 总结不能靠 fixture（findFixture 只看 query，不看 body）
+  const practice = handlePractice(method, path, body)
+  if (practice) return jsonResponse(practice.body, practice.status || 200)
+
+  // 双师课堂：创建/详情/列表/进度/提示，SSE 由 events 分支单独走
+  const classroom = handleClassroom(method, path, body)
+  if (classroom?.sse) return sseResponse(classroom.sse, { delayMs: 60, signal })
+  if (classroom) return jsonResponse(classroom.body, classroom.status || 200)
 
   // 上传链路（现役契约：uploadInit → 预签名 PUT → parse → detail/content）
   if (method === 'POST' && path.split('?')[0] === '/api/files/upload') {

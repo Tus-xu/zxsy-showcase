@@ -51,6 +51,9 @@
                 <option v-for="v in listChineseVoices(voices)" :key="v.voiceURI" :value="v.name">{{ v.name }}</option>
               </select>
             </div>
+            <div v-if="!listChineseVoices(voices).length" class="dcx-voice-warn">
+              当前浏览器没有中文语音，讲解会静音；请安装中文语音包，或改用 Chrome / Edge。
+            </div>
             <div class="dcx-menu-row">
               <span>讲解语速</span>
               <select v-model="speakRate" class="dcx-input">
@@ -99,6 +102,13 @@
             @keydown.ctrl.enter.prevent="createFromTopic"
             @keydown.meta.enter.prevent="createFromTopic"
           />
+          <div class="dcx-presets" aria-label="预设课件">
+            <button
+              v-for="p in PRESET_TOPICS" :key="p.key" type="button"
+              class="dcx-preset" :class="{ on: genTopic === p.topic }"
+              @click="pickPreset(p)"
+            >{{ p.label }} · {{ p.pages }} 页</button>
+          </div>
           <div class="dcx-composer-bar">
             <label>模式
               <select v-model="genMode" class="dcx-input dark">
@@ -107,7 +117,7 @@
                 <option value="review">考前复习</option>
               </select>
             </label>
-            <label>页数
+            <label v-if="!offline">页数
               <select v-model="genSlides" class="dcx-input dark">
                 <option :value="8">8 页</option>
                 <option :value="10">10 页</option>
@@ -115,6 +125,7 @@
                 <option :value="15">15 页</option>
               </select>
             </label>
+            <span v-else class="dcx-composer-hint">页数按真实课件</span>
             <span class="dcx-composer-hint">Ctrl + Enter 立即开课</span>
             <button class="dcx-btn primary lg" :disabled="generating || !genTopic.trim()" @click="createFromTopic">进入课堂 →</button>
           </div>
@@ -320,19 +331,19 @@
         </div>
         <div class="dcx-card">
           <div class="dcx-learned" title="按已翻页的大纲分钟累计（计划值，不是本次计时）">大纲计划 {{ learnedMinutes }} 分钟</div>
-          <div class="dcx-bar"><div class="dcx-fill" :style="{ width: pg }"></div></div>
+          <div class="dcx-bar"><div class="dcx-fill" :style="{ width: pg + '%' }"></div></div>
           <div v-if="genStep < 3" class="dcx-gen-inline">
             <span class="dcx-spinner"></span> 后台备课中 {{ genDone }} / {{ genTotal }} 页，完成后自动加入大纲
           </div>
         </div>
         <div v-if="sections.goals.length" class="dcx-card">
-          <div class="dcx-card-title">🎯 课程目标</div>
+          <div class="dcx-card-title">🎯 本页要点</div>
           <div v-for="(g, gi) in sections.goals" :key="gi" class="dcx-goal"><i>✓</i>{{ g }}</div>
         </div>
       </aside>
 
       <!-- 中：幻灯片舞台 + 讲稿 + 播控 -->
-      <main class="dcx-center" :class="{ 'dcx-center--teacher-deck': isTeacherDeck }">
+      <main class="dcx-center" :class="{ 'dcx-center--teacher-deck': hasDeckSlide }">
         <!-- S11：窄屏横向页码条（侧栏大纲在窄屏隐藏，页码条保证课件立即全宽可见） -->
         <div v-if="session.outlines?.length" class="dcx-o-strip">
           <button
@@ -342,7 +353,7 @@
             @click="pageStatus(i) === 'done' || i === curIndex ? jumpTo(i) : toast.info('这一页还在备课中，稍等片刻')"
           >{{ i + 1 }}</button>
           <button
-            v-if="isTeacherDeck" class="dcx-o-chip dcx-o-practice"
+            v-if="hasDeckSlide" class="dcx-o-chip dcx-o-practice"
             title="跳到本课随堂练习" @click="jumpToPractice"
           >🏋️ 随堂练习</button>
         </div>
@@ -355,7 +366,7 @@
           <div class="dcx-stage-wrap">
             <!-- 老师课堂：与教师端同一套 SlideCanvas 渲染老师课件；AI 只负责讲解/播控 -->
             <DeckSlideStage
-              v-if="isTeacherDeck"
+              v-if="hasDeckSlide"
               :slide="currentSlide.deck_slide"
               :deck-title="currentSlide.deck_meta?.title || session.deck_meta?.title || session.title"
               :textbook-line="currentSlide.deck_meta?.textbook_line || session.deck_meta?.textbook_line"
@@ -481,7 +492,7 @@
             <button class="dcx-ctl" :disabled="curIndex >= pageCount - 1" title="下一页" @click="go(1)">⟩</button>
             <span class="dcx-ctl-sep"></span>
             <span class="dcx-ctl-page">第 {{ curIndex + 1 }} / {{ pageCount }} 页</span>
-            <div class="dcx-bar slim grow"><div class="dcx-fill" :style="{ width: pg }"></div></div>
+            <div class="dcx-bar slim grow"><div class="dcx-fill" :style="{ width: pg + '%' }"></div></div>
             <div class="dcx-foot-l">
               <span class="dcx-foot-q">这页掌握了吗？</span>
               <button class="dcx-chipbtn" :class="{ ok: selfCheck === 'ok' }" @click="markCheck('ok')">✅ 记住了</button>
@@ -714,6 +725,7 @@ import MathFigure3D from '@/components/chat/MathFigure3D.vue'
 import GraphBlock from '@/components/chat/GraphBlock.vue'
 import DynamicFigureViewer from '@/components/DynamicFigureViewer.vue'
 import DeckSlideStage from '@/components/dual/DeckSlideStage.vue'
+import { PRESET_TOPICS } from '@/offline/showcase/classroomDecks'
 import { classroomApi, filesApi } from '@/api'
 import { streamClassroomEvents } from '@/api/sse'
 import MarkdownView from '@/components/MarkdownView.vue'
@@ -770,6 +782,8 @@ const sections = computed(() => groupSlideSections(currentSlide.value || {}))
 const isTeacherDeck = computed(
   () => session.value?.source_type === 'teacher_deck' && !!currentSlide.value?.deck_slide,
 )
+/** 只要当前页有 deck_slide 就用真实 SlideCanvas 舞台（AI 双师课件与老师课件共用同一渲染器） */
+const hasDeckSlide = computed(() => !!currentSlide.value?.deck_slide)
 /* 「课堂 → 老师课堂」列表点开时的老师/班级名交接（sessionStorage，刷新仍可用）。
    来源仅用于顶部 badge；缺失则诚实省略，不猜测。 */
 const teacherDeckHandoff = ref(null)
@@ -872,9 +886,16 @@ const reportOpen = ref(false)
 const reviewOpen = ref(false)
 
 /* ==================== 创建配置 ==================== */
+const offline = import.meta.env.VITE_OFFLINE === '1'
 const genMode = ref('sync')
 const genSlides = ref(10)
-const genTopic = ref('')
+// 离线体验：默认预填第一套真实课件主题，按钮一进来就可点
+const genTopic = ref(PRESET_TOPICS[0].topic)
+function pickPreset(p) {
+  if (!p) return
+  genTopic.value = p.topic
+  genSlides.value = p.pages
+}
 
 /* ==================== 拍题 / 教案上传 ==================== */
 const upload = useClassroomUpload(toast)
@@ -976,7 +997,7 @@ async function createSession(payload, sourceType, sourceRef) {
     const s = await classroomApi.createSession(payload)
     const d = s?.data || s
     resetSourceForms()
-    genTopic.value = ''
+    genTopic.value = PRESET_TOPICS[0].topic
     // URL 立即可见：刷新/分享可达（修"点击生成后没有跳转"）
     router.push(`/dual/${d.session_id}`)
   } catch (e) {
@@ -2238,6 +2259,7 @@ button { font-family: inherit; }
 .dcx-menu-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12.5px; font-weight: 700; color: #374151; }
 .dcx-menu-row select { width: 150px; height: 32px; }
 .dcx-menu-row.check { cursor: pointer; justify-content: flex-start; gap: 8px; }
+.dcx-voice-warn { font-size: 11.5px; line-height: 1.55; color: #b45309; background: #fffbeb; border: 1px solid rgba(217, 119, 6, .35); border-radius: 8px; padding: 6px 9px; }
 .dcx-clickmask { position: fixed; inset: 0; z-index: 41; }
 
 /* ===== 原题浮层 ===== */
@@ -2276,6 +2298,14 @@ button { font-family: inherit; }
   resize: vertical; min-height: 96px; outline: none;
 }
 .dcx-topic::placeholder { color: #6b7280; }
+.dcx-presets { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+.dcx-preset {
+  padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px;
+  background: #fff; color: var(--ink2); font: inherit; font-size: 11.5px; font-weight: 600;
+  cursor: pointer; transition: background .15s ease, border-color .15s ease, color .15s ease;
+}
+.dcx-preset:hover { border-color: var(--brand-border); color: var(--brand-deep); }
+.dcx-preset.on { background: var(--brand-soft); border-color: var(--brand); color: var(--brand-deep); }
 .dcx-composer-bar { display: flex; align-items: center; gap: 12px; margin-top: 10px; padding-top: 12px; border-top: 1px solid var(--line); }
 .dcx-composer-bar label { display: flex; align-items: center; gap: 7px; font-size: 12px; font-weight: 700; color: #4b5563; }
 .dcx-composer-bar select { width: 118px; height: 34px; }
@@ -2852,10 +2882,24 @@ button { font-family: inherit; }
 .dcx-shell.dcx-light .dcx-input::placeholder, .dcx-shell.dcx-light .dcx-topic::placeholder { color: #94a3b8; }
 .dcx-shell.dcx-light .dcx-composer { background: #fff; border-color: var(--line, #e2e8f0); box-shadow: 0 10px 40px -12px rgba(79, 70, 229, .25); }
 .dcx-shell.dcx-light .dcx-composer-bar { border-color: var(--line, #e2e8f0); }
-.dcx-shell.dcx-light .dcx-composer-hint { color: #94a3b8; }
+.dcx-shell.dcx-light .dcx-composer-hint { color: #64748b; }
 .dcx-shell.dcx-light .dcx-bar { background: var(--line, #e2e8f0); }
 .dcx-shell.dcx-light .dcx-fill { background: var(--gradient-brand, linear-gradient(135deg, #4f46e5, #7c3aed)); }
 .dcx-shell.dcx-light .dcx-card { background: #fff; border-color: var(--line, #e2e8f0); }
+.dcx-shell.dcx-light .dcx-card-status { color: #475569; }
+.dcx-shell.dcx-light .dcx-card-status.ready { color: #047857; }
+.dcx-shell.dcx-light .dcx-card-status.generating { color: #92400e; }
+.dcx-shell.dcx-light .dcx-card-status.failed { color: #b91c1c; }
+.dcx-shell.dcx-light .dcx-gen-card {
+  background: #fff; border-color: var(--line, #e2e8f0); color: #0f172a;
+  box-shadow: 0 18px 50px -18px rgba(79, 70, 229, .22);
+}
+.dcx-shell.dcx-light .dcx-gen-card h2 { color: #0f172a; }
+.dcx-shell.dcx-light .dcx-gen-sub, .dcx-shell.dcx-light .dcx-gen-topic { color: #475569; }
+.dcx-shell.dcx-light .dcx-gen-errtitle { color: #b91c1c; }
+.dcx-shell.dcx-light .dcx-gen-dots i { background: #e2e8f0; }
+.dcx-shell.dcx-light .dcx-gen-dots i.on { background: #4f46e5; }
+.dcx-shell.dcx-light .dcx-gen-dots i.done { background: #059669; }
 .dcx-shell.dcx-light .dcx-card-title { color: #0f172a; }
 .dcx-shell.dcx-light .dcx-card-sub, .dcx-shell.dcx-light .dcx-card-foot { color: #64748b; }
 .dcx-shell.dcx-light .dcx-btn.ghost-dark { background: #fff; color: #475569; border: 1px solid var(--line, #e2e8f0); }
@@ -3070,12 +3114,13 @@ button { font-family: inherit; }
 }
 
 /* 老师课堂：课件是主内容，讲稿给足高度（可滚动），白板让位但不删除 */
+.dcx-center--teacher-deck .dcx-teach { flex: 0 0 auto; min-height: 130px; max-height: 190px; }
 .dcx-center--teacher-deck .dcx-narr-lines {
   max-height: 170px;
   -webkit-line-clamp: unset;
   overflow-y: auto;
 }
-.dcx-center--teacher-deck .dcx-board { max-height: 110px; }
+.dcx-center--teacher-deck .dcx-board { max-height: 110px; min-height: 0; flex: 0 0 auto; }
 
 /* 分层练习：题库/题干/选项/下一题必须可读可操作。
    旧样式固定 264px + overflow:hidden，长题干与“下一题”会被裁掉（真实链路复审阻断）。 */

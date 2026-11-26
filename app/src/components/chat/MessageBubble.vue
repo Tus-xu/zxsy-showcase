@@ -133,7 +133,7 @@
             class="soc-progress"
           >
             <div class="sp-top">
-              <span class="sp-step">第 {{ c.current_step }}/{{ c.steps_count }} 步</span>
+              <span class="sp-step">{{ c.verdict === 'correct' ? '已完成' : '第' }} {{ c.current_step }}/{{ c.steps_count }} 步</span>
               <!-- 离线教学示例：四主阶段名（读题/选方法/分步推导/订正），比后端 phase 更好懂 -->
               <span v-if="c.stage_label" class="sp-chip sp-phase">{{ c.stage_label }}</span>
               <span v-else-if="phaseZh(c.phase)" class="sp-chip sp-phase">{{ phaseZh(c.phase) }}</span>
@@ -251,6 +251,11 @@
             v-else-if="cardType(c) === 'socratic_concept_card'"
             :card="c"
             @act="$emit('tutorAction', $event)"
+          />
+          <!-- 知识追溯动画（体验层新增）：独立于 socratic_replay，按步骤点亮知识路径 -->
+          <KnowledgeTraceCard
+            v-else-if="cardType(c) === 'knowledge_trace'"
+            :card="c"
           />
           <div v-else-if="cardType(c) === 'socratic_degraded'" class="soc-tag orange">⚠️ 引导服务降级中，按普通对话继续</div>
           <!-- P1 对话内视频推荐卡（B站真实数据，整卡新标签打开；历史经 envelope.blocks type=card 还原同构） -->
@@ -419,6 +424,7 @@ import SocraticDetourCard from './SocraticDetourCard.vue'
 import SocraticInteractionCard from './SocraticInteractionCard.vue'
 import SocraticConfirmCard from './SocraticConfirmCard.vue'
 import SocraticConceptCard from './SocraticConceptCard.vue'
+import KnowledgeTraceCard from './KnowledgeTraceCard.vue'
 import ShowcaseStageCard from './ShowcaseStageCard.vue'
 import AttachmentThumb from './AttachmentThumb.vue'
 import SourceCard from './SourceCard.vue'

@@ -49,6 +49,9 @@ export function useChat({
   const msgLoading = ref(false)
   const historyHasMore = ref(false)
   const historyLoading = ref(false)
+  // 离线 fixture 只有 limit=20 一页：带 before 的分页必然 404。失败即止，不再 toast，
+  // 避免滚动反复触发把右上角堆满「离线体验暂未提供」。
+  const historyPagingFailed = ref(false)
   const streaming = ref(false)
   // 思考模式开关：默认开（深度推理+思考面板）；localStorage 跨会话记忆
   // 迭代15 B7a 延迟治理：思考模式默认关（实测 socratic 37s→~10s），学生可手动开
@@ -252,7 +255,9 @@ export function useChat({
       historyHasMore.value = typeof d?.hasMore === 'boolean' ? d.hasMore : items.length >= MSG_PAGE
       return fresh.length
     } catch (e) {
-      toast.error(e?.message || '更早消息加载失败')
+      // 分页失败 = 已到最早（离线只采一页）：静默收口，绝不 toast 洪泛
+      historyHasMore.value = false
+      historyPagingFailed.value = true
       return 0
     } finally {
       historyLoading.value = false
@@ -599,7 +604,7 @@ export function useChat({
     // 状态
     conversations, convLoading, convHasMore, convQuery,
     activeConvId, messages, msgLoading,
-    historyHasMore, historyLoading, streaming, thinkingOn,
+    historyHasMore, historyLoading, historyPagingFailed, streaming, thinkingOn,
     // 联网搜索授权（阶段 6A 预接线）
     webSearchOn, webSearchOptInEnabled, loadFeatures,
     // 会话

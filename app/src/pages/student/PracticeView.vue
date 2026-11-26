@@ -1,19 +1,13 @@
 <template>
   <div class="view" :class="{ immersive: quizState === 'ready' && showImmersive }">
-    <button
-      v-if="quizState === 'ready' && showImmersive"
-      class="immersive-exit"
-      @click="exitImmersive"
-      title="退出沉浸模式"
-    >← 退出沉浸</button>
     <!-- S4 沉浸顶栏：题组名 + pips 进度 + 暂停（回页面进度保留） -->
     <div v-if="quizState === 'ready' && showImmersive" class="imm-top">
       <div class="imm-title">{{ group?.kp_name || '今日训练' }} · {{ questions.length }} 题</div>
       <div class="imm-strip">
-        <span v-for="(qq, i) in questions" :key="i" class="pip" :class="{ done: sheetState[i], current: i === qIndex }"></span>
+        <span v-for="(qq, i) in questions" :key="i" class="pip" :class="{ done: sheetState[i], current: i === qIndex, right: sheetState[i] === 'right', wrong: sheetState[i] === 'wrong' }"></span>
       </div>
       <span class="imm-timer">⏱ {{ usedTime }}</span>
-      <button class="imm-btn" @click="exitImmersive">⏸ 暂停（回页面，进度保留）</button>
+      <button class="imm-btn imm-exit" @click="exitImmersive">← 退出沉浸（进度保留）</button>
     </div>
     <div class="greeting" v-show="pTab !== 'exam'">
       <div class="hello">今日训练 · <span style="color:var(--brand-deep);">{{ greetingTitle }}</span></div>
@@ -24,7 +18,7 @@
         <span>⏱ 已用 <b>{{ usedTime }}</b> / {{ modeTotalLabel }}</span>
         <span>·</span>
         <span>📚 当前知识点：<b>{{ group.kp_name || '摸底训练' }}</b></span>
-        <span v-if="group.kp_name" style="font-size:11px;color:var(--ink3);">（薄弱 Top1，由后端推荐）</span>
+        <span v-if="group.kp_name" style="font-size:11px;color:var(--ink2);">（根据近期学情推荐）</span>
       </div>
     </div>
 
@@ -35,6 +29,19 @@
       <button :class="{ active: pTab === 'exam' }" @click="pTab = 'exam'">📝 真题模考</button>
     </div>
 
+    <!-- 离线三套题组：点一下直接切换推荐并开始 -->
+    <div v-if="pTab !== 'exam'" class="p-set-strip" aria-label="离线题组">
+      <button
+        v-for="s in practiceSets" :key="s.id" type="button"
+        class="p-set-card" :class="{ active: selectedKp === s.kp.code }"
+        @click="pickSet(s)"
+      >
+        <span class="ps-title">{{ s.title }}</span>
+        <span class="ps-sub">{{ s.subtitle }}</span>
+        <span class="ps-meta">{{ s.questions.length }} 题 · 约 {{ s.est_minutes }} 分钟</span>
+      </button>
+    </div>
+
     <div v-show="pTab === 'custom'" style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;flex-wrap:wrap;gap:10px;">
       <div class="practice-mode">
         <div
@@ -43,7 +50,7 @@
           @click="switchMode(m)"
         >{{ m }}</div>
       </div>
-      <div style="display:flex;gap:10px;align-items:center;font-size:12px;color:var(--ink3);flex-wrap:wrap;">
+      <div style="display:flex;gap:10px;align-items:center;font-size:12px;color:var(--ink2);flex-wrap:wrap;">
         <span>📚 知识点：</span>
         <select
           v-model="selectedKp"
@@ -66,9 +73,9 @@
                  style="padding:6px 8px;border-radius:8px;cursor:pointer;font-size:12.5px;display:flex;justify-content:space-between;gap:8px;"
                  @click="pickCatalog(k)">
               <span style="flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ k.name }}</span>
-              <span style="color:var(--ink3);">真题 {{ k.bank_count }}</span>
+              <span style="color:var(--ink2);">真题 {{ k.bank_count }}</span>
             </div>
-            <div v-if="!filteredCatalog.length" style="padding:8px;color:var(--ink3);font-size:12px;">无匹配章节</div>
+            <div v-if="!filteredCatalog.length" style="padding:8px;color:var(--ink2);font-size:12px;">无匹配章节</div>
           </div>
         </details>
         <span>🎯 难度:</span>
@@ -137,17 +144,17 @@
     <!-- 难度配比 + 当前题卡片 -->
     <div class="section-head" v-show="pTab !== 'exam' && quizState !== 'idle'">
       <h2>{{ quizHeadText }}</h2>
-      <span style="font-size:12px;color:var(--ink3);">⏱ 已用 {{ usedTime }} · 平均每题 ~{{ avgMinutes }} 分钟</span>
+      <span style="font-size:12px;color:var(--ink2);">⏱ 已用 {{ usedTime }} · 平均每题 ~{{ avgMinutes }} 分钟</span>
     </div>
     <div class="practice-row" v-show="pTab !== 'exam' && quizState !== 'idle'">
       <div class="quiz-card">
-        <div v-if="quizState === 'idle'" style="padding:32px 0;text-align:center;color:var(--ink3);font-size:13px;">
+        <div v-if="quizState === 'idle'" style="padding:32px 0;text-align:center;color:var(--ink2);font-size:13px;">
           点击上方「开始训练」，AI 将按推荐难度配比为你生成今日题组。
         </div>
-        <div v-else-if="quizState === 'loading'" style="padding:32px 0;text-align:center;color:var(--ink3);font-size:13px;">
+        <div v-else-if="quizState === 'loading'" style="padding:32px 0;text-align:center;color:var(--ink2);font-size:13px;">
           正在出题，请稍候…
         </div>
-        <div v-else-if="quizState === 'error'" style="padding:32px 0;text-align:center;color:var(--ink3);font-size:13px;">
+        <div v-else-if="quizState === 'error'" style="padding:32px 0;text-align:center;color:var(--ink2);font-size:13px;">
           出题失败：{{ quizError }}
           <div style="margin-top:10px;">
             <button
@@ -156,7 +163,7 @@
             >重试</button>
           </div>
         </div>
-        <div v-else-if="quizState === 'empty'" style="padding:32px 0;text-align:center;color:var(--ink3);font-size:13px;">
+        <div v-else-if="quizState === 'empty'" style="padding:32px 0;text-align:center;color:var(--ink2);font-size:13px;">
           本次出题暂无可在线作答的题目（选择题须带选项、填空题须可判分），请稍后再试或切换训练模式。
         </div>
         <template v-else>
@@ -166,8 +173,8 @@
               <span :style="{ color: diffColor(q.difficulty) }">● {{ diffZh(q.difficulty) }}</span>
               <span v-if="group && group.kp_name">{{ group.kp_name }}</span>
             </div>
-            <div class="smart-score" v-if="smartScore !== null">
-              SmartScore: <span style="font-family:var(--font-num);font-size:14px;">{{ smartScore }}</span> / 100
+            <div class="smart-score" v-if="smartScore !== null" title="按单次提交计算，不是整组累计">
+              本题 SmartScore: <span style="font-family:var(--font-num);font-size:14px;">{{ smartScore }}</span> / 100
             </div>
           </div>
           <div class="q-text">
@@ -215,9 +222,18 @@
           <div v-if="judged" class="feedback" :class="correct ? 'ok' : 'err'">
             <span class="em">{{ correct ? '✓' : '✗' }}</span>
             <b>{{ correct ? '答对了！' : '差一点，这题答错了。' }}</b>
-            {{ correct ? '继续保持，下一题加油。' : '已自动收录进错题本，可在错题本中查看解析。' }}
+            {{ correct ? '继续保持，下一题加油。' : '已自动收录进错题本，正解与解析见下方。' }}
           </div>
-          <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--ink3);">
+          <div v-if="judged && (answerReveal.answer || answerReveal.explain)" class="q-reveal">
+            <div v-if="answerReveal.answer" class="qr-answer">
+              正确答案：<b>{{ answerReveal.answer }}</b>
+            </div>
+            <div v-if="answerReveal.explain" class="qr-explain-label">解析</div>
+            <div v-if="answerReveal.explain" class="qr-explain">
+              <LatexText :text="answerReveal.explain" />
+            </div>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;font-size:11.5px;color:var(--ink2);">
             <span v-if="submitting">判分中…</span>
             <span v-else-if="judged">⏱ 本题用时 {{ qElapsed }} 秒</span>
             <span v-else>{{ q.interaction_type === 'choice' ? '选择一个选项作答' : (q.interaction_type === 'blank' ? '输入答案后回车提交' : '输入解答后提交') }}</span>
@@ -263,13 +279,13 @@
     <!-- 总结卡（Khan 风格） -->
     <div class="summary-card" v-show="summaryState !== 'idle'">
       <h4>📋 今日训练总结卡</h4>
-      <div v-if="summaryState === 'idle'" style="background:rgba(255,255,255,.85);padding:12px 14px;border-radius:10px;font-size:13px;color:var(--ink3);line-height:1.6;">
+      <div v-if="summaryState === 'idle'" style="background:rgba(255,255,255,.85);padding:12px 14px;border-radius:10px;font-size:13px;color:var(--ink2);line-height:1.6;">
         完成本组训练后，这里会生成你的升级 / 持平 / 降级总结。
       </div>
-      <div v-else-if="summaryState === 'loading'" style="background:rgba(255,255,255,.85);padding:12px 14px;border-radius:10px;font-size:13px;color:var(--ink3);line-height:1.6;">
+      <div v-else-if="summaryState === 'loading'" style="background:rgba(255,255,255,.85);padding:12px 14px;border-radius:10px;font-size:13px;color:var(--ink2);line-height:1.6;">
         正在生成训练总结…
       </div>
-      <div v-else-if="summaryState === 'error'" style="background:rgba(255,255,255,.85);padding:12px 14px;border-radius:10px;font-size:13px;color:var(--ink3);line-height:1.6;">
+      <div v-else-if="summaryState === 'error'" style="background:rgba(255,255,255,.85);padding:12px 14px;border-radius:10px;font-size:13px;color:var(--ink2);line-height:1.6;">
         总结生成失败，可稍后在「学情报告」查看掌握度变化。
       </div>
       <template v-else-if="summary">
@@ -311,6 +327,7 @@ import { useAuthStore } from '@/stores/auth'
 import LatexText from '@/components/LatexText.vue'
 import ExamView from '@/pages/student/ExamView.vue'
 import DynamicFigureViewer from '@/components/DynamicFigureViewer.vue'
+import { PRACTICE_SETS } from '@/offline/showcase/practiceBank'
 
 const route = useRoute()
 const router = useRouter()
@@ -323,6 +340,7 @@ const pTab = ref('today')
 const modes = ['今日训练', '真题模考']
 const mode = ref('今日训练')
 const difficulty = ref('自适应 (推荐)')
+const practiceSets = PRACTICE_SETS
 
 const DIFF_ZH = { easy: '易', medium: '中', hard: '难' }
 const LEVEL_META = {
@@ -343,6 +361,7 @@ async function loadGroup() {
   groupError.value = ''
   try {
     group.value = await api.get('/student/practice/group-recommend', { count: 5 })
+    if (!selectedKp.value && group.value?.kp_code) selectedKp.value = group.value.kp_code
   } catch (e) {
     groupError.value = e.message || '加载失败'
   } finally {
@@ -353,9 +372,11 @@ async function loadGroup() {
 const greetingTitle = computed(() => {
   if (groupLoading.value) return '加载中…'
   if (!group.value) return '今日训练'
-  return `${group.value.count} 题${group.value.kp_name || '摸底训练'}`
+  return `${group.value.count} 题 · ${group.value.kp_name || '摸底训练'}`
 })
 const modeTotalLabel = computed(() => {
+  const g = group.value
+  if (g?.est_minutes) return `${g.est_minutes} 分钟`
   const cfg = MODE_CONFIG[mode.value]
   if (!cfg) return ''
   return cfg.minutes >= 60 ? `${cfg.minutes / 60} 小时` : `${cfg.minutes} 分钟`
@@ -453,6 +474,9 @@ const qIndex = ref(0)
 const chosen = ref(-1)
 const textAnswer = ref('') // blank/text 作答输入
 const verdict = ref(null) // 'correct' / 'wrong'
+const answerReveal = ref({ answer: '', explain: '' })
+// 已答题快照：点答题卡回看时恢复选中项/判分/解析，而不是清空重做
+const answeredState = ref({})
 const submitting = ref(false)
 const smartScore = ref(null)
 const qElapsed = ref(0)
@@ -517,6 +541,9 @@ async function start() {
         text: it.question_text,
         image: it.image || [],
         optionsArr: normalizeOptions(it.options),
+        // 离线题组自带正解与解析：judged 后直接展示，不再要求跳转错题本
+        answer: it.answer || '',
+        explain: it.answer_analysis || it.explain || '',
       }))
     if (!questions.value.length) {
       quizState.value = 'empty'
@@ -526,6 +553,8 @@ async function start() {
     qIndex.value = 0
     chosen.value = -1
     verdict.value = null
+    answerReveal.value = { answer: '', explain: '' }
+    answeredState.value = {}
     smartScore.value = null
     summaryState.value = 'idle'
     summary.value = null
@@ -554,8 +583,13 @@ async function pick(oi) {
     })
     const r = (data.results || []).find((x) => x.item_no === item.item_no) || {}
     verdict.value = r.verdict === 'correct' ? 'correct' : 'wrong'
+    answerReveal.value = { answer: r.correct_answer || item.answer || '', explain: r.explain || item.explain || '' }
     sheetState.value = { ...sheetState.value, [qIndex.value]: verdict.value === 'correct' ? 'right' : 'wrong' }
     qElapsed.value = Math.max(1, Math.round((Date.now() - qStartAt) / 1000))
+    answeredState.value = {
+      ...answeredState.value,
+      [qIndex.value]: { chosen: chosen.value, verdict: verdict.value, answerReveal: answerReveal.value, textAnswer: textAnswer.value },
+    }
     if (data.submission_id) loadSmartScore(data.submission_id)
   } catch (e) {
     chosen.value = -1
@@ -583,8 +617,13 @@ async function submitText() {
     })
     const r = (data.results || []).find((x) => x.item_no === item.item_no) || {}
     verdict.value = r.verdict === 'correct' ? 'correct' : 'wrong'
+    answerReveal.value = { answer: r.correct_answer || item.answer || '', explain: r.explain || item.explain || '' }
     sheetState.value = { ...sheetState.value, [qIndex.value]: verdict.value === 'correct' ? 'right' : 'wrong' }
     qElapsed.value = Math.max(1, Math.round((Date.now() - qStartAt) / 1000))
+    answeredState.value = {
+      ...answeredState.value,
+      [qIndex.value]: { chosen: chosen.value, verdict: verdict.value, answerReveal: answerReveal.value, textAnswer: textAnswer.value },
+    }
     if (data.submission_id) loadSmartScore(data.submission_id)
   } catch (e) {
     toast.error(e.message || '判分失败，请重试')
@@ -608,9 +647,18 @@ const sheetState = ref({})
 const sheetDoneCount = computed(() => Object.keys(sheetState.value).length)
 function jumpTo(i) {
   qIndex.value = i
-  chosen.value = -1
-  textAnswer.value = ''
-  verdict.value = null
+  const snap = answeredState.value[i]
+  if (snap) {
+    chosen.value = snap.chosen
+    textAnswer.value = snap.textAnswer || ''
+    verdict.value = snap.verdict
+    answerReveal.value = snap.answerReveal || { answer: '', explain: '' }
+  } else {
+    chosen.value = -1
+    textAnswer.value = ''
+    verdict.value = null
+    answerReveal.value = { answer: '', explain: '' }
+  }
   markQStart()
 }
 function nextQ() {
@@ -618,6 +666,7 @@ function nextQ() {
   chosen.value = -1
   textAnswer.value = ''
   verdict.value = null
+  answerReveal.value = { answer: '', explain: '' }
   markQStart()
 }
 function markQStart() { qStartAt = Date.now() }
@@ -638,6 +687,8 @@ async function finish() {
   try {
     summary.value = await api.get('/student/practice/summary', { quiz_id: quizId.value })
     summaryState.value = 'ready'
+    showImmersive.value = false
+    setTimeout(() => document.querySelector('.summary-card')?.scrollIntoView({ behavior: 'smooth', block: 'center' }), 60)
     toast.success(`今日 ${questions.value.length} 题完成！训练总结已生成 🎉`)
   } catch (e) {
     summaryState.value = 'error'
@@ -661,7 +712,9 @@ function diffZh(d) { return DIFF_ZH[d] || d }
 function diffColor(d) { return { easy: 'var(--ok-deep)', medium: 'var(--warn-deep)', hard: 'var(--err-deep)' }[d] }
 function ansClass(oi) {
   if (!judged.value) return {}
-  if (oi === chosen.value) return correct.value ? { correct: true } : { wrong: true }
+  const letter = q.value?.optionsArr?.[oi]?.letter
+  if (q.value?.answer && letter === q.value.answer) return { correct: true }
+  if (oi === chosen.value) return { wrong: true }
   return {}
 }
 function switchMode(m) {
@@ -697,6 +750,7 @@ async function loadGroupWithCount(count, kpCode) {
     const params = { count }
     if (kpCode) params.kp_code = kpCode
     group.value = await api.get('/student/practice/group-recommend', params)
+    if (!selectedKp.value && group.value?.kp_code) selectedKp.value = group.value.kp_code
     if (!weakList.value.length) {
       try { weakList.value = await api.get('/student/report/weak-points') || [] } catch { weakList.value = [] }
     }
@@ -705,6 +759,15 @@ async function loadGroupWithCount(count, kpCode) {
   } finally {
     groupLoading.value = false
   }
+}
+
+/** 离线三套题组：一键切换推荐 + 题量，点开始即可练 */
+function pickSet(s) {
+  if (!s) return
+  pTab.value = 'today'
+  selectedKp.value = s.kp.code
+  loadGroupWithCount(s.questions.length, s.kp.code)
+  toast.info(`已切换到「${s.title}」题组，点「开始训练」`)
 }
 
 // 知识点切换：薄弱 Top5 列表 + 手动选其他
@@ -790,6 +853,8 @@ onMounted(async () => {
 
 <style scoped>
 /* ===== 沉浸式练题：进入答题后隐藏其他区域，practice-row 占满 100vh ===== */
+.view { max-width: 1480px; margin: 0 auto; }
+.view.immersive { max-width: none; }
 .view.immersive {
   position: fixed;
   inset: 0;
@@ -826,10 +891,13 @@ onMounted(async () => {
 .imm-strip { flex: 1; display: flex; gap: 4px; }
 .imm-strip .pip { flex: 1; height: 6px; border-radius: 99px; background: #e6e9f0; }
 .imm-strip .pip.done { background: var(--ok); }
-.imm-strip .pip.current { background: var(--brand); }
+.imm-strip .pip.current { box-shadow: 0 0 0 2px var(--brand-soft); }
+.imm-strip .pip.right { background: var(--ok); }
+.imm-strip .pip.wrong { background: var(--err); }
 .imm-timer { font-family: var(--font-num); font-weight: 800; font-size: 13px; color: var(--ink2); white-space: nowrap; }
 .imm-btn { padding: 7px 14px; border-radius: 8px; border: 1px solid var(--line); background: var(--card); font: inherit; font-size: 12px; font-weight: 700; color: var(--ink2); cursor: pointer; white-space: nowrap; }
 .imm-btn:hover { border-color: var(--primary-border); color: var(--primary); }
+.imm-exit { margin-left: auto; }
 .view.immersive .q-text { font-size: 16px; line-height: 1.8; }
 .q-fig { margin: 10px 0; text-align: center; }
 .q-fig img { max-width: 100%; max-height: 260px; border: 1px solid var(--line); border-radius: 8px; background: #fff; }
@@ -871,11 +939,12 @@ onMounted(async () => {
 }
 .sheet-cell.doneRight { background: var(--ok-bg); border-color: var(--ok-border); color: var(--ok-deep); }
 .sheet-cell.doneWrong { background: var(--err-bg); border-color: var(--err-border); color: var(--err-deep); }
-.sheet-cell.cur { border: 2px solid var(--primary); color: var(--primary); background: var(--primary-subtle); }
+.sheet-cell.cur { box-shadow: inset 0 0 0 2px var(--primary); color: var(--primary); }
+.sheet-cell.cur:not(.doneRight):not(.doneWrong) { background: var(--primary-subtle); }
 .sheet-cell:not(:disabled):not(.cur) { cursor: pointer; }
 .sheet-cell:disabled { opacity: .45; }
-.sheet-empty { padding: 18px 0; text-align: center; color: var(--ink3); font-size: 12.5px; }
-.sheet-meta { font-size: 11px; color: var(--ink3); }
+.sheet-empty { padding: 18px 0; text-align: center; color: var(--ink2); font-size: 12.5px; }
+.sheet-meta { font-size: 11px; color: var(--ink2); }
 
 /* S3 v2 页级 tab */
 .p-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
@@ -884,4 +953,34 @@ onMounted(async () => {
   font: inherit; font-size: 13.5px; font-weight: 600; color: var(--ink2); cursor: pointer;
 }
 .p-tabs button.active { background: var(--primary-subtle); border-color: var(--primary-border); color: var(--primary); }
+
+/* 离线三套题组 */
+.p-set-strip {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 0 0 16px;
+}
+.p-set-card {
+  display: flex; flex-direction: column; align-items: flex-start; gap: 3px;
+  padding: 11px 14px; border: 1px solid var(--line); border-radius: 12px;
+  background: var(--card); cursor: pointer; font: inherit; text-align: left;
+  transition: border-color .15s ease, background .15s ease, transform .15s ease;
+}
+.p-set-card:hover { border-color: var(--primary-border); background: var(--primary-subtle); }
+.p-set-card.active { border-color: var(--primary); background: var(--primary-subtle); }
+.ps-title { font-size: 13px; font-weight: 700; color: var(--ink); }
+.ps-sub { font-size: 11.5px; color: var(--ink2); }
+.ps-meta { font-size: 11px; color: var(--ink2); }
+.q-reveal {
+  margin: 10px 0; padding: 10px 12px; border-radius: 10px;
+  background: var(--bg2); border: 1px solid var(--line);
+}
+.qr-answer { font-size: 13.5px; color: var(--ink); margin-bottom: 5px; }
+.qr-answer b { color: var(--ok-deep); }
+.qr-explain-label { font-size: 11.5px; font-weight: 800; color: var(--brand-deep); margin: 6px 0 3px; }
+.qr-explain { font-size: 13.5px; line-height: 1.7; color: var(--ink2); }
+@media (max-width: 900px) {
+  .p-set-strip { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p-set-card { transition: none; }
+}
 </style>

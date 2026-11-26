@@ -281,7 +281,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--ink); line-
 .error-card .options .opt.my-wrong { background: var(--err-bg); border: 1.5px solid var(--err); position: relative; }
 .error-card .options .opt.my-wrong::after { content: "你选的"; position: absolute; right: 10px; top: 8px; font-size: 9.5px; background: var(--err); color: #fff; padding: 1px 6px; border-radius: 99px; font-weight: 800; }
 .error-card .options .opt.right { background: var(--ok-bg); border: 1.5px solid var(--ok); position: relative; }
-.error-card .options .opt.right::after { content: "正解"; position: absolute; right: 10px; top: 8px; font-size: 9.5px; background: var(--ok); color: #fff; padding: 1px 6px; border-radius: 99px; font-weight: 800; }
+.error-card .options .opt.right::after { content: "正解"; position: absolute; right: 10px; top: 8px; font-size: 9.5px; background: var(--ok-deep); color: #fff; padding: 1px 6px; border-radius: 99px; font-weight: 800; }
 .error-card .options .opt.neutral { background: var(--bg2); border: 1px solid var(--line); }
 .error-card .options .opt .letter { font-family: var(--font-num); font-weight: 800; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,.6); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .error-card .a-side { padding: 16px 20px; background: linear-gradient(180deg, #fffbeb, #fff 70%); }

@@ -6,14 +6,14 @@
          占位归一：$□_1$ / □_1 / □1 全兼容（数学环境内占位摘出为 chip）。 -->
     <div class="ix-cz-body">
       <template v-for="(seg, i) in segments" :key="i">
-        <MarkdownView v-if="seg.type === 'text' && seg.text" :text="seg.text" :zoomable="false" />
+        <MarkdownView v-if="seg.type === 'text' && seg.text" :text="wrapBareLatex(seg.text)" :zoomable="false" />
         <button
           v-else-if="seg.type === 'blank'"
           type="button" class="ix-cz-blank" :class="{ filled: !!answers[seg.id], open: openBlank === seg.id }"
           :title="blankKindZh(seg.id)"
           @click="toggleOpen(seg.id)"
         >
-          <span v-if="answers[seg.id]" class="ix-cz-val">{{ answers[seg.id] }}</span>
+          <span v-if="answers[seg.id]" class="ix-cz-val"><MarkdownView :text="String(answers[seg.id])" :zoomable="false" /></span>
           <span v-else class="ix-cz-slot">空 {{ seg.id.replace(/^b/, '') }} ▾</span>
         </button>
       </template>
@@ -27,7 +27,7 @@
           v-for="(o, oi) in openPalette" :key="oi" type="button"
           class="ix-cz-opt" :class="{ on: answers[openBlank] === o }"
           @click="fill(openBlank, o)"
-        >{{ o }}</button>
+        ><MarkdownView :text="String(o)" :zoomable="false" /></button>
       </div>
     </div>
 
@@ -41,6 +41,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import MarkdownView from '@/components/MarkdownView.vue'
+import { wrapBareLatex } from '@/utils/latex'
 
 const props = defineProps({
   /** CHAIN-DESIGN §5.7 spec：{body_latex, blanks:[{id,answer_kind}], palette_by_blank:{id:[...]}} */
@@ -163,7 +164,7 @@ function submit() {
 .ix-cz-opt:hover { border-color: #8b5cf6; background: #f5f3ff; }
 .ix-cz-opt.on { border-color: #059669; background: #ecfdf5; color: #047857; }
 .ix-cz-actions { display: flex; align-items: center; gap: 10px; margin-top: 9px; }
-.ix-cz-progress { font-size: 11px; color: var(--text-muted); }
+.ix-cz-progress { font-size: 12px; color: var(--ink2); }
 .ix-submit {
   padding: 7px 16px; border-radius: var(--radius-md); cursor: pointer; font-size: 12.5px; font-weight: 700;
   border: 1px solid rgba(139, 92, 246, 0.45); color: #fff;

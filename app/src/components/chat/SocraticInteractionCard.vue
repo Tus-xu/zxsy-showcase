@@ -15,8 +15,9 @@
          · 结构化形式的打字回退视觉降级为卡底小字入口（主通道让位给结构化交互）；
          · edit_count：子组件 edit 事件汇总上行（§3.5 数据飞轮 R5 脆弱掌握判据）。 -->
     <div class="si-head">
+      <span v-if="card.step_no && card.steps_count" class="si-step">第 {{ card.step_no }}/{{ card.steps_count }} 步</span>
       <span v-if="stageZh" class="si-stage">{{ stageZh }}</span>
-      <span class="si-lead">{{ leadText }}</span>
+      <span class="si-lead"><MarkdownView :text="leadText" :zoomable="false" /></span>
       <span v-if="formZh" class="si-form" :title="offline ? undefined : formBadgeTitle">{{ formZh }}</span>
     </div>
 
@@ -93,6 +94,7 @@
 <script setup>
 import { computed, onMounted, ref } from 'vue'
 import { FORM_ZH, STAGE_ZH, summarizeInteraction } from './messageModel'
+import MarkdownView from '@/components/MarkdownView.vue'
 import AnnotateCanvas from './interaction/AnnotateCanvas.vue'
 import TriageBoard from './interaction/TriageBoard.vue'
 import RestateCheck from './interaction/RestateCheck.vue'
@@ -203,7 +205,11 @@ function tapPaletteKey(p) {
 .si-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 9px; }
 .si-stage {
   font-size: 10.5px; font-weight: 800; color: #fff; border-radius: 999px; padding: 1px 8px;
-  background: linear-gradient(135deg, #6366f1, #8b5cf6); letter-spacing: .02em;
+  background: linear-gradient(135deg, #4338ca, #6d28d9); letter-spacing: .02em;
+}
+.si-step {
+  font-size: 10.5px; font-weight: 800; color: #4338ca; background: #eef2ff;
+  border: 1px solid #c7d2fe; border-radius: 999px; padding: 1px 8px; white-space: nowrap;
 }
 .si-lead { font-size: 13.5px; font-weight: 700; color: var(--text-primary); flex: 1; min-width: 120px; }
 .si-form {
@@ -212,7 +218,7 @@ function tapPaletteKey(p) {
 }
 .si-body.is-used { opacity: 0.55; pointer-events: none; filter: grayscale(0.3); }
 .si-usedmark { margin-top: 8px; font-size: 11.5px; font-weight: 700; color: #059669; }
-.si-unknown { font-size: 12.5px; color: var(--text-muted); padding: 6px 0; }
+.si-unknown { font-size: 12.5px; color: var(--ink2); padding: 6px 0; }
 /* sgv4：L1 高亮线索随卡 */
 .si-hint {
   font-size: 12.5px; color: #92400e; background: #fffbeb; border: 1px solid rgba(245, 158, 11, 0.35);
@@ -259,7 +265,7 @@ function tapPaletteKey(p) {
 .si-send:disabled { opacity: 0.45; cursor: not-allowed; }
 .si-skiprow { margin-top: 7px; }
 .si-skip {
-  border: none; background: none; cursor: pointer; font-size: 11.5px; color: var(--text-muted);
+  border: none; background: none; cursor: pointer; font-size: 12px; color: var(--ink2);
   text-decoration: underline dotted; padding: 2px 4px;
 }
 .si-skip:hover { color: var(--text-secondary); }

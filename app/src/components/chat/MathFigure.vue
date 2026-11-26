@@ -8,12 +8,7 @@
       <span v-if="questionFigure" class="mf-badge mf-badge--question">题目配图</span>
       <span v-else-if="figure.step_no && frames.length > 1" class="mf-badge">步骤 {{ figure.step_no }}</span>
       <span v-if="!questionFigure && figure.caption" class="mf-caption">{{ figure.caption }}</span>
-      <button
-        v-if="interactiveAvailable && !showInteractive"
-        class="mf-replay"
-        style="margin-left:auto;"
-        @click="showInteractive = true"
-      >🖐 可拖动</button>
+      <span v-if="interactiveAvailable" class="mf-drag">🖐 可拖动</span>
       <button
         v-if="interactiveAvailable && showInteractive"
         class="mf-replay"
@@ -112,7 +107,8 @@ const conicParams = computed(() => {
   return fp?.type === 'conic' ? fp.params : null
 })
 const interactiveAvailable = computed(() => !!solidScene.value || !!conicParams.value)
-const showInteractive = ref(false)
+// 可拖动/3D 图默认直接显示：学生看到的第一眼就是交互图，不必再点一次「可拖动」
+const showInteractive = ref(!!props.figure?.solid || props.figure?.figure_params?.type === 'conic')
 const imgFailed = ref(false)
 let autoTimer = null
 let playedOnce = false
@@ -179,7 +175,7 @@ onBeforeUnmount(clearAuto)
 
 <style scoped>
 .math-figure {
-  margin: 10px 0 0;
+  margin: 10px auto 0;
   max-width: min(100%, 640px);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -208,6 +204,10 @@ onBeforeUnmount(clearAuto)
 .mf-caption {
   font-size: 13px;
   color: var(--text-secondary);
+}
+.mf-drag {
+  font-size: 10.5px; font-weight: 700; color: #6d28d9;
+  background: #f5f3ff; border: 1px solid #ddd6fe; border-radius: 999px; padding: 1px 8px;
 }
 .mf-stage {
   min-height: 40px;

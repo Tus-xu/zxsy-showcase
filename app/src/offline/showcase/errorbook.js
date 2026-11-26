@@ -21,6 +21,7 @@ export function showbookAdder({ convId } = {}) {
     kp_code: HYP.kp_code,
     kp_name: HYP.kp_name,
     created_at: exist?.created_at || new Date().toISOString(),
+    entered_at: exist?.entered_at || new Date().toISOString(),
     review_count: 0,
     retrievability: 0.5,
     fsrs_level: 'new',
@@ -55,6 +56,66 @@ export function mergeIntoErrorRecords(text) {
   if (!add.length) return text
   const out = { ...parsed, data: { ...data, items: [...add, ...data.items] } }
   return JSON.stringify(out)
+}
+
+const EXPERIENCE_ERRORS = {
+  t1: {
+    key: 'exp-err-t1',
+    record_id: 'exp-err-t1',
+    question_preview: '若双曲线 C 的虚轴长为实轴长的 √7 倍，则 C 的离心率为（ ）',
+    error_type: 'logic',
+    kp_code: HYP.kp_code,
+    kp_name: HYP.kp_name,
+    first_choice: 'C',
+    fixed_choice: 'D',
+    reason: '把两条轴的比当成了离心率：√7 = b/a，而 e = c/a。',
+  },
+  t2: {
+    key: 'exp-err-t2',
+    record_id: 'exp-err-t2',
+    question_preview: '正三棱柱 ABC-A₁B₁C₁ 中，D 为 BC 中点，则（ ）',
+    error_type: 'logic',
+    kp_code: 'MATH-PEP-LITI',
+    kp_name: '线面垂直的判定',
+    first_choice: 'A',
+    fixed_choice: 'B',
+    reason: '把异面直线 AD 与 A₁C 当成相交直线；线面垂直要找平面内两条相交直线。',
+  },
+  t3: {
+    key: 'exp-err-t3',
+    record_id: 'exp-err-t3',
+    question_preview: '5 个球有放回取三次，记至少取出一次的球的个数 X，则 E(X)=____。',
+    error_type: 'concept',
+    kp_code: 'MATH-PEP-PROB',
+    kp_name: '离散型随机变量的期望',
+    first_choice: '3/5',
+    fixed_choice: '61/25',
+    reason: '把“不同球数”当成了二项分布的成功次数。',
+  },
+}
+
+/** 体验「错题本」走完时写一条真实记录；重复走只更新，不重复计数 */
+export function addExperienceError(problemId, convId) {
+  const base = EXPERIENCE_ERRORS[problemId]
+  if (!base) return null
+  const exist = (store.errorBook || []).find((e) => e && e.record_id === base.record_id)
+  const rec = {
+    ...base,
+    created_at: exist?.created_at || new Date().toISOString(),
+    entered_at: exist?.entered_at || new Date().toISOString(),
+    review_count: exist?.review_count || 0,
+    retrievability: 0.5,
+    fsrs_level: 'new',
+    stability: 'critical',
+    source: 'experience',
+    from_conversation: convId || '',
+  }
+  patch((st) => {
+    const list = Array.isArray(st.errorBook) ? st.errorBook : []
+    const i = list.findIndex((e) => e && e.record_id === base.record_id)
+    st.errorBook = i >= 0 ? list.map((e, j) => (j === i ? rec : e)) : [...list, rec]
+  })
+  return rec
 }
 
 export function isErrorRecordsPath(path) {

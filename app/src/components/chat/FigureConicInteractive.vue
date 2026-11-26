@@ -320,7 +320,7 @@ function onMove(ev) {
 </script>
 
 <style scoped>
-.fci { border: 1px solid #e3e7ee; border-radius: 10px; background: #fff; overflow: hidden; }
+.fci { max-width: 520px; margin: 0 auto; border: 1px solid #e3e7ee; border-radius: 10px; background: #fff; overflow: hidden; }
 .fci-svg { display: block; width: 100%; height: auto; touch-action: none; }
 .fci-hint { padding: 6px 10px; font-size: 12px; color: #5b6572; background: #f8fafc; border-top: 1px solid #eef1f5; }
 </style>

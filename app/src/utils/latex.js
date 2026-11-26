@@ -81,3 +81,72 @@ function findBalancedClose(s, start) {
   if (firstDollar === -1) return null
   return { content: s.slice(start, firstDollar), end: firstDollar } // 回退原行为
 }
+
+/**
+ * 混合文本里的裸 LaTeX 降级为可读 Unicode（仅用于列表预览/无 $ 定界符的旧数据）。
+ * 不追求排版，只保证学生看不到 \mid、\le、\frac 这类源码。
+ */
+export function humanizeMath(text) {
+  let s = String(text ?? '')
+  if (!s) return s
+  // 混合文本：只清洗 $ 外的裸命令，$ 内的公式留给 KaTeX
+  if (s.includes('$')) {
+    return s.split('$').map((part, i) => (i % 2 ? part : humanizeMath(part))).join('$')
+  }
+  // 带反斜杠的 LaTeX 命令
+  s = s.replace(/\\sqrt\s*\{([^{}]*)\}/g, '√($1)')
+  s = s.replace(/\\frac\s*\{([^{}]*)\}\s*\{([^{}]*)\}/g, '($1)/($2)')
+  s = s.replace(/\\log_\s*\{([^{}]*)\}/g, 'log_$1')
+  s = s.replace(/\\log/g, 'log')
+  s = s.replace(/\\mathrm\s*\{([^{}]*)\}/g, '$1')
+  s = s.replace(/\\text\s*\{([^{}]*)\}/g, '$1')
+  s = s.replace(/\\left|\\right/g, '')
+  s = s.replace(/\\mid/g, '|')
+  s = s.replace(/\\leq?/g, '≤')
+  s = s.replace(/\\geq?/g, '≥')
+  s = s.replace(/\\neq/g, '≠')
+  s = s.replace(/\\times/g, '×')
+  s = s.replace(/\\cdot/g, '·')
+  s = s.replace(/\\pm/g, '±')
+  s = s.replace(/\\in\b/g, '∈')
+  s = s.replace(/\\notin\b/g, '∉')
+  s = s.replace(/\\cap\b/g, '∩')
+  s = s.replace(/\\cup\b/g, '∪')
+  s = s.replace(/\\triangle/g, '△')
+  s = s.replace(/\\angle/g, '∠')
+  s = s.replace(/\\perp/g, '⊥')
+  s = s.replace(/\\parallel/g, '∥')
+  s = s.replace(/\\infty/g, '∞')
+  s = s.replace(/\\mathbb\s*\{R\}/g, 'ℝ')
+  s = s.replace(/\\quad|\\qquad/g, ' ')
+  s = s.replace(/\\[,;!]/g, ' ')
+  // 后端有时会删掉反斜杠，只剩裸命令名（neg/cap/log_2/triangle…）
+  s = s.replace(/\bneg\b/g, '¬')
+  s = s.replace(/\bcap\b/g, '∩')
+  s = s.replace(/\bcup\b/g, '∪')
+  s = s.replace(/\btriangle\b/g, '△')
+  s = s.replace(/\blog_([0-9])\b/g, (_, d) => `log${'₀₁₂₃₄₅₆₇₈₉'[Number(d)] || d}`)
+  s = s.replace(/\bmid\b/g, '|')
+  s = s.replace(/\b(le|leq)\b/g, '≤')
+  s = s.replace(/\b(ge|geq)\b/g, '≥')
+  s = s.replace(/\bneq\b/g, '≠')
+  // 后端剥掉反斜杠后仍带花括号的 frac/sqrt（如 frac{\sqrt{x-1}}{x-2}）
+  s = s.replace(/\bsqrt\s*\{([^{}]*)\}/g, '√($1)')
+  s = s.replace(/\bfrac\s*\{([^{}]*)\}\s*\{([^{}]*)\}/g, '($1)/($2)')
+  s = s.replace(/\bvec\s*\{([^{}]*)\}/g, '$1')
+  s = s.replace(/\bmathbb\s*\{?R\}?/g, 'ℝ')
+  s = s.replace(/\bfrac\b/g, '分数')
+  s = s.replace(/\bsqrt\b/g, '√')
+  // 剩余未知命令直接去掉，避免 \foo 源码上屏
+  s = s.replace(/\\[a-zA-Z]+/g, '')
+  s = s.replace(/[{}]/g, '')
+  // 上标：x^2 / x^{2} / x^n
+  const SUP = { 0: '⁰', 1: '¹', 2: '²', 3: '³', 4: '⁴', 5: '⁵', 6: '⁶', 7: '⁷', 8: '⁸', 9: '⁹', n: 'ⁿ' }
+  s = s.replace(/\^\{([0-9n])\}/g, (_, c) => SUP[c] || c)
+  s = s.replace(/\^([0-9n])/g, (_, c) => SUP[c] || c)
+  s = s.replace(/_\{([^{}]*)\}/g, '_$1')
+  // 孤立反斜杠
+  s = s.replace(/\\\s/g, ' ')
+  s = s.replace(/\\/g, '')
+  return s
+}

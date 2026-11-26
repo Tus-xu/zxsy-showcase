@@ -1,0 +1,42 @@
+{
+ "shots": [
+  "01-home-1440",
+  "02-rail-history-1440",
+  "03-cover-1440",
+  "04-guided-step1-1440",
+  "04b-guided-binary-1440",
+  "05-guided-step2-1440",
+  "05b-guided-step2-correct-1440",
+  "06-guided-complete-1440",
+  "07-trace-1440",
+  "08-practice-1440",
+  "09-practice-reveal-1440",
+  "10-dual-home-1440",
+  "11a-dual-generating-1440",
+  "11-dual-player-1440",
+  "11b-dual-playing-1440",
+  "12-errors-1440",
+  "13-errors-detail-1440",
+  "20-home-1920",
+  "21-guided-1920",
+  "22-practice-1920",
+  "24-practice-answer-1920",
+  "23-dual-1920",
+  "05b-guided-step2-correct-1440",
+  "30-trace-reduced-1440"
+ ],
+ "errors": [],
+ "warnings": [
+  "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:12019:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%8",
+  "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-a",
+  "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:12019:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%8",
+  "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-a",
+  "[    at _f (file:///D:/zxsy-math-arena-showcase/rel…BC%80%E5%A7%8B%E6%BC%94%E7%A4%BA.html:12019:8572),     at file:///D:/zxsy-math-arena-showcase/release…5%BC%8",
+  "Can't use relative paths to specify assets location because the source file location could not be determined (unexpected location \"    at file:///D:/zxsy-math-a"
+ ],
+ "historyScrolled": true,
+ "reducedMotionButtons": [
+  "上一步",
+  "下一步"
+ ]
+}

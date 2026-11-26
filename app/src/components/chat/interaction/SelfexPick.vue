@@ -13,7 +13,7 @@
         @click="pickOption(i)"
       >
         <span class="ix-sx-key">{{ 'ABCD'[i] || i + 1 }}</span>
-        <span class="ix-sx-body">{{ o.text }}</span>
+        <span class="ix-sx-body"><MarkdownView :text="o.text" :zoomable="false" /></span>
       </button>
     </div>
 
@@ -25,7 +25,7 @@
           v-for="(e, ei) in evidenceOptions" :key="ei" type="button"
           class="ix-sx-eopt" :class="{ on: evidence === ei }"
           @click="pickEvidence(ei)"
-        >{{ e.text }}</button>
+        ><MarkdownView :text="e.text" :zoomable="false" /></button>
       </div>
     </div>
 
@@ -37,6 +37,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import MarkdownView from '@/components/MarkdownView.vue'
 
 const props = defineProps({
   /** CHAIN-DESIGN §5.9 spec：{stem, options:[{text}], require_evidence, evidence_options:[{text}]} */

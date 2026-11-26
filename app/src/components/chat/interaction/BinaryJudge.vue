@@ -6,7 +6,7 @@
          交互：单选高亮 → 提交即抛（{choice: 选项id}）；改选 emit('edit')
          （§3.5 数据飞轮：改选次数计入 edit_count 脆弱掌握判据）。
          选项 maps_to 是后端误解映射判定键，前端不渲染不消费（防干扰作答）。 -->
-    <div v-if="question" class="ix-bj-q">{{ question }}</div>
+    <div v-if="question" class="ix-bj-q"><MarkdownView :text="question" :zoomable="false" /></div>
     <div v-if="options.length" class="ix-bj-opts" role="radiogroup" :aria-label="question || '判断选择'">
       <button
         v-for="o in options" :key="o.id" type="button" role="radio"
@@ -15,7 +15,7 @@
         @click="pick(o.id)"
       >
         <span class="ix-bj-key">{{ keyOf(o.id) }}</span>
-        <span class="ix-bj-label">{{ o.label || o.id }}</span>
+        <span class="ix-bj-label"><MarkdownView :text="String(o.label || o.id)" :zoomable="false" /></span>
         <span v-if="picked === o.id" class="ix-bj-check">✓</span>
       </button>
     </div>
@@ -28,6 +28,7 @@
 
 <script setup>
 import { computed, ref } from 'vue'
+import MarkdownView from '@/components/MarkdownView.vue'
 
 const props = defineProps({
   /** sgv4 §4.1 binary spec：{question, options:[{id,label,maps_to?}]}（_correct 后端剥离不下发） */

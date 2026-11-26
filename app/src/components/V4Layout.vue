@@ -76,7 +76,11 @@
           @toggle-pin="conv.togglePin"
           @search="conv.search"
           @load-more="conv.loadMore"
-        />
+        >
+          <template #after-search>
+            <ExperienceCatalog :active-id="String(route.params.id || '')" @open="onOpenExperience" />
+          </template>
+        </ConversationSidebar>
       </div>
 
     </aside>
@@ -107,6 +111,7 @@ import { useToastStore } from '@/stores/toast'
 import { useConvStore } from '@/stores/conv'
 import { useSkillStore } from '@/stores/skill'
 import ConversationSidebar from '@/components/chat/ConversationSidebar.vue'
+import ExperienceCatalog from '@/components/chat/ExperienceCatalog.vue'
 import FloatingButler from '@/components/butler/FloatingButler.vue'
 import ErrorBoundary from '@/components/common/ErrorBoundary.vue'
 
@@ -294,6 +299,13 @@ function onSelectConv(id) {
   } else {
     router.push(`/dialog/${id}`).catch(() => {})
   }
+}
+
+/** 体验分类：同一体验再次点击也要回到封面重播（query.r 是重置信号） */
+function onOpenExperience(id) {
+  if (!id) return
+  const same = String(route.params.id || '') === id && route.path.startsWith('/dialog')
+  router.push({ path: `/dialog/${id}`, query: same ? { r: String(Date.now()) } : {} }).catch(() => {})
 }
 
 async function onNewConv() {
